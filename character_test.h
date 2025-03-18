@@ -1,12 +1,3 @@
-/**
- * @brief It declares the tests for the character module
- *
- * @file character_test.h
- * @author Rubén
- * @version 0.0
- * @date 09-03-2025
- * @copyright GNU Public License
- */
 #ifndef test1_TEST_H
 #define test1_TEST_H
 

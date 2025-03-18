@@ -2,9 +2,9 @@
  * @brief It defines common types for the whole project
  *
  * @file types.h
- * @author Profesores PPROG, Rubén, Ana
- * @version 2
- * @date 01-03-2025
+ * @author Rubén, Arturo, Bea, Ana, Profesores PPROG
+ * @version 1
+ * @date 11-02-2025
  * @copyright GNU Public License
  */
 

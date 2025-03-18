@@ -1,13 +1,3 @@
-/**
- * @brief It implements the set module
- *
- * @file set.c
- * @author Rubén
- * @version 1
- * @date 02-03-2025
- * @copyright GNU Public License
- */
-
 #include "set.h"
 
 #include <stdio.h>

@@ -2,9 +2,9 @@
  * @brief It defines the textual graphic engine interface
  *
  * @file graphic_engine.h
- * @author Profesores PPROG, Rubén
- * @version 2
- * @date 14-03-2025
+ * @author Rubén, Arturo, Bea, Ana, Profesores PPROG,
+ * @version 1
+ * @date 11-02-2025
  * @copyright GNU Public License
  */
 
@@ -22,7 +22,7 @@ typedef struct _Graphic_engine Graphic_engine;
 
 /**
  * @brief It creates a new graphic engine
- * @author Profesores PPROG
+ * @author Rubén, Arturo, Bea, Ana, Profesores PPROG
  *
  * @param none
  * @return a pointer to the graphic engine
@@ -31,7 +31,7 @@ Graphic_engine *graphic_engine_create();
 
 /**
  * @brief It destroys a graphic engine
- * @author Profesores PPROG
+ * @author Rubén, Arturo, Bea, Ana, Profesores PPROG
  *
  * @param ge a pointer to the graphic engine
  * @return nothing
@@ -40,7 +40,7 @@ void graphic_engine_destroy(Graphic_engine *ge);
 
 /**
  * @brief It paints the game's data on the user's screen
- * @author Profesores PPROG
+ * @author Rubén, Arturo, Bea, Ana, Profesores PPROG
  *
  * @param game a pointer to the game
  * @param ge a pointer to the graphic engine

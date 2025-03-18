@@ -2,9 +2,9 @@
  * @brief It defines the game update interface
  *
  * @file game_actions.h
- * @author Profesores PPROG, Rubén, Ana
- * @version 2
- * @date 16-03-2025
+ * @author Rubén, Arturo, Bea, Ana , Profesores PPROG
+ * @version 1
+ * @date 11-02-2025
  * @copyright GNU Public License
  */
 
@@ -21,7 +21,7 @@
 
 /**
  * @brief It updates the current command based on user input
- * @author Profesores PPROG
+ * @author Rubén, Arturo, Bea, Ana , Profesores PPROG
  *
  * @param game a pointer to the game
  * @param cmd a pointer to the command

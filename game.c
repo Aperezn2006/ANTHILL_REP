@@ -2,9 +2,9 @@
  * @brief It implements the game structure
  *
  * @file game.c
- * @author Profesores Pprog, Rubén, Ana
- * @version 2
- * @date 09-03-2025
+ * @author Rubén, Arturo, Bea, Ana, Profesores
+ * @version 1
+ * @date 11-02-2025
  */
 
 #include "game.h"
@@ -164,17 +164,17 @@ Space *game_get_space(Game *game, Id id) {
 
 /**
  * @brief
- * @author
+ * @author Rubén, Arturo, Bea, Ana,
  *
  * @param space a pointer to the space
  * @return
  */
-Status space_get_n_object_name(Game *game, Id space_id, int n, char *name) {
+Status space_get_i_object_name(Game *game, Id space_id, int n, char *name) {
   if (!game || space_id == NO_ID) {
     return NO_ID;
   }
 
-  strcpy(name, object_get_name(game_get_object_from_id(game, space_get_n_object(game_get_space(game, space_id), n))));
+  strcpy(name, object_get_name(game_get_object_from_id(game, space_get_i_object(game_get_space(game, space_id), n))));
   if (!name) {
     return ERROR;
   }
@@ -304,7 +304,7 @@ Object *game_get_object_from_id(Game *game, Id object_id) {
   return NULL;
 }
 
-Object *game_get_n_object(Game *game, int n) {
+Object *game_get_i_object(Game *game, int n) {
   if (!game) {
     return NULL;
   }
@@ -338,7 +338,7 @@ Status game_get_string_of_objects_in_space(Game *game, Id space_id, char *objs) 
   }
 
   for (i = 0; i < space_get_num_objects(game_get_space(game, space_id)); i++) {
-    space_get_n_object_name(game, space_id, i, temp_obj);
+    space_get_i_object_name(game, space_id, i, temp_obj);
     if (strlen(objs) + strlen(temp_obj) > BOX_WIDTH + 1 - 3) {
       if (strlen(objs) > BOX_WIDTH + 1 - 3) {
         strtok(objs, " ");
@@ -440,7 +440,7 @@ Id game_get_character_id_from_name(Game *game, char *name) {
   return NO_ID;
 }
 
-Character *game_get_n_character(Game *game, int n) {
+Character *game_get_i_character(Game *game, int n) {
   if (!game) {
     return NULL;
   }

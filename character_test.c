@@ -1,12 +1,3 @@
-/**
- * @brief It tests character module
- *
- * @file character_test.c
- * @author Rubén
- * @version 0.0
- * @date 10-03-2025
- * @copyright GNU Public License
- */
 #include "character.h"
 
 #include <stdio.h>

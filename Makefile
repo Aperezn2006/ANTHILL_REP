@@ -32,9 +32,9 @@ clean:
 rebuild: clean all
 
 # Regla para ejecutar el programa
-run: $(EXEC)
+run: 
 	./$(EXEC) $(EXEC).dat
 
 # Regla para ejecutar Valgrind
-valgrind: $(EXEC)
+valgrind:
 	valgrind --leak-check=full --track-origins=yes --show-leak-kinds=all -s ./$(EXEC) $(EXEC).dat

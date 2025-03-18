@@ -2,9 +2,9 @@
  * @brief It implements the game update through user actions
  *
  * @file game_actions.c
- * @author Profesores PPROG, Rubén, Ana
- * @version 2
- * @date 16-03-2025
+ * @author Rubén, Arturo, Bea, Ana , Profesores PPROG
+ * @version 1
+ * @date 11-02-2025
  * @copyright GNU Public License
  */
 
@@ -21,7 +21,7 @@
 
 /**
  * @brief It waits for a known action
- * @author Profesores PPROG
+ * @author Rubén, Arturo, Bea, Ana , Profesores PPROG
  *
  * @param game a pointer to the game
  * @return OK always
@@ -30,7 +30,7 @@ Status game_actions_unknown(Game *game);
 
 /**
  * @brief It allows for the user to exit the game
- * @author Profesores PPROG
+ * @author Rubén, Arturo, Bea, Ana , Profesores PPROG
  *
  * @param game a pointer to the game
  * @return OK always
@@ -39,7 +39,7 @@ Status game_actions_exit(Game *game);
 
 /**
  * @brief It moves the player south
- * @author Profesores PPROG
+ * @author Rubén, Arturo, Bea, Ana , Profesores PPROG
  *
  * @param game a pointer to the game
  * @return OK if everything goes well, ERROR otherwise
@@ -48,7 +48,7 @@ Status game_actions_next(Game *game);
 
 /**
  * @brief It moves the player north
- * @author Profesores PPROG
+ * @author Rubén, Arturo, Bea, Ana , Profesores PPROG
  *
  * @param game a pointer to the game
  * @return OK if everything goes well, ERROR otherwise
@@ -57,7 +57,7 @@ Status game_actions_back(Game *game);
 
 /**
  * @brief It allows a player to pick up an object if they're in the same room
- * @author Rubén
+ * @author Rubén, Arturo, Bea, Ana
  *
  * @param game a pointer to the game
  * @return OK if everything goes well, ERROR otherwise
@@ -66,7 +66,7 @@ Status game_actions_take(Game *game);
 
 /**
  * @brief It allows a player to drop an object if they have it
- * @author Rubén
+ * @author Rubén, Arturo, Bea, Ana
  *
  * @param game a pointer to the game
  * @return OK if everything goes well, ERROR otherwise
@@ -75,7 +75,7 @@ Status game_actions_drop(Game *game);
 
 /**
  * @brief It moves the player east
- * @author Rubén
+ * @author Rubén, Arturo, Bea, Ana
  *
  * @param game a pointer to the game
  * @return OK if everything goes well, ERROR otherwise
@@ -84,7 +84,7 @@ Status game_actions_east(Game *game);
 
 /**
  * @brief It moves the player west
- * @author Rubén
+ * @author Rubén, Arturo, Bea, Ana
  *
  * @param game a pointer to the game
  * @return OK if everything goes well, ERROR otherwise
@@ -93,7 +93,7 @@ Status game_actions_west(Game *game);
 
 /**
  * @brief
- * @author Rubén
+ * @author Rubén, Arturo, Bea, Ana
  *
  * @param game a pointer to the game
  * @return OK if everything goes well, ERROR otherwise
@@ -102,7 +102,7 @@ Status game_actions_attack(Game *game);
 
 /**
  * @brief It allows the player to chat with a character
- * @author Ana
+ * @author Rubén, Arturo, Bea, Ana
  *
  * @param game a pointer to the game
  * @return OK if everything goes well, ERROR otherwise

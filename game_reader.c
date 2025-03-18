@@ -1,12 +1,3 @@
-/**
- * @brief It implements the creation of the game with the data from a file
- *
- * @file game_reader.h
- * @author Rubén, Ana
- * @version 2
- * @date 11-03-2025
- * @copyright GNU Public License
- */
 #include "game_reader.h"
 
 #include <stdio.h>
