@@ -2,9 +2,9 @@
  * @brief It implements the command interpreter
  *
  * @file command.c
- * @author Profesores PPROG, Rubén, Ana
- * @version 2
- * @date 15-03-2025
+ * @author Rubén, Arturo, Bea, Ana , Profesores PPROG
+ * @version 1
+ * @date 11-02-2025
  * @copyright GNU Public License
  */
 

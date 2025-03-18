@@ -2,9 +2,9 @@
  * @brief It implements the character module
  *
  * @file character.c
- * @author
+ * @author Rubén, Arturo, Bea, Ana
  * @version 0
- * @date 05/03/2025
+ * @date 18/02/2025
  * @copyright GNU Public License
  */
 

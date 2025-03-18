@@ -2,7 +2,7 @@
  * @brief It tests space module
  *
  * @file space_test.c
- * @author Profesores Pprog
+ * @author Rubén, Arturo, Bea, Ana, Profesores Pprog
  * @version 0.0
  * @date 17-02-2025
  * @copyright GNU Public License
@@ -188,10 +188,10 @@ void test2_space_get_name() {
   PRINT_TEST_RESULT(space_get_name(s) == NULL);
 }
 
-void test1_space_get_n_object() {
+void test1_space_get_i_object() {
   Space *s;
   s = space_create(1);
-  PRINT_TEST_RESULT(space_get_n_object(s, 0) == FALSE);
+  PRINT_TEST_RESULT(space_get_i_object(s, 0) == FALSE);
   space_destroy(s);
 }
 
@@ -199,13 +199,13 @@ void test2_space_get_object() {
   Space *s;
   s = space_create(1);
   space_set_object(s, TRUE);
-  PRINT_TEST_RESULT(space_get_n_object(s, 0) == TRUE);
+  PRINT_TEST_RESULT(space_get_i_object(s, 0) == TRUE);
   space_destroy(s);
 }
 
 void test3_space_get_object() {
   Space *s = NULL;
-  PRINT_TEST_RESULT(space_get_n_object(s, 0) == FALSE);
+  PRINT_TEST_RESULT(space_get_i_object(s, 0) == FALSE);
 }
 
 void test1_space_get_north() {

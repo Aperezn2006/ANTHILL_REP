@@ -1,12 +1,3 @@
-/**
- * @brief It declares the tests for the set module
- *
- * @file set_test.h
- * @author Rubén
- * @version 0.0
- * @date 09-03-2025
- * @copyright GNU Public License
- */
 #ifndef SET_TEST_H
 #define SET_TEST_H
 
@@ -109,5 +100,6 @@ void test2_set_get_n();
  * @pre Valid set with elements
  * @post Printed output
  */
+
 
 #endif /* SET_TEST_H */
