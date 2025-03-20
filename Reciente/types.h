@@ -13,6 +13,7 @@
 
 #define WORD_SIZE 1000
 #define NO_ID -1
+#define NO_DIR -1
 
 #define MAX_SPACES 100
 #define MAX_OBJECTS 100

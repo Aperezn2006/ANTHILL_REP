@@ -139,6 +139,27 @@ Status game_destroy(Game *game)
 
   return OK;
 }
+Status game_add_link(Game *game, Id id, Id origin, Id destination, Direction dir, Bool open) {
+  Link *new_link = link_create(id, origin, destination, dir, open);
+  if (!game || id == NO_ID || origin == NO_ID || destination == NO_ID || dir == NO_DIR) {
+      return ERROR;
+  }
+
+  if (game->n_links >= MAX_LINKS) {  
+      return ERROR;  
+  }
+
+  if (!new_link) {
+      return ERROR;
+  }
+
+  game->links[game->n_links] = new_link;  
+  game->n_links++;  
+
+  return OK;
+}
+
+
 
 Id game_get_connection(Game *game, Id current_location, Direction direction)
 {
@@ -148,16 +169,30 @@ Id game_get_connection(Game *game, Id current_location, Direction direction)
     return NO_ID;
   }
 
+
+  fprintf(stdout, "Buscando conexión desde la ubicación %ld en la dirección %d.\n", current_location, direction);
+
   for (i = 0; i < game->n_links; i++)
   {
+
+    fprintf(stdout, "Comprobando enlace %d: Start = %ld, Direction = %d, End = %ld\n", i, 
+            link_get_start(game->links[i]), 
+            link_get_direction(game->links[i]), 
+            link_get_end(game->links[i]));
+    
     if (link_get_start(game->links[i]) == current_location &&
         link_get_direction(game->links[i]) == direction)
     {
+
+      fprintf(stdout, "Conexión encontrada. End = %ld\n", link_get_end(game->links[i]));
       return link_get_end(game->links[i]);
     }
   }
+
+  fprintf(stdout, "No se encontró una conexión válida en la dirección %d desde la ubicación %ld.\n", direction, current_location);
   return NO_ID;
 }
+
 
 Bool game_connection_is_open(Game *game, Id current_location, Direction direction)
 {

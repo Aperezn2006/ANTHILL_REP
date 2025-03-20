@@ -10,12 +10,12 @@ struct _Link {
     Id destination;
     Bool open;
     Direction direction;
-    Bool one_way;
 };
 
-Link *link_create(Id id, Id origin, Id destination) {
-    Link *newlink =NULL;
-    if (!id || !origin || !destination) {
+Link *link_create(Id id, Id origin, Id destination, Direction dir, Bool open) {
+    Link *newlink = NULL;
+
+    if (id == NO_ID || origin == NO_ID || destination == NO_ID) {
         return NULL;
     }
 
@@ -23,17 +23,17 @@ Link *link_create(Id id, Id origin, Id destination) {
     if (!newlink) {
         return NULL;
     }
-    
+
     newlink->id_link = id;
     newlink->origin = origin;
     newlink->destination = destination;
-    newlink->open = FALSE;
-    newlink->direction = N;
-    newlink->one_way = FALSE;
+    newlink->open = open;
+    newlink->direction = dir;
     newlink->name[0] = '\0';
 
     return newlink;
 }
+
 
 void link_destroy(Link *link) {
     if (!link) {
@@ -88,20 +88,6 @@ Direction link_get_direction(Link *link) {
     return link->direction;
 }
 
-Status link_set_one_way(Link *link, Bool one_way) {
-    if (!link) {
-        return ERROR;
-    }
-    link->one_way = one_way;
-    return OK;
-}
-
-Bool link_is_one_way(Link *link) {
-    if (!link) {
-        return FALSE;
-    }
-    return link->one_way;
-}
 
 Id link_get_start(Link *link) {
     if (!link) {
@@ -122,11 +108,10 @@ Status link_print(Link *link) {
         return ERROR;
     }
 
-    printf("Link ID: %ld, Name: %s, Origin: %ld, Destination: %ld, Direction: %d, Open: %s, One-Way: %s\n",
+    printf("Link ID: %ld, Name: %s, Origin: %ld, Destination: %ld, Direction: %d, Open: %s\n",
            link->id_link, link->name, link->origin, link->destination,
            link->direction, 
-           link->open ? "TRUE" : "FALSE",
-           link->one_way ? "YES" : "NO");
+           link->open ? "TRUE" : "FALSE");
 
     return OK;
 }

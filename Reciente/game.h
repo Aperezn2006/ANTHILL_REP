@@ -23,6 +23,7 @@ typedef struct _Game Game;
 
 Id game_get_connection(Game *game, Id current_location, Direction direction);
 Bool game_connection_is_open(Game *game, Id current_location, Direction direction);
+Status game_add_link(Game *game, Id id, Id origin, Id destination, Direction dir, Bool open);
 
 /*Create & destroy*/
 /**
