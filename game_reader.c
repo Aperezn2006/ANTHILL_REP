@@ -51,18 +51,34 @@ Status game_load_everything(Game *game, char *filename) {
   Object *object = NULL;
   Character *character = NULL;
   Id character_id = NO_ID, character_location = NO_ID;
-  Id link_id =NO_ID, origin =NO_ID, destination=NO_ID;
-  Direction dir =NO_DIR;
-  Bool open=FALSE;
+  Id link_id = NO_ID, origin = NO_ID, destination = NO_ID;
+  Direction dir = NO_DIR;
+  Bool open = FALSE;
   Status status = OK;
   char gdesc[5][10];
   char character_desc[7], character_message[MAX_MESSAGE], character_friendliness[6];
   int i = 0;
+  Player *player;
 
   if (!game || !filename) {
     printf("Invalid game or filename\n");
     return ERROR;
   }
+
+  /*Para probar player*/
+  player = player_create(4);
+  game_add_player(game, player);
+  player_set_description(player, "m0^");
+  player_set_health(player, 5);
+  player_set_location(player, 121);
+  player_set_name(player, "Player 1");
+
+  player = player_create(5);
+  game_add_player(game, player);
+  player_set_description(player, "n0n");
+  player_set_health(player, 5);
+  player_set_location(player, 124);
+  player_set_name(player, "Player 2");
 
   file = fopen(filename, "r");
   if (file == NULL) {
@@ -182,7 +198,7 @@ Status game_load_everything(Game *game, char *filename) {
       toks = strtok(NULL, "|");
       destination = atol(toks);
       toks = strtok(NULL, "|");
-      dir = (Direction) atoi(toks);
+      dir = (Direction)atoi(toks);
       toks = strtok(NULL, "|");
       open = (atoi(toks) == 1) ? TRUE : FALSE;
 
