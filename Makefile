@@ -2,7 +2,7 @@
 EXEC = anthill
 
 # Archivos fuente
-SRC = game_loop.c command.c game_actions.c game.c graphic_engine.c space.c game_reader.c player.c object.c character.c set.c
+SRC = game_loop.c command.c game_actions.c game.c graphic_engine.c space.c game_reader.c player.c object.c character.c set.c link.c
 
 # Archivos objeto generados a partir de los archivos fuente
 OBJ = $(SRC:.c=.o)
@@ -32,9 +32,9 @@ clean:
 rebuild: clean all
 
 # Regla para ejecutar el programa
-run: 
+run: $(EXEC)
 	./$(EXEC) $(EXEC).dat
 
 # Regla para ejecutar Valgrind
-valgrind:
-	valgrind --leak-check=full --track-origins=yes --show-leak-kinds=all -s ./$(EXEC) $(EXEC).dat
+valgrind: $(EXEC)
+	valgrind --leak-check=full  ./$(EXEC) $(EXEC).dat

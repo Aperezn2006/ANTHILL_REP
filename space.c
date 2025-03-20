@@ -2,7 +2,7 @@
  * @brief It implements the space module
  *
  * @file space.c
- * @author Rubén, Arturo, Bea, Ana, Profesores PPROG
+ * @author Profesores PPROG, Rubén, Ana
  * @version 1
  * @date 11-02-2025
  * @copyright GNU Public License
@@ -31,7 +31,6 @@ struct _Space {
   Set *objects;             /*!< Set of object IDs */
   Id character_id;          /*Cada espacio solo puede tener un charcter*/
   char gdesc[5][10];
-  Bool discovered;
 };
 
 /*Create & destroy*/
@@ -58,7 +57,6 @@ Space *space_create(Id id) {
   for (i = 0; i < 5; i++) {
     newSpace->gdesc[i][0] = '\0';
   }
-  newSpace->discovered = FALSE;
 
   return newSpace;
 }
@@ -138,7 +136,7 @@ Status space_set_west(Space *space, Id id) {
 }
 
 /*Manejo de objects*/
-Id space_get_i_object(Space *space, int n) {
+Id space_get_n_object(Space *space, int n) {
   if (!space || !space->objects) {
     return NO_ID;
   }
@@ -220,20 +218,12 @@ char **space_get_description(Space *space) {
   return (char **)space->gdesc;
 }
 
-char *space_get_i_description(Space *space, int n) {
+char *space_get_n_description(Space *space, int n) {
   if (!space) {
     return NULL;
   }
 
-  if (space_get_discovered(space) == TRUE) {
-    return space->gdesc[n];
-  } else if (n == 2) {
-    return "  HID    ";
-  } else {
-    return "         ";
-  }
-
-  return "         ";
+  return space->gdesc[n];
 }
 
 Status space_set_description(Space *space, char description[5][10]) {
@@ -246,25 +236,6 @@ Status space_set_description(Space *space, char description[5][10]) {
   for (i = 0; i < 5; i++) {
     strcpy(space->gdesc[i], description[i]);
   }
-
-  return OK;
-}
-
-/*Manejo de discovered*/
-Bool space_get_discovered(Space *space) {
-  if (!space) {
-    return FALSE;
-  }
-
-  return space->discovered;
-}
-
-Status space_set_discovered(Space *space, Bool discovered) {
-  if (!space) {
-    return ERROR;
-  }
-
-  space->discovered = discovered;
 
   return OK;
 }

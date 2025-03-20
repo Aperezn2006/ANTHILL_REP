@@ -2,7 +2,7 @@
  * @brief It implements the player module
  *
  * @file player.c
- * @author Rubén, Arturo, Bea, Ana,
+ * @author Ana
  * @version 1
  * @date 05/02/2025
  * @copyright GNU Public License
@@ -141,7 +141,7 @@ Status player_set_name(Player *player, char *name) {
 }
 
 /*Manejo de objects*/
-Id player_get_i_object(Player *player, int n) {
+Id player_get_n_object(Player *player, int n) {
   if (!player || !player->objects) {
     return NO_ID;
   }

@@ -2,7 +2,7 @@
  * @brief It defines the screen interface
  *
  * @file libscreen.h
- * @author Rubén, Arturo, Bea, Ana, Profesores PPROG
+ * @author Profesores PPROG, Rubén, Ana
  * @version 4.5
  * @date 11-02-2024
  * @copyright GNU Public License
@@ -20,7 +20,7 @@ typedef struct _Area Area;
 
 /**
  * @brief It creates a new screen
- * @author Rubén, Arturo, Bea, Ana, Profesores PPROG
+ * @author Profesores PPROG
  *
  * This function should be called at the beginning of the program,
  *  so the complete screen is allocated before starting defining areas.
@@ -31,7 +31,7 @@ void screen_init(int rows, int columns);
 
 /**
  * @brief It destroys a new screen area
- * @author Rubén, Arturo, Bea, Ana, Profesores PPROG
+ * @author Profesores PPROG
  *
  * As it frees the screen, it must be called at the end of the program,
  *  once the areas created have been freed.
@@ -40,7 +40,7 @@ void screen_destroy();
 
 /**
  * @brief It paints in the terminal the actual screen composition
- * @author Rubén, Arturo, Bea, Ana, Profesores PPROG
+ * @author Profesores PPROG
  *
  * This function should be called when some updates
  *  in the screen want to be shown.
@@ -49,7 +49,7 @@ void screen_paint();
 
 /**
  * @brief It creates a new area inside a screen
- * @author Rubén, Arturo, Bea, Ana, Profesores PPROG
+ * @author Profesores PPROG
  *
  * screen_area_init allocates memory for a new area
  *  and initializes its members.
@@ -63,7 +63,7 @@ Area *screen_area_init(int x, int y, int width, int height);
 
 /**
  * @brief It destroys a new screen area
- * @author Rubén, Arturo, Bea, Ana, Profesores PPROG
+ * @author Profesores PPROG
  *
  * This function should be called once the area is not needed anymore,
  *  before ending the programme.
@@ -73,7 +73,7 @@ void screen_area_destroy(Area *area);
 
 /**
  * @brief It cleares an area, eraising all its content
- * @author Rubén, Arturo, Bea, Ana, Profesores PPROG
+ * @author Profesores PPROG
  *
  * This function should be called for earaising all the information in an area,
  *  before introducing a new state of it.
@@ -83,7 +83,7 @@ void screen_area_clear(Area *area);
 
 /**
  * @brief It resets the cursor of an area
- * @author Rubén, Arturo, Bea, Ana, Profesores PPROG
+ * @author Profesores PPROG
  *
  * This function reset the cursor to the up-left corner of the area.
  * @param area the involved area
@@ -92,7 +92,7 @@ void screen_area_reset_cursor(Area *area);
 
 /**
  * @brief It introduces some information inside an area
- * @author Rubén, Arturo, Bea, Ana, Profesores PPROG
+ * @author Profesores PPROG
  *
  * This function sets the string that will be shown in an area.
  *  Each string introduced will be a line in the specified area.

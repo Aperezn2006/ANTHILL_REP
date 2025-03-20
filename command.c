@@ -2,7 +2,7 @@
  * @brief It implements the command interpreter
  *
  * @file command.c
- * @author Rubén, Arturo, Bea, Ana , Profesores PPROG
+ * @author Profesores PPROG, Rubén, Ana
  * @version 1
  * @date 11-02-2025
  * @copyright GNU Public License
@@ -117,8 +117,8 @@ CommandCode command_get_code(Command *command) { return command ? command->code 
  */
 Status command_get_user_input(Command *command) {
   char input[CMD_LENGHT] = "", *token = NULL, *objToken = NULL;
-  int i = UNKNOWN - NO_CMD + 1;
-  CommandCode cmd;
+  int i;
+  CommandCode cmd = UNKNOWN;
 
   if (!command) {
     return ERROR;
@@ -127,13 +127,14 @@ Status command_get_user_input(Command *command) {
   if (fgets(input, CMD_LENGHT, stdin)) {
     token = strtok(input, " \n");
     if (!token) {
-      return command_set_code(command, UNKNOWN);
+      command_set_code(command, UNKNOWN);
+      return OK;
     }
 
-    cmd = UNKNOWN;
+    cmd = UNKNOWN; 
 
     for (i = 0; i < N_CMD; i++) {
-      if ((cmd_to_str[i][CMDS] != NULL) && (cmd_to_str[i][CMDL] != NULL)) {
+      if (cmd_to_str[i][CMDS] && cmd_to_str[i][CMDL]) { 
         if (!strcasecmp(token, cmd_to_str[i][CMDS]) || !strcasecmp(token, cmd_to_str[i][CMDL])) {
           cmd = i + NO_CMD;
           break;
@@ -141,16 +142,19 @@ Status command_get_user_input(Command *command) {
       }
     }
 
-    command_set_code(command, cmd);
+    command_set_code(command, cmd); 
 
     objToken = strtok(NULL, " \n");
-    command_set_obj(command, objToken ? objToken : "");
+    command_set_obj(command, objToken ? objToken : ""); 
 
     return OK;
   }
 
-  return command_set_code(command, EXIT);
+  command_set_code(command, EXIT);
+  return OK;
 }
+
+
 
 /*Manejo del result*/
 Status command_get_result(Command *command) {

@@ -51,6 +51,9 @@ Status game_load_everything(Game *game, char *filename) {
   Object *object = NULL;
   Character *character = NULL;
   Id character_id = NO_ID, character_location = NO_ID;
+  Id link_id =NO_ID, origin =NO_ID, destination=NO_ID;
+  Direction dir =NO_DIR;
+  Bool open=FALSE;
   Status status = OK;
   char gdesc[5][10];
   char character_desc[7], character_message[MAX_MESSAGE], character_friendliness[6];
@@ -87,9 +90,7 @@ Status game_load_everything(Game *game, char *filename) {
       toks = strtok(NULL, "|");
       west = atol(toks);
       for (i = 0; i < 5; i++) {
-        printf("Entering loop\n");
         toks = strtok(NULL, "|");
-        printf("About to do strcpy\n");
         if (!toks) {
           strcpy(gdesc[0], "         ");
           strcpy(gdesc[1], "         ");
@@ -100,10 +101,8 @@ Status game_load_everything(Game *game, char *filename) {
         } else {
           strcpy(gdesc[i], toks);
         }
-        printf("Processing descriptions %d\n", i);
       }
 
-      printf("Creating space with ID: %ld\n", id);
       space = space_create(id);
       if (space) {
         space_set_name(space, name);
@@ -115,14 +114,10 @@ Status game_load_everything(Game *game, char *filename) {
           space_set_description(space, gdesc);
         }
         if (game_add_space(game, space) == ERROR) {
-          printf("Error adding space: %ld\n", id);
           space_destroy(space);
           status = ERROR;
           break;
         }
-        printf("Space added successfully: %ld\n", id);
-      } else {
-        printf("Error creating space: %ld\n", id);
       }
     } else if (strncmp("#o:", line, 3) == 0) {
       printf("Processing object\n");
@@ -133,24 +128,18 @@ Status game_load_everything(Game *game, char *filename) {
       toks = strtok(NULL, "|");
       object_location = atol(toks);
 
-      printf("Creating object with ID: %ld\n", object_id);
       object = object_create(object_id, object_location);
       if (object) {
-        object_set_name(object, object_name); /*  Set the object name here */
+        object_set_name(object, object_name);
         if (game_add_object(game, object) == ERROR) {
-          printf("Error adding object: %ld\n", object_id);
           object_destroy(object);
           status = ERROR;
           break;
         }
-        printf("Object added successfully: %ld\n", object_id);
-        /*  Add object to the corresponding space */
         space = game_get_space(game, object_location);
         if (space) {
           space_set_object(space, object_id);
         }
-      } else {
-        printf("Error creating object: %ld\n", object_id);
       }
     } else if (strncmp("#c:", line, 3) == 0) {
       printf("Processing character\n");
@@ -167,31 +156,40 @@ Status game_load_everything(Game *game, char *filename) {
       toks = strtok(NULL, "|");
       strcpy(character_friendliness, toks);
 
-      printf("Creating character with ID: %ld\n", character_id);
       character = character_create(character_id);
       if (character) {
-        character_set_name(character, character_name); /*  Set the character name here */
+        character_set_name(character, character_name);
         character_set_description(character, character_desc);
         character_set_message(character, character_message);
-        if (strcmp(character_friendliness, "TRUE") == 0) {
-          character_set_friendly(character, TRUE);
-        } else if (strcmp(character_friendliness, "FALSE") == 0) {
-          character_set_friendly(character, FALSE);
-        }
+        character_set_friendly(character, strcmp(character_friendliness, "TRUE") == 0);
         if (game_add_character(game, character) == ERROR) {
-          printf("Error adding character: %ld\n", character_id);
           character_destroy(character);
           status = ERROR;
           break;
         }
-        printf("Character added successfully: %ld\n", character_id);
-        /*  Add character to the corresponding space */
         space = game_get_space(game, character_location);
         if (space) {
           space_set_character(space, character_id);
         }
-      } else {
-        printf("Error creating character: %ld\n", object_id);
+      }
+    } else if (strncmp("#l:", line, 3) == 0) {
+      printf("Processing link\n");
+      toks = strtok(line + 3, "|");
+      link_id = atol(toks);
+      toks = strtok(NULL, "|");
+      toks = strtok(NULL, "|");
+      origin = atol(toks);
+      toks = strtok(NULL, "|");
+      destination = atol(toks);
+      toks = strtok(NULL, "|");
+      dir = (Direction) atoi(toks);
+      toks = strtok(NULL, "|");
+      open = (atoi(toks) == 1) ? TRUE : FALSE;
+
+      if (game_add_link(game, link_id, origin, destination, dir, open) == ERROR) {
+        printf("Error adding link: %ld\n", link_id);
+        status = ERROR;
+        break;
       }
     }
   }
@@ -202,6 +200,5 @@ Status game_load_everything(Game *game, char *filename) {
   }
 
   fclose(file);
-  printf("File closed: %s\n", filename);
   return status;
 }

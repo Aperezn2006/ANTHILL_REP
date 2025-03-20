@@ -2,7 +2,7 @@
  * @brief It defines common types for the whole project
  *
  * @file types.h
- * @author Rubén, Arturo, Bea, Ana, Profesores PPROG
+ * @author Profesores PPROG, Rubén, Ana
  * @version 1
  * @date 11-02-2025
  * @copyright GNU Public License
@@ -13,10 +13,12 @@
 
 #define WORD_SIZE 1000
 #define NO_ID -1
+#define NO_DIR -1
 
 #define MAX_SPACES 100
 #define MAX_OBJECTS 100
 #define MAX_CHARACTERS 100
+#define MAX_LINK 100
 
 #define PLAYER_HEALTH 5
 #define CHARACTER_HEALTH 10

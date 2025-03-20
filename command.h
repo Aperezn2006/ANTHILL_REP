@@ -2,7 +2,7 @@
  * @brief It defines the command interpreter interface
  *
  * @file command.h
- * @author Rubén, Arturo, Bea, Ana , Profesores PPROG
+ * @author Profesores PPROG, Rubén, Ana
  * @version 1
  * @date 11-02-2025
  * @copyright GNU Public License
@@ -25,7 +25,7 @@ typedef struct _Command Command;
 
 /**
  * @brief It allocates memory for a new command and initializes its members
- * @author Rubén, Arturo, Bea, Ana , Profesores PPROG
+ * @author Profesores PPROG
  *
  * @param none
  * @return a pointer to the new command, or NULL if it goes wrong
@@ -34,7 +34,7 @@ Command *command_create();
 
 /**
  * @brief It frees the memory of a certain command
- * @author Rubén, Arturo, Bea, Ana , Profesores PPROG
+ * @author Profesores PPROG
  *
  * @param command a pointer to the command
  * @return a pointer to the new command
@@ -43,7 +43,7 @@ Status command_destroy(Command *command);
 
 /**
  * @brief It sets a certain command
- * @author Rubén, Arturo, Bea, Ana , Profesores PPROG
+ * @author Profesores PPROG
  *
  * @param command a pointer to the desired command
  * @param code a struct of a command
@@ -53,7 +53,7 @@ Status command_set_code(Command *command, CommandCode code);
 
 /**
  * @brief
- * @author Rubén, Arturo, Bea, Ana
+ * @author
  *
  * @param command
  * @param code a struct of a command
@@ -62,7 +62,7 @@ char *command_get_obj(Command *c);
 
 /**
  * @brief It gets the code inside a command
- * @author Rubén, Arturo, Bea, Ana , Profesores PPROG
+ * @author Profesores PPROG
  *
  * @param command a pointer to the desired command
  * @return the code of the command
@@ -71,7 +71,7 @@ CommandCode command_get_code(Command *command);
 
 /**
  * @brief It gets the command a user inputs and sets it
- * @author Rubén, Arturo, Bea, Ana , Profesores PPROG
+ * @author Profesores PPROG
  *
  * @param command a pointer to the command
  * @return a new command with the inputed one set
@@ -81,7 +81,7 @@ Status command_get_user_input(Command *command);
 /*Manejo del result*/
 /**
  * @brief It gets wheter the command was succesful or not
- * @author Rubén, Arturo, Bea, Ana
+ * @author Ana
  *
  * @param command a pointer to the command
  * @return OK if everything went well, ERROR otherwise
@@ -90,7 +90,7 @@ Status command_get_result(Command *command);
 
 /**
  * @brief It sets wheter the command was succesful or not
- * @author Rubén, Arturo, Bea, Ana
+ * @author Ana
  *
  * @param command a pointer to the command
  * @param result the feedback that will be assigned to a certain command
