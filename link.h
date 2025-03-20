@@ -12,6 +12,7 @@ Link *link_create(Id id, Id origin, Id destination, Direction dir, Bool open);
 void link_destroy(Link *link);
 
 /* Funciones de obtención y configuración */
+Id link_get_id(Link *link);
 Status link_set_name(Link *link, const char *name);
 const char *link_get_name(Link *link);
 Status link_set_open(Link *link, Bool open);

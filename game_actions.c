@@ -181,22 +181,23 @@ Status game_actions_next(Game *game) {
   Id next_id = NO_ID;
 
   space_id = game_get_player_location(game);
-  fprintf(stdout, "Ubicación actual del jugador (space_id): %ld\n", space_id);
   
   if (space_id == NO_ID) {
-    fprintf(stdout, "Error: La ubicación del jugador no es válida.\n");
     return ERROR;
   }
 
   next_id = game_get_connection(game, space_id, S);
-  fprintf(stdout, "Próxima conexión (next_id): %ld\n", next_id);
 
 
   if (next_id != NO_ID) {
-    game_set_player_location(game, next_id);
-    fprintf(stdout, "Ubicación del jugador actualizada a: %ld\n", next_id);
+    if (game_connection_is_open(game, space_id, S)) {
+      game_set_player_location(game, next_id);
+      
+    } else {
+      return ERROR;
+    }
   } else {
-    fprintf(stdout, "No hay conexión válida para el jugador desde la ubicación %ld.\n", space_id);
+    return ERROR;
   }
 
   return OK;
@@ -204,60 +205,53 @@ Status game_actions_next(Game *game) {
 
 
 Status game_actions_back(Game *game) {
-  Id space_id = game_get_player_location(game);
+  Id space_id = game_get_player_location(game);  
   Id next_id = game_get_connection(game, space_id, N);
-  if (space_id == NO_ID) {
-      return ERROR;
+
+  if (space_id == NO_ID || next_id == NO_ID) {
+    return ERROR;
   }
 
   if (!game_connection_is_open(game, space_id, N)) {
-      return ERROR;
+    return ERROR;
   }
 
-  if (next_id != NO_ID) {
-      game_set_player_location(game, next_id);
-      return OK;
-  }
-
-  return ERROR;
+  game_set_player_location(game, next_id);
+  return OK;
 }
 
+
 Status game_actions_east(Game *game) {
-  Id space_id = game_get_player_location(game);
+  Id space_id = game_get_player_location(game);   
   Id next_id = game_get_connection(game, space_id, E);
-  if (space_id == NO_ID) {
-      return ERROR;
+
+  if (space_id == NO_ID || next_id == NO_ID) {
+    return ERROR;
   }
 
   if (!game_connection_is_open(game, space_id, E)) {
-      return ERROR;
+    return ERROR;
   }
 
-  if (next_id != NO_ID) {
-      game_set_player_location(game, next_id);
-      return OK;
-  }
-
-  return ERROR;
+  game_set_player_location(game, next_id);
+  return OK;
 }
 
+
 Status game_actions_west(Game *game) {
-  Id space_id = game_get_player_location(game);
+  Id space_id = game_get_player_location(game);   
   Id next_id = game_get_connection(game, space_id, W);
-  if (space_id == NO_ID) {
-      return ERROR;
+
+  if (space_id == NO_ID || next_id == NO_ID) {
+    return ERROR;
   }
 
   if (!game_connection_is_open(game, space_id, W)) {
-      return ERROR;
+    return ERROR;
   }
 
-  if (next_id != NO_ID) {
-      game_set_player_location(game, next_id);
-      return OK;
-  }
-
-  return ERROR;
+  game_set_player_location(game, next_id);
+  return OK;
 }
 
 

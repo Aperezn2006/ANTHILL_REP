@@ -42,6 +42,13 @@ void link_destroy(Link *link) {
     free(link);
 }
 
+Id link_get_id(Link *link){
+    if(!link){
+        return ERROR;
+    }
+    return link->id_link;
+}
+
 Status link_set_name(Link *link, const char *name) {
     if (!link || !name) {
         return ERROR;
@@ -70,8 +77,10 @@ Bool link_get_open(Link *link) {
     if (!link) {
         return FALSE;
     }
+
     return link->open;
 }
+
 
 Status link_set_direction(Link *link, Direction dir) {
     if (!link) {
@@ -102,6 +111,8 @@ Id link_get_end(Link *link) {
     }
     return link->destination;
 }
+
+
 
 Status link_print(Link *link) {
     if (!link) {
