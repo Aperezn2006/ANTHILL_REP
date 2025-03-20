@@ -131,7 +131,7 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game) {
   if (id_back != NO_ID) {
     screen_area_puts(ge->map, "                                 /\\");
   }
-  printHorizontalSection(ge, game, id_act, "m0^");
+  printHorizontalSection(ge, game, id_act, player_get_description(game_get_player(game)));
   if (id_next != NO_ID) {
     screen_area_puts(ge->map, "                                 \\/");
   }
@@ -139,6 +139,11 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game) {
 
   /*  DESCRIPCION  */
   screen_area_clear(ge->descript);
+
+  /*Info sobre el turno*/
+  screen_area_puts(ge->descript, " ");
+  sprintf(str1, " [ %s's turn ]", player_get_name(game_get_player(game))); /*  Banner */
+  screen_area_puts(ge->descript, str1);
 
   /*  Bucle para los objetos fuera del inventario */
   screen_area_puts(ge->descript, " ");

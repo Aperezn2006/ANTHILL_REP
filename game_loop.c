@@ -103,6 +103,13 @@ void game_loop_run(Game *game, Graphic_engine *gengine) {
     graphic_engine_paint_game(gengine, game);
     command_get_user_input(last_cmd);
     game_actions_update(game, last_cmd);
+    if (command_get_code(last_cmd) != UNKNOWN && command_get_code(last_cmd) != NO_CMD) {
+      if (game_get_turn(game) == (game_get_num_players(game) - 1)) {
+        game_set_turn(game, 0);
+      } else {
+        game_set_turn(game, game_get_turn(game) + 1);
+      }
+    }
     if (player_get_health(game_get_player(game)) == 0) {
       printf("You died!\n >->->- GAME OVER -<-<-<\n");
       game_set_finished(game, TRUE);

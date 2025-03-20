@@ -96,6 +96,10 @@ Status space_get_object_name(Game *game, Id space_id, int n, char *name);
 Id game_get_space_id_at(Game *game, int position);
 
 /*Manejo de player*/
+Player **game_get_players(Game *game);
+
+Player *game_get_player(Game *game);
+
 /**
  * @brief It creates a pointer to a certain space using its id
  * @author Profesores PPROG
@@ -326,6 +330,25 @@ int game_get_num_characters(Game *game);
  */
 void game_increment_num_characters(Game *game);
 
+/*Manejo de n_players*/
+/**
+ * @brief
+ * @author
+ *
+ * @param
+ * @return
+ */
+int game_get_num_players(Game *game);
+
+/**
+ * @brief
+ * @author
+ *
+ * @param
+ * @return
+ */
+void game_increment_num_players(Game *game);
+
 /*Manejo de last_cmd*/
 /**
  * @brief It gets the game's last command
@@ -385,6 +408,11 @@ Bool game_get_finished(Game *game);
  * @return OK if everything goes well
  */
 Status game_set_finished(Game *game, Bool finished);
+
+/*Manejo de turn*/
+Status game_set_turn(Game *game, int turn);
+
+int game_get_turn(Game *game);
 
 /*Print*/
 /**
