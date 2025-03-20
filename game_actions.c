@@ -2,7 +2,7 @@
  * @brief It implements the game update through user actions
  *
  * @file game_actions.c
- * @author Rubén, Arturo, Bea, Ana , Profesores PPROG
+ * @author Profesores PPROG, Rubén, Ana
  * @version 1
  * @date 11-02-2025
  * @copyright GNU Public License
@@ -21,7 +21,7 @@
 
 /**
  * @brief It waits for a known action
- * @author Rubén, Arturo, Bea, Ana , Profesores PPROG
+ * @author Profesores PPROG
  *
  * @param game a pointer to the game
  * @return OK always
@@ -30,7 +30,7 @@ Status game_actions_unknown(Game *game);
 
 /**
  * @brief It allows for the user to exit the game
- * @author Rubén, Arturo, Bea, Ana , Profesores PPROG
+ * @author Profesores PPROG
  *
  * @param game a pointer to the game
  * @return OK always
@@ -39,7 +39,7 @@ Status game_actions_exit(Game *game);
 
 /**
  * @brief It moves the player south
- * @author Rubén, Arturo, Bea, Ana , Profesores PPROG
+ * @author Profesores PPROG
  *
  * @param game a pointer to the game
  * @return OK if everything goes well, ERROR otherwise
@@ -48,7 +48,7 @@ Status game_actions_next(Game *game);
 
 /**
  * @brief It moves the player north
- * @author Rubén, Arturo, Bea, Ana , Profesores PPROG
+ * @author Profesores PPROG
  *
  * @param game a pointer to the game
  * @return OK if everything goes well, ERROR otherwise
@@ -57,7 +57,7 @@ Status game_actions_back(Game *game);
 
 /**
  * @brief It allows a player to pick up an object if they're in the same room
- * @author Rubén, Arturo, Bea, Ana
+ * @author Rubén
  *
  * @param game a pointer to the game
  * @return OK if everything goes well, ERROR otherwise
@@ -66,7 +66,7 @@ Status game_actions_take(Game *game);
 
 /**
  * @brief It allows a player to drop an object if they have it
- * @author Rubén, Arturo, Bea, Ana
+ * @author Rubén
  *
  * @param game a pointer to the game
  * @return OK if everything goes well, ERROR otherwise
@@ -75,7 +75,7 @@ Status game_actions_drop(Game *game);
 
 /**
  * @brief It moves the player east
- * @author Rubén, Arturo, Bea, Ana
+ * @author Rubén
  *
  * @param game a pointer to the game
  * @return OK if everything goes well, ERROR otherwise
@@ -84,7 +84,7 @@ Status game_actions_east(Game *game);
 
 /**
  * @brief It moves the player west
- * @author Rubén, Arturo, Bea, Ana
+ * @author Rubén
  *
  * @param game a pointer to the game
  * @return OK if everything goes well, ERROR otherwise
@@ -93,7 +93,7 @@ Status game_actions_west(Game *game);
 
 /**
  * @brief
- * @author Rubén, Arturo, Bea, Ana
+ * @author Rubén
  *
  * @param game a pointer to the game
  * @return OK if everything goes well, ERROR otherwise
@@ -102,7 +102,7 @@ Status game_actions_attack(Game *game);
 
 /**
  * @brief It allows the player to chat with a character
- * @author Rubén, Arturo, Bea, Ana
+ * @author Ana
  *
  * @param game a pointer to the game
  * @return OK if everything goes well, ERROR otherwise
@@ -177,85 +177,89 @@ Status game_actions_unknown(Game *game) { return OK; }
 Status game_actions_exit(Game *game) { return OK; }
 
 Status game_actions_next(Game *game) {
-  /*  coge los espacios donde esta el jugador y el siguiente
-  Si existe, permite que el jugador se mueva, en este caso hacia abajo(next) */
-  Id current_id = NO_ID;
-  Id space_id = NO_ID;
+  Id space_id = NO_ID;   
+  Id next_id = NO_ID;
 
   space_id = game_get_player_location(game);
+  fprintf(stdout, "Ubicación actual del jugador (space_id): %ld\n", space_id);
+  
   if (space_id == NO_ID) {
+    fprintf(stdout, "Error: La ubicación del jugador no es válida.\n");
     return ERROR;
   }
 
-  current_id = space_get_south(game_get_space(game, space_id));
-  if (current_id != NO_ID) {
-    game_set_player_location(game, current_id);
+  next_id = game_get_connection(game, space_id, S);
+  fprintf(stdout, "Próxima conexión (next_id): %ld\n", next_id);
+
+
+  if (next_id != NO_ID) {
+    game_set_player_location(game, next_id);
+    fprintf(stdout, "Ubicación del jugador actualizada a: %ld\n", next_id);
+  } else {
+    fprintf(stdout, "No hay conexión válida para el jugador desde la ubicación %ld.\n", space_id);
   }
 
   return OK;
 }
 
+
 Status game_actions_back(Game *game) {
-  /*  coge los espacios donde esta el jugador y el siguiente
-  Si existe, permite que el jugador se mueva, en este caso hacia arriba(back) */
-  Id current_id = NO_ID;
-  Id space_id = NO_ID;
-
-  space_id = game_get_player_location(game);
-
-  if (NO_ID == space_id) {
-    return ERROR;
+  Id space_id = game_get_player_location(game);
+  Id next_id = game_get_connection(game, space_id, N);
+  if (space_id == NO_ID) {
+      return ERROR;
   }
 
-  current_id = space_get_north(game_get_space(game, space_id));
-  if (current_id != NO_ID) {
-    game_set_player_location(game, current_id);
+  if (!game_connection_is_open(game, space_id, N)) {
+      return ERROR;
   }
 
-  return OK;
+  if (next_id != NO_ID) {
+      game_set_player_location(game, next_id);
+      return OK;
+  }
+
+  return ERROR;
 }
 
 Status game_actions_east(Game *game) {
-  /*  coge los espacios donde esta el jugador y el siguiente
-  Si existe, permite que el jugador se mueva, en este caso hacia derecha */
-  /*  (east) */
-  Id current_id = NO_ID;
-  Id space_id = NO_ID;
-
-  space_id = game_get_player_location(game);
-
-  if (NO_ID == space_id) {
-    return ERROR;
+  Id space_id = game_get_player_location(game);
+  Id next_id = game_get_connection(game, space_id, E);
+  if (space_id == NO_ID) {
+      return ERROR;
   }
 
-  current_id = space_get_east(game_get_space(game, space_id));
-  if (current_id != NO_ID) {
-    game_set_player_location(game, current_id);
+  if (!game_connection_is_open(game, space_id, E)) {
+      return ERROR;
   }
 
-  return OK;
+  if (next_id != NO_ID) {
+      game_set_player_location(game, next_id);
+      return OK;
+  }
+
+  return ERROR;
 }
 
 Status game_actions_west(Game *game) {
-  /*  coge los espacios donde esta el jugador y el siguiente
-  Si existe, permite que el jugador se mueva, en este caso hacia */
-  /*  izquierda(west) */
-  Id current_id = NO_ID;
-  Id space_id = NO_ID;
-
-  space_id = game_get_player_location(game);
-
-  if (NO_ID == space_id) {
-    return ERROR;
+  Id space_id = game_get_player_location(game);
+  Id next_id = game_get_connection(game, space_id, W);
+  if (space_id == NO_ID) {
+      return ERROR;
   }
 
-  current_id = space_get_west(game_get_space(game, space_id));
-  if (current_id != NO_ID) {
-    game_set_player_location(game, current_id);
+  if (!game_connection_is_open(game, space_id, W)) {
+      return ERROR;
   }
 
-  return OK;
+  if (next_id != NO_ID) {
+      game_set_player_location(game, next_id);
+      return OK;
+  }
+
+  return ERROR;
 }
+
 
 Status game_actions_take(Game *game) {
   Id object_id;

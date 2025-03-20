@@ -2,7 +2,7 @@
  * @brief It implements the creation of the game with the data from a file
  *
  * @file game_reader.h
- * @author Rubén, Arturo, Bea, Ana,
+ * @author Rubén, Ana
  * @version 1
  * @date 11-02-2025
  * @copyright GNU Public License
@@ -20,7 +20,7 @@
 
 /**
  * @brief It loads the spaces that are adyacent to the current one
- * @author Rubén, Arturo, Bea, Ana, Profesores PPROG
+ * @author Profesores PPROG
  *
  * @param game a pointer to the game
  * @param filename a pointer to the file where the spaces are defined
@@ -30,7 +30,7 @@ Status game_load_everything(Game *game, char *filename);
 
 /**
  * @brief It creates the game with the info from the filename
- * @author Rubén, Arturo, Bea, Ana, Profesores PPROG
+ * @author Profesores PPROG
  *
  * @param game a pointer to the game
  * @param filename a pointer to the file where the spaces are defined

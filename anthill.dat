@@ -16,3 +16,14 @@
 #o:24|Leaf|13
 #c:31|Spider|121|/\oo/\|Get out|FALSE|
 #c:32|Ant|122|^0m   |Hello|TRUE|
+#l:1|EntryToPasillo1|11|121|1|1|0
+#l:2|Pasillo1ToPasillo2|121|122|1|1|0
+#l:3|Pasillo2ToPasillo3|122|123|2|1|0
+#l:4|Pasillo3ToPasillo4|123|124|2|1|0
+#l:5|Pasillo4ToDespensa|124|13|2|1|0
+#l:6|Pasillo2ToPasillo5|122|125|4|1|0
+#l:7|Pasillo5ToPasillo6|125|126|4|1|0
+#l:8|Pasillo6ToPasillo7|126|127|4|1|0
+#l:9|Pasillo7ToAgujero|127|14|2|1|0
+#l:10|Pasillo2ToPrueba1|122|130|3|1|0
+#l:11|Prueba1ToPrueba2|130|131|3|1|0
