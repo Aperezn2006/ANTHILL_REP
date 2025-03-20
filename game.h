@@ -13,10 +13,10 @@
 
 #include "character.h"
 #include "command.h"
+#include "link.h"
 #include "object.h"
 #include "player.h"
 #include "space.h"
-#include "link.h"
 #include "types.h"
 
 typedef struct _Game Game;
@@ -43,7 +43,6 @@ Status game_create(Game *game);
  * @return OK if everything goes well
  */
 Status game_destroy(Game *game);
-
 
 /**
  * @brief It initializes the game
@@ -135,6 +134,8 @@ Status game_set_player_location(Game *game, Id id);
  * @return an array of pointers to objects
  */
 Object **game_get_object_pointer(Game *game);
+
+Object *game_get_n_object(Game *game, int n);
 
 /**
  * @brief It gets the location a certain object

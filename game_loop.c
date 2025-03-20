@@ -2,7 +2,7 @@
  * @brief It defines the game loop
  *
  * @file game_loop.c
- * @author Rubén, Arturo, Bea, Ana , Profesores PPROG
+ * @author Profesores PPROG, Rubén, Ana
  * @version 1
  * @date 11-02-2025
  * @copyright GNU Public License
@@ -20,7 +20,7 @@
 
 /**
  * @brief It initializes the game
- * @author Rubén, Arturo, Bea, Ana , Profesores PPROG
+ * @author Profesores PPROG
  *
  * @param game a pointer to the game
  * @param gengine a pointer to the grpahic engine
@@ -32,7 +32,7 @@ int game_loop_init(Game *game, Graphic_engine **gengine, char *file_name);
 
 /**
  * @brief It runs the game
- * @author Rubén, Arturo, Bea, Ana , Profesores PPROG
+ * @author Profesores PPROG
  *
  * @param game a pointer to the game
  * @param gengine a pointer to the grpahic engine
@@ -42,7 +42,7 @@ void game_loop_run(Game *game, Graphic_engine *gengine);
 
 /**
  * @brief It finalizes the game
- * @author Rubén, Arturo, Bea, Ana , Profesores PPROG
+ * @author Profesores PPROG
  *
  * @param game a pointer to the game
  * @param gengine a pointer to the grpahic engine

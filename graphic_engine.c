@@ -146,7 +146,7 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game) {
   screen_area_puts(ge->descript, str1);
 
   for (i = 0; i < game_get_num_objects(game); i++) {
-    Object *obj = game_get_i_object(game, i);
+    Object *obj = game_get_n_object(game, i);
     if (obj == NULL) {
       printf("Object %d is NULL\n", i); /*  Debug statement */
       continue;
@@ -173,7 +173,7 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game) {
     screen_area_puts(ge->descript, str1);
 
     for (i = 0; i < game_get_num_characters(game); i++) {
-      character = game_get_i_character(game, i);
+      character = game_get_n_character(game, i);
 
       if (game_get_character_location(game, character_get_id(character)) != NO_ID) {
         sprintf(str1, "  %s : %li (%li)", character_get_description(character), game_get_character_location(game, character_get_id(character)),
@@ -200,7 +200,7 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game) {
   screen_area_puts(ge->descript, str1);
 
   for (i = 0; i < game_get_num_objects(game); i++) {
-    obj = game_get_i_object(game, i);
+    obj = game_get_n_object(game, i);
     if (obj == NULL) {
       printf("Object %d is NULL\n", i); /*  Debug statement */
       continue;
@@ -299,11 +299,11 @@ void initDescStuff(Game *game, Id space_id, char *objects, char *character_desc,
     strcpy(character_desc, game_get_character_desc_at_space(game, space_id));
   }
 
-  strcpy(space_desc1, space_get_i_description(game_get_space(game, space_id), 0));
-  strcpy(space_desc2, space_get_i_description(game_get_space(game, space_id), 1));
-  strcpy(space_desc3, space_get_i_description(game_get_space(game, space_id), 2));
-  strcpy(space_desc4, space_get_i_description(game_get_space(game, space_id), 3));
-  strcpy(space_desc5, space_get_i_description(game_get_space(game, space_id), 4));
+  strcpy(space_desc1, space_get_n_description(game_get_space(game, space_id), 0));
+  strcpy(space_desc2, space_get_n_description(game_get_space(game, space_id), 1));
+  strcpy(space_desc3, space_get_n_description(game_get_space(game, space_id), 2));
+  strcpy(space_desc4, space_get_n_description(game_get_space(game, space_id), 3));
+  strcpy(space_desc5, space_get_n_description(game_get_space(game, space_id), 4));
 }
 
 void printHorizontalSection(Graphic_engine *ge, Game *game, Id space_id, char *player_desc) {
