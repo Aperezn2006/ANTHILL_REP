@@ -2,7 +2,7 @@
  * @brief It defines the game loop
  *
  * @file game_loop.c
- * @author Profesores PPROG, Rubén, Ana
+ * @author Rubén, Arturo, Bea, Ana , Profesores PPROG
  * @version 1
  * @date 11-02-2025
  * @copyright GNU Public License
@@ -20,7 +20,7 @@
 
 /**
  * @brief It initializes the game
- * @author Profesores PPROG
+ * @author Rubén, Arturo, Bea, Ana , Profesores PPROG
  *
  * @param game a pointer to the game
  * @param gengine a pointer to the grpahic engine
@@ -32,7 +32,7 @@ int game_loop_init(Game *game, Graphic_engine **gengine, char *file_name);
 
 /**
  * @brief It runs the game
- * @author Profesores PPROG
+ * @author Rubén, Arturo, Bea, Ana , Profesores PPROG
  *
  * @param game a pointer to the game
  * @param gengine a pointer to the grpahic engine
@@ -42,7 +42,7 @@ void game_loop_run(Game *game, Graphic_engine *gengine);
 
 /**
  * @brief It finalizes the game
- * @author Profesores PPROG
+ * @author Rubén, Arturo, Bea, Ana , Profesores PPROG
  *
  * @param game a pointer to the game
  * @param gengine a pointer to the grpahic engine
@@ -99,6 +99,7 @@ void game_loop_run(Game *game, Graphic_engine *gengine) {
   last_cmd = game_get_last_command(game);
 
   while ((command_get_code(last_cmd) != EXIT) && (game_get_finished(game) == FALSE)) {
+    space_set_discovered(game_get_space(game, game_get_player_location(game)), TRUE);
     graphic_engine_paint_game(gengine, game);
     command_get_user_input(last_cmd);
     game_actions_update(game, last_cmd);
