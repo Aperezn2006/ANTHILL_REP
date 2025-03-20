@@ -175,6 +175,11 @@ Status player_set_health(Player *player, long health);
  */
 Status player_decrease_health(Player *player, long damage);
 
+/*Manejo de gdesc*/
+Status player_set_description(Player *player, char *gdesc);
+
+char *player_get_description(Player *player);
+
 /*Print*/
 /**
  * @brief It prints the player information

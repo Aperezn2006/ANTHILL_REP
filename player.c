@@ -30,6 +30,7 @@ struct _Player {
   char name[WORD_SIZE + 1]; /*!< Name of the player */
   Set *objects;             /*!< Set of object IDs */
   long health;              /*!< Health points the player has */
+  char gdesc[4];
 };
 
 /*Create & destroy*/
@@ -208,6 +209,25 @@ Status player_decrease_health(Player *player, long damage) {
   player->health -= damage;
 
   return OK;
+}
+
+/*Manejo de gdesc*/
+Status player_set_description(Player *player, char *gdesc) {
+  if (!player) {
+    return ERROR;
+  }
+
+  strcpy(player->gdesc, gdesc);
+
+  return OK;
+}
+
+char *player_get_description(Player *player) {
+  if (!player) {
+    return NULL;
+  }
+
+  return player->gdesc;
 }
 
 /*Print*/
