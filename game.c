@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <strings.h>
 
 #include "character.h"
 #include "command.h"
@@ -391,7 +392,7 @@ Id game_get_object_id_from_name(Game *game, char *object_name) {
   }
 
   for (i = 0; i < game_get_num_objects(game); i++) {
-    if (strcmp(object_get_name(game->objects[i]), object_name) == 0) {
+    if (strcasecmp(object_get_name(game->objects[i]), object_name) == 0) {
       return object_get_id(game->objects[i]);
     }
   }
@@ -498,7 +499,7 @@ Id game_get_character_id_from_name(Game *game, char *name) {
   }
 
   for (i = 0; i < MAX_CHARACTERS; i++) {
-    if (game->characters[i] && strcmp(character_get_name(game->characters[i]), name) == 0) {
+    if (game->characters[i] && strcasecmp(character_get_name(game->characters[i]), name) == 0) {
       return character_get_id(game->characters[i]);
     }
   }
