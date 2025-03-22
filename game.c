@@ -103,11 +103,9 @@ Status game_destroy(Game *game) {
     game->objects[i] = NULL;
   }
 
-  for (i = 0; i < MAX_CHARACTERS; i++) {
-    if (game->characters[i]) {
-      character_destroy(game->characters[i]);
-      game->characters[i] = NULL;
-    }
+  for (i = 0; i < game->n_characters; i++) {
+    character_destroy(game->characters[i]);
+    game->characters[i] = NULL;
   }
 
   for (i = 0; i < game->n_links; i++) {
@@ -115,8 +113,10 @@ Status game_destroy(Game *game) {
     game->links[i] = NULL;
   }
 
-  player_destroy(game->players[game_get_turn(game)]);
-  game->players[game_get_turn(game)] = NULL;
+  for (i = 0; i < game->n_players; i++) {
+    player_destroy(game->players[i]);
+    game->players[i] = NULL;
+  }
 
   if (game->last_cmd) {
     command_destroy(game->last_cmd);
