@@ -2,7 +2,7 @@
 EXEC = anthill
 
 # Archivos fuente
-SRC = game_loop.c command.c game_actions.c game.c graphic_engine.c space.c game_reader.c player.c object.c character.c set.c link.c
+SRC = game_loop.c command.c game_actions.c game.c graphic_engine.c space.c game_reader.c player.c object.c character.c set.c link.c inventory.c
 
 # Archivos objeto generados a partir de los archivos fuente
 OBJ = $(SRC:.c=.o)

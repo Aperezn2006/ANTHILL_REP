@@ -16,6 +16,7 @@ tiene, puntos de vida, etc.).*/
 #define PLAYER_H_
 
 #include "types.h"
+#include "inventory.h"
 
 typedef struct _Player Player;
 
@@ -179,6 +180,16 @@ Status player_decrease_health(Player *player, long damage);
 Status player_set_description(Player *player, char *gdesc);
 
 char *player_get_description(Player *player);
+
+/*Manejo de max_objs*/
+/**
+ * @brief It sets the maximum number of objects a player can carry
+ *
+ * @param player a pointer to the player
+ * @param max the new maximum number of objects
+ * @return OK, if everything goes well or ERROR if there was some mistake
+ */
+Status player_set_max_objs(Player *player, int max);
 
 /*Print*/
 /**

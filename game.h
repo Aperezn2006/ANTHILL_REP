@@ -464,4 +464,54 @@ Status game_add_object(Game *game, Object *object);
  */
 Status game_add_character(Game *game, Character *character);
 
+/**
+ * @brief gets north direction
+ * @author Arturo
+ *
+ * @param game a pointer to the game
+ * @param current_location id of actual location
+ * @return the id 
+ */
+Id Game_get_north(Game *game, Id current_location);
+
+/**
+ * @brief gets south direction
+ * @author Arturo
+ *
+ * @param game a pointer to the game
+ * @param current_location id of actual location
+ * @return the id 
+ */
+Id Game_get_south(Game *game, Id current_location);
+
+/**
+ * @brief gets east direction
+ * @author Arturo
+ *
+ * @param game a pointer to the game
+ * @param current_location id of actual location
+ * @return the id 
+ */
+Id Game_get_east(Game *game, Id current_location);
+
+/**
+ * @brief gets west direction
+ * @author Arturo
+ *
+ * @param game a pointer to the game
+ * @param current_location id of actual location
+ * @return the id 
+ */
+Id Game_get_west(Game *game, Id current_location);
+
+/**
+ * @brief Gets the neighboring location in a specified direction
+ *
+ * @param game A pointer to the Game structure
+ * @param current_location The ID of the current location
+ * @param d The direction in which to look for the neighbor
+ * @return The ID of the neighboring location if found, otherwise NO_ID
+ */
+Id Game_get_neighbour(Game *game, Id current_location, Direction d);
+
 #endif

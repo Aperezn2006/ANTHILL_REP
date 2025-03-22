@@ -6,15 +6,16 @@
  * @date 11-02-2025
  */
 
-#include "graphic_engine.h"
+
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
+#include "libscreen.h"
+#include "graphic_engine.h"
 #include "command.h"
 #include "game.h"
-#include "libscreen.h"
 #include "space.h"
 #include "types.h"
 
@@ -107,7 +108,6 @@ void graphic_engine_destroy(Graphic_engine *ge) {
 
 void graphic_engine_paint_game(Graphic_engine *ge, Game *game) {
   int i = 0, n_inventory = 0;
-  Space *space_act = NULL;
   Object *obj = NULL;
   Character *character = NULL;
   CommandCode last_cmd = UNKNOWN;
@@ -120,11 +120,10 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game) {
   screen_area_clear(ge->map);
 
   id_act = game_get_player_location(game);
-  if (id_act != NO_ID) {
-    space_act = game_get_space(game, id_act);
-    id_back = space_get_north(space_act);
-    id_next = space_get_south(space_act);
-  }
+   if (id_act != NO_ID) {
+    id_back = Game_get_north (game, id_act);
+    id_next = Game_get_south (game, id_act);
+   }
 
   /*  ESPACIOS */
   printHorizontalSection(ge, game, id_back, "   ");
@@ -270,7 +269,7 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game) {
   screen_area_puts(ge->feedback, str1);
 
   /*  Renderizar en la terminal */
-  screen_paint(game_get_turn(game) % 7);
+  screen_paint(game_get_turn(game)%7);
   printf("prompt:> ");
 }
 
@@ -327,8 +326,8 @@ void printHorizontalSection(Graphic_engine *ge, Game *game, Id space_id, char *p
   char objects[BOX_WIDTH + 1], character_desc[7];
   char space_desc1[10], space_desc2[10], space_desc3[10], space_desc4[10], space_desc5[10];
 
-  id_east = space_get_east(game_get_space(game, space_id));
-  id_west = space_get_west(game_get_space(game, space_id));
+  id_east = Game_get_east(game, space_id);
+  id_west = Game_get_west(game, space_id);
 
   /*  Espacio ACTUAL */
   if (space_id != NO_ID) {
@@ -336,11 +335,7 @@ void printHorizontalSection(Graphic_engine *ge, Game *game, Id space_id, char *p
 
     sprintf(str1, "                        +------------------+");
     if (space_get_discovered(game_get_space(game, space_id)) == TRUE) {
-      if (space_id >= 100) {
-        sprintf(str2, "                        | %s    %s %2d|", player_desc, character_desc, (int)space_id);
-      } else {
-        sprintf(str2, "                        | %s     %s %2d|", player_desc, character_desc, (int)space_id);
-      }
+      sprintf(str2, "                        | %s    %6s %3d|", player_desc, character_desc, (int)space_id);
     } else {
       sprintf(str2, "                        |                  |");
     }
@@ -358,11 +353,7 @@ void printHorizontalSection(Graphic_engine *ge, Game *game, Id space_id, char *p
 
       strcat(str1, "   +------------------+");
       if (space_get_discovered(game_get_space(game, id_east)) == TRUE) {
-        if (id_east >= 100) {
-          sprintf(temp, "   |        %s %2d|", character_desc, (int)id_east);
-        } else {
-          sprintf(temp, "   |         %s %2d|", character_desc, (int)id_east);
-        }
+        sprintf(temp, "   |        %6s %3d|", character_desc, (int)id_east);
       } else {
         sprintf(temp, "   |                  |");
       }
@@ -405,11 +396,7 @@ void printHorizontalSection(Graphic_engine *ge, Game *game, Id space_id, char *p
       sprintf(temp, " +------------------+   %s", str1);
       strcpy(str1, temp);
       if (space_get_discovered(game_get_space(game, id_west)) == TRUE) {
-        if (id_west >= 100) {
-          sprintf(temp, " |        %s %2d|   %s", character_desc, (int)id_west, str2);
-        } else {
-          sprintf(temp, " |        %s %2d|   %s", character_desc, (int)id_west, str2);
-        }
+        sprintf(temp, " |        %6s %3d|   %s", character_desc, (int)id_west, str2);
       } else {
         sprintf(temp, " |                  |   %s", str2);
       }
