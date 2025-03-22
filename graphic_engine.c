@@ -270,7 +270,7 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game) {
   screen_area_puts(ge->feedback, str1);
 
   /*  Renderizar en la terminal */
-  screen_paint();
+  screen_paint(game_get_turn(game) % 7);
   printf("prompt:> ");
 }
 
