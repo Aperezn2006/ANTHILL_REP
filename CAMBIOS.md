@@ -1,7 +1,5 @@
-#Archivos que se han cambiado:
-- game.c
-- game.h
-- player.c
-- player.h
-- types.h
-- game_loop.c
+#Archivos que se han cambiado en el último commit:
+- command.h
+- command.c
+- game_actions.c
+- graphic_engine.c

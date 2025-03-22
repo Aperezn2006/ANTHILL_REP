@@ -237,6 +237,16 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game) {
     screen_area_puts(ge->descript, str1);
   }
 
+  /*Brújula*/
+  screen_area_puts(ge->descript, " ");
+  screen_area_puts(ge->descript, " ");
+
+  screen_area_puts(ge->descript, "          .-----.");
+  screen_area_puts(ge->descript, "         |   N   |");
+  screen_area_puts(ge->descript, "         | E + W |");
+  screen_area_puts(ge->descript, "         |   S   |");
+  screen_area_puts(ge->descript, "          '-----'");
+
   /*  BANNER r */
   screen_area_puts(ge->banner, "    The anthill game ");
 
