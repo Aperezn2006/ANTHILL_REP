@@ -1,0 +1,103 @@
+/**
+ * @brief It defines the command interpreter interface
+ *
+ * @file command.h
+ * @author Profesores PPROG, Rubén, Ana
+ * @version 1
+ * @date 11-02-2025
+ * @copyright GNU Public License
+ */
+
+#ifndef COMMAND_H
+#define COMMAND_H
+
+#include "types.h"
+
+#define N_CMDT 2
+/*  cambiamos a el numero que tenga el command.c */
+#define N_CMD 12
+
+typedef enum { CMDS, CMDL } CommandType;
+
+typedef enum { NO_CMD = -1, UNKNOWN, EXIT, NEXT, BACK, TAKE, DROP, RIGHT, LEFT, ATTACK, CHAT } CommandCode;
+
+typedef struct _Command Command;
+const char *command_to_str(CommandCode code);
+Status command_set_obj(Command *command, const char *name);
+
+/**
+ * @brief It allocates memory for a new command and initializes its members
+ * @author Profesores PPROG
+ *
+ * @param none
+ * @return a pointer to the new command, or NULL if it goes wrong
+ */
+Command *command_create();
+
+/**
+ * @brief It frees the memory of a certain command
+ * @author Profesores PPROG
+ *
+ * @param command a pointer to the command
+ * @return a pointer to the new command
+ */
+Status command_destroy(Command *command);
+
+/**
+ * @brief It sets a certain command
+ * @author Profesores PPROG
+ *
+ * @param command a pointer to the desired command
+ * @param code a struct of a command
+ * @return OK if everything goes well
+ */
+Status command_set_code(Command *command, CommandCode code);
+
+/**
+ * @brief
+ * @author
+ *
+ * @param command
+ * @param code a struct of a command
+ */
+char *command_get_obj(Command *c);
+
+/**
+ * @brief It gets the code inside a command
+ * @author Profesores PPROG
+ *
+ * @param command a pointer to the desired command
+ * @return the code of the command
+ */
+CommandCode command_get_code(Command *command);
+
+/**
+ * @brief It gets the command a user inputs and sets it
+ * @author Profesores PPROG
+ *
+ * @param command a pointer to the command
+ * @return a new command with the inputed one set
+ */
+Status command_get_user_input(Command *command);
+
+/*Manejo del result*/
+/**
+ * @brief It gets wheter the command was succesful or not
+ * @author Ana
+ *
+ * @param command a pointer to the command
+ * @return OK if everything went well, ERROR otherwise
+ */
+Status command_get_result(Command *command);
+
+/**
+ * @brief It sets wheter the command was succesful or not
+ * @author Ana
+ *
+ * @param command a pointer to the command
+ * @param result the feedback that will be assigned to a certain command
+ * @return OK if everything went well, ERROR otherwise
+ */
+Status command_set_result(Command *command, Status result);
+
+#endif

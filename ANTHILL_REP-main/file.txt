@@ -1,0 +1,15 @@
+Comando ejecutado: Take, seed, 0
+Comando ejecutado: Next, , 0
+Comando ejecutado: Next, , 1
+Comando ejecutado: Next, , 0
+Comando ejecutado: Next, , 1
+Comando ejecutado: Next, , 0
+Comando ejecutado: Next, , 0
+Comando ejecutado: Next, , 0
+Comando ejecutado: Next, , 0
+Comando ejecutado: Next, , 0
+Comando ejecutado: Next, , 0
+Comando ejecutado: Next, , 0
+Comando ejecutado: Next, , 0
+Comando ejecutado: Next, , 0
+Comando ejecutado: Exit, , 1
