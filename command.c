@@ -20,8 +20,8 @@
 #define CMD_LENGHT 40
 
 /* Comandos dentro del juego */
-char *cmd_to_str[N_CMD][N_CMDT] = {{"", "No command"}, {"", "Unknown"}, {"e", "Exit"}, {"n", "Next"},   {"b", "Back"}, {"t", "Take"},
-                                   {"d", "Drop"},      {"r", "Right"},  {"l", "Left"}, {"a", "Attack"}, {"c", "Chat"}};
+char *cmd_to_str[N_CMD][N_CMDT] = {{"", "No command"}, {"", "Unknown"}, {"e", "Exit"},   {"m", "Move"},
+                                   {"t", "Take"},      {"d", "Drop"},   {"a", "Attack"}, {"c", "Chat"}};
 
 /**
  * @brief Command
@@ -131,10 +131,10 @@ Status command_get_user_input(Command *command) {
       return OK;
     }
 
-    cmd = UNKNOWN; 
+    cmd = UNKNOWN;
 
     for (i = 0; i < N_CMD; i++) {
-      if (cmd_to_str[i][CMDS] && cmd_to_str[i][CMDL]) { 
+      if (cmd_to_str[i][CMDS] && cmd_to_str[i][CMDL]) {
         if (!strcasecmp(token, cmd_to_str[i][CMDS]) || !strcasecmp(token, cmd_to_str[i][CMDL])) {
           cmd = i + NO_CMD;
           break;
@@ -142,10 +142,10 @@ Status command_get_user_input(Command *command) {
       }
     }
 
-    command_set_code(command, cmd); 
+    command_set_code(command, cmd);
 
     objToken = strtok(NULL, " \n");
-    command_set_obj(command, objToken ? objToken : ""); 
+    command_set_obj(command, objToken ? objToken : "");
 
     return OK;
   }
@@ -153,8 +153,6 @@ Status command_get_user_input(Command *command) {
   command_set_code(command, EXIT);
   return OK;
 }
-
-
 
 /*Manejo del result*/
 Status command_get_result(Command *command) {

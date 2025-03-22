@@ -13,6 +13,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <strings.h>
 #include <time.h>
 
 /**
@@ -38,22 +39,13 @@ Status game_actions_unknown(Game *game);
 Status game_actions_exit(Game *game);
 
 /**
- * @brief It moves the player south
- * @author Profesores PPROG
+ * @brief It moves the player in the desired direction (north, south, west or east)
+ * @author Ana
  *
  * @param game a pointer to the game
  * @return OK if everything goes well, ERROR otherwise
  */
-Status game_actions_next(Game *game);
-
-/**
- * @brief It moves the player north
- * @author Profesores PPROG
- *
- * @param game a pointer to the game
- * @return OK if everything goes well, ERROR otherwise
- */
-Status game_actions_back(Game *game);
+Status game_actions_move(Game *game);
 
 /**
  * @brief It allows a player to pick up an object if they're in the same room
@@ -72,24 +64,6 @@ Status game_actions_take(Game *game);
  * @return OK if everything goes well, ERROR otherwise
  */
 Status game_actions_drop(Game *game);
-
-/**
- * @brief It moves the player east
- * @author Rubén
- *
- * @param game a pointer to the game
- * @return OK if everything goes well, ERROR otherwise
- */
-Status game_actions_east(Game *game);
-
-/**
- * @brief It moves the player west
- * @author Rubén
- *
- * @param game a pointer to the game
- * @return OK if everything goes well, ERROR otherwise
- */
-Status game_actions_west(Game *game);
 
 /**
  * @brief
@@ -129,12 +103,8 @@ Status game_actions_update(Game *game, Command *command) {
       command_set_result(command, game_actions_exit(game));
       break;
 
-    case NEXT:
-      command_set_result(command, game_actions_next(game));
-      break;
-
-    case BACK:
-      command_set_result(command, game_actions_back(game));
+    case MOVE:
+      command_set_result(command, game_actions_move(game));
       break;
 
     case TAKE:
@@ -143,14 +113,6 @@ Status game_actions_update(Game *game, Command *command) {
 
     case DROP:
       command_set_result(command, game_actions_drop(game));
-      break;
-
-    case RIGHT:
-      command_set_result(command, game_actions_east(game));
-      break;
-
-    case LEFT:
-      command_set_result(command, game_actions_west(game));
       break;
 
     case ATTACK:
@@ -176,84 +138,55 @@ Status game_actions_unknown(Game *game) { return OK; }
 
 Status game_actions_exit(Game *game) { return OK; }
 
-Status game_actions_next(Game *game) {
-  Id space_id = NO_ID;   
-  Id next_id = NO_ID;
+Status game_actions_move(Game *game) {
+  Id current_space_id = NO_ID;
+  Id next_space_id = NO_ID;
+  Command *c = NULL;
+  char direction_word[WORD_SIZE] = "";
+  Direction direction;
 
-  space_id = game_get_player_location(game);
-  
-  if (space_id == NO_ID) {
+  current_space_id = game_get_player_location(game);
+
+  if (current_space_id == NO_ID) {
     return ERROR;
   }
 
-  next_id = game_get_connection(game, space_id, S);
+  c = game_get_last_command(game);
+  strcpy(direction_word, command_get_obj(c));
 
+  if (strcmp(direction_word, "") == 0) {
+    return ERROR;
+  }
 
-  if (next_id != NO_ID) {
-    if (game_connection_is_open(game, space_id, S)) {
-      game_set_player_location(game, next_id);
-      
+  /*Probablemente exista una versión más eficiente de hacer esto*/
+  if (strcasecmp(direction_word, "north") == 0 || strcasecmp(direction_word, "n") == 0) {
+    direction = N;
+  } else if (strcasecmp(direction_word, "south") == 0 || strcasecmp(direction_word, "s") == 0) {
+    direction = S;
+  } else if (strcasecmp(direction_word, "east") == 0 || strcasecmp(direction_word, "e") == 0) {
+    direction = E;
+  } else if (strcasecmp(direction_word, "west") == 0 || strcasecmp(direction_word, "w") == 0) {
+    direction = W;
+  } else {
+    return ERROR;
+  }
+
+  next_space_id = game_get_connection(game, current_space_id, direction);
+
+  if (next_space_id != NO_ID) {
+    if (game_connection_is_open(game, current_space_id, direction)) {
+      printf("The connection isn't open\n"); /*Debug*/
+      game_set_player_location(game, next_space_id);
     } else {
       return ERROR;
     }
+
   } else {
     return ERROR;
   }
 
   return OK;
 }
-
-
-Status game_actions_back(Game *game) {
-  Id space_id = game_get_player_location(game);  
-  Id next_id = game_get_connection(game, space_id, N);
-
-  if (space_id == NO_ID || next_id == NO_ID) {
-    return ERROR;
-  }
-
-  if (!game_connection_is_open(game, space_id, N)) {
-    return ERROR;
-  }
-
-  game_set_player_location(game, next_id);
-  return OK;
-}
-
-
-Status game_actions_east(Game *game) {
-  Id space_id = game_get_player_location(game);   
-  Id next_id = game_get_connection(game, space_id, E);
-
-  if (space_id == NO_ID || next_id == NO_ID) {
-    return ERROR;
-  }
-
-  if (!game_connection_is_open(game, space_id, E)) {
-    return ERROR;
-  }
-
-  game_set_player_location(game, next_id);
-  return OK;
-}
-
-
-Status game_actions_west(Game *game) {
-  Id space_id = game_get_player_location(game);   
-  Id next_id = game_get_connection(game, space_id, W);
-
-  if (space_id == NO_ID || next_id == NO_ID) {
-    return ERROR;
-  }
-
-  if (!game_connection_is_open(game, space_id, W)) {
-    return ERROR;
-  }
-
-  game_set_player_location(game, next_id);
-  return OK;
-}
-
 
 Status game_actions_take(Game *game) {
   Id object_id;
