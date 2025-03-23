@@ -29,10 +29,9 @@ struct _Player {
   Id id;                    /*!< Id number of the player, it must be unique */
   Id player_location;       /*!< Id number of the space the player is in */
   char name[WORD_SIZE + 1]; /*!< Name of the player */
-  Set *objects;             /*!< Set of object IDs */
   long health;              /*!< Health points the player has */
   char gdesc[4];
-  Inventory *inventory;
+  Inventory *backpack;
 
 };
 
@@ -57,8 +56,8 @@ Player *player_create(Id id) {
   /* Initialization of an empty player*/
   newPlayer->id = id;
   newPlayer->name[0] = '\0';
-  newPlayer->objects = set_create();
-  if (!newPlayer->objects) {
+  newPlayer->backpack = inventory_create(1);
+  if (!newPlayer->backpack) {
     free(newPlayer);
     return NULL;
   }
@@ -73,8 +72,8 @@ Status player_destroy(Player *player) {
     return ERROR;
   }
 
-  if (player->objects) {
-    set_destroy(player->objects);
+  if (player->backpack) {
+    inventory_destroy(player->backpack);
   }
 
   free(player);
@@ -146,43 +145,43 @@ Status player_set_name(Player *player, char *name) {
 
 /*Manejo de objects*/
 Id player_get_n_object(Player *player, int n) {
-  if (!player || !player->objects) {
+  if (!player || !player->backpack) {
     return NO_ID;
   }
 
-  return set_get_n(player->objects, n);
+  return inventory_get_obj_by_iteration(player->backpack, n);
 }
 
 int player_get_num_objects(Player *player) {
-  if (!player || !player->objects) {
+  if (!player || !player->backpack) {
     return 0;
   }
 
-  return set_get_size(player->objects);
+  return inventory_get_num_objs(player->backpack);
 }
 
 Status player_remove_object(Player *player, Id object_id) {
-  if (!player || !player->objects) {
+  if (!player || !player->backpack) {
     return ERROR;
   }
 
-  return set_del(player->objects, object_id);
+  return inventory_remove_object(player->backpack, object_id);
 }
 
 Bool player_has_object(Player *player, Id object_id) {
-  if (!player || !player->objects) {
+  if (!player || !player->backpack) {
     return FALSE;
   }
 
-  return set_has(player->objects, object_id);
+  return inventory_has_obj(player->backpack, object_id);
 }
 
 Status player_add_object(Player *player, Id object_id) {
-  if (!player || !player->objects) {
+  if (!player || !player->backpack) {
     return ERROR;
   }
 
-  return set_add(player->objects, object_id);
+  return inventory_add_object(player->backpack, object_id);
 }
 
 /*Manejo de health*/
@@ -237,7 +236,7 @@ Status player_set_max_objs (Player *player, int max){
   if (!player){
     return ERROR;
   }
-  inventory_set_max_objs (player->inventory, max);
+  inventory_set_max_objs (player->backpack, max);
   return OK;
 }
 

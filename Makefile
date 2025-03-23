@@ -37,4 +37,5 @@ run: $(EXEC)
 
 # Regla para ejecutar Valgrind
 valgrind: $(EXEC)
-	valgrind --leak-check=full  ./$(EXEC) $(EXEC).dat
+	valgrind -s --show-leak-kinds=all --track-origins=yes --leak-check=full  ./$(EXEC) $(EXEC).dat
+

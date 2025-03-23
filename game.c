@@ -330,7 +330,7 @@ Status game_set_object_location(Game *game, Id location, Id object_id) {
 
   /*El objeto pasará de estar en current_location a location, hay dos casos, player->space, space->player*/
 
-  if (current_location == PLAYER_ID) {
+  if (current_location == player_get_id(game_get_player(game))) {
     /*Caso player->space*/
     /*Le quitamos el objeto al player*/
     if (player_remove_object(game_get_player(game), object_id) == ERROR) {
@@ -346,14 +346,14 @@ Status game_set_object_location(Game *game, Id location, Id object_id) {
   } else {
     /*Caso space->player*/
     /*Le quitamos el objeto al space*/
-    if (space_remove_object(game_get_space(game, current_location), object_id) == ERROR) {
-      return ERROR;
-    }
+    
     /*Le damos el objeto al player*/
     if (player_add_object(game_get_player(game), object_id) == ERROR) {
       return ERROR;
     }
-
+    if (space_remove_object(game_get_space(game, current_location), object_id) == ERROR) {
+      return ERROR;
+    }
     return OK;
   }
 

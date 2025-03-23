@@ -16,7 +16,6 @@
 #o:24|Leaf|13
 #c:31|Spider|121|5|/\oo/\|Get out|FALSE|
 #c:32|Ant|122|4|^0m   |Hello|TRUE|
-
 #l:1|EntryToPasillo1|11|121|1|1|0
 #l:2|EntryToPasillo1|121|11|0|1|0
 #l:3|Pasillo1ToPasillo2|121|122|1|1|0
@@ -35,5 +34,5 @@
 #l:16|Pasillo6ToPasillo7|127|126|3|1|0
 #l:17|Pasillo7ToAgujero|127|14|2|1|0
 #l:18|Pasillo7ToAgujero|14|127|3|1|0
-#p:1|ant1|mO^|11|5|3|
+#p:1|ant1|mO^|11|5|1|
 #p:2|ant2|mO^|123|5|3|

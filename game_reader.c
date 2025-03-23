@@ -69,13 +69,29 @@ Status game_load_everything(Game *game, char *filename)
   Status status = OK;
   char gdesc[5][10];
   char character_desc[7], character_message[MAX_MESSAGE], character_friendliness[6];
-  int i = 0, character_health = 0;
+  int i = 0;
 
   if (!game || !filename)
   {
     printf("Invalid game or filename\n");
     return ERROR;
   }
+
+  /*Para probar player
+  player = player_create(4);
+  game_add_player(game, player);
+  player_set_description(player, "m0^");
+  player_set_health(player, 5);
+  player_set_location(player, 121);
+  player_set_name(player, "Player 1");
+
+  player = player_create(5);
+  game_add_player(game, player);
+  player_set_description(player, "n0n");
+  player_set_health(player, 5);
+  player_set_location(player, 124);
+  player_set_name(player, "Player 2");
+  */
 
   file = fopen(filename, "r");
   if (file == NULL)
@@ -166,8 +182,6 @@ Status game_load_everything(Game *game, char *filename)
       toks = strtok(NULL, "|");
       strcpy(character_name, toks);
       toks = strtok(NULL, "|");
-      character_health = atol(toks);
-      toks = strtok(NULL, "|");
       character_location = atol(toks);
       toks = strtok(NULL, "|");
       strcpy(character_desc, toks);
@@ -180,7 +194,6 @@ Status game_load_everything(Game *game, char *filename)
       if (character)
       {
         character_set_name(character, character_name);
-        character_set_health(character, character_health);
         character_set_description(character, character_desc);
         character_set_message(character, character_message);
         character_set_friendly(character, strcmp(character_friendliness, "TRUE") == 0);

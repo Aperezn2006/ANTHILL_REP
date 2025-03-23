@@ -8,8 +8,8 @@
 * @copyright GNU Public License
 */
 
-#ifndef INVENTORY_H
-#define INVENTORY_H
+#ifndef LIBSCREEN_H
+#define LIBSCREEN_H
 
 #include "types.h"
 #include "set.h"
@@ -47,6 +47,8 @@ Status inventory_set_max_objs(Inventory *inventory, int max);
 int inventory_get_max_objs(Inventory *inventory);
 
 int inventory_get_num_objs(Inventory *inventory);
+
+Id inventory_get_obj_by_iteration(Inventory *inventory, int n);
 
 int get_obj_act_possition(Inventory *inventory, Id object_id);  /*terminar*/
 /**

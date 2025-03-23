@@ -61,10 +61,9 @@ Status inventory_add_object(Inventory *inventory, Id object_id){
 }
 
 Status inventory_remove_object(Inventory *inventory, Id object_id){
-    if(!inventory) return ERROR;
-    if(object_id==NO_ID) return ERROR;
+    if(!inventory || object_id==NO_ID) return ERROR;
 
-    if(set_del(inventory->objs, object_id) == ERROR);
+    if(set_del(inventory->objs, object_id) == ERROR) return ERROR;
 
     return OK;
 }
@@ -140,6 +139,12 @@ int get_obj_act_possition(Inventory *inventory, Id object_id){
     return -1;
 }
 
+
+Id inventory_get_obj_by_iteration(Inventory *inventory, int n){
+    if (!inventory) return NO_ID;
+
+    return set_get_n(inventory->objs, n);
+}
 
 Status inventory_free(Inventory *inventory){
     if(!inventory) return ERROR; 
