@@ -8,8 +8,8 @@
 * @copyright GNU Public License
 */
 
-#ifndef LIBSCREEN_H
-#define LIBSCREEN_H
+#ifndef INVENTORY_H
+#define INVENTORY_H
 
 #include "types.h"
 #include "set.h"
