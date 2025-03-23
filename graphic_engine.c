@@ -6,17 +6,18 @@
  * @date 11-02-2025
  */
 
-#include "graphic_engine.h"
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
+#include "libscreen.h"
+#include "graphic_engine.h"
 #include "command.h"
 #include "game.h"
-#include "libscreen.h"
 #include "space.h"
 #include "types.h"
+
 
 #define WIDTH_MAP 68
 #define WIDTH_DES 29
