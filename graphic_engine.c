@@ -11,6 +11,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <unistd.h>
 
 #include "command.h"
 #include "game.h"
@@ -266,7 +267,7 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game) {
   screen_area_clear(ge->help);
   sprintf(str1, " The commands you can use are:");
   screen_area_puts(ge->help, str1);
-  sprintf(str1, "    next or n, back or b, t or take, d or drop, r or right, l or left, a or attack, c or chat,        exit or e");
+  sprintf(str1, "    m or move, t or take, d or drop, a or attack, c or chat, exit or e");
   screen_area_puts(ge->help, str1);
 
   /*  FEEDBACK */
@@ -454,4 +455,32 @@ void printHorizontalSection(Graphic_engine *ge, Game *game, Id space_id, char *p
 
     someScreenPuts(ge, str1, str2, str3, str4, str5, str6, str7, str8, str9);
   }
+}
+
+void graphic_engine_paint_end(Graphic_engine *ge, Game *game) {
+  int i = 0;
+
+  screen_area_clear(ge->map);
+
+  for (i = 0; i < 14; i++) {
+    screen_area_puts(ge->map, " ");
+  }
+  screen_area_puts(ge->map, "                     Someone from your party died");
+  screen_area_puts(ge->map, "                          or exited the game");
+
+  screen_paint(game_get_turn(game) % 7);
+
+  sleep(1);
+
+  screen_area_clear(ge->map);
+
+  for (i = 0; i < 14; i++) {
+    screen_area_puts(ge->map, " ");
+  }
+  screen_area_puts(ge->map, "                                 GAME OVER");
+  for (i = 0; i < 15; i++) {
+    screen_area_puts(ge->map, " ");
+  }
+
+  screen_paint(game_get_turn(game) % 7);
 }

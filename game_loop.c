@@ -10,6 +10,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 
 #include "command.h"
 #include "game.h"
@@ -68,6 +69,7 @@ int main(int argc, char *argv[]) {
 
   if (!game_loop_init(game, &gengine, argv[1])) {
     game_loop_run(game, gengine);
+    graphic_engine_paint_end(gengine, game);
     game_loop_cleanup(game, gengine);
   }
 
@@ -114,8 +116,7 @@ void game_loop_run(Game *game, Graphic_engine *gengine) {
     }
 
     /*El juego acaba cuando uno de los jugadores muera*/
-    if (player_get_health(game_get_player(game)) == 0) {
-      printf("You died!\n >->->- GAME OVER -<-<-<\n");
+    if (player_get_health(game_get_n_player(game, game_get_turn(game) - 1)) == 0) {
       game_set_finished(game, TRUE);
     }
   }
