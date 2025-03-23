@@ -242,7 +242,7 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game) {
 
   screen_area_puts(ge->descript, "          .-----.");
   screen_area_puts(ge->descript, "         |   N   |");
-  screen_area_puts(ge->descript, "         | E + W |");
+  screen_area_puts(ge->descript, "         | W + E |");
   screen_area_puts(ge->descript, "         |   S   |");
   screen_area_puts(ge->descript, "          '-----'");
 
