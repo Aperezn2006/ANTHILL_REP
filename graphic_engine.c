@@ -6,15 +6,15 @@
  * @date 11-02-2025
  */
 
+#include "graphic_engine.h"
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
-#include "libscreen.h"
-#include "graphic_engine.h"
 #include "command.h"
 #include "game.h"
+#include "libscreen.h"
 #include "space.h"
 #include "types.h"
 
@@ -109,6 +109,7 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game) {
   int i = 0, n_inventory = 0;
   Object *obj = NULL;
   Character *character = NULL;
+  Player *player;
   CommandCode last_cmd = UNKNOWN;
   Id id_act = NO_ID, id_back = NO_ID, id_next = NO_ID;
   char str1[1024];
@@ -201,8 +202,13 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game) {
   /* Player */
   sprintf(str1, " "); /*  Hueco para que quede mono */
   screen_area_puts(ge->descript, str1);
-  sprintf(str1, " Player: %li (%li)", game_get_player_location(game), player_get_health(game_get_player(game)));
+  sprintf(str1, " Players:"); /* Banner */
   screen_area_puts(ge->descript, str1);
+  for (i = 0; i < game_get_num_players(game); i++) {
+    player = game_get_n_player(game, i);
+    sprintf(str1, "  %s : %li (%li)", player_get_name(player), game_get_n_player_location(game, i), player_get_health(player));
+    screen_area_puts(ge->descript, str1);
+  }
 
   /*  Bucle para los objetos dentro del inventario */
   sprintf(str1, " "); /*  Hueco para que quede mono */
@@ -247,11 +253,11 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game) {
   screen_area_puts(ge->descript, " ");
   screen_area_puts(ge->descript, " ");
 
-  screen_area_puts(ge->descript, "          .-----.");
-  screen_area_puts(ge->descript, "         |   N   |");
-  screen_area_puts(ge->descript, "         | W + E |");
-  screen_area_puts(ge->descript, "         |   S   |");
-  screen_area_puts(ge->descript, "          '-----'");
+  screen_area_puts(ge->descript, "           .-----.");
+  screen_area_puts(ge->descript, "          |   N   |");
+  screen_area_puts(ge->descript, "          | W + E |");
+  screen_area_puts(ge->descript, "          |   S   |");
+  screen_area_puts(ge->descript, "           '-----'");
 
   /*  BANNER r */
   screen_area_puts(ge->banner, "    The anthill game ");

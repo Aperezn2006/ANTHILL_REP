@@ -276,6 +276,11 @@ Id game_get_player_location(Game *game) {
   return player_get_location(game->players[game_get_turn(game)]);
 }
 
+Id game_get_n_player_location(Game *game, int n) {
+  if (!game || !game->players[game_get_turn(game)]) return NO_ID;
+  return player_get_location(game->players[n]);
+}
+
 Status game_set_player_location(Game *game, Id id) {
   if (!game || !game->players[game_get_turn(game)] || id == NO_ID) return ERROR;
   return player_set_location(game->players[game_get_turn(game)], id);
@@ -346,7 +351,7 @@ Status game_set_object_location(Game *game, Id location, Id object_id) {
   } else {
     /*Caso space->player*/
     /*Le quitamos el objeto al space*/
-    
+
     /*Le damos el objeto al player*/
     if (player_add_object(game_get_player(game), object_id) == ERROR) {
       return ERROR;
@@ -756,12 +761,14 @@ Id Game_get_south(Game *game, Id current_location) {
   if (!game || !current_location) {
     return ERROR;
   }
+  printf("Southern neighbour: %li --> %li\n", current_location, Game_get_neighbour(game, current_location, S));
   return Game_get_neighbour(game, current_location, S);
 }
 Id Game_get_east(Game *game, Id current_location) {
   if (!game || !current_location) {
     return ERROR;
   }
+  printf("Eastern neighbour: %li --> %li\n", current_location, Game_get_neighbour(game, current_location, E));
   return Game_get_neighbour(game, current_location, E);
 }
 
@@ -769,6 +776,7 @@ Id Game_get_west(Game *game, Id current_location) {
   if (!game || !current_location) {
     return ERROR;
   }
+  printf("Western neighbour: %li --> %li\n", current_location, Game_get_neighbour(game, current_location, W));
   return Game_get_neighbour(game, current_location, W);
 }
 

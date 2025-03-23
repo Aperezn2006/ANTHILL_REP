@@ -98,8 +98,6 @@ Id game_get_space_id_at(Game *game, int position);
 /*Manejo de player*/
 Player **game_get_players(Game *game);
 
-Player *game_get_player(Game *game);
-
 /**
  * @brief It creates a pointer to a certain space using its id
  * @author Profesores PPROG
@@ -111,6 +109,16 @@ Player *game_get_player(Game *game);
 Player *game_get_player(Game *game);
 
 /**
+ * @brief It creates a pointer to a certain player using its index
+ * @author Ana
+ *
+ * @param game a pointer to the game
+ * @param n the index of the desired player
+ * @return a pointer to such player
+ */
+Player *game_get_n_player(Game *game, int n);
+
+/**
  * @brief It gets the player's location
  * @author Profesores PPROG
  *
@@ -118,6 +126,16 @@ Player *game_get_player(Game *game);
  * @return the player's location
  */
 Id game_get_player_location(Game *game);
+
+/**
+ * @brief It gets a certain player's location
+ * @author Ana
+ *
+ * @param game a pointer to the game
+ * @param n the index of the desired player
+ * @return the player's location
+ */
+Id game_get_n_player_location(Game *game, int n);
 
 /**
  * @brief It sets the player's locations
@@ -470,7 +488,7 @@ Status game_add_character(Game *game, Character *character);
  *
  * @param game a pointer to the game
  * @param current_location id of actual location
- * @return the id 
+ * @return the id
  */
 Id Game_get_north(Game *game, Id current_location);
 
@@ -480,7 +498,7 @@ Id Game_get_north(Game *game, Id current_location);
  *
  * @param game a pointer to the game
  * @param current_location id of actual location
- * @return the id 
+ * @return the id
  */
 Id Game_get_south(Game *game, Id current_location);
 
@@ -490,7 +508,7 @@ Id Game_get_south(Game *game, Id current_location);
  *
  * @param game a pointer to the game
  * @param current_location id of actual location
- * @return the id 
+ * @return the id
  */
 Id Game_get_east(Game *game, Id current_location);
 
@@ -500,7 +518,7 @@ Id Game_get_east(Game *game, Id current_location);
  *
  * @param game a pointer to the game
  * @param current_location id of actual location
- * @return the id 
+ * @return the id
  */
 Id Game_get_west(Game *game, Id current_location);
 
