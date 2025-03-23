@@ -142,9 +142,9 @@ Status game_load_everything(Game *game, char *filename) {
       toks = strtok(NULL, "|");
       strcpy(character_name, toks);
       toks = strtok(NULL, "|");
-      character_health = atol(toks);
-      toks = strtok(NULL, "|");
       character_location = atol(toks);
+      toks = strtok(NULL, "|");
+      character_health = atoi(toks);
       toks = strtok(NULL, "|");
       strcpy(character_desc, toks);
       toks = strtok(NULL, "|");
