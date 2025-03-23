@@ -744,57 +744,46 @@ Status game_add_player(Game *game, Player *player) {
   return OK;
 }
 
-
-Id Game_get_north(Game *game, Id current_location)
-{
-  if (!game || !current_location)
-  {
+Id Game_get_north(Game *game, Id current_location) {
+  if (!game || !current_location) {
     return ERROR;
   }
+  printf("Northern neighbour: %li --> %li\n", current_location, Game_get_neighbour(game, current_location, N));
   return Game_get_neighbour(game, current_location, N);
 }
 
-Id Game_get_south(Game *game, Id current_location)
-{
-  if (!game || !current_location)
-  {
+Id Game_get_south(Game *game, Id current_location) {
+  if (!game || !current_location) {
     return ERROR;
   }
   return Game_get_neighbour(game, current_location, S);
 }
-Id Game_get_east(Game *game, Id current_location)
-{
-  if (!game || !current_location)
-  {
+Id Game_get_east(Game *game, Id current_location) {
+  if (!game || !current_location) {
     return ERROR;
   }
   return Game_get_neighbour(game, current_location, E);
 }
 
-Id Game_get_west(Game *game, Id current_location)
-{
-  if (!game || !current_location)
-  {
+Id Game_get_west(Game *game, Id current_location) {
+  if (!game || !current_location) {
     return ERROR;
   }
   return Game_get_neighbour(game, current_location, W);
 }
 
-Id Game_get_neighbour(Game *game, Id current_location, Direction d)
-{
+Id Game_get_neighbour(Game *game, Id current_location, Direction d) {
   int i;
-  if (!game || current_location == NO_ID || !d)
-  {
+  if (!game || current_location == NO_ID || ((d != 0) && (d != 1) && (d != 2) && (d != 3))) {
     return NO_ID;
   }
 
-  for (i = 0; i < game->n_links; i++)
-  {
-    Link *link = game->links[i];
-    if (link_get_start(link) == current_location)
-    {
-      if (d == link_get_direction(link))
-        return link_get_end(link);
+  for (i = 0; i < game->n_links; i++) {
+    if (link_get_start(game->links[i]) == current_location) {
+      if (d == link_get_direction(game->links[i])) {
+        printf("CONNECTION FOUND BETWEEN %li and %li!\n", current_location, link_get_end(game->links[i])); /*Debug*/
+        return link_get_end(game->links[i]);
+      }
     }
   }
 
