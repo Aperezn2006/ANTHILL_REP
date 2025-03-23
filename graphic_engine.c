@@ -6,22 +6,21 @@
  * @date 11-02-2025
  */
 
+#include "graphic_engine.h"
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
-#include "libscreen.h"
-#include "graphic_engine.h"
 #include "command.h"
 #include "game.h"
+#include "libscreen.h"
 #include "space.h"
 #include "types.h"
 
-
-#define WIDTH_MAP 68
-#define WIDTH_DES 29
-#define WIDTH_BAN 23
+#define WIDTH_MAP 76 /*+8*/
+#define WIDTH_DES 37
+#define WIDTH_BAN 31
 #define HEIGHT_MAP 29
 #define HEIGHT_BAN 1
 #define HEIGHT_HLP 2
@@ -127,12 +126,20 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game) {
 
   /*  ESPACIOS */
   printHorizontalSection(ge, game, id_back, "   ");
-  if (id_back != NO_ID) {
-    screen_area_puts(ge->map, "                                 /\\");
+  if ((id_back != NO_ID) && (game_connection_is_open(game, id_act, N) == TRUE)) {
+    screen_area_puts(ge->map, "                                  [ ]");
+  } else if (game_connection_is_open(game, id_act, S) == FALSE) {
+    screen_area_puts(ge->map, "                                  [x]");
+  } else {
+    screen_area_puts(ge->map, " ");
   }
   printHorizontalSection(ge, game, id_act, player_get_description(game_get_player(game)));
-  if (id_next != NO_ID) {
-    screen_area_puts(ge->map, "                                 \\/");
+  if ((id_next != NO_ID) && (game_connection_is_open(game, id_act, S) == TRUE)) {
+    screen_area_puts(ge->map, "                                  [ ]");
+  } else if (game_connection_is_open(game, id_act, S) == FALSE) {
+    screen_area_puts(ge->map, "                                  [x]");
+  } else {
+    screen_area_puts(ge->map, " ");
   }
   printHorizontalSection(ge, game, id_next, "   ");
 
@@ -242,7 +249,7 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game) {
 
   screen_area_puts(ge->descript, "          .-----.");
   screen_area_puts(ge->descript, "         |   N   |");
-  screen_area_puts(ge->descript, "         | E + W |");
+  screen_area_puts(ge->descript, "         | W + E |");
   screen_area_puts(ge->descript, "         |   S   |");
   screen_area_puts(ge->descript, "          '-----'");
 
@@ -333,48 +340,51 @@ void printHorizontalSection(Graphic_engine *ge, Game *game, Id space_id, char *p
   if (space_id != NO_ID) {
     initDescStuff(game, space_id, objects, character_desc, space_desc1, space_desc2, space_desc3, space_desc4, space_desc5);
 
-    sprintf(str1, "                        +------------------+");
+    sprintf(str1, "                          +------------------+");
     if (space_get_discovered(game_get_space(game, space_id)) == TRUE) {
-      sprintf(str2, "                        | %s    %6s %3d|", player_desc, character_desc, (int)space_id);
+      sprintf(str2, "                          | %s    %6s %3d|", player_desc, character_desc, (int)space_id);
     } else {
-      sprintf(str2, "                        |               %3d|", (int)space_id);
+      sprintf(str2, "                          |                  |");
     }
-    sprintf(str3, "                        |     %s    |", space_desc1);
-    sprintf(str4, "                        |     %s    |", space_desc2);
-    sprintf(str5, "                        |     %s    |", space_desc3);
-    sprintf(str6, "                        |     %s    |", space_desc4);
-    sprintf(str7, "                        |     %s    |", space_desc5);
-    sprintf(str8, "                        |%s|", objects);
-    sprintf(str9, "                        +------------------+");
+    sprintf(str3, "                          |     %s    |", space_desc1);
+    sprintf(str4, "                          |     %s    |", space_desc2);
+    sprintf(str5, "                          |     %s    |", space_desc3);
+    sprintf(str6, "                          |     %s    |", space_desc4);
+    sprintf(str7, "                          |     %s    |", space_desc5);
+    sprintf(str8, "                          |%9s|", objects);
+
+    sprintf(str9, "                          +------------------+");
 
     /*  Si hay espacio a la derecha (id_east), concatenar */
     if (id_east != NO_ID) {
       initDescStuff(game, id_east, objects, character_desc, space_desc1, space_desc2, space_desc3, space_desc4, space_desc5);
 
-      strcat(str1, "   +------------------+");
+      strcat(str1, "     +------------------+");
       if (space_get_discovered(game_get_space(game, id_east)) == TRUE) {
-        sprintf(temp, "   |        %6s %3d|", character_desc, (int)id_east);
+        sprintf(temp, "     |        %6s %3d|", character_desc, (int)id_east);
       } else {
-        sprintf(temp, "   |               %3d|", (int)id_east);
+        sprintf(temp, "     |                  |");
       }
       strcat(str2, temp);
-      sprintf(temp, "   |     %s    |", space_desc1);
+      sprintf(temp, "     |     %s    |", space_desc1);
       strcat(str3, temp);
-      sprintf(temp, "   |     %s    |", space_desc2);
+      sprintf(temp, "     |     %s    |", space_desc2);
       strcat(str4, temp);
-      if (space_id == game_get_player_location(game)) {
-        sprintf(temp, " > |     %s    |", space_desc3);
+      if ((game_connection_is_open(game, space_id, E) == TRUE)) {
+        sprintf(temp, " [ ] |     %s    |", space_desc3);
+      } else if (game_connection_is_open(game, space_id, E) == FALSE) {
+        sprintf(temp, " [x] |     %s    |", space_desc3);
       } else {
-        sprintf(temp, "   |     %s    |", space_desc3);
+        sprintf(temp, "     |     %s    |", space_desc3);
       }
       strcat(str5, temp);
-      sprintf(temp, "   |     %s    |", space_desc4);
+      sprintf(temp, "     |     %s    |", space_desc4);
       strcat(str6, temp);
-      sprintf(temp, "   |     %s    |", space_desc5);
+      sprintf(temp, "     |     %s    |", space_desc5);
       strcat(str7, temp);
-      sprintf(temp, "   |%s|", objects);
+      sprintf(temp, "     |%9s|", objects);
       strcat(str8, temp);
-      sprintf(temp, "   +------------------+");
+      sprintf(temp, "     +------------------+");
       strcat(str9, temp);
     }
 
@@ -393,31 +403,33 @@ void printHorizontalSection(Graphic_engine *ge, Game *game, Id space_id, char *p
       eraseLeftSpaces(str8);
       eraseLeftSpaces(str9);
 
-      sprintf(temp, " +------------------+   %s", str1);
+      sprintf(temp, " +------------------+     %s", str1);
       strcpy(str1, temp);
       if (space_get_discovered(game_get_space(game, id_west)) == TRUE) {
-        sprintf(temp, " |        %6s %3d|   %s", character_desc, (int)id_west, str2);
+        sprintf(temp, " |        %6s %3d|     %s", character_desc, (int)id_west, str2);
       } else {
-        sprintf(temp, " |               %3d|   %s", (int)id_west, str2);
+        sprintf(temp, " |                  |     %s", str2);
       }
       strcpy(str2, temp);
-      sprintf(temp, " |     %s    |   %s", space_desc1, str3);
+      sprintf(temp, " |     %s    |     %s", space_desc1, str3);
       strcpy(str3, temp);
-      sprintf(temp, " |     %s    |   %s", space_desc2, str4);
+      sprintf(temp, " |     %s    |     %s", space_desc2, str4);
       strcpy(str4, temp);
-      if (space_id == game_get_player_location(game)) {
-        sprintf(temp, " |     %s    | < %s", space_desc3, str5);
+      if ((game_connection_is_open(game, space_id, W) == TRUE)) {
+        sprintf(temp, " |     %s    | [ ] %s", space_desc3, str5);
+      } else if (game_connection_is_open(game, space_id, W) == FALSE) {
+        sprintf(temp, " |     %s    | [x] %s", space_desc3, str5);
       } else {
-        sprintf(temp, " |     %s    |   %s", space_desc3, str5);
+        sprintf(temp, " |     %s    |     %s", space_desc3, str5);
       }
       strcpy(str5, temp);
-      sprintf(temp, " |     %s    |   %s", space_desc4, str6);
+      sprintf(temp, " |     %s    |     %s", space_desc4, str6);
       strcpy(str6, temp);
-      sprintf(temp, " |     %s    |   %s", space_desc5, str7);
+      sprintf(temp, " |     %s    |     %s", space_desc5, str7);
       strcpy(str7, temp);
-      sprintf(temp, " |%s|   %s", objects, str8);
+      sprintf(temp, " |%9s|     %s", objects, str8);
       strcpy(str8, temp);
-      sprintf(temp, " +------------------+   %s", str9);
+      sprintf(temp, " +------------------+     %s", str9);
       strcpy(str9, temp);
     }
 
