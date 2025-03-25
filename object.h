@@ -1,7 +1,7 @@
 /**
  * @brief It defines the object module interface
  *
- * @file object.c
+ * @file object.h
  * @author Rubén, Ana
  * @version 1
  * @date 11-02-2024
@@ -54,7 +54,15 @@ Id object_get_id(Object *object);
  */
 const char *object_get_name(Object *object);
 
+/**
+ * @brief It gets the description of a object
+ * @author Ana
+ *
+ * @param object a pointer to the object
+ * @return a string with the description of the object
+ */
 const char *object_get_desc(Object *object);
+
 /*  SET */
 
 /**
@@ -77,14 +85,22 @@ Status object_set_id(Object *object, Id id);
  */
 Status object_set_name(Object *object, char *name);
 
+/**
+ * @brief It sets the description of a object
+ * @author Ana
+ *
+ * @param object a pointer to the object
+ * @param desc a string with the description to store
+ * @return OK, if everything goes well or ERROR if there was some mistake
+ */
 Status object_set_desc(Object *object, char *desc);
 
 /**
  * @brief It prints the object information
  * @author Ana
  *
- * This fucntion shows the id and name of the object, the objects that surrounds
- * it and wheter it has an object or not.
+ * This function shows the id and name of the object, the objects that surrounds
+ * it and whether it has an object or not.
  * @param object a pointer to the object
  * @return OK, if everything goes well or ERROR if there was some mistake
  */

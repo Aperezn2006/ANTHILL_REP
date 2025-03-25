@@ -19,12 +19,12 @@
 #include "types.h"
 
 /**
- * @brief It loads the spaces that are adyacent to the current one
+ * @brief It loads the spaces that are adjacent to the current one
  * @author Profesores PPROG
  *
  * @param game a pointer to the game
  * @param filename a pointer to the file where the spaces are defined
- * @return ERROR if anything goes wrong
+ * @return OK if everything goes well, ERROR otherwise
  */
 Status game_load_everything(Game *game, char *filename);
 
@@ -34,7 +34,7 @@ Status game_load_everything(Game *game, char *filename);
  *
  * @param game a pointer to the game
  * @param filename a pointer to the file where the spaces are defined
- * @return OK if everything goes well
+ * @return OK if everything goes well, ERROR otherwise
  */
 Status game_create_from_file(Game *game, char *filename);
 

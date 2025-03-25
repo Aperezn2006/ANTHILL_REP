@@ -37,7 +37,7 @@ Command *command_create();
  * @author Profesores PPROG
  *
  * @param command a pointer to the command
- * @return a pointer to the new command
+ * @return OK if everything went well, ERROR otherwise
  */
 Status command_destroy(Command *command);
 
@@ -52,11 +52,11 @@ Status command_destroy(Command *command);
 Status command_set_code(Command *command, CommandCode code);
 
 /**
- * @brief
- * @author
+ * @brief It gets the object associated with a command
+ * @author Profesores PPROG
  *
- * @param command
- * @param code a struct of a command
+ * @param command a pointer to the command
+ * @return the object associated with the command
  */
 char *command_get_obj(Command *c);
 
@@ -78,9 +78,8 @@ CommandCode command_get_code(Command *command);
  */
 Status command_get_user_input(Command *command);
 
-/*Manejo del result*/
 /**
- * @brief It gets wheter the command was succesful or not
+ * @brief It gets whether the command was successful or not
  * @author Ana
  *
  * @param command a pointer to the command

@@ -25,7 +25,7 @@
  *
  * @param game a pointer to the game
  * @param cmd a pointer to the command
- * @return OK if everything goes well
+ * @return OK if everything goes well, ERROR otherwise
  */
 Status game_actions_update(Game *game, Command *cmd);
 

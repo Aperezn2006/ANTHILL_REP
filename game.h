@@ -22,8 +22,10 @@
 typedef struct _Game Game;
 
 Id game_get_connection(Game *game, Id current_location, Direction direction);
-Bool game_connection_is_open(Game *game, Id current_location, Direction direction);
-Status game_add_link(Game *game, Id id, Id origin, Id destination, Direction dir, Bool open);
+Bool game_connection_is_open(Game *game, Id current_location,
+                             Direction direction);
+Status game_add_link(Game *game, Id id, Id origin, Id destination,
+                     Direction dir, Bool open);
 
 /*Create & destroy*/
 /**
@@ -31,16 +33,16 @@ Status game_add_link(Game *game, Id id, Id origin, Id destination, Direction dir
  * @author Profesores PPROG
  *
  * @param game a pointer to the game
- * @return OK if everything goes well
+ * @return OK if everything goes well, ERROR otherwise
  */
 Status game_create(Game *game);
 
 /**
- * @brief It frees the memory the game was ocuppying
+ * @brief It frees the memory the game was occupying
  * @author Profesores PPROG
  *
  * @param game a pointer to the game
- * @return OK if everything goes well
+ * @return OK if everything goes well, ERROR otherwise
  */
 Status game_destroy(Game *game);
 
@@ -56,7 +58,7 @@ Game *game_init();
 /*Manejo de spaces*/
 /**
  * @brief It gets an array of all the game's spaces
- * @author RUbén
+ * @author Rubén
  *
  * @param game a pointer to the game
  * @return an array of pointers to spaces
@@ -74,7 +76,8 @@ Space **game_get_space_pointer(Game *game);
 Space *game_get_space(Game *game, Id id);
 
 /**
- * @brief It gets the name of the object located in the n position of the array of objects in the space and copies it to "name"
+ * @brief It gets the name of the object located in the n position of the array
+ * of objects in the space and copies it to "name"
  * @author Ana
  *
  * @param game a pointer to the game
@@ -90,7 +93,7 @@ Status space_get_object_name(Game *game, Id space_id, int n, char *name);
  * @author Profesores PPROG
  *
  * @param game a pointer to the game
- * @param positition the position of
+ * @param position the position of the space in the array
  * @return the id of the space in a certain position
  */
 Id game_get_space_id_at(Game *game, int position);
@@ -150,7 +153,7 @@ Status game_set_player_location(Game *game, Id id);
 /*Manejo de objects*/
 /**
  * @brief It creates an array of pointers to the objects of the game
- * @author RUbén
+ * @author Rubén
  *
  * @param game a pointer to the game
  * @return an array of pointers to objects
@@ -189,11 +192,12 @@ Status game_set_object_location(Game *game, Id location, Id object_id);
 Object *game_get_object_from_id(Game *game, Id object_id);
 
 /**
- * @brief It gets a pointer to the object in a certain position of the game's array aof objects
+ * @brief It gets a pointer to the object in a certain position of the game's
+ * array aof objects
  * @author Ana
  *
  * @param game a pointer to the game
- * @return a poiner to the object
+ * @return a pointer to the object
  */
 Object *game_get_object_from_position(Game *game, int n);
 
@@ -223,7 +227,7 @@ Character **game_get_characters(Game *game);
  * @author Rubén
  *
  * @param game a pointer to the game
- * @return a poibter to the character
+ * @return a pointer to the character
  */
 Character *game_get_character(Game *game, Id character_id);
 
@@ -265,7 +269,8 @@ Id game_get_character_id_from_name(Game *game, char *name);
 int game_get_num_characters(Game *game);
 
 /**
- * @brief It gets a pointer to the character in the n position of the game's array of characters
+ * @brief It gets a pointer to the character in the n position of the game's
+ * array of characters
  * @author Ana
  *
  * @param game a pointer to the game
@@ -274,7 +279,7 @@ int game_get_num_characters(Game *game);
 Character *game_get_n_character(Game *game, int n);
 
 /**
- * @brief It gets the description of the character locate din a certain space
+ * @brief It gets the description of the character located in a certain space
  * @author Ana
  *
  * @param game a pointer to the game
@@ -287,9 +292,10 @@ char *game_get_character_desc_at_space(Game *game, Id space_id);
  * @author Ana
  *
  * @param game a pointer to the game
- * @return Ok if everything went well, ERROR otherwise
+ * @return OK if everything went well, ERROR otherwise
  */
-Status game_character_set_location(Game *game, Id character_id, Id character_location);
+Status game_character_set_location(Game *game, Id character_id,
+                                   Id character_location);
 
 /*Manejo de n_objects*/
 /**
@@ -313,7 +319,7 @@ void game_increment_num_objects(Game *game);
 /*Manejo de n_spaces*/
 /**
  * @brief It gets the number of spaces in the game
- * @author RUbén
+ * @author Rubén
  *
  * @param game a pointer to the game
  * @return the number of spaces
@@ -341,7 +347,7 @@ int game_get_num_characters(Game *game);
 
 /**
  * @brief It increments the number of characters in the game
- * @author RUbén
+ * @author Rubén
  *
  * @param game a pointer to the game
  * @return nothing

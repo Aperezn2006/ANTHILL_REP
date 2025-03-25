@@ -1,7 +1,7 @@
 /**
- * @brief It defines the screen interface
+ * @brief It defines the inventory interface
  *
- * @file libscreen.h
+ * @file inventory.h
  * @author Profesores PPROG, Rubén, Ana, Arturo, Bea
  * @version 4.5
  * @date 11-02-2024
@@ -25,6 +25,7 @@ Status inventory_destroy(Inventory *inventory);
  * @author Profesores PPROG, Rubén, Ana, Arturo, Bea
  *
  * @param inventory a pointer to the inventory
+ * @param object_id the id of the object to be added
  * @return OK, if everything goes well or ERROR if there was some mistake
  */
 Status inventory_add_object(Inventory *inventory, Id object_id);
@@ -34,6 +35,7 @@ Status inventory_add_object(Inventory *inventory, Id object_id);
  * @author Profesores PPROG, Rubén, Ana, Arturo, Bea
  *
  * @param inventory a pointer to the inventory
+ * @param object_id the id of the object to be removed
  * @return OK, if everything goes well or ERROR if there was some mistake
  */
 Status inventory_remove_object(Inventory *inventory, Id object_id);
@@ -51,6 +53,7 @@ int inventory_get_num_objs(Inventory *inventory);
 Id inventory_get_obj_by_iteration(Inventory *inventory, int n);
 
 int get_obj_act_possition(Inventory *inventory, Id object_id); /*terminar*/
+
 /**
  * @brief It prints the inventory information
  * @author Profesores PPROG, Rubén, Ana, Arturo, Bea
@@ -60,6 +63,13 @@ int get_obj_act_possition(Inventory *inventory, Id object_id); /*terminar*/
  */
 Status inventory_print(Inventory *inventory);
 
+/**
+ * @brief It frees the memory allocated for the inventory
+ * @author Profesores PPROG, Rubén, Ana, Arturo, Bea
+ *
+ * @param inventory a pointer to the inventory
+ * @return OK, if everything goes well or ERROR if there was some mistake
+ */
 Status inventory_free(Inventory *inventory);
 
 #endif

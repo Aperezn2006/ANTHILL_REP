@@ -42,12 +42,20 @@ void graphic_engine_destroy(Graphic_engine *ge);
  * @brief It paints the game's data on the user's screen
  * @author Rubén, Arturo, Bea, Ana, Profesores PPROG
  *
- * @param game a pointer to the game
  * @param ge a pointer to the graphic engine
+ * @param game a pointer to the game
  * @return nothing
  */
 void graphic_engine_paint_game(Graphic_engine *ge, Game *game);
 
+/**
+ * @brief It paints the end game screen
+ * @author Rubén, Arturo, Bea, Ana, Profesores PPROG
+ *
+ * @param ge a pointer to the graphic engine
+ * @param game a pointer to the game
+ * @return nothing
+ */
 void graphic_engine_paint_end(Graphic_engine *ge, Game *game);
 
 #endif

@@ -1,3 +1,11 @@
+/**
+ * @brief It defines the unit tests for the set module
+ *
+ * @file set_test.h
+ * @version 1.0
+ * @date 11-02-2025
+ */
+
 #ifndef SET_TEST_H
 #define SET_TEST_H
 
@@ -94,12 +102,5 @@ void test1_set_get_n();
  * @post Output == NO_ID
  */
 void test2_set_get_n();
-
-/**
- * @test Test printing a set
- * @pre Valid set with elements
- * @post Printed output
- */
-
 
 #endif /* SET_TEST_H */

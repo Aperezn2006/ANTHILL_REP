@@ -19,8 +19,7 @@ typedef struct _Character Character;
 
 /*  Create y destroy */
 /**
- * @brief It creates a new character, allocating memory and initializing its
- * members
+ * @brief It creates a new character, allocating memory and initializing its members
  * @author Ana
  *
  * @param id the identification number for the new character
@@ -185,7 +184,7 @@ char *character_get_message(Character *character);
  * @param message the message the character will display when prompted
  * @return OK if everything went well, ERROR otherwise
  */
-Status character_set_message(Character *characte, char *message);
+Status character_set_message(Character *character, char *message);
 
 /*  Print */
 /**

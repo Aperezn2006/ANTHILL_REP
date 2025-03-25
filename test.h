@@ -1,3 +1,11 @@
+/**
+ * @brief It defines macros and variables for unit testing
+ *
+ * @file test.h
+ * @version 1.0
+ * @date 11-02-2025
+ */
+
 #ifndef _TEST_H
 #define _TEST_H
 
@@ -17,15 +25,23 @@
 #define RESET
 #endif
 
+/**
+ * @brief Macro to print the result of a test
+ *
+ * @param x the result of the test (TRUE or FALSE)
+ */
 #define PRINT_TEST_RESULT(x) do{					\
     __test_counter++;							\
     __pass = (x);							\
     __test_passed = (__pass)? __test_passed + 1 : __test_passed;	\
     printf(KYEL "%s" RESET " line "  "%d " KCYN "%s" RESET ": %s\n",	\
-	   __FILE__, __LINE__ , __FUNCTION__,				\
-	   ((!__pass) ? KRED "NOT PASS" RESET : KGRN "PASS" RESET));	\
+       __FILE__, __LINE__ , __FUNCTION__,				\
+       ((!__pass) ? KRED "NOT PASS" RESET : KGRN "PASS" RESET));	\
   } while (0)
 
+/**
+ * @brief Macro to print the percentage of passed tests
+ */
 #define PRINT_PASSED_PERCENTAGE printf("Tests passed %d%%\n", ((__test_passed * 100) / __test_counter))
       
 static int __test_counter = 0;
