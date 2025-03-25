@@ -54,6 +54,7 @@ Id object_get_id(Object *object);
  */
 const char *object_get_name(Object *object);
 
+const char *object_get_desc(Object *object);
 /*  SET */
 
 /**
@@ -75,6 +76,8 @@ Status object_set_id(Object *object, Id id);
  * @return OK, if everything goes well or ERROR if there was some mistake
  */
 Status object_set_name(Object *object, char *name);
+
+Status object_set_desc(Object *object, char *desc);
 
 /**
  * @brief It prints the object information

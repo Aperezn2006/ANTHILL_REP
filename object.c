@@ -19,6 +19,7 @@
 struct _Object {
   Id id;                    /*!< Id number of the object, it must be unique */
   char name[WORD_SIZE + 1]; /*!< Name of the object */
+  char desc[WORD_SIZE];
 };
 
 Object *object_create(Id id, Id location) {
@@ -35,6 +36,7 @@ Object *object_create(Id id, Id location) {
   /* Initialization of an empty object */
   newobject->id = id;
   newobject->name[0] = '\0';
+  newobject->desc[0] = '\0';
 
   printf("Object created with ID: %ld, Location: %ld\n", id, location); /*  Debug statement */
 
@@ -67,6 +69,14 @@ const char *object_get_name(Object *object) {
   }
   return object->name;
 }
+
+const char *object_get_desc(Object *object) {
+  if (!object) {
+    return NULL;
+  }
+  return object->desc;
+}
+
 /*  SET */
 
 Status object_set_id(Object *object, Id id) {
@@ -83,6 +93,18 @@ Status object_set_name(Object *object, char *name) {
   }
 
   if (!strcpy(object->name, name)) {
+    return ERROR;
+  }
+
+  return OK;
+}
+
+Status object_set_desc(Object *object, char *desc) {
+  if (!object || !desc) {
+    return ERROR;
+  }
+
+  if (!strcpy(object->desc, desc)) {
     return ERROR;
   }
 

@@ -61,7 +61,7 @@ Status game_load_everything(Game *game, char *filename) {
   Direction dir = NO_DIR;
   Bool open = FALSE;
   Status status = OK;
-  char gdesc[5][10];
+  char gdesc[5][10], object_desc[WORD_SIZE];
   char character_desc[7], character_message[MAX_MESSAGE], character_friendliness[6];
   int i = 0, character_health = 0;
 
@@ -121,10 +121,13 @@ Status game_load_everything(Game *game, char *filename) {
       strcpy(object_name, toks);
       toks = strtok(NULL, "|");
       object_location = atol(toks);
+      toks = strtok(NULL, "|");
+      strcpy(object_desc, toks);
 
       object = object_create(object_id, object_location);
       if (object) {
         object_set_name(object, object_name);
+        object_set_desc(object, object_desc);
         if (game_add_object(game, object) == ERROR) {
           object_destroy(object);
           status = ERROR;

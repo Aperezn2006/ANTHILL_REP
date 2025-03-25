@@ -20,8 +20,8 @@
 #define CMD_LENGHT 40
 
 /* Comandos dentro del juego */
-char *cmd_to_str[N_CMD][N_CMDT] = {{"", "No command"}, {"", "Unknown"}, {"e", "Exit"},   {"m", "Move"},
-                                   {"t", "Take"},      {"d", "Drop"},   {"a", "Attack"}, {"c", "Chat"}};
+char *cmd_to_str[N_CMD][N_CMDT] = {{"", "No command"}, {"", "Unknown"}, {"e", "Exit"}, {"m", "Move"},   {"t", "Take"},
+                                   {"d", "Drop"},      {"a", "Attack"}, {"c", "Chat"}, {"i", "Inspect"}};
 
 /**
  * @brief Command

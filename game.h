@@ -406,6 +406,11 @@ char *game_get_message(Game *game);
  */
 Status game_set_message(Game *game, char *message);
 
+/*Manejo de object_desc*/
+char *game_get_object_desc(Game *game);
+
+Status game_set_object_desc(Game *game, char *object_desc);
+
 /*Manejo de finished*/
 /**
  * @brief It gets whether the game is finished or not

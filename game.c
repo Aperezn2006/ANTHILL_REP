@@ -38,6 +38,7 @@ struct _Game {
   int n_players;
   Command *last_cmd;
   char message[WORD_SIZE];
+  char object_desc[WORD_SIZE];
   Bool finished;
   int turn;
 };
@@ -611,6 +612,25 @@ Status game_set_message(Game *game, char *message) {
   }
 
   strcpy(game->message, message);
+
+  return OK;
+}
+
+/*Manejo de object_desc*/
+char *game_get_object_desc(Game *game) {
+  if (!game) {
+    return NULL;
+  }
+
+  return game->object_desc;
+}
+
+Status game_set_object_desc(Game *game, char *object_desc) {
+  if (!game) {
+    return ERROR;
+  }
+
+  strcpy(game->object_desc, object_desc);
 
   return OK;
 }

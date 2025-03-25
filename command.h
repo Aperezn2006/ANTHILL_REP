@@ -15,11 +15,11 @@
 
 #define N_CMDT 2
 /*  cambiamos a el numero que tenga el command.c */
-#define N_CMD 12
+#define N_CMD 13
 
 typedef enum { CMDS, CMDL } CommandType;
 
-typedef enum { NO_CMD = -1, UNKNOWN, EXIT, MOVE, TAKE, DROP, ATTACK, CHAT } CommandCode;
+typedef enum { NO_CMD = -1, UNKNOWN, EXIT, MOVE, TAKE, DROP, ATTACK, CHAT, INSPECT } CommandCode;
 
 typedef struct _Command Command;
 

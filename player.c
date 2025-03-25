@@ -12,12 +12,12 @@
 información relacionada con el estado del protagonista (ubicación, objetos que
 tiene, puntos de vida, etc.).*/
 #include "player.h"
-#include "inventory.h"
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
+#include "inventory.h"
 #include "set.h"
 
 /**
@@ -32,7 +32,6 @@ struct _Player {
   long health;              /*!< Health points the player has */
   char gdesc[4];
   Inventory *backpack;
-
 };
 
 /*Create & destroy*/
@@ -232,14 +231,13 @@ char *player_get_description(Player *player) {
   return player->gdesc;
 }
 
-Status player_set_max_objs (Player *player, int max){
-  if (!player){
+Status player_set_max_objs(Player *player, int max) {
+  if (!player) {
     return ERROR;
   }
-  inventory_set_max_objs (player->backpack, max);
+  inventory_set_max_objs(player->backpack, max);
   return OK;
 }
-
 
 /*Print*/
 Status player_print(Player *player) {

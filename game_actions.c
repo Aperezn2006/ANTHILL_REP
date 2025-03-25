@@ -84,6 +84,15 @@ Status game_actions_attack(Game *game);
 Status game_actions_chat(Game *game);
 
 /**
+ * @brief It allows the player to inspect an object
+ * @author
+ *
+ * @param game a pointer to the game
+ * @return OK if everything goes well, ERROR otherwise
+ */
+Status game_actions_inspect(Game *game);
+
+/**
    Game actions implementation
 */
 
@@ -121,6 +130,10 @@ Status game_actions_update(Game *game, Command *command) {
 
     case CHAT:
       command_set_result(command, game_actions_chat(game));
+      break;
+
+    case INSPECT:
+      command_set_result(command, game_actions_inspect(game));
       break;
 
     default:
@@ -400,5 +413,53 @@ Status game_actions_chat(Game *game) {
   /*  El personaje lanza su mensaje */
   game_set_message(game, character_get_message(character));
 
+  return OK;
+}
+
+Status game_actions_inspect(Game *game) {
+  Id player_location, object_id;
+  Command *c = NULL;
+  char object_name[WORD_SIZE] = "";
+  char object_description[WORD_SIZE];
+
+  fprintf(stdout, "[DEBUG] Starting game_actions_inspect\n");
+
+  if (!game) {
+    fprintf(stdout, "[DEBUG] Game pointer is NULL\n");
+    return ERROR;
+  }
+
+  player_location = game_get_player_location(game);
+  fprintf(stdout, "[DEBUG] Player location: %ld\n", player_location);
+
+  c = game_get_last_command(game);
+  if (!c) {
+    fprintf(stdout, "[DEBUG] Last command is NULL\n");
+    return ERROR;
+  }
+
+  strcpy(object_name, command_get_obj(c));
+  fprintf(stdout, "[DEBUG] Object name from command: %s\n", object_name);
+
+  if (strcmp(object_name, "") == 0) {
+    fprintf(stdout, "[DEBUG] Object name is empty\n");
+    return ERROR;
+  }
+
+  object_id = game_get_object_id_from_name(game, object_name);
+  fprintf(stdout, "[DEBUG] Object ID: %ld\n", object_id);
+
+  if (space_has_object(game_get_space(game, player_location), object_id) == TRUE || player_has_object(game_get_player(game), object_id) == TRUE) {
+    printf("AAAAAAAA\n");
+    strcpy(object_description, object_get_desc(game_get_object_from_id(game, object_id)));
+
+    fprintf(stdout, "[DEBUG] Object description: %s\n", object_description);
+    game_set_object_desc(game, object_description);
+  } else {
+    fprintf(stdout, "[DEBUG] Object not found in player's location or inventory\n");
+    return ERROR;
+  }
+
+  fprintf(stdout, "[DEBUG] game_actions_inspect completed successfully\n");
   return OK;
 }

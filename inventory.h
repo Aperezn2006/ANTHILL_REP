@@ -1,18 +1,18 @@
 /**
-* @brief It defines the screen interface
-*
-* @file libscreen.h
-* @author Profesores PPROG, Rubén, Ana, Arturo, Bea
-* @version 4.5
-* @date 11-02-2024
-* @copyright GNU Public License
-*/
+ * @brief It defines the screen interface
+ *
+ * @file libscreen.h
+ * @author Profesores PPROG, Rubén, Ana, Arturo, Bea
+ * @version 4.5
+ * @date 11-02-2024
+ * @copyright GNU Public License
+ */
 
 #ifndef INVENTORY_H
 #define INVENTORY_H
 
-#include "types.h"
 #include "set.h"
+#include "types.h"
 
 typedef struct _Inventory Inventory;
 
@@ -50,7 +50,7 @@ int inventory_get_num_objs(Inventory *inventory);
 
 Id inventory_get_obj_by_iteration(Inventory *inventory, int n);
 
-int get_obj_act_possition(Inventory *inventory, Id object_id);  /*terminar*/
+int get_obj_act_possition(Inventory *inventory, Id object_id); /*terminar*/
 /**
  * @brief It prints the inventory information
  * @author Profesores PPROG, Rubén, Ana, Arturo, Bea

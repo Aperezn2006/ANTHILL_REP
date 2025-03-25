@@ -250,6 +250,14 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game) {
     screen_area_puts(ge->descript, str1);
   }
 
+  /*  Object_desc */
+  if (game_get_object_desc(game)[0] != '\0') {
+    sprintf(str1, " "); /*  Hueco para que quede mono */
+    screen_area_puts(ge->descript, str1);
+    sprintf(str1, " Object description: %s", game_get_object_desc(game)); /*  Banner */
+    screen_area_puts(ge->descript, str1);
+  }
+
   /*Brújula*/
   screen_area_puts(ge->descript, " ");
   screen_area_puts(ge->descript, " ");
