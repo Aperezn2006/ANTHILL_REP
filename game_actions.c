@@ -2,7 +2,7 @@
  * @brief It implements the game update through user actions
  *
  * @file game_actions.c
- * @author Profesores PPROG, Rubén, Ana
+ * @author Profesores PPROG, Rubén, Ana, Arturo, Bea
  * @version 1
  * @date 11-02-2025
  * @copyright GNU Public License
