@@ -195,13 +195,6 @@ Game *game_init() {
 }
 
 /*Manejo de spaces*/
-Space **game_get_space_pointer(Game *game) {
-  if (!game) {
-    return NULL;
-  }
-  return game->spaces;
-}
-
 Space *game_get_space(Game *game, Id id) {
   int i;
   if (!game || id == NO_ID) return NULL;
@@ -235,7 +228,7 @@ Status space_get_object_name(Game *game, Id space_id, int n, char *name) {
 }
 
 Id game_get_space_id_at(Game *game, int position) {
-  Space **spaces = game_get_space_pointer(game);
+  Space **spaces = game->spaces;
 
   if (!game || position < 0 || position >= game_get_num_spaces(game)) {
     printf("Error: Invalid game or position\n");
@@ -288,13 +281,6 @@ Status game_set_player_location(Game *game, Id id) {
 }
 
 /*Manejo de objects*/
-Object **game_get_object_pointer(Game *game) {
-  if (!game) {
-    return NULL;
-  }
-  return game->objects;
-}
-
 Object *game_get_n_object(Game *game, int n) {
   if (!game) {
     return NULL;
@@ -690,7 +676,7 @@ void game_print(Game *game) {
 
 /*Adds*/
 Status game_add_space(Game *game, Space *space) {
-  Space **spaces = game_get_space_pointer(game);
+  Space **spaces = game->spaces;
 
   if (!game || !space || game_get_num_spaces(game) >= MAX_SPACES) {
     printf("Error: Invalid game or space, or maximum spaces reached\n");
@@ -710,7 +696,7 @@ Status game_add_space(Game *game, Space *space) {
 }
 
 Status game_add_object(Game *game, Object *object) {
-  Object **objects = game_get_object_pointer(game);
+  Object **objects = game->objects;
 
   if (!game || !object || game_get_num_objects(game) >= MAX_OBJECTS) {
     printf("Error: Invalid game or object, or maximum objects reached\n");

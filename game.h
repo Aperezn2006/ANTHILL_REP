@@ -22,10 +22,8 @@
 typedef struct _Game Game;
 
 Id game_get_connection(Game *game, Id current_location, Direction direction);
-Bool game_connection_is_open(Game *game, Id current_location,
-                             Direction direction);
-Status game_add_link(Game *game, Id id, Id origin, Id destination,
-                     Direction dir, Bool open);
+Bool game_connection_is_open(Game *game, Id current_location, Direction direction);
+Status game_add_link(Game *game, Id id, Id origin, Id destination, Direction dir, Bool open);
 
 /*Create & destroy*/
 /**
@@ -56,15 +54,6 @@ Status game_destroy(Game *game);
 Game *game_init();
 
 /*Manejo de spaces*/
-/**
- * @brief It gets an array of all the game's spaces
- * @author Rubén
- *
- * @param game a pointer to the game
- * @return an array of pointers to spaces
- */
-Space **game_get_space_pointer(Game *game);
-
 /**
  * @brief It creates a pointer to a certain space using its id
  * @author Profesores PPROG
@@ -294,8 +283,7 @@ char *game_get_character_desc_at_space(Game *game, Id space_id);
  * @param game a pointer to the game
  * @return OK if everything went well, ERROR otherwise
  */
-Status game_character_set_location(Game *game, Id character_id,
-                                   Id character_location);
+Status game_character_set_location(Game *game, Id character_id, Id character_location);
 
 /*Manejo de n_objects*/
 /**
