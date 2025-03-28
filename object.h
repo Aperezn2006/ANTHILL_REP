@@ -95,6 +95,11 @@ Status object_set_name(Object *object, char *name);
  */
 Status object_set_desc(Object *object, char *desc);
 
+/*Manejo de inspected*/
+Status object_set_inspected(Object *object, Bool inspected);
+
+Bool object_get_inspected(Object *object);
+
 /**
  * @brief It prints the object information
  * @author Beatriz, Arturo, Rubén, Ana

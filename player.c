@@ -231,6 +231,7 @@ char *player_get_description(Player *player) {
   return player->gdesc;
 }
 
+/*Manejo de inventory*/
 Status player_set_max_objs(Player *player, int max) {
   if (!player) {
     return ERROR;
@@ -239,6 +240,13 @@ Status player_set_max_objs(Player *player, int max) {
   return OK;
 }
 
+Inventory *player_get_inventory(Player *player) {
+  if (!player) {
+    return NULL;
+  }
+
+  return player->backpack;
+}
 /*Print*/
 Status player_print(Player *player) {
   /* Error Control */

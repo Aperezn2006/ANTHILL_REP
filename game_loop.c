@@ -102,6 +102,7 @@ void game_loop_run(Game *game, Graphic_engine *gengine) {
 
   while ((command_get_code(last_cmd) != EXIT) && (game_get_finished(game) == FALSE)) {
     space_set_discovered(game_get_space(game, game_get_player_location(game)), TRUE);
+    graphic_engine_paint_inventory(gengine, game);
     graphic_engine_paint_game(gengine, game);
     command_get_user_input(last_cmd);
     game_actions_update(game, last_cmd);

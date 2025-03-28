@@ -20,6 +20,7 @@ struct _Object {
   Id id;                    /*!< Id number of the object, it must be unique */
   char name[WORD_SIZE + 1]; /*!< Name of the object */
   char desc[WORD_SIZE];
+  Bool inspected;
 };
 
 Object *object_create(Id id, Id location) {
@@ -109,6 +110,25 @@ Status object_set_desc(Object *object, char *desc) {
   }
 
   return OK;
+}
+
+/*Manejo de inspected*/
+Status object_set_inspected(Object *object, Bool inspected) {
+  if (!object) {
+    return ERROR;
+  }
+
+  object->inspected = inspected;
+
+  return OK;
+}
+
+Bool object_get_inspected(Object *object) {
+  if (!object) {
+    return FALSE;
+  }
+
+  return object->inspected;
 }
 
 Status object_print(Object *object) {

@@ -214,7 +214,8 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game) {
   /*  Bucle para los objetos dentro del inventario */
   sprintf(str1, " "); /*  Hueco para que quede mono */
   screen_area_puts(ge->descript, str1);
-  sprintf(str1, " Inventory:"); /*  Banner */
+  sprintf(str1, " Inventory: (%i/%i)", inventory_get_num_objs(player_get_inventory(game_get_player(game))),
+          inventory_get_max_objs(player_get_inventory(game_get_player(game)))); /*  Banner */
   screen_area_puts(ge->descript, str1);
 
   for (i = 0; i < game_get_num_objects(game); i++) {
@@ -269,7 +270,7 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game) {
   screen_area_puts(ge->descript, "           '-----'");
 
   /*  BANNER r */
-  screen_area_puts(ge->banner, "    The anthill game ");
+  screen_area_puts(ge->banner, "       The anthill game ");
 
   /*  HELP */
   screen_area_clear(ge->help);
@@ -488,6 +489,29 @@ void graphic_engine_paint_end(Graphic_engine *ge, Game *game) {
   screen_area_puts(ge->map, "                                 GAME OVER");
   for (i = 0; i < 15; i++) {
     screen_area_puts(ge->map, " ");
+  }
+
+  screen_paint(game_get_turn(game) % 7);
+}
+
+void graphic_engine_paint_inventory(Graphic_engine *ge, Game *game) {
+  char str1[1024];
+  int i = 0;
+
+  screen_area_clear(ge->map);
+  screen_area_puts(ge->map, " ");
+
+  sprintf(str1, "       Object:      |                   Observations:                       ");
+  screen_area_puts(ge->map, str1);
+  for (i = 0; i < inventory_get_num_objs(player_get_inventory(game_get_player(game))); i++) {
+    sprintf(str1, "----------------------------------------------------------------------------");
+    screen_area_puts(ge->map, str1);
+    if (object_get_inspected(game_get_n_object(game, i)) == TRUE) {
+      sprintf(str1, "       %14s |%60s", object_get_name(game_get_n_object(game, i)), object_get_desc(game_get_n_object(game, i)));
+    } else {
+      sprintf(str1, "%20s| No info yet", object_get_name(game_get_n_object(game, i)));
+    }
+    screen_area_puts(ge->map, str1);
   }
 
   screen_paint(game_get_turn(game) % 7);

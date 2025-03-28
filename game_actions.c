@@ -460,6 +460,8 @@ Status game_actions_inspect(Game *game) {
     return ERROR;
   }
 
+  object_set_inspected(game_get_object_from_id(game, object_id), TRUE);
+
   fprintf(stdout, "[DEBUG] game_actions_inspect completed successfully\n");
   return OK;
 }

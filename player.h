@@ -185,7 +185,7 @@ Status player_set_description(Player *player, char *gdesc);
 
 char *player_get_description(Player *player);
 
-/*Manejo de max_objs*/
+/*Manejo de inventory*/
 /**
  * @brief It sets the maximum number of objects a player can carry
  *
@@ -194,6 +194,14 @@ char *player_get_description(Player *player);
  * @return OK, if everything goes well or ERROR if there was some mistake
  */
 Status player_set_max_objs(Player *player, int max);
+
+/**
+ * @brief It gets a pointer to the player's inventory
+ *
+ * @param player a pointer to the player
+ * @return a pointer to a inventory
+ */
+Inventory *player_get_inventory(Player *player);
 
 /*Print*/
 /**
