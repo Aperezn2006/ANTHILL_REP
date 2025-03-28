@@ -478,7 +478,7 @@ void graphic_engine_paint_end(Graphic_engine *ge, Game *game) {
 
   screen_paint(game_get_turn(game) % 7);
 
-  sleep(3);
+  sleep(2);
 
   screen_area_clear(ge->map);
 
