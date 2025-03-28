@@ -2,7 +2,7 @@
  * @brief It implements the game structure
  *
  * @file game.c
- * @author Profesores
+ * @author Profesores PPROG, Beatriz, Arturo, Rubén, Ana
  * @version 1
  * @date 11-02-2025
  */

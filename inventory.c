@@ -2,6 +2,7 @@
  * @brief It implements the inventory module
  *
  * @file inventory.c
+ * @author Beatriz
  * @version 1
  * @date 11-02-2024
  */

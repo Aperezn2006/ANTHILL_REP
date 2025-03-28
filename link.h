@@ -2,6 +2,7 @@
  * @brief It defines the link interface
  *
  * @file link.h
+ * @author Rubén
  * @version 1.0
  * @date 11-02-2025
  */

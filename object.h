@@ -2,7 +2,7 @@
  * @brief It defines the object module interface
  *
  * @file object.h
- * @author Rubén, Ana
+ * @author Beatriz, Arturo, Rubén, Ana
  * @version 1
  * @date 11-02-2024
  * @copyright GNU Public License
@@ -18,7 +18,7 @@ typedef struct _Object Object;
 /**
  * @brief It creates a new object, allocating memory and initializing its
  * members
- * @author Ana
+ * @author Beatriz, Arturo, Rubén, Ana
  *
  * @param id the identification number for the new object
  * @return a new object, initialized
@@ -27,7 +27,7 @@ Object *object_create(Id id, Id location);
 
 /**
  * @brief It destroys a object, freeing the allocated memory
- * @author Ana
+ * @author Beatriz, Arturo, Rubén, Ana
  *
  * @param object a pointer to the object that must be destroyed
  * @return OK, if everything goes well or ERROR if there was some mistake
@@ -38,7 +38,7 @@ Status object_destroy(Object *object);
 
 /**
  * @brief It gets the id of a object
- * @author Ana
+ * @author Beatriz, Arturo, Rubén, Ana
  *
  * @param object a pointer to the object
  * @return the id of object
@@ -47,7 +47,7 @@ Id object_get_id(Object *object);
 
 /**
  * @brief It gets the name of a object
- * @author Ana
+ * @author Beatriz, Arturo, Rubén, Ana
  *
  * @param object a pointer to the object
  * @return  a string with the name of the object
@@ -56,7 +56,7 @@ const char *object_get_name(Object *object);
 
 /**
  * @brief It gets the description of a object
- * @author Ana
+ * @author Beatriz, Arturo, Rubén, Ana
  *
  * @param object a pointer to the object
  * @return a string with the description of the object
@@ -67,7 +67,7 @@ const char *object_get_desc(Object *object);
 
 /**
  * @brief It sets the id of a object
- * @author Ana
+ * @author Beatriz, Arturo, Rubén, Ana
  *
  * @param object a pointer to the object
  * @param id the id the object will have
@@ -77,7 +77,7 @@ Status object_set_id(Object *object, Id id);
 
 /**
  * @brief It sets the name of a object
- * @author Ana
+ * @author Beatriz, Arturo, Rubén, Ana
  *
  * @param object a pointer to the object
  * @param name a string with the name to store
@@ -87,7 +87,7 @@ Status object_set_name(Object *object, char *name);
 
 /**
  * @brief It sets the description of a object
- * @author Ana
+ * @author Beatriz, Arturo, Rubén, Ana
  *
  * @param object a pointer to the object
  * @param desc a string with the description to store
@@ -97,7 +97,7 @@ Status object_set_desc(Object *object, char *desc);
 
 /**
  * @brief It prints the object information
- * @author Ana
+ * @author Beatriz, Arturo, Rubén, Ana
  *
  * This function shows the id and name of the object, the objects that surrounds
  * it and whether it has an object or not.

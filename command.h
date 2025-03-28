@@ -2,7 +2,7 @@
  * @brief It defines the command interpreter interface
  *
  * @file command.h
- * @author Profesores PPROG, Rubén, Ana
+ * @author Profesores PPROG, Beatriz, Arturo, Rubén, Ana
  * @version 1
  * @date 11-02-2025
  * @copyright GNU Public License
@@ -80,7 +80,7 @@ Status command_get_user_input(Command *command);
 
 /**
  * @brief It gets whether the command was successful or not
- * @author Ana
+ * @author Beatriz, Arturo, Rubén, Ana
  *
  * @param command a pointer to the command
  * @return OK if everything went well, ERROR otherwise
@@ -89,7 +89,7 @@ Status command_get_result(Command *command);
 
 /**
  * @brief It sets wheter the command was succesful or not
- * @author Ana
+ * @author Beatriz, Arturo, Rubén, Ana
  *
  * @param command a pointer to the command
  * @param result the feedback that will be assigned to a certain command

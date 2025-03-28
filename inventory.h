@@ -2,7 +2,7 @@
  * @brief It defines the inventory interface
  *
  * @file inventory.h
- * @author Profesores PPROG, Rubén, Ana, Arturo, Bea
+ * @author Beatriz
  * @version 4.5
  * @date 11-02-2024
  * @copyright GNU Public License
@@ -22,7 +22,7 @@ Status inventory_destroy(Inventory *inventory);
 
 /**
  * @brief It adds an object to the inventory
- * @author Profesores PPROG, Rubén, Ana, Arturo, Bea
+ * @author Bea
  *
  * @param inventory a pointer to the inventory
  * @param object_id the id of the object to be added
@@ -32,7 +32,7 @@ Status inventory_add_object(Inventory *inventory, Id object_id);
 
 /**
  * @brief It removes an object from the inventory
- * @author Profesores PPROG, Rubén, Ana, Arturo, Bea
+ * @author Bea
  *
  * @param inventory a pointer to the inventory
  * @param object_id the id of the object to be removed
@@ -56,7 +56,7 @@ int get_obj_act_possition(Inventory *inventory, Id object_id); /*terminar*/
 
 /**
  * @brief It prints the inventory information
- * @author Profesores PPROG, Rubén, Ana, Arturo, Bea
+ * @author Bea
  *
  * @param inventory a pointer to the inventory
  * @return OK, if everything goes well or ERROR if there was some mistake
@@ -65,7 +65,7 @@ Status inventory_print(Inventory *inventory);
 
 /**
  * @brief It frees the memory allocated for the inventory
- * @author Profesores PPROG, Rubén, Ana, Arturo, Bea
+ * @author Bea
  *
  * @param inventory a pointer to the inventory
  * @return OK, if everything goes well or ERROR if there was some mistake

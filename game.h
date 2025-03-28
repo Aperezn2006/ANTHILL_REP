@@ -37,7 +37,7 @@ Status game_create(Game *game);
 
 /**
  * @brief It frees the memory the game was occupying
- * @author Profesores PPROG
+ * @author Profesores PPROG, Beatriz, Arturo, Rubén, Ana
  *
  * @param game a pointer to the game
  * @return OK if everything goes well, ERROR otherwise
@@ -46,7 +46,7 @@ Status game_destroy(Game *game);
 
 /**
  * @brief It initializes the game
- * @author Rubén
+ * @author Beatriz, Arturo, Rubén, Ana
  *
  * @param none
  * @return a pointer to the game
@@ -67,7 +67,7 @@ Space *game_get_space(Game *game, Id id);
 /**
  * @brief It gets the name of the object located in the n position of the array
  * of objects in the space and copies it to "name"
- * @author Ana
+ * @author Beatriz, Arturo, Rubén, Ana
  *
  * @param game a pointer to the game
  * @param space_id the id of the space
@@ -88,8 +88,6 @@ Status space_get_object_name(Game *game, Id space_id, int n, char *name);
 Id game_get_space_id_at(Game *game, int position);
 
 /*Manejo de player*/
-Player **game_get_players(Game *game);
-
 /**
  * @brief It creates a pointer to a certain space using its id
  * @author Profesores PPROG
@@ -102,7 +100,7 @@ Player *game_get_player(Game *game);
 
 /**
  * @brief It creates a pointer to a certain player using its index
- * @author Ana
+ * @author Beatriz, Arturo, Rubén, Ana
  *
  * @param game a pointer to the game
  * @param n the index of the desired player
@@ -121,7 +119,7 @@ Id game_get_player_location(Game *game);
 
 /**
  * @brief It gets a certain player's location
- * @author Ana
+ * @author Beatriz, Arturo, Rubén, Ana
  *
  * @param game a pointer to the game
  * @param n the index of the desired player
@@ -140,20 +138,11 @@ Id game_get_n_player_location(Game *game, int n);
 Status game_set_player_location(Game *game, Id id);
 
 /*Manejo de objects*/
-/**
- * @brief It creates an array of pointers to the objects of the game
- * @author Rubén
- *
- * @param game a pointer to the game
- * @return an array of pointers to objects
- */
-Object **game_get_object_pointer(Game *game);
-
 Object *game_get_n_object(Game *game, int n);
 
 /**
  * @brief It gets the location a certain object
- * @author Rubén
+ * @author Beatriz, Arturo, Rubén, Ana
  *
  * @param game a pointer to the game
  * @param object_id the id of the objects
@@ -173,7 +162,7 @@ Status game_set_object_location(Game *game, Id location, Id object_id);
 
 /**
  * @brief It gets a pointer to an object from its id
- * @author Ana
+ * @author Beatriz, Arturo, Rubén, Ana
  *
  * @param game a pointer to the game
  * @return a pointer to the object
@@ -183,7 +172,7 @@ Object *game_get_object_from_id(Game *game, Id object_id);
 /**
  * @brief It gets a pointer to the object in a certain position of the game's
  * array aof objects
- * @author Ana
+ * @author Beatriz, Arturo, Rubén, Ana
  *
  * @param game a pointer to the game
  * @return a pointer to the object
@@ -192,7 +181,7 @@ Object *game_get_object_from_position(Game *game, int n);
 
 /**
  * @brief It gets an object's id from its name
- * @author Ana
+ * @author Beatriz, Arturo, Rubén, Ana
  *
  * @param game a pointer to the game
  * @return the object's id
@@ -204,7 +193,7 @@ Status game_get_string_of_objects_in_space(Game *game, Id space_id, char *objs);
 /*Manejo de characters*/
 /**
  * @brief It gets an array of pointers to the game's characters
- * @author Rubén
+ * @author Beatriz, Arturo, Rubén, Ana
  *
  * @param game a pointer to the game
  * @return an array of pointer to characters
@@ -213,7 +202,7 @@ Character **game_get_characters(Game *game);
 
 /**
  * @brief It gets a pointer to a characters from its id
- * @author Rubén
+ * @author Beatriz, Arturo, Rubén, Ana
  *
  * @param game a pointer to the game
  * @return a pointer to the character
@@ -222,7 +211,7 @@ Character *game_get_character(Game *game, Id character_id);
 
 /**
  * @brief It gets the location a certain object
- * @author Ana
+ * @author Beatriz, Arturo, Rubén, Ana
  *
  * @param game a pointer to the game
  * @return the id of the space where the object is
@@ -241,7 +230,7 @@ Status game_set_character_location(Game *game, Id location, Id character_id);
 
 /**
  * @brief It gets the character's id from its name
- * @author Ana
+ * @author Beatriz, Arturo, Rubén, Ana
  *
  * @param game a pointer to the game
  * @return the character's id
@@ -250,7 +239,7 @@ Id game_get_character_id_from_name(Game *game, char *name);
 
 /**
  * @brief It gets the number of characters in the game
- * @author Ana
+ * @author Beatriz, Arturo, Rubén, Ana
  *
  * @param game a pointer to the game
  * @return the number of characters
@@ -260,7 +249,7 @@ int game_get_num_characters(Game *game);
 /**
  * @brief It gets a pointer to the character in the n position of the game's
  * array of characters
- * @author Ana
+ * @author Beatriz, Arturo, Rubén, Ana
  *
  * @param game a pointer to the game
  * @return a pointer to the characters
@@ -269,7 +258,7 @@ Character *game_get_n_character(Game *game, int n);
 
 /**
  * @brief It gets the description of the character located in a certain space
- * @author Ana
+ * @author Beatriz, Arturo, Rubén, Ana
  *
  * @param game a pointer to the game
  * @return the graphical description of the character
@@ -278,7 +267,7 @@ char *game_get_character_desc_at_space(Game *game, Id space_id);
 
 /**
  * @brief It sets the character's location
- * @author Ana
+ * @author Beatriz, Arturo, Rubén, Ana
  *
  * @param game a pointer to the game
  * @return OK if everything went well, ERROR otherwise
@@ -288,7 +277,7 @@ Status game_character_set_location(Game *game, Id character_id, Id character_loc
 /*Manejo de n_objects*/
 /**
  * @brief It gets the number of objects in the game
- * @author Rubén
+ * @author Beatriz, Arturo, Rubén, Ana
  *
  * @param game a pointer to the game
  * @return the number of objects
@@ -297,7 +286,7 @@ int game_get_num_objects(Game *game);
 
 /**
  * @brief It increments the number of objects in the game
- * @author Rubén
+ * @author Beatriz, Arturo, Rubén, Ana
  *
  * @param game a pointer to the game
  * @return nothing
@@ -307,7 +296,7 @@ void game_increment_num_objects(Game *game);
 /*Manejo de n_spaces*/
 /**
  * @brief It gets the number of spaces in the game
- * @author Rubén
+ * @author Beatriz, Arturo, Rubén, Ana
  *
  * @param game a pointer to the game
  * @return the number of spaces
@@ -316,7 +305,7 @@ int game_get_num_spaces(Game *game);
 
 /**
  * @brief It increments the number of spaces in the game
- * @author Rubén
+ * @author Beatriz, Arturo, Rubén, Ana
  *
  * @param game a pointer to the game
  * @return nothing
@@ -326,7 +315,7 @@ void game_increment_num_spaces(Game *game);
 /*Manejo de n_characters*/
 /**
  * @brief It gets the number of characters in the game
- * @author Rubén
+ * @author Beatriz, Arturo, Rubén, Ana
  *
  * @param game a pointer to the game
  * @return the number of characters
@@ -335,7 +324,7 @@ int game_get_num_characters(Game *game);
 
 /**
  * @brief It increments the number of characters in the game
- * @author Rubén
+ * @author Beatriz, Arturo, Rubén, Ana
  *
  * @param game a pointer to the game
  * @return nothing
@@ -345,7 +334,7 @@ void game_increment_num_characters(Game *game);
 /*Manejo de n_players*/
 /**
  * @brief
- * @author
+ * @author Beatriz, Arturo, Rubén, Ana
  *
  * @param
  * @return
@@ -354,7 +343,7 @@ int game_get_num_players(Game *game);
 
 /**
  * @brief
- * @author
+ * @author Beatriz, Arturo, Rubén, Ana
  *
  * @param
  * @return
@@ -384,7 +373,7 @@ Status game_set_last_command(Game *game, Command *command);
 /*Manejo de message*/
 /**
  * @brief It gets the game's last message
- * @author Ana
+ * @author Beatriz, Arturo, Rubén, Ana
  *
  * @param game a pointer to the game
  * @return the game's last message
@@ -393,7 +382,7 @@ char *game_get_message(Game *game);
 
 /**
  * @brief It sets the game's last message
- * @author Ana
+ * @author Beatriz, Arturo, Rubén, Ana
  *
  * @param game a pointer to the game
  * @return OK if everything went well, ERROR otherwise
@@ -454,7 +443,7 @@ Status game_add_space(Game *game, Space *space);
 
 /**
  * @brief It adds players to the game
- * @author Rubén
+ * @author Beatriz, Arturo, Rubén, Ana
  *
  * @param game a pointer to the game
  * @param space a pointer to a player
@@ -464,7 +453,7 @@ Status game_add_player(Game *game, Player *player);
 
 /**
  * @brief It adds objects to the game
- * @author Rubén
+ * @author Beatriz, Arturo, Rubén, Ana
  *
  * @param game a pointer to the game
  * @param space a pointer to a object
@@ -474,7 +463,7 @@ Status game_add_object(Game *game, Object *object);
 
 /**
  * @brief It adds a character to the game
- * @author Rubén
+ * @author Beatriz, Arturo, Rubén, Ana
  *
  * @param game a pointer to the game
  * @return OK if everything goes well

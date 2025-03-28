@@ -88,7 +88,7 @@ Status space_set_object(Space *space, Id object_id);
 
 /**
  * @brief It gets the number of objects in the space
- * @author Ana
+ * @author Beatriz, Arturo, Rubén, Ana
  *
  * @param space a pointer to the space
  * @return the number of objects
@@ -97,7 +97,7 @@ int space_get_num_objects(Space *space);
 
 /**
  * @brief It adds an object to the space
- * @author Rubén
+ * @author Beatriz, Arturo, Rubén, Ana
  *
  * @param space a pointer to the space
  * @param object_id the id of the object to be added
@@ -107,7 +107,7 @@ Status space_add_object(Space *space, Id object_id);
 
 /**
  * @brief It removes an object from the space
- * @author Rubén
+ * @author Beatriz, Arturo, Rubén, Ana
  *
  * @param space a pointer to the space
  * @param object_id the id of the object to be removed
@@ -117,7 +117,7 @@ Status space_remove_object(Space *space, Id object_id);
 
 /**
  * @brief It checks whether the space has a specific object
- * @author Rubén
+ * @author Beatriz, Arturo, Rubén, Ana
  *
  * @param space a pointer to the space
  * @param object_id the id of the object to check
@@ -128,7 +128,7 @@ Bool space_has_object(Space *space, Id object_id);
 /*Manejo de character_id*/
 /**
  * @brief It gets the character in the space
- * @author Ana
+ * @author Beatriz, Arturo, Rubén, Ana
  *
  * @param space a pointer to the space
  * @return the id of the character
@@ -137,7 +137,7 @@ Id space_get_character(Space *space);
 
 /**
  * @brief It sets the character in the space
- * @author Ana
+ * @author Beatriz, Arturo, Rubén, Ana
  *
  * @param space a pointer to the space
  * @param character_id the id of the character to be set
@@ -147,7 +147,7 @@ Status space_set_character(Space *space, Id character_id);
 
 /**
  * @brief It checks whether the space has a specific character
- * @author Ana
+ * @author Beatriz, Arturo, Rubén, Ana
  *
  * @param space a pointer to the space
  * @param character_id the id of the character to check
@@ -157,7 +157,7 @@ Bool space_has_character(Space *space, Id character_id);
 
 /**
  * @brief It removes the character from the space
- * @author Ana
+ * @author Beatriz, Arturo, Rubén, Ana
  *
  * @param space a pointer to the space
  * @return OK, if everything goes well or ERROR if there was some mistake
@@ -167,7 +167,7 @@ Status space_remove_character(Space *space);
 /*Manejo de gdesc*/
 /**
  * @brief It gets the description of a space
- * @author Ana
+ * @author Beatriz, Arturo, Rubén, Ana
  *
  * @param space a pointer to the space
  * @return the graphical description
@@ -177,7 +177,7 @@ char **space_get_description(Space *space);
 /**
  * @brief It gets the graphical description of the space located in the n
  * position of the array
- * @author Ana
+ * @author Beatriz, Arturo, Rubén, Ana
  *
  * @param space a pointer to the space
  * @param n the position of the graphical description to get
@@ -187,7 +187,7 @@ char *space_get_n_description(Space *space, int n);
 
 /**
  * @brief It sets the graphical description of a space
- * @author Ana
+ * @author Beatriz, Arturo, Rubén, Ana
  *
  * @param space a pointer to the space
  * @param description the graphical description to set

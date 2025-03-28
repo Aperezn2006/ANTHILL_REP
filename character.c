@@ -2,7 +2,7 @@
  * @brief It implements the character module
  *
  * @file character.c
- * @author
+ * @author Beatriz, Arturo, Rubén, Ana
  * @version 0
  * @date 18/02/2025
  * @copyright GNU Public License
@@ -140,7 +140,7 @@ Status character_set_health(Character *character, long health) {
 }
 
 Status character_decrease_health(Character *character, long damage) {
-  if (!character || !damage || damage <0) {
+  if (!character || !damage || damage < 0) {
     return ERROR;
   }
   character->health -= damage;

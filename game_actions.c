@@ -2,7 +2,7 @@
  * @brief It implements the game update through user actions
  *
  * @file game_actions.c
- * @author Profesores PPROG, Rubén, Ana, Arturo, Bea
+ * @author Profesores PPROG, Beatriz, Arturo, Rubén, Ana
  * @version 1
  * @date 11-02-2025
  * @copyright GNU Public License
@@ -49,7 +49,7 @@ Status game_actions_move(Game *game);
 
 /**
  * @brief It allows a player to pick up an object if they're in the same room
- * @author Rubén
+ * @author Beatriz, Arturo, Rubén, Ana
  *
  * @param game a pointer to the game
  * @return OK if everything goes well, ERROR otherwise
@@ -58,7 +58,7 @@ Status game_actions_take(Game *game);
 
 /**
  * @brief It allows a player to drop an object if they have it
- * @author Rubén
+ * @author Beatriz, Arturo, Rubén, Ana
  *
  * @param game a pointer to the game
  * @return OK if everything goes well, ERROR otherwise
@@ -67,7 +67,7 @@ Status game_actions_drop(Game *game);
 
 /**
  * @brief
- * @author Rubén
+ * @author Beatriz, Arturo, Rubén, Ana
  *
  * @param game a pointer to the game
  * @return OK if everything goes well, ERROR otherwise
@@ -76,7 +76,7 @@ Status game_actions_attack(Game *game);
 
 /**
  * @brief It allows the player to chat with a character
- * @author Ana
+ * @author Beatriz, Arturo, Rubén, Ana
  *
  * @param game a pointer to the game
  * @return OK if everything goes well, ERROR otherwise
@@ -85,7 +85,7 @@ Status game_actions_chat(Game *game);
 
 /**
  * @brief It allows the player to inspect an object
- * @author
+ * @author Arturo, Rubén, Ana
  *
  * @param game a pointer to the game
  * @return OK if everything goes well, ERROR otherwise

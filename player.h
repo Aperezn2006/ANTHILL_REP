@@ -2,7 +2,7 @@
  * @brief It defines the player module interface
  *
  * @file player.h
- * @author Ana
+ * @author Beatriz, Arturo, Rubén, Ana
  * @version 1
  * @date 05/02/2025
  * @copyright GNU Public License
@@ -24,7 +24,7 @@ typedef struct _Player Player;
 /**
  * @brief It creates a new player, allocating memory and initializing its
  * members
- * @author Ana
+ * @author Beatriz, Arturo, Rubén, Ana
  *
  * @param id the identification number for the new player
  * @return a new player, initialized
@@ -33,7 +33,7 @@ Player *player_create(Id id);
 
 /**
  * @brief It destroys a player, freeing the allocated memory
- * @author Ana
+ * @author Beatriz, Arturo, Rubén, Ana
  *
  * @param player a pointer to the player that must be destroyed
  * @return OK, if everything goes well or ERROR if there was some mistake
@@ -43,7 +43,7 @@ Status player_destroy(Player *player);
 /*Manejo de id*/
 /**
  * @brief It gets the id of a player
- * @author Ana
+ * @author Beatriz, Arturo, Rubén, Ana
  *
  * @param player a pointer to the player
  * @return the id of player
@@ -52,7 +52,7 @@ Id player_get_id(Player *player);
 
 /**
  * @brief It sets the id of a player
- * @author Ana
+ * @author Beatriz, Arturo, Rubén, Ana
  *
  * @param player a pointer to the player
  * @param id the id the player will have
@@ -83,7 +83,7 @@ Status player_set_location(Player *player, Id player_location);
 /*Manejo de name*/
 /**
  * @brief It gets the name of a player
- * @author Ana
+ * @author Beatriz, Arturo, Rubén, Ana
  *
  * @param player a pointer to the player
  * @return  a string with the name of the player
@@ -92,7 +92,7 @@ const char *player_get_name(Player *player);
 
 /**
  * @brief It sets the name of a player
- * @author Ana
+ * @author Beatriz, Arturo, Rubén, Ana
  *
  * @param player a pointer to the player
  * @param name a string with the name to store
@@ -113,7 +113,7 @@ Id player_get_n_object(Player *player, int n);
 
 /**
  * @brief It gets the number of objects the player is carrying
- * @author Ana
+ * @author Beatriz, Arturo, Rubén, Ana
  *
  * @param player a pointer to the player
  * @return the number of objects in the inventory
@@ -122,7 +122,7 @@ int player_get_num_objects(Player *player);
 
 /**
  * @brief It removes an object from the inventory
- * @author Ana
+ * @author Beatriz, Arturo, Rubén, Ana
  *
  * @param player a pointer to the player
  * @param object_id the id of the object to be removed
@@ -132,7 +132,7 @@ Status player_remove_object(Player *player, Id object_id);
 
 /**
  * @brief It gets whether the player has any objects or not
- * @author Ana
+ * @author Beatriz, Arturo, Rubén, Ana
  *
  * @param player a pointer to the player
  * @param object_id the id of the object to check
@@ -142,7 +142,7 @@ Bool player_has_object(Player *player, Id object_id);
 
 /**
  * @brief It adds an object to the player's inventory
- * @author Ana
+ * @author Beatriz, Arturo, Rubén, Ana
  *
  * @param player a pointer to the player
  * @param object_id the id of the object to be added
@@ -153,7 +153,7 @@ Status player_add_object(Player *player, Id object_id);
 /*Manejo de health*/
 /**
  * @brief It gets the health of the player
- * @author Ana
+ * @author Beatriz, Arturo, Rubén, Ana
  *
  * @param player a pointer to the player
  * @return the health of the player
@@ -162,7 +162,7 @@ long player_get_health(Player *player);
 
 /**
  * @brief It sets the player's health
- * @author Ana
+ * @author Beatriz, Arturo, Rubén, Ana
  *
  * @param player a pointer to the player
  * @param health the health the player will now have
@@ -198,7 +198,7 @@ Status player_set_max_objs(Player *player, int max);
 /*Print*/
 /**
  * @brief It prints the player information
- * @author Ana
+ * @author Beatriz, Arturo, Rubén, Ana
  *
  * This function shows the id and name of the player, the players that surrounds
  * it and whether it has an object or not.

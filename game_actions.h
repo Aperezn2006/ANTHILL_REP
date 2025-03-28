@@ -2,7 +2,7 @@
  * @brief It defines the game update interface
  *
  * @file game_actions.h
- * @author Profesores PPROG, Rubén, Ana
+ * @author Profesores PPROG
  * @version 1
  * @date 11-02-2025
  * @copyright GNU Public License
