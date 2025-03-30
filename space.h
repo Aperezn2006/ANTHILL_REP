@@ -73,7 +73,7 @@ Status space_set_name(Space *space, char *name);
  * @param n number of the array position where the desired object is
  * @return the object's id
  */
-Id space_get_n_object(Space *space, int n);
+Id space_get_i_object(Space *space, int n);
 
 /**
  * @brief It sets whether the space has an object or not
@@ -183,7 +183,7 @@ char **space_get_description(Space *space);
  * @param n the position of the graphical description to get
  * @return the n line of the graphical description
  */
-char *space_get_n_description(Space *space, int n);
+char *space_get_i_description(Space *space, int n);
 
 /**
  * @brief It sets the graphical description of a space

@@ -109,7 +109,7 @@ Status player_set_name(Player *player, char *name);
  * @param n number of the array position where the desired object is
  * @return the object's id
  */
-Id player_get_n_object(Player *player, int n);
+Id player_get_i_object(Player *player, int n);
 
 /**
  * @brief It gets the number of objects the player is carrying

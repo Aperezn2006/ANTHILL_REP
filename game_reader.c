@@ -26,7 +26,7 @@ Status game_create_from_file(Game *game, char *filename) {
     return ERROR;
   }
 
-  first_space_id = game_get_space_id_at(game, 0);
+  first_space_id = game_get_i_space_id(game, 0);
   if (first_space_id == NO_ID) {
     printf("Error: Could not get first space ID\n");
     return ERROR;

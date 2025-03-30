@@ -85,7 +85,7 @@ Status space_set_name(Space *space, char *name) {
 }
 
 /*Manejo de objects*/
-Id space_get_n_object(Space *space, int n) {
+Id space_get_i_object(Space *space, int n) {
   if (!space || !space->objects) {
     return NO_ID;
   }
@@ -167,7 +167,7 @@ char **space_get_description(Space *space) {
   return (char **)space->gdesc;
 }
 
-char *space_get_n_description(Space *space, int n) {
+char *space_get_i_description(Space *space, int n) {
   if (!space) {
     return NULL;
   }

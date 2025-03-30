@@ -32,10 +32,10 @@ struct _Game {
   Character *characters[MAX_CHARACTERS];
   Link *links[MAX_LINK];
   int n_spaces;
+  int n_players;
   int n_objects;
   int n_characters;
   int n_links;
-  int n_players;
   Command *last_cmd;
   char message[WORD_SIZE];
   char object_desc[WORD_SIZE];
@@ -50,16 +50,20 @@ Status game_create(Game *game) {
     return ERROR;
   }
 
-  for (i = 0; i < MAX_PLAYERS; i++) {
-    game->players[i] = NULL;
-  }
-
   for (i = 0; i < MAX_SPACES; i++) {
     game->spaces[i] = NULL;
   }
 
+  for (i = 0; i < MAX_PLAYERS; i++) {
+    game->players[i] = NULL;
+  }
+
   for (i = 0; i < MAX_OBJECTS; i++) {
     game->objects[i] = NULL;
+  }
+
+  for (i = 0; i < MAX_CHARACTERS; i++) {
+    game->characters[i] = NULL;
   }
 
   for (i = 0; i < MAX_LINK; i++) {
@@ -67,10 +71,10 @@ Status game_create(Game *game) {
   }
 
   game->n_spaces = 0;
+  game->n_players = 0;
   game->n_objects = 0;
   game->n_characters = 0;
   game->n_links = 0;
-  game->n_players = 0;
 
   strcpy(game->message, "");
   player_set_location(game->players[game_get_turn(game)], NO_ID);
@@ -99,6 +103,11 @@ Status game_destroy(Game *game) {
     game->spaces[i] = NULL;
   }
 
+  for (i = 0; i < game->n_players; i++) {
+    player_destroy(game->players[i]);
+    game->players[i] = NULL;
+  }
+
   for (i = 0; i < game->n_objects; i++) {
     object_destroy(game->objects[i]);
     game->objects[i] = NULL;
@@ -114,11 +123,6 @@ Status game_destroy(Game *game) {
     game->links[i] = NULL;
   }
 
-  for (i = 0; i < game->n_players; i++) {
-    player_destroy(game->players[i]);
-    game->players[i] = NULL;
-  }
-
   if (game->last_cmd) {
     command_destroy(game->last_cmd);
     game->last_cmd = NULL;
@@ -128,62 +132,6 @@ Status game_destroy(Game *game) {
   game = NULL;
 
   return OK;
-}
-
-Status game_add_link(Game *game, Id id, Id origin, Id destination, Direction dir, Bool open) {
-  Link *new_link = link_create(id, origin, destination, dir, open);
-  if (!game || id == NO_ID || origin == NO_ID || destination == NO_ID || dir == NO_DIR) {
-    return ERROR;
-  }
-
-  if (game->n_links >= MAX_LINKS) {
-    return ERROR;
-  }
-
-  if (!new_link) {
-    return ERROR;
-  }
-
-  game->links[game->n_links] = new_link;
-  game->n_links++;
-
-  return OK;
-}
-
-Id game_get_connection(Game *game, Id current_location, Direction direction) {
-  int i;
-  if (!game || current_location == NO_ID) {
-    return NO_ID;
-  }
-
-  fprintf(stdout, "Buscando conexión desde la ubicación %ld en la dirección %d.\n", current_location, direction);
-
-  for (i = 0; i < game->n_links; i++) {
-    fprintf(stdout, "Comprobando enlace %d: Start = %ld, Direction = %d, End = %ld\n", i, link_get_start(game->links[i]),
-            link_get_direction(game->links[i]), link_get_end(game->links[i]));
-
-    if (link_get_start(game->links[i]) == current_location && link_get_direction(game->links[i]) == direction) {
-      fprintf(stdout, "Conexión encontrada. End = %ld\n", link_get_end(game->links[i]));
-      return link_get_end(game->links[i]);
-    }
-  }
-
-  fprintf(stdout, "No se encontró una conexión válida en la dirección %d desde la ubicación %ld.\n", direction, current_location);
-  return NO_ID;
-}
-
-Bool game_connection_is_open(Game *game, Id current_location, Direction direction) {
-  int i;
-  if (!game || current_location == NO_ID) {
-    return FALSE;
-  }
-
-  for (i = 0; i < game->n_links; i++) {
-    if (link_get_start(game->links[i]) == current_location && link_get_direction(game->links[i]) == direction) {
-      return link_get_open(game->links[i]);
-    }
-  }
-  return FALSE;
 }
 
 Game *game_init() {
@@ -207,19 +155,12 @@ Space *game_get_space(Game *game, Id id) {
   return NULL;
 }
 
-/**
- * @brief
- * @author
- *
- * @param space a pointer to the space
- * @return
- */
-Status space_get_object_name(Game *game, Id space_id, int n, char *name) {
+Status space_get_i_object_name(Game *game, Id space_id, int n, char *name) {
   if (!game || space_id == NO_ID) {
     return NO_ID;
   }
 
-  strcpy(name, object_get_name(game_get_object_from_id(game, space_get_n_object(game_get_space(game, space_id), n))));
+  strcpy(name, object_get_name(game_get_object_from_id(game, space_get_i_object(game_get_space(game, space_id), n))));
   if (!name) {
     return ERROR;
   }
@@ -227,7 +168,7 @@ Status space_get_object_name(Game *game, Id space_id, int n, char *name) {
   return OK;
 }
 
-Id game_get_space_id_at(Game *game, int position) {
+Id game_get_i_space_id(Game *game, int position) {
   Space **spaces = game->spaces;
 
   if (!game || position < 0 || position >= game_get_num_spaces(game)) {
@@ -258,7 +199,7 @@ Player *game_get_player(Game *game) {
   return game->players[game_get_turn(game)];
 }
 
-Player *game_get_n_player(Game *game, int n) {
+Player *game_get_i_player(Game *game, int n) {
   if (!game) {
     return NULL;
   }
@@ -270,7 +211,7 @@ Id game_get_player_location(Game *game) {
   return player_get_location(game->players[game_get_turn(game)]);
 }
 
-Id game_get_n_player_location(Game *game, int n) {
+Id game_get_i_player_location(Game *game, int n) {
   if (!game || !game->players[game_get_turn(game)]) return NO_ID;
   return player_get_location(game->players[n]);
 }
@@ -281,7 +222,7 @@ Status game_set_player_location(Game *game, Id id) {
 }
 
 /*Manejo de objects*/
-Object *game_get_n_object(Game *game, int n) {
+Object *game_get_i_object(Game *game, int n) {
   if (!game) {
     return NULL;
   }
@@ -368,14 +309,6 @@ Object *game_get_object_from_id(Game *game, Id object_id) {
   return NULL;
 }
 
-Object *game_get_object_from_position(Game *game, int n) {
-  if (!game) {
-    return NULL;
-  }
-
-  return game->objects[n];
-}
-
 Id game_get_object_id_from_name(Game *game, char *object_name) {
   int i;
 
@@ -402,7 +335,7 @@ Status game_get_string_of_objects_in_space(Game *game, Id space_id, char *objs) 
   }
 
   for (i = 0; i < space_get_num_objects(game_get_space(game, space_id)); i++) {
-    space_get_object_name(game, space_id, i, temp_obj);
+    space_get_i_object_name(game, space_id, i, temp_obj);
     if (strlen(objs) + strlen(temp_obj) > BOX_WIDTH + 1 - 3) {
       strcat(objs, "...");
     } else {
@@ -422,13 +355,6 @@ Status game_get_string_of_objects_in_space(Game *game, Id space_id, char *objs) 
 }
 
 /*Manejo de characters*/
-Character **game_get_characters(Game *game) {
-  if (!game) {
-    return NULL;
-  }
-  return game->characters;
-}
-
 Character *game_get_character(Game *game, Id character_id) {
   int i;
 
@@ -461,28 +387,6 @@ Id game_get_character_location(Game *game, Id character_id) {
   return NO_ID;
 }
 
-Status game_set_character_location(Game *game, Id location, Id character_id) {
-  Id current_location;
-
-  if (!game || location == NO_ID || character_id == NO_ID) {
-    return ERROR;
-  }
-
-  current_location = game_get_character_location(game, character_id);
-  printf("The desired character's location is %li\n", current_location); /*DEBUG*/
-
-  /*Le damos el objeto al space*/
-  if (space_set_character(game_get_space(game, game_get_player_location(game)), character_id) == ERROR) {
-    return ERROR;
-  }
-
-  /*if (space_remove_character(game_get_space(game, current_location), character_id) == ERROR) {
-    return ERROR;
-  }*/
-
-  return OK;
-}
-
 Id game_get_character_id_from_name(Game *game, char *name) {
   int i;
 
@@ -499,7 +403,7 @@ Id game_get_character_id_from_name(Game *game, char *name) {
   return NO_ID;
 }
 
-Character *game_get_n_character(Game *game, int n) {
+Character *game_get_i_character(Game *game, int n) {
   if (!game) {
     return NULL;
   }
@@ -513,6 +417,63 @@ char *game_get_character_desc_at_space(Game *game, Id space_id) {
   }
 
   return character_get_description(game_get_character(game, space_get_character(game_get_space(game, space_id))));
+}
+
+/*Manejo de links*/
+Status game_add_link(Game *game, Id id, Id origin, Id destination, Direction dir, Bool open) {
+  Link *new_link = link_create(id, origin, destination, dir, open);
+  if (!game || id == NO_ID || origin == NO_ID || destination == NO_ID || dir == NO_DIR) {
+    return ERROR;
+  }
+
+  if (game->n_links >= MAX_LINKS) {
+    return ERROR;
+  }
+
+  if (!new_link) {
+    return ERROR;
+  }
+
+  game->links[game->n_links] = new_link;
+  game->n_links++;
+
+  return OK;
+}
+
+Id game_get_connection(Game *game, Id current_location, Direction direction) {
+  int i;
+  if (!game || current_location == NO_ID) {
+    return NO_ID;
+  }
+
+  fprintf(stdout, "Buscando conexión desde la ubicación %ld en la dirección %d.\n", current_location, direction);
+
+  for (i = 0; i < game->n_links; i++) {
+    fprintf(stdout, "Comprobando enlace %d: Start = %ld, Direction = %d, End = %ld\n", i, link_get_start(game->links[i]),
+            link_get_direction(game->links[i]), link_get_end(game->links[i]));
+
+    if (link_get_start(game->links[i]) == current_location && link_get_direction(game->links[i]) == direction) {
+      fprintf(stdout, "Conexión encontrada. End = %ld\n", link_get_end(game->links[i]));
+      return link_get_end(game->links[i]);
+    }
+  }
+
+  fprintf(stdout, "No se encontró una conexión válida en la dirección %d desde la ubicación %ld.\n", direction, current_location);
+  return NO_ID;
+}
+
+Bool game_connection_is_open(Game *game, Id current_location, Direction direction) {
+  int i;
+  if (!game || current_location == NO_ID) {
+    return FALSE;
+  }
+
+  for (i = 0; i < game->n_links; i++) {
+    if (link_get_start(game->links[i]) == current_location && link_get_direction(game->links[i]) == direction) {
+      return link_get_open(game->links[i]);
+    }
+  }
+  return FALSE;
 }
 
 /*Manejo de n_objects*/
@@ -716,7 +677,7 @@ Status game_add_object(Game *game, Object *object) {
 }
 
 Status game_add_character(Game *game, Character *character) {
-  Character **characters = game_get_characters(game);
+  Character **characters = game->characters;
 
   if (!game || !character || game_get_num_characters(game) >= MAX_CHARACTERS) {
     printf("Error: Invalid game or character, or maximum characters reached\n");

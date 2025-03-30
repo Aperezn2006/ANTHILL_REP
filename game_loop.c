@@ -117,7 +117,7 @@ void game_loop_run(Game *game, Graphic_engine *gengine) {
     }
 
     /*El juego acaba cuando uno de los jugadores muera*/
-    if (player_get_health(game_get_n_player(game, game_get_turn(game) - 1)) == 0) {
+    if (player_get_health(game_get_i_player(game, game_get_turn(game) - 1)) == 0) {
       game_set_finished(game, TRUE);
     }
   }

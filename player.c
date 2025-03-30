@@ -143,7 +143,7 @@ Status player_set_name(Player *player, char *name) {
 }
 
 /*Manejo de objects*/
-Id player_get_n_object(Player *player, int n) {
+Id player_get_i_object(Player *player, int n) {
   if (!player || !player->backpack) {
     return NO_ID;
   }

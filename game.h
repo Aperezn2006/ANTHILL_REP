@@ -21,10 +21,6 @@
 
 typedef struct _Game Game;
 
-Id game_get_connection(Game *game, Id current_location, Direction direction);
-Bool game_connection_is_open(Game *game, Id current_location, Direction direction);
-Status game_add_link(Game *game, Id id, Id origin, Id destination, Direction dir, Bool open);
-
 /*Create & destroy*/
 /**
  * @brief It creates a new game a "restarts" everything
@@ -75,7 +71,7 @@ Space *game_get_space(Game *game, Id id);
  * @param name where the name of the object will be copied to
  * @return Ok if everything went well, ERROR otherwise
  */
-Status space_get_object_name(Game *game, Id space_id, int n, char *name);
+Status space_get_i_object_name(Game *game, Id space_id, int n, char *name);
 
 /**
  * @brief It gets the id of the space in a certain position
@@ -85,7 +81,7 @@ Status space_get_object_name(Game *game, Id space_id, int n, char *name);
  * @param position the position of the space in the array
  * @return the id of the space in a certain position
  */
-Id game_get_space_id_at(Game *game, int position);
+Id game_get_i_space_id(Game *game, int position);
 
 /*Manejo de player*/
 /**
@@ -106,10 +102,10 @@ Player *game_get_player(Game *game);
  * @param n the index of the desired player
  * @return a pointer to such player
  */
-Player *game_get_n_player(Game *game, int n);
+Player *game_get_i_player(Game *game, int n);
 
 /**
- * @brief It gets the player's location
+ * @brief It gets the current player's location
  * @author Profesores PPROG
  *
  * @param game a pointer to the game
@@ -125,7 +121,7 @@ Id game_get_player_location(Game *game);
  * @param n the index of the desired player
  * @return the player's location
  */
-Id game_get_n_player_location(Game *game, int n);
+Id game_get_i_player_location(Game *game, int n);
 
 /**
  * @brief It sets the player's locations
@@ -138,7 +134,7 @@ Id game_get_n_player_location(Game *game, int n);
 Status game_set_player_location(Game *game, Id id);
 
 /*Manejo de objects*/
-Object *game_get_n_object(Game *game, int n);
+Object *game_get_i_object(Game *game, int n);
 
 /**
  * @brief It gets the location a certain object
@@ -170,16 +166,6 @@ Status game_set_object_location(Game *game, Id location, Id object_id);
 Object *game_get_object_from_id(Game *game, Id object_id);
 
 /**
- * @brief It gets a pointer to the object in a certain position of the game's
- * array aof objects
- * @author Beatriz, Arturo, Rubén, Ana
- *
- * @param game a pointer to the game
- * @return a pointer to the object
- */
-Object *game_get_object_from_position(Game *game, int n);
-
-/**
  * @brief It gets an object's id from its name
  * @author Beatriz, Arturo, Rubén, Ana
  *
@@ -191,15 +177,6 @@ Id game_get_object_id_from_name(Game *game, char *object_name);
 Status game_get_string_of_objects_in_space(Game *game, Id space_id, char *objs);
 
 /*Manejo de characters*/
-/**
- * @brief It gets an array of pointers to the game's characters
- * @author Beatriz, Arturo, Rubén, Ana
- *
- * @param game a pointer to the game
- * @return an array of pointer to characters
- */
-Character **game_get_characters(Game *game);
-
 /**
  * @brief It gets a pointer to a characters from its id
  * @author Beatriz, Arturo, Rubén, Ana
@@ -217,16 +194,6 @@ Character *game_get_character(Game *game, Id character_id);
  * @return the id of the space where the object is
  */
 Id game_get_character_location(Game *game, Id character_id);
-
-/**
- * @brief It sets the object's location
- * @author Profesores PPROG
- *
- * @param game a pointer to the game
- * @param id the id of the space the object will go
- * @return OK if everything goes well, ERROR otherwise
- */
-Status game_set_character_location(Game *game, Id location, Id character_id);
 
 /**
  * @brief It gets the character's id from its name
@@ -254,7 +221,7 @@ int game_get_num_characters(Game *game);
  * @param game a pointer to the game
  * @return a pointer to the characters
  */
-Character *game_get_n_character(Game *game, int n);
+Character *game_get_i_character(Game *game, int n);
 
 /**
  * @brief It gets the description of the character located in a certain space
@@ -264,15 +231,6 @@ Character *game_get_n_character(Game *game, int n);
  * @return the graphical description of the character
  */
 char *game_get_character_desc_at_space(Game *game, Id space_id);
-
-/**
- * @brief It sets the character's location
- * @author Beatriz, Arturo, Rubén, Ana
- *
- * @param game a pointer to the game
- * @return OK if everything went well, ERROR otherwise
- */
-Status game_character_set_location(Game *game, Id character_id, Id character_location);
 
 /*Manejo de n_objects*/
 /**
@@ -330,6 +288,11 @@ int game_get_num_characters(Game *game);
  * @return nothing
  */
 void game_increment_num_characters(Game *game);
+
+/*Manejo de links*/
+Id game_get_connection(Game *game, Id current_location, Direction direction);
+Bool game_connection_is_open(Game *game, Id current_location, Direction direction);
+Status game_add_link(Game *game, Id id, Id origin, Id destination, Direction dir, Bool open);
 
 /*Manejo de n_players*/
 /**
