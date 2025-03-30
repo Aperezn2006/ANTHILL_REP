@@ -2,7 +2,7 @@
  * @brief It defines the game interface
  *
  * @file game.h
- * @author Profesores PPROG, Rubén, Ana
+ * @author Profesores PPROG, Beatriz, Arturo, Rubén, Ana
  * @version 1
  * @date 11-02-2025
  * @copyright GNU Public License
@@ -51,6 +51,16 @@ Game *game_init();
 
 /*Manejo de spaces*/
 /**
+ * @brief It adds spaces to the game
+ * @author Profesores PPROG
+ *
+ * @param game a pointer to the game
+ * @param space a pointer to a space
+ * @return OK if everything goes well
+ */
+Status game_add_space(Game *game, Space *space);
+
+/**
  * @brief It creates a pointer to a certain space using its id
  * @author Profesores PPROG
  *
@@ -85,6 +95,16 @@ Id game_get_i_space_id(Game *game, int position);
 
 /*Manejo de player*/
 /**
+ * @brief It adds players to the game
+ * @author Beatriz, Arturo, Rubén, Ana
+ *
+ * @param game a pointer to the game
+ * @param space a pointer to a player
+ * @return OK if everything goes well
+ */
+Status game_add_player(Game *game, Player *player);
+
+/**
  * @brief It creates a pointer to a certain space using its id
  * @author Profesores PPROG
  *
@@ -105,6 +125,16 @@ Player *game_get_player(Game *game);
 Player *game_get_i_player(Game *game, int n);
 
 /**
+ * @brief It sets the player's locations
+ * @author Profesores PPROG
+ *
+ * @param game a pointer to the game
+ * @param id the id of the space the player will go
+ * @return OK if everything goes well, ERROR otherwise
+ */
+Status game_set_player_location(Game *game, Id id);
+
+/**
  * @brief It gets the current player's location
  * @author Profesores PPROG
  *
@@ -123,18 +153,27 @@ Id game_get_player_location(Game *game);
  */
 Id game_get_i_player_location(Game *game, int n);
 
+/*Manejo de objects*/
 /**
- * @brief It sets the player's locations
- * @author Profesores PPROG
+ * @brief It adds objects to the game
+ * @author Beatriz, Arturo, Rubén, Ana
  *
  * @param game a pointer to the game
- * @param id the id of the space the player will go
- * @return OK if everything goes well, ERROR otherwise
+ * @param space a pointer to a object
+ * @return OK if everything goes well
  */
-Status game_set_player_location(Game *game, Id id);
+Status game_add_object(Game *game, Object *object);
 
-/*Manejo de objects*/
 Object *game_get_i_object(Game *game, int n);
+
+/**
+ * @brief It gets a pointer to an object from its id
+ * @author Beatriz, Arturo, Rubén, Ana
+ *
+ * @param game a pointer to the game
+ * @return a pointer to the object
+ */
+Object *game_get_object_from_id(Game *game, Id object_id);
 
 /**
  * @brief It gets the location a certain object
@@ -157,15 +196,6 @@ Id game_get_object_location(Game *game, Id object_id);
 Status game_set_object_location(Game *game, Id location, Id object_id);
 
 /**
- * @brief It gets a pointer to an object from its id
- * @author Beatriz, Arturo, Rubén, Ana
- *
- * @param game a pointer to the game
- * @return a pointer to the object
- */
-Object *game_get_object_from_id(Game *game, Id object_id);
-
-/**
  * @brief It gets an object's id from its name
  * @author Beatriz, Arturo, Rubén, Ana
  *
@@ -178,6 +208,15 @@ Status game_get_string_of_objects_in_space(Game *game, Id space_id, char *objs);
 
 /*Manejo de characters*/
 /**
+ * @brief It adds a character to the game
+ * @author Beatriz, Arturo, Rubén, Ana
+ *
+ * @param game a pointer to the game
+ * @return OK if everything goes well
+ */
+Status game_add_character(Game *game, Character *character);
+
+/**
  * @brief It gets a pointer to a characters from its id
  * @author Beatriz, Arturo, Rubén, Ana
  *
@@ -185,6 +224,16 @@ Status game_get_string_of_objects_in_space(Game *game, Id space_id, char *objs);
  * @return a pointer to the character
  */
 Character *game_get_character(Game *game, Id character_id);
+
+/**
+ * @brief It gets a pointer to the character in the n position of the game's
+ * array of characters
+ * @author Beatriz, Arturo, Rubén, Ana
+ *
+ * @param game a pointer to the game
+ * @return a pointer to the characters
+ */
+Character *game_get_i_character(Game *game, int n);
 
 /**
  * @brief It gets the location a certain object
@@ -205,25 +254,6 @@ Id game_get_character_location(Game *game, Id character_id);
 Id game_get_character_id_from_name(Game *game, char *name);
 
 /**
- * @brief It gets the number of characters in the game
- * @author Beatriz, Arturo, Rubén, Ana
- *
- * @param game a pointer to the game
- * @return the number of characters
- */
-int game_get_num_characters(Game *game);
-
-/**
- * @brief It gets a pointer to the character in the n position of the game's
- * array of characters
- * @author Beatriz, Arturo, Rubén, Ana
- *
- * @param game a pointer to the game
- * @return a pointer to the characters
- */
-Character *game_get_i_character(Game *game, int n);
-
-/**
  * @brief It gets the description of the character located in a certain space
  * @author Beatriz, Arturo, Rubén, Ana
  *
@@ -231,6 +261,64 @@ Character *game_get_i_character(Game *game, int n);
  * @return the graphical description of the character
  */
 char *game_get_character_desc_at_space(Game *game, Id space_id);
+
+/*Manejo de links*/
+
+Status game_add_link(Game *game, Link *link);
+
+/**
+ * @brief gets north direction
+ * @author Arturo
+ *
+ * @param game a pointer to the game
+ * @param current_location id of actual location
+ * @return the id
+ */
+Id Game_get_north(Game *game, Id current_location);
+
+/**
+ * @brief gets south direction
+ * @author Arturo
+ *
+ * @param game a pointer to the game
+ * @param current_location id of actual location
+ * @return the id
+ */
+Id Game_get_south(Game *game, Id current_location);
+
+/**
+ * @brief gets east direction
+ * @author Arturo
+ *
+ * @param game a pointer to the game
+ * @param current_location id of actual location
+ * @return the id
+ */
+Id Game_get_east(Game *game, Id current_location);
+
+/**
+ * @brief gets west direction
+ * @author Arturo
+ *
+ * @param game a pointer to the game
+ * @param current_location id of actual location
+ * @return the id
+ */
+Id Game_get_west(Game *game, Id current_location);
+
+/**
+ * @brief Gets the neighboring location in a specified direction
+ *
+ * @param game A pointer to the Game structure
+ * @param current_location The ID of the current location
+ * @param d The direction in which to look for the neighbor
+ * @return The ID of the neighboring location if found, otherwise NO_ID
+ */
+Id Game_get_neighbour(Game *game, Id current_location, Direction d);
+
+Id game_get_connection(Game *game, Id current_location, Direction direction);
+
+Bool game_connection_is_open(Game *game, Id current_location, Direction direction);
 
 /*Manejo de n_objects*/
 /**
@@ -289,11 +377,6 @@ int game_get_num_characters(Game *game);
  */
 void game_increment_num_characters(Game *game);
 
-/*Manejo de links*/
-Id game_get_connection(Game *game, Id current_location, Direction direction);
-Bool game_connection_is_open(Game *game, Id current_location, Direction direction);
-Status game_add_link(Game *game, Id id, Id origin, Id destination, Direction dir, Bool open);
-
 /*Manejo de n_players*/
 /**
  * @brief
@@ -312,6 +395,25 @@ int game_get_num_players(Game *game);
  * @return
  */
 void game_increment_num_players(Game *game);
+
+/*Manejo de n_links*/
+/**
+ * @brief
+ * @author Beatriz, Arturo, Rubén, Ana
+ *
+ * @param
+ * @return
+ */
+int game_get_num_links(Game *game);
+
+/**
+ * @brief
+ * @author Beatriz, Arturo, Rubén, Ana
+ *
+ * @param
+ * @return
+ */
+void game_increment_num_links(Game *game);
 
 /*Manejo de last_cmd*/
 /**
@@ -392,95 +494,5 @@ int game_get_turn(Game *game);
  * @return OK if everything goes well, ERROR otherwise
  */
 void game_print(Game *game);
-
-/*Adds*/
-/**
- * @brief It adds spaces to the game
- * @author Profesores PPROG
- *
- * @param game a pointer to the game
- * @param space a pointer to a space
- * @return OK if everything goes well
- */
-Status game_add_space(Game *game, Space *space);
-
-/**
- * @brief It adds players to the game
- * @author Beatriz, Arturo, Rubén, Ana
- *
- * @param game a pointer to the game
- * @param space a pointer to a player
- * @return OK if everything goes well
- */
-Status game_add_player(Game *game, Player *player);
-
-/**
- * @brief It adds objects to the game
- * @author Beatriz, Arturo, Rubén, Ana
- *
- * @param game a pointer to the game
- * @param space a pointer to a object
- * @return OK if everything goes well
- */
-Status game_add_object(Game *game, Object *object);
-
-/**
- * @brief It adds a character to the game
- * @author Beatriz, Arturo, Rubén, Ana
- *
- * @param game a pointer to the game
- * @return OK if everything goes well
- */
-Status game_add_character(Game *game, Character *character);
-
-/**
- * @brief gets north direction
- * @author Arturo
- *
- * @param game a pointer to the game
- * @param current_location id of actual location
- * @return the id
- */
-Id Game_get_north(Game *game, Id current_location);
-
-/**
- * @brief gets south direction
- * @author Arturo
- *
- * @param game a pointer to the game
- * @param current_location id of actual location
- * @return the id
- */
-Id Game_get_south(Game *game, Id current_location);
-
-/**
- * @brief gets east direction
- * @author Arturo
- *
- * @param game a pointer to the game
- * @param current_location id of actual location
- * @return the id
- */
-Id Game_get_east(Game *game, Id current_location);
-
-/**
- * @brief gets west direction
- * @author Arturo
- *
- * @param game a pointer to the game
- * @param current_location id of actual location
- * @return the id
- */
-Id Game_get_west(Game *game, Id current_location);
-
-/**
- * @brief Gets the neighboring location in a specified direction
- *
- * @param game A pointer to the Game structure
- * @param current_location The ID of the current location
- * @param d The direction in which to look for the neighbor
- * @return The ID of the neighboring location if found, otherwise NO_ID
- */
-Id Game_get_neighbour(Game *game, Id current_location, Direction d);
 
 #endif

@@ -39,31 +39,21 @@ Status game_create_from_file(Game *game, char *filename) {
 }
 
 Status game_load_everything(Game *game, char *filename) {
+  int i = 0, health = 0, player_max_obj = 0;
   FILE *file = NULL;
-  char line[WORD_SIZE] = "";
-  char name[WORD_SIZE] = "";
-  char object_name[WORD_SIZE] = "";
-  char character_name[WORD_SIZE] = "";
-  char *toks = NULL;
-  Id id = NO_ID;
-  long player_health = 0, player_max_obj = 0;
-  Id player_location = NO_ID;
-  char player_desc[7];
-  char player_name[WORD_SIZE];
   Space *space = NULL;
   Player *player = NULL;
-  Id player_id = NO_ID;
-  Id object_id = NO_ID, object_location = NO_ID;
   Object *object = NULL;
   Character *character = NULL;
-  Id character_id = NO_ID, character_location = NO_ID;
-  Id link_id = NO_ID, origin = NO_ID, destination = NO_ID;
+  Link *link = NULL;
+  char line[WORD_SIZE] = "", *toks = NULL;
+  char name[WORD_SIZE] = "";
+  char player_desc[7], space_desc[5][10], object_desc[WORD_SIZE], character_desc[7];
+  char character_message[MAX_MESSAGE], character_friendliness[6];
+  Id id = NO_ID, location = NO_ID, link_origin = NO_ID, link_destination = NO_ID;
   Direction dir = NO_DIR;
   Bool open = FALSE;
   Status status = OK;
-  char gdesc[5][10], object_desc[WORD_SIZE];
-  char character_desc[7], character_message[MAX_MESSAGE], character_friendliness[6];
-  int i = 0, character_health = 0;
 
   if (!game || !filename) {
     printf("Invalid game or filename\n");
@@ -81,6 +71,7 @@ Status game_load_everything(Game *game, char *filename) {
   while (fgets(line, WORD_SIZE, file)) {
     printf("Reading line: %s", line);
 
+    /*SPACES*/
     if (strncmp("#s:", line, 3) == 0) {
       printf("Processing space\n");
       toks = strtok(line + 3, "|");
@@ -90,14 +81,14 @@ Status game_load_everything(Game *game, char *filename) {
       for (i = 0; i < 5; i++) {
         toks = strtok(NULL, "|");
         if (!toks) {
-          strcpy(gdesc[0], "         ");
-          strcpy(gdesc[1], "         ");
-          strcpy(gdesc[2], "         ");
-          strcpy(gdesc[3], "         ");
-          strcpy(gdesc[4], "         ");
+          strcpy(space_desc[0], "         ");
+          strcpy(space_desc[1], "         ");
+          strcpy(space_desc[2], "         ");
+          strcpy(space_desc[3], "         ");
+          strcpy(space_desc[4], "         ");
           break;
         } else {
-          strcpy(gdesc[i], toks);
+          strcpy(space_desc[i], toks);
         }
       }
 
@@ -105,7 +96,7 @@ Status game_load_everything(Game *game, char *filename) {
       if (space) {
         space_set_name(space, name);
         for (i = 0; i < 5; i++) {
-          space_set_description(space, gdesc);
+          space_set_description(space, space_desc);
         }
         if (game_add_space(game, space) == ERROR) {
           space_destroy(space);
@@ -113,41 +104,45 @@ Status game_load_everything(Game *game, char *filename) {
           break;
         }
       }
+
+      /*OBJECTS*/
     } else if (strncmp("#o:", line, 3) == 0) {
       printf("Processing object\n");
       toks = strtok(line + 3, "|");
-      object_id = atol(toks);
+      id = atol(toks);
       toks = strtok(NULL, "|");
-      strcpy(object_name, toks);
+      strcpy(name, toks);
       toks = strtok(NULL, "|");
-      object_location = atol(toks);
+      location = atol(toks);
       toks = strtok(NULL, "|");
       strcpy(object_desc, toks);
 
-      object = object_create(object_id, object_location);
+      object = object_create(id, location);
       if (object) {
-        object_set_name(object, object_name);
+        object_set_name(object, name);
         object_set_desc(object, object_desc);
         if (game_add_object(game, object) == ERROR) {
           object_destroy(object);
           status = ERROR;
           break;
         }
-        space = game_get_space(game, object_location);
+        space = game_get_space(game, location);
         if (space) {
-          space_set_object(space, object_id);
+          space_set_object(space, id);
         }
       }
+
+      /*CHARACTERS*/
     } else if (strncmp("#c:", line, 3) == 0) {
       printf("Processing character\n");
       toks = strtok(line + 3, "|");
-      character_id = atol(toks);
+      id = atol(toks);
       toks = strtok(NULL, "|");
-      strcpy(character_name, toks);
+      strcpy(name, toks);
       toks = strtok(NULL, "|");
-      character_location = atol(toks);
+      location = atol(toks);
       toks = strtok(NULL, "|");
-      character_health = atoi(toks);
+      health = atoi(toks);
       toks = strtok(NULL, "|");
       strcpy(character_desc, toks);
       toks = strtok(NULL, "|");
@@ -155,10 +150,10 @@ Status game_load_everything(Game *game, char *filename) {
       toks = strtok(NULL, "|");
       strcpy(character_friendliness, toks);
 
-      character = character_create(character_id);
+      character = character_create(id);
       if (character) {
-        character_set_name(character, character_name);
-        character_set_health(character, character_health);
+        character_set_name(character, name);
+        character_set_health(character, health);
         character_set_description(character, character_desc);
         character_set_message(character, character_message);
         character_set_friendly(character, strcmp(character_friendliness, "TRUE") == 0);
@@ -167,54 +162,65 @@ Status game_load_everything(Game *game, char *filename) {
           status = ERROR;
           break;
         }
-        space = game_get_space(game, character_location);
+        space = game_get_space(game, location);
         if (space) {
-          space_set_character(space, character_id);
+          space_set_character(space, id);
         }
       }
+
+      /*LINKS*/
     } else if (strncmp("#l:", line, 3) == 0) {
       printf("Processing link\n");
       toks = strtok(line + 3, "|");
-      link_id = atol(toks);
+      id = atol(toks);
       toks = strtok(NULL, "|");
       toks = strtok(NULL, "|");
-      origin = atol(toks);
+      link_origin = atol(toks);
       toks = strtok(NULL, "|");
-      destination = atol(toks);
+      link_destination = atol(toks);
       toks = strtok(NULL, "|");
       dir = (Direction)atoi(toks);
       toks = strtok(NULL, "|");
       open = (atoi(toks) == 1) ? TRUE : FALSE;
 
-      if (game_add_link(game, link_id, origin, destination, dir, open) == ERROR) {
-        printf("Error adding link: %ld\n", link_id);
-        status = ERROR;
-        break;
+      link = link_create(id, dir);
+      if (link) {
+        link_set_name(link, name);
+        link_set_start(link, link_origin);
+        link_set_end(link, link_destination);
+        link_set_direction(link, dir);
+        link_set_open(link, open);
+        if (game_add_link(game, link) == ERROR) {
+          link_destroy(link);
+          status = ERROR;
+          break;
+        }
       }
+
     } else if (strncmp("#p:", line, 3) == 0) {
       printf("Processing player\n");
       toks = strtok(line + 3, "|");
-      player_id = atol(toks);
+      id = atol(toks);
       toks = strtok(NULL, "|");
-      strcpy(player_name, toks);
+      strcpy(name, toks);
       toks = strtok(NULL, "|");
       strcpy(player_desc, toks);
       toks = strtok(NULL, "|");
-      player_location = atol(toks);
+      location = atol(toks);
       toks = strtok(NULL, "|");
-      player_health = atol(toks);
+      health = atol(toks);
       toks = strtok(NULL, "|");
       player_max_obj = atol(toks);
 
-      player = player_create(player_id);
+      player = player_create(id);
       if (player) {
-        player_set_name(player, player_name);
-        player_set_health(player, player_health);
+        player_set_name(player, name);
+        player_set_health(player, health);
         player_set_description(player, player_desc);
         player_set_max_objs(player, player_max_obj);
-        player_set_location(player, player_location);
+        player_set_location(player, location);
         if (game_add_player(game, player) == ERROR) {
-          printf("Error adding player: %ld\n", player_id);
+          printf("Error adding player: %ld\n", id);
           player_destroy(player);
           status = ERROR;
           break;

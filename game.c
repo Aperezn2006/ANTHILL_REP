@@ -420,22 +420,22 @@ char *game_get_character_desc_at_space(Game *game, Id space_id) {
 }
 
 /*Manejo de links*/
-Status game_add_link(Game *game, Id id, Id origin, Id destination, Direction dir, Bool open) {
-  Link *new_link = link_create(id, origin, destination, dir, open);
-  if (!game || id == NO_ID || origin == NO_ID || destination == NO_ID || dir == NO_DIR) {
+Status game_add_link(Game *game, Link *link) {
+  Link **links = game->links;
+
+  if (!game || !link || game_get_num_links(game) >= MAX_LINKS) {
+    printf("Error: Invalid game or link, or maximum links reached\n");
     return ERROR;
   }
 
-  if (game->n_links >= MAX_LINKS) {
+  if (!links) {
+    printf("Error: Could not get links from game\n");
     return ERROR;
   }
 
-  if (!new_link) {
-    return ERROR;
-  }
-
-  game->links[game->n_links] = new_link;
-  game->n_links++;
+  links[game_get_num_links(game)] = link;
+  game_increment_num_links(game);
+  printf("Link added successfully\n");
 
   return OK;
 }
@@ -529,6 +529,20 @@ int game_get_num_players(Game *game) {
 void game_increment_num_players(Game *game) {
   if (game) {
     game->n_players++;
+  }
+}
+
+/*Manejo de n_links*/
+int game_get_num_links(Game *game) {
+  if (!game) {
+    return -1;
+  }
+  return game->n_links;
+}
+
+void game_increment_num_links(Game *game) {
+  if (game) {
+    game->n_links++;
   }
 }
 

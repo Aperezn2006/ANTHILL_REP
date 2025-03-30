@@ -27,7 +27,7 @@ typedef struct _Link Link;
  * @param open the status of the link (open or closed)
  * @return a pointer to the new link
  */
-Link *link_create(Id id, Id origin, Id destination, Direction dir, Bool open);
+Link *link_create(Id id, Direction dir);
 
 /**
  * @brief It destroys a link
@@ -98,6 +98,14 @@ Direction link_get_direction(Link *link);
 
 /* Obtener inicio y destino del enlace */
 /**
+ * @brief
+ *
+ * @param link a pointer to the link
+ * @return
+ */
+Status link_set_start(Link *link, Id origin);
+
+/**
  * @brief It gets the origin id of a link
  *
  * @param link a pointer to the link
@@ -112,6 +120,8 @@ Id link_get_start(Link *link);
  * @return the destination id of the link
  */
 Id link_get_end(Link *link);
+
+Status link_set_end(Link *link, Id destination);
 
 /* Imprimir enlace */
 /**
