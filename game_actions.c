@@ -235,7 +235,7 @@ Status game_actions_take(Game *game) {
   }
 
   if (space_has_object(space, object_id) == TRUE) {
-    game_set_object_location(game, PLAYER_ID, object_id);
+    game_set_object_location(game, player_get_id(game_get_player(game)), object_id);
     printf("Object %s taken\n", object_name); /*DEBUG*/
     return OK;
   } else {

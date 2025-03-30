@@ -24,7 +24,6 @@
 #define PLAYER_HEALTH 5
 #define CHARACTER_HEALTH 10
 
-#define PLAYER_ID -200
 #define BOX_WIDTH 19
 
 typedef long Id;
