@@ -11,6 +11,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <string.h>
 
 #include "command.h"
 #include "game.h"
@@ -19,41 +20,20 @@
 #include "graphic_engine.h"
 #include "player.h"
 
-/**
- * @brief It initializes the game
- * @author Profesores PPROG
- *
- * @param game a pointer to the game
- * @param gengine a pointer to the grpahic engine
- * @param file_name a pointer to the name of the file where the game's data is
- * stored
- * @return 1 if everything goes well, 0 otherwise
- */
 int game_loop_init(Game *game, Graphic_engine **gengine, char *file_name);
-
-/**
- * @brief It runs the game
- * @author Profesores PPROG
- *
- * @param game a pointer to the game
- * @param gengine a pointer to the grpahic engine
- * @return nothing
- */
-void game_loop_run(Game *game, Graphic_engine *gengine);
-
-/**
- * @brief It finalizes the game
- * @author Profesores PPROG
- *
- * @param game a pointer to the game
- * @param gengine a pointer to the grpahic engine
- * @return nothing
- */
-void game_loop_cleanup(Game *game, Graphic_engine *gengine);
+void game_loop_run(Game *game, Graphic_engine *gengine, FILE *log_file);
+void game_loop_cleanup(Game *game, Graphic_engine *gengine, FILE *log_file);
+void log_command(FILE *log_file, Command *cmd);
 
 int main(int argc, char *argv[]) {
   Game *game;
   Graphic_engine *gengine;
+  FILE *log_file = NULL;
+
+  if (argc < 2) {
+    fprintf(stderr, "Use: %s <game_data_file> [-l <log_file>]\n", argv[0]);
+    return 1;
+  }
 
   game = game_init();
   if (!game) {
@@ -61,16 +41,19 @@ int main(int argc, char *argv[]) {
     return 1;
   }
 
-  if (argc < 2) {
-    fprintf(stderr, "Use: %s <game_data_file>\n", argv[0]);
-    game_destroy(game);
-    return 1;
+  if (argc == 4 && strcmp(argv[2], "-l") == 0) {
+    log_file = fopen(argv[3], "w");
+    if (!log_file) {
+      fprintf(stderr, "Error: No se pudo abrir el archivo de log %s\n", argv[3]);
+      game_destroy(game);
+      return 1;
+    }
   }
 
   if (!game_loop_init(game, &gengine, argv[1])) {
-    game_loop_run(game, gengine);
+    game_loop_run(game, gengine, log_file);
     graphic_engine_paint_end(gengine, game);
-    game_loop_cleanup(game, gengine);
+    game_loop_cleanup(game, gengine, log_file);
   }
 
   return 0;
@@ -91,7 +74,7 @@ int game_loop_init(Game *game, Graphic_engine **gengine, char *file_name) {
   return 0;
 }
 
-void game_loop_run(Game *game, Graphic_engine *gengine) {
+void game_loop_run(Game *game, Graphic_engine *gengine, FILE *log_file) {
   Command *last_cmd;
 
   if (!gengine) {
@@ -106,8 +89,11 @@ void game_loop_run(Game *game, Graphic_engine *gengine) {
     graphic_engine_paint_game(gengine, game);
     command_get_user_input(last_cmd);
     game_actions_update(game, last_cmd);
-
-    /*Manejo de los turnos*/
+    
+    if (log_file) {
+      log_command(log_file, last_cmd);
+    }
+    
     if (command_get_code(last_cmd) != UNKNOWN && command_get_code(last_cmd) != NO_CMD) {
       if (game_get_turn(game) == (game_get_num_players(game) - 1)) {
         game_set_turn(game, 0);
@@ -116,14 +102,30 @@ void game_loop_run(Game *game, Graphic_engine *gengine) {
       }
     }
 
-    /*El juego acaba cuando uno de los jugadores muera*/
     if (player_get_health(game_get_i_player(game, game_get_turn(game) - 1)) == 0) {
       game_set_finished(game, TRUE);
     }
   }
 }
 
-void game_loop_cleanup(Game *game, Graphic_engine *gengine) {
+void game_loop_cleanup(Game *game, Graphic_engine *gengine, FILE *log_file) {
   game_destroy(game);
   graphic_engine_destroy(gengine);
+  if (log_file) {
+    fclose(log_file);
+  }
+}
+
+void log_command(FILE *log_file, Command *cmd) {
+    CommandCode code = command_get_code(cmd);
+  if (!log_file || !cmd) {
+    return;
+  }
+  
+
+  fprintf(log_file, "Comando ejecutado: %s, %s, %d\n",
+          command_to_str(code),
+          command_get_obj(cmd),
+          command_get_result(cmd));
+  fflush(log_file);
 }
