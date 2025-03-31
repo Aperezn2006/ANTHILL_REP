@@ -423,7 +423,7 @@ char *game_get_character_desc_at_space(Game *game, Id space_id) {
 Status game_add_link(Game *game, Link *link) {
   Link **links = game->links;
 
-  if (!game || !link || game_get_num_links(game) >= MAX_LINKS) {
+  if (!game || !link || game_get_num_links(game) >= MAX_LINK) {
     printf("Error: Invalid game or link, or maximum links reached\n");
     return ERROR;
   }

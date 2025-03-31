@@ -14,10 +14,26 @@
 #include "set.h"
 #include "types.h"
 
+/**
+ * @brief
+ *
+ */
 typedef struct _Inventory Inventory;
 
+/**
+ * @brief
+ *
+ * @param max_objs
+ * @return Inventory*
+ */
 Inventory *inventory_create(int max_objs);
 
+/**
+ * @brief
+ *
+ * @param inventory
+ * @return Status
+ */
 Status inventory_destroy(Inventory *inventory);
 
 /**
@@ -40,18 +56,64 @@ Status inventory_add_object(Inventory *inventory, Id object_id);
  */
 Status inventory_remove_object(Inventory *inventory, Id object_id);
 
+/**
+ * @brief
+ *
+ * @param inventory
+ * @param object_id
+ * @return Bool
+ */
 Bool inventory_has_obj(Inventory *inventory, Id object_id);
 
+/**
+ * @brief
+ *
+ * @param inventory
+ * @return Set*
+ */
 Set *inventory_get_objs(Inventory *inventory);
 
+/**
+ * @brief
+ *
+ * @param inventory
+ * @param max
+ * @return Status
+ */
 Status inventory_set_max_objs(Inventory *inventory, int max);
 
+/**
+ * @brief
+ *
+ * @param inventory
+ * @return int
+ */
 int inventory_get_max_objs(Inventory *inventory);
 
+/**
+ * @brief
+ *
+ * @param inventory
+ * @return int
+ */
 int inventory_get_num_objs(Inventory *inventory);
 
+/**
+ * @brief
+ *
+ * @param inventory
+ * @param n
+ * @return Id
+ */
 Id inventory_get_obj_by_iteration(Inventory *inventory, int n);
 
+/**
+ * @brief Get the obj act possition object
+ *
+ * @param inventory
+ * @param object_id
+ * @return int
+ */
 int get_obj_act_possition(Inventory *inventory, Id object_id); /*terminar*/
 
 /**

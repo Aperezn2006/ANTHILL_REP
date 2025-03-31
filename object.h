@@ -13,6 +13,10 @@
 
 #include "types.h"
 
+/**
+ * @brief
+ *
+ */
 typedef struct _Object Object;
 
 /**
@@ -35,7 +39,6 @@ Object *object_create(Id id, Id location);
 Status object_destroy(Object *object);
 
 /*  GET */
-
 /**
  * @brief It gets the id of a object
  * @author Beatriz, Arturo, Rubén, Ana
@@ -96,8 +99,21 @@ Status object_set_name(Object *object, char *name);
 Status object_set_desc(Object *object, char *desc);
 
 /*Manejo de inspected*/
+/**
+ * @brief
+ *
+ * @param object
+ * @param inspected
+ * @return Status
+ */
 Status object_set_inspected(Object *object, Bool inspected);
 
+/**
+ * @brief
+ *
+ * @param object
+ * @return Bool
+ */
 Bool object_get_inspected(Object *object);
 
 /**

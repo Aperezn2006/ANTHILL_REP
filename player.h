@@ -18,6 +18,10 @@ tiene, puntos de vida, etc.).*/
 #include "inventory.h"
 #include "types.h"
 
+/**
+ * @brief
+ *
+ */
 typedef struct _Player Player;
 
 /*Create & destroy*/
@@ -181,8 +185,21 @@ Status player_set_health(Player *player, long health);
 Status player_decrease_health(Player *player, long damage);
 
 /*Manejo de gdesc*/
+/**
+ * @brief
+ *
+ * @param player
+ * @param gdesc
+ * @return Status
+ */
 Status player_set_description(Player *player, char *gdesc);
 
+/**
+ * @brief
+ *
+ * @param player
+ * @return char*
+ */
 char *player_get_description(Player *player);
 
 /*Manejo de inventory*/

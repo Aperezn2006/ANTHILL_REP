@@ -21,6 +21,10 @@ typedef enum { CMDS, CMDL } CommandType;
 
 typedef enum { NO_CMD = -1, UNKNOWN, EXIT, MOVE, TAKE, DROP, ATTACK, CHAT, INSPECT } CommandCode;
 
+/**
+ * @brief
+ *
+ */
 typedef struct _Command Command;
 
 /**
@@ -97,6 +101,12 @@ Status command_get_result(Command *command);
  */
 Status command_set_result(Command *command, Status result);
 
+/**
+ * @brief
+ *
+ * @param code
+ * @return const char*
+ */
 const char *command_to_str(CommandCode code);
 
 #endif

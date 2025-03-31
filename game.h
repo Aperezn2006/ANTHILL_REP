@@ -204,6 +204,14 @@ Status game_set_object_location(Game *game, Id location, Id object_id);
  */
 Id game_get_object_id_from_name(Game *game, char *object_name);
 
+/**
+ * @brief
+ *
+ * @param game
+ * @param space_id
+ * @param objs
+ * @return Status
+ */
 Status game_get_string_of_objects_in_space(Game *game, Id space_id, char *objs);
 
 /*Manejo de characters*/
@@ -264,6 +272,13 @@ char *game_get_character_desc_at_space(Game *game, Id space_id);
 
 /*Manejo de links*/
 
+/**
+ * @brief
+ *
+ * @param game
+ * @param link
+ * @return Status
+ */
 Status game_add_link(Game *game, Link *link);
 
 /**
@@ -316,8 +331,24 @@ Id Game_get_west(Game *game, Id current_location);
  */
 Id Game_get_neighbour(Game *game, Id current_location, Direction d);
 
+/**
+ * @brief
+ *
+ * @param game
+ * @param current_location
+ * @param direction
+ * @return Id
+ */
 Id game_get_connection(Game *game, Id current_location, Direction direction);
 
+/**
+ * @brief
+ *
+ * @param game
+ * @param current_location
+ * @param direction
+ * @return Bool
+ */
 Bool game_connection_is_open(Game *game, Id current_location, Direction direction);
 
 /*Manejo de n_objects*/
@@ -455,8 +486,21 @@ char *game_get_message(Game *game);
 Status game_set_message(Game *game, char *message);
 
 /*Manejo de object_desc*/
+/**
+ * @brief
+ *
+ * @param game
+ * @return char*
+ */
 char *game_get_object_desc(Game *game);
 
+/**
+ * @brief
+ *
+ * @param game
+ * @param object_desc
+ * @return Status
+ */
 Status game_set_object_desc(Game *game, char *object_desc);
 
 /*Manejo de finished*/
@@ -481,8 +525,21 @@ Bool game_get_finished(Game *game);
 Status game_set_finished(Game *game, Bool finished);
 
 /*Manejo de turn*/
+/**
+ * @brief
+ *
+ * @param game
+ * @param turn
+ * @return Status
+ */
 Status game_set_turn(Game *game, int turn);
 
+/**
+ * @brief
+ *
+ * @param game
+ * @return int
+ */
 int game_get_turn(Game *game);
 
 /*Print*/

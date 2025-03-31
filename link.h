@@ -12,8 +12,10 @@
 
 #include "types.h"
 
-#define MAX_LINKS 100
-
+/**
+ * @brief
+ *
+ */
 typedef struct _Link Link;
 
 /* Funciones de creación y destrucción */
@@ -121,6 +123,13 @@ Id link_get_start(Link *link);
  */
 Id link_get_end(Link *link);
 
+/**
+ * @brief
+ *
+ * @param link
+ * @param destination
+ * @return Status
+ */
 Status link_set_end(Link *link, Id destination);
 
 /* Imprimir enlace */
