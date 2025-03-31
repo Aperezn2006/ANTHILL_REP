@@ -97,4 +97,6 @@ Status command_get_result(Command *command);
  */
 Status command_set_result(Command *command, Status result);
 
+const char *command_to_str(CommandCode code);
+
 #endif
