@@ -172,3 +172,10 @@ Status command_set_result(Command *command, Status result) {
 
   return OK;
 }
+
+const char *command_to_str(CommandCode code) {
+  if (code >= NO_CMD && code < N_CMD) {
+    return cmd_to_str[code + 1][CMDL];
+  }
+  return "UNKNOWN";
+}
