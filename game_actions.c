@@ -213,7 +213,7 @@ Status game_actions_take(Game *game) {
   }
 
   c = game_get_last_command(game);
-  strcpy(object_name, command_get_obj(c));
+  strcpy(object_name, command_get_obj(c)); /*Corrección: Podemos ahorrarnos la variable object_name si llamamos a get_obj*/
 
   if (strcmp(object_name, "") == 0) {
     return ERROR;
@@ -236,6 +236,7 @@ Status game_actions_take(Game *game) {
 
   if (space_has_object(space, object_id) == TRUE) {
     game_set_object_location(game, player_get_id(game_get_player(game)), object_id);
+    /*Corrección: ¿Dónde se elimina el espacio?, respuesta: lo hace game_set_object_location*/
     printf("Object %s taken\n", object_name); /*DEBUG*/
     return OK;
   } else {
@@ -257,7 +258,7 @@ Status game_actions_drop(Game *game) {
   }
 
   c = game_get_last_command(game);
-  strcpy(object_name, command_get_obj(c));
+  strcpy(object_name, command_get_obj(c)); /*Corrección: Podemos ahorrarnos la variable object_name si llamamos a get_obj*/
 
   if (strcmp(object_name, "") == 0) {
     return ERROR;

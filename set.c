@@ -14,12 +14,14 @@ Set *set_create() {
     return NULL;
   }
 
-  newSet->ids = (Id *)malloc(1 * sizeof(Id));
+  newSet->ids = NULL; /*Corrección*/
+
+  /*newSet->ids = (Id *)malloc(1 * sizeof(Id));
   if (!newSet->ids) {
     free(newSet);
     return NULL;
   }
-  newSet->n_ids = 0;
+  newSet->n_ids = 0;*/
 
   return newSet;
 }
