@@ -85,7 +85,7 @@ Status space_set_name(Space *space, char *name) {
 }
 
 /*Manejo de objects*/
-Id space_get_i_object(Space *space, int n) {
+Id space_get_object_from_index(Space *space, int n) {
   if (!space || !space->objects) {
     return NO_ID;
   }

@@ -122,8 +122,8 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game) {
 
   id_act = game_get_player_location(game);
   if (id_act != NO_ID) {
-    id_back = Game_get_north(game, id_act);
-    id_next = Game_get_south(game, id_act);
+    id_back = game_get_north(game, id_act);
+    id_next = game_get_south(game, id_act);
   }
 
   /*  ESPACIOS */
@@ -159,7 +159,7 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game) {
   screen_area_puts(ge->descript, str1);
 
   for (i = 0; i < game_get_num_objects(game); i++) {
-    Object *obj = game_get_i_object(game, i);
+    Object *obj = game_get_object_from_index(game, i);
     if (obj == NULL) {
       printf("Object %d is NULL\n", i); /*  Debug statement */
       continue;
@@ -186,7 +186,7 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game) {
     screen_area_puts(ge->descript, str1);
 
     for (i = 0; i < game_get_num_characters(game); i++) {
-      character = game_get_i_character(game, i);
+      character = game_get_character_from_index(game, i);
 
       if (game_get_character_location(game, character_get_id(character)) != NO_ID) {
         sprintf(str1, "  %s : %li (%li)", character_get_description(character), game_get_character_location(game, character_get_id(character)),
@@ -206,8 +206,8 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game) {
   sprintf(str1, " Players:"); /* Banner */
   screen_area_puts(ge->descript, str1);
   for (i = 0; i < game_get_num_players(game); i++) {
-    player = game_get_i_player(game, i);
-    sprintf(str1, "  %s : %li (%li)", player_get_name(player), game_get_i_player_location(game, i), player_get_health(player));
+    player = game_get_player_from_index(game, i);
+    sprintf(str1, "  %s : %li (%li)", player_get_name(player), game_get_player_location_from_index(game, i), player_get_health(player));
     screen_area_puts(ge->descript, str1);
   }
 
@@ -219,7 +219,7 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game) {
   screen_area_puts(ge->descript, str1);
 
   for (i = 0; i < game_get_num_objects(game); i++) {
-    obj = game_get_i_object(game, i);
+    obj = game_get_object_from_index(game, i);
     if (obj == NULL) {
       printf("Object %d is NULL\n", i); /*  Debug statement */
       continue;
@@ -349,8 +349,8 @@ void printHorizontalSection(Graphic_engine *ge, Game *game, Id space_id, char *p
   char objects[BOX_WIDTH + 1], character_desc[7];
   char space_desc1[10], space_desc2[10], space_desc3[10], space_desc4[10], space_desc5[10];
 
-  id_east = Game_get_east(game, space_id);
-  id_west = Game_get_west(game, space_id);
+  id_east = game_get_east(game, space_id);
+  id_west = game_get_west(game, space_id);
 
   /*  Espacio ACTUAL */
   if (space_id != NO_ID) {
@@ -506,10 +506,10 @@ void graphic_engine_paint_inventory(Graphic_engine *ge, Game *game) {
   for (i = 0; i < inventory_get_num_objs(player_get_inventory(game_get_player(game))); i++) {
     sprintf(str1, "----------------------------------------------------------------------------");
     screen_area_puts(ge->map, str1);
-    if (object_get_inspected(game_get_i_object(game, i)) == TRUE) {
-      sprintf(str1, "       %14s |%60s", object_get_name(game_get_i_object(game, i)), object_get_desc(game_get_i_object(game, i)));
+    if (object_get_inspected(game_get_object_from_index(game, i)) == TRUE) {
+      sprintf(str1, "       %14s |%60s", object_get_name(game_get_object_from_index(game, i)), object_get_desc(game_get_object_from_index(game, i)));
     } else {
-      sprintf(str1, "%20s| No info yet", object_get_name(game_get_i_object(game, i)));
+      sprintf(str1, "%20s| No info yet", object_get_name(game_get_object_from_index(game, i)));
     }
     screen_area_puts(ge->map, str1);
   }

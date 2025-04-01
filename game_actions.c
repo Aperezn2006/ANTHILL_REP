@@ -165,7 +165,7 @@ Status game_actions_move(Game *game) {
   }
 
   c = game_get_last_command(game);
-  strcpy(direction_word, command_get_obj(c));
+  strcpy(direction_word, command_get_word(c));
 
   if (strcmp(direction_word, "") == 0) {
     return ERROR;
@@ -184,7 +184,7 @@ Status game_actions_move(Game *game) {
     return ERROR;
   }
 
-  next_space_id = game_get_connection(game, current_space_id, direction);
+  next_space_id = game_get_neighbour(game, current_space_id, direction);
 
   if (next_space_id != NO_ID) {
     if (game_connection_is_open(game, current_space_id, direction)) {
@@ -213,7 +213,7 @@ Status game_actions_take(Game *game) {
   }
 
   c = game_get_last_command(game);
-  strcpy(object_name, command_get_obj(c)); /*Corrección: Podemos ahorrarnos la variable object_name si llamamos a get_obj*/
+  strcpy(object_name, command_get_word(c)); /*Corrección: Podemos ahorrarnos la variable object_name si llamamos a get_obj*/
 
   if (strcmp(object_name, "") == 0) {
     return ERROR;
@@ -258,7 +258,7 @@ Status game_actions_drop(Game *game) {
   }
 
   c = game_get_last_command(game);
-  strcpy(object_name, command_get_obj(c)); /*Corrección: Podemos ahorrarnos la variable object_name si llamamos a get_obj*/
+  strcpy(object_name, command_get_word(c)); /*Corrección: Podemos ahorrarnos la variable object_name si llamamos a get_obj*/
 
   if (strcmp(object_name, "") == 0) {
     return ERROR;
@@ -439,7 +439,7 @@ Status game_actions_inspect(Game *game) {
     return ERROR;
   }
 
-  strcpy(object_name, command_get_obj(c));
+  strcpy(object_name, command_get_word(c));
   fprintf(stdout, "[DEBUG] Object name from command: %s\n", object_name);
 
   if (strcmp(object_name, "") == 0) {

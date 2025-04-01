@@ -2,9 +2,9 @@
  * @brief It implements the game structure
  *
  * @file game.c
- * @author Profesores PPROG, Beatriz, Arturo, Rubén, Ana
- * @version 1
- * @date 11-02-2025
+ * @author Profesores PPROG, Bea, Arturo, Rubén, Ana
+ * @version 2
+ * @date 10-03-2025
  */
 
 #include "game.h"
@@ -13,14 +13,6 @@
 #include <stdlib.h>
 #include <string.h>
 #include <strings.h>
-
-#include "character.h"
-#include "command.h"
-#include "game_reader.h"
-#include "link.h"
-#include "object.h"
-#include "player.h"
-#include "space.h"
 
 /**
  Private structure
@@ -44,12 +36,16 @@ struct _Game {
 };
 
 /*Create & destroy*/
-Status game_create(Game *game) {
+/**
+ * @brief It creates a new game a "restarts" everything
+ */
+Status game_init(Game *game) {
   int i;
+  /*CdE*/
   if (game == NULL) {
     return ERROR;
   }
-
+  /*Initialization*/
   for (i = 0; i < MAX_SPACES; i++) {
     game->spaces[i] = NULL;
   }
@@ -76,9 +72,6 @@ Status game_create(Game *game) {
   game->n_characters = 0;
   game->n_links = 0;
 
-  strcpy(game->message, "");
-  player_set_location(game->players[game_get_turn(game)], NO_ID);
-
   game->last_cmd = command_create();
   if (game->last_cmd == NULL) {
     player_destroy(game->players[game_get_turn(game)]);
@@ -86,14 +79,23 @@ Status game_create(Game *game) {
     return ERROR;
   }
 
+  strcpy(game->message, "");
+  strcpy(game->object_desc, "");
+
   game->finished = FALSE;
   game->turn = 0;
+
+  player_set_location(game->players[game_get_turn(game)], NO_ID);
 
   return OK;
 }
 
+/**
+ * @brief It frees the memory the game was occupying
+ */
 Status game_destroy(Game *game) {
   int i;
+  /*CdE*/
   if (!game) {
     return ERROR;
   }
@@ -134,33 +136,74 @@ Status game_destroy(Game *game) {
   return OK;
 }
 
-Game *game_init() {
-  Game *game = (Game *)calloc(1, sizeof(Game));
+/**
+ * @brief It allocates memory for the game
+ */
+Game *game_alloc() {
+  Game *game = NULL;
+
+  game = (Game *)calloc(1, sizeof(Game));
   if (!game) {
     return NULL;
   }
+
   return game;
 }
 
-/*Manejo de spaces*/
+/*Management of spaces*/
+/**
+ * @brief It adds spaces to the game
+ */
+Status game_add_space(Game *game, Space *space) {
+  Space **spaces = game->spaces;
+
+  if (!game || !space || game_get_num_spaces(game) >= MAX_SPACES) {
+    printf("Error: Invalid game or space, or maximum spaces reached\n");
+    return ERROR;
+  }
+
+  if (!spaces) {
+    printf("Error: Could not get spaces from game\n");
+    return ERROR;
+  }
+
+  spaces[game_get_num_spaces(game)] = space;
+  game_increment_num_spaces(game);
+  printf("Space added successfully\n");
+
+  return OK;
+}
+
+/**
+ * @brief It creates a pointer to a certain space using its id
+ */
 Space *game_get_space(Game *game, Id id) {
   int i;
-  if (!game || id == NO_ID) return NULL;
+  /*CdE*/
+  if (!game || id == NO_ID) {
+    return NULL;
+  }
 
   for (i = 0; i < game->n_spaces; i++) {
     if (id == space_get_id(game->spaces[i])) {
       return game->spaces[i];
     }
   }
+
   return NULL;
 }
 
-Status space_get_i_object_name(Game *game, Id space_id, int n, char *name) {
+/**
+ * @brief It gets the name of the object located in a certain position of the array
+ * of objects in the space and copies it to "name"
+ */
+Status space_get_object_name_from_index(Game *game, Id space_id, int index, char *name) {
+  /*CdE*/
   if (!game || space_id == NO_ID) {
     return NO_ID;
   }
 
-  strcpy(name, object_get_name(game_get_object_from_id(game, space_get_i_object(game_get_space(game, space_id), n))));
+  strcpy(name, object_get_name(game_get_object_from_id(game, space_get_object_from_index(game_get_space(game, space_id), index))));
   if (!name) {
     return ERROR;
   }
@@ -168,89 +211,157 @@ Status space_get_i_object_name(Game *game, Id space_id, int n, char *name) {
   return OK;
 }
 
-Id game_get_i_space_id(Game *game, int position) {
-  Space **spaces = game->spaces;
-
-  if (!game || position < 0 || position >= game_get_num_spaces(game)) {
-    printf("Error: Invalid game or position\n");
+/**
+ * @brief It gets the id of the space in a certain position of the array
+ * of objects in the game
+ */
+Id game_get_space_id_from_index(Game *game, int index) {
+  /*CdE*/
+  if (!game || index < 0 || index >= game_get_num_spaces(game)) {
     return NO_ID;
   }
 
-  if (!spaces) {
-    printf("Error: Could not get spaces from game\n");
-    return NO_ID;
-  }
-
-  return space_get_id(spaces[position]);
+  return space_get_id(game->spaces[index]);
 }
 
-/*Manejo de player*/
-Player **game_get_players(Game *game) {
-  if (!game) {
-    return NULL;
+/*Management of player*/
+/**
+ * @brief It adds a player to the game
+ */
+Status game_add_player(Game *game, Player *player) {
+  if (!game || !player || game_get_num_players(game) >= MAX_PLAYERS) {
+    printf("Error: Invalid game or player, or maximum players reached\n");
+    return ERROR;
   }
-  return game->players;
+
+  game->players[game_get_num_players(game)] = player;
+  game_increment_num_players(game);
+  printf("Player added successfully\n");
+
+  return OK;
 }
 
+/**
+ * @brief It creates a pointer to the current player
+ */
 Player *game_get_player(Game *game) {
+  /*CdE*/
   if (!game) {
     return NULL;
   }
+
   return game->players[game_get_turn(game)];
 }
 
-Player *game_get_i_player(Game *game, int n) {
+/**
+ * @brief It creates a pointer to the player located in a certain position of the array
+ * of players in the game
+ */
+Player *game_get_player_from_index(Game *game, int index) {
+  /*CdE*/
   if (!game) {
     return NULL;
   }
-  return game->players[n];
+
+  return game->players[index];
 }
 
-Id game_get_player_location(Game *game) {
-  if (!game || !game->players[game_get_turn(game)]) return NO_ID;
-  return player_get_location(game->players[game_get_turn(game)]);
-}
-
-Id game_get_i_player_location(Game *game, int n) {
-  if (!game || !game->players[game_get_turn(game)]) return NO_ID;
-  return player_get_location(game->players[n]);
-}
-
+/**
+ * @brief It sets the player's location
+ */
 Status game_set_player_location(Game *game, Id id) {
-  if (!game || !game->players[game_get_turn(game)] || id == NO_ID) return ERROR;
+  /*CdE*/
+  if (!game || !game->players[game_get_turn(game)] || id == NO_ID) {
+    return ERROR;
+  }
+
   return player_set_location(game->players[game_get_turn(game)], id);
 }
 
-/*Manejo de objects*/
-Object *game_get_i_object(Game *game, int n) {
+/**
+ * @brief It gets the current player's location
+ */
+Id game_get_player_location(Game *game) {
+  /*CdE*/
+  if (!game || !game->players[game_get_turn(game)]) {
+    return NO_ID;
+  }
+
+  return player_get_location(game->players[game_get_turn(game)]);
+}
+
+/**
+ * @brief It gets the location of the player located in a certain position of the array
+ * of players in the game
+ */
+Id game_get_player_location_from_index(Game *game, int index) {
+  /*CdE*/
+  if (!game || !game->players[game_get_turn(game)]) {
+    return NO_ID;
+  }
+
+  return player_get_location(game->players[index]);
+}
+
+/*Management of objects*/
+/**
+ * @brief It adds objects to the game
+ */
+Status game_add_object(Game *game, Object *object) {
+  Object **objects = game->objects;
+
+  if (!game || !object || game_get_num_objects(game) >= MAX_OBJECTS) {
+    printf("Error: Invalid game or object, or maximum objects reached\n");
+    return ERROR;
+  }
+
+  if (!objects) {
+    printf("Error: Could not get objects from game\n");
+    return ERROR;
+  }
+
+  objects[game_get_num_objects(game)] = object;
+  game_increment_num_objects(game);
+  printf("Object added successfully\n");
+
+  return OK;
+}
+
+/**
+ * @brief It creates a pointer to the object located in a certain position of the array
+ * of objects in the game
+ */
+Object *game_get_object_from_index(Game *game, int index) {
+  /*CdE*/
   if (!game) {
     return NULL;
   }
 
-  return game->objects[n];
+  return game->objects[index];
 }
 
-Id game_get_object_location(Game *game, Id object_id) {
-  int i = 0;
+/**
+ * @brief It gets a pointer to an object from its id
+ */
+Object *game_get_object_from_id(Game *game, Id object_id) {
+  int i;
 
   if (!game) {
-    return NO_ID;
+    return NULL;
   }
 
-  /*Si no está en los espacios, miramos si lo tiene el jugador*/
-  if (player_has_object(game_get_player(game), object_id) == TRUE) {
-    return player_get_id(game->players[game_get_turn(game)]);
-  }
-
-  for (i = 0; i < game_get_num_spaces(game); i++) {
-    if (space_has_object(game->spaces[i], object_id) == TRUE) {
-      return space_get_id(game->spaces[i]);
+  for (i = 0; i < game->n_objects; i++) {
+    if (game->objects[i] && object_get_id(game->objects[i]) == object_id) {
+      return game->objects[i];
     }
   }
 
-  return NO_ID;
+  return NULL;
 }
 
+/**
+ * @brief It sets the object's location
+ */
 Status game_set_object_location(Game *game, Id location, Id object_id) {
   Id current_location;
 
@@ -293,22 +404,33 @@ Status game_set_object_location(Game *game, Id location, Id object_id) {
   return OK;
 }
 
-Object *game_get_object_from_id(Game *game, Id object_id) {
-  int i;
+/**
+ * @brief It gets the location a certain object
+ */
+Id game_get_object_location(Game *game, Id object_id) {
+  int i = 0;
 
   if (!game) {
-    return NULL;
+    return NO_ID;
   }
 
-  for (i = 0; i < game->n_objects; i++) {
-    if (game->objects[i] && object_get_id(game->objects[i]) == object_id) {
-      return game->objects[i];
+  /*Si no está en los espacios, miramos si lo tiene el jugador*/
+  if (player_has_object(game_get_player(game), object_id) == TRUE) {
+    return player_get_id(game->players[game_get_turn(game)]);
+  }
+
+  for (i = 0; i < game_get_num_spaces(game); i++) {
+    if (space_has_object(game->spaces[i], object_id) == TRUE) {
+      return space_get_id(game->spaces[i]);
     }
   }
 
-  return NULL;
+  return NO_ID;
 }
 
+/**
+ * @brief It gets an object's id from its name
+ */
 Id game_get_object_id_from_name(Game *game, char *object_name) {
   int i;
 
@@ -325,6 +447,9 @@ Id game_get_object_id_from_name(Game *game, char *object_name) {
   return NO_ID;
 }
 
+/**
+ * @brief It makes a string with the names of all the objects in the space
+ */
 Status game_get_string_of_objects_in_space(Game *game, Id space_id, char *objs) {
   char temp_obj[BOX_WIDTH + 1];
   int i = 0;
@@ -335,7 +460,7 @@ Status game_get_string_of_objects_in_space(Game *game, Id space_id, char *objs) 
   }
 
   for (i = 0; i < space_get_num_objects(game_get_space(game, space_id)); i++) {
-    space_get_i_object_name(game, space_id, i, temp_obj);
+    space_get_object_name_from_index(game, space_id, i, temp_obj);
     if (strlen(objs) + strlen(temp_obj) > BOX_WIDTH + 1 - 3) {
       strcat(objs, "...");
     } else {
@@ -354,7 +479,33 @@ Status game_get_string_of_objects_in_space(Game *game, Id space_id, char *objs) 
   return OK;
 }
 
-/*Manejo de characters*/
+/*Management of characters*/
+/**
+ * @brief It adds a character to the game
+ */
+Status game_add_character(Game *game, Character *character) {
+  Character **characters = game->characters;
+
+  if (!game || !character || game_get_num_characters(game) >= MAX_CHARACTERS) {
+    printf("Error: Invalid game or character, or maximum characters reached\n");
+    return ERROR;
+  }
+
+  if (!characters) {
+    printf("Error: Could not get characters from game\n");
+    return ERROR;
+  }
+
+  characters[game_get_num_characters(game)] = character;
+  game_increment_num_characters(game);
+  printf("Chracter added successfully\n");
+
+  return OK;
+}
+
+/**
+ * @brief It gets a pointer to a characters from its id
+ */
 Character *game_get_character(Game *game, Id character_id) {
   int i;
 
@@ -371,6 +522,21 @@ Character *game_get_character(Game *game, Id character_id) {
   return NULL;
 }
 
+/**
+ * @brief It gets a pointer to the character located in a certain position of the game's
+ * array of characters
+ */
+Character *game_get_character_from_index(Game *game, int n) {
+  if (!game) {
+    return NULL;
+  }
+
+  return game->characters[n];
+}
+
+/**
+ * @brief It gets the location of a certain character
+ */
 Id game_get_character_location(Game *game, Id character_id) {
   int i = 0;
 
@@ -387,6 +553,9 @@ Id game_get_character_location(Game *game, Id character_id) {
   return NO_ID;
 }
 
+/**
+ * @brief It gets a character's id from its name
+ */
 Id game_get_character_id_from_name(Game *game, char *name) {
   int i;
 
@@ -403,14 +572,9 @@ Id game_get_character_id_from_name(Game *game, char *name) {
   return NO_ID;
 }
 
-Character *game_get_i_character(Game *game, int n) {
-  if (!game) {
-    return NULL;
-  }
-
-  return game->characters[n];
-}
-
+/**
+ * @brief It gets the description of the character located in a certain space
+ */
 char *game_get_character_desc_at_space(Game *game, Id space_id) {
   if (!game || space_id == NO_ID) {
     return NULL;
@@ -419,7 +583,10 @@ char *game_get_character_desc_at_space(Game *game, Id space_id) {
   return character_get_description(game_get_character(game, space_get_character(game_get_space(game, space_id))));
 }
 
-/*Manejo de links*/
+/*Management of links*/
+/**
+ * @brief It adds a link to the game
+ */
 Status game_add_link(Game *game, Link *link) {
   Link **links = game->links;
 
@@ -440,7 +607,54 @@ Status game_add_link(Game *game, Link *link) {
   return OK;
 }
 
-Id game_get_connection(Game *game, Id current_location, Direction direction) {
+/**
+ * @brief It gets the id of the space located north of the current_location
+ */
+Id game_get_north(Game *game, Id current_location) {
+  if (!game || !current_location) {
+    return ERROR;
+  }
+  printf("Northern neighbour: %li --> %li\n", current_location, game_get_neighbour(game, current_location, N));
+  return game_get_neighbour(game, current_location, N);
+}
+
+/**
+ * @brief It gets the id of the space located south of the current_location
+ */
+Id game_get_south(Game *game, Id current_location) {
+  if (!game || !current_location) {
+    return ERROR;
+  }
+  printf("Southern neighbour: %li --> %li\n", current_location, game_get_neighbour(game, current_location, S));
+  return game_get_neighbour(game, current_location, S);
+}
+
+/**
+ * @brief It gets the id of the space located east of the current_location
+ */
+Id game_get_east(Game *game, Id current_location) {
+  if (!game || !current_location) {
+    return ERROR;
+  }
+  printf("Eastern neighbour: %li --> %li\n", current_location, game_get_neighbour(game, current_location, E));
+  return game_get_neighbour(game, current_location, E);
+}
+
+/**
+ * @brief It gets the id of the space located west of the current_location
+ */
+Id game_get_west(Game *game, Id current_location) {
+  if (!game || !current_location) {
+    return ERROR;
+  }
+  printf("Western neighbour: %li --> %li\n", current_location, game_get_neighbour(game, current_location, W));
+  return game_get_neighbour(game, current_location, W);
+}
+
+/**
+ * @brief It gets a space's neighboring location in a specified direction
+ */
+Id game_get_neighbour(Game *game, Id current_location, Direction direction) {
   int i;
   if (!game || current_location == NO_ID) {
     return NO_ID;
@@ -462,6 +676,9 @@ Id game_get_connection(Game *game, Id current_location, Direction direction) {
   return NO_ID;
 }
 
+/**
+ * @brief It gets whether the connection of a space in a certain direction is open
+ */
 Bool game_connection_is_open(Game *game, Id current_location, Direction direction) {
   int i;
   if (!game || current_location == NO_ID) {
@@ -476,7 +693,10 @@ Bool game_connection_is_open(Game *game, Id current_location, Direction directio
   return FALSE;
 }
 
-/*Manejo de n_objects*/
+/*Management of n_objects*/
+/**
+ * @brief It gets the number of objects in the game
+ */
 int game_get_num_objects(Game *game) {
   if (!game) {
     return -1;
@@ -484,13 +704,22 @@ int game_get_num_objects(Game *game) {
   return game->n_objects;
 }
 
-void game_increment_num_objects(Game *game) {
+/**
+ * @brief It increments the number of objects in the game
+ */
+Status game_increment_num_objects(Game *game) {
   if (game) {
     game->n_objects++;
+    return OK;
   }
+
+  return ERROR;
 }
 
-/*Manejo de n_spaces*/
+/*Management of n_spaces*/
+/**
+ * @brief It gets the number of spaces in the game
+ */
 int game_get_num_spaces(Game *game) {
   if (!game) {
     return -1;
@@ -498,13 +727,22 @@ int game_get_num_spaces(Game *game) {
   return game->n_spaces;
 }
 
-void game_increment_num_spaces(Game *game) {
+/**
+ * @brief It increments the number of spaces in the game
+ */
+Status game_increment_num_spaces(Game *game) {
   if (game) {
     game->n_spaces++;
+    return OK;
   }
+
+  return ERROR;
 }
 
-/*Manejo de n_characters*/
+/*Management of n_characters*/
+/**
+ * @brief It gets the number of characters in the game
+ */
 int game_get_num_characters(Game *game) {
   if (!game) {
     return -1;
@@ -512,13 +750,22 @@ int game_get_num_characters(Game *game) {
   return game->n_characters;
 }
 
-void game_increment_num_characters(Game *game) {
+/**
+ * @brief It increments the number of characters in the game
+ */
+Status game_increment_num_characters(Game *game) {
   if (game) {
     game->n_characters++;
+    return OK;
   }
+
+  return ERROR;
 }
 
-/*Manejo de n_players*/
+/*Management of n_players*/
+/**
+ * @brief It gets the number of players in the game
+ */
 int game_get_num_players(Game *game) {
   if (!game) {
     return -1;
@@ -526,13 +773,22 @@ int game_get_num_players(Game *game) {
   return game->n_players;
 }
 
-void game_increment_num_players(Game *game) {
+/**
+ * @brief It increments the number of players in the game
+ */
+Status game_increment_num_players(Game *game) {
   if (game) {
     game->n_players++;
+    return OK;
   }
+
+  return ERROR;
 }
 
-/*Manejo de n_links*/
+/*Management of n_links*/
+/**
+ * @brief It gets the number of links in the game
+ */
 int game_get_num_links(Game *game) {
   if (!game) {
     return -1;
@@ -540,33 +796,40 @@ int game_get_num_links(Game *game) {
   return game->n_links;
 }
 
-void game_increment_num_links(Game *game) {
+/**
+ * @brief It increments the number of links in the game
+ */
+Status game_increment_num_links(Game *game) {
   if (game) {
     game->n_links++;
+    return OK;
   }
+
+  return ERROR;
 }
 
-/*Manejo de last_cmd*/
-Command *game_get_last_command(Game *game) {
-  if (!game) return NULL;
-  return game->last_cmd;
-}
-
+/*Management of last_cmd*/
+/**
+ * @brief It sets the game's last command
+ */
 Status game_set_last_command(Game *game, Command *command) {
   if (!game) return ERROR;
   game->last_cmd = command;
   return OK;
 }
 
-/*Manejo de message*/
-char *game_get_message(Game *game) {
-  if (!game) {
-    return NULL;
-  }
-
-  return game->message;
+/**
+ * @brief It gets the game's last command
+ */
+Command *game_get_last_command(Game *game) {
+  if (!game) return NULL;
+  return game->last_cmd;
 }
 
+/*Management of message*/
+/**
+ * @brief It sets the game's last message
+ */
 Status game_set_message(Game *game, char *message) {
   if (!game) {
     return ERROR;
@@ -577,7 +840,21 @@ Status game_set_message(Game *game, char *message) {
   return OK;
 }
 
-/*Manejo de object_desc*/
+/**
+ * @brief It gets the game's last message
+ */
+char *game_get_message(Game *game) {
+  if (!game) {
+    return NULL;
+  }
+
+  return game->message;
+}
+
+/*Management of object_desc*/
+/**
+ * @brief It gets the description of the last inspected object
+ */
 char *game_get_object_desc(Game *game) {
   if (!game) {
     return NULL;
@@ -586,6 +863,9 @@ char *game_get_object_desc(Game *game) {
   return game->object_desc;
 }
 
+/**
+ * @brief It sets the description of the last inspected object
+ */
 Status game_set_object_desc(Game *game, char *object_desc) {
   if (!game) {
     return ERROR;
@@ -596,12 +876,18 @@ Status game_set_object_desc(Game *game, char *object_desc) {
   return OK;
 }
 
-/*Manejo de finished*/
+/*Management of finished*/
+/**
+ * @brief It gets whether the game is finished or not
+ */
 Bool game_get_finished(Game *game) {
   if (!game) return FALSE;
   return game->finished;
 }
 
+/**
+ * @brief It sets whether the game is finished or not
+ */
 Status game_set_finished(Game *game, Bool finished) {
   if (!game) {
     return ERROR;
@@ -610,7 +896,10 @@ Status game_set_finished(Game *game, Bool finished) {
   return OK;
 }
 
-/*Manejo de turn*/
+/*Management of turn*/
+/**
+ * @brief It sets the game's current turn
+ */
 Status game_set_turn(Game *game, int turn) {
   if (!game) {
     return ERROR;
@@ -621,6 +910,9 @@ Status game_set_turn(Game *game, int turn) {
   return OK;
 }
 
+/**
+ * @brief It gets the game's current turn
+ */
 int game_get_turn(Game *game) {
   if (!game) {
     return -1;
@@ -630,6 +922,9 @@ int game_get_turn(Game *game) {
 }
 
 /*Print*/
+/**
+ * @brief It prints the game
+ */
 void game_print(Game *game) {
   int i;
   if (!game) return;
@@ -647,134 +942,4 @@ void game_print(Game *game) {
   }
 
   printf("=> Player location: %d\n", (int)game_get_player_location(game));
-}
-
-/*Adds*/
-Status game_add_space(Game *game, Space *space) {
-  Space **spaces = game->spaces;
-
-  if (!game || !space || game_get_num_spaces(game) >= MAX_SPACES) {
-    printf("Error: Invalid game or space, or maximum spaces reached\n");
-    return ERROR;
-  }
-
-  if (!spaces) {
-    printf("Error: Could not get spaces from game\n");
-    return ERROR;
-  }
-
-  spaces[game_get_num_spaces(game)] = space;
-  game_increment_num_spaces(game);
-  printf("Space added successfully\n");
-
-  return OK;
-}
-
-Status game_add_object(Game *game, Object *object) {
-  Object **objects = game->objects;
-
-  if (!game || !object || game_get_num_objects(game) >= MAX_OBJECTS) {
-    printf("Error: Invalid game or object, or maximum objects reached\n");
-    return ERROR;
-  }
-
-  if (!objects) {
-    printf("Error: Could not get objects from game\n");
-    return ERROR;
-  }
-
-  objects[game_get_num_objects(game)] = object;
-  game_increment_num_objects(game);
-  printf("Object added successfully\n");
-
-  return OK;
-}
-
-Status game_add_character(Game *game, Character *character) {
-  Character **characters = game->characters;
-
-  if (!game || !character || game_get_num_characters(game) >= MAX_CHARACTERS) {
-    printf("Error: Invalid game or character, or maximum characters reached\n");
-    return ERROR;
-  }
-
-  if (!characters) {
-    printf("Error: Could not get characters from game\n");
-    return ERROR;
-  }
-
-  characters[game_get_num_characters(game)] = character;
-  game_increment_num_characters(game);
-  printf("Chracter added successfully\n");
-
-  return OK;
-}
-
-Status game_add_player(Game *game, Player *player) {
-  Player **players = game_get_players(game);
-
-  if (!game || !player || game_get_num_players(game) >= MAX_PLAYERS) {
-    printf("Error: Invalid game or player, or maximum players reached\n");
-    return ERROR;
-  }
-
-  if (!players) {
-    printf("Error: Could not get players from game\n");
-    return ERROR;
-  }
-
-  players[game_get_num_players(game)] = player;
-  game_increment_num_players(game);
-  printf("Player added successfully\n");
-
-  return OK;
-}
-
-Id Game_get_north(Game *game, Id current_location) {
-  if (!game || !current_location) {
-    return ERROR;
-  }
-  printf("Northern neighbour: %li --> %li\n", current_location, Game_get_neighbour(game, current_location, N));
-  return Game_get_neighbour(game, current_location, N);
-}
-
-Id Game_get_south(Game *game, Id current_location) {
-  if (!game || !current_location) {
-    return ERROR;
-  }
-  printf("Southern neighbour: %li --> %li\n", current_location, Game_get_neighbour(game, current_location, S));
-  return Game_get_neighbour(game, current_location, S);
-}
-Id Game_get_east(Game *game, Id current_location) {
-  if (!game || !current_location) {
-    return ERROR;
-  }
-  printf("Eastern neighbour: %li --> %li\n", current_location, Game_get_neighbour(game, current_location, E));
-  return Game_get_neighbour(game, current_location, E);
-}
-
-Id Game_get_west(Game *game, Id current_location) {
-  if (!game || !current_location) {
-    return ERROR;
-  }
-  printf("Western neighbour: %li --> %li\n", current_location, Game_get_neighbour(game, current_location, W));
-  return Game_get_neighbour(game, current_location, W);
-}
-
-Id Game_get_neighbour(Game *game, Id current_location, Direction d) {
-  int i;
-  if (!game || current_location == NO_ID || ((d != 0) && (d != 1) && (d != 2) && (d != 3))) {
-    return NO_ID;
-  }
-
-  for (i = 0; i < game->n_links; i++) {
-    if (link_get_start(game->links[i]) == current_location) {
-      if (d == link_get_direction(game->links[i])) {
-        printf("CONNECTION FOUND BETWEEN %li and %li!\n", current_location, link_get_end(game->links[i])); /*Debug*/
-        return link_get_end(game->links[i]);
-      }
-    }
-  }
-
-  return NO_ID;
 }

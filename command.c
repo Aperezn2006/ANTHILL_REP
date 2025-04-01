@@ -15,8 +15,6 @@
 #include <string.h>
 #include <strings.h>
 
-#include "types.h"
-
 #define CMD_LENGHT 40
 
 /* Commands inside the game */
@@ -47,7 +45,7 @@ Command *command_create() {
 
   /*Initialization*/
   newCommand->code = NO_CMD;
-  newCommand->word[0] = '\0';
+  newCommand->word = NULL;
   newCommand->result = OK;
 
   return newCommand;

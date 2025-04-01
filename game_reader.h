@@ -36,6 +36,6 @@ Status game_load_everything(Game *game, char *filename);
  * @param filename a pointer to the file where the spaces are defined
  * @return OK if everything goes well, ERROR otherwise
  */
-Status game_create_from_file(Game *game, char *filename);
+Status game_init_from_file(Game *game, char *filename);
 
 #endif

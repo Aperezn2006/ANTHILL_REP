@@ -35,7 +35,7 @@ int main(int argc, char *argv[]) {
     return 1;
   }
 
-  game = game_init();
+  game = game_alloc();
   if (!game) {
     fprintf(stderr, "Error: No se pudo crear el juego\n");
     return 1;
@@ -60,7 +60,7 @@ int main(int argc, char *argv[]) {
 }
 
 int game_loop_init(Game *game, Graphic_engine **gengine, char *file_name) {
-  if (game_create_from_file(game, file_name) == ERROR) {
+  if (game_init_from_file(game, file_name) == ERROR) {
     fprintf(stderr, "Error while initializing game.\n");
     return 1;
   }
@@ -102,7 +102,7 @@ void game_loop_run(Game *game, Graphic_engine *gengine, FILE *log_file) {
       }
     }
 
-    if (player_get_health(game_get_i_player(game, game_get_turn(game) - 1)) == 0) {
+    if (player_get_health(game_get_player_from_index(game, game_get_turn(game) - 1)) == 0) {
       game_set_finished(game, TRUE);
     }
   }
@@ -122,6 +122,6 @@ void log_command(FILE *log_file, Command *cmd) {
     return;
   }
 
-  fprintf(log_file, "Comando ejecutado: %s, %s, %d\n", command_to_str(code), command_get_obj(cmd), command_get_result(cmd));
+  fprintf(log_file, "Comando ejecutado: %s, %s, %d\n", command_to_str(code), command_get_word(cmd), command_get_result(cmd));
   fflush(log_file);
 }

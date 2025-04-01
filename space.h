@@ -73,7 +73,7 @@ Status space_set_name(Space *space, char *name);
  * @param n number of the array position where the desired object is
  * @return the object's id
  */
-Id space_get_i_object(Space *space, int n);
+Id space_get_object_from_index(Space *space, int n);
 
 /**
  * @brief It sets whether the space has an object or not

@@ -203,56 +203,56 @@ void test2_space_get_name();
  * @pre Pointer to a valid space
  * @post Output == OK
  */
-void test1_Game_get_north();
+void test1_game_get_north();
 
 /**
  * @test Test space get north with NULL space
  * @pre NULL pointer
  * @post Output == ERROR
  */
-void test2_Game_get_north();
+void test2_game_get_north();
 
 /**
  * @test Test space get south
  * @pre Pointer to a valid space
  * @post Output == OK
  */
-void test1_Game_get_south();
+void test1_game_get_south();
 
 /**
  * @test Test space get south with NULL space
  * @pre NULL pointer
  * @post Output == ERROR
  */
-void test2_Game_get_south();
+void test2_game_get_south();
 
 /**
  * @test Test space get east
  * @pre Pointer to a valid space
  * @post Output == OK
  */
-void test1_Game_get_east();
+void test1_game_get_east();
 
 /**
  * @test Test space get east with NULL space
  * @pre NULL pointer
  * @post Output == ERROR
  */
-void test2_Game_get_east();
+void test2_game_get_east();
 
 /**
  * @test Test space get west
  * @pre Pointer to a valid space
  * @post Output == OK
  */
-void test1_Game_get_west();
+void test1_game_get_west();
 
 /**
  * @test Test space get west with NULL space
  * @pre NULL pointer
  * @post Output == ERROR
  */
-void test2_Game_get_west();
+void test2_game_get_west();
 
 /**
  * @test Test space get object
