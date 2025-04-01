@@ -3,8 +3,8 @@
  *
  * @file command.c
  * @author Profesores PPROG, Beatriz, Arturo, Rubén, Ana
- * @version 1
- * @date 11-02-2025
+ * @version 2
+ * @date 12-03-2025
  * @copyright GNU Public License
  */
 
@@ -19,107 +19,150 @@
 
 #define CMD_LENGHT 40
 
-/* Comandos dentro del juego */
+/* Commands inside the game */
 char *cmd_to_str[N_CMD][N_CMDT] = {{"", "No command"}, {"", "Unknown"}, {"e", "Exit"}, {"m", "Move"},   {"t", "Take"},
                                    {"d", "Drop"},      {"a", "Attack"}, {"c", "Chat"}, {"i", "Inspect"}};
 
 /**
  * @brief Command
  *
- * Esta estructura almacena toda la información relacionada con un comando.
+ * This structure contains all of the information related to a command
  */
 struct _Command {
-  CommandCode code; /*!< Código del comando */
-  char *obj;        /*!< Identificador del objeto */
-  Status result;
+  CommandCode code; /*!< Command's code */
+  char *word;       /*!< String input after code */
+  Status result;    /*!< Command's result*/
 };
 
+/* Create & destroy */
 /**
- * @brief Crea un nuevo comando
- *
- * Reserva memoria e inicializa la estructura Command.
+ * @brief It allocates memory for a new command and initializes its members
  */
 Command *command_create() {
-  Command *newCommand = (Command *)malloc(sizeof(Command));
+  Command *newCommand = (Command *)malloc(1 * sizeof(Command));
+  /*CdE*/
   if (!newCommand) {
     return NULL;
   }
 
+  /*Initialization*/
   newCommand->code = NO_CMD;
-  newCommand->obj = NULL; /*  Inicializamos obj */
+  newCommand->word[0] = '\0';
   newCommand->result = OK;
 
   return newCommand;
 }
 
 /**
- * @brief Libera la memoria ocupada por un comando
+ * @brief It frees the memory of a certain command
  */
 Status command_destroy(Command *command) {
+  /*CdE*/
   if (!command) {
     return ERROR;
   }
-
-  if (command->obj) {
-    free(command->obj);
+  /*If memory was reserved for it, we free it*/
+  if (command->word) {
+    free(command->word);
   }
 
   free(command);
-  return OK;
-}
-
-/**
- * @brief Establece el nombre del objeto en el comando
- */
-Status command_set_obj(Command *c, const char *obj) {
-  if (!c || !obj) {
-    return ERROR;
-  }
-
-  if (c->obj) {
-    free(c->obj);
-  }
-
-  c->obj = (char *)malloc(strlen(obj) + 1); /* Asignar memoria */
-  if (!c->obj) {
-    return ERROR;
-  }
-
-  strcpy(c->obj, obj); /* Copiar el nombre del objeto */
 
   return OK;
 }
 
+/* Management of code */
 /**
- * @brief Obtiene el identificador del objeto del comando
- */
-char *command_get_obj(Command *c) { return c ? c->obj : NULL; }
-
-/**
- * @brief Establece el código del comando
+ * @brief It sets a certain command
  */
 Status command_set_code(Command *command, CommandCode code) {
+  /*CdE*/
   if (!command) {
     return ERROR;
   }
+
   command->code = code;
+
   return OK;
 }
 
 /**
- * @brief Obtiene el código del comando
+ * @brief It gets the code inside a command
  */
-CommandCode command_get_code(Command *command) { return command ? command->code : NO_CMD; }
+CommandCode command_get_code(Command *command) {
+  /*CdE & get*/
+  return command ? command->code : NO_CMD;
+}
+
+/* Management of word */
+/**
+ * @brief It sets the string that came after the command
+ */
+Status command_set_word(Command *c, const char *word) {
+  /*CdE*/
+  if (!c || !word) {
+    return ERROR;
+  }
+  /*If memory was already reserved for it, we free it*/
+  if (c->word) {
+    free(c->word);
+  }
+  /*We reserve memory for it*/
+  c->word = (char *)malloc(strlen(word) + 1);
+  /*CdE*/
+  if (!c->word) {
+    return ERROR;
+  }
+
+  strcpy(c->word, word);
+
+  return OK;
+}
 
 /**
- * @brief Obtiene la entrada del usuario y asigna el código y el objeto
- * correspondiente
+ * @brief It gets the wordect associated with a command
+ */
+char *command_get_word(Command *c) {
+  /*CdE & get*/
+  return c ? c->word : NULL;
+}
+
+/* Management of result */
+/**
+ * @brief It sets wheter the command was succesful or not
+ */
+Status command_set_result(Command *command, Status result) {
+  /*CdE*/
+  if (!command) {
+    return ERROR;
+  }
+
+  command->result = result;
+
+  return OK;
+}
+
+/**
+ * @brief It gets whether the command was successful or not
+ */
+Status command_get_result(Command *command) {
+  /*CdE*/
+  if (!command) {
+    return ERROR;
+  }
+
+  return command->result;
+}
+
+/* Misc */
+/**
+ * @brief It gets the user inputs and sets its command and word
  */
 Status command_get_user_input(Command *command) {
-  char input[CMD_LENGHT] = "", *token = NULL, *objToken = NULL;
+  char input[CMD_LENGHT] = "", *token = NULL, *wordToken = NULL;
   int i;
   CommandCode cmd = UNKNOWN;
-
+  /*CdE*/
   if (!command) {
     return ERROR;
   }
@@ -144,8 +187,8 @@ Status command_get_user_input(Command *command) {
 
     command_set_code(command, cmd);
 
-    objToken = strtok(NULL, " \n");
-    command_set_obj(command, objToken ? objToken : "");
+    wordToken = strtok(NULL, " \n");
+    command_set_word(command, wordToken ? wordToken : "");
 
     return OK;
   }
@@ -154,28 +197,14 @@ Status command_get_user_input(Command *command) {
   return OK;
 }
 
-/*Manejo del result*/
-Status command_get_result(Command *command) {
-  if (!command) {
-    return ERROR;
-  }
-
-  return command->result;
-}
-
-Status command_set_result(Command *command, Status result) {
-  if (!command) {
-    return ERROR;
-  }
-
-  command->result = result;
-
-  return OK;
-}
-
+/**
+ * @brief It transforms a code into a string
+ */
 const char *command_to_str(CommandCode code) {
+  /*CdE*/
   if (code >= NO_CMD && code < N_CMD) {
     return cmd_to_str[code + 1][CMDL];
   }
+
   return "UNKNOWN";
 }

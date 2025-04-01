@@ -2,9 +2,9 @@
  * @brief It defines the command interpreter interface
  *
  * @file command.h
- * @author Profesores PPROG, Beatriz, Arturo, Rubén, Ana
- * @version 1
- * @date 11-02-2025
+ * @author Profesores PPROG, Bea, Arturo, Rubén, Ana
+ * @version 2
+ * @date 12-03-2025
  * @copyright GNU Public License
  */
 
@@ -14,17 +14,12 @@
 #include "types.h"
 
 #define N_CMDT 2
-/*  cambiamos a el numero que tenga el command.c */
 #define N_CMD 13
 
 typedef enum { CMDS, CMDL } CommandType;
 
 typedef enum { NO_CMD = -1, UNKNOWN, EXIT, MOVE, TAKE, DROP, ATTACK, CHAT, INSPECT } CommandCode;
 
-/**
- * @brief
- *
- */
 typedef struct _Command Command;
 
 /**
@@ -56,15 +51,6 @@ Status command_destroy(Command *command);
 Status command_set_code(Command *command, CommandCode code);
 
 /**
- * @brief It gets the object associated with a command
- * @author Profesores PPROG
- *
- * @param command a pointer to the command
- * @return the object associated with the command
- */
-char *command_get_obj(Command *c);
-
-/**
  * @brief It gets the code inside a command
  * @author Profesores PPROG
  *
@@ -74,7 +60,25 @@ char *command_get_obj(Command *c);
 CommandCode command_get_code(Command *command);
 
 /**
- * @brief It gets the command a user inputs and sets it
+ * @brief It sets the string that came after the command
+ *
+ * @param c a pointer to the desired command
+ * @param word a pointer to the string
+ * @return OK if everything goes well, ERROR otherwise
+ */
+Status command_set_word(Command *c, const char *word);
+
+/**
+ * @brief It gets the wordect associated with a command
+ * @author Profesores PPROG
+ *
+ * @param command a pointer to the command
+ * @return the word associated with the command
+ */
+char *command_get_word(Command *c);
+
+/**
+ * @brief It gets the user inputs and sets its command and word
  * @author Profesores PPROG
  *
  * @param command a pointer to the command
@@ -83,17 +87,8 @@ CommandCode command_get_code(Command *command);
 Status command_get_user_input(Command *command);
 
 /**
- * @brief It gets whether the command was successful or not
- * @author Beatriz, Arturo, Rubén, Ana
- *
- * @param command a pointer to the command
- * @return OK if everything went well, ERROR otherwise
- */
-Status command_get_result(Command *command);
-
-/**
  * @brief It sets wheter the command was succesful or not
- * @author Beatriz, Arturo, Rubén, Ana
+ * @author Bea, Arturo, Rubén, Ana
  *
  * @param command a pointer to the command
  * @param result the feedback that will be assigned to a certain command
@@ -102,10 +97,20 @@ Status command_get_result(Command *command);
 Status command_set_result(Command *command, Status result);
 
 /**
- * @brief
+ * @brief It gets whether the command was successful or not
+ * @author Bea, Arturo, Rubén, Ana
  *
- * @param code
- * @return const char*
+ * @param command a pointer to the command
+ * @return OK if everything went well, ERROR otherwise
+ */
+Status command_get_result(Command *command);
+
+/**
+ * @brief It transforms a code into a string
+ * @author Rubén
+ *
+ * @param code the desired code
+ * @return the string that belongs to a certain command
  */
 const char *command_to_str(CommandCode code);
 
