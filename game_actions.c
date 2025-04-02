@@ -30,7 +30,7 @@
 Status game_actions_unknown(Game *game);
 
 /**
- * @brief It allows for the user to exit the game
+ * @brief It allows the user to exit the game
  * @author Profesores PPROG
  *
  * @param game a pointer to the game
@@ -66,7 +66,7 @@ Status game_actions_take(Game *game);
 Status game_actions_drop(Game *game);
 
 /**
- * @brief
+ * @brief It allows the player to attack a character
  * @author Beatriz, Arturo, Rubén, Ana
  *
  * @param game a pointer to the game

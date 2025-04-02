@@ -191,8 +191,6 @@ Status character_set_message(Character *character, char *message);
  * @brief It prints the character information
  * @author Beatriz, Arturo, Rubén, Ana
  *
- * This fucntion shows the id and name of the character, the characters that
- * surrounds it and wheter it has an object or not.
  * @param character a pointer to the character
  * @return OK, if everything goes well or ERROR if there was some mistake
  */

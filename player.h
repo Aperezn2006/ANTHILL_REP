@@ -8,26 +8,17 @@
  * @copyright GNU Public License
  */
 
-/*TAD vinculado al jugador de la aventura y que describe la
-información relacionada con el estado del protagonista (ubicación, objetos que
-tiene, puntos de vida, etc.).*/
-
 #ifndef PLAYER_H_
 #define PLAYER_H_
 
 #include "inventory.h"
 #include "types.h"
 
-/**
- * @brief
- *
- */
 typedef struct _Player Player;
 
 /*Create & destroy*/
 /**
- * @brief It creates a new player, allocating memory and initializing its
- * members
+ * @brief It creates a new player, allocating memory and initializing its members
  * @author Beatriz, Arturo, Rubén, Ana
  *
  * @param id the identification number for the new player
@@ -67,7 +58,7 @@ Status player_set_id(Player *player, Id id);
 /*Manejo de player_location*/
 /**
  * @brief It gets the player's location
- * @author
+ * @author Beatriz, Arturo, Rubén, Ana
  *
  * @param player a pointer to the player
  * @return the player's location
@@ -76,7 +67,7 @@ Id player_get_location(Player *player);
 
 /**
  * @brief It sets the player's location
- * @author
+ * @author Beatriz, Arturo, Rubén, Ana
  *
  * @param player a pointer to the player
  * @param player_location the location the player will have
@@ -90,7 +81,7 @@ Status player_set_location(Player *player, Id player_location);
  * @author Beatriz, Arturo, Rubén, Ana
  *
  * @param player a pointer to the player
- * @return  a string with the name of the player
+ * @return a string with the name of the player
  */
 const char *player_get_name(Player *player);
 
@@ -107,7 +98,7 @@ Status player_set_name(Player *player, char *name);
 /*Manejo de objects*/
 /**
  * @brief It gets the object in the n position of the array
- * @author
+ * @author Beatriz, Arturo, Rubén, Ana
  *
  * @param player a pointer to the player
  * @param n number of the array position where the desired object is
@@ -135,12 +126,12 @@ int player_get_num_objects(Player *player);
 Status player_remove_object(Player *player, Id object_id);
 
 /**
- * @brief It gets whether the player has any objects or not
+ * @brief It gets whether the player has an object or not
  * @author Beatriz, Arturo, Rubén, Ana
  *
  * @param player a pointer to the player
  * @param object_id the id of the object to check
- * @return TRUE if the inventory isn't empty, FALSE otherwise
+ * @return TRUE if the inventory has the object, FALSE otherwise
  */
 Bool player_has_object(Player *player, Id object_id);
 
@@ -186,25 +177,28 @@ Status player_decrease_health(Player *player, long damage);
 
 /*Manejo de gdesc*/
 /**
- * @brief
+ * @brief It sets the graphical description of the player
+ * @author Beatriz, Arturo, Rubén, Ana
  *
- * @param player
- * @param gdesc
- * @return Status
+ * @param player a pointer to the player
+ * @param gdesc a string containing the graphical description
+ * @return OK, if everything goes well or ERROR if there was some mistake
  */
 Status player_set_description(Player *player, char *gdesc);
 
 /**
- * @brief
+ * @brief It gets the graphical description of the player
+ * @author Beatriz, Arturo, Rubén, Ana
  *
- * @param player
- * @return char*
+ * @param player a pointer to the player
+ * @return a string containing the graphical description of the player
  */
 char *player_get_description(Player *player);
 
 /*Manejo de inventory*/
 /**
  * @brief It sets the maximum number of objects a player can carry
+ * @author Beatriz, Arturo, Rubén, Ana
  *
  * @param player a pointer to the player
  * @param max the new maximum number of objects
@@ -214,6 +208,7 @@ Status player_set_max_objs(Player *player, int max);
 
 /**
  * @brief It gets a pointer to the player's inventory
+ * @author Beatriz, Arturo, Rubén, Ana
  *
  * @param player a pointer to the player
  * @return a pointer to a inventory

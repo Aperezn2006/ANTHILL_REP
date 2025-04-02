@@ -8,9 +8,6 @@
  * @copyright GNU Public License
  */
 
-/*TAD vinculado al jugador de la aventura y que describe la
-información relacionada con el estado del protagonista (ubicación, objetos que
-tiene, puntos de vida, etc.).*/
 #include "player.h"
 
 #include <stdio.h>
@@ -35,9 +32,6 @@ struct _Player {
 };
 
 /*Create & destroy*/
-/** player_create allocates memory for a new player
- *  and initializes its members
- */
 Player *player_create(Id id) {
   Player *newPlayer = NULL;
 
