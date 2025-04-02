@@ -18,21 +18,21 @@
  Private structure
 */
 struct _Game {
-  Space *spaces[MAX_SPACES];
-  Player *players[MAX_PLAYERS];
-  Object *objects[MAX_OBJECTS];
-  Character *characters[MAX_CHARACTERS];
-  Link *links[MAX_LINK];
-  int n_spaces;
-  int n_players;
-  int n_objects;
-  int n_characters;
-  int n_links;
-  Command *last_cmd;
-  char message[WORD_SIZE];
-  char object_desc[WORD_SIZE];
-  Bool finished;
-  int turn;
+  Space *spaces[MAX_SPACES];             /*!< Spaces in the game */
+  Player *players[MAX_PLAYERS];          /*!< Players in the game */
+  Object *objects[MAX_OBJECTS];          /*!< Objects in the game */
+  Character *characters[MAX_CHARACTERS]; /*!< Characters in the game */
+  Link *links[MAX_LINK];                 /*!< Links in the game */
+  int n_spaces;                          /*!< Number of spaces in the game */
+  int n_players;                         /*!< Number of players in the game */
+  int n_objects;                         /*!< Number of objects in the game */
+  int n_characters;                      /*!< Number of characters in the game */
+  int n_links;                           /*!< Number of links in the game */
+  Command *last_cmd;                     /*!< Last command of the game */
+  char message[WORD_SIZE];               /*!< Highlighted message in the game */
+  char object_desc[WORD_SIZE];           /*!< Highlighted object description in the game */
+  Bool finished;                         /*!< Whether the game is finished or not */
+  int turn;                              /*!< Current game's turn */
 };
 
 /*Create & destroy*/

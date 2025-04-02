@@ -13,6 +13,7 @@
 
 typedef struct _Set Set;
 
+/*Create & destroy*/
 /**
  * @brief It creates a set
  * @author Rubén
@@ -30,6 +31,7 @@ Set *set_create();
  */
 Status set_destroy(Set *set);
 
+/*Management of ids*/
 /**
  * @brief It adds an element to the set
  * @author Rubén
@@ -38,7 +40,7 @@ Status set_destroy(Set *set);
  * @param id the id of the element to be added
  * @return OK, if everything goes well or ERROR if there was some mistake
  */
-Status set_add(Set *set, Id id);
+Status set_add_id(Set *set, Id id);
 
 /**
  * @brief It deletes an element from the set
@@ -48,7 +50,7 @@ Status set_add(Set *set, Id id);
  * @param id the id of the element to be deleted
  * @return OK, if everything goes well or ERROR if there was some mistake
  */
-Status set_del(Set *set, Id id);
+Status set_remove_id(Set *set, Id id);
 
 /**
  * @brief It checks if the set contains an element
@@ -58,16 +60,7 @@ Status set_del(Set *set, Id id);
  * @param id the id of the element to check
  * @return TRUE if the set contains the element, FALSE otherwise
  */
-Bool set_has(Set *set, Id id);
-
-/**
- * @brief It gets the size of the set
- * @author Rubén
- *
- * @param set a pointer to the set
- * @return the size of the set
- */
-int set_get_size(Set *set);
+Bool set_has_id(Set *set, Id id);
 
 /**
  * @brief It gets the element at a given position in the set
@@ -77,8 +70,19 @@ int set_get_size(Set *set);
  * @param n the position of the element to get
  * @return the id of the element at the given position
  */
-Id set_get_n(Set *set, int n);
+Id set_get_id_from_index(Set *set, int n);
 
+/*Management of n_ids*/
+/**
+ * @brief It gets the size of the set
+ * @author Rubén
+ *
+ * @param set a pointer to the set
+ * @return the size of the set
+ */
+int set_get_num_ids(Set *set);
+
+/*Print*/
 /**
  * @brief It prints the set
  * @author Rubén

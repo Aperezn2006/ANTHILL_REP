@@ -38,69 +38,69 @@ void test2_set_destroy();
  * @pre Valid set and ID
  * @post Output == OK
  */
-void test1_set_add();
+void test1_set_add_id();
 
 /**
  * @test Test adding an invalid element to the set
  * @pre Valid set and NO_ID
  * @post Output == ERROR
  */
-void test2_set_add();
+void test2_set_add_id();
 
 /**
  * @test Test deleting an element from the set
  * @pre Valid set with an existing ID
  * @post Output == OK
  */
-void test1_set_del();
+void test1_set_remove_id();
 
 /**
  * @test Test deleting a non-existing element from the set
  * @pre Valid set but ID not present
  * @post Output == ERROR
  */
-void test2_set_del();
+void test2_set_remove_id();
 
 /**
  * @test Test checking if set contains an element
  * @pre Valid set with an existing ID
  * @post Output == TRUE
  */
-void test1_set_has();
+void test1_set_has_id();
 
 /**
  * @test Test checking if set contains a non-existing element
  * @pre Valid set but ID not present
  * @post Output == FALSE
  */
-void test2_set_has();
+void test2_set_has_id();
 
 /**
  * @test Test getting the size of the set
  * @pre Valid set with elements
  * @post Output == Correct size
  */
-void test1_set_get_size();
+void test1_set_get_num_ids();
 
 /**
  * @test Test getting the size of an empty set
  * @pre Empty set
  * @post Output == 0
  */
-void test2_set_get_size();
+void test2_set_get_num_ids();
 
 /**
  * @test Test retrieving an element by index
  * @pre Valid set with elements
  * @post Output == Correct ID
  */
-void test1_set_get_n();
+void test1_set_get_id_from_index();
 
 /**
  * @test Test retrieving an element by invalid index
  * @pre Valid set but invalid index
  * @post Output == NO_ID
  */
-void test2_set_get_n();
+void test2_set_get_id_from_index();
 
 #endif /* SET_TEST_H */

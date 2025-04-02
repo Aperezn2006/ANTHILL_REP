@@ -89,32 +89,32 @@ Id space_get_object_from_index(Space *space, int n) {
   if (!space || !space->objects) {
     return NO_ID;
   }
-  return set_get_n(space->objects, n);
+  return set_get_id_from_index(space->objects, n);
 }
 
 int space_get_num_objects(Space *space) {
   if (!space || !space->objects) return 0;
-  return set_get_size(space->objects);
+  return set_get_num_ids(space->objects);
 }
 
 Status space_set_object(Space *space, Id object_id) {
   if (!space || !space->objects) return ERROR;
-  return set_add(space->objects, object_id);
+  return set_add_id(space->objects, object_id);
 }
 
 Status space_remove_object(Space *space, Id object_id) {
   if (!space || !space->objects) return ERROR;
-  return set_del(space->objects, object_id);
+  return set_remove_id(space->objects, object_id);
 }
 
 Bool space_has_object(Space *space, Id object_id) {
   if (!space || !space->objects) return FALSE;
-  return set_has(space->objects, object_id);
+  return set_has_id(space->objects, object_id);
 }
 
 Status space_add_object(Space *space, Id object_id) {
   if (!space || !space->objects) return ERROR;
-  return set_add(space->objects, object_id);
+  return set_add_id(space->objects, object_id);
 }
 
 /*Manejo de character_id*/

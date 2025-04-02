@@ -4,30 +4,34 @@
 #include <stdlib.h>
 
 struct _Set {
-  Id *ids;
-  int n_ids;
+  Id *ids;   /*!< Ids in the game */
+  int n_ids; /*!< Number of ids in the game */
 };
 
+/*Create & destroy*/
+/**
+ * @brief It creates a set
+ */
 Set *set_create() {
   Set *newSet = (Set *)calloc(1, sizeof(Set));
+  /*CdE*/
   if (!newSet) {
     return NULL;
   }
 
-  newSet->ids = NULL; /*Corrección*/
-
-  /*newSet->ids = (Id *)malloc(1 * sizeof(Id));
-  if (!newSet->ids) {
-    free(newSet);
-    return NULL;
-  }
-  newSet->n_ids = 0;*/
+  newSet->ids = NULL;
 
   return newSet;
 }
 
+/**
+ * @brief It destroys a set
+ */
 Status set_destroy(Set *set) {
-  if (!set) return ERROR;
+  /*CdE*/
+  if (!set) {
+    return ERROR;
+  }
 
   if (set->ids) {
     free(set->ids);
@@ -37,9 +41,13 @@ Status set_destroy(Set *set) {
   return OK;
 }
 
-Status set_add(Set *set, Id id) {
+/*Management of ids*/
+/**
+ * @brief It adds an element to the set
+ */
+Status set_add_id(Set *set, Id id) {
   Id *new_ids = NULL;
-
+  /*CdE*/
   if (!set || id == NO_ID) {
     return ERROR;
   }
@@ -56,9 +64,12 @@ Status set_add(Set *set, Id id) {
   return OK;
 }
 
-Status set_del(Set *set, Id id) {
+/**
+ * @brief It deletes an element from the set
+ */
+Status set_remove_id(Set *set, Id id) {
   int i;
-
+  /*CdE*/
   if (!set || set->n_ids == 0) {
     return ERROR;
   }
@@ -73,9 +84,12 @@ Status set_del(Set *set, Id id) {
   return ERROR;
 }
 
-Bool set_has(Set *set, Id id) {
+/**
+ * @brief It checks if the set contains an element
+ */
+Bool set_has_id(Set *set, Id id) {
   int i;
-
+  /*CdE*/
   if (!set) {
     return FALSE;
   }
@@ -86,19 +100,36 @@ Bool set_has(Set *set, Id id) {
   return FALSE;
 }
 
-int set_get_size(Set *set) {
-  if (!set) return 0;
-  return set->n_ids;
-}
-
-Id set_get_n(Set *set, int n) {
-  if (!set || n < 0 || n >= set->n_ids) return NO_ID;
+/**
+ * @brief It gets the element at a given position in the set
+ */
+Id set_get_id_from_index(Set *set, int n) {
+  /*CdE*/
+  if (!set || n < 0 || n >= set->n_ids) {
+    return NO_ID;
+  }
   return set->ids[n];
 }
 
+/*Management of n_ids*/
+/**
+ * @brief It gets the size of the set
+ */
+int set_get_num_ids(Set *set) {
+  /*CdE*/
+  if (!set) {
+    return 0;
+  }
+  return set->n_ids;
+}
+
+/*Print*/
+/**
+ * @brief It prints the set
+ */
 void set_print(Set *set) {
   int i;
-
+  /*CdE*/
   if (!set) {
     return;
   }

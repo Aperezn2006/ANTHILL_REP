@@ -15,8 +15,8 @@
 #include "set.h"
 
 struct _Inventory {
-  Set *objects;
-  int max_objects;
+  Set *objects;    /*!< Objects in the inventory */
+  int max_objects; /*!< Capacity of the inventory */
 };
 
 /*Create & destroy*/
@@ -73,11 +73,11 @@ Status inventory_add_object(Inventory *inventory, Id object_id) {
   }
 
   /*comprobar que no se ha alcanzado el max_objects*/
-  if (set_get_size(inventory->objects) >= inventory->max_objects) {
+  if (set_get_num_ids(inventory->objects) >= inventory->max_objects) {
     return ERROR;
   }
 
-  if (set_add(inventory->objects, object_id) == ERROR) {
+  if (set_add_id(inventory->objects, object_id) == ERROR) {
     return ERROR;
   }
 
@@ -104,7 +104,7 @@ Status inventory_remove_object(Inventory *inventory, Id object_id) {
     return ERROR;
   }
 
-  if (set_del(inventory->objects, object_id) == ERROR) {
+  if (set_remove_id(inventory->objects, object_id) == ERROR) {
     return ERROR;
   }
 
@@ -120,7 +120,7 @@ Bool inventory_has_object(Inventory *inventory, Id object_id) {
     return FALSE;
   }
 
-  if (set_has(inventory->objects, object_id) == TRUE) {
+  if (set_has_id(inventory->objects, object_id) == TRUE) {
     return TRUE;
   }
 
@@ -136,7 +136,7 @@ int inventory_get_num_objects(Inventory *inventory) {
     return -1;
   }
 
-  return (set_get_size(inventory->objects));
+  return (set_get_num_ids(inventory->objects));
 }
 
 /**
@@ -148,7 +148,7 @@ Id inventory_get_object_by_index(Inventory *inventory, int n) {
     return NO_ID;
   }
 
-  return set_get_n(inventory->objects, n);
+  return set_get_id_from_index(inventory->objects, n);
 }
 
 /**
@@ -172,7 +172,7 @@ int inventory_get_object_index(Inventory *inventory, Id object_id) {
   }
 
   for (i = 0; i < size; i++) {
-    aux_object_id = set_get_n(objects, i);
+    aux_object_id = set_get_id_from_index(objects, i);
 
     if (aux_object_id == object_id) {
       return pos;
