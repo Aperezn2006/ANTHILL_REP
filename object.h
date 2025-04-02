@@ -3,8 +3,8 @@
  *
  * @file object.h
  * @author Beatriz, Arturo, Rubén, Ana
- * @version 1
- * @date 11-02-2024
+ * @version 2
+ * @date 23-03-2024
  * @copyright GNU Public License
  */
 
@@ -13,15 +13,11 @@
 
 #include "types.h"
 
-/**
- * @brief
- *
- */
 typedef struct _Object Object;
 
+/*Create & destroy*/
 /**
- * @brief It creates a new object, allocating memory and initializing its
- * members
+ * @brief It creates a new object, allocating memory and initializing its members
  * @author Beatriz, Arturo, Rubén, Ana
  *
  * @param id the identification number for the new object
@@ -38,36 +34,7 @@ Object *object_create(Id id, Id location);
  */
 Status object_destroy(Object *object);
 
-/*  GET */
-/**
- * @brief It gets the id of a object
- * @author Beatriz, Arturo, Rubén, Ana
- *
- * @param object a pointer to the object
- * @return the id of object
- */
-Id object_get_id(Object *object);
-
-/**
- * @brief It gets the name of a object
- * @author Beatriz, Arturo, Rubén, Ana
- *
- * @param object a pointer to the object
- * @return  a string with the name of the object
- */
-const char *object_get_name(Object *object);
-
-/**
- * @brief It gets the description of a object
- * @author Beatriz, Arturo, Rubén, Ana
- *
- * @param object a pointer to the object
- * @return a string with the description of the object
- */
-const char *object_get_desc(Object *object);
-
-/*  SET */
-
+/*Management of id*/
 /**
  * @brief It sets the id of a object
  * @author Beatriz, Arturo, Rubén, Ana
@@ -79,6 +46,16 @@ const char *object_get_desc(Object *object);
 Status object_set_id(Object *object, Id id);
 
 /**
+ * @brief It gets the id of a object
+ * @author Beatriz, Arturo, Rubén, Ana
+ *
+ * @param object a pointer to the object
+ * @return the id of object
+ */
+Id object_get_id(Object *object);
+
+/*Management of name*/
+/**
  * @brief It sets the name of a object
  * @author Beatriz, Arturo, Rubén, Ana
  *
@@ -89,6 +66,16 @@ Status object_set_id(Object *object, Id id);
 Status object_set_name(Object *object, char *name);
 
 /**
+ * @brief It gets the name of a object
+ * @author Beatriz, Arturo, Rubén, Ana
+ *
+ * @param object a pointer to the object
+ * @return  a string with the name of the object
+ */
+const char *object_get_name(Object *object);
+
+/*Management of desc*/
+/**
  * @brief It sets the description of a object
  * @author Beatriz, Arturo, Rubén, Ana
  *
@@ -98,30 +85,41 @@ Status object_set_name(Object *object, char *name);
  */
 Status object_set_desc(Object *object, char *desc);
 
-/*Manejo de inspected*/
 /**
- * @brief
+ * @brief It gets the description of a object
+ * @author Beatriz, Arturo, Rubén, Ana
  *
- * @param object
- * @param inspected
- * @return Status
+ * @param object a pointer to the object
+ * @return a string with the description of the object
+ */
+const char *object_get_desc(Object *object);
+
+/*Management of inspected*/
+/**
+ * @brief It sets whether the object has been inspected or not
+ * @author Beatriz, Arturo, Rubén, Ana
+ *
+ * @param object a pointer to the object
+ * @param inspected whether the object has been inspected or not
+ * @return OK, if everything goes well or ERROR if there was some mistake
  */
 Status object_set_inspected(Object *object, Bool inspected);
 
 /**
- * @brief
+ * @brief It gets whether the object has been inspected or not
+ * @author Beatriz, Arturo, Rubén, Ana
  *
- * @param object
- * @return Bool
+ * @param object a pointer to the object
+ * @return TRUE if it has, FALSE otherwise
  */
 Bool object_get_inspected(Object *object);
 
+/*Print*/
 /**
  * @brief It prints the object information
  * @author Beatriz, Arturo, Rubén, Ana
  *
- * This function shows the id and name of the object, the objects that surrounds
- * it and whether it has an object or not.
+ * This function shows the id and name of the object, the objects that surrounds it and whether it has an object or not.
  * @param object a pointer to the object
  * @return OK, if everything goes well or ERROR if there was some mistake
  */

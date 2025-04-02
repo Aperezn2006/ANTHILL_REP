@@ -2,8 +2,8 @@
  * @brief It implements the object module
  *
  * @file object.c
- * @version 1
- * @date 11-02-2024
+ * @version 2
+ * @date 23-03-2024
  */
 #include "object.h"
 
@@ -19,15 +19,20 @@
 struct _Object {
   Id id;                    /*!< Id number of the object, it must be unique */
   char name[WORD_SIZE + 1]; /*!< Name of the object */
-  char desc[WORD_SIZE];
-  Bool inspected;
+  char desc[WORD_SIZE];     /*!< Description of the object */
+  Bool inspected;           /*!< Whether the object has been inspected */
 };
 
+/*Create & destroy*/
+/**
+ * @brief It creates a new object, allocating memory and initializing its members
+ */
 Object *object_create(Id id, Id location) {
   Object *newobject = NULL;
-
-  /* Error control */
-  if (id == NO_ID) return NULL;
+  /*CdE*/
+  if (id == NO_ID) {
+    return NULL;
+  }
 
   newobject = (Object *)malloc(sizeof(Object));
   if (newobject == NULL) {
@@ -39,12 +44,14 @@ Object *object_create(Id id, Id location) {
   newobject->name[0] = '\0';
   newobject->desc[0] = '\0';
 
-  printf("Object created with ID: %ld, Location: %ld\n", id, location); /*  Debug statement */
-
   return newobject;
 }
 
+/**
+ * @brief It destroys a object, freeing the allocated memory
+ */
 Status object_destroy(Object *object) {
+  /*CdE*/
   if (!object) {
     return ERROR;
   }
@@ -55,40 +62,39 @@ Status object_destroy(Object *object) {
   return OK;
 }
 
-/*  GET */
-
-Id object_get_id(Object *object) {
-  if (!object) {
-    return NO_ID;
-  }
-  return object->id;
-}
-
-const char *object_get_name(Object *object) {
-  if (!object) {
-    return NULL;
-  }
-  return object->name;
-}
-
-const char *object_get_desc(Object *object) {
-  if (!object) {
-    return NULL;
-  }
-  return object->desc;
-}
-
-/*  SET */
-
+/*Management of id*/
+/**
+ * @brief It sets the id of a object
+ */
 Status object_set_id(Object *object, Id id) {
+  /*CdE*/
   if (!object || id == NO_ID) {
     return ERROR;
   }
+
   object->id = id;
+
   return OK;
 }
 
+/**
+ * @brief It gets the id of a object
+ */
+Id object_get_id(Object *object) {
+  /*CdE*/
+  if (!object) {
+    return NO_ID;
+  }
+
+  return object->id;
+}
+
+/*Management of name*/
+/**
+ * @brief It sets the name of a object
+ */
 Status object_set_name(Object *object, char *name) {
+  /*CdE*/
   if (!object || !name) {
     return ERROR;
   }
@@ -100,7 +106,24 @@ Status object_set_name(Object *object, char *name) {
   return OK;
 }
 
+/**
+ * @brief It gets the name of a object
+ */
+const char *object_get_name(Object *object) {
+  /*CdE*/
+  if (!object) {
+    return NULL;
+  }
+
+  return object->name;
+}
+
+/*Management of desc*/
+/**
+ * @brief It sets the description of a object
+ */
 Status object_set_desc(Object *object, char *desc) {
+  /*CdE*/
   if (!object || !desc) {
     return ERROR;
   }
@@ -112,8 +135,24 @@ Status object_set_desc(Object *object, char *desc) {
   return OK;
 }
 
-/*Manejo de inspected*/
+/**
+ * @brief It gets the description of a object
+ */
+const char *object_get_desc(Object *object) {
+  /*CdE*/
+  if (!object) {
+    return NULL;
+  }
+
+  return object->desc;
+}
+
+/*Management of inspected*/
+/**
+ * @brief It sets whether the object has been inspected or not
+ */
 Status object_set_inspected(Object *object, Bool inspected) {
+  /*CdE*/
   if (!object) {
     return ERROR;
   }
@@ -123,7 +162,11 @@ Status object_set_inspected(Object *object, Bool inspected) {
   return OK;
 }
 
+/**
+ * @brief It gets whether the object has been inspected or not
+ */
 Bool object_get_inspected(Object *object) {
+  /*CdE*/
   if (!object) {
     return FALSE;
   }
@@ -131,14 +174,17 @@ Bool object_get_inspected(Object *object) {
   return object->inspected;
 }
 
+/*Print*/
+/**
+ * @brief It prints the object information
+ */
 Status object_print(Object *object) {
-  /* Error Control */
+  /*CdE*/
   if (!object) {
     return ERROR;
   }
 
-  /* Print the id, name, and location of the object */
-  fprintf(stdout, "--> object (Id: %ld; Name: %s)\n", object->id, object->name);
+  fprintf(stdout, "--> object (Id: %ld; Name: %s, Description: %s, Inspected: %d)\n", object->id, object->name, object->desc, object->inspected);
 
   return OK;
 }
