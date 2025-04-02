@@ -22,10 +22,10 @@
  * This struct stores all the information of a space.
  */
 struct _Space {
-  Id id;                    
-  char name[WORD_SIZE + 1]; 
-  Set *objects;             
-  Id character_id;          
+  Id id;
+  char name[WORD_SIZE + 1];
+  Set *objects;
+  Id character_id;
   char gdesc[5][10];
   Bool discovered;
 };
@@ -56,10 +56,9 @@ Space *space_create(Id id) {
 }
 
 Status space_destroy(Space *space) {
-  if (!space){
+  if (!space) {
     return ERROR;
-  } 
-  
+  }
 
   if (space->objects) {
     set_destroy(space->objects);
@@ -72,19 +71,18 @@ Status space_destroy(Space *space) {
 /*Manejo del id*/
 Id space_get_id(Space *space) {
   if (!space) {
-  return NO_ID;
+    return NO_ID;
   }
   return space->id;
 }
 
-Status space_set_id(Space *space, Id id){
-  if(!space || !id || id <0){
+Status space_set_id(Space *space, Id id) {
+  if (!space || !id || id < 0) {
     return ERROR;
   }
   space->id = id;
   return OK;
 }
-
 
 /*Manejo de name*/
 const char *space_get_name(Space *space) {
@@ -95,7 +93,7 @@ const char *space_get_name(Space *space) {
 }
 
 Status space_set_name(Space *space, char *name) {
-  if (!space || !name){
+  if (!space || !name) {
     return ERROR;
   }
   strcpy(space->name, name);
@@ -107,42 +105,42 @@ Id space_get_object_from_index(Space *space, int n) {
   if (!space || !space->objects) {
     return NO_ID;
   }
-  return set_get_from_position(space->objects, n);
+  return set_get_id_from_index(space->objects, n);
 }
 
 int space_get_num_objects(Space *space) {
-  if (!space || !space->objects){
+  if (!space || !space->objects) {
     return 0;
-  } 
-  return set_get_size(space->objects);
+  }
+  return set_get_num_ids(space->objects);
 }
 
 Status space_set_object(Space *space, Id object_id) {
-  if (!space || !space->objects){
+  if (!space || !space->objects) {
     return ERROR;
   }
-  return set_add(space->objects, object_id);
+  return set_add_id(space->objects, object_id);
 }
 
 Status space_remove_object(Space *space, Id object_id) {
-  if (!space || !space->objects){
+  if (!space || !space->objects) {
     return ERROR;
   }
-  return set_del(space->objects, object_id);
+  return set_remove_id(space->objects, object_id);
 }
 
 Bool space_has_object(Space *space, Id object_id) {
-  if (!space || !space->objects){
+  if (!space || !space->objects) {
     return WRONG;
-  } 
-  return set_has(space->objects, object_id);
+  }
+  return set_has_id(space->objects, object_id);
 }
 
 Status space_add_object(Space *space, Id object_id) {
-  if (!space || !space->objects){
+  if (!space || !space->objects) {
     return ERROR;
   }
-  return set_add(space->objects, object_id);
+  return set_add_id(space->objects, object_id);
 }
 
 /*Manejo de character_id*/
@@ -249,7 +247,6 @@ Status space_print(Space *space) {
   if (!space) {
     return ERROR;
   }
-
 
   fprintf(stdout, "--> Space (Id: %ld; Name: %s)\n", space->id, space->name);
 
