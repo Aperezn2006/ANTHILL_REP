@@ -58,7 +58,7 @@ Status set_remove_id(Set *set, Id id);
  *
  * @param set a pointer to the set
  * @param id the id of the element to check
- * @return TRUE if the set contains the element, FALSE otherwise
+ * @return TRUE if the set contains the element, FALSE if it doesn't, WRONG if any errors were detected
  */
 Bool set_has_id(Set *set, Id id);
 

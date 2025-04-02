@@ -72,7 +72,7 @@ Status inventory_remove_object(Inventory *inventory, Id object_id);
  *
  * @param inventory a pointer to the inventory
  * @param object_id
- * @return TRUE if the inventory does have it, FALSE otherwise
+ * @return TRUE if the inventory does have it, FALSE if it doesn't, WRONG if any errors were detected
  */
 Bool inventory_has_object(Inventory *inventory, Id object_id);
 

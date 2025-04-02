@@ -117,7 +117,7 @@ Status inventory_remove_object(Inventory *inventory, Id object_id) {
 Bool inventory_has_object(Inventory *inventory, Id object_id) {
   /*CdE*/
   if (!inventory || object_id == NO_ID) {
-    return FALSE;
+    return WRONG;
   }
 
   if (set_has_id(inventory->objects, object_id) == TRUE) {

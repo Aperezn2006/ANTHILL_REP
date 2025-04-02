@@ -91,12 +91,13 @@ Bool set_has_id(Set *set, Id id) {
   int i;
   /*CdE*/
   if (!set) {
-    return FALSE;
+    return WRONG;
   }
 
   for (i = 0; i < set->n_ids; i++) {
     if (set->ids[i] == id) return TRUE;
   }
+
   return FALSE;
 }
 

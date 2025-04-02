@@ -346,7 +346,7 @@ Id game_get_neighbour(Game *game, Id current_location, Direction direction);
  * @param game a pointer ti the game
  * @param current_location The ID of the current location
  * @param direction The direction in which to look for the neighbor
- * @return TRUE if the connection is open, FALSE otherwise
+ * @return TRUE if the connection is open, FALSE if it isn't, WRONG if any errors were detected
  */
 Bool game_connection_is_open(Game *game, Id current_location, Direction direction);
 
@@ -510,7 +510,7 @@ Status game_set_object_desc(Game *game, char *object_desc);
  * @author Profesores PPROG
  *
  * @param game a pointer to the game
- * @return TRUE if it's finished, FALSE otherwise
+ * @return TRUE if it's finished, FALSE if it isn't, WRONG if any errors were detected
  */
 Bool game_get_finished(Game *game);
 

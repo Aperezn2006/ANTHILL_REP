@@ -641,7 +641,7 @@ Bool game_connection_is_open(Game *game, Id current_location, Direction directio
   int i;
   /*CdE*/
   if (!game || current_location == NO_ID) {
-    return FALSE;
+    return WRONG;
   }
 
   for (i = 0; i < game->n_links; i++) {
@@ -870,7 +870,7 @@ Status game_set_object_desc(Game *game, char *object_desc) {
 Bool game_get_finished(Game *game) {
   /*CdE*/
   if (!game) {
-    return FALSE;
+    return WRONG;
   }
 
   return game->finished;
