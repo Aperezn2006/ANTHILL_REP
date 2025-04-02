@@ -183,7 +183,7 @@ Status game_load_everything(Game *game, char *filename) {
       toks = strtok(NULL, "|");
       open = (atoi(toks) == 1) ? TRUE : FALSE;
 
-      link = link_create(id, dir);
+      link = link_create(id);
       if (link) {
         link_set_name(link, name);
         link_set_start(link, link_origin);

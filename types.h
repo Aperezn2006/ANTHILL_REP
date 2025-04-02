@@ -28,7 +28,7 @@
 
 typedef long Id;
 
-typedef enum { FALSE, TRUE } Bool;
+typedef enum { FALSE, TRUE, WRONG } Bool;
 
 typedef enum { ERROR, OK } Status;
 

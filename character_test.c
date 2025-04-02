@@ -181,18 +181,18 @@ void test2_character_set_health() {
 }
 
 void test1_decrease_health() {
-  Character *c=NULL;
-  c= character_create(12);
+  Character *c = NULL;
+  c = character_create(12);
   character_set_health(c, 100);
   character_decrease_health(c, 10);
   PRINT_TEST_RESULT(character_get_health(c) == 90);
 }
 
 void test2_decrease_health() {
-  Character *c=NULL;
-  c= character_create(12);
+  Character *c = NULL;
+  c = character_create(12);
   character_set_health(c, 100);
-  PRINT_TEST_RESULT(character_decrease_health(c, 0)==ERROR);
+  PRINT_TEST_RESULT(character_decrease_health(c, 0) == ERROR);
 }
 
 /*  Manejo de friendly */

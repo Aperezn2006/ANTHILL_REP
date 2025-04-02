@@ -29,7 +29,7 @@ typedef struct _Link Link;
  * @param open the status of the link (open or closed)
  * @return a pointer to the new link
  */
-Link *link_create(Id id, Direction dir);
+Link *link_create(Id id);
 
 /**
  * @brief It destroys a link
@@ -46,6 +46,8 @@ void link_destroy(Link *link);
  * @return the id of the link
  */
 Id link_get_id(Link *link);
+
+Status link_set_id(Link *link, Id id);
 
 /**
  * @brief It sets the name of a link

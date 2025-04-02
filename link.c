@@ -13,7 +13,7 @@ struct _Link {
   Direction direction;
 };
 
-Link *link_create(Id id, Direction dir) {
+Link *link_create(Id id) {
   Link *newlink = NULL;
 
   if (id == NO_ID) {
@@ -26,10 +26,10 @@ Link *link_create(Id id, Direction dir) {
   }
 
   newlink->id_link = id;
-  newlink->origin = NO_ID;
-  newlink->destination = NO_ID;
+  newlink->origin = 0;
+  newlink->destination = 0;
   newlink->open = FALSE;
-  newlink->direction = dir;
+  newlink->direction = NO_DIR;
   newlink->name[0] = '\0';
 
   return newlink;
@@ -47,6 +47,13 @@ Id link_get_id(Link *link) {
     return ERROR;
   }
   return link->id_link;
+}
+Status link_set_id(Link *link, Id id) {
+  if (link ==NULL || id <0) {
+    return ERROR;
+  }
+  link->id_link = id;
+  return OK;
 }
 
 Status link_set_name(Link *link, const char *name) {
@@ -66,38 +73,40 @@ const char *link_get_name(Link *link) {
 }
 
 Status link_set_open(Link *link, Bool open) {
-  if (!link) {
+  if (link == NULL || (open != TRUE && open != FALSE)) {
     return ERROR;
   }
   link->open = open;
   return OK;
 }
 
+
 Bool link_get_open(Link *link) {
   if (!link) {
-    return FALSE;
+    return WRONG;
   }
 
   return link->open;
 }
 
 Status link_set_direction(Link *link, Direction dir) {
-  if (!link) {
+  if (!link || dir < 0 || dir > 3) { 
     return ERROR;
   }
   link->direction = dir;
   return OK;
 }
 
+
 Direction link_get_direction(Link *link) {
   if (!link) {
-    return N;
+    return NO_DIR;
   }
   return link->direction;
 }
 
 Status link_set_start(Link *link, Id origin) {
-  if (!link) {
+  if (!link || !origin || origin <0) {
     return ERROR;
   }
 
@@ -114,7 +123,7 @@ Id link_get_start(Link *link) {
 }
 
 Status link_set_end(Link *link, Id destination) {
-  if (!link) {
+  if (!link || !destination || destination <0) {
     return ERROR;
   }
 
