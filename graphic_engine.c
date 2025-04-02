@@ -114,7 +114,7 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game) {
   CommandCode last_cmd = UNKNOWN;
   Id id_act = NO_ID, id_back = NO_ID, id_next = NO_ID;
   char str1[1024];
-  Id obj_id, obj_loc;
+  Id object_id, object_loc;
   extern char *cmd_to_str[N_CMD][N_CMDT];
   char result[10];
 
@@ -165,14 +165,14 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game) {
       continue;
     }
 
-    obj_id = object_get_id(obj);
-    obj_loc = game_get_object_location(game, obj_id);
+    object_id = object_get_id(obj);
+    object_loc = game_get_object_location(game, object_id);
 
-    if (obj_loc != NO_ID) {
-      if (obj_loc == player_get_id(game_get_player(game))) {
+    if (object_loc != NO_ID) {
+      if (object_loc == player_get_id(game_get_player(game))) {
         sprintf(str1, "  %s: Player", object_get_name(obj));
       } else {
-        sprintf(str1, "  %s: %d", object_get_name(obj), (int)obj_loc);
+        sprintf(str1, "  %s: %d", object_get_name(obj), (int)object_loc);
         screen_area_puts(ge->descript, str1);
       }
     }
@@ -214,8 +214,8 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game) {
   /*  Bucle para los objetos dentro del inventario */
   sprintf(str1, " "); /*  Hueco para que quede mono */
   screen_area_puts(ge->descript, str1);
-  sprintf(str1, " Inventory: (%i/%i)", inventory_get_num_objs(player_get_inventory(game_get_player(game))),
-          inventory_get_max_objs(player_get_inventory(game_get_player(game)))); /*  Banner */
+  sprintf(str1, " Inventory: (%i/%i)", inventory_get_num_objects(player_get_inventory(game_get_player(game))),
+          inventory_get_max_objects(player_get_inventory(game_get_player(game)))); /*  Banner */
   screen_area_puts(ge->descript, str1);
 
   for (i = 0; i < game_get_num_objects(game); i++) {
@@ -225,12 +225,12 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game) {
       continue;
     }
 
-    obj_id = object_get_id(obj);
-    obj_loc = game_get_object_location(game, obj_id);
-    printf("Object ID: %ld, Location: %ld\n", obj_id, obj_loc); /*  Debug statement */
+    object_id = object_get_id(obj);
+    object_loc = game_get_object_location(game, object_id);
+    printf("Object ID: %ld, Location: %ld\n", object_id, object_loc); /*  Debug statement */
 
-    if (obj_loc != NO_ID) {
-      if (obj_loc == player_get_id(game_get_player(game))) {
+    if (object_loc != NO_ID) {
+      if (object_loc == player_get_id(game_get_player(game))) {
         sprintf(str1, "  %s", object_get_name(obj));
         n_inventory++;
         screen_area_puts(ge->descript, str1);
@@ -503,7 +503,7 @@ void graphic_engine_paint_inventory(Graphic_engine *ge, Game *game) {
 
   sprintf(str1, "       Object:      |                   Observations:                       ");
   screen_area_puts(ge->map, str1);
-  for (i = 0; i < inventory_get_num_objs(player_get_inventory(game_get_player(game))); i++) {
+  for (i = 0; i < inventory_get_num_objects(player_get_inventory(game_get_player(game))); i++) {
     sprintf(str1, "----------------------------------------------------------------------------");
     screen_area_puts(ge->map, str1);
     if (object_get_inspected(game_get_object_from_index(game, i)) == TRUE) {

@@ -15,119 +15,164 @@
 #include "set.h"
 
 struct _Inventory {
-  Set *objs;
-  int max_objs;
+  Set *objects;
+  int max_objects;
 };
 
-Inventory *inventory_create(int max_objs) {
+/*Create & destroy*/
+/**
+ * @brief It creates a new player, allocating memory and initializing its members
+ */
+Inventory *inventory_create(int max_objects) {
   Inventory *inventory = NULL;
+  /*CdE*/
+  if (max_objects <= 0) {
+    return NULL;
+  }
 
-  if (max_objs <= 0) return NULL;
+  if (!(inventory = (Inventory *)malloc(sizeof(Inventory)))) {
+    return NULL;
+  }
 
-  if (!(inventory = (Inventory *)malloc(sizeof(Inventory)))) return NULL;
-
-  inventory->objs = set_create();
-  if (!inventory->objs) {
+  inventory->objects = set_create();
+  if (!inventory->objects) {
     free(inventory);
     return NULL;
   }
 
-  inventory->max_objs = max_objs;
+  inventory->max_objects = max_objects;
 
   return inventory;
 }
 
+/**
+ * @brief It destroys an inventory, freeing the allocated memory
+ */
 Status inventory_destroy(Inventory *inventory) {
-  if (!inventory) return ERROR;
+  /*CdE*/
+  if (!inventory) {
+    return ERROR;
+  }
 
-  if (inventory->objs) {
-    set_destroy(inventory->objs);
+  if (inventory->objects) {
+    set_destroy(inventory->objects);
   }
 
   free(inventory);
   return OK;
 }
 
+/*Management of objects*/
+/**
+ * @brief It adds an object to the inventory
+ */
 Status inventory_add_object(Inventory *inventory, Id object_id) {
-  if (!inventory) return ERROR;
-  if (object_id == NO_ID) return ERROR;
+  /*CdE*/
+  if (!inventory || object_id == NO_ID) {
+    return ERROR;
+  }
 
-  /*comprobar que no se ha alcanzado el max_objs*/
-  if (set_get_size(inventory->objs) >= inventory->max_objs) return ERROR;
+  /*comprobar que no se ha alcanzado el max_objects*/
+  if (set_get_size(inventory->objects) >= inventory->max_objects) {
+    return ERROR;
+  }
 
-  if (set_add(inventory->objs, object_id) == ERROR) return ERROR;
+  if (set_add(inventory->objects, object_id) == ERROR) {
+    return ERROR;
+  }
 
   return OK;
 }
 
+/**
+ * @brief It gets a pointer to the set of objects of a certain inventory
+ */
+Set *inventory_get_objects(Inventory *inventory) {
+  if (!inventory) {
+    return NULL;
+  }
+
+  return inventory->objects;
+}
+
+/**
+ * @brief It removes an object from the inventory
+ */
 Status inventory_remove_object(Inventory *inventory, Id object_id) {
-  if (!inventory || object_id == NO_ID) return ERROR;
+  /*CdE*/
+  if (!inventory || object_id == NO_ID) {
+    return ERROR;
+  }
 
-  if (set_del(inventory->objs, object_id) == ERROR) return ERROR;
+  if (set_del(inventory->objects, object_id) == ERROR) {
+    return ERROR;
+  }
 
   return OK;
 }
 
-Bool inventory_has_obj(Inventory *inventory, Id object_id) {
-  if (!inventory) return FALSE;
-  if (object_id == NO_ID) return FALSE;
+/**
+ * @brief  It checks whether the inventory has a certain object
+ */
+Bool inventory_has_object(Inventory *inventory, Id object_id) {
+  /*CdE*/
+  if (!inventory || object_id == NO_ID) {
+    return FALSE;
+  }
 
-  if (set_has(inventory->objs, object_id) == TRUE) {
+  if (set_has(inventory->objects, object_id) == TRUE) {
     return TRUE;
   }
 
   return FALSE;
 }
 
-Set *inventory_get_objs(Inventory *inventory) {
-  if (!inventory) return NULL;
+/**
+ * @brief It gets the number of objects that the inventory has
+ */
+int inventory_get_num_objects(Inventory *inventory) {
+  /*CdE*/
+  if (!inventory) {
+    return -1;
+  }
 
-  return inventory->objs;
+  return (set_get_size(inventory->objects));
 }
 
-Status inventory_set_max_objs(Inventory *inventory, int max) {
-  if (!inventory) return ERROR;
+/**
+ * @brief It gets a certain object using its index in the array of objects in the object set
+ */
+Id inventory_get_object_by_index(Inventory *inventory, int n) {
+  /*CdE*/
+  if (!inventory) {
+    return NO_ID;
+  }
 
-  inventory->max_objs = max;
-
-  return OK;
+  return set_get_n(inventory->objects, n);
 }
 
-int inventory_get_max_objs(Inventory *inventory) {
-  if (!inventory) return -1;
-
-  return inventory->max_objs;
-}
-
-int inventory_get_num_objs(Inventory *inventory) {
-  if (!inventory) return -1;
-
-  return (set_get_size(inventory->objs));
-}
-
-Status inventory_print(Inventory *inventory) {
-  if (!inventory) return ERROR;
-
-  fprintf(stdout, "--> Inventory objects: \n");
-  set_print(inventory->objs);
-
-  return OK;
-}
-
-int get_obj_act_possition(Inventory *inventory, Id object_id) {
-  Set *objs = NULL;
+/**
+ * @brief It gets the index of a certain object in the array of objects in the object set
+ */
+int inventory_get_object_index(Inventory *inventory, Id object_id) {
+  Set *objects = NULL;
   int size, pos = 0, i;
   Id aux_object_id;
+  /*CdE*/
+  if (!inventory || object_id == NO_ID) {
+    return -1;
+  }
 
-  if (!inventory) return -1;
-  if (object_id == NO_ID) return -1;
+  if (!(objects = inventory_get_objects(inventory))) {
+    return -1;
+  }
 
-  if (!(objs = inventory_get_objs(inventory))) return -1;
-
-  if ((size = inventory_get_num_objs(inventory)) <= 0) return -1;
+  if ((size = inventory_get_num_objects(inventory)) <= 0) {
+    return -1;
+  }
 
   for (i = 0; i < size; i++) {
-    aux_object_id = set_get_n(objs, i);
+    aux_object_id = set_get_n(objects, i);
 
     if (aux_object_id == object_id) {
       return pos;
@@ -139,14 +184,43 @@ int get_obj_act_possition(Inventory *inventory, Id object_id) {
   return -1;
 }
 
-Id inventory_get_obj_by_iteration(Inventory *inventory, int n) {
-  if (!inventory) return NO_ID;
+/**
+ * @brief It sets the maximun amount of objects the inventory can hold
+ */
+Status inventory_set_max_objects(Inventory *inventory, int max) {
+  /*CdE*/
+  if (!inventory) {
+    return ERROR;
+  }
 
-  return set_get_n(inventory->objs, n);
+  inventory->max_objects = max;
+
+  return OK;
 }
 
-Status inventory_free(Inventory *inventory) {
-  if (!inventory) return ERROR;
-  inventory_destroy(inventory);
+/**
+ * @brief It gets the maximun amount of objects the inventory can hold
+ */
+int inventory_get_max_objects(Inventory *inventory) {
+  /*CdE*/
+  if (!inventory) {
+    return -1;
+  }
+
+  return inventory->max_objects;
+}
+
+/**
+ * @brief It prints the inventory's information
+ */
+Status inventory_print(Inventory *inventory) {
+  /*CdE*/
+  if (!inventory) {
+    return ERROR;
+  }
+
+  fprintf(stdout, "--> Inventory objects: \n");
+  set_print(inventory->objects);
+
   return OK;
 }

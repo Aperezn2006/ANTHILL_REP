@@ -148,7 +148,7 @@ Id player_get_object_from_index(Player *player, int n) {
     return NO_ID;
   }
 
-  return inventory_get_obj_by_iteration(player->backpack, n);
+  return inventory_get_object_by_index(player->backpack, n);
 }
 
 int player_get_num_objects(Player *player) {
@@ -156,7 +156,7 @@ int player_get_num_objects(Player *player) {
     return 0;
   }
 
-  return inventory_get_num_objs(player->backpack);
+  return inventory_get_num_objects(player->backpack);
 }
 
 Status player_remove_object(Player *player, Id object_id) {
@@ -172,7 +172,7 @@ Bool player_has_object(Player *player, Id object_id) {
     return FALSE;
   }
 
-  return inventory_has_obj(player->backpack, object_id);
+  return inventory_has_object(player->backpack, object_id);
 }
 
 Status player_add_object(Player *player, Id object_id) {
@@ -236,7 +236,7 @@ Status player_set_max_objs(Player *player, int max) {
   if (!player) {
     return ERROR;
   }
-  inventory_set_max_objs(player->backpack, max);
+  inventory_set_max_objects(player->backpack, max);
   return OK;
 }
 
