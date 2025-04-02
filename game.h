@@ -447,7 +447,7 @@ Status game_increment_num_links(Game *game);
 
 /*Management of last_cmd*/
 /**
- * @brief It sets the game's last command
+ * @brief It sets the game's last command for a certain turn/player
  * @author Profesores PPROG
  *
  * @param game a pointer to the game

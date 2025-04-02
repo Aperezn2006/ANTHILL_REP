@@ -18,21 +18,21 @@
  Private structure
 */
 struct _Game {
-  Space *spaces[MAX_SPACES];             /*!< Spaces in the game */
-  Player *players[MAX_PLAYERS];          /*!< Players in the game */
-  Object *objects[MAX_OBJECTS];          /*!< Objects in the game */
-  Character *characters[MAX_CHARACTERS]; /*!< Characters in the game */
-  Link *links[MAX_LINK];                 /*!< Links in the game */
-  int n_spaces;                          /*!< Number of spaces in the game */
-  int n_players;                         /*!< Number of players in the game */
-  int n_objects;                         /*!< Number of objects in the game */
-  int n_characters;                      /*!< Number of characters in the game */
-  int n_links;                           /*!< Number of links in the game */
-  Command *last_cmd;                     /*!< Last command of the game */
-  char message[WORD_SIZE];               /*!< Highlighted message in the game */
-  char object_desc[WORD_SIZE];           /*!< Highlighted object description in the game */
-  Bool finished;                         /*!< Whether the game is finished or not */
-  int turn;                              /*!< Current game's turn */
+  Space *spaces[MAX_SPACES];                /*!< Spaces in the game */
+  Player *players[MAX_PLAYERS];             /*!< Players in the game */
+  Object *objects[MAX_OBJECTS];             /*!< Objects in the game */
+  Character *characters[MAX_CHARACTERS];    /*!< Characters in the game */
+  Link *links[MAX_LINK];                    /*!< Links in the game */
+  int n_spaces;                             /*!< Number of spaces in the game */
+  int n_players;                            /*!< Number of players in the game */
+  int n_objects;                            /*!< Number of objects in the game */
+  int n_characters;                         /*!< Number of characters in the game */
+  int n_links;                              /*!< Number of links in the game */
+  Command *last_cmd[MAX_PLAYERS];           /*!< Last command of the game */
+  char message[MAX_PLAYERS][WORD_SIZE];     /*!< Highlighted message in the game */
+  char object_desc[MAX_PLAYERS][WORD_SIZE]; /*!< Highlighted object description in the game */
+  Bool finished;                            /*!< Whether the game is finished or not */
+  int turn;                                 /*!< Current game's turn */
 };
 
 /*Create & destroy*/
@@ -52,6 +52,9 @@ Status game_init(Game *game) {
 
   for (i = 0; i < MAX_PLAYERS; i++) {
     game->players[i] = NULL;
+    game->last_cmd[i] = command_create();
+    strcpy(game->message[i], "");
+    strcpy(game->object_desc[i], "");
   }
 
   for (i = 0; i < MAX_OBJECTS; i++) {
@@ -71,16 +74,6 @@ Status game_init(Game *game) {
   game->n_objects = 0;
   game->n_characters = 0;
   game->n_links = 0;
-
-  game->last_cmd = command_create();
-  if (game->last_cmd == NULL) {
-    player_destroy(game->players[game_get_turn(game)]);
-    free(game);
-    return ERROR;
-  }
-
-  strcpy(game->message, "");
-  strcpy(game->object_desc, "");
 
   game->finished = FALSE;
   game->turn = 0;
@@ -108,6 +101,10 @@ Status game_destroy(Game *game) {
   for (i = 0; i < game->n_players; i++) {
     player_destroy(game->players[i]);
     game->players[i] = NULL;
+    if (game->last_cmd[i]) {
+      command_destroy(game->last_cmd[i]);
+      game->last_cmd[i] = NULL;
+    }
   }
 
   for (i = 0; i < game->n_objects; i++) {
@@ -123,11 +120,6 @@ Status game_destroy(Game *game) {
   for (i = 0; i < game->n_links; i++) {
     link_destroy(game->links[i]);
     game->links[i] = NULL;
-  }
-
-  if (game->last_cmd) {
-    command_destroy(game->last_cmd);
-    game->last_cmd = NULL;
   }
 
   free(game);
@@ -792,7 +784,7 @@ Status game_set_last_command(Game *game, Command *command) {
     return ERROR;
   }
 
-  game->last_cmd = command;
+  game->last_cmd[game_get_turn(game)] = command;
 
   return OK;
 }
@@ -806,7 +798,7 @@ Command *game_get_last_command(Game *game) {
     return NULL;
   }
 
-  return game->last_cmd;
+  return game->last_cmd[game_get_turn(game)];
 }
 
 /*Management of message*/
@@ -819,7 +811,7 @@ Status game_set_message(Game *game, char *message) {
     return ERROR;
   }
 
-  strcpy(game->message, message);
+  strcpy(game->message[game_get_turn(game)], message);
 
   return OK;
 }
@@ -833,7 +825,7 @@ char *game_get_message(Game *game) {
     return NULL;
   }
 
-  return game->message;
+  return game->message[game_get_turn(game)];
 }
 
 /*Management of object_desc*/
@@ -846,7 +838,7 @@ char *game_get_object_desc(Game *game) {
     return NULL;
   }
 
-  return game->object_desc;
+  return game->object_desc[game_get_turn(game)];
 }
 
 /**
@@ -858,7 +850,7 @@ Status game_set_object_desc(Game *game, char *object_desc) {
     return ERROR;
   }
 
-  strcpy(game->object_desc, object_desc);
+  strcpy(game->object_desc[game_get_turn(game)], object_desc);
 
   return OK;
 }

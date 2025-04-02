@@ -54,7 +54,7 @@ Status set_add_id(Set *set, Id id) {
 
   new_ids = (Id *)realloc(set->ids, (set->n_ids + 1) * sizeof(Id));
   if (!new_ids) {
-    return ERROR; /*  Si realloc falla, no modificamos el array */
+    return ERROR;
   }
 
   set->ids = new_ids;
@@ -76,11 +76,12 @@ Status set_remove_id(Set *set, Id id) {
 
   for (i = 0; i < set->n_ids; i++) {
     if (set->ids[i] == id) {
-      set->ids[i] = set->ids[set->n_ids - 1]; /*  Mover el último para evitar huecos */
+      set->ids[i] = set->ids[set->n_ids - 1]; /* We move the ids to get rid of gaps */
       set->n_ids--;
       return OK;
     }
   }
+
   return ERROR;
 }
 
@@ -109,6 +110,7 @@ Id set_get_id_from_index(Set *set, int n) {
   if (!set || n < 0 || n >= set->n_ids) {
     return NO_ID;
   }
+
   return set->ids[n];
 }
 
@@ -121,6 +123,7 @@ int set_get_num_ids(Set *set) {
   if (!set) {
     return 0;
   }
+
   return set->n_ids;
 }
 
@@ -137,7 +140,8 @@ void set_print(Set *set) {
 
   printf("Set contains %d IDs:\n", set->n_ids);
   for (i = 0; i < set->n_ids; i++) {
-    printf("%ld ", set->ids[i]); /*  Suponiendo que Id es un tipo numérico */
+    printf("%ld ", set->ids[i]);
   }
+
   printf("\n");
 }
