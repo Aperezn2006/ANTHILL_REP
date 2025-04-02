@@ -44,6 +44,16 @@ Status space_destroy(Space *space);
  */
 Id space_get_id(Space *space);
 
+
+/**
+ * @brief It set the id of a space
+ * @author Ruben, Ana, Arturo, Bea
+ *
+ * @param space a pointer to the space, Id of the space
+ * @return Status, Ok if everything went well, ERROR if something happens
+ */
+Status space_set_id(Space *space, Id id);
+
 /*Manejo de name*/
 /**
  * @brief It gets the name of a space
@@ -67,24 +77,13 @@ Status space_set_name(Space *space, char *name);
 /*Manejo de objects*/
 /**
  * @brief It gets the object in the n position of the array
- * @author Profesores PPROG
+ * @author Beatriz, Arturo, Rubén, Ana
  *
  * @param space a pointer to the space
  * @param n number of the array position where the desired object is
  * @return the object's id
  */
 Id space_get_object_from_index(Space *space, int n);
-
-/**
- * @brief It sets whether the space has an object or not
- * @author Profesores PPROG
- *
- * @param space a pointer to the space
- * @param value a boolean, specifying if in the space there is an object (TRUE)
- * or not (FALSE)
- * @return OK, if everything goes well or ERROR if there was some mistake
- */
-Status space_set_object(Space *space, Id object_id);
 
 /**
  * @brief It gets the number of objects in the space
@@ -96,14 +95,14 @@ Status space_set_object(Space *space, Id object_id);
 int space_get_num_objects(Space *space);
 
 /**
- * @brief It adds an object to the space
- * @author Beatriz, Arturo, Rubén, Ana
+ * @brief It adds to Set an object
+ * @author Profesores PPROG
  *
  * @param space a pointer to the space
- * @param object_id the id of the object to be added
- * @return OK, if everything goes well or ERROR if there was some mistake
+ * @param object_id the id of an object
+ * @return OK, if everything goes well (correctly added) or ERROR if there was some mistake
  */
-Status space_add_object(Space *space, Id object_id);
+Status space_set_object(Space *space, Id object_id);
 
 /**
  * @brief It removes an object from the space
@@ -121,9 +120,20 @@ Status space_remove_object(Space *space, Id object_id);
  *
  * @param space a pointer to the space
  * @param object_id the id of the object to check
- * @return TRUE if it has the object, FALSE otherwise
+ * @return TRUE if it has the object, FALSE otherwise, WRONG if error
  */
 Bool space_has_object(Space *space, Id object_id);
+
+/**
+ * @brief It adds an object to the space
+ * @author Beatriz, Arturo, Rubén, Ana
+ *
+ * @param space a pointer to the space
+ * @param object_id the id of the object to be added
+ * @return OK, if everything goes well or ERROR if there was some mistake
+ */
+Status space_add_object(Space *space, Id object_id);
+
 
 /*Manejo de character_id*/
 /**
@@ -151,7 +161,7 @@ Status space_set_character(Space *space, Id character_id);
  *
  * @param space a pointer to the space
  * @param character_id the id of the character to check
- * @return TRUE if it has the character, FALSE otherwise
+ * @return TRUE if it has the character, FALSE otherwise, WRONG if error
  */
 Bool space_has_character(Space *space, Id character_id);
 
@@ -170,7 +180,7 @@ Status space_remove_character(Space *space);
  * @author Beatriz, Arturo, Rubén, Ana
  *
  * @param space a pointer to the space
- * @return the graphical description
+ * @return the graphical description, it is a char bidimensional
  */
 char **space_get_description(Space *space);
 
@@ -181,7 +191,7 @@ char **space_get_description(Space *space);
  *
  * @param space a pointer to the space
  * @param n the position of the graphical description to get
- * @return the n line of the graphical description
+ * @return the n line of the graphical description, it is char one-dimension
  */
 char *space_get_i_description(Space *space, int n);
 
@@ -198,16 +208,16 @@ Status space_set_description(Space *space, char description[5][10]);
 /*Manejo de discovered*/
 /**
  * @brief It gets whether the space is discovered or not
- * @author Profesores PPROG
+ * @author Beatriz, Arturo, Rubén, Ana
  *
  * @param space a pointer to the space
- * @return TRUE if it's discovered, FALSE otherwise
+ * @return TRUE if it's discovered, FALSE otherwise, WRONG if error
  */
 Bool space_get_discovered(Space *space);
 
 /**
  * @brief It sets whether the space is discovered or not
- * @author Profesores PPROG
+ * @author Beatriz, Arturo, Rubén, Ana
  *
  * @param space a pointer to the space
  * @param discovered TRUE if it's discovered, FALSE otherwise
@@ -220,8 +230,9 @@ Status space_set_discovered(Space *space, Bool discovered);
  * @brief It prints the space information
  * @author Profesores PPROG
  *
- * This function shows the id and name of the space, the spaces that surround
- * it and whether it has an object or not.
+ * 1. Print the id and the name of the space 
+ * 2. Print if there is an object in the space or not 
+ * 3. Print its descrption
  * @param space a pointer to the space
  * @return OK, if everything goes well or ERROR if there was some mistake
  */
