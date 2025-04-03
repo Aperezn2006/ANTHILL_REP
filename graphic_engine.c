@@ -280,7 +280,10 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game) {
   screen_area_puts(ge->help, str1);
 
   /*  FEEDBACK */
+  screen_area_clear(ge->feedback);
   last_cmd = command_get_code(game_get_last_command(game));
+
+  screen_area_puts(ge->feedback, " ");
 
   if (command_get_result(game_get_last_command(game)) == OK) {
     strcpy(result, "OK");

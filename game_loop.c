@@ -22,9 +22,9 @@
 
 /**
  * @brief Initializes the game loop by loading game data and creating the graphic engine.
- * 
+ *
  * @author Profesores PPROG
- * 
+ *
  * @param game A pointer to the game structure.
  * @param gengine A double pointer to the graphic engine to be initialized.
  * @param file_name The name of the file containing game data.
@@ -35,7 +35,7 @@ int game_loop_init(Game *game, Graphic_engine **gengine, char *file_name);
 /**
  * @brief Runs the main game loop, processing commands and updating the game state.
  * @author Profesores PPROG
- * 
+ *
  * @param game A pointer to the game structure.
  * @param gengine A pointer to the graphic engine.
  * @param log_file A file pointer for logging commands (can be NULL).
@@ -45,7 +45,7 @@ void game_loop_run(Game *game, Graphic_engine *gengine, FILE *log_file);
 /**
  * @brief Cleans up resources used during the game loop, including the game and graphic engine.
  * @author Profesores PPROG
- * 
+ *
  * @param game A pointer to the game structure.
  * @param gengine A pointer to the graphic engine.
  * @param log_file A file pointer for logging commands (can be NULL).
@@ -55,7 +55,7 @@ void game_loop_cleanup(Game *game, Graphic_engine *gengine, FILE *log_file);
 /**
  * @brief Logs the details of a command to the specified log file.
  * @author Profesores PPROG
- * 
+ *
  * @param log_file A file pointer to the log file.
  * @param cmd A pointer to the command to be logged.
  */
@@ -131,6 +131,11 @@ void game_loop_run(Game *game, Graphic_engine *gengine, FILE *log_file) {
     }
 
     if (command_get_code(last_cmd) != UNKNOWN && command_get_code(last_cmd) != NO_CMD) {
+      if (game_get_num_players(game) > 1) {
+        graphic_engine_paint_game(gengine, game);
+        sleep(1);
+      }
+
       if (game_get_turn(game) == (game_get_num_players(game) - 1)) {
         game_set_turn(game, 0);
       } else {
