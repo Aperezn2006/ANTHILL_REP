@@ -42,25 +42,30 @@ all: $(EXEC) $(TESTS)
 
 # Regla para compilar el ejecutable principal
 $(EXEC): $(OBJ)
-	$(CC) $(OBJ) -o $(EXEC) $(LIBS)
+	@echo "Compilando el ejecutable principal: $(EXEC)"
+	@$(CC) $(OBJ) -o $(EXEC) $(LIBS)
 
 # Regla para compilar los ejecutables de los tests
 $(TESTS): %: $(OBJ_DIR)/%.o $(COMMON_OBJ)
-	$(CC) $< $(COMMON_OBJ) -o $@ $(LIBS)
+	@echo "Compilando el test: $@"
+	@$(CC) $< $(COMMON_OBJ) -o $@ $(LIBS)
 
 # Regla para compilar los archivos .c en .o
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
-	mkdir -p $(OBJ_DIR)
-	$(CC) $(CFLAGS) -c $< -o $@
+	@mkdir -p $(OBJ_DIR)
+	@echo "Compilando: $<"
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 $(OBJ_DIR)/%.o: $(TEST_DIR)/%.c
-	mkdir -p $(OBJ_DIR)
-	$(CC) $(CFLAGS) -c $< -o $@
+	@mkdir -p $(OBJ_DIR)
+	@echo "Compilando: $<"
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 # Limpiar los archivos generados
 clean:
-	rm -f $(OBJ) $(EXEC) $(TEST_OBJ) $(TESTS)
-	rm -rf $(OBJ_DIR)
+	@echo "Limpiando archivos generados..."
+	@rm -f $(OBJ) $(EXEC) $(TEST_OBJ) $(TESTS)
+	@rm -rf $(OBJ_DIR)
 
 # Regla para recompilar completamente (limpiar y compilar de nuevo)
 rebuild: clean all
