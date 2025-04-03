@@ -2,9 +2,9 @@
  * @brief It implements the game update through user actions
  *
  * @file game_actions.c
- * @author Profesores PPROG, Beatriz, Arturo, Rubén, Ana
- * @version 1
- * @date 11-02-2025
+ * @author Profesores PPROG, Rubén, Ana
+ * @version 2
+ * @date 16-03-2025
  * @copyright GNU Public License
  */
 
@@ -13,7 +13,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <strings.h>
 #include <time.h>
 
 /**
@@ -30,7 +29,7 @@
 Status game_actions_unknown(Game *game);
 
 /**
- * @brief It allows the user to exit the game
+ * @brief It allows for the user to exit the game
  * @author Profesores PPROG
  *
  * @param game a pointer to the game
@@ -39,17 +38,26 @@ Status game_actions_unknown(Game *game);
 Status game_actions_exit(Game *game);
 
 /**
- * @brief It moves the player in the desired direction (north, south, west or east)
- * @author Ana
+ * @brief It moves the player south
+ * @author Profesores PPROG
  *
  * @param game a pointer to the game
  * @return OK if everything goes well, ERROR otherwise
  */
-Status game_actions_move(Game *game);
+Status game_actions_next(Game *game);
+
+/**
+ * @brief It moves the player north
+ * @author Profesores PPROG
+ *
+ * @param game a pointer to the game
+ * @return OK if everything goes well, ERROR otherwise
+ */
+Status game_actions_back(Game *game);
 
 /**
  * @brief It allows a player to pick up an object if they're in the same room
- * @author Beatriz, Arturo, Rubén, Ana
+ * @author Rubén
  *
  * @param game a pointer to the game
  * @return OK if everything goes well, ERROR otherwise
@@ -58,7 +66,7 @@ Status game_actions_take(Game *game);
 
 /**
  * @brief It allows a player to drop an object if they have it
- * @author Beatriz, Arturo, Rubén, Ana
+ * @author Rubén
  *
  * @param game a pointer to the game
  * @return OK if everything goes well, ERROR otherwise
@@ -66,8 +74,26 @@ Status game_actions_take(Game *game);
 Status game_actions_drop(Game *game);
 
 /**
- * @brief It allows the player to attack a character
- * @author Beatriz, Arturo, Rubén, Ana
+ * @brief It moves the player east
+ * @author Rubén
+ *
+ * @param game a pointer to the game
+ * @return OK if everything goes well, ERROR otherwise
+ */
+Status game_actions_east(Game *game);
+
+/**
+ * @brief It moves the player west
+ * @author Rubén
+ *
+ * @param game a pointer to the game
+ * @return OK if everything goes well, ERROR otherwise
+ */
+Status game_actions_west(Game *game);
+
+/**
+ * @brief
+ * @author Rubén
  *
  * @param game a pointer to the game
  * @return OK if everything goes well, ERROR otherwise
@@ -76,21 +102,12 @@ Status game_actions_attack(Game *game);
 
 /**
  * @brief It allows the player to chat with a character
- * @author Beatriz, Arturo, Rubén, Ana
+ * @author Ana
  *
  * @param game a pointer to the game
  * @return OK if everything goes well, ERROR otherwise
  */
 Status game_actions_chat(Game *game);
-
-/**
- * @brief It allows the player to inspect an object
- * @author Arturo, Rubén, Ana
- *
- * @param game a pointer to the game
- * @return OK if everything goes well, ERROR otherwise
- */
-Status game_actions_inspect(Game *game);
 
 /**
    Game actions implementation
@@ -112,8 +129,12 @@ Status game_actions_update(Game *game, Command *command) {
       command_set_result(command, game_actions_exit(game));
       break;
 
-    case MOVE:
-      command_set_result(command, game_actions_move(game));
+    case NEXT:
+      command_set_result(command, game_actions_next(game));
+      break;
+
+    case BACK:
+      command_set_result(command, game_actions_back(game));
       break;
 
     case TAKE:
@@ -124,16 +145,20 @@ Status game_actions_update(Game *game, Command *command) {
       command_set_result(command, game_actions_drop(game));
       break;
 
+    case RIGHT:
+      command_set_result(command, game_actions_east(game));
+      break;
+
+    case LEFT:
+      command_set_result(command, game_actions_west(game));
+      break;
+
     case ATTACK:
       command_set_result(command, game_actions_attack(game));
       break;
 
     case CHAT:
       command_set_result(command, game_actions_chat(game));
-      break;
-
-    case INSPECT:
-      command_set_result(command, game_actions_inspect(game));
       break;
 
     default:
@@ -151,51 +176,82 @@ Status game_actions_unknown(Game *game) { return OK; }
 
 Status game_actions_exit(Game *game) { return OK; }
 
-Status game_actions_move(Game *game) {
-  Id current_space_id = NO_ID;
-  Id next_space_id = NO_ID;
-  Command *c = NULL;
-  char direction_word[WORD_SIZE] = "";
-  Direction direction;
+Status game_actions_next(Game *game) {
+  /*  coge los espacios donde esta el jugador y el siguiente
+  Si existe, permite que el jugador se mueva, en este caso hacia abajo(next) */
+  Id current_id = NO_ID;
+  Id space_id = NO_ID;
 
-  current_space_id = game_get_player_location(game);
-
-  if (current_space_id == NO_ID) {
+  space_id = game_get_player_location(game);
+  if (space_id == NO_ID) {
     return ERROR;
   }
 
-  c = game_get_last_command(game);
-  strcpy(direction_word, command_get_word(c));
+  current_id = space_get_south(game_get_space(game, space_id));
+  if (current_id != NO_ID) {
+    game_set_player_location(game, current_id);
+  }
 
-  if (strcmp(direction_word, "") == 0) {
+  return OK;
+}
+
+Status game_actions_back(Game *game) {
+  /*  coge los espacios donde esta el jugador y el siguiente
+  Si existe, permite que el jugador se mueva, en este caso hacia arriba(back) */
+  Id current_id = NO_ID;
+  Id space_id = NO_ID;
+
+  space_id = game_get_player_location(game);
+
+  if (NO_ID == space_id) {
     return ERROR;
   }
 
-  /*Probablemente exista una versión más eficiente de hacer esto*/
-  if (strcasecmp(direction_word, "north") == 0 || strcasecmp(direction_word, "n") == 0) {
-    direction = N;
-  } else if (strcasecmp(direction_word, "south") == 0 || strcasecmp(direction_word, "s") == 0) {
-    direction = S;
-  } else if (strcasecmp(direction_word, "east") == 0 || strcasecmp(direction_word, "e") == 0) {
-    direction = E;
-  } else if (strcasecmp(direction_word, "west") == 0 || strcasecmp(direction_word, "w") == 0) {
-    direction = W;
-  } else {
+  current_id = space_get_north(game_get_space(game, space_id));
+  if (current_id != NO_ID) {
+    game_set_player_location(game, current_id);
+  }
+
+  return OK;
+}
+
+Status game_actions_east(Game *game) {
+  /*  coge los espacios donde esta el jugador y el siguiente
+  Si existe, permite que el jugador se mueva, en este caso hacia derecha */
+  /*  (east) */
+  Id current_id = NO_ID;
+  Id space_id = NO_ID;
+
+  space_id = game_get_player_location(game);
+
+  if (NO_ID == space_id) {
     return ERROR;
   }
 
-  next_space_id = game_get_neighbour(game, current_space_id, direction);
+  current_id = space_get_east(game_get_space(game, space_id));
+  if (current_id != NO_ID) {
+    game_set_player_location(game, current_id);
+  }
 
-  if (next_space_id != NO_ID) {
-    if (game_connection_is_open(game, current_space_id, direction)) {
-      printf("The connection isn't open\n"); /*Debug*/
-      game_set_player_location(game, next_space_id);
-    } else {
-      return ERROR;
-    }
+  return OK;
+}
 
-  } else {
+Status game_actions_west(Game *game) {
+  /*  coge los espacios donde esta el jugador y el siguiente
+  Si existe, permite que el jugador se mueva, en este caso hacia */
+  /*  izquierda(west) */
+  Id current_id = NO_ID;
+  Id space_id = NO_ID;
+
+  space_id = game_get_player_location(game);
+
+  if (NO_ID == space_id) {
     return ERROR;
+  }
+
+  current_id = space_get_west(game_get_space(game, space_id));
+  if (current_id != NO_ID) {
+    game_set_player_location(game, current_id);
   }
 
   return OK;
@@ -213,7 +269,7 @@ Status game_actions_take(Game *game) {
   }
 
   c = game_get_last_command(game);
-  strcpy(object_name, command_get_word(c)); /*Corrección: Podemos ahorrarnos la variable object_name si llamamos a get_obj*/
+  strcpy(object_name, command_get_obj(c));
 
   if (strcmp(object_name, "") == 0) {
     return ERROR;
@@ -235,8 +291,7 @@ Status game_actions_take(Game *game) {
   }
 
   if (space_has_object(space, object_id) == TRUE) {
-    game_set_object_location(game, player_get_id(game_get_player(game)), object_id);
-    /*Corrección: ¿Dónde se elimina el espacio?, respuesta: lo hace game_set_object_location*/
+    game_set_object_location(game, PLAYER_ID, object_id);
     printf("Object %s taken\n", object_name); /*DEBUG*/
     return OK;
   } else {
@@ -258,7 +313,7 @@ Status game_actions_drop(Game *game) {
   }
 
   c = game_get_last_command(game);
-  strcpy(object_name, command_get_word(c)); /*Corrección: Podemos ahorrarnos la variable object_name si llamamos a get_obj*/
+  strcpy(object_name, command_get_obj(c));
 
   if (strcmp(object_name, "") == 0) {
     return ERROR;
@@ -414,55 +469,5 @@ Status game_actions_chat(Game *game) {
   /*  El personaje lanza su mensaje */
   game_set_message(game, character_get_message(character));
 
-  return OK;
-}
-
-Status game_actions_inspect(Game *game) {
-  Id player_location, object_id;
-  Command *c = NULL;
-  char object_name[WORD_SIZE] = "";
-  char object_description[WORD_SIZE];
-
-  fprintf(stdout, "[DEBUG] Starting game_actions_inspect\n");
-
-  if (!game) {
-    fprintf(stdout, "[DEBUG] Game pointer is NULL\n");
-    return ERROR;
-  }
-
-  player_location = game_get_player_location(game);
-  fprintf(stdout, "[DEBUG] Player location: %ld\n", player_location);
-
-  c = game_get_last_command(game);
-  if (!c) {
-    fprintf(stdout, "[DEBUG] Last command is NULL\n");
-    return ERROR;
-  }
-
-  strcpy(object_name, command_get_word(c));
-  fprintf(stdout, "[DEBUG] Object name from command: %s\n", object_name);
-
-  if (strcmp(object_name, "") == 0) {
-    fprintf(stdout, "[DEBUG] Object name is empty\n");
-    return ERROR;
-  }
-
-  object_id = game_get_object_id_from_name(game, object_name);
-  fprintf(stdout, "[DEBUG] Object ID: %ld\n", object_id);
-
-  if (space_has_object(game_get_space(game, player_location), object_id) == TRUE || player_has_object(game_get_player(game), object_id) == TRUE) {
-    printf("AAAAAAAA\n");
-    strcpy(object_description, object_get_desc(game_get_object_from_id(game, object_id)));
-
-    fprintf(stdout, "[DEBUG] Object description: %s\n", object_description);
-    game_set_object_desc(game, object_description);
-  } else {
-    fprintf(stdout, "[DEBUG] Object not found in player's location or inventory\n");
-    return ERROR;
-  }
-
-  object_set_inspected(game_get_object_from_id(game, object_id), TRUE);
-
-  fprintf(stdout, "[DEBUG] game_actions_inspect completed successfully\n");
   return OK;
 }

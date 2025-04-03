@@ -1,3 +1,12 @@
+/**
+ * @brief It tests set module
+ *
+ * @file set_test.c
+ * @author Rubén
+ * @version 0.0
+ * @date 10-03-2025
+ * @copyright GNU Public License
+ */
 #include "set.h"
 
 #include <stdio.h>
@@ -27,15 +36,15 @@ int main(int argc, char **argv) {
   }
 
   if (all || test == 1) test1_set_create();
-  if (all || test == 2) test1_set_add_id();
-  if (all || test == 3) test2_set_add_id();
-  if (all || test == 4) test1_set_remove_id();
-  if (all || test == 5) test2_set_remove_id();
-  if (all || test == 6) test1_set_has_id();
-  if (all || test == 7) test2_set_has_id();
-  if (all || test == 8) test1_set_get_num_ids();
-  if (all || test == 9) test1_set_get_id_from_index();
-  if (all || test == 10) test2_set_get_id_from_index();
+  if (all || test == 2) test1_set_add();
+  if (all || test == 3) test2_set_add();
+  if (all || test == 4) test1_set_del();
+  if (all || test == 5) test2_set_del();
+  if (all || test == 6) test1_set_has();
+  if (all || test == 7) test2_set_has();
+  if (all || test == 8) test1_set_get_size();
+  if (all || test == 9) test1_set_get_n();
+  if (all || test == 10) test2_set_get_n();
 
   PRINT_PASSED_PERCENTAGE;
   return 1;
@@ -47,61 +56,61 @@ void test1_set_create() {
   set_destroy(s);
 }
 
-void test1_set_add_id() {
+void test1_set_add() {
   Set *s = set_create();
-  PRINT_TEST_RESULT(set_add_id(s, 69) == OK && set_has_id(s, 69) == TRUE);
+  PRINT_TEST_RESULT(set_add(s, 69) == OK && set_has(s, 69) == TRUE);
   set_destroy(s);
 }
 
-void test2_set_add_id() {
+void test2_set_add() {
   Set *s = NULL;
-  PRINT_TEST_RESULT(set_add_id(s, 69) == ERROR);
+  PRINT_TEST_RESULT(set_add(s, 69) == ERROR);
 }
 
-void test1_set_remove_id() {
+void test1_set_del() {
   Set *s = set_create();
-  set_add_id(s, 69);
-  PRINT_TEST_RESULT(set_remove_id(s, 69) == OK && set_has_id(s, 69) == FALSE);
+  set_add(s, 69);
+  PRINT_TEST_RESULT(set_del(s, 69) == OK && set_has(s, 69) == FALSE);
   set_destroy(s);
 }
 
-void test2_set_remove_id() {
+void test2_set_del() {
   Set *s = set_create();
-  PRINT_TEST_RESULT(set_remove_id(s, 69) == ERROR);
+  PRINT_TEST_RESULT(set_del(s, 69) == ERROR);
   set_destroy(s);
 }
 
-void test1_set_has_id() {
+void test1_set_has() {
   Set *s = set_create();
-  set_add_id(s, 200);
-  PRINT_TEST_RESULT(set_has_id(s, 200) == TRUE);
+  set_add(s, 200);
+  PRINT_TEST_RESULT(set_has(s, 200) == TRUE);
   set_destroy(s);
 }
 
-void test2_set_has_id() {
+void test2_set_has() {
   Set *s = set_create();
-  PRINT_TEST_RESULT(set_has_id(s, 300) == FALSE);
+  PRINT_TEST_RESULT(set_has(s, 300) == FALSE);
   set_destroy(s);
 }
 
-void test1_set_get_num_ids() {
+void test1_set_get_size() {
   Set *s = set_create();
-  set_add_id(s, 69);
-  set_add_id(s, 200);
-  PRINT_TEST_RESULT(set_get_num_ids(s) == 2);
+  set_add(s, 69);
+  set_add(s, 200);
+  PRINT_TEST_RESULT(set_get_size(s) == 2);
   set_destroy(s);
 }
 
-void test1_set_get_id_from_index() {
+void test1_set_get_n() {
   Set *s = set_create();
-  set_add_id(s, 69);
-  set_add_id(s, 200);
-  PRINT_TEST_RESULT(set_get_id_from_index(s, 0) == 69);
+  set_add(s, 69);
+  set_add(s, 200);
+  PRINT_TEST_RESULT(set_get_n(s, 0) == 69);
   set_destroy(s);
 }
 
-void test2_set_get_id_from_index() {
+void test2_set_get_n() {
   Set *s = set_create();
-  PRINT_TEST_RESULT(set_get_id_from_index(s, 0) == NO_ID);
+  PRINT_TEST_RESULT(set_get_n(s, 0) == NO_ID);
   set_destroy(s);
 }

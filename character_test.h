@@ -1,3 +1,12 @@
+/**
+ * @brief It declares the tests for the character module
+ *
+ * @file character_test.h
+ * @author Rubén
+ * @version 0.0
+ * @date 09-03-2025
+ * @copyright GNU Public License
+ */
 #ifndef test1_TEST_H
 #define test1_TEST_H
 
@@ -14,28 +23,28 @@ void test1_character_create();
 
 /*  Manejo de id */
 /**
- * @test Test character get id
+ * @test Test character destruction
  * @pre Pointer to a valid character
- * @post Output == 1
+ * @post Output == OK
  */
 void test1_character_get_id();
 
 /**
- * @test Test character get id with NULL character
+ * @test Test character destruction with NULL character
  * @pre NULL pointer
  * @post Output == ERROR
  */
 void test2_character_get_id();
 
 /**
- * @test Test character set id
+ * @test Test character destruction
  * @pre Pointer to a valid character
  * @post Output == OK
  */
 void test1_character_set_id();
 
 /**
- * @test Test character set id with NULL character
+ * @test Test character destruction with NULL character
  * @pre NULL pointer
  * @post Output == ERROR
  */
@@ -43,28 +52,28 @@ void test2_character_set_id();
 
 /*  Manejo de name */
 /**
- * @test Test character get name
+ * @test Test character destruction
  * @pre Pointer to a valid character
  * @post Output == OK
  */
 void test1_character_get_name();
 
 /**
- * @test Test character get name with NULL character
+ * @test Test character destruction with NULL character
  * @pre NULL pointer
  * @post Output == ERROR
  */
 void test2_character_get_name();
 
 /**
- * @test Test character set name
+ * @test Test character destruction
  * @pre Pointer to a valid character
  * @post Output == OK
  */
 void test1_character_set_name();
 
 /**
- * @test Test character set name with NULL character
+ * @test Test character destruction with NULL character
  * @pre NULL pointer
  * @post Output == ERROR
  */
@@ -72,28 +81,28 @@ void test2_character_set_name();
 
 /*  Manejo de gdesc */
 /**
- * @test Test character get description
+ * @test Test character destruction
  * @pre Pointer to a valid character
  * @post Output == OK
  */
 void test1_character_get_description();
 
 /**
- * @test Test character get description with NULL character
+ * @test Test character destruction with NULL character
  * @pre NULL pointer
  * @post Output == ERROR
  */
 void test2_character_get_description();
 
 /**
- * @test Test character set description
+ * @test Test character destruction
  * @pre Pointer to a valid character
  * @post Output == OK
  */
 void test1_character_set_description();
 
 /**
- * @test Test character set description with NULL character
+ * @test Test character destruction with NULL character
  * @pre NULL pointer
  * @post Output == ERROR
  */
@@ -101,42 +110,42 @@ void test2_character_set_description();
 
 /*  Manejo de health */
 /**
- * @test Test character get health
+ * @test Test character destruction
  * @pre Pointer to a valid character
  * @post Output == OK
  */
 void test1_character_get_health();
 
 /**
- * @test Test character get health with NULL character
+ * @test Test character destruction with NULL character
  * @pre NULL pointer
  * @post Output == ERROR
  */
 void test2_character_get_health();
 
 /**
- * @test Test character set health
+ * @test Test character destruction
  * @pre Pointer to a valid character
  * @post Output == OK
  */
 void test1_character_set_health();
 
 /**
- * @test Test character set health with NULL character
+ * @test Test character destruction with NULL character
  * @pre NULL pointer
  * @post Output == ERROR
  */
 void test2_character_set_health();
 
 /**
- * @test Test character decrease health
+ * @test Test character destruction
  * @pre Pointer to a valid character
  * @post Output == OK
  */
 void test1_decrease_health();
 
 /**
- * @test Test character decrease health with NULL character
+ * @test Test character destruction with NULL character
  * @pre NULL pointer
  * @post Output == ERROR
  */
@@ -144,28 +153,28 @@ void test2_decrease_health();
 
 /*  Manejo de friendly */
 /**
- * @test Test character get friendly
+ * @test Test character destruction
  * @pre Pointer to a valid character
  * @post Output == OK
  */
 void test1_character_get_friendly();
 
 /**
- * @test Test character get friendly with NULL character
+ * @test Test character destruction with NULL character
  * @pre NULL pointer
  * @post Output == ERROR
  */
 void test2_character_get_friendly();
 
 /**
- * @test Test character set friendly
+ * @test Test character destruction
  * @pre Pointer to a valid character
  * @post Output == OK
  */
 void test1_character_set_friendly();
 
 /**
- * @test Test character set friendly with NULL character
+ * @test Test character destruction with NULL character
  * @pre NULL pointer
  * @post Output == ERROR
  */
@@ -173,28 +182,28 @@ void test2_character_set_friendly();
 
 /*  Manejo de message */
 /**
- * @test Test character get message
+ * @test Test character destruction
  * @pre Pointer to a valid character
  * @post Output == OK
  */
 void test1_character_get_message();
 
 /**
- * @test Test character get message with NULL character
+ * @test Test character destruction with NULL character
  * @pre NULL pointer
  * @post Output == ERROR
  */
 void test2_character_get_message();
 
 /**
- * @test Test character set message
+ * @test Test character destruction
  * @pre Pointer to a valid character
  * @post Output == OK
  */
 void test1_character_set_message();
 
 /**
- * @test Test character set message with NULL character
+ * @test Test character destruction with NULL character
  * @pre NULL pointer
  * @post Output == ERROR
  */
@@ -202,14 +211,14 @@ void test2_character_set_message();
 
 /*  Print */
 /**
- * @test Test character print
+ * @test Test character destruction
  * @pre Pointer to a valid character
  * @post Output == OK
  */
 void test1_character_print();
 
 /**
- * @test Test character print with NULL character
+ * @test Test character destruction with NULL character
  * @pre NULL pointer
  * @post Output == ERROR
  */

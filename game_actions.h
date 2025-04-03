@@ -2,9 +2,9 @@
  * @brief It defines the game update interface
  *
  * @file game_actions.h
- * @author Profesores PPROG
- * @version 1
- * @date 11-02-2025
+ * @author Profesores PPROG, Rubén, Ana
+ * @version 2
+ * @date 16-03-2025
  * @copyright GNU Public License
  */
 
@@ -24,9 +24,9 @@
  * @author Profesores PPROG
  *
  * @param game a pointer to the game
- * @param command a pointer to the command
- * @return OK if everything goes well, ERROR otherwise
+ * @param cmd a pointer to the command
+ * @return OK if everything goes well
  */
-Status game_actions_update(Game *game, Command *command);
+Status game_actions_update(Game *game, Command *cmd);
 
 #endif

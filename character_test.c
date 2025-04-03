@@ -1,3 +1,12 @@
+/**
+ * @brief It tests character module
+ *
+ * @file character_test.c
+ * @author Rubén
+ * @version 0.0
+ * @date 10-03-2025
+ * @copyright GNU Public License
+ */
 #include "character.h"
 
 #include <stdio.h>
@@ -153,13 +162,10 @@ void test2_character_set_description() {
 /*  Manejo de health */
 
 void test1_character_get_health() {
-  long health = 2;
   Character *c;
   c = character_create(1);
-  printf("%ld %ld\n", character_get_health(c), health);
-  character_set_health(c, health);
-  printf("%ld %ld\n", character_get_health(c), health);
-  PRINT_TEST_RESULT(character_get_health(c) == health);
+  character_set_health(c, 2);
+  PRINT_TEST_RESULT(character_get_health(c) == 2);
   character_destroy(c);
 }
 
@@ -180,20 +186,9 @@ void test2_character_set_health() {
   PRINT_TEST_RESULT(character_set_health(c, 2) == ERROR);
 }
 
-void test1_decrease_health() {
-  Character *c = NULL;
-  c = character_create(12);
-  character_set_health(c, 100);
-  character_decrease_health(c, 10);
-  PRINT_TEST_RESULT(character_get_health(c) == 90);
-}
+void test1_decrease_health() {}
 
-void test2_decrease_health() {
-  Character *c = NULL;
-  c = character_create(12);
-  character_set_health(c, 100);
-  PRINT_TEST_RESULT(character_decrease_health(c, 0) == ERROR);
-}
+void test2_decrease_health() {}
 
 /*  Manejo de friendly */
 

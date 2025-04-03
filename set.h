@@ -1,11 +1,12 @@
 /**
- * @brief It defines the set module interface
+ * @brief It declares the set module
  *
- * @file set.h
- * @version 1.0
- * @date 11-02-2025
+ * @file set.c
+ * @author Rubén
+ * @version 1
+ * @date 02-03-2025
+ * @copyright GNU Public License
  */
-
 #ifndef SET_H_
 #define SET_H_
 
@@ -13,82 +14,75 @@
 
 typedef struct _Set Set;
 
-/*Create & destroy*/
 /**
  * @brief It creates a set
- * @author Rubén
+ * @author RUbén
  *
+ * @param id the identification number for the new set
  * @return a new set, initialized
  */
 Set *set_create();
 
 /**
  * @brief It destroys a set
- * @author Rubén
+ * @author RUbén
  *
  * @param set a pointer to the set that must be destroyed
  * @return OK, if everything goes well or ERROR if there was some mistake
  */
 Status set_destroy(Set *set);
 
-/*Management of ids*/
 /**
- * @brief It adds an element to the set
- * @author Rubén
+ * @brief
+ * @author RUbén
  *
- * @param set a pointer to the set
- * @param id the id of the element to be added
+ * @param set a pointer to the set that must be destroyed
  * @return OK, if everything goes well or ERROR if there was some mistake
  */
-Status set_add_id(Set *set, Id id);
+Status set_add(Set *set, Id id);
 
 /**
- * @brief It deletes an element from the set
+ * @brief
  * @author Rubén
  *
- * @param set a pointer to the set
- * @param id the id of the element to be deleted
+ * @param set a pointer to the set that must be destroyed
  * @return OK, if everything goes well or ERROR if there was some mistake
  */
-Status set_remove_id(Set *set, Id id);
+Status set_del(Set *set, Id id);
 
 /**
- * @brief It checks if the set contains an element
- * @author Rubén
+ * @brief
+ * @author RUbén
  *
- * @param set a pointer to the set
- * @param id the id of the element to check
- * @return TRUE if the set contains the element, FALSE if it doesn't, WRONG if any errors were detected
+ * @param set a pointer to the set that must be destroyed
+ * @return OK, if everything goes well or ERROR if there was some mistake
  */
-Bool set_has_id(Set *set, Id id);
+Bool set_has(Set *set, Id id);
 
 /**
- * @brief It gets the element at a given position in the set
+ * @brief
  * @author Rubén
  *
- * @param set a pointer to the set
- * @param n the position of the element to get
- * @return the id of the element at the given position
+ * @param set a pointer to the set that must be destroyed
+ * @return OK, if everything goes well or ERROR if there was some mistake
  */
-Id set_get_id_from_index(Set *set, int n);
+int set_get_size(Set *set);
 
-/*Management of n_ids*/
 /**
- * @brief It gets the size of the set
- * @author Rubén
+ * @brief
+ * @author RUbén
  *
- * @param set a pointer to the set
- * @return the size of the set
+ * @param set a pointer to the set that must be destroyed
+ * @return OK, if everything goes well or ERROR if there was some mistake
  */
-int set_get_num_ids(Set *set);
+Id set_get_n(Set *set, int n);
 
-/*Print*/
 /**
- * @brief It prints the set
- * @author Rubén
+ * @brief
+ * @author RUbén
  *
- * @param set a pointer to the set
+ * @param set a pointer to the set that must be destroyed
+ * @return OK, if everything goes well or ERROR if there was some mistake
  */
 void set_print(Set *set);
-
-#endif /* SET_H_ */
+#endif

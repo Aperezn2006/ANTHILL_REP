@@ -2,19 +2,21 @@
  * @brief It implements the player module
  *
  * @file player.c
- * @author Beatriz, Arturo, Rubén, Ana
- * @version 1
- * @date 05/02/2025
+ * @author Ana, Rubén
+ * @version 2
+ * @date 05/03/2025
  * @copyright GNU Public License
  */
 
+/*TAD vinculado al jugador de la aventura y que describe la
+información relacionada con el estado del protagonista (ubicación, objetos que
+tiene, puntos de vida, etc.).*/
 #include "player.h"
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
-#include "inventory.h"
 #include "set.h"
 
 /**
@@ -26,12 +28,14 @@ struct _Player {
   Id id;                    /*!< Id number of the player, it must be unique */
   Id player_location;       /*!< Id number of the space the player is in */
   char name[WORD_SIZE + 1]; /*!< Name of the player */
+  Set *objects;             /*!< Set of object IDs */
   long health;              /*!< Health points the player has */
-  char gdesc[4];
-  Inventory *backpack;
 };
 
 /*Create & destroy*/
+/** player_create allocates memory for a new player
+ *  and initializes its members
+ */
 Player *player_create(Id id) {
   Player *newPlayer = NULL;
 
@@ -49,8 +53,8 @@ Player *player_create(Id id) {
   /* Initialization of an empty player*/
   newPlayer->id = id;
   newPlayer->name[0] = '\0';
-  newPlayer->backpack = inventory_create(1);
-  if (!newPlayer->backpack) {
+  newPlayer->objects = set_create();
+  if (!newPlayer->objects) {
     free(newPlayer);
     return NULL;
   }
@@ -65,8 +69,8 @@ Status player_destroy(Player *player) {
     return ERROR;
   }
 
-  if (player->backpack) {
-    inventory_destroy(player->backpack);
+  if (player->objects) {
+    set_destroy(player->objects);
   }
 
   free(player);
@@ -137,44 +141,44 @@ Status player_set_name(Player *player, char *name) {
 }
 
 /*Manejo de objects*/
-Id player_get_object_from_index(Player *player, int n) {
-  if (!player || !player->backpack) {
+Id player_get_n_object(Player *player, int n) {
+  if (!player || !player->objects) {
     return NO_ID;
   }
 
-  return inventory_get_object_by_index(player->backpack, n);
+  return set_get_n(player->objects, n);
 }
 
 int player_get_num_objects(Player *player) {
-  if (!player || !player->backpack) {
+  if (!player || !player->objects) {
     return 0;
   }
 
-  return inventory_get_num_objects(player->backpack);
+  return set_get_size(player->objects);
 }
 
 Status player_remove_object(Player *player, Id object_id) {
-  if (!player || !player->backpack) {
+  if (!player || !player->objects) {
     return ERROR;
   }
 
-  return inventory_remove_object(player->backpack, object_id);
+  return set_del(player->objects, object_id);
 }
 
 Bool player_has_object(Player *player, Id object_id) {
-  if (!player || !player->backpack) {
+  if (!player || !player->objects) {
     return FALSE;
   }
 
-  return inventory_has_object(player->backpack, object_id);
+  return set_has(player->objects, object_id);
 }
 
 Status player_add_object(Player *player, Id object_id) {
-  if (!player || !player->backpack) {
+  if (!player || !player->objects) {
     return ERROR;
   }
 
-  return inventory_add_object(player->backpack, object_id);
+  return set_add(player->objects, object_id);
 }
 
 /*Manejo de health*/
@@ -206,41 +210,6 @@ Status player_decrease_health(Player *player, long damage) {
   return OK;
 }
 
-/*Manejo de gdesc*/
-Status player_set_description(Player *player, char *gdesc) {
-  if (!player) {
-    return ERROR;
-  }
-
-  strcpy(player->gdesc, gdesc);
-
-  return OK;
-}
-
-char *player_get_description(Player *player) {
-  if (!player) {
-    return NULL;
-  }
-
-  return player->gdesc;
-}
-
-/*Manejo de inventory*/
-Status player_set_max_objs(Player *player, int max) {
-  if (!player) {
-    return ERROR;
-  }
-  inventory_set_max_objects(player->backpack, max);
-  return OK;
-}
-
-Inventory *player_get_inventory(Player *player) {
-  if (!player) {
-    return NULL;
-  }
-
-  return player->backpack;
-}
 /*Print*/
 Status player_print(Player *player) {
   /* Error Control */
