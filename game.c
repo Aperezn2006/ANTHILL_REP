@@ -350,7 +350,7 @@ Status game_set_object_location(Game *game, Id location, Id object_id) {
       return ERROR;
     }
 
-    if (space_set_object(game_get_space(game, game_get_player_location(game)), object_id) == ERROR) {
+    if (space_add_object(game_get_space(game, game_get_player_location(game)), object_id) == ERROR) {
       return ERROR;
     }
 

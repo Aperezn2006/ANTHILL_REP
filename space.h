@@ -44,7 +44,6 @@ Status space_destroy(Space *space);
  */
 Id space_get_id(Space *space);
 
-
 /**
  * @brief It set the id of a space
  * @author Ruben, Ana, Arturo, Bea
@@ -93,16 +92,6 @@ Id space_get_object_from_index(Space *space, int n);
  * @return the number of objects
  */
 int space_get_num_objects(Space *space);
-
-/**
- * @brief It adds to Set an object
- * @author Profesores PPROG
- *
- * @param space a pointer to the space
- * @param object_id the id of an object
- * @return OK, if everything goes well (correctly added) or ERROR if there was some mistake
- */
-Status space_set_object(Space *space, Id object_id);
 
 /**
  * @brief It removes an object from the space
