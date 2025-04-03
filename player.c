@@ -147,7 +147,7 @@ Id player_get_object_from_index(Player *player, int n) {
 
 int player_get_num_objects(Player *player) {
   if (!player || !player->backpack) {
-    return 0;
+    return -1;
   }
 
   return inventory_get_num_objects(player->backpack);
@@ -163,7 +163,7 @@ Status player_remove_object(Player *player, Id object_id) {
 
 Bool player_has_object(Player *player, Id object_id) {
   if (!player || !player->backpack) {
-    return FALSE;
+    return WRONG;
   }
 
   return inventory_has_object(player->backpack, object_id);
@@ -197,7 +197,7 @@ Status player_set_health(Player *player, long health) {
 }
 
 Status player_decrease_health(Player *player, long damage) {
-  if (!player) {
+  if (!player || damage <= 0) {
     return ERROR;
   }
 

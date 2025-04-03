@@ -2,15 +2,15 @@
 EXEC = anthill
 
 # Ejecutables de los tests
-TESTS = space_test
-# character_test link_test player_test set_test 
+TESTS = space_test player_test link_test set_test
+# character_test 
 
 # Archivos fuente
 SRC = game_loop.c command.c game_actions.c game.c graphic_engine.c space.c game_reader.c player.c object.c character.c set.c link.c inventory.c 
 
 # Archivos fuente de los tests
-TEST_SRC = space_test.c
-# character_test.c link_test.c player_test.c set_test.c 
+TEST_SRC = space_test.c  link_test.c player_test.c set_test.c 
+# character_test.c
 
 # Archivos fuente comunes (excluyendo game_loop.c)
 COMMON_SRC = command.c game_actions.c game.c graphic_engine.c space.c game_reader.c player.c object.c character.c set.c link.c inventory.c
