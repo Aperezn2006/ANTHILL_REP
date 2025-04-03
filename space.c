@@ -115,13 +115,6 @@ int space_get_num_objects(Space *space) {
   return set_get_num_ids(space->objects);
 }
 
-Status space_set_object(Space *space, Id object_id) {
-  if (!space || !space->objects) {
-    return ERROR;
-  }
-  return set_add_id(space->objects, object_id);
-}
-
 Status space_remove_object(Space *space, Id object_id) {
   if (!space || !space->objects) {
     return ERROR;

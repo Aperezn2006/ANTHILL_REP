@@ -45,118 +45,6 @@ void test2_space_set_name();
 void test3_space_set_name();
 
 /**
- * @test Test space set north
- * @pre Pointer to a valid space
- * @post Output == OK
- */
-void test1_space_set_north();
-
-/**
- * @test Test space set north with NULL space
- * @pre NULL pointer
- * @post Output == ERROR
- */
-void test2_space_set_north();
-
-/**
- * @test Test space set north with invalid id
- * @pre Pointer to a valid space
- * @post Output == ERROR
- */
-void test3_space_set_north();
-
-/**
- * @test Test space set north with valid id
- * @pre Pointer to a valid space
- * @post Output == OK
- */
-void test4_space_set_north();
-
-/**
- * @test Test space set south
- * @pre Pointer to a valid space
- * @post Output == OK
- */
-void test1_space_set_south();
-
-/**
- * @test Test space set south with NULL space
- * @pre NULL pointer
- * @post Output == ERROR
- */
-void test2_space_set_south();
-
-/**
- * @test Test space set south with invalid id
- * @pre Pointer to a valid space
- * @post Output == ERROR
- */
-void test3_space_set_south();
-
-/**
- * @test Test space set south with valid id
- * @pre Pointer to a valid space
- * @post Output == OK
- */
-void test4_space_set_south();
-
-/**
- * @test Test space set east
- * @pre Pointer to a valid space
- * @post Output == OK
- */
-void test1_space_set_east();
-
-/**
- * @test Test space set east with NULL space
- * @pre NULL pointer
- * @post Output == ERROR
- */
-void test2_space_set_east();
-
-/**
- * @test Test space set east with invalid id
- * @pre Pointer to a valid space
- * @post Output == ERROR
- */
-void test3_space_set_east();
-
-/**
- * @test Test space set east with valid id
- * @pre Pointer to a valid space
- * @post Output == OK
- */
-void test4_space_set_east();
-
-/**
- * @test Test space set west
- * @pre Pointer to a valid space
- * @post Output == OK
- */
-void test1_space_set_west();
-
-/**
- * @test Test space set west with NULL space
- * @pre NULL pointer
- * @post Output == ERROR
- */
-void test2_space_set_west();
-
-/**
- * @test Test space set west with invalid id
- * @pre Pointer to a valid space
- * @post Output == ERROR
- */
-void test3_space_set_west();
-
-/**
- * @test Test space set west with valid id
- * @pre Pointer to a valid space
- * @post Output == OK
- */
-void test4_space_set_west();
-
-/**
  * @test Test space set object
  * @pre Pointer to a valid space
  * @post Output == OK
@@ -199,62 +87,6 @@ void test1_space_get_name();
 void test2_space_get_name();
 
 /**
- * @test Test space get north
- * @pre Pointer to a valid space
- * @post Output == OK
- */
-void test1_game_get_north();
-
-/**
- * @test Test space get north with NULL space
- * @pre NULL pointer
- * @post Output == ERROR
- */
-void test2_game_get_north();
-
-/**
- * @test Test space get south
- * @pre Pointer to a valid space
- * @post Output == OK
- */
-void test1_game_get_south();
-
-/**
- * @test Test space get south with NULL space
- * @pre NULL pointer
- * @post Output == ERROR
- */
-void test2_game_get_south();
-
-/**
- * @test Test space get east
- * @pre Pointer to a valid space
- * @post Output == OK
- */
-void test1_game_get_east();
-
-/**
- * @test Test space get east with NULL space
- * @pre NULL pointer
- * @post Output == ERROR
- */
-void test2_game_get_east();
-
-/**
- * @test Test space get west
- * @pre Pointer to a valid space
- * @post Output == OK
- */
-void test1_game_get_west();
-
-/**
- * @test Test space get west with NULL space
- * @pre NULL pointer
- * @post Output == ERROR
- */
-void test2_game_get_west();
-
-/**
  * @test Test space get object
  * @pre Pointer to a valid space
  * @post Output == OK
@@ -288,5 +120,145 @@ void test2_space_multiple_objects();
  * @post Output == OK
  */
 void test3_space_multiple_objects();
+
+/**
+ * @test Test space set graphic description
+ * @pre Pointer to a valid space and valid gdesc
+ * @post Output == OK
+ */
+void test1_space_set_gdesc();
+
+/**
+ * @test Test space set graphic description with NULL space
+ * @pre NULL pointer
+ * @post Output == ERROR
+ */
+void test2_space_set_gdesc();
+
+/**
+ * @test Test space set discovered
+ * @pre Pointer to a valid space
+ * @post Output == OK
+ */
+void test1_space_set_discovered();
+
+/**
+ * @test Test space set discovered with NULL space
+ * @pre NULL pointer
+ * @post Output == ERROR
+ */
+void test2_space_set_discovered();
+
+/**
+ * @test Test space get graphic description
+ * @pre Pointer to a valid space
+ * @post Output == OK
+ */
+void test1_space_get_gdesc();
+
+/**
+ * @test Test space get graphic description with NULL space
+ * @pre NULL pointer
+ * @post Output == ERROR
+ */
+void test2_space_get_gdesc();
+
+/**
+ * @test Test space get discovered
+ * @pre Pointer to a valid space
+ * @post Output == OK
+ */
+void test1_space_get_discovered();
+
+/**
+ * @test Test space get discovered with NULL space
+ * @pre NULL pointer
+ * @post Output == ERROR
+ */
+void test2_space_get_discovered();
+
+/**
+ * @test Test space get object from index
+ * @pre Pointer to a valid space and a valid index
+ * @post Output == Valid object ID
+ */
+void test1_space_get_object_from_index();
+
+/**
+ * @test Test space get object from index with NULL space
+ * @pre NULL pointer and/or invalid index
+ * @post Output == NO_ID
+ */
+void test2_space_get_object_from_index();
+
+/**
+ * @test Test space get number of objects
+ * @pre Pointer to a valid space
+ * @post Output == Number of objects in the space
+ */
+void test1_space_get_num_objects();
+
+/**
+ * @test Test space get number of objects with NULL space
+ * @pre NULL pointer
+ * @post Output == 0
+ */
+void test2_space_get_num_objects();
+
+/**
+ * @test Test space get character
+ * @pre Pointer to a valid space
+ * @post Output == Valid character ID
+ */
+void test1_space_get_character();
+
+/**
+ * @test Test space get character with NULL space
+ * @pre NULL pointer
+ * @post Output == NO_ID
+ */
+void test2_space_get_character();
+
+/**
+ * @test Test space set character
+ * @pre Pointer to a valid space and a valid character ID
+ * @post Output == OK
+ */
+void test1_space_set_character();
+
+/**
+ * @test Test space set character with NULL space
+ * @pre NULL pointer or invalid character ID
+ * @post Output == ERROR
+ */
+void test2_space_set_character();
+
+/**
+ * @test Test space has character
+ * @pre Pointer to a valid space and a valid character ID
+ * @post Output == TRUE if the character exists, FALSE otherwise
+ */
+void test1_space_has_character();
+
+/**
+ * @test Test space has character with NULL space
+ * @pre NULL pointer
+ * @post Output == WRONG
+ */
+void test2_space_has_character();
+
+/**
+ * @test Test space get individual graphic description
+ * @pre Pointer to a valid space and a valid index
+ * @post Output == Valid graphic description string
+ */
+void test1_space_get_i_description();
+
+/**
+ * @test Test space get individual graphic description with NULL space
+ * @pre NULL pointer or invalid index
+ * @post Output == NULL
+ */
+void test2_space_get_i_description();
 
 #endif /* SPACE_TEST_H */

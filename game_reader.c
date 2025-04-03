@@ -128,7 +128,7 @@ Status game_load_everything(Game *game, char *filename) {
         }
         space = game_get_space(game, location);
         if (space) {
-          space_set_object(space, id);
+          space_add_object(space, id);
         }
       }
 
