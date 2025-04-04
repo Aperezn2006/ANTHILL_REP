@@ -497,7 +497,7 @@ void graphic_engine_paint_end(Graphic_engine *ge, Game *game) {
   screen_paint(game_get_turn(game) % 7);
 }
 
-void graphic_engine_paint_inventory(Graphic_engine *ge, Game *game) {
+/*void graphic_engine_paint_inventory(Graphic_engine *ge, Game *game) {
   char str1[1024];
   int i = 0;
 
@@ -518,4 +518,4 @@ void graphic_engine_paint_inventory(Graphic_engine *ge, Game *game) {
   }
 
   screen_paint(game_get_turn(game) % 7);
-}
+}*/
