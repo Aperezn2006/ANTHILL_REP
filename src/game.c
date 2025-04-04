@@ -101,6 +101,9 @@ Status game_destroy(Game *game) {
   for (i = 0; i < game->n_players; i++) {
     player_destroy(game->players[i]);
     game->players[i] = NULL;
+  }
+
+  for (i = 0; i < MAX_PLAYERS; i++) {
     if (game->last_cmd[i]) {
       command_destroy(game->last_cmd[i]);
       game->last_cmd[i] = NULL;
