@@ -39,21 +39,44 @@ Status game_init_from_file(Game *game, char *filename) {
 }
 
 Status game_load_everything(Game *game, char *filename) {
-  int i = 0, health = 0, player_max_obj = 0;
-  FILE *file = NULL;
-  Space *space = NULL;
-  Player *player = NULL;
-  Object *object = NULL;
-  Character *character = NULL;
-  Link *link = NULL;
-  char line[WORD_SIZE] = "", *toks = NULL;
-  char name[WORD_SIZE] = "";
-  char player_desc[7], space_desc[5][10], object_desc[WORD_SIZE], character_desc[7];
-  char character_message[MAX_MESSAGE], character_friendliness[6];
-  Id id = NO_ID, location = NO_ID, link_origin = NO_ID, link_destination = NO_ID;
-  Direction dir = NO_DIR;
-  Bool open = FALSE;
-  Status status = OK;
+ /*PLAYER*/
+Player *player = NULL;
+int player_max_obj = 0;
+char player_desc[7];
+Id location = NO_ID;
+int health = 0;
+
+/*CHARACTER*/
+Character *character = NULL;
+char character_desc[7];
+char character_message[MAX_MESSAGE];
+char character_friendliness[6];
+
+/*OBJECT*/
+Object *object = NULL;
+char object_desc[WORD_SIZE];
+
+/*SPACE*/
+Space *space = NULL;
+char space_desc[5][10];
+
+/*LINK*/
+Link *link = NULL;
+Id link_origin = NO_ID;
+Id link_destination = NO_ID;
+Direction dir = NO_DIR;
+Bool open = FALSE;
+
+/*GENERAL*/
+FILE *file = NULL;
+char line[WORD_SIZE] = "";
+char *toks = NULL;
+char name[WORD_SIZE] = "";
+int i = 0;
+Id id = NO_ID;
+Status status = OK;
+
+
 
   if (!game || !filename) {
     printf("Invalid game or filename\n");
