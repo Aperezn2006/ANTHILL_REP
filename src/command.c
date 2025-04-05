@@ -27,9 +27,9 @@ char *cmd_to_str[N_CMD][N_CMDT] = {{"", "No command"}, {"", "Unknown"}, {"e", "E
  * This structure contains all of the information related to a command
  */
 struct _Command {
-  CommandCode code; /*!< Command's code */
-  char *word;       /*!< String input after code */
-  Status result;    /*!< Command's result*/
+  CommandCode code;     /*!< Command's code */
+  char word[WORD_SIZE]; /*!< String input after code */
+  Status result;        /*!< Command's result*/
 };
 
 /* Create & destroy */
@@ -45,7 +45,7 @@ Command *command_create() {
 
   /*Initialization*/
   newCommand->code = NO_CMD;
-  newCommand->word = NULL;
+  newCommand->word[0] = '\0';
   newCommand->result = OK;
 
   return newCommand;
@@ -58,10 +58,6 @@ Status command_destroy(Command *command) {
   /*CdE*/
   if (!command) {
     return ERROR;
-  }
-  /*If memory was reserved for it, we free it*/
-  if (command->word) {
-    free(command->word);
   }
 
   free(command);
@@ -99,16 +95,6 @@ CommandCode command_get_code(Command *command) {
 Status command_set_word(Command *c, const char *word) {
   /*CdE*/
   if (!c || !word) {
-    return ERROR;
-  }
-  /*If memory was already reserved for it, we free it*/
-  if (c->word) {
-    free(c->word);
-  }
-  /*We reserve memory for it*/
-  c->word = (char *)malloc(strlen(word) + 1);
-  /*CdE*/
-  if (!c->word) {
     return ERROR;
   }
 

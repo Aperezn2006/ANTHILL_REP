@@ -52,7 +52,7 @@ Status game_init(Game *game) {
 
   for (i = 0; i < MAX_PLAYERS; i++) {
     game->players[i] = NULL;
-    game->last_cmd[i] = command_create();
+    game->last_cmd[i] = NULL;
     strcpy(game->message[i], "");
     strcpy(game->object_desc[i], "");
   }
@@ -101,13 +101,10 @@ Status game_destroy(Game *game) {
   for (i = 0; i < game->n_players; i++) {
     player_destroy(game->players[i]);
     game->players[i] = NULL;
-  }
 
-  for (i = 0; i < MAX_PLAYERS; i++) {
-    if (game->last_cmd[i]) {
-      command_destroy(game->last_cmd[i]);
-      game->last_cmd[i] = NULL;
-    }
+    printf("Freeing command nº%i \n", i);
+    command_destroy(game->last_cmd[i]);
+    game->last_cmd[i] = NULL;
   }
 
   for (i = 0; i < game->n_objects; i++) {
@@ -218,7 +215,8 @@ Status game_add_player(Game *game, Player *player) {
   if (!game || !player || game_get_num_players(game) >= MAX_PLAYERS) {
     return ERROR;
   }
-
+  printf("Allocating command nº%i\n", game_get_num_players(game));
+  game->last_cmd[game_get_num_players(game)] = command_create();
   game->players[game_get_num_players(game)] = player;
   game_increment_num_players(game);
 
@@ -787,6 +785,7 @@ Status game_set_last_command(Game *game, Command *command) {
     return ERROR;
   }
 
+  printf("Setting command in %i index\n", game_get_turn(game));
   game->last_cmd[game_get_turn(game)] = command;
 
   return OK;
