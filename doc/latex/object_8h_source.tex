@@ -1,0 +1,43 @@
+\doxysection{object.\+h}
+\hypertarget{object_8h_source}{}\label{object_8h_source}\index{/mnt/c/Ubuntu/Shared\_folder/PPROG/I3/ANTHILL\_REP/include/object.h@{/mnt/c/Ubuntu/Shared\_folder/PPROG/I3/ANTHILL\_REP/include/object.h}}
+\mbox{\hyperlink{object_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#ifndef\ OBJECT\_H\_}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#define\ OBJECT\_H\_}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{types_8h}{types.h}}"{}}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__Object}{\_Object}}\ \mbox{\hyperlink{struct__Object}{Object}};}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{comment}{/*Create\ \&\ destroy*/}}
+\DoxyCodeLine{00026\ \mbox{\hyperlink{struct__Object}{Object}}\ *\mbox{\hyperlink{object_8h_a7d0b3d3e95beef8deb5b02d0c4641a57}{object\_create}}(\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}}\ \textcolor{keywordtype}{id},\ \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}}\ location);}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00035\ \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}}\ \mbox{\hyperlink{object_8h_aab2d9fe61ae9c48522635d006dd50396}{object\_destroy}}(\mbox{\hyperlink{struct__Object}{Object}}\ *\textcolor{keywordtype}{object});}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{comment}{/*Management\ of\ id*/}}
+\DoxyCodeLine{00046\ \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}}\ \mbox{\hyperlink{object_8h_a653ceb8039e69a949ad2dd9c8f49236c}{object\_set\_id}}(\mbox{\hyperlink{struct__Object}{Object}}\ *\textcolor{keywordtype}{object},\ \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}}\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00055\ \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}}\ \mbox{\hyperlink{object_8h_ac5af152381a21853c6a28cc120e8e7fe}{object\_get\_id}}(\mbox{\hyperlink{struct__Object}{Object}}\ *\textcolor{keywordtype}{object});}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \textcolor{comment}{/*Management\ of\ name*/}}
+\DoxyCodeLine{00066\ \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}}\ \mbox{\hyperlink{object_8h_a14bf659f3055f0243d1af4b246d062b4}{object\_set\_name}}(\mbox{\hyperlink{struct__Object}{Object}}\ *\textcolor{keywordtype}{object},\ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{struct__Object_a03fb9b8d91f071e8e30d669be79cc040}{name}});}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00075\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{object_8h_ae7279c442aab51c0818bd008b31f9816}{object\_get\_name}}(\mbox{\hyperlink{struct__Object}{Object}}\ *\textcolor{keywordtype}{object});}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \textcolor{comment}{/*Management\ of\ desc*/}}
+\DoxyCodeLine{00086\ \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}}\ \mbox{\hyperlink{object_8h_a46dfe13b76a3ade55a1d8f478b4793f8}{object\_set\_desc}}(\mbox{\hyperlink{struct__Object}{Object}}\ *\textcolor{keywordtype}{object},\ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{struct__Object_ab5b02d4239455c63e6de67bee4e70937}{desc}});}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00095\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{object_8h_a7675829af58481ecebd6a1c46ed7126d}{object\_get\_desc}}(\mbox{\hyperlink{struct__Object}{Object}}\ *\textcolor{keywordtype}{object});}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \textcolor{comment}{/*Management\ of\ inspected*/}}
+\DoxyCodeLine{00106\ \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}}\ \mbox{\hyperlink{object_8h_ae2cac8fc6b4b1763e97072c0d260e945}{object\_set\_inspected}}(\mbox{\hyperlink{struct__Object}{Object}}\ *\textcolor{keywordtype}{object},\ \mbox{\hyperlink{types_8h_a39db6982619d623273fad8a383489309}{Bool}}\ \mbox{\hyperlink{struct__Object_af4276545710047741e9da0c1e4215374}{inspected}});}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00115\ \mbox{\hyperlink{types_8h_a39db6982619d623273fad8a383489309}{Bool}}\ \mbox{\hyperlink{object_8h_a14f7e4d3be3158bd2c0f2ad7dad76fd6}{object\_get\_inspected}}(\mbox{\hyperlink{struct__Object}{Object}}\ *\textcolor{keywordtype}{object});}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \textcolor{comment}{/*Print*/}}
+\DoxyCodeLine{00126\ \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}}\ \mbox{\hyperlink{object_8h_a6488ec3cfebebfdeef4a43b9eebf8642}{object\_print}}(\mbox{\hyperlink{struct__Object}{Object}}\ *\textcolor{keywordtype}{object});}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00128\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

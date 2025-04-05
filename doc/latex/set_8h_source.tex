@@ -1,0 +1,35 @@
+\doxysection{set.\+h}
+\hypertarget{set_8h_source}{}\label{set_8h_source}\index{/mnt/c/Ubuntu/Shared\_folder/PPROG/I3/ANTHILL\_REP/include/set.h@{/mnt/c/Ubuntu/Shared\_folder/PPROG/I3/ANTHILL\_REP/include/set.h}}
+\mbox{\hyperlink{set_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#ifndef\ SET\_H\_}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#define\ SET\_H\_}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{types_8h}{types.h}}"{}}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__Set}{\_Set}}\ \mbox{\hyperlink{struct__Set}{Set}};}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{comment}{/*Create\ \&\ destroy*/}}
+\DoxyCodeLine{00023\ \mbox{\hyperlink{struct__Set}{Set}}\ *\mbox{\hyperlink{set_8h_aaad3bdcac9fbbfc38b4800b12bb17449}{set\_create}}();}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00032\ \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}}\ \mbox{\hyperlink{set_8h_a5b4e14914ec3c85b83363f57697f175a}{set\_destroy}}(\mbox{\hyperlink{struct__Set}{Set}}\ *set);}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \textcolor{comment}{/*Management\ of\ ids*/}}
+\DoxyCodeLine{00043\ \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}}\ \mbox{\hyperlink{set_8h_ad252ed6b4db23b184789fd4ef5afe5e1}{set\_add\_id}}(\mbox{\hyperlink{struct__Set}{Set}}\ *set,\ \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}}\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00053\ \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}}\ \mbox{\hyperlink{set_8h_a94547ab1010894b64ec974bde79c1e4f}{set\_remove\_id}}(\mbox{\hyperlink{struct__Set}{Set}}\ *set,\ \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}}\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00063\ \mbox{\hyperlink{types_8h_a39db6982619d623273fad8a383489309}{Bool}}\ \mbox{\hyperlink{set_8h_a298b41bcf7ae56e1f07567eaace0c963}{set\_has\_id}}(\mbox{\hyperlink{struct__Set}{Set}}\ *set,\ \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}}\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00073\ \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}}\ \mbox{\hyperlink{set_8h_a7d9d411d8d5f63192b1cff0fe155bbfc}{set\_get\_id\_from\_index}}(\mbox{\hyperlink{struct__Set}{Set}}\ *set,\ \textcolor{keywordtype}{int}\ n);}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \textcolor{comment}{/*Management\ of\ n\_ids*/}}
+\DoxyCodeLine{00083\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{set_8h_afaa9d55d67526584aba2e0688ca189b3}{set\_get\_num\_ids}}(\mbox{\hyperlink{struct__Set}{Set}}\ *set);}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \textcolor{comment}{/*Print*/}}
+\DoxyCodeLine{00092\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{set_8h_ad5ca92546c83b1b0b9c26b137ad400ce}{set\_print}}(\mbox{\hyperlink{struct__Set}{Set}}\ *set);}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SET\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

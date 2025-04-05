@@ -1,0 +1,67 @@
+\doxysection{/mnt/c/\+Ubuntu/\+Shared\+\_\+folder/\+PPROG/\+I3/\+ANTHILL\+\_\+\+REP/src/game\+\_\+reader.c File Reference}
+\hypertarget{game__reader_8c}{}\label{game__reader_8c}\index{/mnt/c/Ubuntu/Shared\_folder/PPROG/I3/ANTHILL\_REP/src/game\_reader.c@{/mnt/c/Ubuntu/Shared\_folder/PPROG/I3/ANTHILL\_REP/src/game\_reader.c}}
+{\ttfamily \#include "{}game\+\_\+reader.\+h"{}}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include "{}game.\+h"{}}\newline
+{\ttfamily \#include "{}space.\+h"{}}\newline
+{\ttfamily \#include "{}types.\+h"{}}\newline
+Include dependency graph for game\+\_\+reader.\+c\+:
+% FIG 0
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{game__reader_8c_ae099f75d4ca2681eb8cc8619c1c3f359}{game\+\_\+init\+\_\+from\+\_\+file}} (\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} \texorpdfstring{$\ast$}{*}game, char \texorpdfstring{$\ast$}{*}filename)
+\begin{DoxyCompactList}\small\item\em It creates the game with the info from the filename. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{game__reader_8c_a116b1bbd8e119adf49cc729ded9524bd}{game\+\_\+load\+\_\+everything}} (\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} \texorpdfstring{$\ast$}{*}game, char \texorpdfstring{$\ast$}{*}filename)
+\begin{DoxyCompactList}\small\item\em It loads the spaces that are adjacent to the current one. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{game__reader_8c_ae099f75d4ca2681eb8cc8619c1c3f359}\label{game__reader_8c_ae099f75d4ca2681eb8cc8619c1c3f359} 
+\index{game\_reader.c@{game\_reader.c}!game\_init\_from\_file@{game\_init\_from\_file}}
+\index{game\_init\_from\_file@{game\_init\_from\_file}!game\_reader.c@{game\_reader.c}}
+\doxysubsubsection{\texorpdfstring{game\_init\_from\_file()}{game\_init\_from\_file()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} game\+\_\+init\+\_\+from\+\_\+file (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} \texorpdfstring{$\ast$}{*}}]{game,  }\item[{char \texorpdfstring{$\ast$}{*}}]{filename }\end{DoxyParamCaption})}
+
+
+
+It creates the game with the info from the filename. 
+
+\begin{DoxyAuthor}{Author}
+Profesores PPROG
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em game} & a pointer to the game \\
+\hline
+{\em filename} & a pointer to the file where the spaces are defined \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK if everything goes well, ERROR otherwise 
+\end{DoxyReturn}
+\Hypertarget{game__reader_8c_a116b1bbd8e119adf49cc729ded9524bd}\label{game__reader_8c_a116b1bbd8e119adf49cc729ded9524bd} 
+\index{game\_reader.c@{game\_reader.c}!game\_load\_everything@{game\_load\_everything}}
+\index{game\_load\_everything@{game\_load\_everything}!game\_reader.c@{game\_reader.c}}
+\doxysubsubsection{\texorpdfstring{game\_load\_everything()}{game\_load\_everything()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} game\+\_\+load\+\_\+everything (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} \texorpdfstring{$\ast$}{*}}]{game,  }\item[{char \texorpdfstring{$\ast$}{*}}]{filename }\end{DoxyParamCaption})}
+
+
+
+It loads the spaces that are adjacent to the current one. 
+
+\begin{DoxyAuthor}{Author}
+Profesores PPROG, Arturo
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em game} & a pointer to the game \\
+\hline
+{\em filename} & a pointer to the file where the spaces are defined \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK if everything goes well, ERROR otherwise 
+\end{DoxyReturn}
