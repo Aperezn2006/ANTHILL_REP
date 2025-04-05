@@ -18,7 +18,8 @@ SRC = $(SRC_DIR)/game_loop.c $(SRC_DIR)/command.c $(SRC_DIR)/game_actions.c $(SR
       $(SRC_DIR)/object.c $(SRC_DIR)/character.c $(SRC_DIR)/set.c $(SRC_DIR)/link.c $(SRC_DIR)/inventory.c
 
 # Archivos fuente de los tests
-TEST_SRC = $(TEST_DIR)/space_test.c $(TEST_DIR)/link_test.c $(TEST_DIR)/player_test.c $(TEST_DIR)/set_test.c
+TEST_SRC = $(TEST_DIR)/space_test.c $(TEST_DIR)/link_test.c $(TEST_DIR)/player_test.c $(TEST_DIR)/set_test.c \
+					 $(TEST_DIR)/object_test.c $(TEST_DIR)/character_test.c
 # $(TEST_DIR)/character_test.c
 
 # Archivos objeto generados a partir de los archivos fuente
@@ -81,3 +82,18 @@ run: $(EXEC)
 # Regla para ejecutar Valgrind
 valgrind: $(EXEC)
 	valgrind -s --show-leak-kinds=all --track-origins=yes --leak-check=full ./$(EXEC) $(EXEC).dat
+
+# Regla para organizar los archivos en sus carpetitas correspondientes
+organize:
+	@echo "Organizing source files into the src folder..."
+	@mv *.c src/
+
+	@echo "Organizing header files into the include folder..."
+	@mv *.h include/
+
+	@echo "Organizing lib files into the lib folder..."
+	@mv *.a lib/
+	
+	@echo "Organizing object files into the obj folder..."
+	@mv *.o obj/
+
