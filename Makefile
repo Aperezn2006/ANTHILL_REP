@@ -97,3 +97,8 @@ organize:
 	@echo "Organizing object files into the obj folder..."
 	@mv *.o obj/
 
+tester:
+	@echo Rebuilding and testing game with all parameters...
+	@make clean
+	@make
+	valgrind -s --show-leak-kinds=all --track-origins=yes --leak-check=full ./$(EXEC) $(EXEC).dat $ -l logFile
