@@ -160,10 +160,18 @@ void game_loop_cleanup(Game *game, Graphic_engine *gengine, FILE *log_file) {
 
 void log_command(FILE *log_file, Command *cmd) {
   CommandCode code = command_get_code(cmd);
+  char result[WORD_SIZE];
+
   if (!log_file || !cmd) {
     return;
   }
 
-  fprintf(log_file, "Comando ejecutado: %s, %s, %d\n", command_to_str(code), command_get_word(cmd), command_get_result(cmd));
+  if (command_get_result(cmd) == OK) {
+    strcpy(result, "OK");
+  } else if (command_get_result(cmd) == ERROR) {
+    strcpy(result, "ERROR");
+  }
+
+  fprintf(log_file, "Comando ejecutado: %s, %s, %s\n", command_to_str(code), command_get_word(cmd), result);
   fflush(log_file);
 }
