@@ -1,0 +1,9 @@
+<map id="test1_object_print" name="test1_object_print">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,55,144,80"/>
+<area shape="rect" id="Node000002" href="$object_8c.html#a7d0b3d3e95beef8deb5b02d0c4641a57" title="It creates a new object, allocating memory and initializing its members." alt="" coords="196,5,307,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="120,52,191,32,192,37,122,57"/>
+<area shape="rect" id="Node000003" href="$object_8c.html#aab2d9fe61ae9c48522635d006dd50396" title="It destroys a object, freeing the allocated memory." alt="" coords="192,55,311,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="144,65,178,65,178,70,144,70"/>
+<area shape="rect" id="Node000004" href="$object_8c.html#a6488ec3cfebebfdeef4a43b9eebf8642" title="It prints the object information." alt="" coords="202,104,301,129"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="122,77,192,98,191,103,120,83"/>
+</map>

@@ -1,0 +1,9 @@
+<map id="test1_object_set_inspected" name="test1_object_set_inspected">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,55,204,80"/>
+<area shape="rect" id="Node000002" href="$object_8c.html#a7d0b3d3e95beef8deb5b02d0c4641a57" title="It creates a new object, allocating memory and initializing its members." alt="" coords="276,5,387,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="163,52,262,30,263,35,164,57"/>
+<area shape="rect" id="Node000003" href="$object_8c.html#aab2d9fe61ae9c48522635d006dd50396" title="It destroys a object, freeing the allocated memory." alt="" coords="272,55,391,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="204,65,258,65,258,70,204,70"/>
+<area shape="rect" id="Node000004" href="$object_8c.html#ae2cac8fc6b4b1763e97072c0d260e945" title="It sets whether the object has been inspected or not." alt="" coords="252,104,411,129"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="164,77,259,98,258,104,163,83"/>
+</map>

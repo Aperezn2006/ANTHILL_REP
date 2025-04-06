@@ -1,0 +1,7 @@
+<map id="game_get_player_location_from_index" name="game_get_player_location_from_index">
+<area shape="rect" id="Node000001" title="It gets the location of the player located in a certain position of the array of players in the game." alt="" coords="5,23,200,63"/>
+<area shape="rect" id="Node000002" href="$game_8c.html#aa09e1df33f2417cc314eca6a5ae822f3" title="It gets the game&#39;s current turn." alt="" coords="263,5,383,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="200,29,249,24,250,29,201,35"/>
+<area shape="rect" id="Node000003" href="$player_8c.html#aa50ce77ab79af7166d749619fd60acfe" title="It gets the player&#39;s location." alt="" coords="248,55,399,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="201,51,235,55,234,60,200,57"/>
+</map>

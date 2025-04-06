@@ -1,0 +1,9 @@
+<map id="test2_player_remove_object" name="test2_player_remove_object">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,165,45"/>
+<area shape="rect" id="Node000002" href="$player_8c.html#a86158966cf276150da22da69e8360d1c" title="It removes an object from the inventory." alt="" coords="213,13,380,38"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="166,23,200,23,200,28,166,28"/>
+<area shape="rect" id="Node000003" href="$inventory_8c.html#a12b59b2f63a96f7e1826bf45939ae089" title="It removes an object from the inventory." alt="" coords="428,13,616,38"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="380,23,414,23,414,28,380,28"/>
+<area shape="rect" id="Node000004" href="$set_8c.html#a94547ab1010894b64ec974bde79c1e4f" title="It deletes an element from the set." alt="" coords="664,13,783,38"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="616,23,650,23,650,28,616,28"/>
+</map>

@@ -1,0 +1,9 @@
+<map id="game_add_player" name="game_add_player">
+<area shape="rect" id="Node000001" title="It adds a player to the game." alt="" coords="5,55,144,80"/>
+<area shape="rect" id="Node000002" href="$command_8c.html#aa3d3d6bdeb73c7bbaff6ee913569f456" title="It allocates memory for a new command and initializes its members." alt="" coords="214,5,349,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="128,52,213,31,215,37,129,57"/>
+<area shape="rect" id="Node000003" href="$game_8c.html#a710a04cce11983be63cd46b9270c4cc7" title="It gets the number of players in the game." alt="" coords="192,55,371,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="144,65,178,65,178,70,144,70"/>
+<area shape="rect" id="Node000004" href="$game_8c.html#a0ce5922bdfb5a692502916bdaaa02336" title="It increments the number of players in the game." alt="" coords="197,105,365,145"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="122,77,196,98,195,104,121,83"/>
+</map>

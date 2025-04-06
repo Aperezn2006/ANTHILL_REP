@@ -1,0 +1,7 @@
+<map id="game_get_character_id_from_name" name="game_get_character_id_from_name">
+<area shape="rect" id="Node000001" title="It gets a character&#39;s id from its name." alt="" coords="5,23,160,63"/>
+<area shape="rect" id="Node000002" href="$character_8c.html#ab909e43e2cfc3a8588056409edd43a64" title="It gets the id of a character." alt="" coords="220,5,351,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="160,31,206,25,206,31,161,36"/>
+<area shape="rect" id="Node000003" href="$character_8c.html#a663fad1a34f5514fef098d67582b15b6" title="It gets the name of a character." alt="" coords="208,55,363,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="160,50,194,54,193,59,160,55"/>
+</map>

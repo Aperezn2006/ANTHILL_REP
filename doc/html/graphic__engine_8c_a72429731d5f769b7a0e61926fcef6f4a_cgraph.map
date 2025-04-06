@@ -1,0 +1,5 @@
+<map id="someScreenPuts" name="someScreenPuts">
+<area shape="rect" id="Node000001" title="It puts the strings 1&#45;9 on the screen." alt="" coords="5,5,136,31"/>
+<area shape="rect" id="Node000002" href="$libscreen_8h.html#a4f4cd4c7899c096d6c90cc33de9a9814" title="It introduces some information inside an area." alt="" coords="184,5,320,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="137,15,170,15,170,21,137,21"/>
+</map>

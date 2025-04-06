@@ -1,0 +1,11 @@
+<map id="test1_decrease_health" name="test1_decrease_health">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,92,175,117"/>
+<area shape="rect" id="Node000002" href="$character_8c.html#a04e381f3485e883f8c5638cbcd67e686" title="It creates a new character, allocating memory and initializing its members." alt="" coords="237,5,367,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="115,90,222,41,245,32,246,38,224,46,117,94"/>
+<area shape="rect" id="Node000003" href="$character_8c.html#afe3df8f4d909606358974aa3b007b23e" title="It descreases the character&#39;s health by a certain amount." alt="" coords="227,55,377,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="174,90,213,85,214,90,175,96"/>
+<area shape="rect" id="Node000004" href="$character_8c.html#a44f33a126ae5fe46a804f6e008d4fa82" title="It gets the health of a character." alt="" coords="223,120,381,145"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="175,113,209,118,209,123,174,118"/>
+<area shape="rect" id="Node000005" href="$character_8c.html#aa3fe98e48c3731f01accf1ca8f6aca32" title="It sets the health of a character." alt="" coords="223,169,381,195"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="123,115,224,154,248,163,246,168,222,159,121,120"/>
+</map>

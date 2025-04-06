@@ -1,0 +1,5 @@
+<map id="game_get_message" name="game_get_message">
+<area shape="rect" id="Node000001" title="It gets the game&#39;s last message." alt="" coords="5,5,159,31"/>
+<area shape="rect" id="Node000002" href="$game_8c.html#aa09e1df33f2417cc314eca6a5ae822f3" title="It gets the game&#39;s current turn." alt="" coords="207,5,327,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="159,15,193,15,193,21,159,21"/>
+</map>

@@ -1,0 +1,17 @@
+<map id="test1_player_set_id" name="test1_player_set_id">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,55,155,80"/>
+<area shape="rect" id="Node000002" href="$player_8c.html#ab8d706037259061de90808be9a6c2b32" title="It creates a new player, allocating memory and initializing its members." alt="" coords="207,5,317,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="127,52,200,32,202,37,128,57"/>
+<area shape="rect" id="Node000005" href="$player_8c.html#a2c5f78378722793bb82da46e5c0e7b82" title="It destroys a player, freeing the allocated memory." alt="" coords="203,55,321,80"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="155,65,189,65,189,70,155,70"/>
+<area shape="rect" id="Node000008" href="$player_8c.html#aac8860cbb112ebd0b067b25b28672ca8" title="It sets the id of a player." alt="" coords="207,104,317,129"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="128,77,202,98,200,103,127,83"/>
+<area shape="rect" id="Node000003" href="$inventory_8c.html#acfdb31bdaf1646387a93fc7ece2ef180" title="It creates a new player, allocating memory and initializing its members." alt="" coords="373,5,505,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="318,15,360,15,360,21,318,21"/>
+<area shape="rect" id="Node000004" href="$set_8c.html#aaad3bdcac9fbbfc38b4800b12bb17449" title="It creates a set." alt="" coords="561,5,652,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="506,15,547,15,547,21,506,21"/>
+<area shape="rect" id="Node000006" href="$inventory_8c.html#ae23961749b6ed45fd5fe1c18941fe586" title="It destroys an inventory, freeing the allocated memory." alt="" coords="369,55,509,80"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="321,65,356,65,356,70,321,70"/>
+<area shape="rect" id="Node000007" href="$set_8c.html#a5b4e14914ec3c85b83363f57697f175a" title="It destroys a set." alt="" coords="557,55,656,80"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="510,65,544,65,544,70,510,70"/>
+</map>

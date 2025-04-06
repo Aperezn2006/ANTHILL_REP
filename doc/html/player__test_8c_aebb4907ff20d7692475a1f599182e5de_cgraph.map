@@ -1,0 +1,7 @@
+<map id="test2_player_set_max_objs" name="test2_player_set_max_objs">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,205,31"/>
+<area shape="rect" id="Node000002" href="$player_8c.html#a48b8e0abe8c2410873182291da243258" title="It sets the maximum number of objects a player can carry." alt="" coords="253,5,413,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="206,15,240,15,240,21,206,21"/>
+<area shape="rect" id="Node000003" href="$inventory_8c.html#ac8a9f09bbc7f4957c366cf70e77553c4" title="It sets the maximun amount of objects the inventory can hold." alt="" coords="461,5,663,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="414,15,448,15,448,21,414,21"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="game_get_player" name="game_get_player">
+<area shape="rect" id="Node000001" title="It creates a pointer to the current player." alt="" coords="5,5,140,31"/>
+<area shape="rect" id="Node000002" href="$game_8c.html#aa09e1df33f2417cc314eca6a5ae822f3" title="It gets the game&#39;s current turn." alt="" coords="188,5,308,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="140,15,174,15,174,21,140,21"/>
+</map>

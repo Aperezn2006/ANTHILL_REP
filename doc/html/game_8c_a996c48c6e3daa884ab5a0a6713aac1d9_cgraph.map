@@ -1,0 +1,5 @@
+<map id="game_set_object_desc" name="game_set_object_desc">
+<area shape="rect" id="Node000001" title="It sets the description of the last inspected object." alt="" coords="5,5,176,31"/>
+<area shape="rect" id="Node000002" href="$game_8c.html#aa09e1df33f2417cc314eca6a5ae822f3" title="It gets the game&#39;s current turn." alt="" coords="224,5,344,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="176,15,210,15,210,21,176,21"/>
+</map>

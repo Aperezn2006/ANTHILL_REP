@@ -1,0 +1,17 @@
+<map id="space_get_object_name_from_index" name="space_get_object_name_from_index">
+<area shape="rect" id="Node000001" title="It gets the name of the object located in a certain position of the array of objects in the space and..." alt="" coords="5,73,184,113"/>
+<area shape="rect" id="Node000002" href="$game_8c.html#a81d5be540a179c05052ba80ea7ab41ea" title="It gets a pointer to an object from its id." alt="" coords="232,5,423,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="145,70,231,39,258,32,260,37,233,45,147,75"/>
+<area shape="rect" id="Node000004" href="$game_8c.html#a34242ac78c87036f8194fee3e92c7fb7" title="It creates a pointer to a certain space using its id." alt="" coords="261,55,393,80"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="184,80,247,73,248,79,185,86"/>
+<area shape="rect" id="Node000006" href="$object_8c.html#ae7279c442aab51c0818bd008b31f9816" title="It gets the name of a object." alt="" coords="260,104,395,129"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="185,99,246,106,246,111,184,105"/>
+<area shape="rect" id="Node000007" href="$space_8c.html#a76326e0ed421ddc6ad5a951d75f0ebd6" title="It gets the object in the n position of the array." alt="" coords="241,154,414,194"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="152,110,233,139,254,147,252,152,231,145,150,115"/>
+<area shape="rect" id="Node000003" href="$object_8c.html#ac5af152381a21853c6a28cc120e8e7fe" title="It gets the id of a object." alt="" coords="501,5,611,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="423,15,488,15,488,21,423,21"/>
+<area shape="rect" id="Node000005" href="$space_8c.html#ac8ddfd0d8692fd852ee49698c446cb50" title="It gets the id of a space." alt="" coords="503,55,609,80"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="393,65,489,65,489,70,393,70"/>
+<area shape="rect" id="Node000008" href="$set_8c.html#a7d9d411d8d5f63192b1cff0fe155bbfc" title="It gets the element at a given position in the set." alt="" coords="471,161,641,187"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="414,171,457,171,457,177,414,177"/>
+</map>

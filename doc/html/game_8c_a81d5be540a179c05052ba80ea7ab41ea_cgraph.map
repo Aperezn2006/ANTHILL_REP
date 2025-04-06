@@ -1,0 +1,5 @@
+<map id="game_get_object_from_id" name="game_get_object_from_id">
+<area shape="rect" id="Node000001" title="It gets a pointer to an object from its id." alt="" coords="5,5,196,31"/>
+<area shape="rect" id="Node000002" href="$object_8c.html#ac5af152381a21853c6a28cc120e8e7fe" title="It gets the id of a object." alt="" coords="244,5,353,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="196,15,230,15,230,21,196,21"/>
+</map>

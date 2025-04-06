@@ -1,0 +1,7 @@
+<map id="game_set_player_location" name="game_set_player_location">
+<area shape="rect" id="Node000001" title="It sets the player&#39;s location." alt="" coords="5,31,199,56"/>
+<area shape="rect" id="Node000002" href="$game_8c.html#aa09e1df33f2417cc314eca6a5ae822f3" title="It gets the game&#39;s current turn." alt="" coords="261,5,381,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="199,29,247,24,248,29,199,35"/>
+<area shape="rect" id="Node000003" href="$player_8c.html#ac907eb271007fc0528e5adf8a7946112" title="It sets the player&#39;s location." alt="" coords="247,55,396,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="199,51,233,55,233,60,199,57"/>
+</map>

@@ -1,0 +1,15 @@
+<map id="test1_space_get_i_description" name="test1_space_get_i_description">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,55,224,80"/>
+<area shape="rect" id="Node000002" href="$space_8c.html#ad3a5834be733066e8a7d8586be0ac610" title="It creates a new space, allocating memory and initializing its members." alt="" coords="307,5,415,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="178,52,293,29,295,34,179,57"/>
+<area shape="rect" id="Node000004" href="$space_8c.html#a278763d4b530df17823ef9e4f9db2896" title="It destroys a space, freeing the allocated memory." alt="" coords="303,55,419,80"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="224,65,289,65,289,70,224,70"/>
+<area shape="rect" id="Node000006" href="$space_8c.html#a57eda9861c179f6c89df201fea8fde01" title="It gets the graphical description of the space located in the n position of the array." alt="" coords="272,104,451,129"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="179,77,284,99,283,104,178,83"/>
+<area shape="rect" id="Node000003" href="$set_8c.html#aaad3bdcac9fbbfc38b4800b12bb17449" title="It creates a set." alt="" coords="537,5,627,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="415,15,523,15,523,21,415,21"/>
+<area shape="rect" id="Node000005" href="$set_8c.html#a5b4e14914ec3c85b83363f57697f175a" title="It destroys a set." alt="" coords="533,55,631,80"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="419,65,519,65,519,70,419,70"/>
+<area shape="rect" id="Node000007" href="$space_8c.html#ad5849ae1901586f6f8a7fdad6bbaea0f" title="It gets whether the space is discovered or not." alt="" coords="499,104,665,129"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="451,114,485,114,485,119,451,119"/>
+</map>

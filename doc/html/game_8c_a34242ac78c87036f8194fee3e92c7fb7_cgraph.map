@@ -1,0 +1,5 @@
+<map id="game_get_space" name="game_get_space">
+<area shape="rect" id="Node000001" title="It creates a pointer to a certain space using its id." alt="" coords="5,5,137,31"/>
+<area shape="rect" id="Node000002" href="$space_8c.html#ac8ddfd0d8692fd852ee49698c446cb50" title="It gets the id of a space." alt="" coords="185,5,292,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="138,15,171,15,171,21,138,21"/>
+</map>

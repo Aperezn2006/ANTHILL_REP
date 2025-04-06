@@ -1,0 +1,7 @@
+<map id="test2_space_get_i_description" name="test2_space_get_i_description">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,224,31"/>
+<area shape="rect" id="Node000002" href="$space_8c.html#a57eda9861c179f6c89df201fea8fde01" title="It gets the graphical description of the space located in the n position of the array." alt="" coords="272,5,451,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="224,15,258,15,258,21,224,21"/>
+<area shape="rect" id="Node000003" href="$space_8c.html#ad5849ae1901586f6f8a7fdad6bbaea0f" title="It gets whether the space is discovered or not." alt="" coords="499,5,665,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="451,15,485,15,485,21,451,21"/>
+</map>

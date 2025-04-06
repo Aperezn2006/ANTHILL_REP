@@ -1,0 +1,11 @@
+<map id="test1_link_set_id" name="test1_link_set_id">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,80,137,105"/>
+<area shape="rect" id="Node000002" href="$link_8c.html#a1e662c55d1ea0191b66372f0fa57ac1c" title="It creates a new link." alt="" coords="189,5,284,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="100,77,194,34,197,39,102,82"/>
+<area shape="rect" id="Node000003" href="$link_8c.html#a117e4e5a82b23b805052d1eace34d068" title="It destroys a link." alt="" coords="185,55,288,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="137,80,171,75,172,80,138,85"/>
+<area shape="rect" id="Node000004" href="$link_8c.html#a2bbd320f995a72b2ea7ea639b1c81892" title="It gets the id of a link." alt="" coords="190,104,283,129"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="138,100,177,105,176,111,137,105"/>
+<area shape="rect" id="Node000005" href="$link_8c.html#a572e6dc57923ee430a8c6121c6bcfc99" title=" " alt="" coords="191,153,283,179"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="102,103,196,145,193,150,100,108"/>
+</map>

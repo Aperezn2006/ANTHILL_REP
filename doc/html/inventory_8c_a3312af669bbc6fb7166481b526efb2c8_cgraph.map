@@ -1,0 +1,5 @@
+<map id="inventory_has_object" name="inventory_has_object">
+<area shape="rect" id="Node000001" title="It checks whether the inventory has a certain object." alt="" coords="5,5,167,31"/>
+<area shape="rect" id="Node000002" href="$set_8c.html#a298b41bcf7ae56e1f07567eaace0c963" title="It checks if the set contains an element." alt="" coords="215,5,305,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="167,15,201,15,201,21,167,21"/>
+</map>

@@ -1,0 +1,15 @@
+<map id="test1_space_set_object" name="test1_space_set_object">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,55,180,80"/>
+<area shape="rect" id="Node000002" href="$space_8c.html#a7f81b9098bde8cf07621adfe90345e09" title="It adds an object to the space." alt="" coords="228,5,367,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="145,52,230,31,231,37,147,57"/>
+<area shape="rect" id="Node000004" href="$space_8c.html#ad3a5834be733066e8a7d8586be0ac610" title="It creates a new space, allocating memory and initializing its members." alt="" coords="243,55,351,80"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="180,65,230,65,230,70,180,70"/>
+<area shape="rect" id="Node000006" href="$space_8c.html#a278763d4b530df17823ef9e4f9db2896" title="It destroys a space, freeing the allocated memory." alt="" coords="239,104,355,129"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="147,77,231,98,230,103,145,83"/>
+<area shape="rect" id="Node000003" href="$set_8c.html#ad252ed6b4db23b184789fd4ef5afe5e1" title="It adds an element to the set." alt="" coords="418,5,510,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="367,15,405,15,405,21,367,21"/>
+<area shape="rect" id="Node000005" href="$set_8c.html#aaad3bdcac9fbbfc38b4800b12bb17449" title="It creates a set." alt="" coords="419,55,509,80"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="351,65,405,65,405,70,351,70"/>
+<area shape="rect" id="Node000007" href="$set_8c.html#a5b4e14914ec3c85b83363f57697f175a" title="It destroys a set." alt="" coords="415,104,513,129"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="356,114,401,114,401,119,356,119"/>
+</map>

@@ -1,0 +1,9 @@
+<map id="test2_link_set_name" name="test2_link_set_name">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,55,163,80"/>
+<area shape="rect" id="Node000002" href="$link_8c.html#a1e662c55d1ea0191b66372f0fa57ac1c" title="It creates a new link." alt="" coords="222,5,317,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="132,52,208,31,209,37,133,57"/>
+<area shape="rect" id="Node000003" href="$link_8c.html#a117e4e5a82b23b805052d1eace34d068" title="It destroys a link." alt="" coords="218,55,321,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="163,65,204,65,204,70,163,70"/>
+<area shape="rect" id="Node000004" href="$link_8c.html#ab01a6bc388bcf873c219839bdd7bf8d1" title="It sets the name of a link." alt="" coords="211,104,328,129"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="133,77,208,98,207,103,132,83"/>
+</map>

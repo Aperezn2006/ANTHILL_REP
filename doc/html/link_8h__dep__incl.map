@@ -1,0 +1,32 @@
+<map id="/mnt/c/Ubuntu/Shared_folder/PPROG/I3/ANTHILL_REP/include/link.h" name="/mnt/c/Ubuntu/Shared_folder/PPROG/I3/ANTHILL_REP/include/link.h">
+<area shape="rect" id="Node000001" title="It defines the link interface." alt="" coords="825,5,1016,60"/>
+<area shape="rect" id="Node000002" href="$game_8h.html" title="It defines the game interface." alt="" coords="611,108,801,163"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="854,68,763,110,761,106,851,63"/>
+<area shape="rect" id="Node000012" href="$link_8c.html" title=" " alt="" coords="825,108,1016,163"/>
+<area shape="poly" id="edge16_Node000001_Node000012" title=" " alt="" coords="923,74,923,108,918,108,918,74"/>
+<area shape="rect" id="Node000013" href="$link__test_8c.html" title=" " alt="" coords="1040,108,1231,163"/>
+<area shape="poly" id="edge17_Node000001_Node000013" title=" " alt="" coords="990,63,1081,106,1078,110,988,68"/>
+<area shape="rect" id="Node000003" href="$game__actions_8h.html" title="It defines the game update interface." alt="" coords="5,211,217,265"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="597,155,236,213,218,217,217,211,235,208,596,150"/>
+<area shape="rect" id="Node000005" href="$game__loop_8c.html" title="It defines the game loop." alt="" coords="265,313,456,368"/>
+<area shape="poly" id="edge12_Node000002_Node000005" title=" " alt="" coords="597,143,506,150,411,163,331,183,301,197,281,212,274,225,272,236,282,264,299,290,322,311,318,315,295,294,277,266,267,237,269,223,277,209,298,192,329,178,410,157,505,144,597,137"/>
+<area shape="rect" id="Node000006" href="$game__reader_8h.html" title="It implements the creation of the game with the data from a file." alt="" coords="292,211,499,265"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="613,169,477,213,475,208,611,164"/>
+<area shape="rect" id="Node000007" href="$game__reader_8c.html" title=" " alt="" coords="500,313,691,368"/>
+<area shape="poly" id="edge13_Node000002_Node000007" title=" " alt="" coords="740,172,753,194,763,218,766,243,758,267,729,297,692,318,689,313,725,293,753,264,760,242,758,219,749,196,735,175"/>
+<area shape="rect" id="Node000008" href="$graphic__engine_8h.html" title="It defines the textual graphic engine interface." alt="" coords="523,211,743,265"/>
+<area shape="poly" id="edge8_Node000002_Node000008" title=" " alt="" coords="681,175,654,212,650,209,677,172"/>
+<area shape="rect" id="Node000009" href="$graphic__engine_8c.html" title="It implements a textual graphic engine." alt="" coords="725,313,916,368"/>
+<area shape="poly" id="edge14_Node000002_Node000009" title=" " alt="" coords="748,171,779,209,804,263,818,313,813,314,799,265,774,212,744,174"/>
+<area shape="rect" id="Node000010" href="$game_8c.html" title="It implements the game structure." alt="" coords="869,211,1060,265"/>
+<area shape="poly" id="edge11_Node000002_Node000010" title=" " alt="" coords="787,165,898,208,896,213,785,170"/>
+<area shape="rect" id="Node000011" href="$space_8c.html" title="It implements the space module." alt="" coords="1084,211,1275,265"/>
+<area shape="poly" id="edge15_Node000002_Node000011" title=" " alt="" coords="815,160,946,184,1073,208,1084,210,1083,216,1072,213,945,190,814,165"/>
+<area shape="rect" id="Node000004" href="$game__actions_8c.html" title="It implements the game update through user actions." alt="" coords="16,313,207,368"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="114,279,114,313,109,313,109,279"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="190,268,297,311,295,316,188,273"/>
+<area shape="poly" id="edge6_Node000006_Node000005" title=" " alt="" coords="384,279,372,314,367,312,379,277"/>
+<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="461,269,544,311,542,316,458,274"/>
+<area shape="poly" id="edge9_Node000008_Node000005" title=" " alt="" coords="550,272,432,316,431,311,548,267"/>
+<area shape="poly" id="edge10_Node000008_Node000009" title=" " alt="" coords="695,269,773,311,770,315,692,274"/>
+</map>
