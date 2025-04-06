@@ -1,6 +1,5 @@
 var object_8h =
 [
-    [ "Object", "object_8h.html#a7f8bbcda919b65ce67f92fba08e0212f", null ],
     [ "object_create", "object_8h.html#a7d0b3d3e95beef8deb5b02d0c4641a57", null ],
     [ "object_destroy", "object_8h.html#aab2d9fe61ae9c48522635d006dd50396", null ],
     [ "object_get_desc", "object_8h.html#a7675829af58481ecebd6a1c46ed7126d", null ],

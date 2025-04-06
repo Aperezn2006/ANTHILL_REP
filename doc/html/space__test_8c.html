@@ -30,7 +30,7 @@
   <td id="projectalign">
    <div id="projectname">Anthill<span id="projectnumber">&#160;I3</span>
    </div>
-   <div id="projectbrief">Third iteration of the unix-based Anthill game</div>
+   <div id="projectbrief">Unix-based Anthill game</div>
   </td>
  </tr>
  </tbody>
@@ -108,9 +108,11 @@ $(document).ready(function(){initNavTree('space__test_8c.html',''); initResizabl
 <code>#include &lt;string.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="space__test_8h_source.html">space_test.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="test_8h_source.html">test.h</a>&quot;</code><br />
-</div><div class="textblock"><div class="dynheader">
-Include dependency graph for space_test.c:</div>
-<div class="dyncontent">
+</div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Include dependency graph for space_test.c:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="space__test_8c__incl.png" border="0" usemap="#a_2mnt_2c_2Ubuntu_2Shared__folder_2PPROG_2I3_2ANTHILL__REP_2src_2space__test_8c" alt=""/></div>
 </div>
 </div><table class="memberdecls">
@@ -260,7 +262,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="test"><dt><b><a class="el" href="test.html#_test000114">Test:</a></b></dt><dd>Test space creation </dd></dl>
+<dl class="test"><dt><b><a class="el" href="test.html#_test000129">Test:</a></b></dt><dd>Test space creation </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>Space ID </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>Non NULL pointer to space </dd></dl>
 
@@ -280,7 +282,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="test"><dt><b><a class="el" href="test.html#_test000142">Test:</a></b></dt><dd>Test space get character </dd></dl>
+<dl class="test"><dt><b><a class="el" href="test.html#_test000157">Test:</a></b></dt><dd>Test space get character </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>Pointer to a valid space </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>Output == Valid character ID </dd></dl>
 
@@ -300,7 +302,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="test"><dt><b><a class="el" href="test.html#_test000136">Test:</a></b></dt><dd>Test space get discovered </dd></dl>
+<dl class="test"><dt><b><a class="el" href="test.html#_test000151">Test:</a></b></dt><dd>Test space get discovered </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>Pointer to a valid space </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>Output == OK </dd></dl>
 
@@ -320,7 +322,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="test"><dt><b><a class="el" href="test.html#_test000134">Test:</a></b></dt><dd>Test space get graphic description </dd></dl>
+<dl class="test"><dt><b><a class="el" href="test.html#_test000149">Test:</a></b></dt><dd>Test space get graphic description </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>Pointer to a valid space </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>Output == OK </dd></dl>
 
@@ -340,7 +342,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="test"><dt><b><a class="el" href="test.html#_test000148">Test:</a></b></dt><dd>Test space get individual graphic description </dd></dl>
+<dl class="test"><dt><b><a class="el" href="test.html#_test000163">Test:</a></b></dt><dd>Test space get individual graphic description </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>Pointer to a valid space and a valid index </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>Output == Valid graphic description string </dd></dl>
 
@@ -360,7 +362,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="test"><dt><b><a class="el" href="test.html#_test000121">Test:</a></b></dt><dd>Test space get id </dd></dl>
+<dl class="test"><dt><b><a class="el" href="test.html#_test000136">Test:</a></b></dt><dd>Test space get id </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>Pointer to a valid space </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>Output == OK </dd></dl>
 
@@ -380,7 +382,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="test"><dt><b><a class="el" href="test.html#_test000123">Test:</a></b></dt><dd>Test space get name </dd></dl>
+<dl class="test"><dt><b><a class="el" href="test.html#_test000138">Test:</a></b></dt><dd>Test space get name </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>Pointer to a valid space </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>Output == OK </dd></dl>
 
@@ -400,7 +402,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="test"><dt><b><a class="el" href="test.html#_test000140">Test:</a></b></dt><dd>Test space get number of objects </dd></dl>
+<dl class="test"><dt><b><a class="el" href="test.html#_test000155">Test:</a></b></dt><dd>Test space get number of objects </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>Pointer to a valid space </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>Output == Number of objects in the space </dd></dl>
 
@@ -420,7 +422,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="test"><dt><b><a class="el" href="test.html#_test000138">Test:</a></b></dt><dd>Test space get object from index </dd></dl>
+<dl class="test"><dt><b><a class="el" href="test.html#_test000153">Test:</a></b></dt><dd>Test space get object from index </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>Pointer to a valid space and a valid index </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>Output == Valid object ID </dd></dl>
 
@@ -440,7 +442,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="test"><dt><b><a class="el" href="test.html#_test000146">Test:</a></b></dt><dd>Test space has character </dd></dl>
+<dl class="test"><dt><b><a class="el" href="test.html#_test000161">Test:</a></b></dt><dd>Test space has character </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>Pointer to a valid space and a valid character ID </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>Output == TRUE if the character exists, FALSE otherwise </dd></dl>
 
@@ -460,7 +462,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="test"><dt><b><a class="el" href="test.html#_test000127">Test:</a></b></dt><dd>Test space get multiple objects </dd></dl>
+<dl class="test"><dt><b><a class="el" href="test.html#_test000142">Test:</a></b></dt><dd>Test space get multiple objects </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>Pointer to a valid space </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>Output == OK </dd></dl>
 
@@ -480,7 +482,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="test"><dt><b><a class="el" href="test.html#_test000144">Test:</a></b></dt><dd>Test space set character </dd></dl>
+<dl class="test"><dt><b><a class="el" href="test.html#_test000159">Test:</a></b></dt><dd>Test space set character </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>Pointer to a valid space and a valid character ID </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>Output == OK </dd></dl>
 
@@ -500,7 +502,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="test"><dt><b><a class="el" href="test.html#_test000132">Test:</a></b></dt><dd>Test space set discovered </dd></dl>
+<dl class="test"><dt><b><a class="el" href="test.html#_test000147">Test:</a></b></dt><dd>Test space set discovered </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>Pointer to a valid space </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>Output == OK </dd></dl>
 
@@ -520,7 +522,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="test"><dt><b><a class="el" href="test.html#_test000130">Test:</a></b></dt><dd>Test space set graphic description </dd></dl>
+<dl class="test"><dt><b><a class="el" href="test.html#_test000145">Test:</a></b></dt><dd>Test space set graphic description </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>Pointer to a valid space and valid gdesc </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>Output == OK </dd></dl>
 
@@ -540,7 +542,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="test"><dt><b><a class="el" href="test.html#_test000116">Test:</a></b></dt><dd>Test function for space_name setting </dd></dl>
+<dl class="test"><dt><b><a class="el" href="test.html#_test000131">Test:</a></b></dt><dd>Test function for space_name setting </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>String with space name </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>Output==OK </dd></dl>
 
@@ -560,7 +562,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="test"><dt><b><a class="el" href="test.html#_test000119">Test:</a></b></dt><dd>Test space set object </dd></dl>
+<dl class="test"><dt><b><a class="el" href="test.html#_test000134">Test:</a></b></dt><dd>Test space set object </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>Pointer to a valid space </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>Output == OK </dd></dl>
 
@@ -580,7 +582,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="test"><dt><b><a class="el" href="test.html#_test000115">Test:</a></b></dt><dd>Test space creation </dd></dl>
+<dl class="test"><dt><b><a class="el" href="test.html#_test000130">Test:</a></b></dt><dd>Test space creation </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>Space ID </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>Space_ID == Supplied Space Id </dd></dl>
 
@@ -600,7 +602,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="test"><dt><b><a class="el" href="test.html#_test000143">Test:</a></b></dt><dd>Test space get character with NULL space </dd></dl>
+<dl class="test"><dt><b><a class="el" href="test.html#_test000158">Test:</a></b></dt><dd>Test space get character with NULL space </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>NULL pointer </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>Output == NO_ID </dd></dl>
 
@@ -620,7 +622,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="test"><dt><b><a class="el" href="test.html#_test000137">Test:</a></b></dt><dd>Test space get discovered with NULL space </dd></dl>
+<dl class="test"><dt><b><a class="el" href="test.html#_test000152">Test:</a></b></dt><dd>Test space get discovered with NULL space </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>NULL pointer </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>Output == ERROR </dd></dl>
 
@@ -640,7 +642,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="test"><dt><b><a class="el" href="test.html#_test000135">Test:</a></b></dt><dd>Test space get graphic description with NULL space </dd></dl>
+<dl class="test"><dt><b><a class="el" href="test.html#_test000150">Test:</a></b></dt><dd>Test space get graphic description with NULL space </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>NULL pointer </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>Output == ERROR </dd></dl>
 
@@ -660,7 +662,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="test"><dt><b><a class="el" href="test.html#_test000149">Test:</a></b></dt><dd>Test space get individual graphic description with NULL space </dd></dl>
+<dl class="test"><dt><b><a class="el" href="test.html#_test000164">Test:</a></b></dt><dd>Test space get individual graphic description with NULL space </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>NULL pointer or invalid index </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>Output == NULL </dd></dl>
 
@@ -680,7 +682,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="test"><dt><b><a class="el" href="test.html#_test000122">Test:</a></b></dt><dd>Test space get id with NULL space </dd></dl>
+<dl class="test"><dt><b><a class="el" href="test.html#_test000137">Test:</a></b></dt><dd>Test space get id with NULL space </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>NULL pointer </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>Output == ERROR </dd></dl>
 
@@ -700,7 +702,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="test"><dt><b><a class="el" href="test.html#_test000124">Test:</a></b></dt><dd>Test space get name with NULL space </dd></dl>
+<dl class="test"><dt><b><a class="el" href="test.html#_test000139">Test:</a></b></dt><dd>Test space get name with NULL space </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>NULL pointer </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>Output == ERROR </dd></dl>
 
@@ -720,7 +722,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="test"><dt><b><a class="el" href="test.html#_test000141">Test:</a></b></dt><dd>Test space get number of objects with NULL space </dd></dl>
+<dl class="test"><dt><b><a class="el" href="test.html#_test000156">Test:</a></b></dt><dd>Test space get number of objects with NULL space </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>NULL pointer </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>Output == 0 </dd></dl>
 
@@ -740,7 +742,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="test"><dt><b><a class="el" href="test.html#_test000139">Test:</a></b></dt><dd>Test space get object from index with NULL space </dd></dl>
+<dl class="test"><dt><b><a class="el" href="test.html#_test000154">Test:</a></b></dt><dd>Test space get object from index with NULL space </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>NULL pointer and/or invalid index </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>Output == NO_ID </dd></dl>
 
@@ -760,7 +762,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="test"><dt><b><a class="el" href="test.html#_test000147">Test:</a></b></dt><dd>Test space has character with NULL space </dd></dl>
+<dl class="test"><dt><b><a class="el" href="test.html#_test000162">Test:</a></b></dt><dd>Test space has character with NULL space </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>NULL pointer </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>Output == WRONG </dd></dl>
 
@@ -780,7 +782,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="test"><dt><b><a class="el" href="test.html#_test000128">Test:</a></b></dt><dd>Test space get multiple objects with NULL space </dd></dl>
+<dl class="test"><dt><b><a class="el" href="test.html#_test000143">Test:</a></b></dt><dd>Test space get multiple objects with NULL space </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>NULL pointer </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>Output == ERROR </dd></dl>
 
@@ -800,7 +802,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="test"><dt><b><a class="el" href="test.html#_test000145">Test:</a></b></dt><dd>Test space set character with NULL space </dd></dl>
+<dl class="test"><dt><b><a class="el" href="test.html#_test000160">Test:</a></b></dt><dd>Test space set character with NULL space </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>NULL pointer or invalid character ID </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>Output == ERROR </dd></dl>
 
@@ -820,7 +822,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="test"><dt><b><a class="el" href="test.html#_test000133">Test:</a></b></dt><dd>Test space set discovered with NULL space </dd></dl>
+<dl class="test"><dt><b><a class="el" href="test.html#_test000148">Test:</a></b></dt><dd>Test space set discovered with NULL space </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>NULL pointer </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>Output == ERROR </dd></dl>
 
@@ -840,7 +842,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="test"><dt><b><a class="el" href="test.html#_test000131">Test:</a></b></dt><dd>Test space set graphic description with NULL space </dd></dl>
+<dl class="test"><dt><b><a class="el" href="test.html#_test000146">Test:</a></b></dt><dd>Test space set graphic description with NULL space </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>NULL pointer </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>Output == ERROR </dd></dl>
 
@@ -860,7 +862,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="test"><dt><b><a class="el" href="test.html#_test000117">Test:</a></b></dt><dd>Test function for space_name setting </dd></dl>
+<dl class="test"><dt><b><a class="el" href="test.html#_test000132">Test:</a></b></dt><dd>Test function for space_name setting </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>pointer to space = NULL </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>Output==ERROR </dd></dl>
 
@@ -880,7 +882,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="test"><dt><b><a class="el" href="test.html#_test000120">Test:</a></b></dt><dd>Test space set object with NULL space </dd></dl>
+<dl class="test"><dt><b><a class="el" href="test.html#_test000135">Test:</a></b></dt><dd>Test space set object with NULL space </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>NULL pointer </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>Output == ERROR </dd></dl>
 
@@ -900,7 +902,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="test"><dt><b><a class="el" href="test.html#_test000129">Test:</a></b></dt><dd>Test space get multiple objects with valid space </dd></dl>
+<dl class="test"><dt><b><a class="el" href="test.html#_test000144">Test:</a></b></dt><dd>Test space get multiple objects with valid space </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>Pointer to a valid space </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>Output == OK </dd></dl>
 
@@ -920,7 +922,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="test"><dt><b><a class="el" href="test.html#_test000118">Test:</a></b></dt><dd>Test space set name </dd></dl>
+<dl class="test"><dt><b><a class="el" href="test.html#_test000133">Test:</a></b></dt><dd>Test space set name </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>Pointer to a valid space </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>Output == OK </dd></dl>
 

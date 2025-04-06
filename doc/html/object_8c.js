@@ -1,6 +1,6 @@
 var object_8c =
 [
-    [ "_Object", "struct__Object.html", "struct__Object" ],
+    [ "Object", "struct__Object.html", "struct__Object" ],
     [ "object_create", "object_8c.html#a7d0b3d3e95beef8deb5b02d0c4641a57", null ],
     [ "object_destroy", "object_8c.html#aab2d9fe61ae9c48522635d006dd50396", null ],
     [ "object_get_desc", "object_8c.html#a7675829af58481ecebd6a1c46ed7126d", null ],

@@ -1,6 +1,5 @@
 var inventory_8h =
 [
-    [ "Inventory", "inventory_8h.html#a2253bf64ac4ce6a9c1d6f39c0b0d32a3", null ],
     [ "inventory_add_object", "inventory_8h.html#a2e8ab06ba7c277479fc475ebd2bd522f", null ],
     [ "inventory_create", "inventory_8h.html#acfdb31bdaf1646387a93fc7ece2ef180", null ],
     [ "inventory_destroy", "inventory_8h.html#ae23961749b6ed45fd5fe1c18941fe586", null ],

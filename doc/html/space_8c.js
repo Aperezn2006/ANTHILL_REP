@@ -1,6 +1,6 @@
 var space_8c =
 [
-    [ "_Space", "struct__Space.html", "struct__Space" ],
+    [ "Space", "struct__Space.html", "struct__Space" ],
     [ "space_add_object", "space_8c.html#a7f81b9098bde8cf07621adfe90345e09", null ],
     [ "space_create", "space_8c.html#ad3a5834be733066e8a7d8586be0ac610", null ],
     [ "space_destroy", "space_8c.html#a278763d4b530df17823ef9e4f9db2896", null ],

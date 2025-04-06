@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['health_0',['health',['../struct__Character.html#a8484f3211d776eee7e59861d88b0ee9c',1,'_Character::health'],['../struct__Player.html#a187de1986ebf1a6122375374fd4a35d6',1,'_Player::health']]],
-  ['help_1',['help',['../struct__Graphic__engine.html#a96833ee68d6330b61014979614f7fb77',1,'_Graphic_engine']]]
+  ['health_0',['health',['../struct__Character.html#ab556ca2fe6470487e0560959295a7e30',1,'_Character::health'],['../struct__Player.html#abf6f0e43779a65ca241a1c113835d7e4',1,'_Player::health']]],
+  ['help_1',['help',['../struct__Graphic__engine.html#a979412ba4e1a1f308e6749ea4f5c0a50',1,'_Graphic_engine']]]
 ];

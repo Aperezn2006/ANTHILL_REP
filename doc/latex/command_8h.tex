@@ -17,11 +17,6 @@ This graph shows which files directly or indirectly include this file\+:
 \item 
 \#define \mbox{\hyperlink{command_8h_ae180fe89f0ae48ce5c80ffaa18de9271}{N\+\_\+\+CMD}}~13
 \end{DoxyCompactItemize}
-\doxysubsubsection*{Typedefs}
-\begin{DoxyCompactItemize}
-\item 
-typedef struct \mbox{\hyperlink{struct__Command}{\+\_\+\+Command}} \mbox{\hyperlink{command_8h_a7d2935971c252377cb0fc1c8545dc2bc}{Command}}
-\end{DoxyCompactItemize}
 \doxysubsubsection*{Enumerations}
 \begin{DoxyCompactItemize}
 \item 
@@ -46,23 +41,23 @@ enum \mbox{\hyperlink{command_8h_a805cf38fd2b6d5604bf1f1036b80fde2}{Command\+Cod
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{command_8h_a7d2935971c252377cb0fc1c8545dc2bc}{Command}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{command_8h_aa3d3d6bdeb73c7bbaff6ee913569f456}{command\+\_\+create}} ()
+Command \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{command_8h_aa3d3d6bdeb73c7bbaff6ee913569f456}{command\+\_\+create}} ()
 \begin{DoxyCompactList}\small\item\em It allocates memory for a new command and initializes its members. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{command_8h_abfb6dbf1977dc1a9a6136baefd91b451}{command\+\_\+destroy}} (\mbox{\hyperlink{command_8h_a7d2935971c252377cb0fc1c8545dc2bc}{Command}} \texorpdfstring{$\ast$}{*}command)
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{command_8h_abfb6dbf1977dc1a9a6136baefd91b451}{command\+\_\+destroy}} (Command \texorpdfstring{$\ast$}{*}command)
 \begin{DoxyCompactList}\small\item\em It frees the memory of a certain command. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{command_8h_a0abb96f9b182d0018ec4b5e15d5307e4}{command\+\_\+set\+\_\+code}} (\mbox{\hyperlink{command_8h_a7d2935971c252377cb0fc1c8545dc2bc}{Command}} \texorpdfstring{$\ast$}{*}command, \mbox{\hyperlink{command_8h_a805cf38fd2b6d5604bf1f1036b80fde2}{Command\+Code}} code)
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{command_8h_a0abb96f9b182d0018ec4b5e15d5307e4}{command\+\_\+set\+\_\+code}} (Command \texorpdfstring{$\ast$}{*}command, \mbox{\hyperlink{command_8h_a805cf38fd2b6d5604bf1f1036b80fde2}{Command\+Code}} code)
 \begin{DoxyCompactList}\small\item\em It sets a certain command. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{command_8h_a805cf38fd2b6d5604bf1f1036b80fde2}{Command\+Code}} \mbox{\hyperlink{command_8h_a2206702025ffe5340d172decb4ceea52}{command\+\_\+get\+\_\+code}} (\mbox{\hyperlink{command_8h_a7d2935971c252377cb0fc1c8545dc2bc}{Command}} \texorpdfstring{$\ast$}{*}command)
+\mbox{\hyperlink{command_8h_a805cf38fd2b6d5604bf1f1036b80fde2}{Command\+Code}} \mbox{\hyperlink{command_8h_a2206702025ffe5340d172decb4ceea52}{command\+\_\+get\+\_\+code}} (Command \texorpdfstring{$\ast$}{*}command)
 \begin{DoxyCompactList}\small\item\em It gets the code inside a command. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{command_8h_ab552b723255ed129d81305127e64c50b}{command\+\_\+set\+\_\+word}} (\mbox{\hyperlink{command_8h_a7d2935971c252377cb0fc1c8545dc2bc}{Command}} \texorpdfstring{$\ast$}{*}c, const char \texorpdfstring{$\ast$}{*}word)
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{command_8h_ab552b723255ed129d81305127e64c50b}{command\+\_\+set\+\_\+word}} (Command \texorpdfstring{$\ast$}{*}c, const char \texorpdfstring{$\ast$}{*}word)
 \begin{DoxyCompactList}\small\item\em It sets the string that came after the command. \end{DoxyCompactList}\item 
-char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{command_8h_a234c60e061d10b372c3551f66fd01c21}{command\+\_\+get\+\_\+word}} (\mbox{\hyperlink{command_8h_a7d2935971c252377cb0fc1c8545dc2bc}{Command}} \texorpdfstring{$\ast$}{*}c)
+char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{command_8h_a234c60e061d10b372c3551f66fd01c21}{command\+\_\+get\+\_\+word}} (Command \texorpdfstring{$\ast$}{*}c)
 \begin{DoxyCompactList}\small\item\em It gets the wordect associated with a command. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{command_8h_adf15cb97a09577adb8475a3c6c99e7c5}{command\+\_\+get\+\_\+user\+\_\+input}} (\mbox{\hyperlink{command_8h_a7d2935971c252377cb0fc1c8545dc2bc}{Command}} \texorpdfstring{$\ast$}{*}command)
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{command_8h_adf15cb97a09577adb8475a3c6c99e7c5}{command\+\_\+get\+\_\+user\+\_\+input}} (Command \texorpdfstring{$\ast$}{*}command)
 \begin{DoxyCompactList}\small\item\em It gets the user inputs and sets its command and word. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{command_8h_aac1c9fdf3dbee826bb501639460f345f}{command\+\_\+set\+\_\+result}} (\mbox{\hyperlink{command_8h_a7d2935971c252377cb0fc1c8545dc2bc}{Command}} \texorpdfstring{$\ast$}{*}command, \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} result)
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{command_8h_aac1c9fdf3dbee826bb501639460f345f}{command\+\_\+set\+\_\+result}} (Command \texorpdfstring{$\ast$}{*}command, \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} result)
 \begin{DoxyCompactList}\small\item\em It sets wheter the command was succesful or not. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{command_8h_ac50410109215a8e56f75bab52a9d145d}{command\+\_\+get\+\_\+result}} (\mbox{\hyperlink{command_8h_a7d2935971c252377cb0fc1c8545dc2bc}{Command}} \texorpdfstring{$\ast$}{*}command)
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{command_8h_ac50410109215a8e56f75bab52a9d145d}{command\+\_\+get\+\_\+result}} (Command \texorpdfstring{$\ast$}{*}command)
 \begin{DoxyCompactList}\small\item\em It gets whether the command was successful or not. \end{DoxyCompactList}\item 
 const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{command_8h_afcad0abda11b9f3bf4cffa2c07e1ebe1}{command\+\_\+to\+\_\+str}} (\mbox{\hyperlink{command_8h_a805cf38fd2b6d5604bf1f1036b80fde2}{Command\+Code}} code)
 \begin{DoxyCompactList}\small\item\em It transforms a code into a string. \end{DoxyCompactList}\end{DoxyCompactItemize}
@@ -97,15 +92,6 @@ GNU Public License
 \index{N\_CMDT@{N\_CMDT}!command.h@{command.h}}
 \doxysubsubsection{\texorpdfstring{N\_CMDT}{N\_CMDT}}
 {\footnotesize\ttfamily \#define N\+\_\+\+CMDT~2}
-
-
-
-\doxysubsection{Typedef Documentation}
-\Hypertarget{command_8h_a7d2935971c252377cb0fc1c8545dc2bc}\label{command_8h_a7d2935971c252377cb0fc1c8545dc2bc} 
-\index{command.h@{command.h}!Command@{Command}}
-\index{Command@{Command}!command.h@{command.h}}
-\doxysubsubsection{\texorpdfstring{Command}{Command}}
-{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct__Command}{\+\_\+\+Command}} \mbox{\hyperlink{command_8h_a7d2935971c252377cb0fc1c8545dc2bc}{Command}}}
 
 
 
@@ -177,7 +163,7 @@ CMDL&\\
 \index{command.h@{command.h}!command\_create@{command\_create}}
 \index{command\_create@{command\_create}!command.h@{command.h}}
 \doxysubsubsection{\texorpdfstring{command\_create()}{command\_create()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{command_8h_a7d2935971c252377cb0fc1c8545dc2bc}{Command}} \texorpdfstring{$\ast$}{*} command\+\_\+create (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily Command \texorpdfstring{$\ast$}{*} command\+\_\+create (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
@@ -198,7 +184,7 @@ a pointer to the new command, or NULL if it goes wrong
 \index{command.h@{command.h}!command\_destroy@{command\_destroy}}
 \index{command\_destroy@{command\_destroy}!command.h@{command.h}}
 \doxysubsubsection{\texorpdfstring{command\_destroy()}{command\_destroy()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} command\+\_\+destroy (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{command_8h_a7d2935971c252377cb0fc1c8545dc2bc}{Command}} \texorpdfstring{$\ast$}{*}}]{command }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} command\+\_\+destroy (\begin{DoxyParamCaption}\item[{Command \texorpdfstring{$\ast$}{*}}]{command }\end{DoxyParamCaption})}
 
 
 
@@ -219,7 +205,7 @@ OK if everything went well, ERROR otherwise
 \index{command.h@{command.h}!command\_get\_code@{command\_get\_code}}
 \index{command\_get\_code@{command\_get\_code}!command.h@{command.h}}
 \doxysubsubsection{\texorpdfstring{command\_get\_code()}{command\_get\_code()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{command_8h_a805cf38fd2b6d5604bf1f1036b80fde2}{Command\+Code}} command\+\_\+get\+\_\+code (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{command_8h_a7d2935971c252377cb0fc1c8545dc2bc}{Command}} \texorpdfstring{$\ast$}{*}}]{command }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{command_8h_a805cf38fd2b6d5604bf1f1036b80fde2}{Command\+Code}} command\+\_\+get\+\_\+code (\begin{DoxyParamCaption}\item[{Command \texorpdfstring{$\ast$}{*}}]{command }\end{DoxyParamCaption})}
 
 
 
@@ -240,7 +226,7 @@ the code of the command
 \index{command.h@{command.h}!command\_get\_result@{command\_get\_result}}
 \index{command\_get\_result@{command\_get\_result}!command.h@{command.h}}
 \doxysubsubsection{\texorpdfstring{command\_get\_result()}{command\_get\_result()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} command\+\_\+get\+\_\+result (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{command_8h_a7d2935971c252377cb0fc1c8545dc2bc}{Command}} \texorpdfstring{$\ast$}{*}}]{command }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} command\+\_\+get\+\_\+result (\begin{DoxyParamCaption}\item[{Command \texorpdfstring{$\ast$}{*}}]{command }\end{DoxyParamCaption})}
 
 
 
@@ -261,7 +247,7 @@ OK if everything went well, ERROR otherwise
 \index{command.h@{command.h}!command\_get\_user\_input@{command\_get\_user\_input}}
 \index{command\_get\_user\_input@{command\_get\_user\_input}!command.h@{command.h}}
 \doxysubsubsection{\texorpdfstring{command\_get\_user\_input()}{command\_get\_user\_input()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} command\+\_\+get\+\_\+user\+\_\+input (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{command_8h_a7d2935971c252377cb0fc1c8545dc2bc}{Command}} \texorpdfstring{$\ast$}{*}}]{command }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} command\+\_\+get\+\_\+user\+\_\+input (\begin{DoxyParamCaption}\item[{Command \texorpdfstring{$\ast$}{*}}]{command }\end{DoxyParamCaption})}
 
 
 
@@ -282,7 +268,7 @@ a new command with the inputed one set
 \index{command.h@{command.h}!command\_get\_word@{command\_get\_word}}
 \index{command\_get\_word@{command\_get\_word}!command.h@{command.h}}
 \doxysubsubsection{\texorpdfstring{command\_get\_word()}{command\_get\_word()}}
-{\footnotesize\ttfamily char \texorpdfstring{$\ast$}{*} command\+\_\+get\+\_\+word (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{command_8h_a7d2935971c252377cb0fc1c8545dc2bc}{Command}} \texorpdfstring{$\ast$}{*}}]{c }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily char \texorpdfstring{$\ast$}{*} command\+\_\+get\+\_\+word (\begin{DoxyParamCaption}\item[{Command \texorpdfstring{$\ast$}{*}}]{c }\end{DoxyParamCaption})}
 
 
 
@@ -303,7 +289,7 @@ the word associated with the command
 \index{command.h@{command.h}!command\_set\_code@{command\_set\_code}}
 \index{command\_set\_code@{command\_set\_code}!command.h@{command.h}}
 \doxysubsubsection{\texorpdfstring{command\_set\_code()}{command\_set\_code()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} command\+\_\+set\+\_\+code (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{command_8h_a7d2935971c252377cb0fc1c8545dc2bc}{Command}} \texorpdfstring{$\ast$}{*}}]{command,  }\item[{\mbox{\hyperlink{command_8h_a805cf38fd2b6d5604bf1f1036b80fde2}{Command\+Code}}}]{code }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} command\+\_\+set\+\_\+code (\begin{DoxyParamCaption}\item[{Command \texorpdfstring{$\ast$}{*}}]{command,  }\item[{\mbox{\hyperlink{command_8h_a805cf38fd2b6d5604bf1f1036b80fde2}{Command\+Code}}}]{code }\end{DoxyParamCaption})}
 
 
 
@@ -326,7 +312,7 @@ OK if everything goes well
 \index{command.h@{command.h}!command\_set\_result@{command\_set\_result}}
 \index{command\_set\_result@{command\_set\_result}!command.h@{command.h}}
 \doxysubsubsection{\texorpdfstring{command\_set\_result()}{command\_set\_result()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} command\+\_\+set\+\_\+result (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{command_8h_a7d2935971c252377cb0fc1c8545dc2bc}{Command}} \texorpdfstring{$\ast$}{*}}]{command,  }\item[{\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}}}]{result }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} command\+\_\+set\+\_\+result (\begin{DoxyParamCaption}\item[{Command \texorpdfstring{$\ast$}{*}}]{command,  }\item[{\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}}}]{result }\end{DoxyParamCaption})}
 
 
 
@@ -349,7 +335,7 @@ OK if everything went well, ERROR otherwise
 \index{command.h@{command.h}!command\_set\_word@{command\_set\_word}}
 \index{command\_set\_word@{command\_set\_word}!command.h@{command.h}}
 \doxysubsubsection{\texorpdfstring{command\_set\_word()}{command\_set\_word()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} command\+\_\+set\+\_\+word (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{command_8h_a7d2935971c252377cb0fc1c8545dc2bc}{Command}} \texorpdfstring{$\ast$}{*}}]{c,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{word }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} command\+\_\+set\+\_\+word (\begin{DoxyParamCaption}\item[{Command \texorpdfstring{$\ast$}{*}}]{c,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{word }\end{DoxyParamCaption})}
 
 
 

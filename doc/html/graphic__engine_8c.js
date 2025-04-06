@@ -1,6 +1,6 @@
 var graphic__engine_8c =
 [
-    [ "_Graphic_engine", "struct__Graphic__engine.html", "struct__Graphic__engine" ],
+    [ "Graphic_engine", "struct__Graphic__engine.html", "struct__Graphic__engine" ],
     [ "HEIGHT_BAN", "graphic__engine_8c.html#a514109fafd6de00710e3a287d51e8e15", null ],
     [ "HEIGHT_FDB", "graphic__engine_8c.html#aec4928b7d7a0e91ad936d76d79bedbf2", null ],
     [ "HEIGHT_HLP", "graphic__engine_8c.html#a8b64afdab082949b22941eec34a07f13", null ],

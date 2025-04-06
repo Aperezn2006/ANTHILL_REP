@@ -1,6 +1,6 @@
 var set_8c =
 [
-    [ "_Set", "struct__Set.html", "struct__Set" ],
+    [ "Set", "struct__Set.html", "struct__Set" ],
     [ "set_add_id", "set_8c.html#ad252ed6b4db23b184789fd4ef5afe5e1", null ],
     [ "set_create", "set_8c.html#aaad3bdcac9fbbfc38b4800b12bb17449", null ],
     [ "set_destroy", "set_8c.html#a5b4e14914ec3c85b83363f57697f175a", null ],

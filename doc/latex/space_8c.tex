@@ -12,55 +12,55 @@ It implements the space module.
 {\ttfamily \#include "{}game.\+h"{}}\newline
 Include dependency graph for space.\+c\+:
 % FIG 0
-\doxysubsubsection*{Classes}
+\doxysubsubsection*{Data Structures}
 \begin{DoxyCompactItemize}
 \item 
-struct \mbox{\hyperlink{struct__Space}{\+\_\+\+Space}}
+struct \mbox{\hyperlink{struct__Space}{Space}}
 \begin{DoxyCompactList}\small\item\em Space. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{space_8c_ad3a5834be733066e8a7d8586be0ac610}{space\+\_\+create}} (\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} id)
+Space \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{space_8c_ad3a5834be733066e8a7d8586be0ac610}{space\+\_\+create}} (\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} id)
 \begin{DoxyCompactList}\small\item\em It creates a new space, allocating memory and initializing its members. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{space_8c_a278763d4b530df17823ef9e4f9db2896}{space\+\_\+destroy}} (\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} \texorpdfstring{$\ast$}{*}space)
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{space_8c_a278763d4b530df17823ef9e4f9db2896}{space\+\_\+destroy}} (Space \texorpdfstring{$\ast$}{*}space)
 \begin{DoxyCompactList}\small\item\em It destroys a space, freeing the allocated memory. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} \mbox{\hyperlink{space_8c_ac8ddfd0d8692fd852ee49698c446cb50}{space\+\_\+get\+\_\+id}} (\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} \texorpdfstring{$\ast$}{*}space)
+\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} \mbox{\hyperlink{space_8c_ac8ddfd0d8692fd852ee49698c446cb50}{space\+\_\+get\+\_\+id}} (Space \texorpdfstring{$\ast$}{*}space)
 \begin{DoxyCompactList}\small\item\em It gets the id of a space. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{space_8c_aada6d45e2331eaaa53fa943d559ab67c}{space\+\_\+set\+\_\+id}} (\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} \texorpdfstring{$\ast$}{*}space, \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} id)
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{space_8c_aada6d45e2331eaaa53fa943d559ab67c}{space\+\_\+set\+\_\+id}} (Space \texorpdfstring{$\ast$}{*}space, \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} id)
 \begin{DoxyCompactList}\small\item\em It set the id of a space. \end{DoxyCompactList}\item 
-const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{space_8c_ae2006c76eb167f71c7fd7614e0edd37a}{space\+\_\+get\+\_\+name}} (\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} \texorpdfstring{$\ast$}{*}space)
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{space_8c_ae2006c76eb167f71c7fd7614e0edd37a}{space\+\_\+get\+\_\+name}} (Space \texorpdfstring{$\ast$}{*}space)
 \begin{DoxyCompactList}\small\item\em It gets the name of a space. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{space_8c_a03ae5d9d7a842346d89e56409c3cb3e1}{space\+\_\+set\+\_\+name}} (\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} \texorpdfstring{$\ast$}{*}space, char \texorpdfstring{$\ast$}{*}name)
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{space_8c_a03ae5d9d7a842346d89e56409c3cb3e1}{space\+\_\+set\+\_\+name}} (Space \texorpdfstring{$\ast$}{*}space, char \texorpdfstring{$\ast$}{*}name)
 \begin{DoxyCompactList}\small\item\em It sets the name of a space. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} \mbox{\hyperlink{space_8c_a76326e0ed421ddc6ad5a951d75f0ebd6}{space\+\_\+get\+\_\+object\+\_\+from\+\_\+index}} (\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} \texorpdfstring{$\ast$}{*}space, int n)
+\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} \mbox{\hyperlink{space_8c_a76326e0ed421ddc6ad5a951d75f0ebd6}{space\+\_\+get\+\_\+object\+\_\+from\+\_\+index}} (Space \texorpdfstring{$\ast$}{*}space, int n)
 \begin{DoxyCompactList}\small\item\em It gets the object in the n position of the array. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{space_8c_a9a1ff6ef242ec7c80732c3a3e1e5817f}{space\+\_\+get\+\_\+num\+\_\+objects}} (\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} \texorpdfstring{$\ast$}{*}space)
+int \mbox{\hyperlink{space_8c_a9a1ff6ef242ec7c80732c3a3e1e5817f}{space\+\_\+get\+\_\+num\+\_\+objects}} (Space \texorpdfstring{$\ast$}{*}space)
 \begin{DoxyCompactList}\small\item\em It gets the number of objects in the space. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{space_8c_a04d04100bbf986c34d0788a2370cc82e}{space\+\_\+remove\+\_\+object}} (\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} \texorpdfstring{$\ast$}{*}space, \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} object\+\_\+id)
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{space_8c_a04d04100bbf986c34d0788a2370cc82e}{space\+\_\+remove\+\_\+object}} (Space \texorpdfstring{$\ast$}{*}space, \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} object\+\_\+id)
 \begin{DoxyCompactList}\small\item\em It removes an object from the space. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{types_8h_a39db6982619d623273fad8a383489309}{Bool}} \mbox{\hyperlink{space_8c_ad3bc0f1c4d5e11a86d533dc0cd73fc57}{space\+\_\+has\+\_\+object}} (\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} \texorpdfstring{$\ast$}{*}space, \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} object\+\_\+id)
+\mbox{\hyperlink{types_8h_a39db6982619d623273fad8a383489309}{Bool}} \mbox{\hyperlink{space_8c_ad3bc0f1c4d5e11a86d533dc0cd73fc57}{space\+\_\+has\+\_\+object}} (Space \texorpdfstring{$\ast$}{*}space, \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} object\+\_\+id)
 \begin{DoxyCompactList}\small\item\em It checks whether the space has a specific object. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{space_8c_a7f81b9098bde8cf07621adfe90345e09}{space\+\_\+add\+\_\+object}} (\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} \texorpdfstring{$\ast$}{*}space, \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} object\+\_\+id)
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{space_8c_a7f81b9098bde8cf07621adfe90345e09}{space\+\_\+add\+\_\+object}} (Space \texorpdfstring{$\ast$}{*}space, \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} object\+\_\+id)
 \begin{DoxyCompactList}\small\item\em It adds an object to the space. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} \mbox{\hyperlink{space_8c_a2b1d65484b8f7241c56cb2ca9bb1fdcd}{space\+\_\+get\+\_\+character}} (\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} \texorpdfstring{$\ast$}{*}space)
+\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} \mbox{\hyperlink{space_8c_a2b1d65484b8f7241c56cb2ca9bb1fdcd}{space\+\_\+get\+\_\+character}} (Space \texorpdfstring{$\ast$}{*}space)
 \begin{DoxyCompactList}\small\item\em It gets the character in the space. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{space_8c_aeaafbe740cbe1c2800909dd46a84a6fb}{space\+\_\+set\+\_\+character}} (\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} \texorpdfstring{$\ast$}{*}space, \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} character\+\_\+id)
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{space_8c_aeaafbe740cbe1c2800909dd46a84a6fb}{space\+\_\+set\+\_\+character}} (Space \texorpdfstring{$\ast$}{*}space, \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} character\+\_\+id)
 \begin{DoxyCompactList}\small\item\em It sets the character in the space. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{types_8h_a39db6982619d623273fad8a383489309}{Bool}} \mbox{\hyperlink{space_8c_a39e092c7b3799c16bd6177c1155a683b}{space\+\_\+has\+\_\+character}} (\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} \texorpdfstring{$\ast$}{*}space, \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} character\+\_\+id)
+\mbox{\hyperlink{types_8h_a39db6982619d623273fad8a383489309}{Bool}} \mbox{\hyperlink{space_8c_a39e092c7b3799c16bd6177c1155a683b}{space\+\_\+has\+\_\+character}} (Space \texorpdfstring{$\ast$}{*}space, \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} character\+\_\+id)
 \begin{DoxyCompactList}\small\item\em It checks whether the space has a specific character. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{space_8c_ad0baf28a82b79611995d49b868f0a364}{space\+\_\+remove\+\_\+character}} (\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} \texorpdfstring{$\ast$}{*}space)
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{space_8c_ad0baf28a82b79611995d49b868f0a364}{space\+\_\+remove\+\_\+character}} (Space \texorpdfstring{$\ast$}{*}space)
 \begin{DoxyCompactList}\small\item\em It removes the character from the space. \end{DoxyCompactList}\item 
-char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{space_8c_a553122e84e7cc30e8144420b5e521a0f}{space\+\_\+get\+\_\+description}} (\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} \texorpdfstring{$\ast$}{*}space)
+char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{space_8c_a553122e84e7cc30e8144420b5e521a0f}{space\+\_\+get\+\_\+description}} (Space \texorpdfstring{$\ast$}{*}space)
 \begin{DoxyCompactList}\small\item\em It gets the description of a space. \end{DoxyCompactList}\item 
-char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{space_8c_a57eda9861c179f6c89df201fea8fde01}{space\+\_\+get\+\_\+i\+\_\+description}} (\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} \texorpdfstring{$\ast$}{*}space, int n)
+char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{space_8c_a57eda9861c179f6c89df201fea8fde01}{space\+\_\+get\+\_\+i\+\_\+description}} (Space \texorpdfstring{$\ast$}{*}space, int n)
 \begin{DoxyCompactList}\small\item\em It gets the graphical description of the space located in the n position of the array. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{space_8c_abc82644726c192b32747474c214a7898}{space\+\_\+set\+\_\+description}} (\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} \texorpdfstring{$\ast$}{*}space, char description\mbox{[}5\mbox{]}\mbox{[}10\mbox{]})
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{space_8c_abc82644726c192b32747474c214a7898}{space\+\_\+set\+\_\+description}} (Space \texorpdfstring{$\ast$}{*}space, char description\mbox{[}5\mbox{]}\mbox{[}10\mbox{]})
 \begin{DoxyCompactList}\small\item\em It sets the graphical description of a space. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{types_8h_a39db6982619d623273fad8a383489309}{Bool}} \mbox{\hyperlink{space_8c_ad5849ae1901586f6f8a7fdad6bbaea0f}{space\+\_\+get\+\_\+discovered}} (\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} \texorpdfstring{$\ast$}{*}space)
+\mbox{\hyperlink{types_8h_a39db6982619d623273fad8a383489309}{Bool}} \mbox{\hyperlink{space_8c_ad5849ae1901586f6f8a7fdad6bbaea0f}{space\+\_\+get\+\_\+discovered}} (Space \texorpdfstring{$\ast$}{*}space)
 \begin{DoxyCompactList}\small\item\em It gets whether the space is discovered or not. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{space_8c_ad184783dc62e61c9b3c0c2879f3277e3}{space\+\_\+set\+\_\+discovered}} (\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} \texorpdfstring{$\ast$}{*}space, \mbox{\hyperlink{types_8h_a39db6982619d623273fad8a383489309}{Bool}} discovered)
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{space_8c_ad184783dc62e61c9b3c0c2879f3277e3}{space\+\_\+set\+\_\+discovered}} (Space \texorpdfstring{$\ast$}{*}space, \mbox{\hyperlink{types_8h_a39db6982619d623273fad8a383489309}{Bool}} discovered)
 \begin{DoxyCompactList}\small\item\em It sets whether the space is discovered or not. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{space_8c_a013d3166ac751f717612c5b0d6510c2c}{space\+\_\+print}} (\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} \texorpdfstring{$\ast$}{*}space)
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{space_8c_a013d3166ac751f717612c5b0d6510c2c}{space\+\_\+print}} (Space \texorpdfstring{$\ast$}{*}space)
 \begin{DoxyCompactList}\small\item\em It prints the space information. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -86,7 +86,7 @@ GNU Public License
 \index{space.c@{space.c}!space\_add\_object@{space\_add\_object}}
 \index{space\_add\_object@{space\_add\_object}!space.c@{space.c}}
 \doxysubsubsection{\texorpdfstring{space\_add\_object()}{space\_add\_object()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} space\+\_\+add\+\_\+object (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} \texorpdfstring{$\ast$}{*}}]{space,  }\item[{\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}}}]{object\+\_\+id }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} space\+\_\+add\+\_\+object (\begin{DoxyParamCaption}\item[{Space \texorpdfstring{$\ast$}{*}}]{space,  }\item[{\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}}}]{object\+\_\+id }\end{DoxyParamCaption})}
 
 
 
@@ -109,7 +109,7 @@ OK, if everything goes well or ERROR if there was some mistake
 \index{space.c@{space.c}!space\_create@{space\_create}}
 \index{space\_create@{space\_create}!space.c@{space.c}}
 \doxysubsubsection{\texorpdfstring{space\_create()}{space\_create()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} \texorpdfstring{$\ast$}{*} space\+\_\+create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}}}]{id }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily Space \texorpdfstring{$\ast$}{*} space\+\_\+create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}}}]{id }\end{DoxyParamCaption})}
 
 
 
@@ -130,7 +130,7 @@ a new space, initialized
 \index{space.c@{space.c}!space\_destroy@{space\_destroy}}
 \index{space\_destroy@{space\_destroy}!space.c@{space.c}}
 \doxysubsubsection{\texorpdfstring{space\_destroy()}{space\_destroy()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} space\+\_\+destroy (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} \texorpdfstring{$\ast$}{*}}]{space }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} space\+\_\+destroy (\begin{DoxyParamCaption}\item[{Space \texorpdfstring{$\ast$}{*}}]{space }\end{DoxyParamCaption})}
 
 
 
@@ -151,7 +151,7 @@ OK, if everything goes well or ERROR if there was some mistake
 \index{space.c@{space.c}!space\_get\_character@{space\_get\_character}}
 \index{space\_get\_character@{space\_get\_character}!space.c@{space.c}}
 \doxysubsubsection{\texorpdfstring{space\_get\_character()}{space\_get\_character()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} space\+\_\+get\+\_\+character (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} \texorpdfstring{$\ast$}{*}}]{space }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} space\+\_\+get\+\_\+character (\begin{DoxyParamCaption}\item[{Space \texorpdfstring{$\ast$}{*}}]{space }\end{DoxyParamCaption})}
 
 
 
@@ -172,7 +172,7 @@ the id of the character
 \index{space.c@{space.c}!space\_get\_description@{space\_get\_description}}
 \index{space\_get\_description@{space\_get\_description}!space.c@{space.c}}
 \doxysubsubsection{\texorpdfstring{space\_get\_description()}{space\_get\_description()}}
-{\footnotesize\ttfamily char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} space\+\_\+get\+\_\+description (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} \texorpdfstring{$\ast$}{*}}]{space }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} space\+\_\+get\+\_\+description (\begin{DoxyParamCaption}\item[{Space \texorpdfstring{$\ast$}{*}}]{space }\end{DoxyParamCaption})}
 
 
 
@@ -193,7 +193,7 @@ the graphical description, it is a char bidimensional
 \index{space.c@{space.c}!space\_get\_discovered@{space\_get\_discovered}}
 \index{space\_get\_discovered@{space\_get\_discovered}!space.c@{space.c}}
 \doxysubsubsection{\texorpdfstring{space\_get\_discovered()}{space\_get\_discovered()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a39db6982619d623273fad8a383489309}{Bool}} space\+\_\+get\+\_\+discovered (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} \texorpdfstring{$\ast$}{*}}]{space }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a39db6982619d623273fad8a383489309}{Bool}} space\+\_\+get\+\_\+discovered (\begin{DoxyParamCaption}\item[{Space \texorpdfstring{$\ast$}{*}}]{space }\end{DoxyParamCaption})}
 
 
 
@@ -214,7 +214,7 @@ TRUE if it\textquotesingle{}s discovered, FALSE otherwise, WRONG if error
 \index{space.c@{space.c}!space\_get\_i\_description@{space\_get\_i\_description}}
 \index{space\_get\_i\_description@{space\_get\_i\_description}!space.c@{space.c}}
 \doxysubsubsection{\texorpdfstring{space\_get\_i\_description()}{space\_get\_i\_description()}}
-{\footnotesize\ttfamily char \texorpdfstring{$\ast$}{*} space\+\_\+get\+\_\+i\+\_\+description (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} \texorpdfstring{$\ast$}{*}}]{space,  }\item[{int}]{n }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily char \texorpdfstring{$\ast$}{*} space\+\_\+get\+\_\+i\+\_\+description (\begin{DoxyParamCaption}\item[{Space \texorpdfstring{$\ast$}{*}}]{space,  }\item[{int}]{n }\end{DoxyParamCaption})}
 
 
 
@@ -237,7 +237,7 @@ the n line of the graphical description, it is char one-\/dimension
 \index{space.c@{space.c}!space\_get\_id@{space\_get\_id}}
 \index{space\_get\_id@{space\_get\_id}!space.c@{space.c}}
 \doxysubsubsection{\texorpdfstring{space\_get\_id()}{space\_get\_id()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} space\+\_\+get\+\_\+id (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} \texorpdfstring{$\ast$}{*}}]{space }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} space\+\_\+get\+\_\+id (\begin{DoxyParamCaption}\item[{Space \texorpdfstring{$\ast$}{*}}]{space }\end{DoxyParamCaption})}
 
 
 
@@ -258,7 +258,7 @@ the id of space
 \index{space.c@{space.c}!space\_get\_name@{space\_get\_name}}
 \index{space\_get\_name@{space\_get\_name}!space.c@{space.c}}
 \doxysubsubsection{\texorpdfstring{space\_get\_name()}{space\_get\_name()}}
-{\footnotesize\ttfamily const char \texorpdfstring{$\ast$}{*} space\+\_\+get\+\_\+name (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} \texorpdfstring{$\ast$}{*}}]{space }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily const char \texorpdfstring{$\ast$}{*} space\+\_\+get\+\_\+name (\begin{DoxyParamCaption}\item[{Space \texorpdfstring{$\ast$}{*}}]{space }\end{DoxyParamCaption})}
 
 
 
@@ -279,7 +279,7 @@ a string with the name of the space
 \index{space.c@{space.c}!space\_get\_num\_objects@{space\_get\_num\_objects}}
 \index{space\_get\_num\_objects@{space\_get\_num\_objects}!space.c@{space.c}}
 \doxysubsubsection{\texorpdfstring{space\_get\_num\_objects()}{space\_get\_num\_objects()}}
-{\footnotesize\ttfamily int space\+\_\+get\+\_\+num\+\_\+objects (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} \texorpdfstring{$\ast$}{*}}]{space }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int space\+\_\+get\+\_\+num\+\_\+objects (\begin{DoxyParamCaption}\item[{Space \texorpdfstring{$\ast$}{*}}]{space }\end{DoxyParamCaption})}
 
 
 
@@ -300,7 +300,7 @@ the number of objects
 \index{space.c@{space.c}!space\_get\_object\_from\_index@{space\_get\_object\_from\_index}}
 \index{space\_get\_object\_from\_index@{space\_get\_object\_from\_index}!space.c@{space.c}}
 \doxysubsubsection{\texorpdfstring{space\_get\_object\_from\_index()}{space\_get\_object\_from\_index()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} space\+\_\+get\+\_\+object\+\_\+from\+\_\+index (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} \texorpdfstring{$\ast$}{*}}]{space,  }\item[{int}]{n }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} space\+\_\+get\+\_\+object\+\_\+from\+\_\+index (\begin{DoxyParamCaption}\item[{Space \texorpdfstring{$\ast$}{*}}]{space,  }\item[{int}]{n }\end{DoxyParamCaption})}
 
 
 
@@ -323,7 +323,7 @@ the object\textquotesingle{}s id
 \index{space.c@{space.c}!space\_has\_character@{space\_has\_character}}
 \index{space\_has\_character@{space\_has\_character}!space.c@{space.c}}
 \doxysubsubsection{\texorpdfstring{space\_has\_character()}{space\_has\_character()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a39db6982619d623273fad8a383489309}{Bool}} space\+\_\+has\+\_\+character (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} \texorpdfstring{$\ast$}{*}}]{space,  }\item[{\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}}}]{character\+\_\+id }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a39db6982619d623273fad8a383489309}{Bool}} space\+\_\+has\+\_\+character (\begin{DoxyParamCaption}\item[{Space \texorpdfstring{$\ast$}{*}}]{space,  }\item[{\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}}}]{character\+\_\+id }\end{DoxyParamCaption})}
 
 
 
@@ -346,7 +346,7 @@ TRUE if it has the character, FALSE otherwise, WRONG if error
 \index{space.c@{space.c}!space\_has\_object@{space\_has\_object}}
 \index{space\_has\_object@{space\_has\_object}!space.c@{space.c}}
 \doxysubsubsection{\texorpdfstring{space\_has\_object()}{space\_has\_object()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a39db6982619d623273fad8a383489309}{Bool}} space\+\_\+has\+\_\+object (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} \texorpdfstring{$\ast$}{*}}]{space,  }\item[{\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}}}]{object\+\_\+id }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a39db6982619d623273fad8a383489309}{Bool}} space\+\_\+has\+\_\+object (\begin{DoxyParamCaption}\item[{Space \texorpdfstring{$\ast$}{*}}]{space,  }\item[{\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}}}]{object\+\_\+id }\end{DoxyParamCaption})}
 
 
 
@@ -369,7 +369,7 @@ TRUE if it has the object, FALSE otherwise, WRONG if error
 \index{space.c@{space.c}!space\_print@{space\_print}}
 \index{space\_print@{space\_print}!space.c@{space.c}}
 \doxysubsubsection{\texorpdfstring{space\_print()}{space\_print()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} space\+\_\+print (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} \texorpdfstring{$\ast$}{*}}]{space }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} space\+\_\+print (\begin{DoxyParamCaption}\item[{Space \texorpdfstring{$\ast$}{*}}]{space }\end{DoxyParamCaption})}
 
 
 
@@ -395,7 +395,7 @@ OK, if everything goes well or ERROR if there was some mistake
 \index{space.c@{space.c}!space\_remove\_character@{space\_remove\_character}}
 \index{space\_remove\_character@{space\_remove\_character}!space.c@{space.c}}
 \doxysubsubsection{\texorpdfstring{space\_remove\_character()}{space\_remove\_character()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} space\+\_\+remove\+\_\+character (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} \texorpdfstring{$\ast$}{*}}]{space }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} space\+\_\+remove\+\_\+character (\begin{DoxyParamCaption}\item[{Space \texorpdfstring{$\ast$}{*}}]{space }\end{DoxyParamCaption})}
 
 
 
@@ -416,7 +416,7 @@ OK, if everything goes well or ERROR if there was some mistake
 \index{space.c@{space.c}!space\_remove\_object@{space\_remove\_object}}
 \index{space\_remove\_object@{space\_remove\_object}!space.c@{space.c}}
 \doxysubsubsection{\texorpdfstring{space\_remove\_object()}{space\_remove\_object()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} space\+\_\+remove\+\_\+object (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} \texorpdfstring{$\ast$}{*}}]{space,  }\item[{\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}}}]{object\+\_\+id }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} space\+\_\+remove\+\_\+object (\begin{DoxyParamCaption}\item[{Space \texorpdfstring{$\ast$}{*}}]{space,  }\item[{\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}}}]{object\+\_\+id }\end{DoxyParamCaption})}
 
 
 
@@ -439,7 +439,7 @@ OK, if everything goes well or ERROR if there was some mistake
 \index{space.c@{space.c}!space\_set\_character@{space\_set\_character}}
 \index{space\_set\_character@{space\_set\_character}!space.c@{space.c}}
 \doxysubsubsection{\texorpdfstring{space\_set\_character()}{space\_set\_character()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} space\+\_\+set\+\_\+character (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} \texorpdfstring{$\ast$}{*}}]{space,  }\item[{\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}}}]{character\+\_\+id }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} space\+\_\+set\+\_\+character (\begin{DoxyParamCaption}\item[{Space \texorpdfstring{$\ast$}{*}}]{space,  }\item[{\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}}}]{character\+\_\+id }\end{DoxyParamCaption})}
 
 
 
@@ -462,7 +462,7 @@ OK, if everything goes well or ERROR if there was some mistake
 \index{space.c@{space.c}!space\_set\_description@{space\_set\_description}}
 \index{space\_set\_description@{space\_set\_description}!space.c@{space.c}}
 \doxysubsubsection{\texorpdfstring{space\_set\_description()}{space\_set\_description()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} space\+\_\+set\+\_\+description (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} \texorpdfstring{$\ast$}{*}}]{space,  }\item[{char}]{description\mbox{[}5\mbox{]}\mbox{[}10\mbox{]} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} space\+\_\+set\+\_\+description (\begin{DoxyParamCaption}\item[{Space \texorpdfstring{$\ast$}{*}}]{space,  }\item[{char}]{description\mbox{[}5\mbox{]}\mbox{[}10\mbox{]} }\end{DoxyParamCaption})}
 
 
 
@@ -485,7 +485,7 @@ OK, if everything goes well or ERROR if there was some mistake
 \index{space.c@{space.c}!space\_set\_discovered@{space\_set\_discovered}}
 \index{space\_set\_discovered@{space\_set\_discovered}!space.c@{space.c}}
 \doxysubsubsection{\texorpdfstring{space\_set\_discovered()}{space\_set\_discovered()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} space\+\_\+set\+\_\+discovered (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} \texorpdfstring{$\ast$}{*}}]{space,  }\item[{\mbox{\hyperlink{types_8h_a39db6982619d623273fad8a383489309}{Bool}}}]{discovered }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} space\+\_\+set\+\_\+discovered (\begin{DoxyParamCaption}\item[{Space \texorpdfstring{$\ast$}{*}}]{space,  }\item[{\mbox{\hyperlink{types_8h_a39db6982619d623273fad8a383489309}{Bool}}}]{discovered }\end{DoxyParamCaption})}
 
 
 
@@ -508,7 +508,7 @@ OK, if everything goes well or ERROR if there was some mistake
 \index{space.c@{space.c}!space\_set\_id@{space\_set\_id}}
 \index{space\_set\_id@{space\_set\_id}!space.c@{space.c}}
 \doxysubsubsection{\texorpdfstring{space\_set\_id()}{space\_set\_id()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} space\+\_\+set\+\_\+id (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} \texorpdfstring{$\ast$}{*}}]{space,  }\item[{\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}}}]{id }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} space\+\_\+set\+\_\+id (\begin{DoxyParamCaption}\item[{Space \texorpdfstring{$\ast$}{*}}]{space,  }\item[{\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}}}]{id }\end{DoxyParamCaption})}
 
 
 
@@ -529,7 +529,7 @@ Status, Ok if everything went well, ERROR if something happens
 \index{space.c@{space.c}!space\_set\_name@{space\_set\_name}}
 \index{space\_set\_name@{space\_set\_name}!space.c@{space.c}}
 \doxysubsubsection{\texorpdfstring{space\_set\_name()}{space\_set\_name()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} space\+\_\+set\+\_\+name (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} \texorpdfstring{$\ast$}{*}}]{space,  }\item[{char \texorpdfstring{$\ast$}{*}}]{name }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} space\+\_\+set\+\_\+name (\begin{DoxyParamCaption}\item[{Space \texorpdfstring{$\ast$}{*}}]{space,  }\item[{char \texorpdfstring{$\ast$}{*}}]{name }\end{DoxyParamCaption})}
 
 
 

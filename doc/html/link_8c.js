@@ -1,6 +1,6 @@
 var link_8c =
 [
-    [ "_Link", "struct__Link.html", "struct__Link" ],
+    [ "Link", "struct__Link.html", "struct__Link" ],
     [ "link_create", "link_8c.html#a1e662c55d1ea0191b66372f0fa57ac1c", null ],
     [ "link_destroy", "link_8c.html#a117e4e5a82b23b805052d1eace34d068", null ],
     [ "link_get_direction", "link_8c.html#a45c192f1efaa9863a150e51d1a0f2756", null ],

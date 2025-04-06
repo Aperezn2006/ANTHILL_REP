@@ -6,43 +6,43 @@
 {\ttfamily \#include $<$string.\+h$>$}\newline
 Include dependency graph for link.\+c\+:
 % FIG 0
-\doxysubsubsection*{Classes}
+\doxysubsubsection*{Data Structures}
 \begin{DoxyCompactItemize}
 \item 
-struct \mbox{\hyperlink{struct__Link}{\+\_\+\+Link}}
+struct \mbox{\hyperlink{struct__Link}{Link}}
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{link_8h_ae3b299941e67be6971bfd64a25505eff}{Link}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{link_8c_a1e662c55d1ea0191b66372f0fa57ac1c}{link\+\_\+create}} (\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} id)
+Link \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{link_8c_a1e662c55d1ea0191b66372f0fa57ac1c}{link\+\_\+create}} (\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} id)
 \begin{DoxyCompactList}\small\item\em It creates a new link. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{link_8c_a117e4e5a82b23b805052d1eace34d068}{link\+\_\+destroy}} (\mbox{\hyperlink{link_8h_ae3b299941e67be6971bfd64a25505eff}{Link}} \texorpdfstring{$\ast$}{*}link)
+void \mbox{\hyperlink{link_8c_a117e4e5a82b23b805052d1eace34d068}{link\+\_\+destroy}} (Link \texorpdfstring{$\ast$}{*}link)
 \begin{DoxyCompactList}\small\item\em It destroys a link. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} \mbox{\hyperlink{link_8c_a2bbd320f995a72b2ea7ea639b1c81892}{link\+\_\+get\+\_\+id}} (\mbox{\hyperlink{link_8h_ae3b299941e67be6971bfd64a25505eff}{Link}} \texorpdfstring{$\ast$}{*}link)
+\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} \mbox{\hyperlink{link_8c_a2bbd320f995a72b2ea7ea639b1c81892}{link\+\_\+get\+\_\+id}} (Link \texorpdfstring{$\ast$}{*}link)
 \begin{DoxyCompactList}\small\item\em It gets the id of a link. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{link_8c_a572e6dc57923ee430a8c6121c6bcfc99}{link\+\_\+set\+\_\+id}} (\mbox{\hyperlink{link_8h_ae3b299941e67be6971bfd64a25505eff}{Link}} \texorpdfstring{$\ast$}{*}link, \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} id)
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{link_8c_a572e6dc57923ee430a8c6121c6bcfc99}{link\+\_\+set\+\_\+id}} (Link \texorpdfstring{$\ast$}{*}link, \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} id)
 \item 
-\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{link_8c_ab01a6bc388bcf873c219839bdd7bf8d1}{link\+\_\+set\+\_\+name}} (\mbox{\hyperlink{link_8h_ae3b299941e67be6971bfd64a25505eff}{Link}} \texorpdfstring{$\ast$}{*}link, const char \texorpdfstring{$\ast$}{*}name)
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{link_8c_ab01a6bc388bcf873c219839bdd7bf8d1}{link\+\_\+set\+\_\+name}} (Link \texorpdfstring{$\ast$}{*}link, const char \texorpdfstring{$\ast$}{*}name)
 \begin{DoxyCompactList}\small\item\em It sets the name of a link. \end{DoxyCompactList}\item 
-const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{link_8c_a64cc19818d585666349ed1bc591bd2d9}{link\+\_\+get\+\_\+name}} (\mbox{\hyperlink{link_8h_ae3b299941e67be6971bfd64a25505eff}{Link}} \texorpdfstring{$\ast$}{*}link)
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{link_8c_a64cc19818d585666349ed1bc591bd2d9}{link\+\_\+get\+\_\+name}} (Link \texorpdfstring{$\ast$}{*}link)
 \begin{DoxyCompactList}\small\item\em It gets the name of a link. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{link_8c_a32448d6dc6306eb083916db224055cd4}{link\+\_\+set\+\_\+open}} (\mbox{\hyperlink{link_8h_ae3b299941e67be6971bfd64a25505eff}{Link}} \texorpdfstring{$\ast$}{*}link, \mbox{\hyperlink{types_8h_a39db6982619d623273fad8a383489309}{Bool}} open)
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{link_8c_a32448d6dc6306eb083916db224055cd4}{link\+\_\+set\+\_\+open}} (Link \texorpdfstring{$\ast$}{*}link, \mbox{\hyperlink{types_8h_a39db6982619d623273fad8a383489309}{Bool}} open)
 \begin{DoxyCompactList}\small\item\em It sets the status of a link (open or closed) \end{DoxyCompactList}\item 
-\mbox{\hyperlink{types_8h_a39db6982619d623273fad8a383489309}{Bool}} \mbox{\hyperlink{link_8c_a1edd9bfd5e282b2d150858dcfaba868b}{link\+\_\+get\+\_\+open}} (\mbox{\hyperlink{link_8h_ae3b299941e67be6971bfd64a25505eff}{Link}} \texorpdfstring{$\ast$}{*}link)
+\mbox{\hyperlink{types_8h_a39db6982619d623273fad8a383489309}{Bool}} \mbox{\hyperlink{link_8c_a1edd9bfd5e282b2d150858dcfaba868b}{link\+\_\+get\+\_\+open}} (Link \texorpdfstring{$\ast$}{*}link)
 \begin{DoxyCompactList}\small\item\em It gets the status of a link (open or closed) \end{DoxyCompactList}\item 
-\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{link_8c_a846f21f2f8c7a5d00efecc3cc2a6f6fe}{link\+\_\+set\+\_\+direction}} (\mbox{\hyperlink{link_8h_ae3b299941e67be6971bfd64a25505eff}{Link}} \texorpdfstring{$\ast$}{*}link, \mbox{\hyperlink{types_8h_a224b9163917ac32fc95a60d8c1eec3aa}{Direction}} dir)
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{link_8c_a846f21f2f8c7a5d00efecc3cc2a6f6fe}{link\+\_\+set\+\_\+direction}} (Link \texorpdfstring{$\ast$}{*}link, \mbox{\hyperlink{types_8h_a224b9163917ac32fc95a60d8c1eec3aa}{Direction}} dir)
 \begin{DoxyCompactList}\small\item\em It sets the direction of a link. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{types_8h_a224b9163917ac32fc95a60d8c1eec3aa}{Direction}} \mbox{\hyperlink{link_8c_a45c192f1efaa9863a150e51d1a0f2756}{link\+\_\+get\+\_\+direction}} (\mbox{\hyperlink{link_8h_ae3b299941e67be6971bfd64a25505eff}{Link}} \texorpdfstring{$\ast$}{*}link)
+\mbox{\hyperlink{types_8h_a224b9163917ac32fc95a60d8c1eec3aa}{Direction}} \mbox{\hyperlink{link_8c_a45c192f1efaa9863a150e51d1a0f2756}{link\+\_\+get\+\_\+direction}} (Link \texorpdfstring{$\ast$}{*}link)
 \begin{DoxyCompactList}\small\item\em It gets the direction of a link. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{link_8c_a7acbdf64420890be71da87b14939642f}{link\+\_\+set\+\_\+start}} (\mbox{\hyperlink{link_8h_ae3b299941e67be6971bfd64a25505eff}{Link}} \texorpdfstring{$\ast$}{*}link, \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} origin)
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{link_8c_a7acbdf64420890be71da87b14939642f}{link\+\_\+set\+\_\+start}} (Link \texorpdfstring{$\ast$}{*}link, \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} origin)
 \item 
-\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} \mbox{\hyperlink{link_8c_ade97314fda342663e1b98cdb4e6ca50a}{link\+\_\+get\+\_\+start}} (\mbox{\hyperlink{link_8h_ae3b299941e67be6971bfd64a25505eff}{Link}} \texorpdfstring{$\ast$}{*}link)
+\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} \mbox{\hyperlink{link_8c_ade97314fda342663e1b98cdb4e6ca50a}{link\+\_\+get\+\_\+start}} (Link \texorpdfstring{$\ast$}{*}link)
 \begin{DoxyCompactList}\small\item\em It gets the origin id of a link. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{link_8c_a563487c58cffc7493876df5115bf9e6e}{link\+\_\+set\+\_\+end}} (\mbox{\hyperlink{link_8h_ae3b299941e67be6971bfd64a25505eff}{Link}} \texorpdfstring{$\ast$}{*}link, \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} destination)
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{link_8c_a563487c58cffc7493876df5115bf9e6e}{link\+\_\+set\+\_\+end}} (Link \texorpdfstring{$\ast$}{*}link, \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} destination)
 \item 
-\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} \mbox{\hyperlink{link_8c_a407c241ffb206202f0c288e91c01ad75}{link\+\_\+get\+\_\+end}} (\mbox{\hyperlink{link_8h_ae3b299941e67be6971bfd64a25505eff}{Link}} \texorpdfstring{$\ast$}{*}link)
+\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} \mbox{\hyperlink{link_8c_a407c241ffb206202f0c288e91c01ad75}{link\+\_\+get\+\_\+end}} (Link \texorpdfstring{$\ast$}{*}link)
 \begin{DoxyCompactList}\small\item\em It gets the destination id of a link. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{link_8c_a63adc8ec3b6a842f6e2dee947ae0d15b}{link\+\_\+print}} (\mbox{\hyperlink{link_8h_ae3b299941e67be6971bfd64a25505eff}{Link}} \texorpdfstring{$\ast$}{*}link)
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{link_8c_a63adc8ec3b6a842f6e2dee947ae0d15b}{link\+\_\+print}} (Link \texorpdfstring{$\ast$}{*}link)
 \begin{DoxyCompactList}\small\item\em It prints the information of a link. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -51,7 +51,7 @@ const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{link_8c_a64cc19818d585666
 \index{link.c@{link.c}!link\_create@{link\_create}}
 \index{link\_create@{link\_create}!link.c@{link.c}}
 \doxysubsubsection{\texorpdfstring{link\_create()}{link\_create()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{link_8h_ae3b299941e67be6971bfd64a25505eff}{Link}} \texorpdfstring{$\ast$}{*} link\+\_\+create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}}}]{id }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily Link \texorpdfstring{$\ast$}{*} link\+\_\+create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}}}]{id }\end{DoxyParamCaption})}
 
 
 
@@ -77,7 +77,7 @@ a pointer to the new link
 \index{link.c@{link.c}!link\_destroy@{link\_destroy}}
 \index{link\_destroy@{link\_destroy}!link.c@{link.c}}
 \doxysubsubsection{\texorpdfstring{link\_destroy()}{link\_destroy()}}
-{\footnotesize\ttfamily void link\+\_\+destroy (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{link_8h_ae3b299941e67be6971bfd64a25505eff}{Link}} \texorpdfstring{$\ast$}{*}}]{link }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void link\+\_\+destroy (\begin{DoxyParamCaption}\item[{Link \texorpdfstring{$\ast$}{*}}]{link }\end{DoxyParamCaption})}
 
 
 
@@ -92,7 +92,7 @@ It destroys a link.
 \index{link.c@{link.c}!link\_get\_direction@{link\_get\_direction}}
 \index{link\_get\_direction@{link\_get\_direction}!link.c@{link.c}}
 \doxysubsubsection{\texorpdfstring{link\_get\_direction()}{link\_get\_direction()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a224b9163917ac32fc95a60d8c1eec3aa}{Direction}} link\+\_\+get\+\_\+direction (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{link_8h_ae3b299941e67be6971bfd64a25505eff}{Link}} \texorpdfstring{$\ast$}{*}}]{link }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a224b9163917ac32fc95a60d8c1eec3aa}{Direction}} link\+\_\+get\+\_\+direction (\begin{DoxyParamCaption}\item[{Link \texorpdfstring{$\ast$}{*}}]{link }\end{DoxyParamCaption})}
 
 
 
@@ -110,7 +110,7 @@ the direction of the link
 \index{link.c@{link.c}!link\_get\_end@{link\_get\_end}}
 \index{link\_get\_end@{link\_get\_end}!link.c@{link.c}}
 \doxysubsubsection{\texorpdfstring{link\_get\_end()}{link\_get\_end()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} link\+\_\+get\+\_\+end (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{link_8h_ae3b299941e67be6971bfd64a25505eff}{Link}} \texorpdfstring{$\ast$}{*}}]{link }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} link\+\_\+get\+\_\+end (\begin{DoxyParamCaption}\item[{Link \texorpdfstring{$\ast$}{*}}]{link }\end{DoxyParamCaption})}
 
 
 
@@ -128,7 +128,7 @@ the destination id of the link
 \index{link.c@{link.c}!link\_get\_id@{link\_get\_id}}
 \index{link\_get\_id@{link\_get\_id}!link.c@{link.c}}
 \doxysubsubsection{\texorpdfstring{link\_get\_id()}{link\_get\_id()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} link\+\_\+get\+\_\+id (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{link_8h_ae3b299941e67be6971bfd64a25505eff}{Link}} \texorpdfstring{$\ast$}{*}}]{link }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} link\+\_\+get\+\_\+id (\begin{DoxyParamCaption}\item[{Link \texorpdfstring{$\ast$}{*}}]{link }\end{DoxyParamCaption})}
 
 
 
@@ -146,7 +146,7 @@ the id of the link
 \index{link.c@{link.c}!link\_get\_name@{link\_get\_name}}
 \index{link\_get\_name@{link\_get\_name}!link.c@{link.c}}
 \doxysubsubsection{\texorpdfstring{link\_get\_name()}{link\_get\_name()}}
-{\footnotesize\ttfamily const char \texorpdfstring{$\ast$}{*} link\+\_\+get\+\_\+name (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{link_8h_ae3b299941e67be6971bfd64a25505eff}{Link}} \texorpdfstring{$\ast$}{*}}]{link }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily const char \texorpdfstring{$\ast$}{*} link\+\_\+get\+\_\+name (\begin{DoxyParamCaption}\item[{Link \texorpdfstring{$\ast$}{*}}]{link }\end{DoxyParamCaption})}
 
 
 
@@ -164,7 +164,7 @@ the name of the link
 \index{link.c@{link.c}!link\_get\_open@{link\_get\_open}}
 \index{link\_get\_open@{link\_get\_open}!link.c@{link.c}}
 \doxysubsubsection{\texorpdfstring{link\_get\_open()}{link\_get\_open()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a39db6982619d623273fad8a383489309}{Bool}} link\+\_\+get\+\_\+open (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{link_8h_ae3b299941e67be6971bfd64a25505eff}{Link}} \texorpdfstring{$\ast$}{*}}]{link }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a39db6982619d623273fad8a383489309}{Bool}} link\+\_\+get\+\_\+open (\begin{DoxyParamCaption}\item[{Link \texorpdfstring{$\ast$}{*}}]{link }\end{DoxyParamCaption})}
 
 
 
@@ -182,7 +182,7 @@ the status of the link
 \index{link.c@{link.c}!link\_get\_start@{link\_get\_start}}
 \index{link\_get\_start@{link\_get\_start}!link.c@{link.c}}
 \doxysubsubsection{\texorpdfstring{link\_get\_start()}{link\_get\_start()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} link\+\_\+get\+\_\+start (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{link_8h_ae3b299941e67be6971bfd64a25505eff}{Link}} \texorpdfstring{$\ast$}{*}}]{link }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} link\+\_\+get\+\_\+start (\begin{DoxyParamCaption}\item[{Link \texorpdfstring{$\ast$}{*}}]{link }\end{DoxyParamCaption})}
 
 
 
@@ -200,7 +200,7 @@ the origin id of the link
 \index{link.c@{link.c}!link\_print@{link\_print}}
 \index{link\_print@{link\_print}!link.c@{link.c}}
 \doxysubsubsection{\texorpdfstring{link\_print()}{link\_print()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} link\+\_\+print (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{link_8h_ae3b299941e67be6971bfd64a25505eff}{Link}} \texorpdfstring{$\ast$}{*}}]{link }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} link\+\_\+print (\begin{DoxyParamCaption}\item[{Link \texorpdfstring{$\ast$}{*}}]{link }\end{DoxyParamCaption})}
 
 
 
@@ -218,7 +218,7 @@ OK if everything goes well, ERROR otherwise
 \index{link.c@{link.c}!link\_set\_direction@{link\_set\_direction}}
 \index{link\_set\_direction@{link\_set\_direction}!link.c@{link.c}}
 \doxysubsubsection{\texorpdfstring{link\_set\_direction()}{link\_set\_direction()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} link\+\_\+set\+\_\+direction (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{link_8h_ae3b299941e67be6971bfd64a25505eff}{Link}} \texorpdfstring{$\ast$}{*}}]{link,  }\item[{\mbox{\hyperlink{types_8h_a224b9163917ac32fc95a60d8c1eec3aa}{Direction}}}]{dir }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} link\+\_\+set\+\_\+direction (\begin{DoxyParamCaption}\item[{Link \texorpdfstring{$\ast$}{*}}]{link,  }\item[{\mbox{\hyperlink{types_8h_a224b9163917ac32fc95a60d8c1eec3aa}{Direction}}}]{dir }\end{DoxyParamCaption})}
 
 
 
@@ -238,7 +238,7 @@ OK if everything goes well, ERROR otherwise
 \index{link.c@{link.c}!link\_set\_end@{link\_set\_end}}
 \index{link\_set\_end@{link\_set\_end}!link.c@{link.c}}
 \doxysubsubsection{\texorpdfstring{link\_set\_end()}{link\_set\_end()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} link\+\_\+set\+\_\+end (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{link_8h_ae3b299941e67be6971bfd64a25505eff}{Link}} \texorpdfstring{$\ast$}{*}}]{link,  }\item[{\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}}}]{destination }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} link\+\_\+set\+\_\+end (\begin{DoxyParamCaption}\item[{Link \texorpdfstring{$\ast$}{*}}]{link,  }\item[{\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}}}]{destination }\end{DoxyParamCaption})}
 
 
 \begin{DoxyParams}{Parameters}
@@ -254,13 +254,13 @@ Status
 \index{link.c@{link.c}!link\_set\_id@{link\_set\_id}}
 \index{link\_set\_id@{link\_set\_id}!link.c@{link.c}}
 \doxysubsubsection{\texorpdfstring{link\_set\_id()}{link\_set\_id()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} link\+\_\+set\+\_\+id (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{link_8h_ae3b299941e67be6971bfd64a25505eff}{Link}} \texorpdfstring{$\ast$}{*}}]{link,  }\item[{\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}}}]{id }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} link\+\_\+set\+\_\+id (\begin{DoxyParamCaption}\item[{Link \texorpdfstring{$\ast$}{*}}]{link,  }\item[{\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}}}]{id }\end{DoxyParamCaption})}
 
 \Hypertarget{link_8c_ab01a6bc388bcf873c219839bdd7bf8d1}\label{link_8c_ab01a6bc388bcf873c219839bdd7bf8d1} 
 \index{link.c@{link.c}!link\_set\_name@{link\_set\_name}}
 \index{link\_set\_name@{link\_set\_name}!link.c@{link.c}}
 \doxysubsubsection{\texorpdfstring{link\_set\_name()}{link\_set\_name()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} link\+\_\+set\+\_\+name (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{link_8h_ae3b299941e67be6971bfd64a25505eff}{Link}} \texorpdfstring{$\ast$}{*}}]{link,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{name }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} link\+\_\+set\+\_\+name (\begin{DoxyParamCaption}\item[{Link \texorpdfstring{$\ast$}{*}}]{link,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{name }\end{DoxyParamCaption})}
 
 
 
@@ -280,7 +280,7 @@ OK if everything goes well, ERROR otherwise
 \index{link.c@{link.c}!link\_set\_open@{link\_set\_open}}
 \index{link\_set\_open@{link\_set\_open}!link.c@{link.c}}
 \doxysubsubsection{\texorpdfstring{link\_set\_open()}{link\_set\_open()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} link\+\_\+set\+\_\+open (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{link_8h_ae3b299941e67be6971bfd64a25505eff}{Link}} \texorpdfstring{$\ast$}{*}}]{link,  }\item[{\mbox{\hyperlink{types_8h_a39db6982619d623273fad8a383489309}{Bool}}}]{open }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} link\+\_\+set\+\_\+open (\begin{DoxyParamCaption}\item[{Link \texorpdfstring{$\ast$}{*}}]{link,  }\item[{\mbox{\hyperlink{types_8h_a39db6982619d623273fad8a383489309}{Bool}}}]{open }\end{DoxyParamCaption})}
 
 
 
@@ -300,7 +300,7 @@ OK if everything goes well, ERROR otherwise
 \index{link.c@{link.c}!link\_set\_start@{link\_set\_start}}
 \index{link\_set\_start@{link\_set\_start}!link.c@{link.c}}
 \doxysubsubsection{\texorpdfstring{link\_set\_start()}{link\_set\_start()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} link\+\_\+set\+\_\+start (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{link_8h_ae3b299941e67be6971bfd64a25505eff}{Link}} \texorpdfstring{$\ast$}{*}}]{link,  }\item[{\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}}}]{origin }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} link\+\_\+set\+\_\+start (\begin{DoxyParamCaption}\item[{Link \texorpdfstring{$\ast$}{*}}]{link,  }\item[{\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}}}]{origin }\end{DoxyParamCaption})}
 
 
 \begin{DoxyParams}{Parameters}

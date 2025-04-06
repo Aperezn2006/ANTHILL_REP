@@ -1,9 +1,9 @@
 var struct__Space =
 [
-    [ "character_id", "struct__Space.html#a5b6bbdf30538956f03a335b5c04ee79c", null ],
-    [ "discovered", "struct__Space.html#abb3388dbc84f4a0f70fe5b588b0a3619", null ],
-    [ "gdesc", "struct__Space.html#a93a153fd94e9124001e173b5a0052a52", null ],
-    [ "id", "struct__Space.html#a70cb461deb9ac073e401b607339b567f", null ],
-    [ "name", "struct__Space.html#aa1c9c994c2d16ecf3ef46138685fdfdc", null ],
-    [ "objects", "struct__Space.html#a661ed8b0fc8085b6db70188aa5085625", null ]
+    [ "character_id", "struct__Space.html#a5026670bc72cca47103c8e752a72d3f2", null ],
+    [ "discovered", "struct__Space.html#af0b0f5ede5593e3ff12b4ba1b13a77c8", null ],
+    [ "gdesc", "struct__Space.html#aa138244ec39a324343eb84f5ceff1ae7", null ],
+    [ "id", "struct__Space.html#a5b63a8b7143e8fc358c388dd5a617668", null ],
+    [ "name", "struct__Space.html#ad94b263eccad64a6fbeb4c20c04a28d3", null ],
+    [ "objects", "struct__Space.html#adc4698d8a53ffa8bd046bf3ea7d4619e", null ]
 ];

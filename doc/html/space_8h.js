@@ -1,6 +1,5 @@
 var space_8h =
 [
-    [ "Space", "space_8h.html#a67533ffc2b70463baecc38fb0629bbfc", null ],
     [ "space_add_object", "space_8h.html#a7f81b9098bde8cf07621adfe90345e09", null ],
     [ "space_create", "space_8h.html#ad3a5834be733066e8a7d8586be0ac610", null ],
     [ "space_destroy", "space_8h.html#a278763d4b530df17823ef9e4f9db2896", null ],

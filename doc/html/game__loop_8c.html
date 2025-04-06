@@ -30,7 +30,7 @@
   <td id="projectalign">
    <div id="projectname">Anthill<span id="projectnumber">&#160;I3</span>
    </div>
-   <div id="projectbrief">Third iteration of the unix-based Anthill game</div>
+   <div id="projectbrief">Unix-based Anthill game</div>
   </td>
  </tr>
  </tbody>
@@ -111,24 +111,26 @@ $(document).ready(function(){initNavTree('game__loop_8c.html',''); initResizable
 <code>#include &quot;<a class="el" href="game__reader_8h_source.html">game_reader.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="graphic__engine_8h_source.html">graphic_engine.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="player_8h_source.html">player.h</a>&quot;</code><br />
-</div><div class="textblock"><div class="dynheader">
-Include dependency graph for game_loop.c:</div>
-<div class="dyncontent">
+</div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Include dependency graph for game_loop.c:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="game__loop_8c__incl.png" border="0" usemap="#a_2mnt_2c_2Ubuntu_2Shared__folder_2PPROG_2I3_2ANTHILL__REP_2src_2game__loop_8c" alt=""/></div>
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a31e8784ceb06b2f65b70e074e3e1a722" id="r_a31e8784ceb06b2f65b70e074e3e1a722"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game__loop_8c.html#a31e8784ceb06b2f65b70e074e3e1a722">game_loop_init</a> (<a class="el" href="game_8h.html#a57156d39c530aec3fba3a9dad8c2dc6a">Game</a> *game, <a class="el" href="graphic__engine_8h.html#ae1bc5cdbfce93098f066274fdea49af1">Graphic_engine</a> **gengine, char *file_name)</td></tr>
+<tr class="memitem:a31e8784ceb06b2f65b70e074e3e1a722" id="r_a31e8784ceb06b2f65b70e074e3e1a722"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game__loop_8c.html#a31e8784ceb06b2f65b70e074e3e1a722">game_loop_init</a> (Game *game, Graphic_engine **gengine, char *file_name)</td></tr>
 <tr class="memdesc:a31e8784ceb06b2f65b70e074e3e1a722"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the game loop by loading game data and creating the graphic engine.  <br /></td></tr>
 <tr class="separator:a31e8784ceb06b2f65b70e074e3e1a722"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afb6a670628dffdd01661658f29a1e8ca" id="r_afb6a670628dffdd01661658f29a1e8ca"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game__loop_8c.html#afb6a670628dffdd01661658f29a1e8ca">game_loop_run</a> (<a class="el" href="game_8h.html#a57156d39c530aec3fba3a9dad8c2dc6a">Game</a> *game, <a class="el" href="graphic__engine_8h.html#ae1bc5cdbfce93098f066274fdea49af1">Graphic_engine</a> *gengine, FILE *log_file)</td></tr>
+<tr class="memitem:afb6a670628dffdd01661658f29a1e8ca" id="r_afb6a670628dffdd01661658f29a1e8ca"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game__loop_8c.html#afb6a670628dffdd01661658f29a1e8ca">game_loop_run</a> (Game *game, Graphic_engine *gengine, FILE *log_file)</td></tr>
 <tr class="memdesc:afb6a670628dffdd01661658f29a1e8ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runs the main game loop, processing commands and updating the game state.  <br /></td></tr>
 <tr class="separator:afb6a670628dffdd01661658f29a1e8ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0da7d0baf2abd7218bc555ea1f73d1c2" id="r_a0da7d0baf2abd7218bc555ea1f73d1c2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game__loop_8c.html#a0da7d0baf2abd7218bc555ea1f73d1c2">game_loop_cleanup</a> (<a class="el" href="game_8h.html#a57156d39c530aec3fba3a9dad8c2dc6a">Game</a> *game, <a class="el" href="graphic__engine_8h.html#ae1bc5cdbfce93098f066274fdea49af1">Graphic_engine</a> *gengine, FILE *log_file)</td></tr>
+<tr class="memitem:a0da7d0baf2abd7218bc555ea1f73d1c2" id="r_a0da7d0baf2abd7218bc555ea1f73d1c2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game__loop_8c.html#a0da7d0baf2abd7218bc555ea1f73d1c2">game_loop_cleanup</a> (Game *game, Graphic_engine *gengine, FILE *log_file)</td></tr>
 <tr class="memdesc:a0da7d0baf2abd7218bc555ea1f73d1c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cleans up resources used during the game loop, including the game and graphic engine.  <br /></td></tr>
 <tr class="separator:a0da7d0baf2abd7218bc555ea1f73d1c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ade8edb886ee05003d1b664c39955385c" id="r_ade8edb886ee05003d1b664c39955385c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game__loop_8c.html#ade8edb886ee05003d1b664c39955385c">log_command</a> (FILE *log_file, <a class="el" href="command_8h.html#a7d2935971c252377cb0fc1c8545dc2bc">Command</a> *cmd)</td></tr>
+<tr class="memitem:ade8edb886ee05003d1b664c39955385c" id="r_ade8edb886ee05003d1b664c39955385c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game__loop_8c.html#ade8edb886ee05003d1b664c39955385c">log_command</a> (FILE *log_file, Command *cmd)</td></tr>
 <tr class="memdesc:ade8edb886ee05003d1b664c39955385c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logs the details of a command to the specified log file.  <br /></td></tr>
 <tr class="separator:ade8edb886ee05003d1b664c39955385c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0ddf1224851353fc92bfbff6f499fa97" id="r_a0ddf1224851353fc92bfbff6f499fa97"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game__loop_8c.html#a0ddf1224851353fc92bfbff6f499fa97">main</a> (int argc, char *argv[])</td></tr>
@@ -150,13 +152,13 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void game_loop_cleanup </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="game_8h.html#a57156d39c530aec3fba3a9dad8c2dc6a">Game</a> *&#160;</td>
+          <td class="paramtype">Game *&#160;</td>
           <td class="paramname"><em>game</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="graphic__engine_8h.html#ae1bc5cdbfce93098f066274fdea49af1">Graphic_engine</a> *&#160;</td>
+          <td class="paramtype">Graphic_engine *&#160;</td>
           <td class="paramname"><em>gengine</em>, </td>
         </tr>
         <tr>
@@ -195,13 +197,13 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">int game_loop_init </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="game_8h.html#a57156d39c530aec3fba3a9dad8c2dc6a">Game</a> *&#160;</td>
+          <td class="paramtype">Game *&#160;</td>
           <td class="paramname"><em>game</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="graphic__engine_8h.html#ae1bc5cdbfce93098f066274fdea49af1">Graphic_engine</a> **&#160;</td>
+          <td class="paramtype">Graphic_engine **&#160;</td>
           <td class="paramname"><em>gengine</em>, </td>
         </tr>
         <tr>
@@ -241,13 +243,13 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void game_loop_run </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="game_8h.html#a57156d39c530aec3fba3a9dad8c2dc6a">Game</a> *&#160;</td>
+          <td class="paramtype">Game *&#160;</td>
           <td class="paramname"><em>game</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="graphic__engine_8h.html#ae1bc5cdbfce93098f066274fdea49af1">Graphic_engine</a> *&#160;</td>
+          <td class="paramtype">Graphic_engine *&#160;</td>
           <td class="paramname"><em>gengine</em>, </td>
         </tr>
         <tr>
@@ -292,7 +294,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="command_8h.html#a7d2935971c252377cb0fc1c8545dc2bc">Command</a> *&#160;</td>
+          <td class="paramtype">Command *&#160;</td>
           <td class="paramname"><em>cmd</em>&#160;</td>
         </tr>
         <tr>

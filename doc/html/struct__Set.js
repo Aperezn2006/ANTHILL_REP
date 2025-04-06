@@ -1,5 +1,5 @@
 var struct__Set =
 [
-    [ "ids", "struct__Set.html#a81e010eada4840f20487259a3a3310d7", null ],
-    [ "n_ids", "struct__Set.html#aff8fb061f3279f176735b4f9fcac2122", null ]
+    [ "ids", "struct__Set.html#ad985e39977bfd9923e692ac102720e3e", null ],
+    [ "n_ids", "struct__Set.html#ae59120f21c53a1150a6230264df46f04", null ]
 ];

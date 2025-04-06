@@ -5,29 +5,29 @@
 {\ttfamily \#include $<$stdlib.\+h$>$}\newline
 Include dependency graph for set.\+c\+:
 % FIG 0
-\doxysubsubsection*{Classes}
+\doxysubsubsection*{Data Structures}
 \begin{DoxyCompactItemize}
 \item 
-struct \mbox{\hyperlink{struct__Set}{\+\_\+\+Set}}
+struct \mbox{\hyperlink{struct__Set}{Set}}
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{set_8h_a6d3b7f7c92cbb4577ef3ef7ddbf93161}{Set}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{set_8c_aaad3bdcac9fbbfc38b4800b12bb17449}{set\+\_\+create}} ()
+Set \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{set_8c_aaad3bdcac9fbbfc38b4800b12bb17449}{set\+\_\+create}} ()
 \begin{DoxyCompactList}\small\item\em It creates a set. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{set_8c_a5b4e14914ec3c85b83363f57697f175a}{set\+\_\+destroy}} (\mbox{\hyperlink{set_8h_a6d3b7f7c92cbb4577ef3ef7ddbf93161}{Set}} \texorpdfstring{$\ast$}{*}set)
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{set_8c_a5b4e14914ec3c85b83363f57697f175a}{set\+\_\+destroy}} (Set \texorpdfstring{$\ast$}{*}set)
 \begin{DoxyCompactList}\small\item\em It destroys a set. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{set_8c_ad252ed6b4db23b184789fd4ef5afe5e1}{set\+\_\+add\+\_\+id}} (\mbox{\hyperlink{set_8h_a6d3b7f7c92cbb4577ef3ef7ddbf93161}{Set}} \texorpdfstring{$\ast$}{*}set, \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} id)
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{set_8c_ad252ed6b4db23b184789fd4ef5afe5e1}{set\+\_\+add\+\_\+id}} (Set \texorpdfstring{$\ast$}{*}set, \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} id)
 \begin{DoxyCompactList}\small\item\em It adds an element to the set. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{set_8c_a94547ab1010894b64ec974bde79c1e4f}{set\+\_\+remove\+\_\+id}} (\mbox{\hyperlink{set_8h_a6d3b7f7c92cbb4577ef3ef7ddbf93161}{Set}} \texorpdfstring{$\ast$}{*}set, \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} id)
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{set_8c_a94547ab1010894b64ec974bde79c1e4f}{set\+\_\+remove\+\_\+id}} (Set \texorpdfstring{$\ast$}{*}set, \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} id)
 \begin{DoxyCompactList}\small\item\em It deletes an element from the set. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{types_8h_a39db6982619d623273fad8a383489309}{Bool}} \mbox{\hyperlink{set_8c_a298b41bcf7ae56e1f07567eaace0c963}{set\+\_\+has\+\_\+id}} (\mbox{\hyperlink{set_8h_a6d3b7f7c92cbb4577ef3ef7ddbf93161}{Set}} \texorpdfstring{$\ast$}{*}set, \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} id)
+\mbox{\hyperlink{types_8h_a39db6982619d623273fad8a383489309}{Bool}} \mbox{\hyperlink{set_8c_a298b41bcf7ae56e1f07567eaace0c963}{set\+\_\+has\+\_\+id}} (Set \texorpdfstring{$\ast$}{*}set, \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} id)
 \begin{DoxyCompactList}\small\item\em It checks if the set contains an element. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} \mbox{\hyperlink{set_8c_a7d9d411d8d5f63192b1cff0fe155bbfc}{set\+\_\+get\+\_\+id\+\_\+from\+\_\+index}} (\mbox{\hyperlink{set_8h_a6d3b7f7c92cbb4577ef3ef7ddbf93161}{Set}} \texorpdfstring{$\ast$}{*}set, int n)
+\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} \mbox{\hyperlink{set_8c_a7d9d411d8d5f63192b1cff0fe155bbfc}{set\+\_\+get\+\_\+id\+\_\+from\+\_\+index}} (Set \texorpdfstring{$\ast$}{*}set, int n)
 \begin{DoxyCompactList}\small\item\em It gets the element at a given position in the set. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{set_8c_afaa9d55d67526584aba2e0688ca189b3}{set\+\_\+get\+\_\+num\+\_\+ids}} (\mbox{\hyperlink{set_8h_a6d3b7f7c92cbb4577ef3ef7ddbf93161}{Set}} \texorpdfstring{$\ast$}{*}set)
+int \mbox{\hyperlink{set_8c_afaa9d55d67526584aba2e0688ca189b3}{set\+\_\+get\+\_\+num\+\_\+ids}} (Set \texorpdfstring{$\ast$}{*}set)
 \begin{DoxyCompactList}\small\item\em It gets the size of the set. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{set_8c_ad5ca92546c83b1b0b9c26b137ad400ce}{set\+\_\+print}} (\mbox{\hyperlink{set_8h_a6d3b7f7c92cbb4577ef3ef7ddbf93161}{Set}} \texorpdfstring{$\ast$}{*}set)
+void \mbox{\hyperlink{set_8c_ad5ca92546c83b1b0b9c26b137ad400ce}{set\+\_\+print}} (Set \texorpdfstring{$\ast$}{*}set)
 \begin{DoxyCompactList}\small\item\em It prints the set. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -36,7 +36,7 @@ void \mbox{\hyperlink{set_8c_ad5ca92546c83b1b0b9c26b137ad400ce}{set\+\_\+print}}
 \index{set.c@{set.c}!set\_add\_id@{set\_add\_id}}
 \index{set\_add\_id@{set\_add\_id}!set.c@{set.c}}
 \doxysubsubsection{\texorpdfstring{set\_add\_id()}{set\_add\_id()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} set\+\_\+add\+\_\+id (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{set_8h_a6d3b7f7c92cbb4577ef3ef7ddbf93161}{Set}} \texorpdfstring{$\ast$}{*}}]{set,  }\item[{\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}}}]{id }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} set\+\_\+add\+\_\+id (\begin{DoxyParamCaption}\item[{Set \texorpdfstring{$\ast$}{*}}]{set,  }\item[{\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}}}]{id }\end{DoxyParamCaption})}
 
 
 
@@ -59,7 +59,7 @@ OK, if everything goes well or ERROR if there was some mistake
 \index{set.c@{set.c}!set\_create@{set\_create}}
 \index{set\_create@{set\_create}!set.c@{set.c}}
 \doxysubsubsection{\texorpdfstring{set\_create()}{set\_create()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{set_8h_a6d3b7f7c92cbb4577ef3ef7ddbf93161}{Set}} \texorpdfstring{$\ast$}{*} set\+\_\+create (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily Set \texorpdfstring{$\ast$}{*} set\+\_\+create (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
@@ -75,7 +75,7 @@ a new set, initialized
 \index{set.c@{set.c}!set\_destroy@{set\_destroy}}
 \index{set\_destroy@{set\_destroy}!set.c@{set.c}}
 \doxysubsubsection{\texorpdfstring{set\_destroy()}{set\_destroy()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} set\+\_\+destroy (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{set_8h_a6d3b7f7c92cbb4577ef3ef7ddbf93161}{Set}} \texorpdfstring{$\ast$}{*}}]{set }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} set\+\_\+destroy (\begin{DoxyParamCaption}\item[{Set \texorpdfstring{$\ast$}{*}}]{set }\end{DoxyParamCaption})}
 
 
 
@@ -96,7 +96,7 @@ OK, if everything goes well or ERROR if there was some mistake
 \index{set.c@{set.c}!set\_get\_id\_from\_index@{set\_get\_id\_from\_index}}
 \index{set\_get\_id\_from\_index@{set\_get\_id\_from\_index}!set.c@{set.c}}
 \doxysubsubsection{\texorpdfstring{set\_get\_id\_from\_index()}{set\_get\_id\_from\_index()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} set\+\_\+get\+\_\+id\+\_\+from\+\_\+index (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{set_8h_a6d3b7f7c92cbb4577ef3ef7ddbf93161}{Set}} \texorpdfstring{$\ast$}{*}}]{set,  }\item[{int}]{n }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} set\+\_\+get\+\_\+id\+\_\+from\+\_\+index (\begin{DoxyParamCaption}\item[{Set \texorpdfstring{$\ast$}{*}}]{set,  }\item[{int}]{n }\end{DoxyParamCaption})}
 
 
 
@@ -119,7 +119,7 @@ the id of the element at the given position
 \index{set.c@{set.c}!set\_get\_num\_ids@{set\_get\_num\_ids}}
 \index{set\_get\_num\_ids@{set\_get\_num\_ids}!set.c@{set.c}}
 \doxysubsubsection{\texorpdfstring{set\_get\_num\_ids()}{set\_get\_num\_ids()}}
-{\footnotesize\ttfamily int set\+\_\+get\+\_\+num\+\_\+ids (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{set_8h_a6d3b7f7c92cbb4577ef3ef7ddbf93161}{Set}} \texorpdfstring{$\ast$}{*}}]{set }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int set\+\_\+get\+\_\+num\+\_\+ids (\begin{DoxyParamCaption}\item[{Set \texorpdfstring{$\ast$}{*}}]{set }\end{DoxyParamCaption})}
 
 
 
@@ -140,7 +140,7 @@ the size of the set
 \index{set.c@{set.c}!set\_has\_id@{set\_has\_id}}
 \index{set\_has\_id@{set\_has\_id}!set.c@{set.c}}
 \doxysubsubsection{\texorpdfstring{set\_has\_id()}{set\_has\_id()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a39db6982619d623273fad8a383489309}{Bool}} set\+\_\+has\+\_\+id (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{set_8h_a6d3b7f7c92cbb4577ef3ef7ddbf93161}{Set}} \texorpdfstring{$\ast$}{*}}]{set,  }\item[{\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}}}]{id }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a39db6982619d623273fad8a383489309}{Bool}} set\+\_\+has\+\_\+id (\begin{DoxyParamCaption}\item[{Set \texorpdfstring{$\ast$}{*}}]{set,  }\item[{\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}}}]{id }\end{DoxyParamCaption})}
 
 
 
@@ -163,7 +163,7 @@ TRUE if the set contains the element, FALSE if it doesn\textquotesingle{}t, WRON
 \index{set.c@{set.c}!set\_print@{set\_print}}
 \index{set\_print@{set\_print}!set.c@{set.c}}
 \doxysubsubsection{\texorpdfstring{set\_print()}{set\_print()}}
-{\footnotesize\ttfamily void set\+\_\+print (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{set_8h_a6d3b7f7c92cbb4577ef3ef7ddbf93161}{Set}} \texorpdfstring{$\ast$}{*}}]{set }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void set\+\_\+print (\begin{DoxyParamCaption}\item[{Set \texorpdfstring{$\ast$}{*}}]{set }\end{DoxyParamCaption})}
 
 
 
@@ -181,7 +181,7 @@ Rubén
 \index{set.c@{set.c}!set\_remove\_id@{set\_remove\_id}}
 \index{set\_remove\_id@{set\_remove\_id}!set.c@{set.c}}
 \doxysubsubsection{\texorpdfstring{set\_remove\_id()}{set\_remove\_id()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} set\+\_\+remove\+\_\+id (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{set_8h_a6d3b7f7c92cbb4577ef3ef7ddbf93161}{Set}} \texorpdfstring{$\ast$}{*}}]{set,  }\item[{\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}}}]{id }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} set\+\_\+remove\+\_\+id (\begin{DoxyParamCaption}\item[{Set \texorpdfstring{$\ast$}{*}}]{set,  }\item[{\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}}}]{id }\end{DoxyParamCaption})}
 
 
 

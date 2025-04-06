@@ -30,7 +30,7 @@
   <td id="projectalign">
    <div id="projectname">Anthill<span id="projectnumber">&#160;I3</span>
    </div>
-   <div id="projectbrief">Third iteration of the unix-based Anthill game</div>
+   <div id="projectbrief">Unix-based Anthill game</div>
   </td>
  </tr>
  </tbody>
@@ -105,9 +105,11 @@ $(document).ready(function(){initNavTree('player__test_8c.html',''); initResizab
 <code>#include &lt;string.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="player__test_8h_source.html">player_test.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="test_8h_source.html">test.h</a>&quot;</code><br />
-</div><div class="textblock"><div class="dynheader">
-Include dependency graph for player_test.c:</div>
-<div class="dyncontent">
+</div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Include dependency graph for player_test.c:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="player__test_8c__incl.png" border="0" usemap="#a_2mnt_2c_2Ubuntu_2Shared__folder_2PPROG_2I3_2ANTHILL__REP_2src_2player__test_8c" alt=""/></div>
 </div>
 </div><table class="memberdecls">
@@ -257,7 +259,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="test"><dt><b><a class="el" href="test.html#_test000022">Test:</a></b></dt><dd>Test character decrease health </dd></dl>
+<dl class="test"><dt><b><a class="el" href="test.html#_test000018">Test:</a></b></dt><dd>Test character decrease health </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>Pointer to a valid character </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>Output == OK </dd></dl>
 
@@ -277,7 +279,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="test"><dt><b><a class="el" href="test.html#_test000097">Test:</a></b></dt><dd>Test player add object </dd></dl>
+<dl class="test"><dt><b><a class="el" href="test.html#_test000112">Test:</a></b></dt><dd>Test player add object </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>Pointer to a valid player and a valid object </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>Output == OK </dd></dl>
 
@@ -297,7 +299,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="test"><dt><b><a class="el" href="test.html#_test000062">Test:</a></b></dt><dd>Test player creation </dd></dl>
+<dl class="test"><dt><b><a class="el" href="test.html#_test000077">Test:</a></b></dt><dd>Test player creation </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>No parameters </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>Non NULL pointer to player </dd></dl>
 
@@ -317,7 +319,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="test"><dt><b><a class="el" href="test.html#_test000077">Test:</a></b></dt><dd>Test player get description </dd></dl>
+<dl class="test"><dt><b><a class="el" href="test.html#_test000092">Test:</a></b></dt><dd>Test player get description </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>Pointer to a valid player </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>Output == OK </dd></dl>
 
@@ -337,7 +339,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="test"><dt><b><a class="el" href="test.html#_test000071">Test:</a></b></dt><dd>Test player get health </dd></dl>
+<dl class="test"><dt><b><a class="el" href="test.html#_test000086">Test:</a></b></dt><dd>Test player get health </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>Pointer to a valid player </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>Output == OK </dd></dl>
 
@@ -357,7 +359,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="test"><dt><b><a class="el" href="test.html#_test000063">Test:</a></b></dt><dd>Test player get id </dd></dl>
+<dl class="test"><dt><b><a class="el" href="test.html#_test000078">Test:</a></b></dt><dd>Test player get id </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>Pointer to a valid player </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>Output == 1 </dd></dl>
 
@@ -377,7 +379,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="test"><dt><b><a class="el" href="test.html#_test000081">Test:</a></b></dt><dd>Test player get inventory </dd></dl>
+<dl class="test"><dt><b><a class="el" href="test.html#_test000096">Test:</a></b></dt><dd>Test player get inventory </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>Pointer to a valid player </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>Output == valid inventory </dd></dl>
 
@@ -397,7 +399,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="test"><dt><b><a class="el" href="test.html#_test000085">Test:</a></b></dt><dd>Test player get location </dd></dl>
+<dl class="test"><dt><b><a class="el" href="test.html#_test000100">Test:</a></b></dt><dd>Test player get location </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>Pointer to a valid player </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>Output == valid location </dd></dl>
 
@@ -417,7 +419,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="test"><dt><b><a class="el" href="test.html#_test000067">Test:</a></b></dt><dd>Test player get name </dd></dl>
+<dl class="test"><dt><b><a class="el" href="test.html#_test000082">Test:</a></b></dt><dd>Test player get name </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>Pointer to a valid player </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>Output == OK </dd></dl>
 
@@ -437,7 +439,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="test"><dt><b><a class="el" href="test.html#_test000091">Test:</a></b></dt><dd>Test player get number of objects </dd></dl>
+<dl class="test"><dt><b><a class="el" href="test.html#_test000106">Test:</a></b></dt><dd>Test player get number of objects </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>Pointer to a valid player </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>Output == valid number of objects </dd></dl>
 
@@ -457,7 +459,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="test"><dt><b><a class="el" href="test.html#_test000089">Test:</a></b></dt><dd>Test player get object from index </dd></dl>
+<dl class="test"><dt><b><a class="el" href="test.html#_test000104">Test:</a></b></dt><dd>Test player get object from index </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>Pointer to a valid player and a valid index </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>Output == valid object </dd></dl>
 
@@ -477,7 +479,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="test"><dt><b><a class="el" href="test.html#_test000095">Test:</a></b></dt><dd>Test player has object </dd></dl>
+<dl class="test"><dt><b><a class="el" href="test.html#_test000110">Test:</a></b></dt><dd>Test player has object </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>Pointer to a valid player and a valid object </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>Output == TRUE or FALSE </dd></dl>
 
@@ -497,7 +499,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="test"><dt><b><a class="el" href="test.html#_test000083">Test:</a></b></dt><dd>Test player print </dd></dl>
+<dl class="test"><dt><b><a class="el" href="test.html#_test000098">Test:</a></b></dt><dd>Test player print </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>Pointer to a valid player </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>Output == OK </dd></dl>
 
@@ -517,7 +519,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="test"><dt><b><a class="el" href="test.html#_test000093">Test:</a></b></dt><dd>Test player remove object </dd></dl>
+<dl class="test"><dt><b><a class="el" href="test.html#_test000108">Test:</a></b></dt><dd>Test player remove object </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>Pointer to a valid player and a valid object </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>Output == OK </dd></dl>
 
@@ -537,7 +539,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="test"><dt><b><a class="el" href="test.html#_test000079">Test:</a></b></dt><dd>Test player set description </dd></dl>
+<dl class="test"><dt><b><a class="el" href="test.html#_test000094">Test:</a></b></dt><dd>Test player set description </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>Pointer to a valid player </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>Output == OK </dd></dl>
 
@@ -557,7 +559,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="test"><dt><b><a class="el" href="test.html#_test000073">Test:</a></b></dt><dd>Test player set health </dd></dl>
+<dl class="test"><dt><b><a class="el" href="test.html#_test000088">Test:</a></b></dt><dd>Test player set health </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>Pointer to a valid player </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>Output == OK </dd></dl>
 
@@ -577,7 +579,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="test"><dt><b><a class="el" href="test.html#_test000065">Test:</a></b></dt><dd>Test player set id </dd></dl>
+<dl class="test"><dt><b><a class="el" href="test.html#_test000080">Test:</a></b></dt><dd>Test player set id </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>Pointer to a valid player </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>Output == OK </dd></dl>
 
@@ -597,7 +599,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="test"><dt><b><a class="el" href="test.html#_test000087">Test:</a></b></dt><dd>Test player set location </dd></dl>
+<dl class="test"><dt><b><a class="el" href="test.html#_test000102">Test:</a></b></dt><dd>Test player set location </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>Pointer to a valid player and a valid location </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>Output == OK </dd></dl>
 
@@ -617,7 +619,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="test"><dt><b><a class="el" href="test.html#_test000099">Test:</a></b></dt><dd>Test player set maximum number of objects </dd></dl>
+<dl class="test"><dt><b><a class="el" href="test.html#_test000114">Test:</a></b></dt><dd>Test player set maximum number of objects </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>Pointer to a valid player and a valid max number </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>Output == OK </dd></dl>
 
@@ -637,7 +639,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="test"><dt><b><a class="el" href="test.html#_test000069">Test:</a></b></dt><dd>Test player set name </dd></dl>
+<dl class="test"><dt><b><a class="el" href="test.html#_test000084">Test:</a></b></dt><dd>Test player set name </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>Pointer to a valid player </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>Output == OK </dd></dl>
 
@@ -657,7 +659,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="test"><dt><b><a class="el" href="test.html#_test000023">Test:</a></b></dt><dd>Test character decrease health with NULL character </dd></dl>
+<dl class="test"><dt><b><a class="el" href="test.html#_test000019">Test:</a></b></dt><dd>Test character decrease health with NULL character </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>NULL pointer </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>Output == ERROR </dd></dl>
 
@@ -677,7 +679,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="test"><dt><b><a class="el" href="test.html#_test000098">Test:</a></b></dt><dd>Test player add object with NULL player </dd></dl>
+<dl class="test"><dt><b><a class="el" href="test.html#_test000113">Test:</a></b></dt><dd>Test player add object with NULL player </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>NULL pointer </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>Output == ERROR </dd></dl>
 
@@ -697,7 +699,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="test"><dt><b><a class="el" href="test.html#_test000078">Test:</a></b></dt><dd>Test player get description with NULL player </dd></dl>
+<dl class="test"><dt><b><a class="el" href="test.html#_test000093">Test:</a></b></dt><dd>Test player get description with NULL player </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>NULL pointer </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>Output == ERROR </dd></dl>
 
@@ -717,7 +719,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="test"><dt><b><a class="el" href="test.html#_test000072">Test:</a></b></dt><dd>Test player get health with NULL player </dd></dl>
+<dl class="test"><dt><b><a class="el" href="test.html#_test000087">Test:</a></b></dt><dd>Test player get health with NULL player </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>NULL pointer </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>Output == ERROR </dd></dl>
 
@@ -737,7 +739,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="test"><dt><b><a class="el" href="test.html#_test000064">Test:</a></b></dt><dd>Test player get id with NULL player </dd></dl>
+<dl class="test"><dt><b><a class="el" href="test.html#_test000079">Test:</a></b></dt><dd>Test player get id with NULL player </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>NULL pointer </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>Output == ERROR </dd></dl>
 
@@ -757,7 +759,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="test"><dt><b><a class="el" href="test.html#_test000082">Test:</a></b></dt><dd>Test player get inventory with NULL player </dd></dl>
+<dl class="test"><dt><b><a class="el" href="test.html#_test000097">Test:</a></b></dt><dd>Test player get inventory with NULL player </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>NULL pointer </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>Output == ERROR </dd></dl>
 
@@ -777,7 +779,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="test"><dt><b><a class="el" href="test.html#_test000086">Test:</a></b></dt><dd>Test player get location with NULL player </dd></dl>
+<dl class="test"><dt><b><a class="el" href="test.html#_test000101">Test:</a></b></dt><dd>Test player get location with NULL player </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>NULL pointer </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>Output == ERROR </dd></dl>
 
@@ -797,7 +799,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="test"><dt><b><a class="el" href="test.html#_test000068">Test:</a></b></dt><dd>Test player get name with NULL player </dd></dl>
+<dl class="test"><dt><b><a class="el" href="test.html#_test000083">Test:</a></b></dt><dd>Test player get name with NULL player </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>NULL pointer </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>Output == ERROR </dd></dl>
 
@@ -817,7 +819,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="test"><dt><b><a class="el" href="test.html#_test000092">Test:</a></b></dt><dd>Test player get number of objects with NULL player </dd></dl>
+<dl class="test"><dt><b><a class="el" href="test.html#_test000107">Test:</a></b></dt><dd>Test player get number of objects with NULL player </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>NULL pointer </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>Output == ERROR </dd></dl>
 
@@ -837,7 +839,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="test"><dt><b><a class="el" href="test.html#_test000090">Test:</a></b></dt><dd>Test player get object from index with NULL player </dd></dl>
+<dl class="test"><dt><b><a class="el" href="test.html#_test000105">Test:</a></b></dt><dd>Test player get object from index with NULL player </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>NULL pointer </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>Output == ERROR </dd></dl>
 
@@ -857,7 +859,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="test"><dt><b><a class="el" href="test.html#_test000096">Test:</a></b></dt><dd>Test player has object with NULL player </dd></dl>
+<dl class="test"><dt><b><a class="el" href="test.html#_test000111">Test:</a></b></dt><dd>Test player has object with NULL player </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>NULL pointer </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>Output == ERROR </dd></dl>
 
@@ -877,7 +879,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="test"><dt><b><a class="el" href="test.html#_test000084">Test:</a></b></dt><dd>Test player print with NULL player </dd></dl>
+<dl class="test"><dt><b><a class="el" href="test.html#_test000099">Test:</a></b></dt><dd>Test player print with NULL player </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>NULL pointer </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>Output == ERROR </dd></dl>
 
@@ -897,7 +899,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="test"><dt><b><a class="el" href="test.html#_test000094">Test:</a></b></dt><dd>Test player remove object with NULL player </dd></dl>
+<dl class="test"><dt><b><a class="el" href="test.html#_test000109">Test:</a></b></dt><dd>Test player remove object with NULL player </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>NULL pointer </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>Output == ERROR </dd></dl>
 
@@ -917,7 +919,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="test"><dt><b><a class="el" href="test.html#_test000080">Test:</a></b></dt><dd>Test player set description with NULL player </dd></dl>
+<dl class="test"><dt><b><a class="el" href="test.html#_test000095">Test:</a></b></dt><dd>Test player set description with NULL player </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>NULL pointer </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>Output == ERROR </dd></dl>
 
@@ -937,7 +939,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="test"><dt><b><a class="el" href="test.html#_test000074">Test:</a></b></dt><dd>Test player set health with NULL player </dd></dl>
+<dl class="test"><dt><b><a class="el" href="test.html#_test000089">Test:</a></b></dt><dd>Test player set health with NULL player </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>NULL pointer </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>Output == ERROR </dd></dl>
 
@@ -957,7 +959,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="test"><dt><b><a class="el" href="test.html#_test000066">Test:</a></b></dt><dd>Test player set id with NULL player </dd></dl>
+<dl class="test"><dt><b><a class="el" href="test.html#_test000081">Test:</a></b></dt><dd>Test player set id with NULL player </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>NULL pointer </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>Output == ERROR </dd></dl>
 
@@ -977,7 +979,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="test"><dt><b><a class="el" href="test.html#_test000088">Test:</a></b></dt><dd>Test player set location with NULL player </dd></dl>
+<dl class="test"><dt><b><a class="el" href="test.html#_test000103">Test:</a></b></dt><dd>Test player set location with NULL player </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>NULL pointer </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>Output == ERROR </dd></dl>
 
@@ -997,7 +999,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="test"><dt><b><a class="el" href="test.html#_test000100">Test:</a></b></dt><dd>Test player set maximum number of objects with NULL player </dd></dl>
+<dl class="test"><dt><b><a class="el" href="test.html#_test000115">Test:</a></b></dt><dd>Test player set maximum number of objects with NULL player </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>NULL pointer </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>Output == ERROR </dd></dl>
 
@@ -1017,7 +1019,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="test"><dt><b><a class="el" href="test.html#_test000070">Test:</a></b></dt><dd>Test player set name with NULL player </dd></dl>
+<dl class="test"><dt><b><a class="el" href="test.html#_test000085">Test:</a></b></dt><dd>Test player set name with NULL player </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>NULL pointer </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>Output == ERROR </dd></dl>
 

@@ -12,7 +12,7 @@ var dir_68267d1309a1af8e8297ef4c3efbcdba =
     [ "link.c", "link_8c.html", "link_8c" ],
     [ "link_test.c", "link__test_8c.html", "link__test_8c" ],
     [ "object.c", "object_8c.html", "object_8c" ],
-    [ "object_test.c", "object__test_8c.html", null ],
+    [ "object_test.c", "object__test_8c.html", "object__test_8c" ],
     [ "player.c", "player_8c.html", "player_8c" ],
     [ "player_test.c", "player__test_8c.html", "player__test_8c" ],
     [ "set.c", "set_8c.html", "set_8c" ],

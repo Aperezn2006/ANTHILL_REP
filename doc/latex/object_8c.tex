@@ -11,35 +11,35 @@ It implements the object module.
 {\ttfamily \#include $<$string.\+h$>$}\newline
 Include dependency graph for object.\+c\+:
 % FIG 0
-\doxysubsubsection*{Classes}
+\doxysubsubsection*{Data Structures}
 \begin{DoxyCompactItemize}
 \item 
-struct \mbox{\hyperlink{struct__Object}{\+\_\+\+Object}}
+struct \mbox{\hyperlink{struct__Object}{Object}}
 \begin{DoxyCompactList}\small\item\em object \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{object_8h_a7f8bbcda919b65ce67f92fba08e0212f}{Object}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{object_8c_a7d0b3d3e95beef8deb5b02d0c4641a57}{object\+\_\+create}} (\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} id, \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} location)
+Object \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{object_8c_a7d0b3d3e95beef8deb5b02d0c4641a57}{object\+\_\+create}} (\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} id, \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} location)
 \begin{DoxyCompactList}\small\item\em It creates a new object, allocating memory and initializing its members. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{object_8c_aab2d9fe61ae9c48522635d006dd50396}{object\+\_\+destroy}} (\mbox{\hyperlink{object_8h_a7f8bbcda919b65ce67f92fba08e0212f}{Object}} \texorpdfstring{$\ast$}{*}object)
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{object_8c_aab2d9fe61ae9c48522635d006dd50396}{object\+\_\+destroy}} (Object \texorpdfstring{$\ast$}{*}object)
 \begin{DoxyCompactList}\small\item\em It destroys a object, freeing the allocated memory. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{object_8c_a653ceb8039e69a949ad2dd9c8f49236c}{object\+\_\+set\+\_\+id}} (\mbox{\hyperlink{object_8h_a7f8bbcda919b65ce67f92fba08e0212f}{Object}} \texorpdfstring{$\ast$}{*}object, \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} id)
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{object_8c_a653ceb8039e69a949ad2dd9c8f49236c}{object\+\_\+set\+\_\+id}} (Object \texorpdfstring{$\ast$}{*}object, \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} id)
 \begin{DoxyCompactList}\small\item\em It sets the id of a object. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} \mbox{\hyperlink{object_8c_ac5af152381a21853c6a28cc120e8e7fe}{object\+\_\+get\+\_\+id}} (\mbox{\hyperlink{object_8h_a7f8bbcda919b65ce67f92fba08e0212f}{Object}} \texorpdfstring{$\ast$}{*}object)
+\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} \mbox{\hyperlink{object_8c_ac5af152381a21853c6a28cc120e8e7fe}{object\+\_\+get\+\_\+id}} (Object \texorpdfstring{$\ast$}{*}object)
 \begin{DoxyCompactList}\small\item\em It gets the id of a object. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{object_8c_a14bf659f3055f0243d1af4b246d062b4}{object\+\_\+set\+\_\+name}} (\mbox{\hyperlink{object_8h_a7f8bbcda919b65ce67f92fba08e0212f}{Object}} \texorpdfstring{$\ast$}{*}object, char \texorpdfstring{$\ast$}{*}name)
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{object_8c_a14bf659f3055f0243d1af4b246d062b4}{object\+\_\+set\+\_\+name}} (Object \texorpdfstring{$\ast$}{*}object, char \texorpdfstring{$\ast$}{*}name)
 \begin{DoxyCompactList}\small\item\em It sets the name of a object. \end{DoxyCompactList}\item 
-const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{object_8c_ae7279c442aab51c0818bd008b31f9816}{object\+\_\+get\+\_\+name}} (\mbox{\hyperlink{object_8h_a7f8bbcda919b65ce67f92fba08e0212f}{Object}} \texorpdfstring{$\ast$}{*}object)
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{object_8c_ae7279c442aab51c0818bd008b31f9816}{object\+\_\+get\+\_\+name}} (Object \texorpdfstring{$\ast$}{*}object)
 \begin{DoxyCompactList}\small\item\em It gets the name of a object. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{object_8c_a46dfe13b76a3ade55a1d8f478b4793f8}{object\+\_\+set\+\_\+desc}} (\mbox{\hyperlink{object_8h_a7f8bbcda919b65ce67f92fba08e0212f}{Object}} \texorpdfstring{$\ast$}{*}object, char \texorpdfstring{$\ast$}{*}desc)
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{object_8c_a46dfe13b76a3ade55a1d8f478b4793f8}{object\+\_\+set\+\_\+desc}} (Object \texorpdfstring{$\ast$}{*}object, char \texorpdfstring{$\ast$}{*}desc)
 \begin{DoxyCompactList}\small\item\em It sets the description of a object. \end{DoxyCompactList}\item 
-const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{object_8c_a7675829af58481ecebd6a1c46ed7126d}{object\+\_\+get\+\_\+desc}} (\mbox{\hyperlink{object_8h_a7f8bbcda919b65ce67f92fba08e0212f}{Object}} \texorpdfstring{$\ast$}{*}object)
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{object_8c_a7675829af58481ecebd6a1c46ed7126d}{object\+\_\+get\+\_\+desc}} (Object \texorpdfstring{$\ast$}{*}object)
 \begin{DoxyCompactList}\small\item\em It gets the description of a object. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{object_8c_ae2cac8fc6b4b1763e97072c0d260e945}{object\+\_\+set\+\_\+inspected}} (\mbox{\hyperlink{object_8h_a7f8bbcda919b65ce67f92fba08e0212f}{Object}} \texorpdfstring{$\ast$}{*}object, \mbox{\hyperlink{types_8h_a39db6982619d623273fad8a383489309}{Bool}} inspected)
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{object_8c_ae2cac8fc6b4b1763e97072c0d260e945}{object\+\_\+set\+\_\+inspected}} (Object \texorpdfstring{$\ast$}{*}object, \mbox{\hyperlink{types_8h_a39db6982619d623273fad8a383489309}{Bool}} inspected)
 \begin{DoxyCompactList}\small\item\em It sets whether the object has been inspected or not. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{types_8h_a39db6982619d623273fad8a383489309}{Bool}} \mbox{\hyperlink{object_8c_a14f7e4d3be3158bd2c0f2ad7dad76fd6}{object\+\_\+get\+\_\+inspected}} (\mbox{\hyperlink{object_8h_a7f8bbcda919b65ce67f92fba08e0212f}{Object}} \texorpdfstring{$\ast$}{*}object)
+\mbox{\hyperlink{types_8h_a39db6982619d623273fad8a383489309}{Bool}} \mbox{\hyperlink{object_8c_a14f7e4d3be3158bd2c0f2ad7dad76fd6}{object\+\_\+get\+\_\+inspected}} (Object \texorpdfstring{$\ast$}{*}object)
 \begin{DoxyCompactList}\small\item\em It gets whether the object has been inspected or not. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{object_8c_a6488ec3cfebebfdeef4a43b9eebf8642}{object\+\_\+print}} (\mbox{\hyperlink{object_8h_a7f8bbcda919b65ce67f92fba08e0212f}{Object}} \texorpdfstring{$\ast$}{*}object)
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{object_8c_a6488ec3cfebebfdeef4a43b9eebf8642}{object\+\_\+print}} (Object \texorpdfstring{$\ast$}{*}object)
 \begin{DoxyCompactList}\small\item\em It prints the object information. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -59,7 +59,7 @@ It implements the object module.
 \index{object.c@{object.c}!object\_create@{object\_create}}
 \index{object\_create@{object\_create}!object.c@{object.c}}
 \doxysubsubsection{\texorpdfstring{object\_create()}{object\_create()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{object_8h_a7f8bbcda919b65ce67f92fba08e0212f}{Object}} \texorpdfstring{$\ast$}{*} object\+\_\+create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}}}]{id,  }\item[{\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}}}]{location }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily Object \texorpdfstring{$\ast$}{*} object\+\_\+create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}}}]{id,  }\item[{\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}}}]{location }\end{DoxyParamCaption})}
 
 
 
@@ -80,7 +80,7 @@ a new object, initialized
 \index{object.c@{object.c}!object\_destroy@{object\_destroy}}
 \index{object\_destroy@{object\_destroy}!object.c@{object.c}}
 \doxysubsubsection{\texorpdfstring{object\_destroy()}{object\_destroy()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} object\+\_\+destroy (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{object_8h_a7f8bbcda919b65ce67f92fba08e0212f}{Object}} \texorpdfstring{$\ast$}{*}}]{object }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} object\+\_\+destroy (\begin{DoxyParamCaption}\item[{Object \texorpdfstring{$\ast$}{*}}]{object }\end{DoxyParamCaption})}
 
 
 
@@ -101,7 +101,7 @@ OK, if everything goes well or ERROR if there was some mistake
 \index{object.c@{object.c}!object\_get\_desc@{object\_get\_desc}}
 \index{object\_get\_desc@{object\_get\_desc}!object.c@{object.c}}
 \doxysubsubsection{\texorpdfstring{object\_get\_desc()}{object\_get\_desc()}}
-{\footnotesize\ttfamily const char \texorpdfstring{$\ast$}{*} object\+\_\+get\+\_\+desc (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{object_8h_a7f8bbcda919b65ce67f92fba08e0212f}{Object}} \texorpdfstring{$\ast$}{*}}]{object }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily const char \texorpdfstring{$\ast$}{*} object\+\_\+get\+\_\+desc (\begin{DoxyParamCaption}\item[{Object \texorpdfstring{$\ast$}{*}}]{object }\end{DoxyParamCaption})}
 
 
 
@@ -122,7 +122,7 @@ a string with the description of the object
 \index{object.c@{object.c}!object\_get\_id@{object\_get\_id}}
 \index{object\_get\_id@{object\_get\_id}!object.c@{object.c}}
 \doxysubsubsection{\texorpdfstring{object\_get\_id()}{object\_get\_id()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} object\+\_\+get\+\_\+id (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{object_8h_a7f8bbcda919b65ce67f92fba08e0212f}{Object}} \texorpdfstring{$\ast$}{*}}]{object }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} object\+\_\+get\+\_\+id (\begin{DoxyParamCaption}\item[{Object \texorpdfstring{$\ast$}{*}}]{object }\end{DoxyParamCaption})}
 
 
 
@@ -143,7 +143,7 @@ the id of object
 \index{object.c@{object.c}!object\_get\_inspected@{object\_get\_inspected}}
 \index{object\_get\_inspected@{object\_get\_inspected}!object.c@{object.c}}
 \doxysubsubsection{\texorpdfstring{object\_get\_inspected()}{object\_get\_inspected()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a39db6982619d623273fad8a383489309}{Bool}} object\+\_\+get\+\_\+inspected (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{object_8h_a7f8bbcda919b65ce67f92fba08e0212f}{Object}} \texorpdfstring{$\ast$}{*}}]{object }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a39db6982619d623273fad8a383489309}{Bool}} object\+\_\+get\+\_\+inspected (\begin{DoxyParamCaption}\item[{Object \texorpdfstring{$\ast$}{*}}]{object }\end{DoxyParamCaption})}
 
 
 
@@ -164,7 +164,7 @@ TRUE if it has, FALSE otherwise
 \index{object.c@{object.c}!object\_get\_name@{object\_get\_name}}
 \index{object\_get\_name@{object\_get\_name}!object.c@{object.c}}
 \doxysubsubsection{\texorpdfstring{object\_get\_name()}{object\_get\_name()}}
-{\footnotesize\ttfamily const char \texorpdfstring{$\ast$}{*} object\+\_\+get\+\_\+name (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{object_8h_a7f8bbcda919b65ce67f92fba08e0212f}{Object}} \texorpdfstring{$\ast$}{*}}]{object }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily const char \texorpdfstring{$\ast$}{*} object\+\_\+get\+\_\+name (\begin{DoxyParamCaption}\item[{Object \texorpdfstring{$\ast$}{*}}]{object }\end{DoxyParamCaption})}
 
 
 
@@ -185,7 +185,7 @@ a string with the name of the object
 \index{object.c@{object.c}!object\_print@{object\_print}}
 \index{object\_print@{object\_print}!object.c@{object.c}}
 \doxysubsubsection{\texorpdfstring{object\_print()}{object\_print()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} object\+\_\+print (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{object_8h_a7f8bbcda919b65ce67f92fba08e0212f}{Object}} \texorpdfstring{$\ast$}{*}}]{object }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} object\+\_\+print (\begin{DoxyParamCaption}\item[{Object \texorpdfstring{$\ast$}{*}}]{object }\end{DoxyParamCaption})}
 
 
 
@@ -206,7 +206,7 @@ OK, if everything goes well or ERROR if there was some mistake
 \index{object.c@{object.c}!object\_set\_desc@{object\_set\_desc}}
 \index{object\_set\_desc@{object\_set\_desc}!object.c@{object.c}}
 \doxysubsubsection{\texorpdfstring{object\_set\_desc()}{object\_set\_desc()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} object\+\_\+set\+\_\+desc (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{object_8h_a7f8bbcda919b65ce67f92fba08e0212f}{Object}} \texorpdfstring{$\ast$}{*}}]{object,  }\item[{char \texorpdfstring{$\ast$}{*}}]{desc }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} object\+\_\+set\+\_\+desc (\begin{DoxyParamCaption}\item[{Object \texorpdfstring{$\ast$}{*}}]{object,  }\item[{char \texorpdfstring{$\ast$}{*}}]{desc }\end{DoxyParamCaption})}
 
 
 
@@ -229,7 +229,7 @@ OK, if everything goes well or ERROR if there was some mistake
 \index{object.c@{object.c}!object\_set\_id@{object\_set\_id}}
 \index{object\_set\_id@{object\_set\_id}!object.c@{object.c}}
 \doxysubsubsection{\texorpdfstring{object\_set\_id()}{object\_set\_id()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} object\+\_\+set\+\_\+id (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{object_8h_a7f8bbcda919b65ce67f92fba08e0212f}{Object}} \texorpdfstring{$\ast$}{*}}]{object,  }\item[{\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}}}]{id }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} object\+\_\+set\+\_\+id (\begin{DoxyParamCaption}\item[{Object \texorpdfstring{$\ast$}{*}}]{object,  }\item[{\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}}}]{id }\end{DoxyParamCaption})}
 
 
 
@@ -252,7 +252,7 @@ OK, if everything goes well or ERROR if there was some mistake
 \index{object.c@{object.c}!object\_set\_inspected@{object\_set\_inspected}}
 \index{object\_set\_inspected@{object\_set\_inspected}!object.c@{object.c}}
 \doxysubsubsection{\texorpdfstring{object\_set\_inspected()}{object\_set\_inspected()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} object\+\_\+set\+\_\+inspected (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{object_8h_a7f8bbcda919b65ce67f92fba08e0212f}{Object}} \texorpdfstring{$\ast$}{*}}]{object,  }\item[{\mbox{\hyperlink{types_8h_a39db6982619d623273fad8a383489309}{Bool}}}]{inspected }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} object\+\_\+set\+\_\+inspected (\begin{DoxyParamCaption}\item[{Object \texorpdfstring{$\ast$}{*}}]{object,  }\item[{\mbox{\hyperlink{types_8h_a39db6982619d623273fad8a383489309}{Bool}}}]{inspected }\end{DoxyParamCaption})}
 
 
 
@@ -275,7 +275,7 @@ OK, if everything goes well or ERROR if there was some mistake
 \index{object.c@{object.c}!object\_set\_name@{object\_set\_name}}
 \index{object\_set\_name@{object\_set\_name}!object.c@{object.c}}
 \doxysubsubsection{\texorpdfstring{object\_set\_name()}{object\_set\_name()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} object\+\_\+set\+\_\+name (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{object_8h_a7f8bbcda919b65ce67f92fba08e0212f}{Object}} \texorpdfstring{$\ast$}{*}}]{object,  }\item[{char \texorpdfstring{$\ast$}{*}}]{name }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} object\+\_\+set\+\_\+name (\begin{DoxyParamCaption}\item[{Object \texorpdfstring{$\ast$}{*}}]{object,  }\item[{char \texorpdfstring{$\ast$}{*}}]{name }\end{DoxyParamCaption})}
 
 
 

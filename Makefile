@@ -2,7 +2,7 @@
 EXEC = anthill
 
 # Ejecutables de los tests
-TESTS = space_test player_test link_test set_test
+TESTS = space_test link_test player_test set_test object_test character_test
 # character_test 
 
 # Directorios
@@ -101,4 +101,17 @@ tester:
 	@echo Rebuilding and testing game with all parameters...
 	@make clean
 	@make
-	valgrind -s --show-leak-kinds=all --track-origins=yes --leak-check=full ./$(EXEC) $(EXEC).dat $ -l logFile
+	@echo Running test for the space module...
+	@./space_test
+	@echo Running test for the link module...
+	@./link_test 
+	@echo Running test for the player module...
+	@./player_test 
+	@echo Running test for the set module...
+	@./set_test
+	@echo Running test for the object module...
+	@./object_test 
+	@echo Running test for the character module...
+	@./character_test
+	@echo Running the game with valgrind...
+	@valgrind -s --show-leak-kinds=all --track-origins=yes --leak-check=full ./$(EXEC) $(EXEC).dat $ -l logFile

@@ -30,7 +30,7 @@
   <td id="projectalign">
    <div id="projectname">Anthill<span id="projectnumber">&#160;I3</span>
    </div>
-   <div id="projectbrief">Third iteration of the unix-based Anthill game</div>
+   <div id="projectbrief">Unix-based Anthill game</div>
   </td>
  </tr>
  </tbody>
@@ -107,27 +107,27 @@ $(document).ready(function(){initNavTree('set_8h_source.html',''); initResizable
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;<a class="code" href="types_8h.html">types.h</a>&quot;</span></div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="set_8h.html#a6d3b7f7c92cbb4577ef3ef7ddbf93161">   14</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="struct__Set.html">_Set</a> <a class="code hl_struct" href="struct__Set.html">Set</a>;</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="struct__Set.html">_Set</a> Set;</div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment">/*Create &amp; destroy*/</span></div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><a class="code hl_struct" href="struct__Set.html">Set</a> *<a class="code hl_function" href="set_8h.html#aaad3bdcac9fbbfc38b4800b12bb17449">set_create</a>();</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>Set *<a class="code hl_function" href="set_8h.html#aaad3bdcac9fbbfc38b4800b12bb17449">set_create</a>();</div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><a class="code hl_enumeration" href="types_8h.html#a67a0db04d321a74b7e7fcfd3f1a3f70b">Status</a> <a class="code hl_function" href="set_8h.html#a5b4e14914ec3c85b83363f57697f175a">set_destroy</a>(<a class="code hl_struct" href="struct__Set.html">Set</a> *set);</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><a class="code hl_enumeration" href="types_8h.html#a67a0db04d321a74b7e7fcfd3f1a3f70b">Status</a> <a class="code hl_function" href="set_8h.html#a5b4e14914ec3c85b83363f57697f175a">set_destroy</a>(Set *set);</div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="comment">/*Management of ids*/</span></div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><a class="code hl_enumeration" href="types_8h.html#a67a0db04d321a74b7e7fcfd3f1a3f70b">Status</a> <a class="code hl_function" href="set_8h.html#ad252ed6b4db23b184789fd4ef5afe5e1">set_add_id</a>(<a class="code hl_struct" href="struct__Set.html">Set</a> *set, <a class="code hl_typedef" href="types_8h.html#a845e604fb28f7e3d97549da3448149d3">Id</a> <span class="keywordtype">id</span>);</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><a class="code hl_enumeration" href="types_8h.html#a67a0db04d321a74b7e7fcfd3f1a3f70b">Status</a> <a class="code hl_function" href="set_8h.html#ad252ed6b4db23b184789fd4ef5afe5e1">set_add_id</a>(Set *set, <a class="code hl_typedef" href="types_8h.html#a845e604fb28f7e3d97549da3448149d3">Id</a> <span class="keywordtype">id</span>);</div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><a class="code hl_enumeration" href="types_8h.html#a67a0db04d321a74b7e7fcfd3f1a3f70b">Status</a> <a class="code hl_function" href="set_8h.html#a94547ab1010894b64ec974bde79c1e4f">set_remove_id</a>(<a class="code hl_struct" href="struct__Set.html">Set</a> *set, <a class="code hl_typedef" href="types_8h.html#a845e604fb28f7e3d97549da3448149d3">Id</a> <span class="keywordtype">id</span>);</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><a class="code hl_enumeration" href="types_8h.html#a67a0db04d321a74b7e7fcfd3f1a3f70b">Status</a> <a class="code hl_function" href="set_8h.html#a94547ab1010894b64ec974bde79c1e4f">set_remove_id</a>(Set *set, <a class="code hl_typedef" href="types_8h.html#a845e604fb28f7e3d97549da3448149d3">Id</a> <span class="keywordtype">id</span>);</div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><a class="code hl_enumeration" href="types_8h.html#a39db6982619d623273fad8a383489309">Bool</a> <a class="code hl_function" href="set_8h.html#a298b41bcf7ae56e1f07567eaace0c963">set_has_id</a>(<a class="code hl_struct" href="struct__Set.html">Set</a> *set, <a class="code hl_typedef" href="types_8h.html#a845e604fb28f7e3d97549da3448149d3">Id</a> <span class="keywordtype">id</span>);</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><a class="code hl_enumeration" href="types_8h.html#a39db6982619d623273fad8a383489309">Bool</a> <a class="code hl_function" href="set_8h.html#a298b41bcf7ae56e1f07567eaace0c963">set_has_id</a>(Set *set, <a class="code hl_typedef" href="types_8h.html#a845e604fb28f7e3d97549da3448149d3">Id</a> <span class="keywordtype">id</span>);</div>
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><a class="code hl_typedef" href="types_8h.html#a845e604fb28f7e3d97549da3448149d3">Id</a> <a class="code hl_function" href="set_8h.html#a7d9d411d8d5f63192b1cff0fe155bbfc">set_get_id_from_index</a>(<a class="code hl_struct" href="struct__Set.html">Set</a> *set, <span class="keywordtype">int</span> n);</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><a class="code hl_typedef" href="types_8h.html#a845e604fb28f7e3d97549da3448149d3">Id</a> <a class="code hl_function" href="set_8h.html#a7d9d411d8d5f63192b1cff0fe155bbfc">set_get_id_from_index</a>(Set *set, <span class="keywordtype">int</span> n);</div>
 <div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
 <div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="comment">/*Management of n_ids*/</span></div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="keywordtype">int</span> <a class="code hl_function" href="set_8h.html#afaa9d55d67526584aba2e0688ca189b3">set_get_num_ids</a>(<a class="code hl_struct" href="struct__Set.html">Set</a> *set);</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="keywordtype">int</span> <a class="code hl_function" href="set_8h.html#afaa9d55d67526584aba2e0688ca189b3">set_get_num_ids</a>(Set *set);</div>
 <div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
 <div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="comment">/*Print*/</span></div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="keywordtype">void</span> <a class="code hl_function" href="set_8h.html#ad5ca92546c83b1b0b9c26b137ad400ce">set_print</a>(<a class="code hl_struct" href="struct__Set.html">Set</a> *set);</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="keywordtype">void</span> <a class="code hl_function" href="set_8h.html#ad5ca92546c83b1b0b9c26b137ad400ce">set_print</a>(Set *set);</div>
 <div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
 <div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="preprocessor">#endif </span><span class="comment">/* SET_H_ */</span><span class="preprocessor"></span></div>
 <div class="ttc" id="aset_8h_html_a298b41bcf7ae56e1f07567eaace0c963"><div class="ttname"><a href="set_8h.html#a298b41bcf7ae56e1f07567eaace0c963">set_has_id</a></div><div class="ttdeci">Bool set_has_id(Set *set, Id id)</div><div class="ttdoc">It checks if the set contains an element.</div><div class="ttdef"><b>Definition</b> set.c:91</div></div>

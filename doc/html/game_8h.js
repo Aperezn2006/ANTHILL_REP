@@ -1,6 +1,5 @@
 var game_8h =
 [
-    [ "Game", "game_8h.html#a57156d39c530aec3fba3a9dad8c2dc6a", null ],
     [ "game_add_character", "game_8h.html#a1e3126615586a6a66e304aae00d6fe35", null ],
     [ "game_add_link", "game_8h.html#ae60231f9c7fe9ede847e1d10366f1808", null ],
     [ "game_add_object", "game_8h.html#a612a5e67878efd67e34e1447464a2a3c", null ],

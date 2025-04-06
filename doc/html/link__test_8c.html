@@ -30,7 +30,7 @@
   <td id="projectalign">
    <div id="projectname">Anthill<span id="projectnumber">&#160;I3</span>
    </div>
-   <div id="projectbrief">Third iteration of the unix-based Anthill game</div>
+   <div id="projectbrief">Unix-based Anthill game</div>
   </td>
  </tr>
  </tbody>
@@ -105,9 +105,11 @@ $(document).ready(function(){initNavTree('link__test_8c.html',''); initResizable
 <code>#include &lt;string.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="link__test_8h_source.html">link_test.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="test_8h_source.html">test.h</a>&quot;</code><br />
-</div><div class="textblock"><div class="dynheader">
-Include dependency graph for link_test.c:</div>
-<div class="dyncontent">
+</div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Include dependency graph for link_test.c:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="link__test_8c__incl.png" border="0" usemap="#a_2mnt_2c_2Ubuntu_2Shared__folder_2PPROG_2I3_2ANTHILL__REP_2src_2link__test_8c" alt=""/></div>
 </div>
 </div><table class="memberdecls">
@@ -235,7 +237,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="test"><dt><b><a class="el" href="test.html#_test000034">Test:</a></b></dt><dd>Test link con un id valido </dd></dl>
+<dl class="test"><dt><b><a class="el" href="test.html#_test000030">Test:</a></b></dt><dd>Test link con un id valido </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>ID </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>devuelve un puntero valido </dd></dl>
 
@@ -255,7 +257,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="test"><dt><b><a class="el" href="test.html#_test000050">Test:</a></b></dt><dd>Test link valido </dd></dl>
+<dl class="test"><dt><b><a class="el" href="test.html#_test000046">Test:</a></b></dt><dd>Test link valido </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>Puntero valido </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd><a class="el" href="link_8c.html#a45c192f1efaa9863a150e51d1a0f2756" title="It gets the direction of a link.">link_get_direction()</a> == valida direccion (0-3) </dd></dl>
 
@@ -275,7 +277,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="test"><dt><b><a class="el" href="test.html#_test000058">Test:</a></b></dt><dd>Test todo valido </dd></dl>
+<dl class="test"><dt><b><a class="el" href="test.html#_test000054">Test:</a></b></dt><dd>Test todo valido </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>Puntero valido </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd><a class="el" href="link_8c.html#a407c241ffb206202f0c288e91c01ad75" title="It gets the destination id of a link.">link_get_end()</a> == valido end id </dd></dl>
 
@@ -295,7 +297,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="test"><dt><b><a class="el" href="test.html#_test000038">Test:</a></b></dt><dd>Test con ID valido </dd></dl>
+<dl class="test"><dt><b><a class="el" href="test.html#_test000034">Test:</a></b></dt><dd>Test con ID valido </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>Puntero valido </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>resultado valido </dd></dl>
 
@@ -315,7 +317,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="test"><dt><b><a class="el" href="test.html#_test000042">Test:</a></b></dt><dd>Test con link valido </dd></dl>
+<dl class="test"><dt><b><a class="el" href="test.html#_test000038">Test:</a></b></dt><dd>Test con link valido </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>Puntero valido, y nombre </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>Devuelve lo que sea menos NULL </dd></dl>
 
@@ -335,7 +337,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="test"><dt><b><a class="el" href="test.html#_test000046">Test:</a></b></dt><dd>Test con todo valido </dd></dl>
+<dl class="test"><dt><b><a class="el" href="test.html#_test000042">Test:</a></b></dt><dd>Test con todo valido </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>Puntero valido </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd><a class="el" href="link_8c.html#a1edd9bfd5e282b2d150858dcfaba868b" title="It gets the status of a link (open or closed)">link_get_open()</a> == TRUE o FALSE </dd></dl>
 
@@ -355,7 +357,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="test"><dt><b><a class="el" href="test.html#_test000054">Test:</a></b></dt><dd>Test con id valido </dd></dl>
+<dl class="test"><dt><b><a class="el" href="test.html#_test000050">Test:</a></b></dt><dd>Test con id valido </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>Todo valido </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd><a class="el" href="link_8c.html#ade97314fda342663e1b98cdb4e6ca50a" title="It gets the origin id of a link.">link_get_start()</a> == valido start id </dd></dl>
 
@@ -375,7 +377,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="test"><dt><b><a class="el" href="test.html#_test000060">Test:</a></b></dt><dd>Test con link valido </dd></dl>
+<dl class="test"><dt><b><a class="el" href="test.html#_test000056">Test:</a></b></dt><dd>Test con link valido </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>Puntero valido </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd><a class="el" href="link_8c.html#a63adc8ec3b6a842f6e2dee947ae0d15b" title="It prints the information of a link.">link_print()</a> == OK </dd></dl>
 
@@ -395,7 +397,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="test"><dt><b><a class="el" href="test.html#_test000048">Test:</a></b></dt><dd>Test link valido </dd></dl>
+<dl class="test"><dt><b><a class="el" href="test.html#_test000044">Test:</a></b></dt><dd>Test link valido </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>Puntero valido, direccion valida </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd><a class="el" href="link_8c.html#a45c192f1efaa9863a150e51d1a0f2756" title="It gets the direction of a link.">link_get_direction()</a> == dierccion asiganda (0-3) </dd></dl>
 
@@ -415,7 +417,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="test"><dt><b><a class="el" href="test.html#_test000056">Test:</a></b></dt><dd>Test todo valido </dd></dl>
+<dl class="test"><dt><b><a class="el" href="test.html#_test000052">Test:</a></b></dt><dd>Test todo valido </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>Puntero valido, id end valido </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd><a class="el" href="link_8c.html#a407c241ffb206202f0c288e91c01ad75" title="It gets the destination id of a link.">link_get_end()</a> == end ID set </dd></dl>
 
@@ -435,7 +437,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="test"><dt><b><a class="el" href="test.html#_test000036">Test:</a></b></dt><dd>Test con link id valido </dd></dl>
+<dl class="test"><dt><b><a class="el" href="test.html#_test000032">Test:</a></b></dt><dd>Test con link id valido </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>Pointer to a valid link </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>el id que devuelve es igual al que puesto </dd></dl>
 
@@ -455,7 +457,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="test"><dt><b><a class="el" href="test.html#_test000040">Test:</a></b></dt><dd>Test con valido id </dd></dl>
+<dl class="test"><dt><b><a class="el" href="test.html#_test000036">Test:</a></b></dt><dd>Test con valido id </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>valido puntero link y nombre </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>strcmp(<a class="el" href="link_8c.html#a64cc19818d585666349ed1bc591bd2d9" title="It gets the name of a link.">link_get_name()</a>, "door1") == 0 </dd></dl>
 
@@ -475,7 +477,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="test"><dt><b><a class="el" href="test.html#_test000044">Test:</a></b></dt><dd>Test con el status OPEN </dd></dl>
+<dl class="test"><dt><b><a class="el" href="test.html#_test000040">Test:</a></b></dt><dd>Test con el status OPEN </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>Puntero valido </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd><a class="el" href="link_8c.html#a1edd9bfd5e282b2d150858dcfaba868b" title="It gets the status of a link (open or closed)">link_get_open()</a> == TRUE </dd></dl>
 
@@ -495,7 +497,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="test"><dt><b><a class="el" href="test.html#_test000052">Test:</a></b></dt><dd>Test valido todo </dd></dl>
+<dl class="test"><dt><b><a class="el" href="test.html#_test000048">Test:</a></b></dt><dd>Test valido todo </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>Puntero valido, id start valido </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd><a class="el" href="link_8c.html#ade97314fda342663e1b98cdb4e6ca50a" title="It gets the origin id of a link.">link_get_start()</a> == start ID asignado </dd></dl>
 
@@ -515,7 +517,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="test"><dt><b><a class="el" href="test.html#_test000035">Test:</a></b></dt><dd>Test link con id invalido </dd></dl>
+<dl class="test"><dt><b><a class="el" href="test.html#_test000031">Test:</a></b></dt><dd>Test link con id invalido </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>NULL ID </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>debe devolver NULL </dd></dl>
 
@@ -535,7 +537,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="test"><dt><b><a class="el" href="test.html#_test000051">Test:</a></b></dt><dd>Test link NULL </dd></dl>
+<dl class="test"><dt><b><a class="el" href="test.html#_test000047">Test:</a></b></dt><dd>Test link NULL </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>NULL link puntero </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>ERROR devuelve </dd></dl>
 
@@ -555,7 +557,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="test"><dt><b><a class="el" href="test.html#_test000059">Test:</a></b></dt><dd>Test con NULL link </dd></dl>
+<dl class="test"><dt><b><a class="el" href="test.html#_test000055">Test:</a></b></dt><dd>Test con NULL link </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>NULL link puntero </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>ERROR devuelve </dd></dl>
 
@@ -575,7 +577,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="test"><dt><b><a class="el" href="test.html#_test000039">Test:</a></b></dt><dd>Test con NULL id </dd></dl>
+<dl class="test"><dt><b><a class="el" href="test.html#_test000035">Test:</a></b></dt><dd>Test con NULL id </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>NULL link puntero </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>ERROR returned </dd></dl>
 
@@ -595,7 +597,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="test"><dt><b><a class="el" href="test.html#_test000043">Test:</a></b></dt><dd>Test con puntero NULL </dd></dl>
+<dl class="test"><dt><b><a class="el" href="test.html#_test000039">Test:</a></b></dt><dd>Test con puntero NULL </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>NULL link puntero </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>Ndevuelve NULL </dd></dl>
 
@@ -615,7 +617,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="test"><dt><b><a class="el" href="test.html#_test000047">Test:</a></b></dt><dd>Test con link NULL </dd></dl>
+<dl class="test"><dt><b><a class="el" href="test.html#_test000043">Test:</a></b></dt><dd>Test con link NULL </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>NULL link puntero </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>ERROR returned </dd></dl>
 
@@ -635,7 +637,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="test"><dt><b><a class="el" href="test.html#_test000055">Test:</a></b></dt><dd>Test con link NULL </dd></dl>
+<dl class="test"><dt><b><a class="el" href="test.html#_test000051">Test:</a></b></dt><dd>Test con link NULL </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>NULL link puntero </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>ERROR devuelve </dd></dl>
 
@@ -655,7 +657,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="test"><dt><b><a class="el" href="test.html#_test000061">Test:</a></b></dt><dd>Test con NULL link </dd></dl>
+<dl class="test"><dt><b><a class="el" href="test.html#_test000057">Test:</a></b></dt><dd>Test con NULL link </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>NULL link puntero </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd><a class="el" href="link_8c.html#a63adc8ec3b6a842f6e2dee947ae0d15b" title="It prints the information of a link.">link_print()</a> == ERROR </dd></dl>
 
@@ -675,7 +677,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="test"><dt><b><a class="el" href="test.html#_test000049">Test:</a></b></dt><dd>Test link invalido </dd></dl>
+<dl class="test"><dt><b><a class="el" href="test.html#_test000045">Test:</a></b></dt><dd>Test link invalido </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>Puntero valido, direccion invalida (mas de 3 o menos de 0) </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>ERROR devuelve </dd></dl>
 
@@ -695,7 +697,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="test"><dt><b><a class="el" href="test.html#_test000057">Test:</a></b></dt><dd>Test id invalido </dd></dl>
+<dl class="test"><dt><b><a class="el" href="test.html#_test000053">Test:</a></b></dt><dd>Test id invalido </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>Puntero invalido </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>ERROR devuelve </dd></dl>
 
@@ -715,7 +717,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="test"><dt><b><a class="el" href="test.html#_test000037">Test:</a></b></dt><dd>Test con ID invalido </dd></dl>
+<dl class="test"><dt><b><a class="el" href="test.html#_test000033">Test:</a></b></dt><dd>Test con ID invalido </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>link creado correctamente, pero id erroneo </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>devuelve ERROR </dd></dl>
 
@@ -735,7 +737,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="test"><dt><b><a class="el" href="test.html#_test000041">Test:</a></b></dt><dd>Test con nombre NULL </dd></dl>
+<dl class="test"><dt><b><a class="el" href="test.html#_test000037">Test:</a></b></dt><dd>Test con nombre NULL </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>Puntero valido, nombre NULL </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>devuelve ERROR </dd></dl>
 
@@ -755,7 +757,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="test"><dt><b><a class="el" href="test.html#_test000045">Test:</a></b></dt><dd>Test con valor Bool erroneo </dd></dl>
+<dl class="test"><dt><b><a class="el" href="test.html#_test000041">Test:</a></b></dt><dd>Test con valor Bool erroneo </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>Puntero valido, pero mal el valor del Bool </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>ERROR devuelto </dd></dl>
 
@@ -775,7 +777,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="test"><dt><b><a class="el" href="test.html#_test000053">Test:</a></b></dt><dd>Test link invalido </dd></dl>
+<dl class="test"><dt><b><a class="el" href="test.html#_test000049">Test:</a></b></dt><dd>Test link invalido </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>Puntero valido, invalido el id start </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>ERROR devuelve </dd></dl>
 

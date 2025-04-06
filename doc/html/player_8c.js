@@ -1,6 +1,6 @@
 var player_8c =
 [
-    [ "_Player", "struct__Player.html", "struct__Player" ],
+    [ "Player", "struct__Player.html", "struct__Player" ],
     [ "player_add_object", "player_8c.html#ae6fc593cd99f358aa996c83e0cd40e2e", null ],
     [ "player_create", "player_8c.html#ab8d706037259061de90808be9a6c2b32", null ],
     [ "player_decrease_health", "player_8c.html#a8c31d7b3dd0bdec84b4295d344861c6e", null ],

@@ -1,6 +1,6 @@
 var command_8c =
 [
-    [ "_Command", "struct__Command.html", "struct__Command" ],
+    [ "Command", "struct__Command.html", "struct__Command" ],
     [ "CMD_LENGHT", "command_8c.html#a2b1bd24d2eddf8081d8c541e4cc4fd4b", null ],
     [ "command_create", "command_8c.html#aa3d3d6bdeb73c7bbaff6ee913569f456", null ],
     [ "command_destroy", "command_8c.html#abfb6dbf1977dc1a9a6136baefd91b451", null ],

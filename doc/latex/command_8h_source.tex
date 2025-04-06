@@ -15,27 +15,27 @@
 \DoxyCodeLine{00020\ }
 \DoxyCodeLine{00021\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{\ \mbox{\hyperlink{command_8h_a805cf38fd2b6d5604bf1f1036b80fde2a785693a1d550a18688638e9124af41d0}{NO\_CMD}}\ =\ -\/1,\ \mbox{\hyperlink{command_8h_a805cf38fd2b6d5604bf1f1036b80fde2a6ce26a62afab55d7606ad4e92428b30c}{UNKNOWN}},\ \mbox{\hyperlink{command_8h_a805cf38fd2b6d5604bf1f1036b80fde2a7a10b5d68d31711288e1fe0fa17dbf4f}{EXIT}},\ \mbox{\hyperlink{command_8h_a805cf38fd2b6d5604bf1f1036b80fde2aed3ef32890b6da0919b57254c5206c62}{MOVE}},\ \mbox{\hyperlink{command_8h_a805cf38fd2b6d5604bf1f1036b80fde2a7405647410e343caba1bf383e83d4f5f}{TAKE}},\ \mbox{\hyperlink{command_8h_a805cf38fd2b6d5604bf1f1036b80fde2a8b0b0025af76a3d8f0b7b1d4758e51a6}{DROP}},\ \mbox{\hyperlink{command_8h_a805cf38fd2b6d5604bf1f1036b80fde2a831c130f9c83adc963152d232a9d61c7}{ATTACK}},\ \mbox{\hyperlink{command_8h_a805cf38fd2b6d5604bf1f1036b80fde2aa24d371d8d14298a1bf5a98d3f321bef}{CHAT}},\ \mbox{\hyperlink{command_8h_a805cf38fd2b6d5604bf1f1036b80fde2aab933f64fcaa285df294e1420f6f1b07}{INSPECT}}\ \}\ \mbox{\hyperlink{command_8h_a805cf38fd2b6d5604bf1f1036b80fde2}{CommandCode}};}
 \DoxyCodeLine{00022\ }
-\DoxyCodeLine{00023\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__Command}{\_Command}}\ \mbox{\hyperlink{struct__Command}{Command}};}
+\DoxyCodeLine{00023\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__Command}{\_Command}}\ Command;}
 \DoxyCodeLine{00024\ }
-\DoxyCodeLine{00032\ \mbox{\hyperlink{struct__Command}{Command}}\ *\mbox{\hyperlink{command_8h_aa3d3d6bdeb73c7bbaff6ee913569f456}{command\_create}}();}
+\DoxyCodeLine{00032\ Command\ *\mbox{\hyperlink{command_8h_aa3d3d6bdeb73c7bbaff6ee913569f456}{command\_create}}();}
 \DoxyCodeLine{00033\ }
-\DoxyCodeLine{00041\ \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}}\ \mbox{\hyperlink{command_8h_abfb6dbf1977dc1a9a6136baefd91b451}{command\_destroy}}(\mbox{\hyperlink{struct__Command}{Command}}\ *command);}
+\DoxyCodeLine{00041\ \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}}\ \mbox{\hyperlink{command_8h_abfb6dbf1977dc1a9a6136baefd91b451}{command\_destroy}}(Command\ *command);}
 \DoxyCodeLine{00042\ }
-\DoxyCodeLine{00051\ \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}}\ \mbox{\hyperlink{command_8h_a0abb96f9b182d0018ec4b5e15d5307e4}{command\_set\_code}}(\mbox{\hyperlink{struct__Command}{Command}}\ *command,\ \mbox{\hyperlink{command_8h_a805cf38fd2b6d5604bf1f1036b80fde2}{CommandCode}}\ \mbox{\hyperlink{struct__Command_ab03a4794ef52c72db2d95de1257f82cc}{code}});}
+\DoxyCodeLine{00051\ \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}}\ \mbox{\hyperlink{command_8h_a0abb96f9b182d0018ec4b5e15d5307e4}{command\_set\_code}}(Command\ *command,\ \mbox{\hyperlink{command_8h_a805cf38fd2b6d5604bf1f1036b80fde2}{CommandCode}}\ \mbox{\hyperlink{struct__Command_a1d6d610e78b872701e2089f37cafeaf8}{code}});}
 \DoxyCodeLine{00052\ }
-\DoxyCodeLine{00060\ \mbox{\hyperlink{command_8h_a805cf38fd2b6d5604bf1f1036b80fde2}{CommandCode}}\ \mbox{\hyperlink{command_8h_a2206702025ffe5340d172decb4ceea52}{command\_get\_code}}(\mbox{\hyperlink{struct__Command}{Command}}\ *command);}
+\DoxyCodeLine{00060\ \mbox{\hyperlink{command_8h_a805cf38fd2b6d5604bf1f1036b80fde2}{CommandCode}}\ \mbox{\hyperlink{command_8h_a2206702025ffe5340d172decb4ceea52}{command\_get\_code}}(Command\ *command);}
 \DoxyCodeLine{00061\ }
-\DoxyCodeLine{00069\ \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}}\ \mbox{\hyperlink{command_8h_ab552b723255ed129d81305127e64c50b}{command\_set\_word}}(\mbox{\hyperlink{struct__Command}{Command}}\ *c,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{struct__Command_aaabec24e95acf56c9f83d1eed2452465}{word}});}
+\DoxyCodeLine{00069\ \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}}\ \mbox{\hyperlink{command_8h_ab552b723255ed129d81305127e64c50b}{command\_set\_word}}(Command\ *c,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{struct__Command_acb85fdca32d29e9622104e05e4dc2f9d}{word}});}
 \DoxyCodeLine{00070\ }
-\DoxyCodeLine{00078\ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{command_8h_a234c60e061d10b372c3551f66fd01c21}{command\_get\_word}}(\mbox{\hyperlink{struct__Command}{Command}}\ *c);}
+\DoxyCodeLine{00078\ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{command_8h_a234c60e061d10b372c3551f66fd01c21}{command\_get\_word}}(Command\ *c);}
 \DoxyCodeLine{00079\ }
-\DoxyCodeLine{00087\ \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}}\ \mbox{\hyperlink{command_8h_adf15cb97a09577adb8475a3c6c99e7c5}{command\_get\_user\_input}}(\mbox{\hyperlink{struct__Command}{Command}}\ *command);}
+\DoxyCodeLine{00087\ \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}}\ \mbox{\hyperlink{command_8h_adf15cb97a09577adb8475a3c6c99e7c5}{command\_get\_user\_input}}(Command\ *command);}
 \DoxyCodeLine{00088\ }
-\DoxyCodeLine{00097\ \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}}\ \mbox{\hyperlink{command_8h_aac1c9fdf3dbee826bb501639460f345f}{command\_set\_result}}(\mbox{\hyperlink{struct__Command}{Command}}\ *command,\ \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}}\ \mbox{\hyperlink{struct__Command_a561e0a587f742cef00493f2cefb86005}{result}});}
+\DoxyCodeLine{00097\ \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}}\ \mbox{\hyperlink{command_8h_aac1c9fdf3dbee826bb501639460f345f}{command\_set\_result}}(Command\ *command,\ \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}}\ \mbox{\hyperlink{struct__Command_a8a6621fd0278576c0c26b2a91433190b}{result}});}
 \DoxyCodeLine{00098\ }
-\DoxyCodeLine{00106\ \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}}\ \mbox{\hyperlink{command_8h_ac50410109215a8e56f75bab52a9d145d}{command\_get\_result}}(\mbox{\hyperlink{struct__Command}{Command}}\ *command);}
+\DoxyCodeLine{00106\ \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}}\ \mbox{\hyperlink{command_8h_ac50410109215a8e56f75bab52a9d145d}{command\_get\_result}}(Command\ *command);}
 \DoxyCodeLine{00107\ }
-\DoxyCodeLine{00115\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{command_8h_afcad0abda11b9f3bf4cffa2c07e1ebe1}{command\_to\_str}}(\mbox{\hyperlink{command_8h_a805cf38fd2b6d5604bf1f1036b80fde2}{CommandCode}}\ \mbox{\hyperlink{struct__Command_ab03a4794ef52c72db2d95de1257f82cc}{code}});}
+\DoxyCodeLine{00115\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{command_8h_afcad0abda11b9f3bf4cffa2c07e1ebe1}{command\_to\_str}}(\mbox{\hyperlink{command_8h_a805cf38fd2b6d5604bf1f1036b80fde2}{CommandCode}}\ \mbox{\hyperlink{struct__Command_a1d6d610e78b872701e2089f37cafeaf8}{code}});}
 \DoxyCodeLine{00116\ }
 \DoxyCodeLine{00117\ \textcolor{preprocessor}{\#endif}}
 

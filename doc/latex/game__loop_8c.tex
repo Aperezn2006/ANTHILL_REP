@@ -20,13 +20,13 @@ Include dependency graph for game\+\_\+loop.\+c\+:
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-int \mbox{\hyperlink{game__loop_8c_a31e8784ceb06b2f65b70e074e3e1a722}{game\+\_\+loop\+\_\+init}} (\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} \texorpdfstring{$\ast$}{*}game, \mbox{\hyperlink{graphic__engine_8h_ae1bc5cdbfce93098f066274fdea49af1}{Graphic\+\_\+engine}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}gengine, char \texorpdfstring{$\ast$}{*}file\+\_\+name)
+int \mbox{\hyperlink{game__loop_8c_a31e8784ceb06b2f65b70e074e3e1a722}{game\+\_\+loop\+\_\+init}} (Game \texorpdfstring{$\ast$}{*}game, Graphic\+\_\+engine \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}gengine, char \texorpdfstring{$\ast$}{*}file\+\_\+name)
 \begin{DoxyCompactList}\small\item\em Initializes the game loop by loading game data and creating the graphic engine. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{game__loop_8c_afb6a670628dffdd01661658f29a1e8ca}{game\+\_\+loop\+\_\+run}} (\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} \texorpdfstring{$\ast$}{*}game, \mbox{\hyperlink{graphic__engine_8h_ae1bc5cdbfce93098f066274fdea49af1}{Graphic\+\_\+engine}} \texorpdfstring{$\ast$}{*}gengine, FILE \texorpdfstring{$\ast$}{*}log\+\_\+file)
+void \mbox{\hyperlink{game__loop_8c_afb6a670628dffdd01661658f29a1e8ca}{game\+\_\+loop\+\_\+run}} (Game \texorpdfstring{$\ast$}{*}game, Graphic\+\_\+engine \texorpdfstring{$\ast$}{*}gengine, FILE \texorpdfstring{$\ast$}{*}log\+\_\+file)
 \begin{DoxyCompactList}\small\item\em Runs the main game loop, processing commands and updating the game state. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{game__loop_8c_a0da7d0baf2abd7218bc555ea1f73d1c2}{game\+\_\+loop\+\_\+cleanup}} (\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} \texorpdfstring{$\ast$}{*}game, \mbox{\hyperlink{graphic__engine_8h_ae1bc5cdbfce93098f066274fdea49af1}{Graphic\+\_\+engine}} \texorpdfstring{$\ast$}{*}gengine, FILE \texorpdfstring{$\ast$}{*}log\+\_\+file)
+void \mbox{\hyperlink{game__loop_8c_a0da7d0baf2abd7218bc555ea1f73d1c2}{game\+\_\+loop\+\_\+cleanup}} (Game \texorpdfstring{$\ast$}{*}game, Graphic\+\_\+engine \texorpdfstring{$\ast$}{*}gengine, FILE \texorpdfstring{$\ast$}{*}log\+\_\+file)
 \begin{DoxyCompactList}\small\item\em Cleans up resources used during the game loop, including the game and graphic engine. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{game__loop_8c_ade8edb886ee05003d1b664c39955385c}{log\+\_\+command}} (FILE \texorpdfstring{$\ast$}{*}log\+\_\+file, \mbox{\hyperlink{command_8h_a7d2935971c252377cb0fc1c8545dc2bc}{Command}} \texorpdfstring{$\ast$}{*}cmd)
+void \mbox{\hyperlink{game__loop_8c_ade8edb886ee05003d1b664c39955385c}{log\+\_\+command}} (FILE \texorpdfstring{$\ast$}{*}log\+\_\+file, Command \texorpdfstring{$\ast$}{*}cmd)
 \begin{DoxyCompactList}\small\item\em Logs the details of a command to the specified log file. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{game__loop_8c_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char \texorpdfstring{$\ast$}{*}argv\mbox{[}$\,$\mbox{]})
 \end{DoxyCompactItemize}
@@ -54,7 +54,7 @@ GNU Public License
 \index{game\_loop.c@{game\_loop.c}!game\_loop\_cleanup@{game\_loop\_cleanup}}
 \index{game\_loop\_cleanup@{game\_loop\_cleanup}!game\_loop.c@{game\_loop.c}}
 \doxysubsubsection{\texorpdfstring{game\_loop\_cleanup()}{game\_loop\_cleanup()}}
-{\footnotesize\ttfamily void game\+\_\+loop\+\_\+cleanup (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} \texorpdfstring{$\ast$}{*}}]{game,  }\item[{\mbox{\hyperlink{graphic__engine_8h_ae1bc5cdbfce93098f066274fdea49af1}{Graphic\+\_\+engine}} \texorpdfstring{$\ast$}{*}}]{gengine,  }\item[{FILE \texorpdfstring{$\ast$}{*}}]{log\+\_\+file }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void game\+\_\+loop\+\_\+cleanup (\begin{DoxyParamCaption}\item[{Game \texorpdfstring{$\ast$}{*}}]{game,  }\item[{Graphic\+\_\+engine \texorpdfstring{$\ast$}{*}}]{gengine,  }\item[{FILE \texorpdfstring{$\ast$}{*}}]{log\+\_\+file }\end{DoxyParamCaption})}
 
 
 
@@ -76,7 +76,7 @@ Profesores PPROG
 \index{game\_loop.c@{game\_loop.c}!game\_loop\_init@{game\_loop\_init}}
 \index{game\_loop\_init@{game\_loop\_init}!game\_loop.c@{game\_loop.c}}
 \doxysubsubsection{\texorpdfstring{game\_loop\_init()}{game\_loop\_init()}}
-{\footnotesize\ttfamily int game\+\_\+loop\+\_\+init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} \texorpdfstring{$\ast$}{*}}]{game,  }\item[{\mbox{\hyperlink{graphic__engine_8h_ae1bc5cdbfce93098f066274fdea49af1}{Graphic\+\_\+engine}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{gengine,  }\item[{char \texorpdfstring{$\ast$}{*}}]{file\+\_\+name }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int game\+\_\+loop\+\_\+init (\begin{DoxyParamCaption}\item[{Game \texorpdfstring{$\ast$}{*}}]{game,  }\item[{Graphic\+\_\+engine \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{gengine,  }\item[{char \texorpdfstring{$\ast$}{*}}]{file\+\_\+name }\end{DoxyParamCaption})}
 
 
 
@@ -101,7 +101,7 @@ Profesores PPROG
 \index{game\_loop.c@{game\_loop.c}!game\_loop\_run@{game\_loop\_run}}
 \index{game\_loop\_run@{game\_loop\_run}!game\_loop.c@{game\_loop.c}}
 \doxysubsubsection{\texorpdfstring{game\_loop\_run()}{game\_loop\_run()}}
-{\footnotesize\ttfamily void game\+\_\+loop\+\_\+run (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} \texorpdfstring{$\ast$}{*}}]{game,  }\item[{\mbox{\hyperlink{graphic__engine_8h_ae1bc5cdbfce93098f066274fdea49af1}{Graphic\+\_\+engine}} \texorpdfstring{$\ast$}{*}}]{gengine,  }\item[{FILE \texorpdfstring{$\ast$}{*}}]{log\+\_\+file }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void game\+\_\+loop\+\_\+run (\begin{DoxyParamCaption}\item[{Game \texorpdfstring{$\ast$}{*}}]{game,  }\item[{Graphic\+\_\+engine \texorpdfstring{$\ast$}{*}}]{gengine,  }\item[{FILE \texorpdfstring{$\ast$}{*}}]{log\+\_\+file }\end{DoxyParamCaption})}
 
 
 
@@ -123,7 +123,7 @@ Profesores PPROG
 \index{game\_loop.c@{game\_loop.c}!log\_command@{log\_command}}
 \index{log\_command@{log\_command}!game\_loop.c@{game\_loop.c}}
 \doxysubsubsection{\texorpdfstring{log\_command()}{log\_command()}}
-{\footnotesize\ttfamily void log\+\_\+command (\begin{DoxyParamCaption}\item[{FILE \texorpdfstring{$\ast$}{*}}]{log\+\_\+file,  }\item[{\mbox{\hyperlink{command_8h_a7d2935971c252377cb0fc1c8545dc2bc}{Command}} \texorpdfstring{$\ast$}{*}}]{cmd }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void log\+\_\+command (\begin{DoxyParamCaption}\item[{FILE \texorpdfstring{$\ast$}{*}}]{log\+\_\+file,  }\item[{Command \texorpdfstring{$\ast$}{*}}]{cmd }\end{DoxyParamCaption})}
 
 
 

@@ -30,7 +30,7 @@
   <td id="projectalign">
    <div id="projectname">Anthill<span id="projectnumber">&#160;I3</span>
    </div>
-   <div id="projectbrief">Third iteration of the unix-based Anthill game</div>
+   <div id="projectbrief">Unix-based Anthill game</div>
   </td>
  </tr>
  </tbody>
@@ -94,7 +94,7 @@ $(document).ready(function(){initNavTree('command_8c.html',''); initResizable();
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
+<a href="#nested-classes">Data Structures</a> &#124;
 <a href="#define-members">Macros</a> &#124;
 <a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
@@ -109,15 +109,17 @@ $(document).ready(function(){initNavTree('command_8c.html',''); initResizable();
 <code>#include &lt;stdlib.h&gt;</code><br />
 <code>#include &lt;string.h&gt;</code><br />
 <code>#include &lt;strings.h&gt;</code><br />
-</div><div class="textblock"><div class="dynheader">
-Include dependency graph for command.c:</div>
-<div class="dyncontent">
+</div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Include dependency graph for command.c:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="command_8c__incl.png" border="0" usemap="#a_2mnt_2c_2Ubuntu_2Shared__folder_2PPROG_2I3_2ANTHILL__REP_2src_2command_8c" alt=""/></div>
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct__Command.html">_Command</a></td></tr>
+Data Structures</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct__Command.html">Command</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Command.  <a href="struct__Command.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -128,31 +130,31 @@ Macros</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:aa3d3d6bdeb73c7bbaff6ee913569f456" id="r_aa3d3d6bdeb73c7bbaff6ee913569f456"><td class="memItemLeft" align="right" valign="top"><a class="el" href="command_8h.html#a7d2935971c252377cb0fc1c8545dc2bc">Command</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="command_8c.html#aa3d3d6bdeb73c7bbaff6ee913569f456">command_create</a> ()</td></tr>
+<tr class="memitem:aa3d3d6bdeb73c7bbaff6ee913569f456" id="r_aa3d3d6bdeb73c7bbaff6ee913569f456"><td class="memItemLeft" align="right" valign="top">Command *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="command_8c.html#aa3d3d6bdeb73c7bbaff6ee913569f456">command_create</a> ()</td></tr>
 <tr class="memdesc:aa3d3d6bdeb73c7bbaff6ee913569f456"><td class="mdescLeft">&#160;</td><td class="mdescRight">It allocates memory for a new command and initializes its members.  <br /></td></tr>
 <tr class="separator:aa3d3d6bdeb73c7bbaff6ee913569f456"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abfb6dbf1977dc1a9a6136baefd91b451" id="r_abfb6dbf1977dc1a9a6136baefd91b451"><td class="memItemLeft" align="right" valign="top"><a class="el" href="types_8h.html#a67a0db04d321a74b7e7fcfd3f1a3f70b">Status</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="command_8c.html#abfb6dbf1977dc1a9a6136baefd91b451">command_destroy</a> (<a class="el" href="command_8h.html#a7d2935971c252377cb0fc1c8545dc2bc">Command</a> *command)</td></tr>
+<tr class="memitem:abfb6dbf1977dc1a9a6136baefd91b451" id="r_abfb6dbf1977dc1a9a6136baefd91b451"><td class="memItemLeft" align="right" valign="top"><a class="el" href="types_8h.html#a67a0db04d321a74b7e7fcfd3f1a3f70b">Status</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="command_8c.html#abfb6dbf1977dc1a9a6136baefd91b451">command_destroy</a> (Command *command)</td></tr>
 <tr class="memdesc:abfb6dbf1977dc1a9a6136baefd91b451"><td class="mdescLeft">&#160;</td><td class="mdescRight">It frees the memory of a certain command.  <br /></td></tr>
 <tr class="separator:abfb6dbf1977dc1a9a6136baefd91b451"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0abb96f9b182d0018ec4b5e15d5307e4" id="r_a0abb96f9b182d0018ec4b5e15d5307e4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="types_8h.html#a67a0db04d321a74b7e7fcfd3f1a3f70b">Status</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="command_8c.html#a0abb96f9b182d0018ec4b5e15d5307e4">command_set_code</a> (<a class="el" href="command_8h.html#a7d2935971c252377cb0fc1c8545dc2bc">Command</a> *command, <a class="el" href="command_8h.html#a805cf38fd2b6d5604bf1f1036b80fde2">CommandCode</a> code)</td></tr>
+<tr class="memitem:a0abb96f9b182d0018ec4b5e15d5307e4" id="r_a0abb96f9b182d0018ec4b5e15d5307e4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="types_8h.html#a67a0db04d321a74b7e7fcfd3f1a3f70b">Status</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="command_8c.html#a0abb96f9b182d0018ec4b5e15d5307e4">command_set_code</a> (Command *command, <a class="el" href="command_8h.html#a805cf38fd2b6d5604bf1f1036b80fde2">CommandCode</a> code)</td></tr>
 <tr class="memdesc:a0abb96f9b182d0018ec4b5e15d5307e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">It sets a certain command.  <br /></td></tr>
 <tr class="separator:a0abb96f9b182d0018ec4b5e15d5307e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2206702025ffe5340d172decb4ceea52" id="r_a2206702025ffe5340d172decb4ceea52"><td class="memItemLeft" align="right" valign="top"><a class="el" href="command_8h.html#a805cf38fd2b6d5604bf1f1036b80fde2">CommandCode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="command_8c.html#a2206702025ffe5340d172decb4ceea52">command_get_code</a> (<a class="el" href="command_8h.html#a7d2935971c252377cb0fc1c8545dc2bc">Command</a> *command)</td></tr>
+<tr class="memitem:a2206702025ffe5340d172decb4ceea52" id="r_a2206702025ffe5340d172decb4ceea52"><td class="memItemLeft" align="right" valign="top"><a class="el" href="command_8h.html#a805cf38fd2b6d5604bf1f1036b80fde2">CommandCode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="command_8c.html#a2206702025ffe5340d172decb4ceea52">command_get_code</a> (Command *command)</td></tr>
 <tr class="memdesc:a2206702025ffe5340d172decb4ceea52"><td class="mdescLeft">&#160;</td><td class="mdescRight">It gets the code inside a command.  <br /></td></tr>
 <tr class="separator:a2206702025ffe5340d172decb4ceea52"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab552b723255ed129d81305127e64c50b" id="r_ab552b723255ed129d81305127e64c50b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="types_8h.html#a67a0db04d321a74b7e7fcfd3f1a3f70b">Status</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="command_8c.html#ab552b723255ed129d81305127e64c50b">command_set_word</a> (<a class="el" href="command_8h.html#a7d2935971c252377cb0fc1c8545dc2bc">Command</a> *c, const char *word)</td></tr>
+<tr class="memitem:ab552b723255ed129d81305127e64c50b" id="r_ab552b723255ed129d81305127e64c50b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="types_8h.html#a67a0db04d321a74b7e7fcfd3f1a3f70b">Status</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="command_8c.html#ab552b723255ed129d81305127e64c50b">command_set_word</a> (Command *c, const char *word)</td></tr>
 <tr class="memdesc:ab552b723255ed129d81305127e64c50b"><td class="mdescLeft">&#160;</td><td class="mdescRight">It sets the string that came after the command.  <br /></td></tr>
 <tr class="separator:ab552b723255ed129d81305127e64c50b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a234c60e061d10b372c3551f66fd01c21" id="r_a234c60e061d10b372c3551f66fd01c21"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="command_8c.html#a234c60e061d10b372c3551f66fd01c21">command_get_word</a> (<a class="el" href="command_8h.html#a7d2935971c252377cb0fc1c8545dc2bc">Command</a> *c)</td></tr>
+<tr class="memitem:a234c60e061d10b372c3551f66fd01c21" id="r_a234c60e061d10b372c3551f66fd01c21"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="command_8c.html#a234c60e061d10b372c3551f66fd01c21">command_get_word</a> (Command *c)</td></tr>
 <tr class="memdesc:a234c60e061d10b372c3551f66fd01c21"><td class="mdescLeft">&#160;</td><td class="mdescRight">It gets the wordect associated with a command.  <br /></td></tr>
 <tr class="separator:a234c60e061d10b372c3551f66fd01c21"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aac1c9fdf3dbee826bb501639460f345f" id="r_aac1c9fdf3dbee826bb501639460f345f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="types_8h.html#a67a0db04d321a74b7e7fcfd3f1a3f70b">Status</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="command_8c.html#aac1c9fdf3dbee826bb501639460f345f">command_set_result</a> (<a class="el" href="command_8h.html#a7d2935971c252377cb0fc1c8545dc2bc">Command</a> *command, <a class="el" href="types_8h.html#a67a0db04d321a74b7e7fcfd3f1a3f70b">Status</a> result)</td></tr>
+<tr class="memitem:aac1c9fdf3dbee826bb501639460f345f" id="r_aac1c9fdf3dbee826bb501639460f345f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="types_8h.html#a67a0db04d321a74b7e7fcfd3f1a3f70b">Status</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="command_8c.html#aac1c9fdf3dbee826bb501639460f345f">command_set_result</a> (Command *command, <a class="el" href="types_8h.html#a67a0db04d321a74b7e7fcfd3f1a3f70b">Status</a> result)</td></tr>
 <tr class="memdesc:aac1c9fdf3dbee826bb501639460f345f"><td class="mdescLeft">&#160;</td><td class="mdescRight">It sets wheter the command was succesful or not.  <br /></td></tr>
 <tr class="separator:aac1c9fdf3dbee826bb501639460f345f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac50410109215a8e56f75bab52a9d145d" id="r_ac50410109215a8e56f75bab52a9d145d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="types_8h.html#a67a0db04d321a74b7e7fcfd3f1a3f70b">Status</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="command_8c.html#ac50410109215a8e56f75bab52a9d145d">command_get_result</a> (<a class="el" href="command_8h.html#a7d2935971c252377cb0fc1c8545dc2bc">Command</a> *command)</td></tr>
+<tr class="memitem:ac50410109215a8e56f75bab52a9d145d" id="r_ac50410109215a8e56f75bab52a9d145d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="types_8h.html#a67a0db04d321a74b7e7fcfd3f1a3f70b">Status</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="command_8c.html#ac50410109215a8e56f75bab52a9d145d">command_get_result</a> (Command *command)</td></tr>
 <tr class="memdesc:ac50410109215a8e56f75bab52a9d145d"><td class="mdescLeft">&#160;</td><td class="mdescRight">It gets whether the command was successful or not.  <br /></td></tr>
 <tr class="separator:ac50410109215a8e56f75bab52a9d145d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adf15cb97a09577adb8475a3c6c99e7c5" id="r_adf15cb97a09577adb8475a3c6c99e7c5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="types_8h.html#a67a0db04d321a74b7e7fcfd3f1a3f70b">Status</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="command_8c.html#adf15cb97a09577adb8475a3c6c99e7c5">command_get_user_input</a> (<a class="el" href="command_8h.html#a7d2935971c252377cb0fc1c8545dc2bc">Command</a> *command)</td></tr>
+<tr class="memitem:adf15cb97a09577adb8475a3c6c99e7c5" id="r_adf15cb97a09577adb8475a3c6c99e7c5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="types_8h.html#a67a0db04d321a74b7e7fcfd3f1a3f70b">Status</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="command_8c.html#adf15cb97a09577adb8475a3c6c99e7c5">command_get_user_input</a> (Command *command)</td></tr>
 <tr class="memdesc:adf15cb97a09577adb8475a3c6c99e7c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">It gets the user inputs and sets its command and word.  <br /></td></tr>
 <tr class="separator:adf15cb97a09577adb8475a3c6c99e7c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afcad0abda11b9f3bf4cffa2c07e1ebe1" id="r_afcad0abda11b9f3bf4cffa2c07e1ebe1"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="command_8c.html#afcad0abda11b9f3bf4cffa2c07e1ebe1">command_to_str</a> (<a class="el" href="command_8h.html#a805cf38fd2b6d5604bf1f1036b80fde2">CommandCode</a> code)</td></tr>
@@ -193,7 +195,7 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="command_8h.html#a7d2935971c252377cb0fc1c8545dc2bc">Command</a> * command_create </td>
+          <td class="memname">Command * command_create </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -222,7 +224,7 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname"><a class="el" href="types_8h.html#a67a0db04d321a74b7e7fcfd3f1a3f70b">Status</a> command_destroy </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="command_8h.html#a7d2935971c252377cb0fc1c8545dc2bc">Command</a> *&#160;</td>
+          <td class="paramtype">Command *&#160;</td>
           <td class="paramname"><em>command</em></td><td>)</td>
           <td></td>
         </tr>
@@ -250,7 +252,7 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname"><a class="el" href="command_8h.html#a805cf38fd2b6d5604bf1f1036b80fde2">CommandCode</a> command_get_code </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="command_8h.html#a7d2935971c252377cb0fc1c8545dc2bc">Command</a> *&#160;</td>
+          <td class="paramtype">Command *&#160;</td>
           <td class="paramname"><em>command</em></td><td>)</td>
           <td></td>
         </tr>
@@ -278,7 +280,7 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname"><a class="el" href="types_8h.html#a67a0db04d321a74b7e7fcfd3f1a3f70b">Status</a> command_get_result </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="command_8h.html#a7d2935971c252377cb0fc1c8545dc2bc">Command</a> *&#160;</td>
+          <td class="paramtype">Command *&#160;</td>
           <td class="paramname"><em>command</em></td><td>)</td>
           <td></td>
         </tr>
@@ -306,7 +308,7 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname"><a class="el" href="types_8h.html#a67a0db04d321a74b7e7fcfd3f1a3f70b">Status</a> command_get_user_input </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="command_8h.html#a7d2935971c252377cb0fc1c8545dc2bc">Command</a> *&#160;</td>
+          <td class="paramtype">Command *&#160;</td>
           <td class="paramname"><em>command</em></td><td>)</td>
           <td></td>
         </tr>
@@ -334,7 +336,7 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">char * command_get_word </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="command_8h.html#a7d2935971c252377cb0fc1c8545dc2bc">Command</a> *&#160;</td>
+          <td class="paramtype">Command *&#160;</td>
           <td class="paramname"><em>c</em></td><td>)</td>
           <td></td>
         </tr>
@@ -362,7 +364,7 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname"><a class="el" href="types_8h.html#a67a0db04d321a74b7e7fcfd3f1a3f70b">Status</a> command_set_code </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="command_8h.html#a7d2935971c252377cb0fc1c8545dc2bc">Command</a> *&#160;</td>
+          <td class="paramtype">Command *&#160;</td>
           <td class="paramname"><em>command</em>, </td>
         </tr>
         <tr>
@@ -401,7 +403,7 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname"><a class="el" href="types_8h.html#a67a0db04d321a74b7e7fcfd3f1a3f70b">Status</a> command_set_result </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="command_8h.html#a7d2935971c252377cb0fc1c8545dc2bc">Command</a> *&#160;</td>
+          <td class="paramtype">Command *&#160;</td>
           <td class="paramname"><em>command</em>, </td>
         </tr>
         <tr>
@@ -440,7 +442,7 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname"><a class="el" href="types_8h.html#a67a0db04d321a74b7e7fcfd3f1a3f70b">Status</a> command_set_word </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="command_8h.html#a7d2935971c252377cb0fc1c8545dc2bc">Command</a> *&#160;</td>
+          <td class="paramtype">Command *&#160;</td>
           <td class="paramname"><em>c</em>, </td>
         </tr>
         <tr>

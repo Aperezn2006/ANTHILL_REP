@@ -41,35 +41,6 @@ void test1_character_set_id();
  */
 void test2_character_set_id();
 
-/*  Manejo de character_location */
-/**
- * @test Test character get location
- * @pre Pointer to a valid character
- * @post Output == OK
- */
-void test1_character_get_location();
-
-/**
- * @test Test character get location with NULL character
- * @pre NULL pointer
- * @post Output == ERROR
- */
-void test2_character_get_location();
-
-/**
- * @test Test character set location
- * @pre Pointer to a valid character
- * @post Output == OK
- */
-void test1_character_set_location();
-
-/**
- * @test Test character set location with NULL character
- * @pre NULL pointer
- * @post Output == ERROR
- */
-void test2_character_set_location();
-
 /*  Manejo de name */
 /**
  * @test Test character get name

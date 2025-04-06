@@ -1,6 +1,5 @@
 var link_8h =
 [
-    [ "Link", "link_8h.html#ae3b299941e67be6971bfd64a25505eff", null ],
     [ "link_create", "link_8h.html#a1e662c55d1ea0191b66372f0fa57ac1c", null ],
     [ "link_destroy", "link_8h.html#a117e4e5a82b23b805052d1eace34d068", null ],
     [ "link_get_direction", "link_8h.html#a45c192f1efaa9863a150e51d1a0f2756", null ],

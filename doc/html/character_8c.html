@@ -30,7 +30,7 @@
   <td id="projectalign">
    <div id="projectname">Anthill<span id="projectnumber">&#160;I3</span>
    </div>
-   <div id="projectbrief">Third iteration of the unix-based Anthill game</div>
+   <div id="projectbrief">Unix-based Anthill game</div>
   </td>
  </tr>
  </tbody>
@@ -94,7 +94,7 @@ $(document).ready(function(){initNavTree('character_8c.html',''); initResizable(
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
+<a href="#nested-classes">Data Structures</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">character.c File Reference</div></div>
 </div><!--header-->
@@ -106,66 +106,68 @@ $(document).ready(function(){initNavTree('character_8c.html',''); initResizable(
 <code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &lt;stdlib.h&gt;</code><br />
 <code>#include &lt;string.h&gt;</code><br />
-</div><div class="textblock"><div class="dynheader">
-Include dependency graph for character.c:</div>
-<div class="dyncontent">
+</div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Include dependency graph for character.c:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="character_8c__incl.png" border="0" usemap="#a_2mnt_2c_2Ubuntu_2Shared__folder_2PPROG_2I3_2ANTHILL__REP_2src_2character_8c" alt=""/></div>
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct__Character.html">_Character</a></td></tr>
+Data Structures</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct__Character.html">Character</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">character  <a href="struct__Character.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a04e381f3485e883f8c5638cbcd67e686" id="r_a04e381f3485e883f8c5638cbcd67e686"><td class="memItemLeft" align="right" valign="top"><a class="el" href="character_8h.html#a2cd4b80780220bc0f0f1d7424f104fa6">Character</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="character_8c.html#a04e381f3485e883f8c5638cbcd67e686">character_create</a> (<a class="el" href="types_8h.html#a845e604fb28f7e3d97549da3448149d3">Id</a> id)</td></tr>
+<tr class="memitem:a04e381f3485e883f8c5638cbcd67e686" id="r_a04e381f3485e883f8c5638cbcd67e686"><td class="memItemLeft" align="right" valign="top">Character *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="character_8c.html#a04e381f3485e883f8c5638cbcd67e686">character_create</a> (<a class="el" href="types_8h.html#a845e604fb28f7e3d97549da3448149d3">Id</a> id)</td></tr>
 <tr class="memdesc:a04e381f3485e883f8c5638cbcd67e686"><td class="mdescLeft">&#160;</td><td class="mdescRight">It creates a new character, allocating memory and initializing its members.  <br /></td></tr>
 <tr class="separator:a04e381f3485e883f8c5638cbcd67e686"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a56873e94f3e967d9ad10a36f2338a64a" id="r_a56873e94f3e967d9ad10a36f2338a64a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="types_8h.html#a67a0db04d321a74b7e7fcfd3f1a3f70b">Status</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="character_8c.html#a56873e94f3e967d9ad10a36f2338a64a">character_destroy</a> (<a class="el" href="character_8h.html#a2cd4b80780220bc0f0f1d7424f104fa6">Character</a> *character)</td></tr>
+<tr class="memitem:a56873e94f3e967d9ad10a36f2338a64a" id="r_a56873e94f3e967d9ad10a36f2338a64a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="types_8h.html#a67a0db04d321a74b7e7fcfd3f1a3f70b">Status</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="character_8c.html#a56873e94f3e967d9ad10a36f2338a64a">character_destroy</a> (Character *character)</td></tr>
 <tr class="memdesc:a56873e94f3e967d9ad10a36f2338a64a"><td class="mdescLeft">&#160;</td><td class="mdescRight">It destroys a character, freeing the allocated memory.  <br /></td></tr>
 <tr class="separator:a56873e94f3e967d9ad10a36f2338a64a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab909e43e2cfc3a8588056409edd43a64" id="r_ab909e43e2cfc3a8588056409edd43a64"><td class="memItemLeft" align="right" valign="top"><a class="el" href="types_8h.html#a845e604fb28f7e3d97549da3448149d3">Id</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="character_8c.html#ab909e43e2cfc3a8588056409edd43a64">character_get_id</a> (<a class="el" href="character_8h.html#a2cd4b80780220bc0f0f1d7424f104fa6">Character</a> *character)</td></tr>
+<tr class="memitem:ab909e43e2cfc3a8588056409edd43a64" id="r_ab909e43e2cfc3a8588056409edd43a64"><td class="memItemLeft" align="right" valign="top"><a class="el" href="types_8h.html#a845e604fb28f7e3d97549da3448149d3">Id</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="character_8c.html#ab909e43e2cfc3a8588056409edd43a64">character_get_id</a> (Character *character)</td></tr>
 <tr class="memdesc:ab909e43e2cfc3a8588056409edd43a64"><td class="mdescLeft">&#160;</td><td class="mdescRight">It gets the id of a character.  <br /></td></tr>
 <tr class="separator:ab909e43e2cfc3a8588056409edd43a64"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abcdc7860984349f7b6e6bd1cb6a11f09" id="r_abcdc7860984349f7b6e6bd1cb6a11f09"><td class="memItemLeft" align="right" valign="top"><a class="el" href="types_8h.html#a67a0db04d321a74b7e7fcfd3f1a3f70b">Status</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="character_8c.html#abcdc7860984349f7b6e6bd1cb6a11f09">character_set_id</a> (<a class="el" href="character_8h.html#a2cd4b80780220bc0f0f1d7424f104fa6">Character</a> *character, <a class="el" href="types_8h.html#a845e604fb28f7e3d97549da3448149d3">Id</a> id)</td></tr>
+<tr class="memitem:abcdc7860984349f7b6e6bd1cb6a11f09" id="r_abcdc7860984349f7b6e6bd1cb6a11f09"><td class="memItemLeft" align="right" valign="top"><a class="el" href="types_8h.html#a67a0db04d321a74b7e7fcfd3f1a3f70b">Status</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="character_8c.html#abcdc7860984349f7b6e6bd1cb6a11f09">character_set_id</a> (Character *character, <a class="el" href="types_8h.html#a845e604fb28f7e3d97549da3448149d3">Id</a> id)</td></tr>
 <tr class="memdesc:abcdc7860984349f7b6e6bd1cb6a11f09"><td class="mdescLeft">&#160;</td><td class="mdescRight">It sets the id of a character.  <br /></td></tr>
 <tr class="separator:abcdc7860984349f7b6e6bd1cb6a11f09"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a663fad1a34f5514fef098d67582b15b6" id="r_a663fad1a34f5514fef098d67582b15b6"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="character_8c.html#a663fad1a34f5514fef098d67582b15b6">character_get_name</a> (<a class="el" href="character_8h.html#a2cd4b80780220bc0f0f1d7424f104fa6">Character</a> *character)</td></tr>
+<tr class="memitem:a663fad1a34f5514fef098d67582b15b6" id="r_a663fad1a34f5514fef098d67582b15b6"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="character_8c.html#a663fad1a34f5514fef098d67582b15b6">character_get_name</a> (Character *character)</td></tr>
 <tr class="memdesc:a663fad1a34f5514fef098d67582b15b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">It gets the name of a character.  <br /></td></tr>
 <tr class="separator:a663fad1a34f5514fef098d67582b15b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a922232474a13885a323c7a4889873f57" id="r_a922232474a13885a323c7a4889873f57"><td class="memItemLeft" align="right" valign="top"><a class="el" href="types_8h.html#a67a0db04d321a74b7e7fcfd3f1a3f70b">Status</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="character_8c.html#a922232474a13885a323c7a4889873f57">character_set_name</a> (<a class="el" href="character_8h.html#a2cd4b80780220bc0f0f1d7424f104fa6">Character</a> *character, char *name)</td></tr>
+<tr class="memitem:a922232474a13885a323c7a4889873f57" id="r_a922232474a13885a323c7a4889873f57"><td class="memItemLeft" align="right" valign="top"><a class="el" href="types_8h.html#a67a0db04d321a74b7e7fcfd3f1a3f70b">Status</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="character_8c.html#a922232474a13885a323c7a4889873f57">character_set_name</a> (Character *character, char *name)</td></tr>
 <tr class="memdesc:a922232474a13885a323c7a4889873f57"><td class="mdescLeft">&#160;</td><td class="mdescRight">It sets the name of a character.  <br /></td></tr>
 <tr class="separator:a922232474a13885a323c7a4889873f57"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aec4a3c4896a8f96697bab8bd41ca3f05" id="r_aec4a3c4896a8f96697bab8bd41ca3f05"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="character_8c.html#aec4a3c4896a8f96697bab8bd41ca3f05">character_get_description</a> (<a class="el" href="character_8h.html#a2cd4b80780220bc0f0f1d7424f104fa6">Character</a> *character)</td></tr>
+<tr class="memitem:aec4a3c4896a8f96697bab8bd41ca3f05" id="r_aec4a3c4896a8f96697bab8bd41ca3f05"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="character_8c.html#aec4a3c4896a8f96697bab8bd41ca3f05">character_get_description</a> (Character *character)</td></tr>
 <tr class="memdesc:aec4a3c4896a8f96697bab8bd41ca3f05"><td class="mdescLeft">&#160;</td><td class="mdescRight">It gets the description of a character.  <br /></td></tr>
 <tr class="separator:aec4a3c4896a8f96697bab8bd41ca3f05"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9cddc527fedc19ae50fb1d040110a287" id="r_a9cddc527fedc19ae50fb1d040110a287"><td class="memItemLeft" align="right" valign="top"><a class="el" href="types_8h.html#a67a0db04d321a74b7e7fcfd3f1a3f70b">Status</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="character_8c.html#a9cddc527fedc19ae50fb1d040110a287">character_set_description</a> (<a class="el" href="character_8h.html#a2cd4b80780220bc0f0f1d7424f104fa6">Character</a> *character, char *description)</td></tr>
+<tr class="memitem:a9cddc527fedc19ae50fb1d040110a287" id="r_a9cddc527fedc19ae50fb1d040110a287"><td class="memItemLeft" align="right" valign="top"><a class="el" href="types_8h.html#a67a0db04d321a74b7e7fcfd3f1a3f70b">Status</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="character_8c.html#a9cddc527fedc19ae50fb1d040110a287">character_set_description</a> (Character *character, char *description)</td></tr>
 <tr class="memdesc:a9cddc527fedc19ae50fb1d040110a287"><td class="mdescLeft">&#160;</td><td class="mdescRight">It sets the description of a character.  <br /></td></tr>
 <tr class="separator:a9cddc527fedc19ae50fb1d040110a287"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a44f33a126ae5fe46a804f6e008d4fa82" id="r_a44f33a126ae5fe46a804f6e008d4fa82"><td class="memItemLeft" align="right" valign="top">long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="character_8c.html#a44f33a126ae5fe46a804f6e008d4fa82">character_get_health</a> (<a class="el" href="character_8h.html#a2cd4b80780220bc0f0f1d7424f104fa6">Character</a> *character)</td></tr>
+<tr class="memitem:a44f33a126ae5fe46a804f6e008d4fa82" id="r_a44f33a126ae5fe46a804f6e008d4fa82"><td class="memItemLeft" align="right" valign="top">long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="character_8c.html#a44f33a126ae5fe46a804f6e008d4fa82">character_get_health</a> (Character *character)</td></tr>
 <tr class="memdesc:a44f33a126ae5fe46a804f6e008d4fa82"><td class="mdescLeft">&#160;</td><td class="mdescRight">It gets the health of a character.  <br /></td></tr>
 <tr class="separator:a44f33a126ae5fe46a804f6e008d4fa82"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa3fe98e48c3731f01accf1ca8f6aca32" id="r_aa3fe98e48c3731f01accf1ca8f6aca32"><td class="memItemLeft" align="right" valign="top"><a class="el" href="types_8h.html#a67a0db04d321a74b7e7fcfd3f1a3f70b">Status</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="character_8c.html#aa3fe98e48c3731f01accf1ca8f6aca32">character_set_health</a> (<a class="el" href="character_8h.html#a2cd4b80780220bc0f0f1d7424f104fa6">Character</a> *character, long health)</td></tr>
+<tr class="memitem:aa3fe98e48c3731f01accf1ca8f6aca32" id="r_aa3fe98e48c3731f01accf1ca8f6aca32"><td class="memItemLeft" align="right" valign="top"><a class="el" href="types_8h.html#a67a0db04d321a74b7e7fcfd3f1a3f70b">Status</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="character_8c.html#aa3fe98e48c3731f01accf1ca8f6aca32">character_set_health</a> (Character *character, long health)</td></tr>
 <tr class="memdesc:aa3fe98e48c3731f01accf1ca8f6aca32"><td class="mdescLeft">&#160;</td><td class="mdescRight">It sets the health of a character.  <br /></td></tr>
 <tr class="separator:aa3fe98e48c3731f01accf1ca8f6aca32"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afe3df8f4d909606358974aa3b007b23e" id="r_afe3df8f4d909606358974aa3b007b23e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="types_8h.html#a67a0db04d321a74b7e7fcfd3f1a3f70b">Status</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="character_8c.html#afe3df8f4d909606358974aa3b007b23e">character_decrease_health</a> (<a class="el" href="character_8h.html#a2cd4b80780220bc0f0f1d7424f104fa6">Character</a> *character, long damage)</td></tr>
+<tr class="memitem:afe3df8f4d909606358974aa3b007b23e" id="r_afe3df8f4d909606358974aa3b007b23e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="types_8h.html#a67a0db04d321a74b7e7fcfd3f1a3f70b">Status</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="character_8c.html#afe3df8f4d909606358974aa3b007b23e">character_decrease_health</a> (Character *character, long damage)</td></tr>
 <tr class="memdesc:afe3df8f4d909606358974aa3b007b23e"><td class="mdescLeft">&#160;</td><td class="mdescRight">It descreases the character's health by a certain amount.  <br /></td></tr>
 <tr class="separator:afe3df8f4d909606358974aa3b007b23e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a373f10e169eaeacde49908a4fce470f4" id="r_a373f10e169eaeacde49908a4fce470f4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="types_8h.html#a39db6982619d623273fad8a383489309">Bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="character_8c.html#a373f10e169eaeacde49908a4fce470f4">character_get_friendly</a> (<a class="el" href="character_8h.html#a2cd4b80780220bc0f0f1d7424f104fa6">Character</a> *character)</td></tr>
+<tr class="memitem:a373f10e169eaeacde49908a4fce470f4" id="r_a373f10e169eaeacde49908a4fce470f4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="types_8h.html#a39db6982619d623273fad8a383489309">Bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="character_8c.html#a373f10e169eaeacde49908a4fce470f4">character_get_friendly</a> (Character *character)</td></tr>
 <tr class="memdesc:a373f10e169eaeacde49908a4fce470f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">It gets whether the character is friendly or not.  <br /></td></tr>
 <tr class="separator:a373f10e169eaeacde49908a4fce470f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a40c1bad388ee0f2796627a5333cc4ded" id="r_a40c1bad388ee0f2796627a5333cc4ded"><td class="memItemLeft" align="right" valign="top"><a class="el" href="types_8h.html#a67a0db04d321a74b7e7fcfd3f1a3f70b">Status</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="character_8c.html#a40c1bad388ee0f2796627a5333cc4ded">character_set_friendly</a> (<a class="el" href="character_8h.html#a2cd4b80780220bc0f0f1d7424f104fa6">Character</a> *character, <a class="el" href="types_8h.html#a39db6982619d623273fad8a383489309">Bool</a> friendly)</td></tr>
+<tr class="memitem:a40c1bad388ee0f2796627a5333cc4ded" id="r_a40c1bad388ee0f2796627a5333cc4ded"><td class="memItemLeft" align="right" valign="top"><a class="el" href="types_8h.html#a67a0db04d321a74b7e7fcfd3f1a3f70b">Status</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="character_8c.html#a40c1bad388ee0f2796627a5333cc4ded">character_set_friendly</a> (Character *character, <a class="el" href="types_8h.html#a39db6982619d623273fad8a383489309">Bool</a> friendly)</td></tr>
 <tr class="memdesc:a40c1bad388ee0f2796627a5333cc4ded"><td class="mdescLeft">&#160;</td><td class="mdescRight">It sets whether the character is friendly or not.  <br /></td></tr>
 <tr class="separator:a40c1bad388ee0f2796627a5333cc4ded"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a552477d9d3d16c8718fbc2482871ad91" id="r_a552477d9d3d16c8718fbc2482871ad91"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="character_8c.html#a552477d9d3d16c8718fbc2482871ad91">character_get_message</a> (<a class="el" href="character_8h.html#a2cd4b80780220bc0f0f1d7424f104fa6">Character</a> *character)</td></tr>
+<tr class="memitem:a552477d9d3d16c8718fbc2482871ad91" id="r_a552477d9d3d16c8718fbc2482871ad91"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="character_8c.html#a552477d9d3d16c8718fbc2482871ad91">character_get_message</a> (Character *character)</td></tr>
 <tr class="memdesc:a552477d9d3d16c8718fbc2482871ad91"><td class="mdescLeft">&#160;</td><td class="mdescRight">It gets the message of a character.  <br /></td></tr>
 <tr class="separator:a552477d9d3d16c8718fbc2482871ad91"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa420dd11438569eba036b75e53ee03a6" id="r_aa420dd11438569eba036b75e53ee03a6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="types_8h.html#a67a0db04d321a74b7e7fcfd3f1a3f70b">Status</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="character_8c.html#aa420dd11438569eba036b75e53ee03a6">character_set_message</a> (<a class="el" href="character_8h.html#a2cd4b80780220bc0f0f1d7424f104fa6">Character</a> *character, char *message)</td></tr>
+<tr class="memitem:aa420dd11438569eba036b75e53ee03a6" id="r_aa420dd11438569eba036b75e53ee03a6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="types_8h.html#a67a0db04d321a74b7e7fcfd3f1a3f70b">Status</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="character_8c.html#aa420dd11438569eba036b75e53ee03a6">character_set_message</a> (Character *character, char *message)</td></tr>
 <tr class="memdesc:aa420dd11438569eba036b75e53ee03a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">It sets the message of a character.  <br /></td></tr>
 <tr class="separator:aa420dd11438569eba036b75e53ee03a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9aadc03e7f931721a3ec9c39e715acde" id="r_a9aadc03e7f931721a3ec9c39e715acde"><td class="memItemLeft" align="right" valign="top"><a class="el" href="types_8h.html#a67a0db04d321a74b7e7fcfd3f1a3f70b">Status</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="character_8c.html#a9aadc03e7f931721a3ec9c39e715acde">character_print</a> (<a class="el" href="character_8h.html#a2cd4b80780220bc0f0f1d7424f104fa6">Character</a> *character)</td></tr>
+<tr class="memitem:a9aadc03e7f931721a3ec9c39e715acde" id="r_a9aadc03e7f931721a3ec9c39e715acde"><td class="memItemLeft" align="right" valign="top"><a class="el" href="types_8h.html#a67a0db04d321a74b7e7fcfd3f1a3f70b">Status</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="character_8c.html#a9aadc03e7f931721a3ec9c39e715acde">character_print</a> (Character *character)</td></tr>
 <tr class="memdesc:a9aadc03e7f931721a3ec9c39e715acde"><td class="mdescLeft">&#160;</td><td class="mdescRight">It prints the character information.  <br /></td></tr>
 <tr class="separator:a9aadc03e7f931721a3ec9c39e715acde"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -183,7 +185,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="character_8h.html#a2cd4b80780220bc0f0f1d7424f104fa6">Character</a> * character_create </td>
+          <td class="memname">Character * character_create </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="types_8h.html#a845e604fb28f7e3d97549da3448149d3">Id</a>&#160;</td>
           <td class="paramname"><em>id</em></td><td>)</td>
@@ -213,7 +215,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname"><a class="el" href="types_8h.html#a67a0db04d321a74b7e7fcfd3f1a3f70b">Status</a> character_decrease_health </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="character_8h.html#a2cd4b80780220bc0f0f1d7424f104fa6">Character</a> *&#160;</td>
+          <td class="paramtype">Character *&#160;</td>
           <td class="paramname"><em>character</em>, </td>
         </tr>
         <tr>
@@ -252,7 +254,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname"><a class="el" href="types_8h.html#a67a0db04d321a74b7e7fcfd3f1a3f70b">Status</a> character_destroy </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="character_8h.html#a2cd4b80780220bc0f0f1d7424f104fa6">Character</a> *&#160;</td>
+          <td class="paramtype">Character *&#160;</td>
           <td class="paramname"><em>character</em></td><td>)</td>
           <td></td>
         </tr>
@@ -280,7 +282,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">char * character_get_description </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="character_8h.html#a2cd4b80780220bc0f0f1d7424f104fa6">Character</a> *&#160;</td>
+          <td class="paramtype">Character *&#160;</td>
           <td class="paramname"><em>character</em></td><td>)</td>
           <td></td>
         </tr>
@@ -308,7 +310,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname"><a class="el" href="types_8h.html#a39db6982619d623273fad8a383489309">Bool</a> character_get_friendly </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="character_8h.html#a2cd4b80780220bc0f0f1d7424f104fa6">Character</a> *&#160;</td>
+          <td class="paramtype">Character *&#160;</td>
           <td class="paramname"><em>character</em></td><td>)</td>
           <td></td>
         </tr>
@@ -336,7 +338,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">long character_get_health </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="character_8h.html#a2cd4b80780220bc0f0f1d7424f104fa6">Character</a> *&#160;</td>
+          <td class="paramtype">Character *&#160;</td>
           <td class="paramname"><em>character</em></td><td>)</td>
           <td></td>
         </tr>
@@ -364,7 +366,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname"><a class="el" href="types_8h.html#a845e604fb28f7e3d97549da3448149d3">Id</a> character_get_id </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="character_8h.html#a2cd4b80780220bc0f0f1d7424f104fa6">Character</a> *&#160;</td>
+          <td class="paramtype">Character *&#160;</td>
           <td class="paramname"><em>character</em></td><td>)</td>
           <td></td>
         </tr>
@@ -392,7 +394,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">char * character_get_message </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="character_8h.html#a2cd4b80780220bc0f0f1d7424f104fa6">Character</a> *&#160;</td>
+          <td class="paramtype">Character *&#160;</td>
           <td class="paramname"><em>character</em></td><td>)</td>
           <td></td>
         </tr>
@@ -420,7 +422,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">char * character_get_name </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="character_8h.html#a2cd4b80780220bc0f0f1d7424f104fa6">Character</a> *&#160;</td>
+          <td class="paramtype">Character *&#160;</td>
           <td class="paramname"><em>character</em></td><td>)</td>
           <td></td>
         </tr>
@@ -448,7 +450,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname"><a class="el" href="types_8h.html#a67a0db04d321a74b7e7fcfd3f1a3f70b">Status</a> character_print </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="character_8h.html#a2cd4b80780220bc0f0f1d7424f104fa6">Character</a> *&#160;</td>
+          <td class="paramtype">Character *&#160;</td>
           <td class="paramname"><em>character</em></td><td>)</td>
           <td></td>
         </tr>
@@ -476,7 +478,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname"><a class="el" href="types_8h.html#a67a0db04d321a74b7e7fcfd3f1a3f70b">Status</a> character_set_description </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="character_8h.html#a2cd4b80780220bc0f0f1d7424f104fa6">Character</a> *&#160;</td>
+          <td class="paramtype">Character *&#160;</td>
           <td class="paramname"><em>character</em>, </td>
         </tr>
         <tr>
@@ -515,7 +517,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname"><a class="el" href="types_8h.html#a67a0db04d321a74b7e7fcfd3f1a3f70b">Status</a> character_set_friendly </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="character_8h.html#a2cd4b80780220bc0f0f1d7424f104fa6">Character</a> *&#160;</td>
+          <td class="paramtype">Character *&#160;</td>
           <td class="paramname"><em>character</em>, </td>
         </tr>
         <tr>
@@ -554,7 +556,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname"><a class="el" href="types_8h.html#a67a0db04d321a74b7e7fcfd3f1a3f70b">Status</a> character_set_health </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="character_8h.html#a2cd4b80780220bc0f0f1d7424f104fa6">Character</a> *&#160;</td>
+          <td class="paramtype">Character *&#160;</td>
           <td class="paramname"><em>character</em>, </td>
         </tr>
         <tr>
@@ -593,7 +595,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname"><a class="el" href="types_8h.html#a67a0db04d321a74b7e7fcfd3f1a3f70b">Status</a> character_set_id </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="character_8h.html#a2cd4b80780220bc0f0f1d7424f104fa6">Character</a> *&#160;</td>
+          <td class="paramtype">Character *&#160;</td>
           <td class="paramname"><em>character</em>, </td>
         </tr>
         <tr>
@@ -632,7 +634,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname"><a class="el" href="types_8h.html#a67a0db04d321a74b7e7fcfd3f1a3f70b">Status</a> character_set_message </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="character_8h.html#a2cd4b80780220bc0f0f1d7424f104fa6">Character</a> *&#160;</td>
+          <td class="paramtype">Character *&#160;</td>
           <td class="paramname"><em>character</em>, </td>
         </tr>
         <tr>
@@ -671,7 +673,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname"><a class="el" href="types_8h.html#a67a0db04d321a74b7e7fcfd3f1a3f70b">Status</a> character_set_name </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="character_8h.html#a2cd4b80780220bc0f0f1d7424f104fa6">Character</a> *&#160;</td>
+          <td class="paramtype">Character *&#160;</td>
           <td class="paramname"><em>character</em>, </td>
         </tr>
         <tr>

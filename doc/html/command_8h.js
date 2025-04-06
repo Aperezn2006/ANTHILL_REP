@@ -2,7 +2,6 @@ var command_8h =
 [
     [ "N_CMD", "command_8h.html#ae180fe89f0ae48ce5c80ffaa18de9271", null ],
     [ "N_CMDT", "command_8h.html#a8d93932dcdc527c13e06b688b68c7ffc", null ],
-    [ "Command", "command_8h.html#a7d2935971c252377cb0fc1c8545dc2bc", null ],
     [ "CommandCode", "command_8h.html#a805cf38fd2b6d5604bf1f1036b80fde2", [
       [ "NO_CMD", "command_8h.html#a805cf38fd2b6d5604bf1f1036b80fde2a785693a1d550a18688638e9124af41d0", null ],
       [ "UNKNOWN", "command_8h.html#a805cf38fd2b6d5604bf1f1036b80fde2a6ce26a62afab55d7606ad4e92428b30c", null ],

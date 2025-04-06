@@ -17,11 +17,11 @@ It implements a textual graphic engine.
 {\ttfamily \#include "{}types.\+h"{}}\newline
 Include dependency graph for graphic\+\_\+engine.\+c\+:
 % FIG 0
-\doxysubsubsection*{Classes}
+\doxysubsubsection*{Data Structures}
 \begin{DoxyCompactItemize}
 \item 
-struct \mbox{\hyperlink{struct__Graphic__engine}{\+\_\+\+Graphic\+\_\+engine}}
-\end{DoxyCompactItemize}
+struct \mbox{\hyperlink{struct__Graphic__engine}{Graphic\+\_\+engine}}
+\begin{DoxyCompactList}\small\item\em Graphic engine. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
@@ -44,19 +44,19 @@ struct \mbox{\hyperlink{struct__Graphic__engine}{\+\_\+\+Graphic\+\_\+engine}}
 \item 
 void \mbox{\hyperlink{graphic__engine_8c_a2398d7ffa1c7b70aea5ed59ae059b29e}{erase\+Left\+Spaces}} (char \texorpdfstring{$\ast$}{*}str1)
 \begin{DoxyCompactList}\small\item\em It makes sure there are no empty spaces at the beginning of a string. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{graphic__engine_8c_a72429731d5f769b7a0e61926fcef6f4a}{some\+Screen\+Puts}} (\mbox{\hyperlink{graphic__engine_8h_ae1bc5cdbfce93098f066274fdea49af1}{Graphic\+\_\+engine}} \texorpdfstring{$\ast$}{*}ge, char \texorpdfstring{$\ast$}{*}str1, char \texorpdfstring{$\ast$}{*}str2, char \texorpdfstring{$\ast$}{*}str3, char \texorpdfstring{$\ast$}{*}str4, char \texorpdfstring{$\ast$}{*}str5, char \texorpdfstring{$\ast$}{*}str6, char \texorpdfstring{$\ast$}{*}str7, char \texorpdfstring{$\ast$}{*}str8, char \texorpdfstring{$\ast$}{*}str9)
+void \mbox{\hyperlink{graphic__engine_8c_a72429731d5f769b7a0e61926fcef6f4a}{some\+Screen\+Puts}} (Graphic\+\_\+engine \texorpdfstring{$\ast$}{*}ge, char \texorpdfstring{$\ast$}{*}str1, char \texorpdfstring{$\ast$}{*}str2, char \texorpdfstring{$\ast$}{*}str3, char \texorpdfstring{$\ast$}{*}str4, char \texorpdfstring{$\ast$}{*}str5, char \texorpdfstring{$\ast$}{*}str6, char \texorpdfstring{$\ast$}{*}str7, char \texorpdfstring{$\ast$}{*}str8, char \texorpdfstring{$\ast$}{*}str9)
 \begin{DoxyCompactList}\small\item\em It puts the strings 1-\/9 on the screen. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{graphic__engine_8c_a0570f5048d27e59a7de1db2dc4da6065}{init\+Desc\+Stuff}} (\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} \texorpdfstring{$\ast$}{*}game, \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} space\+\_\+id, char \texorpdfstring{$\ast$}{*}objects, char \texorpdfstring{$\ast$}{*}character\+\_\+desc, char \texorpdfstring{$\ast$}{*}space\+\_\+desc1, char \texorpdfstring{$\ast$}{*}space\+\_\+desc2, char \texorpdfstring{$\ast$}{*}space\+\_\+desc3, char \texorpdfstring{$\ast$}{*}space\+\_\+desc4, char \texorpdfstring{$\ast$}{*}space\+\_\+desc5)
+void \mbox{\hyperlink{graphic__engine_8c_a0570f5048d27e59a7de1db2dc4da6065}{init\+Desc\+Stuff}} (Game \texorpdfstring{$\ast$}{*}game, \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} space\+\_\+id, char \texorpdfstring{$\ast$}{*}objects, char \texorpdfstring{$\ast$}{*}character\+\_\+desc, char \texorpdfstring{$\ast$}{*}space\+\_\+desc1, char \texorpdfstring{$\ast$}{*}space\+\_\+desc2, char \texorpdfstring{$\ast$}{*}space\+\_\+desc3, char \texorpdfstring{$\ast$}{*}space\+\_\+desc4, char \texorpdfstring{$\ast$}{*}space\+\_\+desc5)
 \begin{DoxyCompactList}\small\item\em It gets the necessary information to print a certain space. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{graphic__engine_8c_a948686c2c48976bc9b9e4e822b24bc34}{print\+Horizontal\+Section}} (\mbox{\hyperlink{graphic__engine_8h_ae1bc5cdbfce93098f066274fdea49af1}{Graphic\+\_\+engine}} \texorpdfstring{$\ast$}{*}ge, \mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} \texorpdfstring{$\ast$}{*}game, \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} space\+\_\+id, char \texorpdfstring{$\ast$}{*}player\+\_\+desc)
+void \mbox{\hyperlink{graphic__engine_8c_a948686c2c48976bc9b9e4e822b24bc34}{print\+Horizontal\+Section}} (Graphic\+\_\+engine \texorpdfstring{$\ast$}{*}ge, Game \texorpdfstring{$\ast$}{*}game, \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} space\+\_\+id, char \texorpdfstring{$\ast$}{*}player\+\_\+desc)
 \begin{DoxyCompactList}\small\item\em It prints a certain space and the spaces east and west of it. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{graphic__engine_8h_ae1bc5cdbfce93098f066274fdea49af1}{Graphic\+\_\+engine}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{graphic__engine_8c_a943c75487b750e5b0aafde34ac739b16}{graphic\+\_\+engine\+\_\+create}} ()
+Graphic\+\_\+engine \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{graphic__engine_8c_a943c75487b750e5b0aafde34ac739b16}{graphic\+\_\+engine\+\_\+create}} ()
 \begin{DoxyCompactList}\small\item\em It creates a new graphic engine. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{graphic__engine_8c_a5a5eac4ef2033c5ad71aa6895f362f79}{graphic\+\_\+engine\+\_\+destroy}} (\mbox{\hyperlink{graphic__engine_8h_ae1bc5cdbfce93098f066274fdea49af1}{Graphic\+\_\+engine}} \texorpdfstring{$\ast$}{*}ge)
+void \mbox{\hyperlink{graphic__engine_8c_a5a5eac4ef2033c5ad71aa6895f362f79}{graphic\+\_\+engine\+\_\+destroy}} (Graphic\+\_\+engine \texorpdfstring{$\ast$}{*}ge)
 \begin{DoxyCompactList}\small\item\em It destroys a graphic engine. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{graphic__engine_8c_a0e275aa477d5fa59e903da33a2a40a5d}{graphic\+\_\+engine\+\_\+paint\+\_\+game}} (\mbox{\hyperlink{graphic__engine_8h_ae1bc5cdbfce93098f066274fdea49af1}{Graphic\+\_\+engine}} \texorpdfstring{$\ast$}{*}ge, \mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} \texorpdfstring{$\ast$}{*}game)
+void \mbox{\hyperlink{graphic__engine_8c_a0e275aa477d5fa59e903da33a2a40a5d}{graphic\+\_\+engine\+\_\+paint\+\_\+game}} (Graphic\+\_\+engine \texorpdfstring{$\ast$}{*}ge, Game \texorpdfstring{$\ast$}{*}game)
 \begin{DoxyCompactList}\small\item\em It paints the game\textquotesingle{}s data on the user\textquotesingle{}s screen. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{graphic__engine_8c_a944f77c736cfe97f5ac0d08f16cb6785}{graphic\+\_\+engine\+\_\+paint\+\_\+end}} (\mbox{\hyperlink{graphic__engine_8h_ae1bc5cdbfce93098f066274fdea49af1}{Graphic\+\_\+engine}} \texorpdfstring{$\ast$}{*}ge, \mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} \texorpdfstring{$\ast$}{*}game)
+void \mbox{\hyperlink{graphic__engine_8c_a944f77c736cfe97f5ac0d08f16cb6785}{graphic\+\_\+engine\+\_\+paint\+\_\+end}} (Graphic\+\_\+engine \texorpdfstring{$\ast$}{*}ge, Game \texorpdfstring{$\ast$}{*}game)
 \begin{DoxyCompactList}\small\item\em It paints the end game screen. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -142,7 +142,7 @@ nothing
 \index{graphic\_engine.c@{graphic\_engine.c}!graphic\_engine\_create@{graphic\_engine\_create}}
 \index{graphic\_engine\_create@{graphic\_engine\_create}!graphic\_engine.c@{graphic\_engine.c}}
 \doxysubsubsection{\texorpdfstring{graphic\_engine\_create()}{graphic\_engine\_create()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{graphic__engine_8h_ae1bc5cdbfce93098f066274fdea49af1}{Graphic\+\_\+engine}} \texorpdfstring{$\ast$}{*} graphic\+\_\+engine\+\_\+create (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily Graphic\+\_\+engine \texorpdfstring{$\ast$}{*} graphic\+\_\+engine\+\_\+create (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
@@ -163,7 +163,7 @@ a pointer to the graphic engine
 \index{graphic\_engine.c@{graphic\_engine.c}!graphic\_engine\_destroy@{graphic\_engine\_destroy}}
 \index{graphic\_engine\_destroy@{graphic\_engine\_destroy}!graphic\_engine.c@{graphic\_engine.c}}
 \doxysubsubsection{\texorpdfstring{graphic\_engine\_destroy()}{graphic\_engine\_destroy()}}
-{\footnotesize\ttfamily void graphic\+\_\+engine\+\_\+destroy (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{graphic__engine_8h_ae1bc5cdbfce93098f066274fdea49af1}{Graphic\+\_\+engine}} \texorpdfstring{$\ast$}{*}}]{ge }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void graphic\+\_\+engine\+\_\+destroy (\begin{DoxyParamCaption}\item[{Graphic\+\_\+engine \texorpdfstring{$\ast$}{*}}]{ge }\end{DoxyParamCaption})}
 
 
 
@@ -184,7 +184,7 @@ nothing
 \index{graphic\_engine.c@{graphic\_engine.c}!graphic\_engine\_paint\_end@{graphic\_engine\_paint\_end}}
 \index{graphic\_engine\_paint\_end@{graphic\_engine\_paint\_end}!graphic\_engine.c@{graphic\_engine.c}}
 \doxysubsubsection{\texorpdfstring{graphic\_engine\_paint\_end()}{graphic\_engine\_paint\_end()}}
-{\footnotesize\ttfamily void graphic\+\_\+engine\+\_\+paint\+\_\+end (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{graphic__engine_8h_ae1bc5cdbfce93098f066274fdea49af1}{Graphic\+\_\+engine}} \texorpdfstring{$\ast$}{*}}]{ge,  }\item[{\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} \texorpdfstring{$\ast$}{*}}]{game }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void graphic\+\_\+engine\+\_\+paint\+\_\+end (\begin{DoxyParamCaption}\item[{Graphic\+\_\+engine \texorpdfstring{$\ast$}{*}}]{ge,  }\item[{Game \texorpdfstring{$\ast$}{*}}]{game }\end{DoxyParamCaption})}
 
 
 
@@ -207,7 +207,7 @@ nothing
 \index{graphic\_engine.c@{graphic\_engine.c}!graphic\_engine\_paint\_game@{graphic\_engine\_paint\_game}}
 \index{graphic\_engine\_paint\_game@{graphic\_engine\_paint\_game}!graphic\_engine.c@{graphic\_engine.c}}
 \doxysubsubsection{\texorpdfstring{graphic\_engine\_paint\_game()}{graphic\_engine\_paint\_game()}}
-{\footnotesize\ttfamily void graphic\+\_\+engine\+\_\+paint\+\_\+game (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{graphic__engine_8h_ae1bc5cdbfce93098f066274fdea49af1}{Graphic\+\_\+engine}} \texorpdfstring{$\ast$}{*}}]{ge,  }\item[{\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} \texorpdfstring{$\ast$}{*}}]{game }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void graphic\+\_\+engine\+\_\+paint\+\_\+game (\begin{DoxyParamCaption}\item[{Graphic\+\_\+engine \texorpdfstring{$\ast$}{*}}]{ge,  }\item[{Game \texorpdfstring{$\ast$}{*}}]{game }\end{DoxyParamCaption})}
 
 
 
@@ -230,7 +230,7 @@ nothing
 \index{graphic\_engine.c@{graphic\_engine.c}!initDescStuff@{initDescStuff}}
 \index{initDescStuff@{initDescStuff}!graphic\_engine.c@{graphic\_engine.c}}
 \doxysubsubsection{\texorpdfstring{initDescStuff()}{initDescStuff()}}
-{\footnotesize\ttfamily void init\+Desc\+Stuff (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} \texorpdfstring{$\ast$}{*}}]{game,  }\item[{\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}}}]{space\+\_\+id,  }\item[{char \texorpdfstring{$\ast$}{*}}]{objects,  }\item[{char \texorpdfstring{$\ast$}{*}}]{character\+\_\+desc,  }\item[{char \texorpdfstring{$\ast$}{*}}]{space\+\_\+desc1,  }\item[{char \texorpdfstring{$\ast$}{*}}]{space\+\_\+desc2,  }\item[{char \texorpdfstring{$\ast$}{*}}]{space\+\_\+desc3,  }\item[{char \texorpdfstring{$\ast$}{*}}]{space\+\_\+desc4,  }\item[{char \texorpdfstring{$\ast$}{*}}]{space\+\_\+desc5 }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void init\+Desc\+Stuff (\begin{DoxyParamCaption}\item[{Game \texorpdfstring{$\ast$}{*}}]{game,  }\item[{\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}}}]{space\+\_\+id,  }\item[{char \texorpdfstring{$\ast$}{*}}]{objects,  }\item[{char \texorpdfstring{$\ast$}{*}}]{character\+\_\+desc,  }\item[{char \texorpdfstring{$\ast$}{*}}]{space\+\_\+desc1,  }\item[{char \texorpdfstring{$\ast$}{*}}]{space\+\_\+desc2,  }\item[{char \texorpdfstring{$\ast$}{*}}]{space\+\_\+desc3,  }\item[{char \texorpdfstring{$\ast$}{*}}]{space\+\_\+desc4,  }\item[{char \texorpdfstring{$\ast$}{*}}]{space\+\_\+desc5 }\end{DoxyParamCaption})}
 
 
 
@@ -250,7 +250,7 @@ nothing
 \index{graphic\_engine.c@{graphic\_engine.c}!printHorizontalSection@{printHorizontalSection}}
 \index{printHorizontalSection@{printHorizontalSection}!graphic\_engine.c@{graphic\_engine.c}}
 \doxysubsubsection{\texorpdfstring{printHorizontalSection()}{printHorizontalSection()}}
-{\footnotesize\ttfamily void print\+Horizontal\+Section (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{graphic__engine_8h_ae1bc5cdbfce93098f066274fdea49af1}{Graphic\+\_\+engine}} \texorpdfstring{$\ast$}{*}}]{ge,  }\item[{\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} \texorpdfstring{$\ast$}{*}}]{game,  }\item[{\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}}}]{space\+\_\+id,  }\item[{char \texorpdfstring{$\ast$}{*}}]{player\+\_\+desc }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void print\+Horizontal\+Section (\begin{DoxyParamCaption}\item[{Graphic\+\_\+engine \texorpdfstring{$\ast$}{*}}]{ge,  }\item[{Game \texorpdfstring{$\ast$}{*}}]{game,  }\item[{\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}}}]{space\+\_\+id,  }\item[{char \texorpdfstring{$\ast$}{*}}]{player\+\_\+desc }\end{DoxyParamCaption})}
 
 
 
@@ -270,7 +270,7 @@ nothing
 \index{graphic\_engine.c@{graphic\_engine.c}!someScreenPuts@{someScreenPuts}}
 \index{someScreenPuts@{someScreenPuts}!graphic\_engine.c@{graphic\_engine.c}}
 \doxysubsubsection{\texorpdfstring{someScreenPuts()}{someScreenPuts()}}
-{\footnotesize\ttfamily void some\+Screen\+Puts (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{graphic__engine_8h_ae1bc5cdbfce93098f066274fdea49af1}{Graphic\+\_\+engine}} \texorpdfstring{$\ast$}{*}}]{ge,  }\item[{char \texorpdfstring{$\ast$}{*}}]{str1,  }\item[{char \texorpdfstring{$\ast$}{*}}]{str2,  }\item[{char \texorpdfstring{$\ast$}{*}}]{str3,  }\item[{char \texorpdfstring{$\ast$}{*}}]{str4,  }\item[{char \texorpdfstring{$\ast$}{*}}]{str5,  }\item[{char \texorpdfstring{$\ast$}{*}}]{str6,  }\item[{char \texorpdfstring{$\ast$}{*}}]{str7,  }\item[{char \texorpdfstring{$\ast$}{*}}]{str8,  }\item[{char \texorpdfstring{$\ast$}{*}}]{str9 }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void some\+Screen\+Puts (\begin{DoxyParamCaption}\item[{Graphic\+\_\+engine \texorpdfstring{$\ast$}{*}}]{ge,  }\item[{char \texorpdfstring{$\ast$}{*}}]{str1,  }\item[{char \texorpdfstring{$\ast$}{*}}]{str2,  }\item[{char \texorpdfstring{$\ast$}{*}}]{str3,  }\item[{char \texorpdfstring{$\ast$}{*}}]{str4,  }\item[{char \texorpdfstring{$\ast$}{*}}]{str5,  }\item[{char \texorpdfstring{$\ast$}{*}}]{str6,  }\item[{char \texorpdfstring{$\ast$}{*}}]{str7,  }\item[{char \texorpdfstring{$\ast$}{*}}]{str8,  }\item[{char \texorpdfstring{$\ast$}{*}}]{str9 }\end{DoxyParamCaption})}
 
 
 

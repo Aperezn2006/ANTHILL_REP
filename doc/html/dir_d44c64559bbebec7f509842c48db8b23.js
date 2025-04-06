@@ -13,7 +13,7 @@ var dir_d44c64559bbebec7f509842c48db8b23 =
     [ "link_test.h", "link__test_8h.html", "link__test_8h" ],
     [ "main_page.h", "main__page_8h.html", null ],
     [ "object.h", "object_8h.html", "object_8h" ],
-    [ "object_test.h", "object__test_8h.html", null ],
+    [ "object_test.h", "object__test_8h.html", "object__test_8h" ],
     [ "player.h", "player_8h.html", "player_8h" ],
     [ "player_test.h", "player__test_8h.html", "player__test_8h" ],
     [ "set.h", "set_8h.html", "set_8h" ],

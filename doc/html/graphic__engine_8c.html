@@ -30,7 +30,7 @@
   <td id="projectalign">
    <div id="projectname">Anthill<span id="projectnumber">&#160;I3</span>
    </div>
-   <div id="projectbrief">Third iteration of the unix-based Anthill game</div>
+   <div id="projectbrief">Unix-based Anthill game</div>
   </td>
  </tr>
  </tbody>
@@ -94,7 +94,7 @@ $(document).ready(function(){initNavTree('graphic__engine_8c.html',''); initResi
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
+<a href="#nested-classes">Data Structures</a> &#124;
 <a href="#define-members">Macros</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">graphic_engine.c File Reference</div></div>
@@ -113,15 +113,18 @@ $(document).ready(function(){initNavTree('graphic__engine_8c.html',''); initResi
 <code>#include &quot;<a class="el" href="libscreen_8h_source.html">libscreen.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="space_8h_source.html">space.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="types_8h_source.html">types.h</a>&quot;</code><br />
-</div><div class="textblock"><div class="dynheader">
-Include dependency graph for graphic_engine.c:</div>
-<div class="dyncontent">
+</div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Include dependency graph for graphic_engine.c:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="graphic__engine_8c__incl.png" border="0" usemap="#a_2mnt_2c_2Ubuntu_2Shared__folder_2PPROG_2I3_2ANTHILL__REP_2src_2graphic__engine_8c" alt=""/></div>
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct__Graphic__engine.html">_Graphic_engine</a></td></tr>
+Data Structures</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct__Graphic__engine.html">Graphic_engine</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Graphic engine.  <a href="struct__Graphic__engine.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
@@ -146,25 +149,25 @@ Functions</h2></td></tr>
 <tr class="memitem:a2398d7ffa1c7b70aea5ed59ae059b29e" id="r_a2398d7ffa1c7b70aea5ed59ae059b29e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphic__engine_8c.html#a2398d7ffa1c7b70aea5ed59ae059b29e">eraseLeftSpaces</a> (char *str1)</td></tr>
 <tr class="memdesc:a2398d7ffa1c7b70aea5ed59ae059b29e"><td class="mdescLeft">&#160;</td><td class="mdescRight">It makes sure there are no empty spaces at the beginning of a string.  <br /></td></tr>
 <tr class="separator:a2398d7ffa1c7b70aea5ed59ae059b29e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a72429731d5f769b7a0e61926fcef6f4a" id="r_a72429731d5f769b7a0e61926fcef6f4a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphic__engine_8c.html#a72429731d5f769b7a0e61926fcef6f4a">someScreenPuts</a> (<a class="el" href="graphic__engine_8h.html#ae1bc5cdbfce93098f066274fdea49af1">Graphic_engine</a> *ge, char *str1, char *str2, char *str3, char *str4, char *str5, char *str6, char *str7, char *str8, char *str9)</td></tr>
+<tr class="memitem:a72429731d5f769b7a0e61926fcef6f4a" id="r_a72429731d5f769b7a0e61926fcef6f4a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphic__engine_8c.html#a72429731d5f769b7a0e61926fcef6f4a">someScreenPuts</a> (Graphic_engine *ge, char *str1, char *str2, char *str3, char *str4, char *str5, char *str6, char *str7, char *str8, char *str9)</td></tr>
 <tr class="memdesc:a72429731d5f769b7a0e61926fcef6f4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">It puts the strings 1-9 on the screen.  <br /></td></tr>
 <tr class="separator:a72429731d5f769b7a0e61926fcef6f4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0570f5048d27e59a7de1db2dc4da6065" id="r_a0570f5048d27e59a7de1db2dc4da6065"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphic__engine_8c.html#a0570f5048d27e59a7de1db2dc4da6065">initDescStuff</a> (<a class="el" href="game_8h.html#a57156d39c530aec3fba3a9dad8c2dc6a">Game</a> *game, <a class="el" href="types_8h.html#a845e604fb28f7e3d97549da3448149d3">Id</a> space_id, char *objects, char *character_desc, char *space_desc1, char *space_desc2, char *space_desc3, char *space_desc4, char *space_desc5)</td></tr>
+<tr class="memitem:a0570f5048d27e59a7de1db2dc4da6065" id="r_a0570f5048d27e59a7de1db2dc4da6065"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphic__engine_8c.html#a0570f5048d27e59a7de1db2dc4da6065">initDescStuff</a> (Game *game, <a class="el" href="types_8h.html#a845e604fb28f7e3d97549da3448149d3">Id</a> space_id, char *objects, char *character_desc, char *space_desc1, char *space_desc2, char *space_desc3, char *space_desc4, char *space_desc5)</td></tr>
 <tr class="memdesc:a0570f5048d27e59a7de1db2dc4da6065"><td class="mdescLeft">&#160;</td><td class="mdescRight">It gets the necessary information to print a certain space.  <br /></td></tr>
 <tr class="separator:a0570f5048d27e59a7de1db2dc4da6065"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a948686c2c48976bc9b9e4e822b24bc34" id="r_a948686c2c48976bc9b9e4e822b24bc34"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphic__engine_8c.html#a948686c2c48976bc9b9e4e822b24bc34">printHorizontalSection</a> (<a class="el" href="graphic__engine_8h.html#ae1bc5cdbfce93098f066274fdea49af1">Graphic_engine</a> *ge, <a class="el" href="game_8h.html#a57156d39c530aec3fba3a9dad8c2dc6a">Game</a> *game, <a class="el" href="types_8h.html#a845e604fb28f7e3d97549da3448149d3">Id</a> space_id, char *player_desc)</td></tr>
+<tr class="memitem:a948686c2c48976bc9b9e4e822b24bc34" id="r_a948686c2c48976bc9b9e4e822b24bc34"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphic__engine_8c.html#a948686c2c48976bc9b9e4e822b24bc34">printHorizontalSection</a> (Graphic_engine *ge, Game *game, <a class="el" href="types_8h.html#a845e604fb28f7e3d97549da3448149d3">Id</a> space_id, char *player_desc)</td></tr>
 <tr class="memdesc:a948686c2c48976bc9b9e4e822b24bc34"><td class="mdescLeft">&#160;</td><td class="mdescRight">It prints a certain space and the spaces east and west of it.  <br /></td></tr>
 <tr class="separator:a948686c2c48976bc9b9e4e822b24bc34"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a943c75487b750e5b0aafde34ac739b16" id="r_a943c75487b750e5b0aafde34ac739b16"><td class="memItemLeft" align="right" valign="top"><a class="el" href="graphic__engine_8h.html#ae1bc5cdbfce93098f066274fdea49af1">Graphic_engine</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphic__engine_8c.html#a943c75487b750e5b0aafde34ac739b16">graphic_engine_create</a> ()</td></tr>
+<tr class="memitem:a943c75487b750e5b0aafde34ac739b16" id="r_a943c75487b750e5b0aafde34ac739b16"><td class="memItemLeft" align="right" valign="top">Graphic_engine *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphic__engine_8c.html#a943c75487b750e5b0aafde34ac739b16">graphic_engine_create</a> ()</td></tr>
 <tr class="memdesc:a943c75487b750e5b0aafde34ac739b16"><td class="mdescLeft">&#160;</td><td class="mdescRight">It creates a new graphic engine.  <br /></td></tr>
 <tr class="separator:a943c75487b750e5b0aafde34ac739b16"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5a5eac4ef2033c5ad71aa6895f362f79" id="r_a5a5eac4ef2033c5ad71aa6895f362f79"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphic__engine_8c.html#a5a5eac4ef2033c5ad71aa6895f362f79">graphic_engine_destroy</a> (<a class="el" href="graphic__engine_8h.html#ae1bc5cdbfce93098f066274fdea49af1">Graphic_engine</a> *ge)</td></tr>
+<tr class="memitem:a5a5eac4ef2033c5ad71aa6895f362f79" id="r_a5a5eac4ef2033c5ad71aa6895f362f79"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphic__engine_8c.html#a5a5eac4ef2033c5ad71aa6895f362f79">graphic_engine_destroy</a> (Graphic_engine *ge)</td></tr>
 <tr class="memdesc:a5a5eac4ef2033c5ad71aa6895f362f79"><td class="mdescLeft">&#160;</td><td class="mdescRight">It destroys a graphic engine.  <br /></td></tr>
 <tr class="separator:a5a5eac4ef2033c5ad71aa6895f362f79"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0e275aa477d5fa59e903da33a2a40a5d" id="r_a0e275aa477d5fa59e903da33a2a40a5d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphic__engine_8c.html#a0e275aa477d5fa59e903da33a2a40a5d">graphic_engine_paint_game</a> (<a class="el" href="graphic__engine_8h.html#ae1bc5cdbfce93098f066274fdea49af1">Graphic_engine</a> *ge, <a class="el" href="game_8h.html#a57156d39c530aec3fba3a9dad8c2dc6a">Game</a> *game)</td></tr>
+<tr class="memitem:a0e275aa477d5fa59e903da33a2a40a5d" id="r_a0e275aa477d5fa59e903da33a2a40a5d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphic__engine_8c.html#a0e275aa477d5fa59e903da33a2a40a5d">graphic_engine_paint_game</a> (Graphic_engine *ge, Game *game)</td></tr>
 <tr class="memdesc:a0e275aa477d5fa59e903da33a2a40a5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">It paints the game's data on the user's screen.  <br /></td></tr>
 <tr class="separator:a0e275aa477d5fa59e903da33a2a40a5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a944f77c736cfe97f5ac0d08f16cb6785" id="r_a944f77c736cfe97f5ac0d08f16cb6785"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphic__engine_8c.html#a944f77c736cfe97f5ac0d08f16cb6785">graphic_engine_paint_end</a> (<a class="el" href="graphic__engine_8h.html#ae1bc5cdbfce93098f066274fdea49af1">Graphic_engine</a> *ge, <a class="el" href="game_8h.html#a57156d39c530aec3fba3a9dad8c2dc6a">Game</a> *game)</td></tr>
+<tr class="memitem:a944f77c736cfe97f5ac0d08f16cb6785" id="r_a944f77c736cfe97f5ac0d08f16cb6785"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphic__engine_8c.html#a944f77c736cfe97f5ac0d08f16cb6785">graphic_engine_paint_end</a> (Graphic_engine *ge, Game *game)</td></tr>
 <tr class="memdesc:a944f77c736cfe97f5ac0d08f16cb6785"><td class="mdescLeft">&#160;</td><td class="mdescRight">It paints the end game screen.  <br /></td></tr>
 <tr class="separator:a944f77c736cfe97f5ac0d08f16cb6785"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -307,7 +310,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="graphic__engine_8h.html#ae1bc5cdbfce93098f066274fdea49af1">Graphic_engine</a> * graphic_engine_create </td>
+          <td class="memname">Graphic_engine * graphic_engine_create </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -336,7 +339,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void graphic_engine_destroy </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="graphic__engine_8h.html#ae1bc5cdbfce93098f066274fdea49af1">Graphic_engine</a> *&#160;</td>
+          <td class="paramtype">Graphic_engine *&#160;</td>
           <td class="paramname"><em>ge</em></td><td>)</td>
           <td></td>
         </tr>
@@ -364,13 +367,13 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void graphic_engine_paint_end </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="graphic__engine_8h.html#ae1bc5cdbfce93098f066274fdea49af1">Graphic_engine</a> *&#160;</td>
+          <td class="paramtype">Graphic_engine *&#160;</td>
           <td class="paramname"><em>ge</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="game_8h.html#a57156d39c530aec3fba3a9dad8c2dc6a">Game</a> *&#160;</td>
+          <td class="paramtype">Game *&#160;</td>
           <td class="paramname"><em>game</em>&#160;</td>
         </tr>
         <tr>
@@ -403,13 +406,13 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void graphic_engine_paint_game </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="graphic__engine_8h.html#ae1bc5cdbfce93098f066274fdea49af1">Graphic_engine</a> *&#160;</td>
+          <td class="paramtype">Graphic_engine *&#160;</td>
           <td class="paramname"><em>ge</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="game_8h.html#a57156d39c530aec3fba3a9dad8c2dc6a">Game</a> *&#160;</td>
+          <td class="paramtype">Game *&#160;</td>
           <td class="paramname"><em>game</em>&#160;</td>
         </tr>
         <tr>
@@ -442,7 +445,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void initDescStuff </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="game_8h.html#a57156d39c530aec3fba3a9dad8c2dc6a">Game</a> *&#160;</td>
+          <td class="paramtype">Game *&#160;</td>
           <td class="paramname"><em>game</em>, </td>
         </tr>
         <tr>
@@ -522,13 +525,13 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void printHorizontalSection </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="graphic__engine_8h.html#ae1bc5cdbfce93098f066274fdea49af1">Graphic_engine</a> *&#160;</td>
+          <td class="paramtype">Graphic_engine *&#160;</td>
           <td class="paramname"><em>ge</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="game_8h.html#a57156d39c530aec3fba3a9dad8c2dc6a">Game</a> *&#160;</td>
+          <td class="paramtype">Game *&#160;</td>
           <td class="paramname"><em>game</em>, </td>
         </tr>
         <tr>
@@ -572,7 +575,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void someScreenPuts </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="graphic__engine_8h.html#ae1bc5cdbfce93098f066274fdea49af1">Graphic_engine</a> *&#160;</td>
+          <td class="paramtype">Graphic_engine *&#160;</td>
           <td class="paramname"><em>ge</em>, </td>
         </tr>
         <tr>

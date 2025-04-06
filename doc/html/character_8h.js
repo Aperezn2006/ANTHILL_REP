@@ -1,7 +1,6 @@
 var character_8h =
 [
     [ "MAX_MESSAGE", "character_8h.html#a8cea0c1cc1fc60a52e79998580bbf1a7", null ],
-    [ "Character", "character_8h.html#a2cd4b80780220bc0f0f1d7424f104fa6", null ],
     [ "character_create", "character_8h.html#a04e381f3485e883f8c5638cbcd67e686", null ],
     [ "character_decrease_health", "character_8h.html#afe3df8f4d909606358974aa3b007b23e", null ],
     [ "character_destroy", "character_8h.html#a56873e94f3e967d9ad10a36f2338a64a", null ],

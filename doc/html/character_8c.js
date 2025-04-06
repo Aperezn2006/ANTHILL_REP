@@ -1,6 +1,6 @@
 var character_8c =
 [
-    [ "_Character", "struct__Character.html", "struct__Character" ],
+    [ "Character", "struct__Character.html", "struct__Character" ],
     [ "character_create", "character_8c.html#a04e381f3485e883f8c5638cbcd67e686", null ],
     [ "character_decrease_health", "character_8c.html#afe3df8f4d909606358974aa3b007b23e", null ],
     [ "character_destroy", "character_8c.html#a56873e94f3e967d9ad10a36f2338a64a", null ],

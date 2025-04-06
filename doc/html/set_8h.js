@@ -1,6 +1,5 @@
 var set_8h =
 [
-    [ "Set", "set_8h.html#a6d3b7f7c92cbb4577ef3ef7ddbf93161", null ],
     [ "set_add_id", "set_8h.html#ad252ed6b4db23b184789fd4ef5afe5e1", null ],
     [ "set_create", "set_8h.html#aaad3bdcac9fbbfc38b4800b12bb17449", null ],
     [ "set_destroy", "set_8h.html#a5b4e14914ec3c85b83363f57697f175a", null ],
