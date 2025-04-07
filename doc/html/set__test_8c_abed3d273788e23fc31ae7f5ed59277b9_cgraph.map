@@ -1,0 +1,9 @@
+<map id="test2_set_create" name="test2_set_create">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,55,136,80"/>
+<area shape="rect" id="Node000002" href="$set_8c.html#aaad3bdcac9fbbfc38b4800b12bb17449" title="It creates a set." alt="" coords="205,5,295,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="117,52,191,31,192,36,118,57"/>
+<area shape="rect" id="Node000003" href="$set_8c.html#a5b4e14914ec3c85b83363f57697f175a" title="It destroys a set." alt="" coords="201,55,299,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="136,65,187,65,187,70,136,70"/>
+<area shape="rect" id="Node000004" href="$set_8c.html#afaa9d55d67526584aba2e0688ca189b3" title="It gets the size of the set." alt="" coords="184,104,316,129"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="118,77,190,98,189,103,117,83"/>
+</map>

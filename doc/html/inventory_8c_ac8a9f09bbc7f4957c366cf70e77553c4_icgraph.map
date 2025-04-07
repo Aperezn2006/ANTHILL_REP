@@ -1,7 +1,11 @@
 <map id="inventory_set_max_objects" name="inventory_set_max_objects">
-<area shape="rect" id="Node000001" title="It sets the maximun amount of objects the inventory can hold." alt="" coords="935,55,1136,80"/>
+<area shape="rect" id="Node000001" title="It sets the maximun amount of objects the inventory can hold." alt="" coords="935,112,1136,137"/>
 <area shape="rect" id="Node000002" href="$player_8c.html#a48b8e0abe8c2410873182291da243258" title="It sets the maximum number of objects a player can carry." alt="" coords="727,55,887,80"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="921,70,887,70,887,65,921,65"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="970,111,857,83,859,77,971,106"/>
+<area shape="rect" id="Node000010" href="$inventory__test_8c.html#aedc895d6409678b2176d822c105c3796" title=" " alt="" coords="731,105,882,145"/>
+<area shape="poly" id="edge10_Node000001_Node000010" title=" " alt="" coords="921,127,882,127,882,122,921,122"/>
+<area shape="rect" id="Node000012" href="$inventory__test_8c.html#aff93a7fb7ffbac1890ce563012a9d372" title=" " alt="" coords="731,169,882,209"/>
+<area shape="poly" id="edge12_Node000001_Node000012" title=" " alt="" coords="976,144,880,171,878,166,975,139"/>
 <area shape="rect" id="Node000003" href="$game__reader_8c.html#a116b1bbd8e119adf49cc729ded9524bd" title="It loads the spaces that are adjacent to the current one." alt="" coords="493,5,664,31"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="733,54,638,33,639,28,735,49"/>
 <area shape="rect" id="Node000007" href="$player__test_8c.html#a4bdfa1dd5911a0ed3bb1c8c040ede48d" title=" " alt="" coords="479,55,679,80"/>
@@ -17,4 +21,7 @@
 <area shape="rect" id="Node000008" href="$player__test_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title=" " alt="" coords="327,79,382,104"/>
 <area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="465,82,383,91,382,86,464,77"/>
 <area shape="poly" id="edge9_Node000009_Node000008" title=" " alt="" coords="465,106,382,97,383,92,465,101"/>
+<area shape="rect" id="Node000011" href="$inventory__test_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title=" " alt="" coords="551,164,606,189"/>
+<area shape="poly" id="edge11_Node000010_Node000011" title=" " alt="" coords="718,147,607,173,606,168,717,142"/>
+<area shape="poly" id="edge13_Node000012_Node000011" title=" " alt="" coords="717,187,606,181,607,175,717,181"/>
 </map>

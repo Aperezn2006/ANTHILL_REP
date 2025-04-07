@@ -1,0 +1,15 @@
+<map id="test1_inventory_print" name="test1_inventory_print">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,55,167,80"/>
+<area shape="rect" id="Node000002" href="$inventory_8c.html#acfdb31bdaf1646387a93fc7ece2ef180" title="It creates a new player, allocating memory and initializing its members." alt="" coords="219,5,351,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="137,52,219,31,220,37,138,57"/>
+<area shape="rect" id="Node000004" href="$inventory_8c.html#ae23961749b6ed45fd5fe1c18941fe586" title="It destroys an inventory, freeing the allocated memory." alt="" coords="215,55,355,80"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="167,65,201,65,201,70,167,70"/>
+<area shape="rect" id="Node000006" href="$inventory_8c.html#a18eb07c76bbe3f6e6e1b69621b566bf7" title="It prints the inventory&#39;s information." alt="" coords="224,104,345,129"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="138,77,220,98,219,103,137,83"/>
+<area shape="rect" id="Node000003" href="$set_8c.html#aaad3bdcac9fbbfc38b4800b12bb17449" title="It creates a set." alt="" coords="407,5,497,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="351,15,393,15,393,21,351,21"/>
+<area shape="rect" id="Node000005" href="$set_8c.html#a5b4e14914ec3c85b83363f57697f175a" title="It destroys a set." alt="" coords="403,55,501,80"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="355,65,389,65,389,70,355,70"/>
+<area shape="rect" id="Node000007" href="$set_8c.html#accefca13e6049b67a10652a030bcdddc" title="It prints the set." alt="" coords="413,104,491,129"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="345,114,399,114,399,119,345,119"/>
+</map>
