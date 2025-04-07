@@ -88,7 +88,8 @@ int set_get_num_ids(Set *set);
  * @author Rubén
  *
  * @param set a pointer to the set
+ * @return OK, if everything goes well or ERROR if there was some mistake
  */
-void set_print(Set *set);
+Status set_print(Set *set);
 
 #endif /* SET_H_ */

@@ -131,11 +131,11 @@ int set_get_num_ids(Set *set) {
 /**
  * @brief It prints the set
  */
-void set_print(Set *set) {
+Status set_print(Set *set) {
   int i;
   /*CdE*/
   if (!set) {
-    return;
+    return ERROR;
   }
 
   printf("Set contains %d IDs:\n", set->n_ids);
@@ -144,4 +144,5 @@ void set_print(Set *set) {
   }
 
   printf("\n");
+  return OK;
 }

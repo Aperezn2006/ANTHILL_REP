@@ -20,6 +20,13 @@
 void test1_set_create();
 
 /**
+ * @test Test set creation
+ * @pre No parameters
+ * @post Empty set
+ */
+void test2_set_create();
+
+/**
  * @test Test set destruction
  * @pre Pointer to a valid set
  * @post Output == OK
@@ -76,15 +83,15 @@ void test1_set_has_id();
 void test2_set_has_id();
 
 /**
- * @test Test getting the size of the set
+ * @test Test getting the numbers of ids
  * @pre Valid set with elements
  * @post Output == Correct size
  */
 void test1_set_get_num_ids();
 
 /**
- * @test Test getting the size of an empty set
- * @pre Empty set
+ * @test Test getting number of ids
+ * @pre NULL set pointer
  * @post Output == 0
  */
 void test2_set_get_num_ids();
@@ -102,5 +109,19 @@ void test1_set_get_id_from_index();
  * @post Output == NO_ID
  */
 void test2_set_get_id_from_index();
+
+/**
+ * @test Test printing the set
+ * @pre Valid set pointer
+ * @post Output == OK
+ */
+void test1_set_print();
+
+/**
+ * @test Test printing an empty set
+ * @pre NULL set pointer
+ * @post Output == ERROR
+ */
+void test2_set_print();
 
 #endif /* SET_TEST_H */

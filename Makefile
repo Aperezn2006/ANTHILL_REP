@@ -2,7 +2,7 @@
 EXEC = anthill
 
 # Ejecutables de los tests
-TESTS = space_test link_test player_test set_test object_test character_test
+TESTS = space_test link_test player_test set_test object_test character_test inventory_test
 # character_test 
 
 # Directorios
@@ -19,7 +19,7 @@ SRC = $(SRC_DIR)/game_loop.c $(SRC_DIR)/command.c $(SRC_DIR)/game_actions.c $(SR
 
 # Archivos fuente de los tests
 TEST_SRC = $(TEST_DIR)/space_test.c $(TEST_DIR)/link_test.c $(TEST_DIR)/player_test.c $(TEST_DIR)/set_test.c \
-					 $(TEST_DIR)/object_test.c $(TEST_DIR)/character_test.c
+					 $(TEST_DIR)/object_test.c $(TEST_DIR)/character_test.c $(TEST_DIR)/inventory_test.c
 # $(TEST_DIR)/character_test.c
 
 # Archivos objeto generados a partir de los archivos fuente
