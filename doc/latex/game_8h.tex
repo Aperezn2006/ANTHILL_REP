@@ -135,6 +135,10 @@ char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{game_8h_a5d3b4909432e48af08320d
 \begin{DoxyCompactList}\small\item\em It sets the game\textquotesingle{}s current turn. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{game_8h_aa09e1df33f2417cc314eca6a5ae822f3}{game\+\_\+get\+\_\+turn}} (Game \texorpdfstring{$\ast$}{*}game)
 \begin{DoxyCompactList}\small\item\em It gets the game\textquotesingle{}s current turn. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{game_8h_afb3cf6150d6cd4b054801d54c01ebe9f}{game\+\_\+toggle\+\_\+inventory\+\_\+vis}} (Game \texorpdfstring{$\ast$}{*}game)
+\begin{DoxyCompactList}\small\item\em It toggles the inventory\textquotesingle{}s visualization. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a39db6982619d623273fad8a383489309}{Bool}} \mbox{\hyperlink{game_8h_aa6afea7c71b3377cda2fdbe213a70c27}{game\+\_\+get\+\_\+inventory\+\_\+vis}} (Game \texorpdfstring{$\ast$}{*}game)
+\begin{DoxyCompactList}\small\item\em It gets whether the inventory is beinf visualized or not. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{game_8h_a6a00b3f5db99150d9180e439d400e083}{game\+\_\+print}} (Game \texorpdfstring{$\ast$}{*}game)
 \begin{DoxyCompactList}\small\item\em It prints the game. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
@@ -566,6 +570,27 @@ Profesores PPROG
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 TRUE if it\textquotesingle{}s finished, FALSE if it isn\textquotesingle{}t, WRONG if any errors were detected 
+\end{DoxyReturn}
+\Hypertarget{game_8h_aa6afea7c71b3377cda2fdbe213a70c27}\label{game_8h_aa6afea7c71b3377cda2fdbe213a70c27} 
+\index{game.h@{game.h}!game\_get\_inventory\_vis@{game\_get\_inventory\_vis}}
+\index{game\_get\_inventory\_vis@{game\_get\_inventory\_vis}!game.h@{game.h}}
+\doxysubsubsection{\texorpdfstring{game\_get\_inventory\_vis()}{game\_get\_inventory\_vis()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a39db6982619d623273fad8a383489309}{Bool}} game\+\_\+get\+\_\+inventory\+\_\+vis (\begin{DoxyParamCaption}\item[{Game \texorpdfstring{$\ast$}{*}}]{game }\end{DoxyParamCaption})}
+
+
+
+It gets whether the inventory is beinf visualized or not. 
+
+\begin{DoxyAuthor}{Author}
+Bea, Arturo, Rubén, Ana
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em game} & a pointer to the game \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+whether the inventory is beinf visualized or not 
 \end{DoxyReturn}
 \Hypertarget{game_8h_ac8d90fcffcb96d380650d5c3820ef505}\label{game_8h_ac8d90fcffcb96d380650d5c3820ef505} 
 \index{game.h@{game.h}!game\_get\_last\_command@{game\_get\_last\_command}}
@@ -1565,6 +1590,27 @@ Ana
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 OK if everything goes well 
+\end{DoxyReturn}
+\Hypertarget{game_8h_afb3cf6150d6cd4b054801d54c01ebe9f}\label{game_8h_afb3cf6150d6cd4b054801d54c01ebe9f} 
+\index{game.h@{game.h}!game\_toggle\_inventory\_vis@{game\_toggle\_inventory\_vis}}
+\index{game\_toggle\_inventory\_vis@{game\_toggle\_inventory\_vis}!game.h@{game.h}}
+\doxysubsubsection{\texorpdfstring{game\_toggle\_inventory\_vis()}{game\_toggle\_inventory\_vis()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} game\+\_\+toggle\+\_\+inventory\+\_\+vis (\begin{DoxyParamCaption}\item[{Game \texorpdfstring{$\ast$}{*}}]{game }\end{DoxyParamCaption})}
+
+
+
+It toggles the inventory\textquotesingle{}s visualization. 
+
+\begin{DoxyAuthor}{Author}
+Bea, Arturo, Rubén, Ana
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em game} & a pointer to the game \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK if everything goes well, ERROR otherwise 
 \end{DoxyReturn}
 \Hypertarget{game_8h_acf232b2c0179f59d6b927a9afb746cfd}\label{game_8h_acf232b2c0179f59d6b927a9afb746cfd} 
 \index{game.h@{game.h}!space\_get\_object\_name\_from\_index@{space\_get\_object\_name\_from\_index}}

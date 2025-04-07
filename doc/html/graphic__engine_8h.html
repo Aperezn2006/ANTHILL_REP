@@ -173,6 +173,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a944f77c736cfe97f5ac0d08f16cb6785" id="r_a944f77c736cfe97f5ac0d08f16cb6785"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphic__engine_8h.html#a944f77c736cfe97f5ac0d08f16cb6785">graphic_engine_paint_end</a> (Graphic_engine *ge, Game *game)</td></tr>
 <tr class="memdesc:a944f77c736cfe97f5ac0d08f16cb6785"><td class="mdescLeft">&#160;</td><td class="mdescRight">It paints the end game screen.  <br /></td></tr>
 <tr class="separator:a944f77c736cfe97f5ac0d08f16cb6785"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af1fcb00c19b8537b3da3b09f899233d9" id="r_af1fcb00c19b8537b3da3b09f899233d9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphic__engine_8h.html#af1fcb00c19b8537b3da3b09f899233d9">graphic_engine_paint_inventory</a> (Graphic_engine *ge, Game *game)</td></tr>
+<tr class="memdesc:af1fcb00c19b8537b3da3b09f899233d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">It paints the inventory screen.  <br /></td></tr>
+<tr class="separator:af1fcb00c19b8537b3da3b09f899233d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>It defines the textual graphic engine interface. </p>
@@ -480,6 +483,82 @@ Functions</h2></td></tr>
 <area shape="rect" href="game_8c.html#a0f31396ac6c4e20627b950490961aecb" title="It gets the id of the space located east of the current_location." alt="" coords="545,197,668,223"/>
 <area shape="poly" title=" " alt="" coords="417,302,460,282,474,270,483,257,492,244,508,232,531,221,533,226,511,236,496,248,487,261,478,274,463,287,419,306"/>
 <area shape="poly" title=" " alt="" coords="668,214,738,222,738,228,668,220"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="af1fcb00c19b8537b3da3b09f899233d9" name="af1fcb00c19b8537b3da3b09f899233d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af1fcb00c19b8537b3da3b09f899233d9">&#9670;&#160;</a></span>graphic_engine_paint_inventory()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void graphic_engine_paint_inventory </td>
+          <td>(</td>
+          <td class="paramtype">Graphic_engine *&#160;</td>
+          <td class="paramname"><em>ge</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Game *&#160;</td>
+          <td class="paramname"><em>game</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>It paints the inventory screen. </p>
+<dl class="section author"><dt>Author</dt><dd>Ana</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ge</td><td>a pointer to the graphic engine </td></tr>
+    <tr><td class="paramname">game</td><td>a pointer to the game </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>nothing </dd></dl>
+<div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-6-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-6-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="graphic__engine_8h_af1fcb00c19b8537b3da3b09f899233d9_cgraph.png" border="0" usemap="#agraphic__engine_8h_af1fcb00c19b8537b3da3b09f899233d9_cgraph" alt=""/></div>
+<map name="agraphic__engine_8h_af1fcb00c19b8537b3da3b09f899233d9_cgraph" id="agraphic__engine_8h_af1fcb00c19b8537b3da3b09f899233d9_cgraph">
+<area shape="rect" title="It paints the inventory screen." alt="" coords="5,263,167,303"/>
+<area shape="rect" href="game_8c.html#ad2f0721dd9c1a025d85b23ac38e3d034" title="It creates a pointer to the object located in a certain position of the array of objects in the game." alt="" coords="215,5,387,45"/>
+<area shape="poly" title=" " alt="" coords="91,261,107,219,132,164,167,106,189,79,213,55,219,51,222,55,216,59,193,83,171,109,137,166,112,221,96,263"/>
+<area shape="rect" href="game_8c.html#aeb1858561791db670b4083ff657fb584" title="It creates a pointer to the current player." alt="" coords="233,70,368,95"/>
+<area shape="poly" title=" " alt="" coords="96,261,140,189,174,148,213,113,238,98,240,103,216,117,178,152,145,192,100,264"/>
+<area shape="rect" href="game_8c.html#aa09e1df33f2417cc314eca6a5ae822f3" title="It gets the game&#39;s current turn." alt="" coords="455,95,575,121"/>
+<area shape="poly" title=" " alt="" coords="100,261,146,208,178,179,213,156,271,133,331,118,389,110,441,106,442,111,390,115,332,124,272,138,216,161,181,184,150,211,104,264"/>
+<area shape="rect" href="object_8c.html#a7675829af58481ecebd6a1c46ed7126d" title="It gets the description of a object." alt="" coords="237,171,364,197"/>
+<area shape="poly" title=" " alt="" coords="115,260,160,232,214,206,233,198,234,203,216,210,163,237,118,265"/>
+<area shape="rect" href="object_8c.html#ac5af152381a21853c6a28cc120e8e7fe" title="It gets the id of a object." alt="" coords="246,221,355,246"/>
+<area shape="poly" title=" " alt="" coords="166,262,232,246,233,251,167,267"/>
+<area shape="rect" href="object_8c.html#a14f7e4d3be3158bd2c0f2ad7dad76fd6" title="It gets whether the object has been inspected or not." alt="" coords="221,270,381,295"/>
+<area shape="poly" title=" " alt="" coords="167,280,207,280,207,285,167,285"/>
+<area shape="rect" href="object_8c.html#ae7279c442aab51c0818bd008b31f9816" title="It gets the name of a object." alt="" coords="233,319,368,345"/>
+<area shape="poly" title=" " alt="" coords="167,299,232,314,231,319,166,304"/>
+<area shape="rect" href="player_8c.html#afd4f4e0fecad36df5cb98fa86eefce00" title="It gets whether the player has an object or not." alt="" coords="231,369,371,394"/>
+<area shape="poly" title=" " alt="" coords="118,300,163,328,216,355,234,362,233,367,214,360,160,333,115,305"/>
+<area shape="rect" href="libscreen_8h.html#a0950dc68cba3d491b909a8abaac1c666" title="It cleares an area, eraising all its content." alt="" coords="231,418,371,443"/>
+<area shape="poly" title=" " alt="" coords="105,301,151,353,182,381,216,404,229,411,226,415,213,409,179,385,147,357,101,305"/>
+<area shape="rect" href="libscreen_8h.html#a4f4cd4c7899c096d6c90cc33de9a9814" title="It introduces some information inside an area." alt="" coords="233,467,369,493"/>
+<area shape="poly" title=" " alt="" coords="99,302,117,335,143,377,176,418,216,454,225,459,223,464,213,458,172,422,138,380,112,338,94,304"/>
+<area shape="rect" href="libscreen_8h.html#a98b385ae7a8e7de10f9e66acf478c00c" title="It paints in the terminal the actual screen composition." alt="" coords="248,517,353,542"/>
+<area shape="poly" title=" " alt="" coords="96,302,110,344,135,399,170,455,192,481,216,503,237,515,234,519,213,507,188,485,166,458,130,401,106,346,91,304"/>
+<area shape="poly" title=" " alt="" coords="369,88,442,97,441,102,368,93"/>
+<area shape="rect" href="inventory_8c.html#a3312af669bbc6fb7166481b526efb2c8" title="It checks whether the inventory has a certain object." alt="" coords="435,369,596,394"/>
+<area shape="poly" title=" " alt="" coords="371,379,421,379,421,384,371,384"/>
+<area shape="rect" href="set_8c.html#a298b41bcf7ae56e1f07567eaace0c963" title="It checks if the set contains an element." alt="" coords="644,369,735,394"/>
+<area shape="poly" title=" " alt="" coords="596,379,630,379,630,384,596,384"/>
 </map>
 </div>
 

@@ -15,6 +15,7 @@ var game_8h =
     [ "game_get_character_location", "game_8h.html#a3e54ddf9f59ca1e2322429d353a8d2b4", null ],
     [ "game_get_east", "game_8h.html#a0f31396ac6c4e20627b950490961aecb", null ],
     [ "game_get_finished", "game_8h.html#a7def4a688e3db8aa7261b677b79943c4", null ],
+    [ "game_get_inventory_vis", "game_8h.html#aa6afea7c71b3377cda2fdbe213a70c27", null ],
     [ "game_get_last_command", "game_8h.html#ac8d90fcffcb96d380650d5c3820ef505", null ],
     [ "game_get_message", "game_8h.html#aaef1830fff1ce5028b72435f145e98e8", null ],
     [ "game_get_neighbour", "game_8h.html#a569cbaa52bdc90cd1e7905aaf678ae6e", null ],
@@ -53,5 +54,6 @@ var game_8h =
     [ "game_set_object_location", "game_8h.html#adb5062913a386b51eb05f9260d61d193", null ],
     [ "game_set_player_location", "game_8h.html#a191f795a7f18bc8feda8546c4dc3634f", null ],
     [ "game_set_turn", "game_8h.html#a7e73029af4a81214bceba63f2defb013", null ],
+    [ "game_toggle_inventory_vis", "game_8h.html#afb3cf6150d6cd4b054801d54c01ebe9f", null ],
     [ "space_get_object_name_from_index", "game_8h.html#acf232b2c0179f59d6b927a9afb746cfd", null ]
 ];

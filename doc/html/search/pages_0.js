@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['anthill_20game_20documentation_0',['Anthill Game Documentation',['../index.html',1,'']]]
+  ['game_0',['Intro to our game',['../index.html',1,'']]]
 ];

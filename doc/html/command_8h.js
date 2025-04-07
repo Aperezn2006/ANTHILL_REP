@@ -11,7 +11,8 @@ var command_8h =
       [ "DROP", "command_8h.html#a805cf38fd2b6d5604bf1f1036b80fde2a8b0b0025af76a3d8f0b7b1d4758e51a6", null ],
       [ "ATTACK", "command_8h.html#a805cf38fd2b6d5604bf1f1036b80fde2a831c130f9c83adc963152d232a9d61c7", null ],
       [ "CHAT", "command_8h.html#a805cf38fd2b6d5604bf1f1036b80fde2aa24d371d8d14298a1bf5a98d3f321bef", null ],
-      [ "INSPECT", "command_8h.html#a805cf38fd2b6d5604bf1f1036b80fde2aab933f64fcaa285df294e1420f6f1b07", null ]
+      [ "INSPECT", "command_8h.html#a805cf38fd2b6d5604bf1f1036b80fde2aab933f64fcaa285df294e1420f6f1b07", null ],
+      [ "INVENTORY", "command_8h.html#a805cf38fd2b6d5604bf1f1036b80fde2aa6342d4e2db15fb13f0651aa0b9015c4", null ]
     ] ],
     [ "CommandType", "command_8h.html#a21e038f5b8958e203d28bc4f18472352", [
       [ "CMDS", "command_8h.html#a21e038f5b8958e203d28bc4f18472352a7de95771d46ecb64bd2344ef74bbec41", null ],

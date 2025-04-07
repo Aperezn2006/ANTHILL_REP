@@ -322,6 +322,12 @@ Functions</h2></td></tr>
 <tr class="memitem:aa09e1df33f2417cc314eca6a5ae822f3" id="r_aa09e1df33f2417cc314eca6a5ae822f3"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game_8c.html#aa09e1df33f2417cc314eca6a5ae822f3">game_get_turn</a> (Game *game)</td></tr>
 <tr class="memdesc:aa09e1df33f2417cc314eca6a5ae822f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">It gets the game's current turn.  <br /></td></tr>
 <tr class="separator:aa09e1df33f2417cc314eca6a5ae822f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb3cf6150d6cd4b054801d54c01ebe9f" id="r_afb3cf6150d6cd4b054801d54c01ebe9f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="types_8h.html#a67a0db04d321a74b7e7fcfd3f1a3f70b">Status</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game_8c.html#afb3cf6150d6cd4b054801d54c01ebe9f">game_toggle_inventory_vis</a> (Game *game)</td></tr>
+<tr class="memdesc:afb3cf6150d6cd4b054801d54c01ebe9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">It toggles the inventory's visualization.  <br /></td></tr>
+<tr class="separator:afb3cf6150d6cd4b054801d54c01ebe9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa6afea7c71b3377cda2fdbe213a70c27" id="r_aa6afea7c71b3377cda2fdbe213a70c27"><td class="memItemLeft" align="right" valign="top"><a class="el" href="types_8h.html#a39db6982619d623273fad8a383489309">Bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game_8c.html#aa6afea7c71b3377cda2fdbe213a70c27">game_get_inventory_vis</a> (Game *game)</td></tr>
+<tr class="memdesc:aa6afea7c71b3377cda2fdbe213a70c27"><td class="mdescLeft">&#160;</td><td class="mdescRight">It gets whether the inventory is beinf visualized or not.  <br /></td></tr>
+<tr class="separator:aa6afea7c71b3377cda2fdbe213a70c27"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6a00b3f5db99150d9180e439d400e083" id="r_a6a00b3f5db99150d9180e439d400e083"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game_8c.html#a6a00b3f5db99150d9180e439d400e083">game_print</a> (Game *game)</td></tr>
 <tr class="memdesc:a6a00b3f5db99150d9180e439d400e083"><td class="mdescLeft">&#160;</td><td class="mdescRight">It prints the game.  <br /></td></tr>
 <tr class="separator:a6a00b3f5db99150d9180e439d400e083"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1077,6 +1083,34 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>TRUE if it's finished, FALSE if it isn't, WRONG if any errors were detected </dd></dl>
+
+</div>
+</div>
+<a id="aa6afea7c71b3377cda2fdbe213a70c27" name="aa6afea7c71b3377cda2fdbe213a70c27"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa6afea7c71b3377cda2fdbe213a70c27">&#9670;&#160;</a></span>game_get_inventory_vis()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="types_8h.html#a39db6982619d623273fad8a383489309">Bool</a> game_get_inventory_vis </td>
+          <td>(</td>
+          <td class="paramtype">Game *&#160;</td>
+          <td class="paramname"><em>game</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>It gets whether the inventory is beinf visualized or not. </p>
+<dl class="section author"><dt>Author</dt><dd>Bea, Arturo, Rubén, Ana</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">game</td><td>a pointer to the game </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>whether the inventory is beinf visualized or not </dd></dl>
 
 </div>
 </div>
@@ -2807,6 +2841,34 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>OK if everything goes well </dd></dl>
+
+</div>
+</div>
+<a id="afb3cf6150d6cd4b054801d54c01ebe9f" name="afb3cf6150d6cd4b054801d54c01ebe9f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb3cf6150d6cd4b054801d54c01ebe9f">&#9670;&#160;</a></span>game_toggle_inventory_vis()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="types_8h.html#a67a0db04d321a74b7e7fcfd3f1a3f70b">Status</a> game_toggle_inventory_vis </td>
+          <td>(</td>
+          <td class="paramtype">Game *&#160;</td>
+          <td class="paramname"><em>game</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>It toggles the inventory's visualization. </p>
+<dl class="section author"><dt>Author</dt><dd>Bea, Arturo, Rubén, Ana</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">game</td><td>a pointer to the game </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>OK if everything goes well, ERROR otherwise </dd></dl>
 
 </div>
 </div>

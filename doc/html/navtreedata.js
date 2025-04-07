@@ -25,7 +25,7 @@
 var NAVTREE =
 [
   [ "Anthill", "index.html", [
-    [ "Anthill Game Documentation", "index.html", null ],
+    [ "Intro to our game", "index.html", null ],
     [ "Test List", "test.html", null ],
     [ "Data Structures", "annotated.html", [
       [ "Data Structures", "annotated.html", "annotated_dup" ],
@@ -53,9 +53,9 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"game_8h.html#ae23e4035f5fe5e3656e9077b2038167b",
-"object_8c.html#ae2cac8fc6b4b1763e97072c0d260e945",
-"space_8c.html#ad184783dc62e61c9b3c0c2879f3277e3"
+"game_8h.html#ad2f0721dd9c1a025d85b23ac38e3d034",
+"object_8c.html#a14f7e4d3be3158bd2c0f2ad7dad76fd6",
+"space_8c.html#a57eda9861c179f6c89df201fea8fde01"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

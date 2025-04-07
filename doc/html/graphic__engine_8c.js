@@ -13,6 +13,7 @@ var graphic__engine_8c =
     [ "graphic_engine_destroy", "graphic__engine_8c.html#a5a5eac4ef2033c5ad71aa6895f362f79", null ],
     [ "graphic_engine_paint_end", "graphic__engine_8c.html#a944f77c736cfe97f5ac0d08f16cb6785", null ],
     [ "graphic_engine_paint_game", "graphic__engine_8c.html#a0e275aa477d5fa59e903da33a2a40a5d", null ],
+    [ "graphic_engine_paint_inventory", "graphic__engine_8c.html#af1fcb00c19b8537b3da3b09f899233d9", null ],
     [ "initDescStuff", "graphic__engine_8c.html#a0570f5048d27e59a7de1db2dc4da6065", null ],
     [ "printHorizontalSection", "graphic__engine_8c.html#a948686c2c48976bc9b9e4e822b24bc34", null ],
     [ "someScreenPuts", "graphic__engine_8c.html#a72429731d5f769b7a0e61926fcef6f4a", null ]

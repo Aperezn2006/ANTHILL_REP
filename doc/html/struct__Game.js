@@ -2,6 +2,7 @@ var struct__Game =
 [
     [ "characters", "struct__Game.html#a67dbab82329336af02e70bec003be688", null ],
     [ "finished", "struct__Game.html#ae1898d647ec6e63ff4c811a283f41f41", null ],
+    [ "inventory_vis", "struct__Game.html#a22951cc999fc7abefa3cfdec1b5abc83", null ],
     [ "last_cmd", "struct__Game.html#abb212cf279cf0f510043855e0c4a3b27", null ],
     [ "links", "struct__Game.html#a4544d07cd37e02761ed5fde0d8c02ba7", null ],
     [ "message", "struct__Game.html#a0097762cbbd215df718e429ef4c91825", null ],

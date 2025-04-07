@@ -1,11 +1,13 @@
 /**
- * @mainpage Anthill Game Documentation
+ * @mainpage Intro to our game
  *
- * Bienvenid@ a la documentación de Anthill 🐜
+ * Welcome to the Anthill documentation 🌱🐜
  *
- * Aquí encontrarás información sobre las clases, archivos,
- * estructuras y el sistema del juego.
+ * Here you'll be able to find informatino about classes, structures,
+ * files, functions and the game system
  *
- * - Link al repositorio: [GitHub](https://github.com/Aperezn2006/ANTHILL_REP)
- * - Para empezar, revisa las clases o los archivos desde el menú.
+ * - Link to the repo: [GitHub](https://github.com/Aperezn2006/ANTHILL_REP)
+ * - To start, check the classes or files from the menu
+ *
+ * This game was brought to you by: 🌹Rubén, 🌻Arturo, 🌷Bea & 🌼Ana
  */
