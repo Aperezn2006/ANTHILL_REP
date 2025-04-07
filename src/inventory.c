@@ -189,7 +189,7 @@ int inventory_get_object_index(Inventory *inventory, Id object_id) {
  */
 Status inventory_set_max_objects(Inventory *inventory, int max) {
   /*CdE*/
-  if (!inventory) {
+  if (!inventory || max <= 0) {
     return ERROR;
   }
 
