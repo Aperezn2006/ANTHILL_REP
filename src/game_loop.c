@@ -122,7 +122,6 @@ void game_loop_run(Game *game, Graphic_engine *gengine, FILE *log_file) {
   while ((command_get_code(last_cmd) != EXIT) && (game_get_finished(game) == FALSE)) {
     last_cmd = game_get_last_command(game);
     space_set_discovered(game_get_space(game, game_get_player_location(game)), TRUE);
-    /*graphic_engine_paint_inventory(gengine, game);*/
     graphic_engine_paint_game(gengine, game);
     command_get_user_input(last_cmd);
     game_actions_update(game, last_cmd);
@@ -135,6 +134,20 @@ void game_loop_run(Game *game, Graphic_engine *gengine, FILE *log_file) {
       if (game_get_num_players(game) > 1) {
         graphic_engine_paint_game(gengine, game);
         /*sleep(1);*/
+      }
+
+      if (game_get_inventory_vis(game) == TRUE) {
+        graphic_engine_paint_inventory(gengine, game);
+        sleep(2);
+        game_toggle_inventory_vis(game);
+        /*while (game_get_inventory_vis(game) == TRUE) {
+          if (command_get_code(game_get_last_command(game)) == INVENTORY) {
+            game_actions_update(game, game_get_last_command(game));
+            if (log_file) {
+              log_command(log_file, last_cmd);
+            }
+          }
+        }*/
       }
 
       if (game_get_turn(game) == (game_get_num_players(game) - 1)) {

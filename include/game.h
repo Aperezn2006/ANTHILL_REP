@@ -545,6 +545,25 @@ Status game_set_turn(Game *game, int turn);
  */
 int game_get_turn(Game *game);
 
+/*Management of inventory*/
+/**
+ * @brief It toggles the inventory's visualization
+ * @author Bea, Arturo, Rubén, Ana
+ *
+ * @param game a pointer to the game
+ * @return OK if everything goes well, ERROR otherwise
+ */
+Status game_toggle_inventory_vis(Game *game);
+
+/**
+ * @brief It gets whether the inventory is beinf visualized or not
+ * @author Bea, Arturo, Rubén, Ana
+ *
+ * @param game a pointer to the game
+ * @return whether the inventory is beinf visualized or not
+ */
+Bool game_get_inventory_vis(Game *game);
+
 /*Print*/
 /**
  * @brief It prints the game

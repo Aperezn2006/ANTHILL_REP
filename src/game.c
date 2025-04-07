@@ -33,6 +33,7 @@ struct _Game {
   char object_desc[MAX_PLAYERS][WORD_SIZE]; /*!< Highlighted object description in the game */
   Bool finished;                            /*!< Whether the game is finished or not */
   int turn;                                 /*!< Current game's turn */
+  Bool inventory_vis;                       /*!< Whether the inventory is being visualized*/
 };
 
 /*Create & destroy*/
@@ -77,6 +78,7 @@ Status game_init(Game *game) {
 
   game->finished = FALSE;
   game->turn = 0;
+  game->inventory_vis = FALSE;
 
   player_set_location(game->players[game_get_turn(game)], NO_ID);
 
@@ -909,6 +911,37 @@ int game_get_turn(Game *game) {
   }
 
   return game->turn;
+}
+
+/*Management of inventory*/
+/**
+ * @brief It toggles the inventory's visualization
+ */
+Status game_toggle_inventory_vis(Game *game) {
+  /*CdE*/
+  if (!game) {
+    return ERROR;
+  }
+
+  if (game->inventory_vis == TRUE) {
+    game->inventory_vis = FALSE;
+  } else {
+    game->inventory_vis = TRUE;
+  }
+
+  return OK;
+}
+
+/**
+ * @brief It gets whether the inventory is beinf visualized or not
+ */
+Bool game_get_inventory_vis(Game *game) {
+  /*CdE*/
+  if (!game) {
+    return FALSE;
+  }
+
+  return game->inventory_vis;
 }
 
 /*Print*/

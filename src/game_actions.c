@@ -93,6 +93,15 @@ Status game_actions_chat(Game *game);
 Status game_actions_inspect(Game *game);
 
 /**
+ * @brief It allows the player to toggle the visualization of the inventory
+ * @author Bea, Arturo, Rubén, Ana
+ *
+ * @param game
+ * @return  OK if everything goes well, ERROR otherwise
+ */
+Status game_actions_inventory(Game *game);
+
+/**
    Game actions implementation
 */
 
@@ -134,6 +143,10 @@ Status game_actions_update(Game *game, Command *command) {
 
     case INSPECT:
       command_set_result(command, game_actions_inspect(game));
+      break;
+
+    case INVENTORY:
+      command_set_result(command, game_actions_inventory(game));
       break;
 
     default:
@@ -464,5 +477,15 @@ Status game_actions_inspect(Game *game) {
   object_set_inspected(game_get_object_from_id(game, object_id), TRUE);
 
   fprintf(stdout, "[DEBUG] game_actions_inspect completed successfully\n");
+  return OK;
+}
+
+Status game_actions_inventory(Game *game) {
+  if (!game) {
+    return ERROR;
+  }
+
+  game_toggle_inventory_vis(game);
+
   return OK;
 }

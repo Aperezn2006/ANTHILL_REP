@@ -276,7 +276,7 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game) {
   screen_area_clear(ge->help);
   sprintf(str1, " The commands you can use are:");
   screen_area_puts(ge->help, str1);
-  sprintf(str1, "    m or move, t or take, d or drop, a or attack, c or chat, exit or e");
+  sprintf(str1, "    m or move, t or take, d or drop, a or attack, c or chat, n or inventory, exit or e");
   screen_area_puts(ge->help, str1);
 
   /*  FEEDBACK */
@@ -497,25 +497,30 @@ void graphic_engine_paint_end(Graphic_engine *ge, Game *game) {
   screen_paint(game_get_turn(game) % 7);
 }
 
-/*void graphic_engine_paint_inventory(Graphic_engine *ge, Game *game) {
+void graphic_engine_paint_inventory(Graphic_engine *ge, Game *game) {
   char str1[1024];
   int i = 0;
+  Object *object = NULL;
 
   screen_area_clear(ge->map);
   screen_area_puts(ge->map, " ");
 
   sprintf(str1, "       Object:      |                   Observations:                       ");
   screen_area_puts(ge->map, str1);
-  for (i = 0; i < inventory_get_num_objects(player_get_inventory(game_get_player(game))); i++) {
-    sprintf(str1, "----------------------------------------------------------------------------");
-    screen_area_puts(ge->map, str1);
-    if (object_get_inspected(game_get_object_from_index(game, i)) == TRUE) {
-      sprintf(str1, "       %14s |%60s", object_get_name(game_get_object_from_index(game, i)), object_get_desc(game_get_object_from_index(game, i)));
-    } else {
-      sprintf(str1, "%20s| No info yet", object_get_name(game_get_object_from_index(game, i)));
+  for (i = 0; i < MAX_OBJECTS; i++) {
+    object = game_get_object_from_index(game, i);
+    if (player_has_object(game_get_player(game), object_get_id(object)) == TRUE) {
+      sprintf(str1, "----------------------------------------------------------------------------");
+      screen_area_puts(ge->map, str1);
+      if (object_get_inspected(object) == TRUE) {
+        sprintf(str1, "       %12s |%s", object_get_name(object), object_get_desc(object));
+        screen_area_puts(ge->map, str1);
+      } else {
+        sprintf(str1, "%20s| No info yet", object_get_name(object));
+        screen_area_puts(ge->map, str1);
+      }
     }
-    screen_area_puts(ge->map, str1);
   }
 
   screen_paint(game_get_turn(game) % 7);
-}*/
+}
