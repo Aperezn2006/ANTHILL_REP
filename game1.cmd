@@ -1,7 +1,13 @@
 take seed
-inspect seed
-move south
-drop seed
-move south
-move right
+move n
+move s
+take crumb
+attack
+chat
+attack
+move e
+move s
+move e
+move e
+move w
 exit
