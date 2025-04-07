@@ -1,0 +1,5 @@
+<map id="set_print" name="set_print">
+<area shape="rect" id="Node000001" title="It prints the set." alt="" coords="175,5,253,31"/>
+<area shape="rect" id="Node000002" href="$inventory_8c.html#a18eb07c76bbe3f6e6e1b69621b566bf7" title="It prints the inventory&#39;s information." alt="" coords="5,5,127,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="161,21,127,21,127,15,161,15"/>
+</map>

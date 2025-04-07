@@ -1,0 +1,21 @@
+<map id="player_set_description" name="player_set_description">
+<area shape="rect" id="Node000001" title="It sets the graphical description of the player." alt="" coords="737,80,907,105"/>
+<area shape="rect" id="Node000002" href="$game__reader_8c.html#a116b1bbd8e119adf49cc729ded9524bd" title="It loads the spaces that are adjacent to the current one." alt="" coords="499,5,669,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="778,77,689,45,647,33,648,28,690,39,780,72"/>
+<area shape="rect" id="Node000006" href="$player__test_8c.html#a7bd9d9c85fa064da1d5d7d507cf1beb7" title=" " alt="" coords="479,55,689,80"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="723,85,689,81,690,76,724,80"/>
+<area shape="rect" id="Node000008" href="$player__test_8c.html#aa2cf046c6af7956f6a96d84cb73d9dd3" title=" " alt="" coords="479,104,689,129"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="724,105,689,109,689,103,723,100"/>
+<area shape="rect" id="Node000009" href="$player__test_8c.html#a1e47a0571a050194ebe7f0cf6102033e" title=" " alt="" coords="479,153,689,179"/>
+<area shape="poly" id="edge9_Node000001_Node000009" title=" " alt="" coords="779,113,690,145,647,156,646,151,689,139,777,108"/>
+<area shape="rect" id="Node000003" href="$game__reader_8c.html#ae099f75d4ca2681eb8cc8619c1c3f359" title="It creates the game with the info from the filename." alt="" coords="279,5,431,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="485,21,431,21,431,15,485,15"/>
+<area shape="rect" id="Node000004" href="$game__loop_8c.html#a31e8784ceb06b2f65b70e074e3e1a722" title="Initializes the game loop by loading game data and creating the graphic engine." alt="" coords="108,5,231,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="265,21,231,21,231,15,265,15"/>
+<area shape="rect" id="Node000005" href="$game__loop_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,5,60,31"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="94,21,60,21,60,15,94,15"/>
+<area shape="rect" id="Node000007" href="$player__test_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title=" " alt="" coords="327,104,382,129"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="512,86,383,114,382,108,510,80"/>
+<area shape="poly" id="edge8_Node000008_Node000007" title=" " alt="" coords="466,119,382,119,382,114,466,114"/>
+<area shape="poly" id="edge10_Node000009_Node000007" title=" " alt="" coords="510,153,382,125,383,120,512,148"/>
+</map>

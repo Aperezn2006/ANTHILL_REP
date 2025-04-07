@@ -1,0 +1,10 @@
+<map id="game_get_player_from_index" name="game_get_player_from_index">
+<area shape="rect" id="Node000001" title="It creates a pointer to the player located in a certain position of the array of players in the game." alt="" coords="532,5,705,45"/>
+<area shape="rect" id="Node000002" href="$game__loop_8c.html#afb6a670628dffdd01661658f29a1e8ca" title="Runs the main game loop, processing commands and updating the game state." alt="" coords="108,13,231,38"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="518,28,231,28,231,23,518,23"/>
+<area shape="rect" id="Node000004" href="$graphic__engine_8c.html#a0e275aa477d5fa59e903da33a2a40a5d" title="It paints the game&#39;s data on the user&#39;s screen." alt="" coords="279,38,484,63"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="519,39,485,42,484,37,518,33"/>
+<area shape="rect" id="Node000003" href="$game__loop_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,13,60,38"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="94,28,60,28,60,23,94,23"/>
+<area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="265,39,231,35,231,30,265,34"/>
+</map>

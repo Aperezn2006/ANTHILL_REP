@@ -1,0 +1,24 @@
+<map id="space_set_name" name="space_set_name">
+<area shape="rect" id="Node000001" title="It sets the name of a space." alt="" coords="699,104,829,129"/>
+<area shape="rect" id="Node000002" href="$game__reader_8c.html#a116b1bbd8e119adf49cc729ded9524bd" title="It loads the spaces that are adjacent to the current one." alt="" coords="479,5,650,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="734,98,695,70,650,44,620,33,622,28,652,40,698,66,737,93"/>
+<area shape="rect" id="Node000006" href="$space__test_8c.html#ad12c42523c517507566c5c68b1527689" title=" " alt="" coords="479,55,651,80"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="698,103,616,83,617,77,700,98"/>
+<area shape="rect" id="Node000008" href="$space__test_8c.html#a2569bab6cfeec15f722d232bb8c78c9e" title=" " alt="" coords="479,104,650,129"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="685,119,650,119,650,114,685,114"/>
+<area shape="rect" id="Node000009" href="$space__test_8c.html#a5a868ba017602ba6b58447cb394e81a6" title=" " alt="" coords="479,153,650,179"/>
+<area shape="poly" id="edge9_Node000001_Node000009" title=" " alt="" coords="700,135,617,156,616,151,698,130"/>
+<area shape="rect" id="Node000010" href="$space__test_8c.html#aa24a337830006e33706ab6ac1c416b47" title=" " alt="" coords="479,203,650,228"/>
+<area shape="poly" id="edge11_Node000001_Node000010" title=" " alt="" coords="737,140,698,168,652,194,622,205,620,200,650,189,695,163,734,136"/>
+<area shape="rect" id="Node000003" href="$game__reader_8c.html#ae099f75d4ca2681eb8cc8619c1c3f359" title="It creates the game with the info from the filename." alt="" coords="279,5,431,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="465,21,431,21,431,15,465,15"/>
+<area shape="rect" id="Node000004" href="$game__loop_8c.html#a31e8784ceb06b2f65b70e074e3e1a722" title="Initializes the game loop by loading game data and creating the graphic engine." alt="" coords="108,5,231,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="265,21,231,21,231,15,265,15"/>
+<area shape="rect" id="Node000005" href="$game__loop_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,5,60,31"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="94,21,60,21,60,15,94,15"/>
+<area shape="rect" id="Node000007" href="$space__test_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Main function for SPACE unit tests." alt="" coords="327,128,382,153"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="503,86,480,94,383,132,381,127,478,89,501,81"/>
+<area shape="poly" id="edge8_Node000008_Node000007" title=" " alt="" coords="466,131,382,140,382,135,465,125"/>
+<area shape="poly" id="edge10_Node000009_Node000007" title=" " alt="" coords="465,157,382,147,382,141,466,151"/>
+<area shape="poly" id="edge12_Node000010_Node000007" title=" " alt="" coords="501,201,478,194,381,155,383,150,480,189,503,196"/>
+</map>

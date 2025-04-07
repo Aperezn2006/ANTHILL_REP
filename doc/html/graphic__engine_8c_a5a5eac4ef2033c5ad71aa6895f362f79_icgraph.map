@@ -1,0 +1,7 @@
+<map id="graphic_engine_destroy" name="graphic_engine_destroy">
+<area shape="rect" id="Node000001" title="It destroys a graphic engine." alt="" coords="308,5,485,31"/>
+<area shape="rect" id="Node000002" href="$game__loop_8c.html#a0da7d0baf2abd7218bc555ea1f73d1c2" title="Cleans up resources used during the game loop, including the game and graphic engine." alt="" coords="108,5,260,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="294,21,260,21,260,15,294,15"/>
+<area shape="rect" id="Node000003" href="$game__loop_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,5,60,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="94,21,60,21,60,15,94,15"/>
+</map>

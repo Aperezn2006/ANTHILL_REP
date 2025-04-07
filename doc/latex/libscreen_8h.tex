@@ -1,15 +1,16 @@
-\doxysection{/mnt/c/\+Ubuntu/\+Shared\+\_\+folder/\+PPROG/\+I3/\+ANTHILL\+\_\+\+REP/include/libscreen.h File Reference}
-\hypertarget{libscreen_8h}{}\label{libscreen_8h}\index{/mnt/c/Ubuntu/Shared\_folder/PPROG/I3/ANTHILL\_REP/include/libscreen.h@{/mnt/c/Ubuntu/Shared\_folder/PPROG/I3/ANTHILL\_REP/include/libscreen.h}}
+\doxysection{libscreen.\+h File Reference}
+\hypertarget{libscreen_8h}{}\label{libscreen_8h}\index{libscreen.h@{libscreen.h}}
 
 
 It defines the screen interface.  
 
 
-This graph shows which files directly or indirectly include this file\+:\nopagebreak
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=223pt]{libscreen_8h__dep__incl}
+\includegraphics[width=179pt]{libscreen_8h__dep__incl}
 \end{center}
 \end{figure}
 \doxysubsubsection*{Typedefs}
@@ -141,6 +142,13 @@ This function should be called for earaising all the information in an area, bef
 {\em area} & the area to be cleared \\
 \hline
 \end{DoxyParams}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{libscreen_8h_a0950dc68cba3d491b909a8abaac1c666_icgraph}
+\end{center}
+\end{figure}
 \Hypertarget{libscreen_8h_aca5123ed5a7afb75e79c0001e5d1df4f}\label{libscreen_8h_aca5123ed5a7afb75e79c0001e5d1df4f} 
 \index{libscreen.h@{libscreen.h}!screen\_area\_destroy@{screen\_area\_destroy}}
 \index{screen\_area\_destroy@{screen\_area\_destroy}!libscreen.h@{libscreen.h}}
@@ -159,6 +167,13 @@ This function should be called once the area is not needed anymore, before endin
 {\em area} & the area to be freed \\
 \hline
 \end{DoxyParams}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{libscreen_8h_aca5123ed5a7afb75e79c0001e5d1df4f_icgraph}
+\end{center}
+\end{figure}
 \Hypertarget{libscreen_8h_a4c601f4602ad83e212facc1f53da8f88}\label{libscreen_8h_a4c601f4602ad83e212facc1f53da8f88} 
 \index{libscreen.h@{libscreen.h}!screen\_area\_init@{screen\_area\_init}}
 \index{screen\_area\_init@{screen\_area\_init}!libscreen.h@{libscreen.h}}
@@ -186,6 +201,13 @@ screen\+\_\+area\+\_\+init allocates memory for a new area and initializes its m
 \begin{DoxyReturn}{Returns}
 a new area, initialized 
 \end{DoxyReturn}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{libscreen_8h_a4c601f4602ad83e212facc1f53da8f88_icgraph}
+\end{center}
+\end{figure}
 \Hypertarget{libscreen_8h_a4f4cd4c7899c096d6c90cc33de9a9814}\label{libscreen_8h_a4f4cd4c7899c096d6c90cc33de9a9814} 
 \index{libscreen.h@{libscreen.h}!screen\_area\_puts@{screen\_area\_puts}}
 \index{screen\_area\_puts@{screen\_area\_puts}!libscreen.h@{libscreen.h}}
@@ -206,6 +228,13 @@ This function sets the string that will be shown in an area. Each string introdu
 {\em str} & a string that contains the information to be included in a particular area \\
 \hline
 \end{DoxyParams}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{libscreen_8h_a4f4cd4c7899c096d6c90cc33de9a9814_icgraph}
+\end{center}
+\end{figure}
 \Hypertarget{libscreen_8h_af77fa9df4f7170e1e3bf1c6209b7f0c2}\label{libscreen_8h_af77fa9df4f7170e1e3bf1c6209b7f0c2} 
 \index{libscreen.h@{libscreen.h}!screen\_area\_reset\_cursor@{screen\_area\_reset\_cursor}}
 \index{screen\_area\_reset\_cursor@{screen\_area\_reset\_cursor}!libscreen.h@{libscreen.h}}
@@ -237,7 +266,14 @@ It destroys a new screen area.
 \begin{DoxyAuthor}{Author}
 Profesores PPROG
 \end{DoxyAuthor}
-As it frees the screen, it must be called at the end of the program, once the areas created have been freed. \Hypertarget{libscreen_8h_a3c7e0099996732d34b143dde1a40f02c}\label{libscreen_8h_a3c7e0099996732d34b143dde1a40f02c} 
+As it frees the screen, it must be called at the end of the program, once the areas created have been freed. Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{libscreen_8h_a3d6d82dde2bb4f3ddc4d276dabe313ef_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{libscreen_8h_a3c7e0099996732d34b143dde1a40f02c}\label{libscreen_8h_a3c7e0099996732d34b143dde1a40f02c} 
 \index{libscreen.h@{libscreen.h}!screen\_init@{screen\_init}}
 \index{screen\_init@{screen\_init}!libscreen.h@{libscreen.h}}
 \doxysubsubsection{\texorpdfstring{screen\_init()}{screen\_init()}}
@@ -257,6 +293,13 @@ This function should be called at the beginning of the program, so the complete 
 {\em columns} & the number of columns that will have the full screen \\
 \hline
 \end{DoxyParams}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{libscreen_8h_a3c7e0099996732d34b143dde1a40f02c_icgraph}
+\end{center}
+\end{figure}
 \Hypertarget{libscreen_8h_a98b385ae7a8e7de10f9e66acf478c00c}\label{libscreen_8h_a98b385ae7a8e7de10f9e66acf478c00c} 
 \index{libscreen.h@{libscreen.h}!screen\_paint@{screen\_paint}}
 \index{screen\_paint@{screen\_paint}!libscreen.h@{libscreen.h}}
@@ -270,4 +313,10 @@ It paints in the terminal the actual screen composition.
 \begin{DoxyAuthor}{Author}
 Profesores PPROG
 \end{DoxyAuthor}
-This function should be called when some updates in the screen want to be shown. 
+This function should be called when some updates in the screen want to be shown. Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{libscreen_8h_a98b385ae7a8e7de10f9e66acf478c00c_icgraph}
+\end{center}
+\end{figure}

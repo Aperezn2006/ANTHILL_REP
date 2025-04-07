@@ -1,0 +1,17 @@
+<map id="space_set_discovered" name="space_set_discovered">
+<area shape="rect" id="Node000001" title="It sets whether the space is discovered or not." alt="" coords="363,80,528,105"/>
+<area shape="rect" id="Node000002" href="$game__loop_8c.html#afb6a670628dffdd01661658f29a1e8ca" title="Runs the main game loop, processing commands and updating the game state." alt="" coords="150,5,273,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="402,77,314,45,272,33,274,28,315,39,404,72"/>
+<area shape="rect" id="Node000004" href="$space__test_8c.html#af0942c19d3cf9172286372eacd0d55ae" title=" " alt="" coords="108,55,315,80"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="349,85,315,81,315,76,349,80"/>
+<area shape="rect" id="Node000006" href="$space__test_8c.html#ad6cbf13878b26080b6ad3a53571a03db" title=" " alt="" coords="109,104,314,129"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="349,105,314,109,314,103,349,100"/>
+<area shape="rect" id="Node000007" href="$space__test_8c.html#a997b53a481b02485dd54c9cbce83465a" title=" " alt="" coords="109,153,314,179"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="401,113,315,143,269,156,268,151,314,138,399,108"/>
+<area shape="rect" id="Node000003" href="$game__loop_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,5,60,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="136,21,60,21,60,15,136,15"/>
+<area shape="rect" id="Node000005" href="$space__test_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Main function for SPACE unit tests." alt="" coords="5,104,60,129"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="139,86,109,94,61,110,59,104,107,89,138,81"/>
+<area shape="poly" id="edge6_Node000006_Node000005" title=" " alt="" coords="95,119,60,119,60,114,95,114"/>
+<area shape="poly" id="edge8_Node000007_Node000005" title=" " alt="" coords="142,153,107,143,59,128,61,123,109,138,144,147"/>
+</map>

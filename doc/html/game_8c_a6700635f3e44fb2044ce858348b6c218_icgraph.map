@@ -1,0 +1,23 @@
+<map id="game_get_character" name="game_get_character">
+<area shape="rect" id="Node000001" title="It gets a pointer to a characters from its id." alt="" coords="1169,55,1324,80"/>
+<area shape="rect" id="Node000002" href="$game__actions_8c.html#ab8c2bd8035729624e09606c7e5f8c663" title="It allows the player to attack a character." alt="" coords="960,5,1121,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1179,54,1094,33,1095,28,1180,49"/>
+<area shape="rect" id="Node000006" href="$game__actions_8c.html#abd053508c61eec9d17160057445a65ec" title="It allows the player to chat with a character." alt="" coords="967,55,1115,80"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="1156,70,1115,70,1115,65,1156,65"/>
+<area shape="rect" id="Node000007" href="$game_8c.html#a7a0abdfb9cb98911f653f643fa47b3ce" title="It gets the description of the character located in a certain space." alt="" coords="963,105,1118,145"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="1188,86,1114,107,1112,102,1186,81"/>
+<area shape="rect" id="Node000003" href="$game__actions_8c.html#a0693694a3e70b4a4129e2da4ddb1f1a7" title="It updates the current command based on user input." alt="" coords="747,55,912,80"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="973,36,885,57,884,52,972,31"/>
+<area shape="rect" id="Node000004" href="$game__loop_8c.html#afb6a670628dffdd01661658f29a1e8ca" title="Runs the main game loop, processing commands and updating the game state." alt="" coords="108,81,231,107"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="733,74,231,94,231,89,733,69"/>
+<area shape="rect" id="Node000005" href="$game__loop_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,81,60,107"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="94,97,60,97,60,91,94,91"/>
+<area shape="poly" id="edge6_Node000006_Node000003" title=" " alt="" coords="953,70,912,70,912,65,953,65"/>
+<area shape="rect" id="Node000008" href="$graphic__engine_8c.html#a0570f5048d27e59a7de1db2dc4da6065" title="It gets the necessary information to print a certain space." alt="" coords="777,111,882,136"/>
+<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="949,127,882,126,882,121,949,121"/>
+<area shape="rect" id="Node000009" href="$graphic__engine_8c.html#a948686c2c48976bc9b9e4e822b24bc34" title="It prints a certain space and the spaces east and west of it." alt="" coords="532,108,699,133"/>
+<area shape="poly" id="edge9_Node000008_Node000009" title=" " alt="" coords="763,125,699,124,699,119,763,120"/>
+<area shape="rect" id="Node000010" href="$graphic__engine_8c.html#a0e275aa477d5fa59e903da33a2a40a5d" title="It paints the game&#39;s data on the user&#39;s screen." alt="" coords="279,107,484,132"/>
+<area shape="poly" id="edge10_Node000009_Node000010" title=" " alt="" coords="518,123,484,123,484,117,518,117"/>
+<area shape="poly" id="edge11_Node000010_Node000004" title=" " alt="" coords="265,108,231,104,231,99,265,103"/>
+</map>

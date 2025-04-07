@@ -1,0 +1,14 @@
+<map id="space_get_description" name="space_get_description">
+<area shape="rect" id="Node000001" title="It gets the description of a space." alt="" coords="371,55,537,80"/>
+<area shape="rect" id="Node000002" href="$space_8c.html#a013d3166ac751f717612c5b0d6510c2c" title="It prints the space information." alt="" coords="187,5,285,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="384,54,284,32,286,26,385,49"/>
+<area shape="rect" id="Node000004" href="$space__test_8c.html#a3b6d16613ee2f3940fe7c92f3934508a" title=" " alt="" coords="149,55,323,80"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="357,70,323,70,323,65,357,65"/>
+<area shape="rect" id="Node000006" href="$space__test_8c.html#a3422f19fd8a821a06ccba2feb52034c2" title=" " alt="" coords="149,104,323,129"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="385,86,294,107,292,101,383,80"/>
+<area shape="rect" id="Node000003" href="$game_8c.html#a6a00b3f5db99150d9180e439d400e083" title="It prints the game." alt="" coords="5,5,101,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="173,21,101,21,101,15,173,15"/>
+<area shape="rect" id="Node000005" href="$space__test_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Main function for SPACE unit tests." alt="" coords="26,79,81,104"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="136,83,81,91,80,85,135,78"/>
+<area shape="poly" id="edge6_Node000006_Node000005" title=" " alt="" coords="135,105,80,98,81,92,136,100"/>
+</map>

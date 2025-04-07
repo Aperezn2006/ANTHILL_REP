@@ -1,0 +1,45 @@
+<map id="space_add_object" name="space_add_object">
+<area shape="rect" id="Node000001" title="It adds an object to the space." alt="" coords="932,240,1071,265"/>
+<area shape="rect" id="Node000002" href="$game__reader_8c.html#a116b1bbd8e119adf49cc729ded9524bd" title="It loads the spaces that are adjacent to the current one." alt="" coords="703,5,873,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="991,227,977,187,955,137,923,86,904,64,882,44,863,33,866,28,886,40,908,60,928,83,959,134,982,185,996,226"/>
+<area shape="rect" id="Node000006" href="$game_8c.html#adb5062913a386b51eb05f9260d61d193" title="It sets the object&#39;s location." alt="" coords="692,55,884,80"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="986,229,947,161,917,125,883,95,858,82,860,78,885,90,921,122,951,158,991,226"/>
+<area shape="rect" id="Node000011" href="$space__test_8c.html#afce029ac99df0f47ccb770ff1e19c782" title=" " alt="" coords="706,105,870,145"/>
+<area shape="poly" id="edge12_Node000001_Node000011" title=" " alt="" coords="976,232,935,195,883,159,857,147,859,142,885,154,938,191,980,228"/>
+<area shape="rect" id="Node000013" href="$space__test_8c.html#a4da11e1a6a6f51c7e1317fe99c394d8c" title=" " alt="" coords="701,169,875,209"/>
+<area shape="poly" id="edge14_Node000001_Node000013" title=" " alt="" coords="944,238,855,211,856,206,946,233"/>
+<area shape="rect" id="Node000014" href="$space__test_8c.html#ad2f104cc981de2f9f628fab5db5e2cf6" title=" " alt="" coords="707,233,869,273"/>
+<area shape="poly" id="edge16_Node000001_Node000014" title=" " alt="" coords="918,255,869,255,869,250,918,250"/>
+<area shape="rect" id="Node000015" href="$space__test_8c.html#a208ae9352ff979024f6ebef4e791356a" title=" " alt="" coords="701,297,875,323"/>
+<area shape="poly" id="edge18_Node000001_Node000015" title=" " alt="" coords="942,272,885,287,838,300,836,295,883,282,941,266"/>
+<area shape="rect" id="Node000016" href="$space__test_8c.html#a4c5deb606df6b7b0bd886069628a35e4" title=" " alt="" coords="707,347,869,387"/>
+<area shape="poly" id="edge20_Node000001_Node000016" title=" " alt="" coords="976,276,934,307,885,336,855,350,853,345,883,332,931,302,972,272"/>
+<area shape="rect" id="Node000017" href="$space__test_8c.html#a6349e2b547c71dee23b96d8bbf7a1806" title=" " alt="" coords="701,412,875,437"/>
+<area shape="poly" id="edge22_Node000001_Node000017" title=" " alt="" coords="989,279,949,341,919,374,885,402,859,414,857,409,883,397,916,370,944,337,985,276"/>
+<area shape="rect" id="Node000018" href="$space__test_8c.html#a3fb76d2dce3ed1a0ce85228e2f7d1cab" title=" " alt="" coords="707,462,869,502"/>
+<area shape="poly" id="edge24_Node000001_Node000018" title=" " alt="" coords="994,279,979,317,956,364,925,411,886,452,867,464,864,460,882,448,921,408,951,361,974,315,989,277"/>
+<area shape="rect" id="Node000003" href="$game__reader_8c.html#ae099f75d4ca2681eb8cc8619c1c3f359" title="It creates the game with the info from the filename." alt="" coords="492,5,644,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="689,21,644,21,644,15,689,15"/>
+<area shape="rect" id="Node000004" href="$game__loop_8c.html#a31e8784ceb06b2f65b70e074e3e1a722" title="Initializes the game loop by loading game data and creating the graphic engine." alt="" coords="108,7,231,32"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="478,21,231,22,231,16,478,16"/>
+<area shape="rect" id="Node000005" href="$game__loop_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,32,60,57"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="95,36,61,42,60,37,94,31"/>
+<area shape="rect" id="Node000007" href="$game__actions_8c.html#abb3fcef4a17dd9fa9293f6b2b5e2d976" title="It allows a player to drop an object if they have it." alt="" coords="493,55,643,80"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="678,70,643,70,643,65,678,65"/>
+<area shape="rect" id="Node000010" href="$game__actions_8c.html#a08ae11402d194439d1e014fa78aa8b2e" title="It allows a player to pick up an object if they&#39;re in the same room." alt="" coords="494,104,642,129"/>
+<area shape="poly" id="edge10_Node000006_Node000010" title=" " alt="" coords="718,86,626,107,625,101,717,80"/>
+<area shape="rect" id="Node000008" href="$game__actions_8c.html#a0693694a3e70b4a4129e2da4ddb1f1a7" title="It updates the current command based on user input." alt="" coords="279,56,444,81"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="479,71,444,71,444,65,479,65"/>
+<area shape="rect" id="Node000009" href="$game__loop_8c.html#afb6a670628dffdd01661658f29a1e8ca" title="Runs the main game loop, processing commands and updating the game state." alt="" coords="108,56,231,81"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="265,71,231,71,231,66,265,66"/>
+<area shape="poly" id="edge9_Node000009_Node000005" title=" " alt="" coords="94,58,60,52,61,47,95,53"/>
+<area shape="poly" id="edge11_Node000010_Node000008" title=" " alt="" coords="499,103,416,84,417,79,500,98"/>
+<area shape="rect" id="Node000012" href="$space__test_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Main function for SPACE unit tests." alt="" coords="541,297,595,323"/>
+<area shape="poly" id="edge13_Node000011_Node000012" title=" " alt="" coords="702,153,694,159,654,193,621,232,578,299,574,296,617,229,651,189,690,155,700,149"/>
+<area shape="poly" id="edge15_Node000013_Node000012" title=" " alt="" coords="708,216,693,223,632,262,586,299,582,295,629,258,691,218,705,211"/>
+<area shape="poly" id="edge17_Node000014_Node000012" title=" " alt="" coords="698,279,596,306,595,301,697,274"/>
+<area shape="poly" id="edge19_Node000015_Node000012" title=" " alt="" coords="686,313,596,313,596,307,686,307"/>
+<area shape="poly" id="edge21_Node000016_Node000012" title=" " alt="" coords="697,346,595,319,596,314,698,341"/>
+<area shape="poly" id="edge23_Node000017_Node000012" title=" " alt="" coords="712,410,691,402,628,363,582,325,585,321,631,358,693,397,714,405"/>
+<area shape="poly" id="edge25_Node000018_Node000012" title=" " alt="" coords="701,458,690,452,652,421,619,385,575,324,579,321,623,382,656,417,694,448,703,454"/>
+</map>

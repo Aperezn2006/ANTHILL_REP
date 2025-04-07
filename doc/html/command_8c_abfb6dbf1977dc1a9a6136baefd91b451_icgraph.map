@@ -1,0 +1,13 @@
+<map id="command_destroy" name="command_destroy">
+<area shape="rect" id="Node000001" title="It frees the memory of a certain command." alt="" coords="471,56,613,81"/>
+<area shape="rect" id="Node000002" href="$game_8c.html#a59ccc668c2549c02771bdbf98103ca71" title="It frees the memory the game was occupying." alt="" coords="308,56,423,81"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="457,71,423,71,423,66,457,66"/>
+<area shape="rect" id="Node000003" href="$game__loop_8c.html#a0da7d0baf2abd7218bc555ea1f73d1c2" title="Cleans up resources used during the game loop, including the game and graphic engine." alt="" coords="108,5,260,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="305,55,230,33,231,28,307,50"/>
+<area shape="rect" id="Node000004" href="$game__loop_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,56,60,81"/>
+<area shape="poly" id="edge6_Node000002_Node000004" title=" " alt="" coords="294,71,60,71,60,66,294,66"/>
+<area shape="rect" id="Node000005" href="$game__loop_8c.html#a31e8784ceb06b2f65b70e074e3e1a722" title="Initializes the game loop by loading game data and creating the graphic engine." alt="" coords="123,107,245,132"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="307,88,231,109,230,104,305,83"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="133,38,61,62,59,57,131,33"/>
+<area shape="poly" id="edge5_Node000005_Node000004" title=" " alt="" coords="131,105,59,80,61,75,133,100"/>
+</map>

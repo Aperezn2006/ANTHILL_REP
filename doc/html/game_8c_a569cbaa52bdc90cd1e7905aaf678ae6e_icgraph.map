@@ -1,0 +1,27 @@
+<map id="game_get_neighbour" name="game_get_neighbour">
+<area shape="rect" id="Node000001" title="It gets a space&#39;s neighboring location in a specified direction." alt="" coords="952,104,1111,129"/>
+<area shape="rect" id="Node000002" href="$game__actions_8c.html#a7ba3ad9bedfd49af117636f826eaff1c" title="It moves the player in the desired direction (north, south, west or east)" alt="" coords="747,5,904,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="999,99,954,71,903,44,873,33,875,28,905,40,957,67,1002,94"/>
+<area shape="rect" id="Node000006" href="$game_8c.html#a0f31396ac6c4e20627b950490961aecb" title="It gets the id of the space located east of the current_location." alt="" coords="764,55,887,80"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="964,103,879,83,880,77,965,98"/>
+<area shape="rect" id="Node000009" href="$game_8c.html#af7db5ced85f2cc1d258ede6ceaaa08f2" title="It gets the id of the space located north of the current_location." alt="" coords="551,155,679,180"/>
+<area shape="poly" id="edge9_Node000001_Node000009" title=" " alt="" coords="956,135,904,143,785,157,680,166,679,161,785,152,904,138,955,129"/>
+<area shape="rect" id="Node000010" href="$game_8c.html#ae490f0b48cf00c93f9c0e188c5225a03" title="It gets the id of the space located south of the current_location." alt="" coords="550,204,681,229"/>
+<area shape="poly" id="edge11_Node000001_Node000010" title=" " alt="" coords="988,137,905,166,787,193,681,211,680,205,786,188,903,161,986,132"/>
+<area shape="rect" id="Node000011" href="$game_8c.html#a8f17ced6ddf3eb845642e106a5b658f2" title="It gets the id of the space located west of the current_location." alt="" coords="763,104,888,129"/>
+<area shape="poly" id="edge13_Node000001_Node000011" title=" " alt="" coords="938,119,888,119,888,114,938,114"/>
+<area shape="rect" id="Node000003" href="$game__actions_8c.html#a0693694a3e70b4a4129e2da4ddb1f1a7" title="It updates the current command based on user input." alt="" coords="299,67,464,92"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="734,33,464,71,464,65,733,28"/>
+<area shape="rect" id="Node000004" href="$game__loop_8c.html#afb6a670628dffdd01661658f29a1e8ca" title="Runs the main game loop, processing commands and updating the game state." alt="" coords="108,105,231,131"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="298,97,231,109,230,104,297,92"/>
+<area shape="rect" id="Node000005" href="$game__loop_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,105,60,131"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="94,121,60,121,60,115,94,115"/>
+<area shape="rect" id="Node000007" href="$graphic__engine_8c.html#a948686c2c48976bc9b9e4e822b24bc34" title="It prints a certain space and the spaces east and west of it." alt="" coords="532,104,699,129"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="758,86,671,107,670,101,757,81"/>
+<area shape="rect" id="Node000008" href="$graphic__engine_8c.html#a0e275aa477d5fa59e903da33a2a40a5d" title="It paints the game&#39;s data on the user&#39;s screen." alt="" coords="279,129,484,155"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="518,130,484,134,484,128,518,125"/>
+<area shape="poly" id="edge8_Node000008_Node000004" title=" " alt="" coords="265,131,231,128,231,122,265,126"/>
+<area shape="poly" id="edge10_Node000009_Node000008" title=" " alt="" coords="537,162,484,156,484,150,538,156"/>
+<area shape="poly" id="edge12_Node000010_Node000008" title=" " alt="" coords="555,203,531,195,418,157,420,152,533,190,557,197"/>
+<area shape="poly" id="edge14_Node000011_Node000007" title=" " alt="" coords="749,119,699,119,699,114,749,114"/>
+</map>

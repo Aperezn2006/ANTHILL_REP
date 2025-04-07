@@ -1,0 +1,18 @@
+<map id="link_set_name" name="link_set_name">
+<area shape="rect" id="Node000001" title="It sets the name of a link." alt="" coords="697,55,815,80"/>
+<area shape="rect" id="Node000002" href="$game__reader_8c.html#a116b1bbd8e119adf49cc729ded9524bd" title="It loads the spaces that are adjacent to the current one." alt="" coords="479,5,649,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="692,54,614,33,615,28,694,49"/>
+<area shape="rect" id="Node000006" href="$link__test_8c.html#ae0e478a0540bed26befc071591e3ff6c" title=" " alt="" coords="485,55,643,80"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="683,70,643,70,643,65,683,65"/>
+<area shape="rect" id="Node000008" href="$link__test_8c.html#aa66c1e991620a5a758ba6e4d6b4a8b73" title=" " alt="" coords="485,104,643,129"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="694,86,615,106,614,101,692,81"/>
+<area shape="rect" id="Node000003" href="$game__reader_8c.html#ae099f75d4ca2681eb8cc8619c1c3f359" title="It creates the game with the info from the filename." alt="" coords="279,5,431,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="465,21,431,21,431,15,465,15"/>
+<area shape="rect" id="Node000004" href="$game__loop_8c.html#a31e8784ceb06b2f65b70e074e3e1a722" title="Initializes the game loop by loading game data and creating the graphic engine." alt="" coords="108,5,231,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="265,21,231,21,231,15,265,15"/>
+<area shape="rect" id="Node000005" href="$game__loop_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,5,60,31"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="94,21,60,21,60,15,94,15"/>
+<area shape="rect" id="Node000007" href="$link__test_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title=" " alt="" coords="327,79,382,104"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="472,81,383,91,382,86,472,75"/>
+<area shape="poly" id="edge8_Node000008_Node000007" title=" " alt="" coords="471,108,382,97,383,92,472,103"/>
+</map>

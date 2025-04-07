@@ -1,0 +1,23 @@
+<map id="command_get_word" name="command_get_word">
+<area shape="rect" id="Node000001" title="It gets the wordect associated with a command." alt="" coords="707,104,861,129"/>
+<area shape="rect" id="Node000002" href="$game__actions_8c.html#abb3fcef4a17dd9fa9293f6b2b5e2d976" title="It allows a player to drop an object if they have it." alt="" coords="501,5,650,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="752,99,709,71,658,44,627,33,629,28,660,40,711,66,755,94"/>
+<area shape="rect" id="Node000006" href="$game__actions_8c.html#ab2fe29f3bf2f6d8ab2e16dbe019a6b3d" title="It allows the player to inspect an object." alt="" coords="492,55,659,80"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="716,103,629,83,631,77,717,98"/>
+<area shape="rect" id="Node000007" href="$game__actions_8c.html#a7ba3ad9bedfd49af117636f826eaff1c" title="It moves the player in the desired direction (north, south, west or east)" alt="" coords="497,104,654,129"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="693,119,654,119,654,114,693,114"/>
+<area shape="rect" id="Node000008" href="$game__actions_8c.html#a08ae11402d194439d1e014fa78aa8b2e" title="It allows a player to pick up an object if they&#39;re in the same room." alt="" coords="501,153,649,179"/>
+<area shape="poly" id="edge9_Node000001_Node000008" title=" " alt="" coords="717,135,631,156,629,151,716,130"/>
+<area shape="rect" id="Node000009" href="$game__loop_8c.html#ade8edb886ee05003d1b664c39955385c" title="Logs the details of a command to the specified log file." alt="" coords="304,179,419,204"/>
+<area shape="poly" id="edge11_Node000001_Node000009" title=" " alt="" coords="758,140,714,170,687,184,659,194,596,206,531,210,470,208,419,203,419,197,471,202,531,204,595,201,658,189,685,179,712,165,755,136"/>
+<area shape="rect" id="Node000003" href="$game__actions_8c.html#a0693694a3e70b4a4129e2da4ddb1f1a7" title="It updates the current command based on user input." alt="" coords="279,104,444,129"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="511,37,493,44,432,76,383,106,380,102,429,71,491,40,510,32"/>
+<area shape="rect" id="Node000004" href="$game__loop_8c.html#afb6a670628dffdd01661658f29a1e8ca" title="Runs the main game loop, processing commands and updating the game state." alt="" coords="108,155,231,180"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="300,135,219,157,218,152,299,130"/>
+<area shape="rect" id="Node000005" href="$game__loop_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,155,60,180"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="94,170,60,170,60,165,94,165"/>
+<area shape="poly" id="edge6_Node000006_Node000003" title=" " alt="" coords="507,86,418,107,417,101,506,81"/>
+<area shape="poly" id="edge8_Node000007_Node000003" title=" " alt="" coords="483,119,444,119,444,114,483,114"/>
+<area shape="poly" id="edge10_Node000008_Node000003" title=" " alt="" coords="506,153,417,132,418,127,507,148"/>
+<area shape="poly" id="edge12_Node000009_Node000004" title=" " alt="" coords="290,185,231,178,231,172,290,180"/>
+</map>

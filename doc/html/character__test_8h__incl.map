@@ -1,9 +1,9 @@
-<map id="/mnt/c/Ubuntu/Shared_folder/PPROG/I3/ANTHILL_REP/include/character_test.h" name="/mnt/c/Ubuntu/Shared_folder/PPROG/I3/ANTHILL_REP/include/character_test.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,220,60"/>
-<area shape="rect" id="Node000002" href="$character_8h.html" title="It defines the character module interface." alt="" coords="15,108,109,133"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="99,61,78,97,74,95,95,59"/>
-<area shape="rect" id="Node000004" href="$test_8h.html" title="It defines macros and variables for unit testing." alt="" coords="134,108,193,133"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="130,59,152,95,147,97,126,61"/>
-<area shape="rect" id="Node000003" href="$types_8h.html" title="It defines common types for the whole project." alt="" coords="27,181,97,207"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="65,134,65,168,59,168,59,134"/>
+<map id="character_test.h" name="character_test.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="40,5,167,31"/>
+<area shape="rect" id="Node000002" href="$character_8h.html" title="It defines the character module interface." alt="" coords="5,79,100,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="97,33,71,69,67,66,93,29"/>
+<area shape="rect" id="Node000004" href="$test_8h.html" title="It defines macros and variables for unit testing." alt="" coords="125,79,183,104"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="114,29,140,66,136,69,110,33"/>
+<area shape="rect" id="Node000003" href="$types_8h.html" title="It defines common types for the whole project." alt="" coords="17,152,88,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="55,104,55,138,50,138,50,104"/>
 </map>

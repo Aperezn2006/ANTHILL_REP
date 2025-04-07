@@ -1,5 +1,5 @@
-<map id="/mnt/c/Ubuntu/Shared_folder/PPROG/I3/ANTHILL_REP/include/character.h" name="/mnt/c/Ubuntu/Shared_folder/PPROG/I3/ANTHILL_REP/include/character.h">
-<area shape="rect" id="Node000001" title="It defines the character module interface." alt="" coords="5,5,196,60"/>
-<area shape="rect" id="Node000002" href="$types_8h.html" title="It defines common types for the whole project." alt="" coords="65,108,136,133"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="103,60,103,94,98,94,98,60"/>
+<map id="character.h" name="character.h">
+<area shape="rect" id="Node000001" title="It defines the character module interface." alt="" coords="5,5,100,31"/>
+<area shape="rect" id="Node000002" href="$types_8h.html" title="It defines common types for the whole project." alt="" coords="17,79,88,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="55,31,55,65,50,65,50,31"/>
 </map>
