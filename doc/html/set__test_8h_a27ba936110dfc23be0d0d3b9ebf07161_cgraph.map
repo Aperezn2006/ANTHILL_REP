@@ -1,9 +1,0 @@
-<map id="test2_set_has_id" name="test2_set_has_id">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,55,136,80"/>
-<area shape="rect" id="Node000002" href="$set_8c.html#aaad3bdcac9fbbfc38b4800b12bb17449" title="It creates a set." alt="" coords="188,5,279,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="112,52,176,32,178,37,114,57"/>
-<area shape="rect" id="Node000003" href="$set_8c.html#a5b4e14914ec3c85b83363f57697f175a" title="It destroys a set." alt="" coords="184,55,283,80"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="136,65,170,65,170,70,136,70"/>
-<area shape="rect" id="Node000004" href="$set_8c.html#a298b41bcf7ae56e1f07567eaace0c963" title="It checks if the set contains an element." alt="" coords="188,104,279,129"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="114,77,178,97,176,102,112,83"/>
-</map>

@@ -1,5 +1,0 @@
-<map id="game_loop_init" name="game_loop_init">
-<area shape="rect" id="Node000001" title="Initializes the game loop by loading game data and creating the graphic engine." alt="" coords="108,5,231,31"/>
-<area shape="rect" id="Node000002" href="$game__loop_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,5,60,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="94,21,60,21,60,15,94,15"/>
-</map>

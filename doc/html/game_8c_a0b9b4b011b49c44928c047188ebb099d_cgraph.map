@@ -1,5 +1,0 @@
-<map id="game_set_last_command" name="game_set_last_command">
-<area shape="rect" id="Node000001" title="It sets the game&#39;s last command." alt="" coords="5,5,195,31"/>
-<area shape="rect" id="Node000002" href="$game_8c.html#aa09e1df33f2417cc314eca6a5ae822f3" title="It gets the game&#39;s current turn." alt="" coords="243,5,363,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="195,15,229,15,229,21,195,21"/>
-</map>

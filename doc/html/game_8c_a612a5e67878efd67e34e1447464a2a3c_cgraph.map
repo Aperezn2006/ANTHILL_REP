@@ -1,7 +1,0 @@
-<map id="game_add_object" name="game_add_object">
-<area shape="rect" id="Node000001" title="It adds objects to the game." alt="" coords="5,35,143,60"/>
-<area shape="rect" id="Node000002" href="$game_8c.html#ad57249345e82165c35ad950cf5a6320a" title="It gets the number of objects in the game." alt="" coords="191,5,368,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="142,35,177,30,178,35,143,40"/>
-<area shape="rect" id="Node000003" href="$game_8c.html#a7e2d0de16999e018565595f37388bdb6" title="It increments the number of objects in the game." alt="" coords="195,55,363,95"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="143,54,182,59,181,65,142,59"/>
-</map>

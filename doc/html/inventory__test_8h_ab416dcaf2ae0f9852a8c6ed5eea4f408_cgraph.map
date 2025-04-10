@@ -1,7 +1,0 @@
-<map id="test2_inventory_print" name="test2_inventory_print">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,167,31"/>
-<area shape="rect" id="Node000002" href="$inventory_8c.html#a18eb07c76bbe3f6e6e1b69621b566bf7" title="It prints the inventory&#39;s information." alt="" coords="215,5,336,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="167,15,201,15,201,21,167,21"/>
-<area shape="rect" id="Node000003" href="$set_8c.html#accefca13e6049b67a10652a030bcdddc" title="It prints the set." alt="" coords="384,5,463,31"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="336,15,370,15,370,21,336,21"/>
-</map>

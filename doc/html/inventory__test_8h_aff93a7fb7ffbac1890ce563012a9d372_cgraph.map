@@ -1,9 +1,0 @@
-<map id="test2_inventory_set_max_objects" name="test2_inventory_set_max_objects">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,23,156,63"/>
-<area shape="rect" id="Node000002" href="$inventory_8c.html#acfdb31bdaf1646387a93fc7ece2ef180" title="It creates a new player, allocating memory and initializing its members." alt="" coords="239,5,371,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="156,32,225,24,225,30,157,37"/>
-<area shape="rect" id="Node000004" href="$inventory_8c.html#ac8a9f09bbc7f4957c366cf70e77553c4" title="It sets the maximun amount of objects the inventory can hold." alt="" coords="204,55,405,80"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="157,49,190,52,190,58,156,54"/>
-<area shape="rect" id="Node000003" href="$set_8c.html#aaad3bdcac9fbbfc38b4800b12bb17449" title="It creates a set." alt="" coords="453,5,544,31"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="371,15,439,15,439,21,371,21"/>
-</map>

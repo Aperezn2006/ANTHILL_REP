@@ -1,9 +1,0 @@
-<map id="space_print" name="space_print">
-<area shape="rect" id="Node000001" title="It prints the space information." alt="" coords="5,31,103,56"/>
-<area shape="rect" id="Node000002" href="$space_8c.html#a553122e84e7cc30e8144420b5e521a0f" title="It gets the description of a space." alt="" coords="157,5,323,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="103,34,143,29,143,34,103,39"/>
-<area shape="rect" id="Node000003" href="$space_8c.html#a9a1ff6ef242ec7c80732c3a3e1e5817f" title="It gets the number of objects in the space." alt="" coords="151,55,329,80"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="103,47,137,51,137,57,103,52"/>
-<area shape="rect" id="Node000004" href="$set_8c.html#afaa9d55d67526584aba2e0688ca189b3" title="It gets the size of the set." alt="" coords="377,55,509,80"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="329,65,364,65,364,70,329,70"/>
-</map>

@@ -1,9 +1,0 @@
-<map id="test1_inventory_get_object" name="test1_inventory_get_object">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,23,157,63"/>
-<area shape="rect" id="Node000002" href="$inventory_8c.html#acfdb31bdaf1646387a93fc7ece2ef180" title="It creates a new player, allocating memory and initializing its members." alt="" coords="223,5,355,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="157,31,209,25,209,30,158,37"/>
-<area shape="rect" id="Node000004" href="$inventory_8c.html#a5b71ef1ef9d063c95166ac64379d0c1a" title="It gets a pointer to the set of objects of a certain inventory." alt="" coords="205,55,372,80"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="158,49,192,53,191,59,157,55"/>
-<area shape="rect" id="Node000003" href="$set_8c.html#aaad3bdcac9fbbfc38b4800b12bb17449" title="It creates a set." alt="" coords="420,5,511,31"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="355,15,406,15,406,21,355,21"/>
-</map>

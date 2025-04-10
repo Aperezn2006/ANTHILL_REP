@@ -1,9 +1,0 @@
-<map id="test1_object_set_desc" name="test1_object_set_desc">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,55,172,80"/>
-<area shape="rect" id="Node000002" href="$object_8c.html#a7d0b3d3e95beef8deb5b02d0c4641a57" title="It creates a new object, allocating memory and initializing its members." alt="" coords="228,5,339,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="139,52,218,32,220,37,140,57"/>
-<area shape="rect" id="Node000003" href="$object_8c.html#aab2d9fe61ae9c48522635d006dd50396" title="It destroys a object, freeing the allocated memory." alt="" coords="224,55,343,80"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="173,65,210,65,210,70,173,70"/>
-<area shape="rect" id="Node000004" href="$object_8c.html#a46dfe13b76a3ade55a1d8f478b4793f8" title="It sets the description of a object." alt="" coords="220,104,347,129"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="140,77,220,98,218,103,139,83"/>
-</map>

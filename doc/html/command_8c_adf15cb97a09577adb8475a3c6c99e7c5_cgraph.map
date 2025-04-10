@@ -1,7 +1,0 @@
-<map id="command_get_user_input" name="command_get_user_input">
-<area shape="rect" id="Node000001" title="It gets the user inputs and sets its command and word." alt="" coords="5,31,196,56"/>
-<area shape="rect" id="Node000002" href="$command_8c.html#a0abb96f9b182d0018ec4b5e15d5307e4" title="It sets a certain command." alt="" coords="245,5,397,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="196,30,231,26,231,31,196,35"/>
-<area shape="rect" id="Node000003" href="$command_8c.html#ab552b723255ed129d81305127e64c50b" title="It sets the string that came after the command." alt="" coords="244,55,397,80"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="196,51,230,55,230,60,196,56"/>
-</map>

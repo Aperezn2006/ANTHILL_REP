@@ -1,9 +1,0 @@
-<map id="test2_set_get_id_from_index" name="test2_set_get_id_from_index">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,47,172,87"/>
-<area shape="rect" id="Node000002" href="$set_8c.html#aaad3bdcac9fbbfc38b4800b12bb17449" title="It creates a set." alt="" coords="260,5,351,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="172,46,245,29,246,34,173,51"/>
-<area shape="rect" id="Node000003" href="$set_8c.html#a5b4e14914ec3c85b83363f57697f175a" title="It destroys a set." alt="" coords="256,55,355,80"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="172,65,242,65,242,70,172,70"/>
-<area shape="rect" id="Node000004" href="$set_8c.html#a7d9d411d8d5f63192b1cff0fe155bbfc" title="It gets the element at a given position in the set." alt="" coords="220,104,391,129"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="173,84,236,98,235,103,172,89"/>
-</map>

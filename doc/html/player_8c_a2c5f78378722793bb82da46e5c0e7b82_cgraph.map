@@ -1,7 +1,0 @@
-<map id="player_destroy" name="player_destroy">
-<area shape="rect" id="Node000001" title="It destroys a player, freeing the allocated memory." alt="" coords="5,5,124,31"/>
-<area shape="rect" id="Node000002" href="$inventory_8c.html#ae23961749b6ed45fd5fe1c18941fe586" title="It destroys an inventory, freeing the allocated memory." alt="" coords="172,5,312,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="124,15,158,15,158,21,124,21"/>
-<area shape="rect" id="Node000003" href="$set_8c.html#a5b4e14914ec3c85b83363f57697f175a" title="It destroys a set." alt="" coords="360,5,459,31"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="312,15,346,15,346,21,312,21"/>
-</map>

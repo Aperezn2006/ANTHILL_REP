@@ -1,7 +1,0 @@
-<map id="game_reader.h" name="game_reader.h">
-<area shape="rect" id="Node000001" title="It implements the creation of the game with the data from a file." alt="" coords="67,5,185,31"/>
-<area shape="rect" id="Node000002" href="$game__loop_8c.html" title="It defines the game loop." alt="" coords="5,79,111,104"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="107,42,71,80,67,77,104,39"/>
-<area shape="rect" id="Node000003" href="$game__reader_8c.html" title=" " alt="" coords="135,79,253,104"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="148,39,185,77,181,80,145,42"/>
-</map>

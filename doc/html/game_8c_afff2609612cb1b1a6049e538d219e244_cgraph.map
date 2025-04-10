@@ -1,7 +1,0 @@
-<map id="game_add_space" name="game_add_space">
-<area shape="rect" id="Node000001" title="It adds spaces to the game." alt="" coords="5,35,140,60"/>
-<area shape="rect" id="Node000002" href="$game_8c.html#aeec9c4bd023f777108e6a7e6f3899104" title="It gets the number of spaces in the game." alt="" coords="188,5,363,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="140,35,174,30,175,35,140,40"/>
-<area shape="rect" id="Node000003" href="$game_8c.html#a2714991d2be8b07de69b0ab97fdca528" title="It increments the number of spaces in the game." alt="" coords="191,55,359,95"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="140,54,178,59,178,65,140,59"/>
-</map>

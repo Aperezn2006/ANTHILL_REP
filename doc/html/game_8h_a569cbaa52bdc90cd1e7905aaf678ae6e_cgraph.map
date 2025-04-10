@@ -1,9 +1,0 @@
-<map id="game_get_neighbour" name="game_get_neighbour">
-<area shape="rect" id="Node000001" title="It gets a space&#39;s neighboring location in a specified direction." alt="" coords="5,55,164,80"/>
-<area shape="rect" id="Node000002" href="$link_8c.html#a45c192f1efaa9863a150e51d1a0f2756" title="It gets the direction of a link." alt="" coords="212,5,351,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="135,52,216,31,218,37,137,57"/>
-<area shape="rect" id="Node000003" href="$link_8c.html#a407c241ffb206202f0c288e91c01ad75" title="It gets the destination id of a link." alt="" coords="229,55,334,80"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="164,65,215,65,215,70,164,70"/>
-<area shape="rect" id="Node000004" href="$link_8c.html#ade97314fda342663e1b98cdb4e6ca50a" title="It gets the origin id of a link." alt="" coords="226,104,337,129"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="137,77,218,98,216,103,135,83"/>
-</map>

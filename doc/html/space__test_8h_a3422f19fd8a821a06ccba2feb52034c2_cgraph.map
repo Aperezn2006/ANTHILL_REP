@@ -1,9 +1,0 @@
-<map id="test2_space_get_gdesc" name="test2_space_get_gdesc">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,31,179,56"/>
-<area shape="rect" id="Node000002" href="$space_8c.html#a278763d4b530df17823ef9e4f9db2896" title="It destroys a space, freeing the allocated memory." alt="" coords="252,5,368,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="179,31,238,24,239,29,179,36"/>
-<area shape="rect" id="Node000004" href="$space_8c.html#a553122e84e7cc30e8144420b5e521a0f" title="It gets the description of a space." alt="" coords="227,55,393,80"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="179,50,213,54,213,59,179,56"/>
-<area shape="rect" id="Node000003" href="$set_8c.html#a5b4e14914ec3c85b83363f57697f175a" title="It destroys a set." alt="" coords="441,5,540,31"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="368,15,427,15,427,21,368,21"/>
-</map>

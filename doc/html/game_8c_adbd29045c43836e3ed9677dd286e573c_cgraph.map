@@ -1,9 +1,0 @@
-<map id="game_get_object_id_from_name" name="game_get_object_id_from_name">
-<area shape="rect" id="Node000001" title="It gets an object&#39;s id from its name." alt="" coords="5,47,159,87"/>
-<area shape="rect" id="Node000002" href="$game_8c.html#ad57249345e82165c35ad950cf5a6320a" title="It gets the number of objects in the game." alt="" coords="207,5,384,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="158,47,226,31,227,36,159,52"/>
-<area shape="rect" id="Node000003" href="$object_8c.html#ac5af152381a21853c6a28cc120e8e7fe" title="It gets the id of a object." alt="" coords="241,55,350,80"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="159,65,226,65,226,70,159,70"/>
-<area shape="rect" id="Node000004" href="$object_8c.html#ae7279c442aab51c0818bd008b31f9816" title="It gets the name of a object." alt="" coords="228,104,363,129"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="159,82,227,98,226,103,158,88"/>
-</map>

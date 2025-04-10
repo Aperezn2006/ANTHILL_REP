@@ -1,5 +1,0 @@
-<map id="space_create" name="space_create">
-<area shape="rect" id="Node000001" title="It creates a new space, allocating memory and initializing its members." alt="" coords="5,5,113,31"/>
-<area shape="rect" id="Node000002" href="$set_8c.html#aaad3bdcac9fbbfc38b4800b12bb17449" title="It creates a set." alt="" coords="161,5,252,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="114,15,148,15,148,21,114,21"/>
-</map>

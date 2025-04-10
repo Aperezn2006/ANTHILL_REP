@@ -1,9 +1,0 @@
-<map id="test1_character_set_message" name="test1_character_set_message">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,47,156,87"/>
-<area shape="rect" id="Node000002" href="$character_8c.html#a04e381f3485e883f8c5638cbcd67e686" title="It creates a new character, allocating memory and initializing its members." alt="" coords="227,5,357,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="156,47,223,31,225,36,157,52"/>
-<area shape="rect" id="Node000003" href="$character_8c.html#a56873e94f3e967d9ad10a36f2338a64a" title="It destroys a character, freeing the allocated memory." alt="" coords="223,55,361,80"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="156,65,209,65,209,70,156,70"/>
-<area shape="rect" id="Node000004" href="$character_8c.html#aa420dd11438569eba036b75e53ee03a6" title="It sets the message of a character." alt="" coords="204,104,380,129"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="157,82,225,98,223,103,156,87"/>
-</map>

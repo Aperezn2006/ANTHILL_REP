@@ -1,7 +1,0 @@
-<map id="inventory_add_object" name="inventory_add_object">
-<area shape="rect" id="Node000001" title="It adds an object to the inventory." alt="" coords="5,31,168,56"/>
-<area shape="rect" id="Node000002" href="$set_8c.html#ad252ed6b4db23b184789fd4ef5afe5e1" title="It adds an element to the set." alt="" coords="236,5,328,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="168,30,222,23,223,28,168,35"/>
-<area shape="rect" id="Node000003" href="$set_8c.html#afaa9d55d67526584aba2e0688ca189b3" title="It gets the size of the set." alt="" coords="216,55,348,80"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="168,51,203,55,202,60,168,56"/>
-</map>

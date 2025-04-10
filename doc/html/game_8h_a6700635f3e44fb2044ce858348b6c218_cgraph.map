@@ -1,5 +1,0 @@
-<map id="game_get_character" name="game_get_character">
-<area shape="rect" id="Node000001" title="It gets a pointer to a characters from its id." alt="" coords="5,5,160,31"/>
-<area shape="rect" id="Node000002" href="$character_8c.html#ab909e43e2cfc3a8588056409edd43a64" title="It gets the id of a character." alt="" coords="208,5,339,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="160,15,194,15,194,21,160,21"/>
-</map>

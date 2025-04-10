@@ -1,7 +1,0 @@
-<map id="game_init" name="game_init">
-<area shape="rect" id="Node000001" title="It creates a new game a &quot;restarts&quot; everything." alt="" coords="5,31,92,56"/>
-<area shape="rect" id="Node000002" href="$game_8c.html#aa09e1df33f2417cc314eca6a5ae822f3" title="It gets the game&#39;s current turn." alt="" coords="155,5,275,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="92,34,141,27,141,32,92,39"/>
-<area shape="rect" id="Node000003" href="$player_8c.html#ac907eb271007fc0528e5adf8a7946112" title="It sets the player&#39;s location." alt="" coords="140,55,289,80"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="92,47,127,52,126,57,92,52"/>
-</map>

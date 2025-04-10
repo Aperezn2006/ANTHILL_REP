@@ -1,7 +1,0 @@
-<map id="graphic_engine.h" name="graphic_engine.h">
-<area shape="rect" id="Node000001" title="It defines the textual graphic engine interface." alt="" coords="62,5,195,31"/>
-<area shape="rect" id="Node000002" href="$game__loop_8c.html" title="It defines the game loop." alt="" coords="5,79,111,104"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="109,43,71,80,68,77,105,39"/>
-<area shape="rect" id="Node000003" href="$graphic__engine_8c.html" title="It implements a textual graphic engine." alt="" coords="135,79,267,104"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="152,39,191,77,187,80,149,43"/>
-</map>
