@@ -104,7 +104,6 @@ Status game_destroy(Game *game) {
     player_destroy(game->players[i]);
     game->players[i] = NULL;
 
-    printf("Freeing command nº%i \n", i);
     command_destroy(game->last_cmd[i]);
     game->last_cmd[i] = NULL;
   }
@@ -217,7 +216,7 @@ Status game_add_player(Game *game, Player *player) {
   if (!game || !player || game_get_num_players(game) >= MAX_PLAYERS) {
     return ERROR;
   }
-  printf("Allocating command nº%i\n", game_get_num_players(game));
+
   game->last_cmd[game_get_num_players(game)] = command_create();
   game->players[game_get_num_players(game)] = player;
   game_increment_num_players(game);
@@ -610,6 +609,23 @@ Id game_get_west(Game *game, Id current_location) {
   return game_get_neighbour(game, current_location, W);
 }
 
+Id game_get_up(Game *game, Id current_location) {
+  /*CdE*/
+  if (!game || !current_location) {
+    return ERROR;
+  }
+
+  return game_get_neighbour(game, current_location, U);
+}
+
+Id game_get_down(Game *game, Id current_location) {
+  /*CdE*/
+  if (!game || !current_location) {
+    return ERROR;
+  }
+
+  return game_get_neighbour(game, current_location, D);
+}
 /**
  * @brief It gets a space's neighboring location in a specified direction
  */
@@ -787,7 +803,6 @@ Status game_set_last_command(Game *game, Command *command) {
     return ERROR;
   }
 
-  printf("Setting command in %i index\n", game_get_turn(game));
   game->last_cmd[game_get_turn(game)] = command;
 
   return OK;

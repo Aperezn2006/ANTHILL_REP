@@ -193,10 +193,14 @@ Status game_actions_move(Game *game) {
     direction = E;
   } else if (strcasecmp(direction_word, "west") == 0 || strcasecmp(direction_word, "w") == 0) {
     direction = W;
+  } else if (strcasecmp(direction_word, "up") == 0 || strcasecmp(direction_word, "u") == 0) {
+    direction = U;
+  } else if (strcasecmp(direction_word, "down") == 0 || strcasecmp(direction_word, "d") == 0) {
+    direction = D;
   } else {
     return ERROR;
   }
-
+  printf("Searching for neighbour in direction %i:\n", direction);
   next_space_id = game_get_neighbour(game, current_space_id, direction);
 
   if (next_space_id != NO_ID) {

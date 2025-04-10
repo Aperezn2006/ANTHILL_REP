@@ -49,7 +49,7 @@ Id link_get_id(Link *link) {
   return link->id_link;
 }
 Status link_set_id(Link *link, Id id) {
-  if (link ==NULL || id <0) {
+  if (link == NULL || id < 0) {
     return ERROR;
   }
   link->id_link = id;
@@ -80,7 +80,6 @@ Status link_set_open(Link *link, Bool open) {
   return OK;
 }
 
-
 Bool link_get_open(Link *link) {
   if (!link) {
     return WRONG;
@@ -90,13 +89,12 @@ Bool link_get_open(Link *link) {
 }
 
 Status link_set_direction(Link *link, Direction dir) {
-  if (!link || dir < 0 || dir > 3) { 
+  if (!link || dir < 0 || dir > 5) {
     return ERROR;
   }
   link->direction = dir;
   return OK;
 }
-
 
 Direction link_get_direction(Link *link) {
   if (!link) {
@@ -106,7 +104,7 @@ Direction link_get_direction(Link *link) {
 }
 
 Status link_set_start(Link *link, Id origin) {
-  if (!link || !origin || origin <0) {
+  if (!link || !origin || origin < 0) {
     return ERROR;
   }
 
@@ -123,7 +121,7 @@ Id link_get_start(Link *link) {
 }
 
 Status link_set_end(Link *link, Id destination) {
-  if (!link || !destination || destination <0) {
+  if (!link || !destination || destination < 0) {
     return ERROR;
   }
 

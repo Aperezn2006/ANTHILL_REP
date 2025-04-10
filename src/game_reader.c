@@ -39,44 +39,42 @@ Status game_init_from_file(Game *game, char *filename) {
 }
 
 Status game_load_everything(Game *game, char *filename) {
- /*PLAYER*/
-Player *player = NULL;
-int player_max_obj = 0;
-char player_desc[7];
-Id location = NO_ID;
-int health = 0;
+  /*PLAYER*/
+  Player *player = NULL;
+  int player_max_obj = 0;
+  char player_desc[7];
+  Id location = NO_ID;
+  int health = 0;
 
-/*CHARACTER*/
-Character *character = NULL;
-char character_desc[7];
-char character_message[MAX_MESSAGE];
-char character_friendliness[6];
+  /*CHARACTER*/
+  Character *character = NULL;
+  char character_desc[7];
+  char character_message[MAX_MESSAGE];
+  char character_friendliness[6];
 
-/*OBJECT*/
-Object *object = NULL;
-char object_desc[WORD_SIZE];
+  /*OBJECT*/
+  Object *object = NULL;
+  char object_desc[WORD_SIZE];
 
-/*SPACE*/
-Space *space = NULL;
-char space_desc[5][10];
+  /*SPACE*/
+  Space *space = NULL;
+  char space_desc[5][10];
 
-/*LINK*/
-Link *link = NULL;
-Id link_origin = NO_ID;
-Id link_destination = NO_ID;
-Direction dir = NO_DIR;
-Bool open = FALSE;
+  /*LINK*/
+  Link *link = NULL;
+  Id link_origin = NO_ID;
+  Id link_destination = NO_ID;
+  Direction dir = NO_DIR;
+  Bool open = FALSE;
 
-/*GENERAL*/
-FILE *file = NULL;
-char line[WORD_SIZE] = "";
-char *toks = NULL;
-char name[WORD_SIZE] = "";
-int i = 0;
-Id id = NO_ID;
-Status status = OK;
-
-
+  /*GENERAL*/
+  FILE *file = NULL;
+  char line[WORD_SIZE] = "";
+  char *toks = NULL;
+  char name[WORD_SIZE] = "";
+  int i = 0;
+  Id id = NO_ID;
+  Status status = OK;
 
   if (!game || !filename) {
     printf("Invalid game or filename\n");
@@ -197,6 +195,7 @@ Status status = OK;
       toks = strtok(line + 3, "|");
       id = atol(toks);
       toks = strtok(NULL, "|");
+      strcpy(name, toks);
       toks = strtok(NULL, "|");
       link_origin = atol(toks);
       toks = strtok(NULL, "|");

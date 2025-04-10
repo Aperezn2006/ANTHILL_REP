@@ -330,6 +330,26 @@ Id game_get_east(Game *game, Id current_location);
 Id game_get_west(Game *game, Id current_location);
 
 /**
+ * @brief It gets the id of the space located on top of the current_location
+ * @author Ana
+ *
+ * @param game a pointer to the game
+ * @param current_location id of actual location
+ * @return the id
+ */
+Id game_get_up(Game *game, Id current_location);
+
+/**
+ * @brief It gets the id of the space located below the current_location
+ * @author Ana
+ *
+ * @param game a pointer to the game
+ * @param current_location id of actual location
+ * @return the id
+ */
+Id game_get_down(Game *game, Id current_location);
+
+/**
  * @brief It gets a space's neighboring location in a specified direction
  * @author Arturo
  *
