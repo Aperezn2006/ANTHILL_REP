@@ -351,13 +351,23 @@ void printHorizontalSection(Graphic_engine *ge, Game *game, Id space_id, char *p
   char str1[1024], str2[1024], str3[1024], str4[1024], str5[1024], str6[1024], str7[1024], str8[1024], str9[1024], temp[1204];
   char objects[BOX_WIDTH + 1], character_desc[7];
   char space_desc1[10], space_desc2[10], space_desc3[10], space_desc4[10], space_desc5[10];
+  char up_signal[10], down_signal[10];
 
   id_east = game_get_east(game, space_id);
   id_west = game_get_west(game, space_id);
 
+  up_signal[0] = '\0';
+  down_signal[0] = '\0';
+
   /*  Espacio ACTUAL */
   if (space_id != NO_ID) {
     initDescStuff(game, space_id, objects, character_desc, space_desc1, space_desc2, space_desc3, space_desc4, space_desc5);
+    if (game_get_up(game, space_id) != NO_ID) {
+      strcpy(up_signal, "[/\\]");
+    }
+    if (game_get_down(game, space_id) != NO_ID) {
+      strcpy(down_signal, "[\\/]");
+    }
 
     sprintf(str1, "                          +------------------+");
     if (space_get_discovered(game_get_space(game, space_id)) == TRUE) {
@@ -367,7 +377,7 @@ void printHorizontalSection(Graphic_engine *ge, Game *game, Id space_id, char *p
     }
     sprintf(str3, "                          |     %s    |", space_desc1);
     sprintf(str4, "                          |     %s    |", space_desc2);
-    sprintf(str5, "                          |     %s    |", space_desc3);
+    sprintf(str5, "                          |%4s %s%4s|", up_signal, space_desc3, down_signal);
     sprintf(str6, "                          |     %s    |", space_desc4);
     sprintf(str7, "                          |     %s    |", space_desc5);
     sprintf(str8, "                          |%9s|", objects);
