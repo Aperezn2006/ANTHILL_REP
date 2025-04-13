@@ -254,3 +254,89 @@ Status game_load_everything(Game *game, char *filename) {
   fclose(file);
   return status;
 }
+
+/**
+ * @brief It saves the current game's info in a specified file
+ */
+Status game_management_save(Game *game, char *file_name) {
+  int i;
+  FILE *pf;
+  char save_path[WORD_SIZE];
+  Object *object = NULL;
+  Space *space = NULL;
+  Link *link = NULL;
+  Character *character = NULL;
+  Player *player = NULL;
+  /*CdE*/
+  if (!game || !file_name) {
+    return ERROR;
+  }
+
+  strcpy(save_path, "saves/");
+  strcat(save_path, file_name);
+
+  pf = fopen(save_path, "w");
+
+  fprintf(pf, "Finished: 0\n");
+  fprintf(pf, "Inventory_vis: 0\n");
+
+  fprintf(pf, "Nums: %i|%i|%i|%i|%i|\n", game_get_num_spaces(game), game_get_num_players(game), game_get_num_objects(game),
+          game_get_num_characters(game), game_get_num_links(game));
+
+  fprintf(pf, "\nObjects:\n");
+  for (i = 0; i < game_get_num_objects(game); i++) {
+    object = game_get_object_from_index(game, i);
+    /*id|name|desc|inspected|location*/
+    fprintf(pf, "%li|%s|%s|%i|%li|\n", object_get_id(object), object_get_name(object), object_get_desc(object), object_get_inspected(object),
+            game_get_object_location(game, object_get_id(object)));
+  }
+
+  fprintf(pf, "\nSpaces:\n");
+  for (i = 0; i < game_get_num_spaces(game); i++) {
+    space = game_get_space_from_index(game, i);
+    /*id|name|gdesc|discovered*/
+    fprintf(pf, "%li|%s|%s|%s|%s|%s|%s|%i|\n", space_get_id(space), space_get_name(space), space_get_i_static_description(space, 0),
+            space_get_i_static_description(space, 1), space_get_i_static_description(space, 2), space_get_i_static_description(space, 3),
+            space_get_i_static_description(space, 4), space_get_discovered(space));
+  }
+
+  fprintf(pf, "\nLinks:\n");
+  for (i = 0; i < game_get_num_links(game); i++) {
+    link = game_get_link_from_index(game, i);
+    /*id | name | origin | destination | open | direction*/
+    fprintf(pf, "%li|%s|%li|%li|%i|%i|\n", link_get_id(link), link_get_name(link), link_get_start(link), link_get_end(link), link_get_open(link),
+            link_get_direction(link));
+  }
+
+  fprintf(pf, "\nCharacters:\n");
+  for (i = 0; i < game_get_num_characters(game); i++) {
+    character = game_get_character_from_index(game, i);
+    /*id|name|gdesc|health|friendly|message|location*/
+    fprintf(pf, "%li|%s|%s|%li|%i|%s|\n", character_get_id(character), character_get_name(character), character_get_description(character),
+            character_get_health(character), character_get_friendly(character), character_get_message(character));
+  }
+
+  fprintf(pf, "\nPlayers:\n");
+  for (i = 0; i < game_get_num_players(game); i++) {
+    player = game_get_player_from_index(game, i);
+    /*id|name|health|gdesc|location|message|object_desc*/
+    fprintf(pf, "%li|%s|%li|%s|%li|%s|%s|\n", player_get_id(player), player_get_name(player), player_get_health(player),
+            player_get_description(player), player_get_location(player), game_get_message_from_index(game, i),
+            game_get_object_desc_from_index(game, i));
+  }
+
+  fclose(pf);
+
+  return OK;
+}
+
+/**
+ * @brief It loads a player's game from a certain file
+ */
+Status game_management_load(Game *game, char *file_name) {
+  /*CdE*/
+  if (!game || !file_name) {
+    return ERROR;
+  }
+  return OK;
+}

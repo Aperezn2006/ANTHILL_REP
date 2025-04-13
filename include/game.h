@@ -61,6 +61,16 @@ Game *game_alloc();
 Status game_add_space(Game *game, Space *space);
 
 /**
+ * @brief It gives a pointer to the space located in a certain position of the array of spaces in the game
+ * @author Ana
+ *
+ * @param game a pointer to the game
+ * @param index the desired space's position in the array
+ * @return a pointer to the desired space
+ */
+Space *game_get_space_from_index(Game *game, int index);
+
+/**
  * @brief It creates a pointer to a certain space using its id
  * @author Profesores PPROG
  *
@@ -290,6 +300,16 @@ char *game_get_character_desc_at_space(Game *game, Id space_id);
 Status game_add_link(Game *game, Link *link);
 
 /**
+ * @brief It gives a pointer to the link located in a certain position of the array of links in the game
+ * @author Ana
+ *
+ * @param game a pointer to the game
+ * @param index the desired link's position in the array
+ * @return a pointer to the desired link
+ */
+Link *game_get_link_from_index(Game *game, int index);
+
+/**
  * @brief It gets the id of the space located north of the current_location
  * @author Arturo
  *
@@ -496,20 +516,40 @@ Command *game_get_last_command(Game *game);
 Status game_set_message(Game *game, char *message);
 
 /**
- * @brief It gets the game's last message
+ * @brief It gets the las message of a certain player
+ * @author Ana
+ *
+ * @param game a pointer to the game
+ * @param index the certain player's index in the array
+ * @return the desired player's last message
+ */
+char *game_get_message_from_index(Game *game, int index);
+
+/**
+ * @brief It gets the las message of the current player
  * @author Bea, Arturo, Rubén, Ana
  *
  * @param game a pointer to the game
- * @return the game's last message
+ * @return the current player's last message
  */
 char *game_get_message(Game *game);
 
 /*Management of object_desc*/
 /**
- * @brief It gets the description of the last inspected object
+ * @brief It gets the description of a certain player's last inspected object
+ * @author Ana
+ *
+ * @param game a pointer to the game
+ * @param index the certain player's index in the array
+ * @return the description of the last inspected object
+ */
+char *game_get_object_desc_from_index(Game *game, int index);
+
+/**
+ * @brief It gets the description of the current player's last inspected object
  * @author Bea, Arturo, Rubén, Ana
  *
- * @param game
+ * @param game a pointer to the game
  * @return the description of the last inspected object
  */
 char *game_get_object_desc(Game *game);

@@ -1,0 +1,54 @@
+Finished: 0
+Inventory_vis: 0
+Nums: 13|2|4|2|20|
+
+Objects:
+21|Seed|Dont eat it|0|-1|
+22|Crumb|Blublu|0|122|
+23|Grain|Prueba|0|14|
+24|Leaf|Hoja|0|13|
+
+Spaces:
+11|Entry| _       |\ \___   |\ mo'\_  |\ @ _    | \__/ \__|1|
+121|Pasillo1|         |         |         |         |         |0|
+122|Pasillo2|  ___    |_/   \__ |    o o )|mo^ _ 0o]|__/ \___)|0|
+125|Pasillo5|         |         |         |         |         |0|
+126|Pasillo6|         |         |         |         |         |0|
+127|Pasillo7|  ___   _|_/   \_/ |     o 0 |mo'_ 0o8o|__/ \   /|0|
+14|Agujero|  ___    |_/   \__ |    o o )|mo^ _ 0o]|__/ \___)|0|
+123|Pasillo3|         |         |         |         |         |1|
+124|Pasillo4|         |         |         |         |         |0|
+13|Despensa|    V    |  \(")/  |  -(_)-  |o/(_-_)\o|o o\_/o o|0|
+130|Prueba1|         |         |         |         |         |0|
+131|Prueba2|         |         |         |         |         |0|
+132|Tejado| _   !#  |[_]--'---|!'!""`""!|! ! /^\ !|!_!_!I!_!|0|
+
+Links:
+1|EntryToPasillo1|11|121|1|1|
+2|EntryToPasillo1|121|11|1|0|
+3|Pasillo1ToPasillo2|121|122|1|1|
+4|Pasillo1ToPasillo2|122|121|1|0|
+5|Pasillo2ToPasillo3|122|123|1|1|
+6|Pasillo2ToPasillo3|123|122|1|0|
+7|Pasillo3ToPasillo4|123|124|0|1|
+8|Pasillo3ToPasillo4|124|123|1|0|
+9|Pasillo4ToDespensa|124|13|1|1|
+10|Pasillo4ToDespensa|13|124|1|0|
+11|Pasillo2ToPasillo5|122|125|1|2|
+12|Pasillo2ToPasillo5|125|122|1|3|
+13|Pasillo5ToPasillo6|125|126|1|2|
+14|Pasillo5ToPasillo6|126|125|1|3|
+15|Pasillo6ToPasillo7|126|127|1|2|
+16|Pasillo6ToPasillo7|127|126|1|3|
+17|Pasillo7ToAgujero|127|14|1|2|
+18|Pasillo7ToAgujero|14|127|1|3|
+19|EntryToTejado|11|132|1|4|
+20|TejadoToEntry|132|11|1|5|
+
+Characters:
+31|Spider|/\oo/\|5|0|Get out|
+32|Ant|^0m   |4|1|Hello|
+
+Players:
+1|ant1|5|mO^|11|||
+2|ant2|5|mO^|122|||

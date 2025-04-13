@@ -252,13 +252,13 @@ void test2_space_has_character();
  * @pre Pointer to a valid space and a valid index
  * @post Output == Valid graphic description string
  */
-void test1_space_get_i_description();
+void test1_space_get_i_dynamic_description();
 
 /**
  * @test Test space get individual graphic description with NULL space
  * @pre NULL pointer or invalid index
  * @post Output == NULL
  */
-void test2_space_get_i_description();
+void test2_space_get_i_dynamic_description();
 
 #endif /* SPACE_TEST_H */

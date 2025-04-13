@@ -123,7 +123,6 @@ Bool space_has_object(Space *space, Id object_id);
  */
 Status space_add_object(Space *space, Id object_id);
 
-
 /*Manejo de character_id*/
 /**
  * @brief It gets the character in the space
@@ -175,14 +174,25 @@ char **space_get_description(Space *space);
 
 /**
  * @brief It gets the graphical description of the space located in the n
- * position of the array
+ * position of the array, whether its hidden or not
  * @author Beatriz, Arturo, Rubén, Ana
  *
  * @param space a pointer to the space
  * @param n the position of the graphical description to get
  * @return the n line of the graphical description, it is char one-dimension
  */
-char *space_get_i_description(Space *space, int n);
+char *space_get_i_static_description(Space *space, int n);
+
+/**
+ * @brief It gets the graphical description of the space located in the n
+ * position of the array, it its hidden it hids it
+ * @author Beatriz, Arturo, Rubén, Ana
+ *
+ * @param space a pointer to the space
+ * @param n the position of the graphical description to get
+ * @return the n line of the graphical description, it is char one-dimension
+ */
+char *space_get_i_dynamic_description(Space *space, int n);
 
 /**
  * @brief It sets the graphical description of a space
@@ -219,8 +229,8 @@ Status space_set_discovered(Space *space, Bool discovered);
  * @brief It prints the space information
  * @author Profesores PPROG
  *
- * 1. Print the id and the name of the space 
- * 2. Print if there is an object in the space or not 
+ * 1. Print the id and the name of the space
+ * 2. Print if there is an object in the space or not
  * 3. Print its descrption
  * @param space a pointer to the space
  * @return OK, if everything goes well or ERROR if there was some mistake

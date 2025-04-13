@@ -161,6 +161,7 @@ void game_loop_run(Game *game, Graphic_engine *gengine, FILE *log_file) {
       game_set_finished(game, TRUE);
     }
   }
+  game_management_save(game, "sample.txt");
 }
 
 void game_loop_cleanup(Game *game, Graphic_engine *gengine, FILE *log_file) {

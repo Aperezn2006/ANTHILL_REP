@@ -38,4 +38,23 @@ Status game_load_everything(Game *game, char *filename);
  */
 Status game_init_from_file(Game *game, char *filename);
 
+/**
+ * @brief It saves the current game's info in a specified file
+ * @author Ana
+ *
+ * @param game a pointer to the game
+ * @return OK if everything goes well, ERROR otherwise
+ */
+Status game_management_save(Game *game, char *file_name);
+
+/**
+ * @brief It loads a player's game from a certain file
+ * @author Ana
+ *
+ * @param game a pointer to the game
+ * @param file_name the name of the desired folder
+ * @return OK if everything goes well, ERROR otherwise
+ */
+Status game_management_load(Game *game, char *file_name);
+
 #endif

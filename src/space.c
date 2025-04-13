@@ -186,7 +186,18 @@ char **space_get_description(Space *space) {
   return (char **)space->gdesc;
 }
 
-char *space_get_i_description(Space *space, int n) {
+/**
+ * @brief It gets the graphical description of the space located in the n position of the array, whether its hidden or not
+ */
+char *space_get_i_static_description(Space *space, int n) {
+  if (!space) {
+    return NULL;
+  }
+
+  return space->gdesc[n];
+}
+
+char *space_get_i_dynamic_description(Space *space, int n) {
   if (!space) {
     return NULL;
   }
