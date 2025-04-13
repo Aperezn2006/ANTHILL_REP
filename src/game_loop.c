@@ -137,6 +137,9 @@ void game_loop_run(Game *game, Graphic_engine *gengine, FILE *log_file) {
       }
 
       if (game_get_inventory_vis(game) == TRUE) {
+        /*game_destroy(game);
+        game_init(game);
+        game_management_load(game, "sample.txt");*/
         graphic_engine_paint_inventory(gengine, game);
         sleep(2);
         game_toggle_inventory_vis(game);

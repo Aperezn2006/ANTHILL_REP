@@ -507,13 +507,22 @@ Command *game_get_last_command(Game *game);
 
 /*Management of message*/
 /**
- * @brief It sets the game's last message
+ * @brief It sets the current player's last message
  * @author Bea, Arturo, Rubén, Ana
  *
  * @param game a pointer to the game
  * @return OK if everything went well, ERROR otherwise
  */
 Status game_set_message(Game *game, char *message);
+
+/**
+ * @brief It sets a certain player's last message
+ * @author Ana
+ *
+ * @param game a pointer to the game
+ * @return OK if everything went well, ERROR otherwise
+ */
+Status game_set_message_from_index(Game *game, char *message, int index);
 
 /**
  * @brief It gets the las message of a certain player
@@ -555,14 +564,24 @@ char *game_get_object_desc_from_index(Game *game, int index);
 char *game_get_object_desc(Game *game);
 
 /**
- * @brief It sets the description of the last inspected object
+ * @brief It sets the description of the current player's last inspected object
  * @author Bea, Arturo, Rubén, Ana
  *
- * @param game
- * @param object_desc
+ * @param game a poinnter to the game
+ * @param object_desc the description of the object
  * @return OK if everything went well
  */
 Status game_set_object_desc(Game *game, char *object_desc);
+
+/**
+ * @brief It sets the description of a certain player's last inspected object
+ * @author Ana
+ *
+ * @param game a pointer to the game
+ * @param object_desc the description of the object
+ * @return OK if everything went well
+ */
+Status game_set_object_desc_from_index(Game *game, char *object_desc, int index);
 
 /*Management of finished*/
 /**

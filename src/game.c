@@ -859,6 +859,20 @@ Status game_set_message(Game *game, char *message) {
 }
 
 /**
+ * @brief It sets a certain player's last message
+ */
+Status game_set_message_from_index(Game *game, char *message, int index) {
+  /*CdE*/
+  if (!game) {
+    return ERROR;
+  }
+
+  strcpy(game->message[index], message);
+
+  return OK;
+}
+
+/**
  * @brief It gets the las message of a certain player
  */
 char *game_get_message_from_index(Game *game, int index) {
@@ -917,6 +931,20 @@ Status game_set_object_desc(Game *game, char *object_desc) {
   }
 
   strcpy(game->object_desc[game_get_turn(game)], object_desc);
+
+  return OK;
+}
+
+/**
+ * @brief It sets the description of a certain player's last inspected object
+ */
+Status game_set_object_desc_from_index(Game *game, char *object_desc, int index) {
+  /*CdE*/
+  if (!game) {
+    return ERROR;
+  }
+
+  strcpy(game->object_desc[index], object_desc);
 
   return OK;
 }
