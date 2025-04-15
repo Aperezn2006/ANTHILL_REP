@@ -104,6 +104,7 @@ Status game_destroy(Game *game) {
     player_destroy(game->players[i]);
     game->players[i] = NULL;
 
+    printf("Freeing command nº%i \n", i);
     command_destroy(game->last_cmd[i]);
     game->last_cmd[i] = NULL;
   }
@@ -227,7 +228,7 @@ Status game_add_player(Game *game, Player *player) {
   if (!game || !player || game_get_num_players(game) >= MAX_PLAYERS) {
     return ERROR;
   }
-
+  printf("Allocating command nº%i\n", game_get_num_players(game));
   game->last_cmd[game_get_num_players(game)] = command_create();
   game->players[game_get_num_players(game)] = player;
   game_increment_num_players(game);
@@ -571,7 +572,6 @@ Status game_add_link(Game *game, Link *link) {
 
   return OK;
 }
-
 /**
  * @brief It gives a pointer to the link located in a certain position of the array of links in the game
  */
@@ -826,6 +826,7 @@ Status game_set_last_command(Game *game, Command *command) {
     return ERROR;
   }
 
+  printf("Setting command in %i index\n", game_get_turn(game));
   game->last_cmd[game_get_turn(game)] = command;
 
   return OK;
@@ -857,7 +858,6 @@ Status game_set_message(Game *game, char *message) {
 
   return OK;
 }
-
 /**
  * @brief It sets a certain player's last message
  */
@@ -948,7 +948,6 @@ Status game_set_object_desc_from_index(Game *game, char *object_desc, int index)
 
   return OK;
 }
-
 /*Management of finished*/
 /**
  * @brief It gets whether the game is finished or not
@@ -1032,6 +1031,25 @@ Bool game_get_inventory_vis(Game *game) {
   }
 
   return game->inventory_vis;
+}
+
+Status game_update_player_health(Game *game, Id object_id) {
+  int turn;
+  int health = 0;
+  Object *object = NULL;
+  if (!game || object_id == NO_ID) {
+    return ERROR;
+  }
+  object = game_get_object_from_id(game, object_id);
+  if (!object) {
+    return ERROR;
+  }
+  turn = game_get_turn(game);
+  health = player_get_health(game->players[turn]) + object_get_health(object);
+  if (player_set_health(game->players[turn], health) == OK) {
+    return OK;
+  }
+  return ERROR;
 }
 
 /*Print*/

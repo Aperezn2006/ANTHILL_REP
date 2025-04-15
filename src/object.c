@@ -21,6 +21,10 @@ struct _Object {
   char name[WORD_SIZE + 1]; /*!< Name of the object */
   char desc[WORD_SIZE];     /*!< Description of the object */
   Bool inspected;           /*!< Whether the object has been inspected */
+  int health;
+  Bool movable;
+  Id dependency;
+  Id open;
 };
 
 /*Create & destroy*/
@@ -43,6 +47,10 @@ Object *object_create(Id id, Id location) {
   newobject->id = id;
   newobject->name[0] = '\0';
   newobject->desc[0] = '\0';
+  newobject->health = 0;
+  newobject->movable = FALSE;
+  newobject->dependency = NO_ID;
+  newobject->open = NO_ID;
 
   return newobject;
 }
@@ -60,6 +68,46 @@ Status object_destroy(Object *object) {
   object = NULL;
 
   return OK;
+}
+Status object_set_health(Object *object, int health) {
+  if (!object) return ERROR;
+  object->health = health;
+  return OK;
+}
+
+int object_get_health(const Object *object) {
+  if (!object) return 0;
+  return object->health;
+}
+Status object_set_movable(Object *object, Bool movable) {
+  if (!object) return ERROR;
+  object->movable = movable;
+  return OK;
+}
+
+Bool object_is_movable(const Object *object) {
+  if (!object) return FALSE;
+  return object->movable;
+}
+Status object_set_dependency(Object *object, Id dependency) {
+  if (!object) return ERROR;
+  object->dependency = dependency;
+  return OK;
+}
+
+Id object_get_dependency(const Object *object) {
+  if (!object) return NO_ID;
+  return object->dependency;
+}
+Status object_set_open(Object *object, Id link_id) {
+  if (!object) return ERROR;
+  object->open = link_id;
+  return OK;
+}
+
+Id object_get_open(const Object *object) {
+  if (!object) return NO_ID;
+  return object->open;
 }
 
 /*Management of id*/
@@ -184,7 +232,8 @@ Status object_print(Object *object) {
     return ERROR;
   }
 
-  fprintf(stdout, "--> object (Id: %ld; Name: %s, Description: %s, Inspected: %d)\n", object->id, object->name, object->desc, object->inspected);
+  fprintf(stdout, "--> object (Id: %ld; Name: %s, Description: %s, Inspected: %d, Health: %d, Movable: %d, Dependency %ld, Open link: %ld)\n",
+          object->id, object->name, object->desc, object->inspected, object->health, object->movable, object->dependency, object->open);
 
   return OK;
 }
