@@ -113,6 +113,14 @@ Status object_set_inspected(Object *object, Bool inspected);
  * @return TRUE if it has, FALSE otherwise
  */
 Bool object_get_inspected(Object *object);
+Status object_set_health(Object *object, int health);
+int object_get_health(const Object *object);
+Status object_set_movable(Object *object, Bool movable);
+Bool object_is_movable(const Object *object);
+Status object_set_dependency(Object *object, Id dependency);
+Id object_get_dependency(const Object *object);
+Status object_set_open(Object *object, Id link_id);
+Id object_get_open(const Object *object);
 
 /*Print*/
 /**

@@ -50,6 +50,9 @@ Status game_load_everything(Game *game, char *filename) {
 
   /*OBJECT*/
   Object *object = NULL;
+  Bool movable;
+  Id dependency;
+  Id open_door;
   char object_desc[WORD_SIZE];
 
   /*SPACE*/
@@ -125,32 +128,55 @@ Status game_load_everything(Game *game, char *filename) {
       /*OBJECTS*/
     } else if (strncmp("#o:", line, 3) == 0) {
       printf("Processing object\n");
-      toks = strtok(line + 3, "|");
+
+      toks = strtok(line + 3, "|"); /* ID */
       id = atol(toks);
-      toks = strtok(NULL, "|");
+
+      toks = strtok(NULL, "|"); /* Name */
       strcpy(name, toks);
-      toks = strtok(NULL, "|");
+
+      toks = strtok(NULL, "|"); /* Location */
       location = atol(toks);
-      toks = strtok(NULL, "|");
+
+      toks = strtok(NULL, "|"); /* Health */
+      health = atoi(toks);
+
+      toks = strtok(NULL, "|"); /* Movable */
+      movable = (atoi(toks) != 0) ? TRUE : FALSE;
+
+      toks = strtok(NULL, "|"); /* Dependency */
+      dependency = atol(toks);
+
+      toks = strtok(NULL, "|"); /* Open */
+      open_door = atol(toks);
+
+      toks = strtok(NULL, "|"); /* Description */
       strcpy(object_desc, toks);
 
       object = object_create(id, location);
       if (object) {
         object_set_name(object, name);
         object_set_desc(object, object_desc);
+        object_set_health(object, health);
+        object_set_movable(object, movable);
+        object_set_dependency(object, dependency);
+        object_set_open(object, open_door);
+
         if (game_add_object(game, object) == ERROR) {
           object_destroy(object);
           status = ERROR;
           break;
         }
+
         space = game_get_space(game, location);
         if (space) {
           space_add_object(space, id);
         }
       }
+    }
 
-      /*CHARACTERS*/
-    } else if (strncmp("#c:", line, 3) == 0) {
+    /*CHARACTERS*/
+    else if (strncmp("#c:", line, 3) == 0) {
       printf("Processing character\n");
       toks = strtok(line + 3, "|");
       id = atol(toks);
@@ -191,7 +217,6 @@ Status game_load_everything(Game *game, char *filename) {
       toks = strtok(line + 3, "|");
       id = atol(toks);
       toks = strtok(NULL, "|");
-      strcpy(name, toks);
       toks = strtok(NULL, "|");
       link_origin = atol(toks);
       toks = strtok(NULL, "|");
@@ -214,7 +239,6 @@ Status game_load_everything(Game *game, char *filename) {
           break;
         }
       }
-
     } else if (strncmp("#p:", line, 3) == 0) {
       printf("Processing player\n");
       toks = strtok(line + 3, "|");

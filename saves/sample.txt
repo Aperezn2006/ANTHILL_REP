@@ -1,12 +1,12 @@
 
 Players:
-#p:1|ant1|5|mO^|121||Dont eat it|5|
-#p:2|ant2|5|mO^|122|Hello|Blublu|3|
+#p:1|ant1|5|mO^|11|||5|
+#p:2|ant2|5|mO^|122|||3|
 
 Spaces:
 #s:11|Entry|1| _       |\ \___   |\ mo'\_  |\ @ _    | \__/ \__|
-#s:121|Pasillo1|1|         |         |         |         |         |
-#s:122|Pasillo2|1|  ___    |_/   \__ |    o o )|mo^ _ 0o]|__/ \___)|
+#s:121|Pasillo1|0|         |         |         |         |         |
+#s:122|Pasillo2|0|  ___    |_/   \__ |    o o )|mo^ _ 0o]|__/ \___)|
 #s:125|Pasillo5|0|         |         |         |         |         |
 #s:126|Pasillo6|0|         |         |         |         |         |
 #s:127|Pasillo7|0|  ___   _|_/   \_/ |     o 0 |mo'_ 0o8o|__/ \   /|
@@ -16,36 +16,33 @@ Spaces:
 #s:13|Despensa|0|    V    |  \(")/  |  -(_)-  |o/(_-_)\o|o o\_/o o|
 #s:130|Prueba1|0|         |         |         |         |         |
 #s:131|Prueba2|0|         |         |         |         |         |
-#s:132|Tejado|0| _   !#  |[_]--'---|!'!""`""!|! ! /^\ !|!_!_!I!_!|
 
 Links:
-#l:1|EntryToPasillo1|11|121|1|1|
-#l:2|EntryToPasillo1|121|11|1|0|
-#l:3|Pasillo1ToPasillo2|121|122|1|1|
-#l:4|Pasillo1ToPasillo2|122|121|1|0|
-#l:5|Pasillo2ToPasillo3|122|123|1|1|
-#l:6|Pasillo2ToPasillo3|123|122|1|0|
-#l:7|Pasillo3ToPasillo4|123|124|0|1|
-#l:8|Pasillo3ToPasillo4|124|123|1|0|
-#l:9|Pasillo4ToDespensa|124|13|1|1|
-#l:10|Pasillo4ToDespensa|13|124|1|0|
-#l:11|Pasillo2ToPasillo5|122|125|1|2|
-#l:12|Pasillo2ToPasillo5|125|122|1|3|
-#l:13|Pasillo5ToPasillo6|125|126|1|2|
-#l:14|Pasillo5ToPasillo6|126|125|1|3|
-#l:15|Pasillo6ToPasillo7|126|127|1|2|
-#l:16|Pasillo6ToPasillo7|127|126|1|3|
-#l:17|Pasillo7ToAgujero|127|14|1|2|
-#l:18|Pasillo7ToAgujero|14|127|1|3|
-#l:19|EntryToTejado|11|132|1|4|
-#l:20|TejadoToEntry|132|11|1|5|
+#l:1|Ant|11|121|1|1|
+#l:2|Ant|121|11|1|0|
+#l:3|Ant|121|122|1|1|
+#l:4|Ant|122|121|1|0|
+#l:5|Ant|122|123|1|1|
+#l:6|Ant|123|122|1|0|
+#l:7|Ant|123|124|0|1|
+#l:8|Ant|124|123|1|0|
+#l:9|Ant|124|13|1|1|
+#l:10|Ant|13|124|1|0|
+#l:11|Ant|122|125|1|2|
+#l:12|Ant|125|122|1|3|
+#l:13|Ant|125|126|1|2|
+#l:14|Ant|126|125|1|3|
+#l:15|Ant|126|127|1|2|
+#l:16|Ant|127|126|1|3|
+#l:17|Ant|127|14|1|2|
+#l:18|Ant|14|127|1|3|
 
 Characters:
-#c:31|Spider|/\oo/\|3|0|Get out|
+#c:31|Spider|/\oo/\|5|0|Get out|
 #c:32|Ant|^0m   |4|1|Hello|
 
 Objects:
-#o:21|Seed|Dont eat it|1|1|
-#o:22|Crumb|Blublu|1|-1|
+#o:21|Seed|Dont eat it|0|-1|
+#o:22|Crumb|Blublu|0|122|
 #o:23|Grain|Prueba|0|14|
 #o:24|Leaf|Hoja|0|13|

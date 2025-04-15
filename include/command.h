@@ -14,12 +14,14 @@
 #include "types.h"
 
 #define N_CMDT 2
-#define N_CMD 13
+#define N_CMD 15
+#define N_CON 3
 
 typedef enum { CMDS, CMDL } CommandType;
 
-typedef enum { NO_CMD = -1, UNKNOWN, EXIT, MOVE, TAKE, DROP, ATTACK, CHAT, INSPECT, INVENTORY } CommandCode;
+typedef enum { NO_CMD = -1, UNKNOWN, EXIT, MOVE, TAKE, DROP, ATTACK, CHAT, INSPECT, INVENTORY, USE, OPEN } CommandCode;
 
+typedef enum {NO_DEST = -1, OVER, WITH} Connector;
 typedef struct _Command Command;
 
 /**
@@ -76,6 +78,11 @@ Status command_set_word(Command *c, const char *word);
  * @return the word associated with the command
  */
 char *command_get_word(Command *c);
+
+Status command_set_connector(Command *command, Connector connector);
+Connector command_get_connector(Command *command);
+Status command_set_destiny(Command *c, const char *destiny);
+char *command_get_destiny(Command *c);
 
 /**
  * @brief It gets the user inputs and sets its command and word

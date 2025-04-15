@@ -101,6 +101,8 @@ Status game_actions_inspect(Game *game);
  */
 Status game_actions_inventory(Game *game);
 
+Status game_actions_use(Game *game);
+
 /**
    Game actions implementation
 */
@@ -148,6 +150,9 @@ Status game_actions_update(Game *game, Command *command) {
     case INVENTORY:
       command_set_result(command, game_actions_inventory(game));
       break;
+      case USE:
+      command_set_result(command, game_actions_use(game));
+      break;
 
     default:
       break;
@@ -193,14 +198,10 @@ Status game_actions_move(Game *game) {
     direction = E;
   } else if (strcasecmp(direction_word, "west") == 0 || strcasecmp(direction_word, "w") == 0) {
     direction = W;
-  } else if (strcasecmp(direction_word, "up") == 0 || strcasecmp(direction_word, "u") == 0) {
-    direction = U;
-  } else if (strcasecmp(direction_word, "down") == 0 || strcasecmp(direction_word, "d") == 0) {
-    direction = D;
   } else {
     return ERROR;
   }
-  printf("Searching for neighbour in direction %i:\n", direction);
+
   next_space_id = game_get_neighbour(game, current_space_id, direction);
 
   if (next_space_id != NO_ID) {
@@ -226,43 +227,61 @@ Status game_actions_take(Game *game) {
   char object_name[WORD_SIZE] = "";
 
   if (!game) {
+    printf("[DEBUG] Game is NULL\n");
     return ERROR;
   }
 
   c = game_get_last_command(game);
-  strcpy(object_name, command_get_word(c)); /*Corrección: Podemos ahorrarnos la variable object_name si llamamos a get_obj*/
+  if (!c) {
+    printf("[DEBUG] Last command is NULL\n");
+    return ERROR;
+  }
+
+  strcpy(object_name, command_get_word(c));
+  printf("[DEBUG] Command word (object name): '%s'\n", object_name);
 
   if (strcmp(object_name, "") == 0) {
+    printf("[DEBUG] Object name is empty\n");
     return ERROR;
   }
 
   player_location = game_get_player_location(game);
   if (player_location == NO_ID) {
+    printf("[DEBUG] Invalid player location (NO_ID)\n");
     return ERROR;
+  } else {
+    printf("[DEBUG] Player location: %ld\n", player_location);
   }
 
   object_id = game_get_object_id_from_name(game, object_name);
   if (object_id == NO_ID) {
+    printf("[DEBUG] No object found with name '%s'\n", object_name);
     return ERROR;
+  } else {
+    printf("[DEBUG] Object ID found: %ld for name '%s'\n", object_id, object_name);
   }
 
   space = game_get_space(game, player_location);
   if (!space) {
+    printf("[DEBUG] Could not get space for location %ld\n", player_location);
     return ERROR;
+  } else {
+    printf("[DEBUG] Space found for location %ld\n", player_location);
   }
 
   if (space_has_object(space, object_id) == TRUE) {
+    printf("[DEBUG] Space has object %ld ('%s')\n", object_id, object_name);
     game_set_object_location(game, player_get_id(game_get_player(game)), object_id);
-    /*Corrección: ¿Dónde se elimina el espacio?, respuesta: lo hace game_set_object_location*/
-    printf("Object %s taken\n", object_name); /*DEBUG*/
+    printf("[DEBUG] Object '%s' taken successfully\n", object_name);
     return OK;
   } else {
-    printf("Object %s not found in this space\n", object_name); /*DEBUG*/
+    printf("[DEBUG] Object '%s' (ID %ld) not found in current space %ld\n", object_name, object_id, player_location);
     return ERROR;
   }
 
   return OK;
 }
+
 
 Status game_actions_drop(Game *game) {
   Id object_id;
@@ -490,6 +509,79 @@ Status game_actions_inventory(Game *game) {
   }
 
   game_toggle_inventory_vis(game);
+
+  return OK;
+}
+
+Status game_actions_use(Game *game) {
+  Id object_id;
+  Id location;
+  Command *c = NULL;
+  char object_name[WORD_SIZE] = "";
+  Connector connector = NO_DEST;
+  char destiny[WORD_SIZE] = "";
+
+  if (!game) {
+    printf("[DEBUG] Game is NULL\n");
+    return ERROR;
+  }
+
+  c = game_get_last_command(game);
+  if (!c) {
+    printf("[DEBUG] Command is NULL\n");
+    return ERROR;
+  }
+
+  strcpy(object_name, command_get_word(c));
+  printf("[DEBUG] Command word (object): '%s'\n", object_name);
+
+  if (strcmp(object_name, "") == 0) {
+    printf("[DEBUG] Object name is empty\n");
+    return ERROR;
+  }
+
+  object_id = game_get_object_id_from_name(game, object_name);
+  printf("[DEBUG] Retrieved object ID: %ld\n", object_id);
+
+  if (object_id == NO_ID) {
+    printf("[DEBUG] Object '%s' not found in game\n", object_name);
+    return ERROR;
+  }
+
+  location = game_get_player_location(game);
+  printf("[DEBUG] Player's location is %ld\n", location);
+
+  connector = command_get_connector(c);
+  printf("[DEBUG] Connector = %d\n", connector);
+
+  if (connector == NO_DEST) {
+    printf("[DEBUG] Connector is NO_DEST\n");
+    return ERROR;
+  }
+
+  strcpy(destiny, command_get_destiny(c));
+  printf("[DEBUG] Destiny = '%s'\n", destiny);
+
+  if (strcmp(destiny, "") == 0) {
+    printf("[DEBUG] Destiny string is empty\n");
+    return ERROR;
+  }
+
+  if (player_has_object(game_get_player(game), object_id) == TRUE) {
+    printf("[DEBUG] Player has object %s\n", object_name);
+    if (strcmp(destiny, "player") == 0) {
+      printf("[DEBUG] Applying object to player\n");
+      if (game_update_player_health(game, object_id) == ERROR) {
+        printf("Failed to apply health changes\n");
+        return ERROR;
+      }
+    } else {
+      printf("[DEBUG] Unhandled destiny: '%s'\n", destiny);
+    }
+  } else {
+    printf("Player does not have object %s\n", object_name);
+    return ERROR;
+  }
 
   return OK;
 }

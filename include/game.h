@@ -59,7 +59,6 @@ Game *game_alloc();
  * @return OK if everything goes well
  */
 Status game_add_space(Game *game, Space *space);
-
 /**
  * @brief It gives a pointer to the space located in a certain position of the array of spaces in the game
  * @author Ana
@@ -562,7 +561,6 @@ char *game_get_object_desc_from_index(Game *game, int index);
  * @return the description of the last inspected object
  */
 char *game_get_object_desc(Game *game);
-
 /**
  * @brief It sets the description of the current player's last inspected object
  * @author Bea, Arturo, Rubén, Ana
@@ -642,6 +640,8 @@ Status game_toggle_inventory_vis(Game *game);
  * @return whether the inventory is beinf visualized or not
  */
 Bool game_get_inventory_vis(Game *game);
+
+Status game_update_player_health(Game *game, Id object_id);
 
 /*Print*/
 /**
