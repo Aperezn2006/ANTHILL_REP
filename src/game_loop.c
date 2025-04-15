@@ -40,7 +40,7 @@ int game_loop_init(Game *game, Graphic_engine **gengine, char *file_name);
  * @param gengine A pointer to the graphic engine.
  * @param log_file A file pointer for logging commands (can be NULL).
  */
-void game_loop_run(Game *game, Graphic_engine *gengine, FILE *log_file);
+void game_loop_run(Game *game, Graphic_engine *gengine, FILE *log_file, int Seed);
 
 /**
  * @brief Cleans up resources used during the game loop, including the game and graphic engine.
@@ -65,9 +65,32 @@ int main(int argc, char *argv[]) {
   Game *game;
   Graphic_engine *gengine;
   FILE *log_file = NULL;
+  int deterministic_mode = 0;
+  char *data_file = NULL;
+  int i;
 
   if (argc < 2) {
-    fprintf(stderr, "Use: %s <game_data_file> [-l <log_file>]\n", argv[0]);
+    fprintf(stderr, "Uso: %s <game_data_file> [-l <log_file>] [-d]\n", argv[0]);
+    return 1;
+  }
+
+  /* Analizar argumentos */
+  for (i = 1; i < argc; i++) {
+    if (strcmp(argv[i], "-l") == 0 && i + 1 < argc) {
+      log_file = fopen(argv[++i], "w");
+      if (!log_file) {
+        fprintf(stderr, "Error: No se pudo abrir el archivo de log %s\n", argv[i]);
+        return 1;
+      }
+    } else if (strcmp(argv[i], "-d") == 0) {
+      deterministic_mode = 1;
+    } else if (!data_file) {
+      data_file = argv[i]; /* El primer argumento sin prefijo es el archivo de datos */
+    }
+  }
+
+  if (!data_file) {
+    fprintf(stderr, "Error: No se proporcionó el archivo de datos del juego.\n");
     return 1;
   }
 
@@ -77,23 +100,16 @@ int main(int argc, char *argv[]) {
     return 1;
   }
 
-  if (argc == 4 && strcmp(argv[2], "-l") == 0) {
-    log_file = fopen(argv[3], "w");
-    if (!log_file) {
-      fprintf(stderr, "Error: No se pudo abrir el archivo de log %s\n", argv[3]);
-      game_destroy(game);
-      return 1;
-    }
-  }
 
-  if (!game_loop_init(game, &gengine, argv[1])) {
-    game_loop_run(game, gengine, log_file);
+  if (!game_loop_init(game, &gengine, data_file)) {
+    game_loop_run(game, gengine, log_file, deterministic_mode);
     graphic_engine_paint_end(gengine, game);
     game_loop_cleanup(game, gengine, log_file);
   }
 
   return 0;
 }
+
 
 int game_loop_init(Game *game, Graphic_engine **gengine, char *file_name) {
   if (game_init_from_file(game, file_name) == ERROR) {
@@ -110,7 +126,7 @@ int game_loop_init(Game *game, Graphic_engine **gengine, char *file_name) {
   return 0;
 }
 
-void game_loop_run(Game *game, Graphic_engine *gengine, FILE *log_file) {
+void game_loop_run(Game *game, Graphic_engine *gengine, FILE *log_file, int Seed) {
   Command *last_cmd;
 
   if (!gengine) {
@@ -124,7 +140,7 @@ void game_loop_run(Game *game, Graphic_engine *gengine, FILE *log_file) {
     space_set_discovered(game_get_space(game, game_get_player_location(game)), TRUE);
     graphic_engine_paint_game(gengine, game);
     command_get_user_input(last_cmd);
-    game_actions_update(game, last_cmd);
+    game_actions_update(game, last_cmd, Seed);
 
     if (log_file) {
       log_command(log_file, last_cmd);
@@ -192,3 +208,4 @@ void log_command(FILE *log_file, Command *cmd) {
   fprintf(log_file, "Comando ejecutado: %s, %s, %s\n", command_to_str(code), command_get_word(cmd), result);
   fflush(log_file);
 }
+
