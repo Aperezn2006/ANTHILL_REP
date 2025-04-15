@@ -1052,6 +1052,33 @@ Status game_update_player_health(Game *game, Id object_id) {
   return ERROR;
 }
 
+Bool game_check_object_dependency(Game *game, Id object_id) {
+  /* TRUE means object can be used, i.e., either it doesn't have a dependency or player has that object */
+  Object *object = NULL;
+  Id object_dependency = NO_ID;
+
+  if (game == NULL || object_id == NO_ID) {
+    return WRONG;
+  }
+
+  object = game_get_object_from_id(game, object_id);
+  if (object == NULL) {
+    return WRONG;
+  }
+
+  object_dependency = object_get_dependency(object);
+
+  if (object_dependency == NO_ID) {
+    return TRUE;
+  }
+
+  if (player_has_object(game->players[game_get_turn(game)], object_dependency) == TRUE) {
+    return TRUE;
+  }
+
+  return FALSE;
+}
+
 /*Print*/
 /**
  * @brief It prints the game
