@@ -72,7 +72,7 @@ Status game_actions_drop(Game *game);
  * @param game a pointer to the game
  * @return OK if everything goes well, ERROR otherwise
  */
-Status game_actions_attack(Game *game);
+Status game_actions_attack(Game *game, int Seed);
 
 /**
  * @brief It allows the player to chat with a character
@@ -107,7 +107,7 @@ Status game_actions_use(Game *game);
    Game actions implementation
 */
 
-Status game_actions_update(Game *game, Command *command) {
+Status game_actions_update(Game *game, Command *command, int Seed) {
   CommandCode cmd;
 
   game_set_last_command(game, command);
@@ -136,7 +136,7 @@ Status game_actions_update(Game *game, Command *command) {
       break;
 
     case ATTACK:
-      command_set_result(command, game_actions_attack(game));
+      command_set_result(command, game_actions_attack(game, Seed));
       break;
 
     case CHAT:
@@ -320,7 +320,7 @@ Status game_actions_drop(Game *game) {
   return OK;
 }
 
-Status game_actions_attack(Game *game) {
+Status game_actions_attack(Game *game, int Seed) {
   Id player_location;
   Id character_location;
   Id character_id;
@@ -337,11 +337,14 @@ Status game_actions_attack(Game *game) {
 
   if (space_get_character(game_get_space(game, player_location)) == NO_ID) {
     return ERROR;
-  } else {
-    strcpy(character_name, character_get_name(game_get_character(game, space_get_character(game_get_space(game, player_location)))));
-    if (character_name[0] == '\0') {
-      return ERROR;
-    }
+  }
+
+  strcpy(character_name, character_get_name(
+    game_get_character(game, space_get_character(game_get_space(game, player_location)))
+  ));
+  
+  if (character_name[0] == '\0') {
+    return ERROR;
   }
 
   character_id = game_get_character_id_from_name(game, character_name);
@@ -351,11 +354,9 @@ Status game_actions_attack(Game *game) {
   }
 
   character_location = game_get_character_location(game, character_id);
-
   if (player_location != character_location || player_location == NO_ID) {
     printf("You are not in the same location as %s.\n", character_name);
     return ERROR;
-    /*  No hay ataque si no están en la misma ubicación */
   }
 
   character = game_get_character(game, character_id);
@@ -368,22 +369,22 @@ Status game_actions_attack(Game *game) {
     return ERROR;
   }
 
-  /*  Verificar si el personaje es "friendly" */
   if (character_get_friendly(character)) {
     printf("You cannot attack %s, they are friendly.\n", character_name);
     return ERROR;
   }
 
-  /*  Inicializar la semilla aleatoria (esto solo se hace una vez en main) */
-  srand(time(NULL));
-  roll = rand() % 10; /*  Número entre 0 y 9 */
+  /* Deterministic or random roll */
+  if (Seed) {
+    roll = 7; /* Always a successful hit in deterministic mode */
+  } else {
+    roll = rand() % 10; /* Random number between 0 and 9 */
+  }
 
   if (roll >= 0 && roll <= 4) {
-    /*  El jugador pierde 1 punto de vida */
     player_decrease_health(player, 1);
     printf("You missed! %s counterattacks. You lose 1 health point.\n", character_name);
   } else {
-    /*  El personaje pierde 1 punto de vida */
     character_decrease_health(character, 1);
     printf("You hit %s! They lose 1 health point.\n", character_name);
   }
@@ -394,6 +395,7 @@ Status game_actions_attack(Game *game) {
 
   return OK;
 }
+
 
 Status game_actions_chat(Game *game) {
   Id player_location;
@@ -567,7 +569,7 @@ Status game_actions_use(Game *game) {
     return ERROR;
   }
 
-  if (player_has_object(game_get_player(game), object_id) == TRUE) {
+  if (player_has_object(game_get_player(game), object_id) == TRUE && game_check_object_dependency(game, object_id)==TRUE) {
     printf("[DEBUG] Player has object %s\n", object_name);
     if (strcmp(destiny, "player") == 0) {
       printf("[DEBUG] Applying object to player\n");
@@ -585,3 +587,4 @@ Status game_actions_use(Game *game) {
 
   return OK;
 }
+
