@@ -641,7 +641,22 @@ Status game_toggle_inventory_vis(Game *game);
  */
 Bool game_get_inventory_vis(Game *game);
 
+/**
+ * @brief It updates the players health
+ * @author Bea, Arturo, Rubén, Ana
+ *
+ * @param game a pointer to the game, Object_id
+ * @return OK if everything went well
+ */
 Status game_update_player_health(Game *game, Id object_id);
+/**
+ * @brief It checks if an objects needs another object
+ * @author Bea, Arturo, Rubén, Ana
+ *
+ * @param game a pointer to the game, an object_id
+ * @return TRUE if object can be used, FALSE if cant, WRONG if error
+ */
+Bool game_check_object_dependency(Game *game, Id object_id);
 
 /*Print*/
 /**
