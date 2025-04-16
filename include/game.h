@@ -218,7 +218,7 @@ Id game_get_object_location(Game *game, Id object_id);
  * @param game a pointer to the game
  * @return the object's id
  */
-Id game_get_object_id_from_name(Game *game, char *object_name);
+Id game_get_object_id_from_name(Game *game, const char *object_name);
 
 /**
  * @brief It makes a string with the names of all the objects in the space
@@ -657,6 +657,14 @@ Status game_update_player_health(Game *game, Id object_id);
  * @return TRUE if object can be used, FALSE if cant, WRONG if error
  */
 Bool game_check_object_dependency(Game *game, Id object_id);
+/**
+ * @brief It moves an object in a direction
+ * @author Bea, Arturo, Rubén, Ana
+ *
+ * @param game a pointer to the game, an object_id, Id of current space, direction
+ * @return Ok if everything went well
+ */
+Status game_move_object(Game *game, const char *object_name, Id current_location, Direction direction);
 
 /*Print*/
 /**
