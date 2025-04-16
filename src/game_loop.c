@@ -40,7 +40,7 @@ int game_loop_init(Game *game, Graphic_engine **gengine, char *file_name);
  * @param gengine A pointer to the graphic engine.
  * @param log_file A file pointer for logging commands (can be NULL).
  */
-void game_loop_run(Game *game, Graphic_engine *gengine, FILE *log_file, int Seed);
+void game_loop_run(Game *game, Graphic_engine *gengine, FILE *log_file, int seed);
 
 /**
  * @brief Cleans up resources used during the game loop, including the game and graphic engine.
@@ -117,14 +117,14 @@ int game_loop_init(Game *game, Graphic_engine **gengine, char *file_name) {
 
   if ((*gengine = graphic_engine_create()) == NULL) {
     fprintf(stderr, "Error while initializing graphic engine.\n");
-    game_destroy(game);
+    game_destroy(game, TRUE);
     return 1;
   }
 
   return 0;
 }
 
-void game_loop_run(Game *game, Graphic_engine *gengine, FILE *log_file, int Seed) {
+void game_loop_run(Game *game, Graphic_engine *gengine, FILE *log_file, int seed) {
   Command *last_cmd;
 
   if (!gengine) {
@@ -138,7 +138,8 @@ void game_loop_run(Game *game, Graphic_engine *gengine, FILE *log_file, int Seed
     space_set_discovered(game_get_space(game, game_get_player_location(game)), TRUE);
     graphic_engine_paint_game(gengine, game);
     command_get_user_input(last_cmd);
-    game_actions_update(game, last_cmd, Seed);
+    game_actions_update(game, last_cmd, seed);
+    last_cmd = game_get_last_command(game);
 
     if (log_file) {
       log_command(log_file, last_cmd);
@@ -178,7 +179,7 @@ void game_loop_run(Game *game, Graphic_engine *gengine, FILE *log_file, int Seed
 }
 
 void game_loop_cleanup(Game *game, Graphic_engine *gengine, FILE *log_file) {
-  game_destroy(game);
+  game_destroy(game, TRUE);
   graphic_engine_destroy(gengine);
   if (log_file) {
     fclose(log_file);

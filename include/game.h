@@ -38,7 +38,7 @@ Status game_init(Game *game);
  * @param game a pointer to the game
  * @return OK if everything goes well, ERROR otherwise
  */
-Status game_destroy(Game *game);
+Status game_destroy(Game *game, Bool full_destruction);
 
 /**
  * @brief It allocates memory for the game

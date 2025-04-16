@@ -198,7 +198,7 @@ Status game_actions_update(Game *game, Command *command, int Seed) {
       break;
 
     case LOAD:
-      command_set_result(command, game_actions_load(game));
+      game_actions_load(game);
       break;
 
     case SAVE:

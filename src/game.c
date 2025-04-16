@@ -88,7 +88,7 @@ Status game_init(Game *game) {
 /**
  * @brief It frees the memory the game was occupying
  */
-Status game_destroy(Game *game) {
+Status game_destroy(Game *game, Bool full_destruction) {
   int i;
   /*CdE*/
   if (!game) {
@@ -123,8 +123,10 @@ Status game_destroy(Game *game) {
     game->links[i] = NULL;
   }
 
-  free(game);
-  game = NULL;
+  if (full_destruction == TRUE) {
+    free(game);
+    game = NULL;
+  }
 
   return OK;
 }

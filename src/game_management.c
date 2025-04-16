@@ -176,12 +176,8 @@ Status game_management_load(Game *game, char *file_name, Bool new) {
   }
 
   if (new == FALSE) {
-    game_destroy(game);  /*PREVIOUS*/
-    game = game_alloc(); /*PREVIOUS*/
-    if (!game) {
-      return ERROR;
-    }
-    game_init(game); /*PREVIOUS*/
+    game_destroy(game, FALSE); /*PREVIOUS*/
+    game_init(game);           /*PREVIOUS*/
 
     strcpy(save_path, "saves/");  /*PREVIOUS*/
     strcat(save_path, file_name); /*PREVIOUS*/
@@ -418,6 +414,7 @@ Status game_management_load(Game *game, char *file_name, Bool new) {
         player_set_description(player, player_desc);
         player_set_max_objs(player, player_max_obj);
         player_set_location(player, location);
+
         if (new == FALSE) {
           if (strcmp(message, ".") != 0) { /*REVIOUS*/
             game_set_message_from_index(game, message, game_get_num_players(game));

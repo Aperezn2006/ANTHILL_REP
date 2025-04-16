@@ -115,14 +115,18 @@ Area* screen_area_init(int x, int y, int width, int height) {
   if ((area = (Area*)malloc(sizeof(struct _Area)))) {
     *area = (struct _Area){x, y, width, height, ACCESS(__data, x, y)};
 
-    for (i = 0; i < area->height; i++) memset(ACCESS(area->cursor, 0, i), (int)FG_CHAR, (size_t)area->width);
+    for (i = 0; i < area->height; i++) {
+      memset(ACCESS(area->cursor, 0, i), (int)FG_CHAR, (size_t)area->width);
+    }
   }
 
   return area;
 }
 
 void screen_area_destroy(Area* area) {
-  if (area) free(area);
+  if (area) {
+    free(area);
+  }
 }
 
 void screen_area_clear(Area* area) {
@@ -131,12 +135,16 @@ void screen_area_clear(Area* area) {
   if (area) {
     screen_area_reset_cursor(area);
 
-    for (i = 0; i < area->height; i++) memset(ACCESS(area->cursor, 0, i), (int)FG_CHAR, (size_t)area->width);
+    for (i = 0; i < area->height; i++) {
+      memset(ACCESS(area->cursor, 0, i), (int)FG_CHAR, (size_t)area->width);
+    }
   }
 }
 
 void screen_area_reset_cursor(Area* area) {
-  if (area) area->cursor = ACCESS(__data, area->x, area->y);
+  if (area) {
+    area->cursor = ACCESS(__data, area->x, area->y);
+  }
 }
 
 void screen_area_puts(Area* area, char* str) {
