@@ -16,6 +16,31 @@
 #include <strings.h>
 #include <time.h>
 
+#define DIRECTION_MAP_SIZE 12
+
+typedef struct {
+  const char *name;
+  Direction dir;
+} DirectionMap;
+
+DirectionMap direction_map[] = {{"north", N}, {"n", N}, {"south", S}, {"s", S},
+                                {"east", E},  {"e", E}, {"west", W},  {"w", W},
+                                {"up", U},    {"u", U}, {"down", D},  {"d", D}};
+
+/**
+   Private functions
+*/
+Direction direction_from_string(const char *str) {
+  int i;
+  if (!str) return -1;
+  for (i = 0; i < DIRECTION_MAP_SIZE; i++) {
+    if (strcasecmp(str, direction_map[i].name) == 0) {
+      return direction_map[i].dir;
+    }
+  }
+  return -1; /* Invalid direction */
+}
+
 /**
    Private functions
 */
@@ -173,50 +198,44 @@ Status game_actions_move(Game *game) {
   Id current_space_id = NO_ID;
   Id next_space_id = NO_ID;
   Command *c = NULL;
-  char direction_word[WORD_SIZE] = "";
+  const char *word = NULL;
+  Connector connector = NO_DEST;
+  const char *destiny = NULL;
   Direction direction;
 
-  current_space_id = game_get_player_location(game);
+  if (!game) return ERROR;
 
-  if (current_space_id == NO_ID) {
-    return ERROR;
-  }
+  current_space_id = game_get_player_location(game);
+  if (current_space_id == NO_ID) return ERROR;
 
   c = game_get_last_command(game);
-  strcpy(direction_word, command_get_word(c));
+  if (!c) return ERROR;
 
-  if (strcmp(direction_word, "") == 0) {
-    return ERROR;
-  }
+  word = command_get_word(c);
+  connector = command_get_connector(c);
+  destiny = command_get_destiny(c);
 
-  /*Probablemente exista una versión más eficiente de hacer esto*/
-  if (strcasecmp(direction_word, "north") == 0 || strcasecmp(direction_word, "n") == 0) {
-    direction = N;
-  } else if (strcasecmp(direction_word, "south") == 0 || strcasecmp(direction_word, "s") == 0) {
-    direction = S;
-  } else if (strcasecmp(direction_word, "east") == 0 || strcasecmp(direction_word, "e") == 0) {
-    direction = E;
-  } else if (strcasecmp(direction_word, "west") == 0 || strcasecmp(direction_word, "w") == 0) {
-    direction = W;
-  } else {
-    return ERROR;
-  }
+  direction = direction_from_string(word);
 
-  next_space_id = game_get_neighbour(game, current_space_id, direction);
+  /* ----- Player move (e.g. "m n" or "move north") ----- */
+  if (direction != -1 && (connector == NO_DEST && destiny[0] == '\0')) {
+    next_space_id = game_get_neighbour(game, current_space_id, direction);
+    if (next_space_id == NO_ID) return ERROR;
 
-  if (next_space_id != NO_ID) {
-    if (game_connection_is_open(game, current_space_id, direction)) {
-      printf("The connection isn't open\n"); /*Debug*/
-      game_set_player_location(game, next_space_id);
-    } else {
+    if (!game_connection_is_open(game, current_space_id, direction)) {
+      printf("The connection isn't open\n"); /* Debug */
       return ERROR;
     }
 
-  } else {
-    return ERROR;
+    game_set_player_location(game, next_space_id);
+    return OK;
   }
-
-  return OK;
+  else{
+    direction = direction_from_string(destiny);
+    if (direction == -1) return ERROR;
+    return game_move_object(game, word, current_space_id, direction);
+  }
+  return ERROR;
 }
 
 Status game_actions_take(Game *game) {
