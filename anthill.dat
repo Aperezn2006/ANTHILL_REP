@@ -16,7 +16,6 @@
 #o:23|Grain|14|1|1|-1|-1|Prueba|
 #o:24|Leaf|13|2|0|-1|-1|Hoja|
 
-
 #c:31|Spider|121|5|/\oo/\|Get out|FALSE|
 #c:32|Ant|122|4|^0m   |Hello|TRUE|
 #l:1|EntryToPasillo1|11|121|1|1|0

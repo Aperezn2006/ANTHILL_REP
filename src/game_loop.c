@@ -100,7 +100,6 @@ int main(int argc, char *argv[]) {
     return 1;
   }
 
-
   if (!game_loop_init(game, &gengine, data_file)) {
     game_loop_run(game, gengine, log_file, deterministic_mode);
     graphic_engine_paint_end(gengine, game);
@@ -109,7 +108,6 @@ int main(int argc, char *argv[]) {
 
   return 0;
 }
-
 
 int game_loop_init(Game *game, Graphic_engine **gengine, char *file_name) {
   if (game_init_from_file(game, file_name) == ERROR) {
@@ -153,7 +151,7 @@ void game_loop_run(Game *game, Graphic_engine *gengine, FILE *log_file, int Seed
       }
 
       if (game_get_inventory_vis(game) == TRUE) {
-        game_management_load_previous(game, "sample.txt", gengine);
+        game_management_load(game, "sample.txt", gengine, FALSE);
         /*graphic_engine_paint_inventory(gengine, game);
         sleep(2);
         game_toggle_inventory_vis(game);*/
@@ -206,4 +204,3 @@ void log_command(FILE *log_file, Command *cmd) {
   fprintf(log_file, "Comando ejecutado: %s, %s, %s\n", command_to_str(code), command_get_word(cmd), result);
   fflush(log_file);
 }
-

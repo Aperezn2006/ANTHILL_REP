@@ -22,16 +22,6 @@
 #include "types.h"
 
 /**
- * @brief It loads the spaces that are adjacent to the current one
- * @author Profesores PPROG, Arturo
- *
- * @param game a pointer to the game
- * @param filename a pointer to the file where the spaces are defined
- * @return OK if everything goes well, ERROR otherwise
- */
-Status game_management_load_new(Game *game, char *filename);
-
-/**
  * @brief It creates the game with the info from the filename
  * @author Profesores PPROG
  *
@@ -58,6 +48,6 @@ Status game_management_save(Game *game, char *file_name);
  * @param file_name the name of the desired folder
  * @return OK if everything goes well, ERROR otherwise
  */
-Status game_management_load_previous(Game *game, char *file_name, Graphic_engine *gengine);
+Status game_management_load(Game *game, char *file_name, Graphic_engine *gengine, Bool new);
 
 #endif
