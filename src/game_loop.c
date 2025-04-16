@@ -151,10 +151,9 @@ void game_loop_run(Game *game, Graphic_engine *gengine, FILE *log_file, int Seed
       }
 
       if (game_get_inventory_vis(game) == TRUE) {
-        game_management_load(game, "sample.txt", gengine, FALSE);
-        /*graphic_engine_paint_inventory(gengine, game);
+        graphic_engine_paint_inventory(gengine, game);
         sleep(2);
-        game_toggle_inventory_vis(game);*/
+        game_toggle_inventory_vis(game);
         /*while (game_get_inventory_vis(game) == TRUE) {
           if (command_get_code(game_get_last_command(game)) == INVENTORY) {
             game_actions_update(game, game_get_last_command(game));
@@ -176,7 +175,6 @@ void game_loop_run(Game *game, Graphic_engine *gengine, FILE *log_file, int Seed
       game_set_finished(game, TRUE);
     }
   }
-  game_management_save(game, "sample.txt");
 }
 
 void game_loop_cleanup(Game *game, Graphic_engine *gengine, FILE *log_file) {

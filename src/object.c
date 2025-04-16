@@ -47,6 +47,7 @@ Object *object_create(Id id, Id location) {
   newobject->id = id;
   newobject->name[0] = '\0';
   newobject->desc[0] = '\0';
+  newobject->inspected = 0;
   newobject->health = 0;
   newobject->movable = FALSE;
   newobject->dependency = NO_ID;

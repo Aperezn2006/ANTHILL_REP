@@ -1,8 +1,8 @@
 Spaces:
 #s:11|Entry|1| _       |\ \___   |\ mo'\_  |\ @ _    | \__/ \__|
-#s:121|Pasillo1|0|         |         |         |         |         |
-#s:122|Pasillo2|0|  ___    |_/   \__ |    o o )|mo^ _ 0o]|__/ \___)|
-#s:125|Pasillo5|0|         |         |         |         |         |
+#s:121|Pasillo1|1|         |         |         |         |         |
+#s:122|Pasillo2|1|  ___    |_/   \__ |    o o )|mo^ _ 0o]|__/ \___)|
+#s:125|Pasillo5|1|         |         |         |         |         |
 #s:126|Pasillo6|0|         |         |         |         |         |
 #s:127|Pasillo7|0|  ___   _|_/   \_/ |     o 0 |mo'_ 0o8o|__/ \   /|
 #s:14|Agujero|0|  ___    |_/   \__ |    o o )|mo^ _ 0o]|__/ \___)|
@@ -13,8 +13,8 @@ Spaces:
 #s:131|Prueba2|0|         |         |         |         |         |
 
 Players:
-#p:1|ant1|mO^|11|5|5|.|.|
-#p:2|ant2|mO^|122|5|3|.|.|
+#p:1|ant1|mO^|121|4|5|.|.|
+#p:2|ant2|mO^|125|5|3|.|.|
 
 Links:
 #l:1|EntryToPasillo1|11|121|1|1|
@@ -37,7 +37,7 @@ Links:
 #l:18|Pasillo7ToAgujero|14|127|3|1|
 
 Characters:
-#c:31|Spider|121|5|/\oo/\|Get out|0|
+#c:31|Spider|121|4|/\oo/\|Get out|0|
 #c:32|Ant|122|4|^0m   |Hello|0|
 
 Objects:

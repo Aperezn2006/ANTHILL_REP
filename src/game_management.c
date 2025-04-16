@@ -17,7 +17,7 @@ Status game_init_from_file(Game *game, char *filename) {
     return ERROR;
   }
 
-  if (game_management_load(game, filename, NULL, TRUE) == ERROR) {
+  if (game_management_load(game, filename, TRUE) == ERROR) {
     printf("Error: Could not load spaces and objects from file\n");
     return ERROR;
   }
@@ -109,7 +109,7 @@ Status game_management_save(Game *game, char *file_name) {
 /**
  * @brief It loads a player's game from a certain file
  */
-Status game_management_load(Game *game, char *file_name, Graphic_engine *gengine, Bool new) {
+Status game_management_load(Game *game, char *file_name, Bool new) {
   /*PLAYER*/
   Player *player = NULL;
   int player_max_obj = 0;

@@ -23,9 +23,8 @@ typedef struct {
   Direction dir;
 } DirectionMap;
 
-DirectionMap direction_map[] = {{"north", N}, {"n", N}, {"south", S}, {"s", S},
-                                {"east", E},  {"e", E}, {"west", W},  {"w", W},
-                                {"up", U},    {"u", U}, {"down", D},  {"d", D}};
+DirectionMap direction_map[] = {{"north", N}, {"n", N}, {"south", S}, {"s", S}, {"east", E}, {"e", E},
+                                {"west", W},  {"w", W}, {"up", U},    {"u", U}, {"down", D}, {"d", D}};
 
 /**
    Private functions
@@ -129,6 +128,24 @@ Status game_actions_inventory(Game *game);
 Status game_actions_use(Game *game);
 
 /**
+ * @brief It allows the player to save its current game
+ * @author Ana
+ *
+ * @param game a pointer to the game
+ * @return OK if everything goes well, ERROR otherwise
+ */
+Status game_actions_load(Game *game);
+
+/**
+ * @brief It allows the player to load a saved game
+ * @author Ana
+ *
+ * @param game a pointer to the game
+ * @return OK if everything goes well, ERROR otherwise
+ */
+Status game_actions_save(Game *game);
+
+/**
    Game actions implementation
 */
 
@@ -180,6 +197,14 @@ Status game_actions_update(Game *game, Command *command, int Seed) {
       command_set_result(command, game_actions_use(game));
       break;
 
+    case LOAD:
+      command_set_result(command, game_actions_load(game));
+      break;
+
+    case SAVE:
+      command_set_result(command, game_actions_save(game));
+      break;
+
     default:
       break;
   }
@@ -191,9 +216,23 @@ Status game_actions_update(Game *game, Command *command, int Seed) {
    Calls implementation for each action
 */
 
-Status game_actions_unknown(Game *game) { return OK; }
+Status game_actions_unknown(Game *game) {
+  /*CdE*/
+  if (!game) {
+    return ERROR;
+  }
 
-Status game_actions_exit(Game *game) { return OK; }
+  return OK;
+}
+
+Status game_actions_exit(Game *game) {
+  /*CdE*/
+  if (!game) {
+    return ERROR;
+  }
+
+  return OK;
+}
 
 Status game_actions_move(Game *game) {
   Id current_space_id = NO_ID;
@@ -230,8 +269,7 @@ Status game_actions_move(Game *game) {
 
     game_set_player_location(game, next_space_id);
     return OK;
-  }
-  else{
+  } else {
     direction = direction_from_string(destiny);
     if (direction == -1) return ERROR;
     return game_move_object(game, word, current_space_id, direction);
@@ -358,10 +396,8 @@ Status game_actions_attack(Game *game, int Seed) {
     return ERROR;
   }
 
-  strcpy(character_name, character_get_name(
-    game_get_character(game, space_get_character(game_get_space(game, player_location)))
-  ));
-  
+  strcpy(character_name, character_get_name(game_get_character(game, space_get_character(game_get_space(game, player_location)))));
+
   if (character_name[0] == '\0') {
     return ERROR;
   }
@@ -414,7 +450,6 @@ Status game_actions_attack(Game *game, int Seed) {
 
   return OK;
 }
-
 
 Status game_actions_chat(Game *game) {
   Id player_location;
@@ -588,7 +623,7 @@ Status game_actions_use(Game *game) {
     return ERROR;
   }
 
-  if (player_has_object(game_get_player(game), object_id) == TRUE && game_check_object_dependency(game, object_id)==TRUE) {
+  if (player_has_object(game_get_player(game), object_id) == TRUE && game_check_object_dependency(game, object_id) == TRUE) {
     printf("[DEBUG] Player has object %s\n", object_name);
     if (strcmp(destiny, "player") == 0) {
       printf("[DEBUG] Applying object to player\n");
@@ -607,3 +642,56 @@ Status game_actions_use(Game *game) {
   return OK;
 }
 
+/**
+ * @brief It allows the player to save its current game
+ */
+Status game_actions_load(Game *game) {
+  Command *c = NULL;
+  char file_name[WORD_SIZE] = "";
+
+  /*CdE*/
+  if (!game) {
+    return ERROR;
+  }
+
+  c = game_get_last_command(game);
+  if (!c) {
+    return ERROR;
+  }
+
+  strcpy(file_name, command_get_word(c));
+  strcat(file_name, ".txt");
+
+  if (strcmp(file_name, "") == 0) {
+    return ERROR;
+  }
+
+  return game_management_load(game, file_name, FALSE);
+}
+
+/**
+ * @brief It allows the player to load a saved game
+ */
+Status game_actions_save(Game *game) {
+  Command *c = NULL;
+  char file_name[WORD_SIZE] = "";
+
+  /*CdE*/
+  if (!game) {
+    return ERROR;
+  }
+
+  c = game_get_last_command(game);
+  if (!c) {
+    return ERROR;
+  }
+
+  strcpy(file_name, command_get_word(c));
+  strcat(file_name, ".txt");
+
+  if (strcmp(file_name, "") == 0) {
+    return ERROR;
+  }
+
+  return game_management_save(game, file_name);
+}

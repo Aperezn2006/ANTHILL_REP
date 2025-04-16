@@ -11,10 +11,11 @@
 #s:130|Prueba1|
 #s:131|Prueba2|
 
+/*id|name|location|health|movable|dependency|open_door|desc|*/
 #o:21|Seed|11|-2|1|-1|-1|Dont eat it|
 #o:22|Crumb|122|0|1|-1|-1|Blublu|
 #o:23|Grain|14|1|1|-1|-1|Prueba|
-#o:24|Leaf|13|2|0|-1|-1|Hoja|
+#o:24|Leaf|13|2|0|-1|-1|It cures 2 health|
 
 #c:31|Spider|121|5|/\oo/\|Get out|FALSE|
 #c:32|Ant|122|4|^0m   |Hello|TRUE|

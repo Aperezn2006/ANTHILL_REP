@@ -14,14 +14,14 @@
 #include "types.h"
 
 #define N_CMDT 2
-#define N_CMD 15
+#define N_CMD 17
 #define N_CON 3
 
 typedef enum { CMDS, CMDL } CommandType;
 
-typedef enum { NO_CMD = -1, UNKNOWN, EXIT, MOVE, TAKE, DROP, ATTACK, CHAT, INSPECT, INVENTORY, USE, OPEN } CommandCode;
+typedef enum { NO_CMD = -1, UNKNOWN, EXIT, MOVE, TAKE, DROP, ATTACK, CHAT, INSPECT, INVENTORY, USE, OPEN, LOAD, SAVE } CommandCode;
 
-typedef enum {NO_DEST = -1, OVER, WITH} Connector;
+typedef enum { NO_DEST = -1, OVER, WITH } Connector;
 typedef struct _Command Command;
 
 /**

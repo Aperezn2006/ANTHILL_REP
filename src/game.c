@@ -104,7 +104,6 @@ Status game_destroy(Game *game) {
     player_destroy(game->players[i]);
     game->players[i] = NULL;
 
-    printf("Freeing command nº%i \n", i);
     command_destroy(game->last_cmd[i]);
     game->last_cmd[i] = NULL;
   }
@@ -1087,19 +1086,17 @@ Status game_move_object(Game *game, const char *object_name, Id current_location
   if (!game || !object_name || !current_location || !direction) {
     return ERROR;
   }
-  if(game_connection_is_open(game, current_location, direction)==FALSE){
+  if (game_connection_is_open(game, current_location, direction) == FALSE) {
     return ERROR;
   }
   object_id = game_get_object_id_from_name(game, object_name);
   next_space_id = game_get_neighbour(game, current_location, direction);
   current_space = game_get_space(game, current_location);
   next_space = game_get_space(game, next_space_id);
-  if(space_remove_object(current_space, object_id)==ERROR){
+  if (space_remove_object(current_space, object_id) == ERROR) {
     return ERROR;
   }
   return space_add_object(next_space, object_id);
-
-
 }
 
 /*Print*/

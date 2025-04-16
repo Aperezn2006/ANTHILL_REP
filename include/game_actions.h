@@ -14,6 +14,7 @@
 #include "character.h"
 #include "command.h"
 #include "game.h"
+#include "game_management.h"
 #include "object.h"
 #include "player.h"
 #include "space.h"
