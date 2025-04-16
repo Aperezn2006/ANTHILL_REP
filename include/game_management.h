@@ -19,6 +19,7 @@
 #include "object.h"
 #include "player.h"
 #include "space.h"
+#include "time.h"
 #include "types.h"
 
 /**

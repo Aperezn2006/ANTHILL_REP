@@ -46,6 +46,9 @@ Status game_management_save(Game *game, char *file_name) {
   Link *link = NULL;
   Character *character = NULL;
   Player *player = NULL;
+  time_t current_time;
+  char *date;
+
   /*CdE*/
   if (!game || !file_name) {
     return ERROR;
@@ -56,7 +59,20 @@ Status game_management_save(Game *game, char *file_name) {
 
   pf = fopen(save_path, "w");
 
-  fprintf(pf, "Spaces:\n");
+  current_time = time(NULL);
+
+  if (current_time == ((time_t)-1)) {
+    return ERROR;
+  }
+
+  date = ctime(&current_time);
+  if (!date) {
+    return ERROR;
+  }
+
+  fprintf(pf, "Last played: %s", date);
+
+  fprintf(pf, "\nSpaces:\n");
   for (i = 0; i < game_get_num_spaces(game); i++) {
     space = game_get_space_from_index(game, i);
     /*id|name|discovered|gdesc*/
