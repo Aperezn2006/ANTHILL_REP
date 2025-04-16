@@ -115,6 +115,7 @@ char *command_get_word(Command *c) {
   /*CdE & get*/
   return c ? c->word : NULL;
 }
+
 Status command_set_connector(Command *command, Connector connector) {
   /*CdE*/
   if (!command) {
@@ -133,6 +134,7 @@ Connector command_get_connector(Command *command) {
   /*CdE & get*/
   return command ? command->connector : NO_CMD;
 }
+
 Status command_set_destiny(Command *c, const char *destiny) {
   /*CdE*/
   if (!c) {

@@ -17,7 +17,7 @@ Status game_init_from_file(Game *game, char *filename) {
     return ERROR;
   }
 
-  if (game_load_everything(game, filename) == ERROR) {
+  if (game_management_load_new(game, filename) == ERROR) {
     printf("Error: Could not load spaces and objects from file\n");
     return ERROR;
   }
@@ -34,7 +34,7 @@ Status game_init_from_file(Game *game, char *filename) {
   return OK;
 }
 
-Status game_load_everything(Game *game, char *filename) {
+Status game_management_load_new(Game *game, char *filename) {
   /*PLAYER*/
   Player *player = NULL;
   int player_max_obj = 0;
@@ -283,8 +283,8 @@ Status game_load_everything(Game *game, char *filename) {
  * @brief It saves the current game's info in a specified file
  */
 Status game_management_save(Game *game, char *file_name) {
-  int i;
-  FILE *pf;
+  int i = 0;
+  FILE *pf = NULL;
   char save_path[WORD_SIZE];
   Object *object = NULL;
   Space *space = NULL;
@@ -301,22 +301,24 @@ Status game_management_save(Game *game, char *file_name) {
 
   pf = fopen(save_path, "w");
 
-  fprintf(pf, "\nPlayers:\n");
-  for (i = 0; i < game_get_num_players(game); i++) {
-    player = game_get_player_from_index(game, i);
-    /*id|name|health|gdesc|location|message|object_desc|inventory_size*/
-    fprintf(pf, "#p:%li|%s|%li|%s|%li|%s|%s|%i|\n", player_get_id(player), player_get_name(player), player_get_health(player),
-            player_get_description(player), player_get_location(player), game_get_message_from_index(game, i),
-            game_get_object_desc_from_index(game, i), inventory_get_max_objects(player_get_inventory(player)));
-  }
-
-  fprintf(pf, "\nSpaces:\n");
+  fprintf(pf, "Spaces:\n");
   for (i = 0; i < game_get_num_spaces(game); i++) {
     space = game_get_space_from_index(game, i);
     /*id|name|discovered|gdesc*/
     fprintf(pf, "#s:%li|%s|%i|%s|%s|%s|%s|%s|\n", space_get_id(space), space_get_name(space), space_get_discovered(space),
             space_get_i_static_description(space, 0), space_get_i_static_description(space, 1), space_get_i_static_description(space, 2),
             space_get_i_static_description(space, 3), space_get_i_static_description(space, 4));
+  }
+
+  fprintf(pf, "\nPlayers:\n");
+  for (i = 0; i < game_get_num_players(game); i++) {
+    player = game_get_player_from_index(game, i);
+    /*id|name|health|gdesc|location|message|object_desc|inventory_size*/
+    fprintf(pf, "#p:%li|%s|%li|%s|%li|%s|%s|%i|\n", player_get_id(player), player_get_name(player), player_get_health(player),
+            ((player_get_description(player) == NULL) ? "." : player_get_description(player)), player_get_location(player),
+            game_get_message_from_index(game, i),
+            ((game_get_object_desc_from_index(game, i) == NULL) ? "." : game_get_object_desc_from_index(game, i)),
+            inventory_get_max_objects(player_get_inventory(player)));
   }
 
   fprintf(pf, "\nLinks:\n");
@@ -331,8 +333,9 @@ Status game_management_save(Game *game, char *file_name) {
   for (i = 0; i < game_get_num_characters(game); i++) {
     character = game_get_character_from_index(game, i);
     /*id|name|gdesc|health|friendly|message|location*/
-    fprintf(pf, "#c:%li|%s|%s|%li|%i|%s|\n", character_get_id(character), character_get_name(character), character_get_description(character),
-            character_get_health(character), character_get_friendly(character), character_get_message(character));
+    fprintf(pf, "#c:%li|%s|%s|%li|%i|%s|%li\n", character_get_id(character), character_get_name(character), character_get_description(character),
+            character_get_health(character), character_get_friendly(character), character_get_message(character),
+            game_get_character_location(game, character_get_id(character)));
   }
 
   fprintf(pf, "\nObjects:\n");
@@ -351,7 +354,7 @@ Status game_management_save(Game *game, char *file_name) {
 /**
  * @brief It loads a player's game from a certain file
  */
-Status game_management_load(Game *game, char *file_name) {
+Status game_management_load_previous(Game *game, char *file_name, Graphic_engine *gengine) {
   /*PLAYER*/
   Player *player = NULL;
   int player_max_obj = 0;
@@ -397,6 +400,13 @@ Status game_management_load(Game *game, char *file_name) {
   if (!game || !file_name) {
     return ERROR;
   }
+
+  game_destroy(game);
+  game = game_alloc();
+  if (!game) {
+    return ERROR;
+  }
+  game_init(game);
 
   strcpy(save_path, "saves/");
   strcat(save_path, file_name);
@@ -474,6 +484,7 @@ Status game_management_load(Game *game, char *file_name) {
           space_add_object(space, id);
         }
       }
+      printf("yay\n");
 
       /*CHARACTERS*/
     } else if (strncmp("#c:", line, 3) == 0) {
@@ -561,7 +572,7 @@ Status game_management_load(Game *game, char *file_name) {
       toks = strtok(NULL, "|");
       strcpy(object_desc, toks);
       toks = strtok(NULL, "|");
-      player_max_obj = atol(toks);
+      player_max_obj = atoi(toks);
 
       player = player_create(id);
       if (player) {
@@ -570,8 +581,12 @@ Status game_management_load(Game *game, char *file_name) {
         player_set_description(player, player_desc);
         player_set_max_objs(player, player_max_obj);
         player_set_location(player, location);
-        game_set_message_from_index(game, message, game_get_num_players(game));
-        game_set_object_desc_from_index(game, object_desc, game_get_num_players(game));
+        if (strcmp(message, ".") != 0) {
+          game_set_message_from_index(game, message, game_get_num_players(game));
+        }
+        if (strcmp(object_desc, ".") != 0) {
+          game_set_object_desc_from_index(game, object_desc, game_get_num_players(game));
+        }
         if (game_add_player(game, player) == ERROR) {
           printf("Error adding player: %ld\n", id);
           player_destroy(player);
