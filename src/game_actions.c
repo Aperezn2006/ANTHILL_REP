@@ -175,7 +175,8 @@ Status game_actions_update(Game *game, Command *command, int Seed) {
     case INVENTORY:
       command_set_result(command, game_actions_inventory(game));
       break;
-      case USE:
+
+    case USE:
       command_set_result(command, game_actions_use(game));
       break;
 
@@ -300,7 +301,6 @@ Status game_actions_take(Game *game) {
 
   return OK;
 }
-
 
 Status game_actions_drop(Game *game) {
   Id object_id;

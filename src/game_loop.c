@@ -153,12 +153,10 @@ void game_loop_run(Game *game, Graphic_engine *gengine, FILE *log_file, int Seed
       }
 
       if (game_get_inventory_vis(game) == TRUE) {
-        /*game_destroy(game);
-        game_init(game);
-        game_management_load(game, "sample.txt");*/
-        graphic_engine_paint_inventory(gengine, game);
+        game_management_load_previous(game, "sample.txt", gengine);
+        /*graphic_engine_paint_inventory(gengine, game);
         sleep(2);
-        game_toggle_inventory_vis(game);
+        game_toggle_inventory_vis(game);*/
         /*while (game_get_inventory_vis(game) == TRUE) {
           if (command_get_code(game_get_last_command(game)) == INVENTORY) {
             game_actions_update(game, game_get_last_command(game));
