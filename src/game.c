@@ -412,7 +412,7 @@ Id game_get_object_location(Game *game, Id object_id) {
 /**
  * @brief It gets an object's id from its name
  */
-Id game_get_object_id_from_name(Game *game, char *object_name) {
+Id game_get_object_id_from_name(Game *game, const char *object_name) {
   int i;
   /*CdE*/
   if (!game || !object_name) {
@@ -1077,6 +1077,29 @@ Bool game_check_object_dependency(Game *game, Id object_id) {
   }
 
   return FALSE;
+}
+
+Status game_move_object(Game *game, const char *object_name, Id current_location, Direction direction) {
+  Id next_space_id = NO_ID;
+  Id object_id = NO_ID;
+  Space *current_space = NULL;
+  Space *next_space = NULL;
+  if (!game || !object_name || !current_location || !direction) {
+    return ERROR;
+  }
+  if(game_connection_is_open(game, current_location, direction)==FALSE){
+    return ERROR;
+  }
+  object_id = game_get_object_id_from_name(game, object_name);
+  next_space_id = game_get_neighbour(game, current_location, direction);
+  current_space = game_get_space(game, current_location);
+  next_space = game_get_space(game, next_space_id);
+  if(space_remove_object(current_space, object_id)==ERROR){
+    return ERROR;
+  }
+  return space_add_object(next_space, object_id);
+
+
 }
 
 /*Print*/
