@@ -34,4 +34,6 @@ typedef enum { ERROR, OK } Status;
 
 typedef enum { N, S, E, W, U, D } Direction;
 
+typedef enum { SPACE, PLAYER, OBJECT, CHARACTER, LINK, UNSIGNED } Id_Type;
+
 #endif

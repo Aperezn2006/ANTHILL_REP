@@ -117,10 +117,19 @@ Status game_add_player(Game *game, Player *player);
  * @author Profesores PPROG
  *
  * @param game a pointer to the game
- * @param id the id of a certain space
- * @return a pointer to such space
+ * @return a pointer to such player
  */
-Player *game_get_player(Game *game);
+Player *game_get_current_player(Game *game);
+
+/**
+ * @brief It creates a pointer to a player using its id
+ * @author Profesores PPROG
+ *
+ * @param game a pointer to the game
+ * @param id the id of a certain player
+ * @return a pointer to such player
+ */
+Player *game_get_player(Game *game, Id id);
 
 /**
  * @brief It creates a pointer to the player located in a certain position of the array of players in the game
@@ -665,6 +674,17 @@ Bool game_check_object_dependency(Game *game, Id object_id);
  * @return Ok if everything went well
  */
 Status game_move_object(Game *game, const char *object_name, Id current_location, Direction direction);
+
+/*Misc*/
+/**
+ * @brief It figures out which game's category a certain id belongs to
+ * @author Ana
+ *
+ * @param game a pointer to the game
+ * @param id the desired id
+ * @return the category in the Id_Type format
+ */
+Id_Type game_get_id_type(Game *game, Id id);
 
 /*Print*/
 /**

@@ -240,13 +240,32 @@ Status game_add_player(Game *game, Player *player) {
 /**
  * @brief It creates a pointer to the current player
  */
-Player *game_get_player(Game *game) {
+Player *game_get_current_player(Game *game) {
   /*CdE*/
   if (!game) {
     return NULL;
   }
 
   return game->players[game_get_turn(game)];
+}
+
+/**
+ * @brief It creates a pointer to a player using its id
+ */
+Player *game_get_player(Game *game, Id id) {
+  int i;
+  /*CdE*/
+  if (!game || id == NO_ID) {
+    return NULL;
+  }
+
+  for (i = 0; i < game->n_players; i++) {
+    if (id == player_get_id(game->players[i])) {
+      return game->players[i];
+    }
+  }
+
+  return NULL;
 }
 
 /**
@@ -347,40 +366,36 @@ Object *game_get_object_from_id(Game *game, Id object_id) {
 /**
  * @brief It sets the object's location
  */
-Status game_set_object_location(Game *game, Id location, Id object_id) {
+Status game_set_object_location(Game *game, Id next_location, Id object_id) {
   Id current_location;
   /*CdE*/
-  if (!game || location == NO_ID || object_id == NO_ID) {
+  if (!game || next_location == NO_ID || object_id == NO_ID) {
     return ERROR;
   }
 
   current_location = game_get_object_location(game, object_id);
 
-  /*Current location may be the player or a space, since the object can't be transfered directly between spaces or players it will always go from a
-   * space to a player's inventory and viceversa*/
-
-  if (current_location == player_get_id(game_get_player(game))) {
-    /* Player -> space: If player has the object we remove it from the inventory and add it to the space*/
-    if (player_remove_object(game_get_player(game), object_id) == ERROR) {
-      return ERROR;
-    }
-
-    if (space_add_object(game_get_space(game, game_get_player_location(game)), object_id) == ERROR) {
-      return ERROR;
-    }
-
-    return OK;
-  } else {
-    /* Space -> player: If space has the object we add it to the player's inventory (new location) and remove it from the space*/
-    if (player_add_object(game_get_player(game), object_id) == ERROR) {
-      return ERROR;
-    }
-
+  /*The object can be in a player's inventory or in a space*/
+  if (game_get_id_type(game, current_location) == SPACE) {
     if (space_remove_object(game_get_space(game, current_location), object_id) == ERROR) {
       return ERROR;
     }
+  } else if (game_get_id_type(game, current_location) == PLAYER) {
+    if (player_remove_object(game_get_current_player(game), object_id) == ERROR) {
+      return ERROR;
+    }
+  }
 
-    return OK;
+  if (game_get_id_type(game, next_location) == SPACE) {
+    if (space_add_object(game_get_space(game, next_location), object_id) == ERROR) {
+      return ERROR;
+    }
+  } else if (game_get_id_type(game, next_location) == PLAYER) {
+    printf("Adding %s to %s's inventory\n", object_get_name(game_get_object_from_id(game, object_id)),
+           player_get_name(game_get_player(game, next_location)));
+    if (player_add_object(game_get_player(game, next_location), object_id) == ERROR) {
+      return ERROR;
+    }
   }
 
   return OK;
@@ -396,9 +411,10 @@ Id game_get_object_location(Game *game, Id object_id) {
     return NO_ID;
   }
 
-  /*It could be in a player's inventory or in a space, for now, if a player takes an object the rest of the players will no longer now where it is*/
-  if (player_has_object(game_get_player(game), object_id) == TRUE) {
-    return player_get_id(game->players[game_get_turn(game)]);
+  for (i = 0; i < game_get_num_players(game); i++) {
+    if (player_has_object(game_get_player_from_index(game, i), object_id) == TRUE) {
+      return player_get_id(game->players[game_get_turn(game)]);
+    }
   }
 
   for (i = 0; i < game_get_num_spaces(game); i++) {
@@ -1099,6 +1115,50 @@ Status game_move_object(Game *game, const char *object_name, Id current_location
     return ERROR;
   }
   return space_add_object(next_space, object_id);
+}
+
+/*Misc*/
+/**
+ * @brief It figures out which game's category a certain id belongs to
+ */
+Id_Type game_get_id_type(Game *game, Id id) {
+  int i = 0;
+  /*CdE*/
+  if (!game) {
+    return UNSIGNED;
+  }
+
+  for (i = 0; i < game_get_num_spaces(game); i++) {
+    if (id == space_get_id(game_get_space_from_index(game, i))) {
+      return SPACE;
+    }
+  }
+
+  for (i = 0; i < game_get_num_players(game); i++) {
+    if (id == player_get_id(game_get_player_from_index(game, i))) {
+      return PLAYER;
+    }
+  }
+
+  for (i = 0; i < game_get_num_objects(game); i++) {
+    if (id == object_get_id(game_get_object_from_index(game, i))) {
+      return OBJECT;
+    }
+  }
+
+  for (i = 0; i < game_get_num_characters(game); i++) {
+    if (id == character_get_id(game_get_character_from_index(game, i))) {
+      return CHARACTER;
+    }
+  }
+
+  for (i = 0; i < game_get_num_links(game); i++) {
+    if (id == link_get_id(game_get_link_from_index(game, i))) {
+      return LINK;
+    }
+  }
+
+  return UNSIGNED;
 }
 
 /*Print*/

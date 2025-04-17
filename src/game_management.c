@@ -290,9 +290,8 @@ Status game_management_load(Game *game, char *file_name, Bool new) {
           break;
         }
 
-        space = game_get_space(game, location);
-        if (space) {
-          space_add_object(space, id);
+        if (game_set_object_location(game, location, id) == ERROR) {
+          status = ERROR;
         }
       }
 

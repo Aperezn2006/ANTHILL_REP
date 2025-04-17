@@ -329,7 +329,7 @@ Status game_actions_take(Game *game) {
 
   if (space_has_object(space, object_id) == TRUE) {
     printf("[DEBUG] Space has object %ld ('%s')\n", object_id, object_name);
-    game_set_object_location(game, player_get_id(game_get_player(game)), object_id);
+    game_set_object_location(game, player_get_id(game_get_current_player(game)), object_id);
     printf("[DEBUG] Object '%s' taken successfully\n", object_name);
     return OK;
   } else {
@@ -365,7 +365,7 @@ Status game_actions_drop(Game *game) {
   location = game_get_player_location(game);
   printf("Player's location is %li\n", location); /*DEBUG*/
 
-  if (player_has_object(game_get_player(game), object_id) == TRUE) {
+  if (player_has_object(game_get_current_player(game), object_id) == TRUE) {
     game_set_object_location(game, location, object_id);
     printf("Object %s dropped\n", object_name); /*DEBUG*/
     return OK;
@@ -419,7 +419,7 @@ Status game_actions_attack(Game *game, int Seed) {
     return ERROR;
   }
 
-  player = game_get_player(game);
+  player = game_get_current_player(game);
   if (!player) {
     return ERROR;
   }
@@ -492,7 +492,7 @@ Status game_actions_chat(Game *game) {
     return ERROR;
   }
 
-  player = game_get_player(game);
+  player = game_get_current_player(game);
   if (!player) {
     return ERROR;
   }
@@ -542,7 +542,8 @@ Status game_actions_inspect(Game *game) {
   object_id = game_get_object_id_from_name(game, object_name);
   fprintf(stdout, "[DEBUG] Object ID: %ld\n", object_id);
 
-  if (space_has_object(game_get_space(game, player_location), object_id) == TRUE || player_has_object(game_get_player(game), object_id) == TRUE) {
+  if (space_has_object(game_get_space(game, player_location), object_id) == TRUE ||
+      player_has_object(game_get_current_player(game), object_id) == TRUE) {
     printf("AAAAAAAA\n");
     strcpy(object_description, object_get_desc(game_get_object_from_id(game, object_id)));
 
@@ -623,7 +624,7 @@ Status game_actions_use(Game *game) {
     return ERROR;
   }
 
-  if (player_has_object(game_get_player(game), object_id) == TRUE && game_check_object_dependency(game, object_id) == TRUE) {
+  if (player_has_object(game_get_current_player(game), object_id) == TRUE && game_check_object_dependency(game, object_id) == TRUE) {
     printf("[DEBUG] Player has object %s\n", object_name);
     if (strcmp(destiny, "player") == 0) {
       printf("[DEBUG] Applying object to player\n");
