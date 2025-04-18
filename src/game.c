@@ -1160,6 +1160,16 @@ Id_Type game_get_id_type(Game *game, Id id) {
 
   return UNSIGNED;
 }
+Bool game_is_object_movable(Game *game, Id object_id){
+  Object *object =NULL;
+  if(!game || !object_id){
+    return WRONG;
+  }
+
+  object = game_get_object_from_id(game, object_id);
+
+  return object_is_movable(object);
+}
 
 /*Print*/
 /**
