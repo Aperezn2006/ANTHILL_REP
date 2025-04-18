@@ -685,6 +685,15 @@ Status game_move_object(Game *game, const char *object_name, Id current_location
  * @return the category in the Id_Type format
  */
 Id_Type game_get_id_type(Game *game, Id id);
+/**
+ * @brief It tells if an object can be moved or not
+ * @author Ana
+ *
+ * @param game a pointer to the game, id of an object
+ * @param id 
+ * @return TRUE if can be moved
+ */
+Bool game_is_object_movable(Game *game, Id object_id);
 
 /*Print*/
 /**
