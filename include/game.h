@@ -705,6 +705,16 @@ Id_Type game_get_id_type(Game *game, Id id);
  */
 Bool game_is_object_movable(Game *game, Id object_id);
 
+/**
+ * @brief It sets a link to open
+ * @author Ana
+ *
+ * @param game a pointer to the game, 
+ * @param id of current space and a direction
+ * @return Ok if everything went well
+ */
+Status game_set_link_open(Game *game, Id current_location, Direction direction);
+
 /*Print*/
 /**
  * @brief It prints the game
