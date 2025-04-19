@@ -600,6 +600,21 @@ Link *game_get_link_from_index(Game *game, int index) {
 
   return game->links[index];
 }
+Id game_get_link_id_from_name(Game *game, char *name) {
+  int i;
+  /*CdE*/
+  if (!game || !name) {
+    return NO_ID;
+  }
+
+  for (i = 0; i < game->n_links; i++) {
+    if (game->links[i] && strcasecmp(link_get_name(game->links[i]), name) == 0) {
+      return link_get_id(game->links[i]);
+    }
+  }
+
+  return NO_ID;
+}
 
 /**
  * @brief It gets the id of the space located north of the current_location
