@@ -318,6 +318,16 @@ Status game_add_link(Game *game, Link *link);
 Link *game_get_link_from_index(Game *game, int index);
 
 /**
+ * @brief It gives the id of a link from a name
+ * @author Ana
+ *
+ * @param game a pointer to the game
+ * @param name the name of the link
+ * @return the id of the link
+ */
+Id game_get_link_id_from_name(Game *game, char *name);
+
+/**
  * @brief It gets the id of the space located north of the current_location
  * @author Arturo
  *
