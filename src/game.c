@@ -1186,6 +1186,23 @@ Bool game_is_object_movable(Game *game, Id object_id){
   return object_is_movable(object);
 }
 
+Status game_set_link_open(Game *game, Id current_location, Direction direction) {
+  int i;
+  /*CdE*/
+  if (!game || current_location == NO_ID) {
+    return ERROR;
+  }
+
+  for (i = 0; i < game->n_links; i++) {
+    if (link_get_start(game->links[i]) == current_location && link_get_direction(game->links[i]) == direction) {
+      return link_set_open(game->links[i], TRUE);
+      break;
+    }
+  }
+
+  return ERROR;
+}
+
 /*Print*/
 /**
  * @brief It prints the game
