@@ -242,56 +242,56 @@ Status game_get_string_of_objects_in_space(Game *game, Id space_id, char *objs);
 
 /*Management of characters*/
 /**
- * @brief It adds a character to the game
+ * @brief Adds a character to the game and places them in the appropriate space
  * @author Bea, Arturo, Rubén, Ana
- *
- * @param game a pointer to the game
- * @return OK if everything goes well, ERROR otherwise
+ * @param game Pointer to the game
+ * @param character Pointer to the character to be added
+ * @return OK if successful, ERROR otherwise
  */
 Status game_add_character(Game *game, Character *character);
 
 /**
- * @brief It gets a pointer to a characters from its id
+ * @brief Retrieves a pointer to a character by ID
  * @author Bea, Arturo, Rubén, Ana
- *
- * @param game a pointer to the game
- * @return a pointer to the character
+ * @param game Pointer to the game
+ * @param character_id ID of the character
+ * @return Pointer to the character, or NULL if not found
  */
 Character *game_get_character(Game *game, Id character_id);
 
 /**
- * @brief It gets a pointer to the character located in a certain position of the game's array of characters
+ * @brief Gets a pointer to the character at the given index in the game's character array
  * @author Bea, Arturo, Rubén, Ana
- *
- * @param game a pointer to the game
- * @return a pointer to the characters
+ * @param game Pointer to the game
+ * @param n Index of the character in the array
+ * @return Pointer to the character, or NULL if index is invalid
  */
 Character *game_get_character_from_index(Game *game, int n);
 
 /**
- * @brief It gets the location of a certain character
+ * @brief Retrieves the space ID where the character is currently located
  * @author Bea, Arturo, Rubén, Ana
- *
- * @param game a pointer to the game
- * @return the id of the space where the object is
+ * @param game Pointer to the game
+ * @param character_id ID of the character
+ * @return ID of the space, or NO_ID if invalid
  */
 Id game_get_character_location(Game *game, Id character_id);
 
 /**
- * @brief It gets a character's id from its name
+ * @brief Retrieves the ID of a character given its name
  * @author Bea, Arturo, Rubén, Ana
- *
- * @param game a pointer to the game
- * @return the character's id
+ * @param game Pointer to the game
+ * @param name Name of the character
+ * @return Character ID, or NO_ID if not found
  */
 Id game_get_character_id_from_name(Game *game, char *name);
 
 /**
- * @brief It gets the description of the character located in a certain space
+ * @brief Gets the description of the first character at a space (used for rendering or brief display)
  * @author Bea, Arturo, Rubén, Ana
- *
- * @param game a pointer to the game
- * @return the graphical description of the character
+ * @param game Pointer to the game
+ * @param space_id ID of the space
+ * @return Graphical description string, or NULL if none
  */
 char *game_get_character_desc_at_space(Game *game, Id space_id);
 
