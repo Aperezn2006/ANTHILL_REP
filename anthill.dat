@@ -14,7 +14,7 @@
 
 /*id|name|location|health|movable|dependency|open_door|desc|*/
 #o:21|Seed|11|-2|1|-1|-1|Dont eat it|
-#o:22|Crumb|122|0|1|-1|-1|Blublu|
+#o:22|Crumb|122|0|1|-1|47|Blublu|
 #o:23|Grain|14|1|1|-1|-1|Prueba|
 #o:24|Leaf|13|2|0|-1|-1|It cures 2 health|
 
@@ -23,24 +23,24 @@
 #c:32|Ant|122|4|^0m   |Hello|TRUE|
 
 /*id|name|origin|destination|direction|open*/
-#l:41|EntryToPasillo1|11|121|1|1|0
-#l:42|EntryToPasillo1|121|11|0|1|0
-#l:43|Pasillo1ToPasillo2|121|122|1|1|0
-#l:44|Pasillo1ToPasillo2|122|121|0|1|0
-#l:45|Pasillo2ToPasillo3|122|123|1|1|0
-#l:46|Pasillo2ToPasillo3|123|122|0|1|0
-#l:47|Pasillo3ToPasillo4|123|124|1|0|0
-#l:48|Pasillo3ToPasillo4|124|123|0|1|0
-#l:49|Pasillo4ToDespensa|124|13|1|1|0
-#l:410|Pasillo4ToDespensa|13|124|0|1|0
-#l:411|Pasillo2ToPasillo5|122|125|2|1|0
-#l:412|Pasillo2ToPasillo5|125|122|3|1|0
-#l:413|Pasillo5ToPasillo6|125|126|2|1|0
-#l:414|Pasillo5ToPasillo6|126|125|3|1|0
-#l:415|Pasillo6ToPasillo7|126|127|2|1|0
-#l:416|Pasillo6ToPasillo7|127|126|3|1|0
-#l:417|Pasillo7ToAgujero|127|14|2|1|0
-#l:418|Pasillo7ToAgujero|14|127|3|1|0
+#l:41|EntryToPasillo1|11|121|1|1|
+#l:42|EntryToPasillo1|121|11|0|1|
+#l:43|Pasillo1ToPasillo2|121|122|1|1|
+#l:44|Pasillo1ToPasillo2|122|121|0|1|
+#l:45|Pasillo2ToPasillo3|122|123|1|1|
+#l:46|Pasillo2ToPasillo3|123|122|0|1|
+#l:47|Pasillo3ToPasillo4|123|124|1|0|
+#l:48|Pasillo3ToPasillo4|124|123|0|1|
+#l:49|Pasillo4ToDespensa|124|13|1|1|
+#l:410|Pasillo4ToDespensa|13|124|0|1|
+#l:411|Pasillo2ToPasillo5|122|125|2|1|
+#l:412|Pasillo2ToPasillo5|125|122|3|1|
+#l:413|Pasillo5ToPasillo6|125|126|2|1|
+#l:414|Pasillo5ToPasillo6|126|125|3|1|
+#l:415|Pasillo6ToPasillo7|126|127|2|1|
+#l:416|Pasillo6ToPasillo7|127|126|3|1|
+#l:417|Pasillo7ToAgujero|127|14|2|1|
+#l:418|Pasillo7ToAgujero|14|127|3|1|
 
 /*id|name|gdesc|location|health|inventory_size|message|object_desc*/
 #p:51|ant1|mO^|11|5|5|

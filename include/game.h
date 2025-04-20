@@ -318,6 +318,16 @@ Status game_add_link(Game *game, Link *link);
 Link *game_get_link_from_index(Game *game, int index);
 
 /**
+ * @brief It gives the id of a link from a name
+ * @author Ana
+ *
+ * @param game a pointer to the game
+ * @param name the name of the link
+ * @return the id of the link
+ */
+Id game_get_link_id_from_name(Game *game, char *name);
+
+/**
  * @brief It gets the id of the space located north of the current_location
  * @author Arturo
  *
@@ -685,6 +695,25 @@ Status game_move_object(Game *game, const char *object_name, Id current_location
  * @return the category in the Id_Type format
  */
 Id_Type game_get_id_type(Game *game, Id id);
+/**
+ * @brief It tells if an object can be moved or not
+ * @author Ana
+ *
+ * @param game a pointer to the game, id of an object
+ * @param id 
+ * @return TRUE if can be moved
+ */
+Bool game_is_object_movable(Game *game, Id object_id);
+
+/**
+ * @brief It sets a link to open
+ * @author Ana
+ *
+ * @param game a pointer to the game, 
+ * @param id of current space and a direction
+ * @return Ok if everything went well
+ */
+Status game_set_link_open(Game *game, Id current_location, Direction direction);
 
 /*Print*/
 /**

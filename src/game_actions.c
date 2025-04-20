@@ -125,7 +125,22 @@ Status game_actions_inspect(Game *game);
  */
 Status game_actions_inventory(Game *game);
 
+/**
+ * @brief It allows the player to use an object
+ * @author Bea, Arturo, Rubén, Ana
+ *
+ * @param game
+ * @return  OK if everything goes well, ERROR otherwise
+ */
 Status game_actions_use(Game *game);
+/**
+ * @brief It allows the player to open links
+ * @author Bea, Arturo, Rubén, Ana
+ *
+ * @param game
+ * @return  OK if everything goes well, ERROR otherwise
+ */
+Status game_actions_open(Game *game);
 
 /**
  * @brief It allows the player to save its current game
@@ -195,6 +210,9 @@ Status game_actions_update(Game *game, Command *command, int Seed) {
 
     case USE:
       command_set_result(command, game_actions_use(game));
+      break;
+    case OPEN:
+      command_set_result(command, game_actions_open(game));
       break;
 
     case LOAD:
@@ -327,7 +345,7 @@ Status game_actions_take(Game *game) {
     printf("[DEBUG] Space found for location %ld\n", player_location);
   }
 
-  if (space_has_object(space, object_id) == TRUE) {
+  if (space_has_object(space, object_id) == TRUE && game_is_object_movable(game, object_id) ==TRUE) {
     printf("[DEBUG] Space has object %ld ('%s')\n", object_id, object_name);
     game_set_object_location(game, player_get_id(game_get_current_player(game)), object_id);
     printf("[DEBUG] Object '%s' taken successfully\n", object_name);
@@ -641,6 +659,73 @@ Status game_actions_use(Game *game) {
   }
 
   return OK;
+}
+
+Status game_actions_open(Game *game) {
+  Id object_id = NO_ID;
+  Id current_space_id = NO_ID;
+  Id link_id = NO_ID;
+  Command *c = NULL;
+  const char *link_name = NULL;
+  Connector connector = NO_DEST;
+  const char *object_name = NULL;
+  Direction direction = NO_DIR;
+  Link *link = NULL;
+  int i;
+
+  if (!game) return ERROR;
+
+  current_space_id = game_get_player_location(game);
+  if (current_space_id == NO_ID) return ERROR;
+
+  c = game_get_last_command(game);
+  if (!c) return ERROR;
+
+  link_name = command_get_word(c);
+  connector = command_get_connector(c);
+  object_name = command_get_destiny(c);
+
+  if (!link_name || !object_name) return ERROR;
+
+  if (connector == NO_DEST) {
+    printf("[DEBUG] Connector is NO_DEST\n");
+    return ERROR;
+  }
+
+  link_id = game_get_link_id_from_name(game, (char *)link_name);
+  if (link_id == NO_ID) {
+    printf("[DEBUG] No link found with name '%s'\n", link_name);
+    return ERROR;
+  }
+
+  object_id = game_get_object_id_from_name(game, object_name);
+  if (object_id == NO_ID) {
+    printf("[DEBUG] No object found with name '%s'\n", object_name);
+    return ERROR;
+  } else {
+    printf("[DEBUG] Object ID found: %ld for name '%s'\n", object_id, object_name);
+  }
+
+  /* Find the link object and its direction */
+  for (i = 0; i < game_get_num_links(game); i++) {
+    link = game_get_link_from_index(game, i);
+    if (link && link_get_id(link) == link_id && link_get_start(link) == current_space_id) {
+      direction = link_get_direction(link);
+      break;
+    }
+  }
+
+  if (!link || direction == NO_DIR) {
+    printf("[DEBUG] Link not found starting at current space with given ID\n");
+    return ERROR;
+  }
+
+  if (player_has_object(game_get_current_player(game), object_id) == TRUE &&
+      game_check_object_dependency(game, object_id) == TRUE) {
+    return game_set_link_open(game, current_space_id, direction);
+  }
+
+  return ERROR;
 }
 
 /**

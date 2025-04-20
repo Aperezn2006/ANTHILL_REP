@@ -598,6 +598,21 @@ Link *game_get_link_from_index(Game *game, int index) {
 
   return game->links[index];
 }
+Id game_get_link_id_from_name(Game *game, char *name) {
+  int i;
+  /*CdE*/
+  if (!game || !name) {
+    return NO_ID;
+  }
+
+  for (i = 0; i < game->n_links; i++) {
+    if (game->links[i] && strcasecmp(link_get_name(game->links[i]), name) == 0) {
+      return link_get_id(game->links[i]);
+    }
+  }
+
+  return NO_ID;
+}
 
 /**
  * @brief It gets the id of the space located north of the current_location
@@ -1157,6 +1172,33 @@ Id_Type game_get_id_type(Game *game, Id id) {
   }
 
   return UNSIGNED;
+}
+Bool game_is_object_movable(Game *game, Id object_id){
+  Object *object =NULL;
+  if(!game || !object_id){
+    return WRONG;
+  }
+
+  object = game_get_object_from_id(game, object_id);
+
+  return object_is_movable(object);
+}
+
+Status game_set_link_open(Game *game, Id current_location, Direction direction) {
+  int i;
+  /*CdE*/
+  if (!game || current_location == NO_ID) {
+    return ERROR;
+  }
+
+  for (i = 0; i < game->n_links; i++) {
+    if (link_get_start(game->links[i]) == current_location && link_get_direction(game->links[i]) == direction) {
+      return link_set_open(game->links[i], TRUE);
+      break;
+    }
+  }
+
+  return ERROR;
 }
 
 /*Print*/
