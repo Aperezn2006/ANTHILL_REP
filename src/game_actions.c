@@ -345,7 +345,7 @@ Status game_actions_take(Game *game) {
     printf("[DEBUG] Space found for location %ld\n", player_location);
   }
 
-  if (space_has_object(space, object_id) == TRUE && game_is_object_movable(game, object_id) ==TRUE) {
+  if (space_has_object(space, object_id) == TRUE && game_is_object_movable(game, object_id) == TRUE) {
     printf("[DEBUG] Space has object %ld ('%s')\n", object_id, object_name);
     game_set_object_location(game, player_get_id(game_get_current_player(game)), object_id);
     printf("[DEBUG] Object '%s' taken successfully\n", object_name);
@@ -720,8 +720,7 @@ Status game_actions_open(Game *game) {
     return ERROR;
   }
 
-  if (player_has_object(game_get_current_player(game), object_id) == TRUE &&
-      game_check_object_dependency(game, object_id) == TRUE) {
+  if (player_has_object(game_get_current_player(game), object_id) == TRUE && game_check_object_dependency(game, object_id) == TRUE) {
     return game_set_link_open(game, current_space_id, direction);
   }
 

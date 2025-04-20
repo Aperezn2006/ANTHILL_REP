@@ -232,7 +232,7 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game) {
     printf("Object ID: %ld, Location: %ld\n", object_id, object_loc); /*  Debug statement */
 
     if (object_loc != NO_ID) {
-      if (object_loc == player_get_id(game_get_current_player(game))) {
+      if (player_has_object(game_get_current_player(game), object_id) == TRUE) {
         sprintf(str1, "  %s", object_get_name(obj));
         n_inventory++;
         screen_area_puts(ge->descript, str1);
