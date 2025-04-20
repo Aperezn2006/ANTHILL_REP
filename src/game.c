@@ -480,7 +480,6 @@ Status game_get_string_of_objects_in_space(Game *game, Id space_id, char *objs) 
  * @brief It adds a character to the game
  */
 Status game_add_character(Game *game, Character *character) {
-  /*CdE*/
   if (!game || !character || game_get_num_characters(game) >= MAX_CHARACTERS) {
     return ERROR;
   }
@@ -492,11 +491,10 @@ Status game_add_character(Game *game, Character *character) {
 }
 
 /**
- * @brief It gets a pointer to a characters from its id
+ * @brief It gets a pointer to a character from its id
  */
 Character *game_get_character(Game *game, Id character_id) {
   int i;
-  /*CdE*/
   if (!game || character_id == NO_ID) {
     return NULL;
   }
@@ -514,7 +512,6 @@ Character *game_get_character(Game *game, Id character_id) {
  * @brief It gets a pointer to the character located in a certain position of the game's array of characters
  */
 Character *game_get_character_from_index(Game *game, int n) {
-  /*CdE*/
   if (!game) {
     return NULL;
   }
@@ -526,9 +523,8 @@ Character *game_get_character_from_index(Game *game, int n) {
  * @brief It gets the location of a certain character
  */
 Id game_get_character_location(Game *game, Id character_id) {
-  int i = 0;
-  /*CdE*/
-  if (!game) {
+  int i;
+  if (!game || character_id == NO_ID) {
     return NO_ID;
   }
 
@@ -546,7 +542,6 @@ Id game_get_character_location(Game *game, Id character_id) {
  */
 Id game_get_character_id_from_name(Game *game, char *name) {
   int i;
-  /*CdE*/
   if (!game || !name) {
     return NO_ID;
   }
@@ -564,13 +559,44 @@ Id game_get_character_id_from_name(Game *game, char *name) {
  * @brief It gets the description of the character located in a certain space
  */
 char *game_get_character_desc_at_space(Game *game, Id space_id) {
-  /*CdE*/
+  Space *sp;
+  Id char_id;
+
   if (!game || space_id == NO_ID) {
     return NULL;
   }
 
-  return character_get_description(game_get_character(game, space_get_character(game_get_space(game, space_id))));
+  sp = game_get_space(game, space_id);
+  if (!sp || space_get_num_characters(sp) == 0) {
+    return NULL;
+  }
+
+  char_id = space_get_character_from_index(sp, 0);
+  return character_get_description(game_get_character(game, char_id));
 }
+
+/**
+ * @brief It sets a character's location to a space
+ */
+Status game_set_character_location(Game *game, Id space_id, Id character_id) {
+  if (!game || space_id == NO_ID || character_id == NO_ID) {
+    return ERROR;
+  }
+
+  return space_add_character(game_get_space(game, space_id), character_id);
+}
+
+/**
+ * @brief It removes a character from a space
+ */
+Status game_remove_character_from_space(Game *game, Id space_id, Id character_id) {
+  if (!game || space_id == NO_ID || character_id == NO_ID) {
+    return ERROR;
+  }
+
+  return space_remove_character(game_get_space(game, space_id), character_id);
+}
+
 
 /*Management of links*/
 /**
