@@ -305,7 +305,7 @@ Status game_management_load(Game *game, char *file_name, Bool new) {
 
       /*CHARACTERS*/
     } else if (strncmp("#c:", line, 3) == 0) {
-      /*id|name|location|health|gdesc|message|friendliness*/
+      /* Format: id|name|location|health|gdesc|message|friendliness */
       printf("Processing character\n");
       toks = strtok(line + 3, "|");
       id = atol(toks);
@@ -344,12 +344,17 @@ Status game_management_load(Game *game, char *file_name, Bool new) {
 
         space = game_get_space(game, location);
         if (space) {
-          space_set_character(space, id);
+          if (space_add_character(space, id) == ERROR) {
+            printf("Failed to add character %s (%ld) to space %ld\n", name, id,
+                   location);
+            status = ERROR;
+            break;
+          }
         }
       }
+    }
 
-      /*LINKS*/
-    } else if (strncmp("#l:", line, 3) == 0) {
+    else if (strncmp("#l:", line, 3) == 0) {
       /*id|name|origin|destination|direction|open*/
       printf("Processing link\n");
       toks = strtok(line + 3, "|");
@@ -384,7 +389,6 @@ Status game_management_load(Game *game, char *file_name, Bool new) {
           break;
         }
       }
-
     } else if (strncmp("#p:", line, 3) == 0) {
       /*id|name|gdesc|location|health|inventory_size|message|object_desc*/
       printf("Processing player\n");
@@ -424,10 +428,12 @@ Status game_management_load(Game *game, char *file_name, Bool new) {
 
         if (new == FALSE) {
           if (strcmp(message, ".") != 0) { /*REVIOUS*/
-            game_set_message_from_index(game, message, game_get_num_players(game));
+            game_set_message_from_index(game, message,
+                                        game_get_num_players(game));
           }
           if (strcmp(object_desc, ".") != 0) { /*REVIOUS*/
-            game_set_object_desc_from_index(game, object_desc, game_get_num_players(game));
+            game_set_object_desc_from_index(game, object_desc,
+                                            game_get_num_players(game));
           }
         }
 
