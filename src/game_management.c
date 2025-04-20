@@ -70,7 +70,15 @@ Status game_management_save(Game *game, char *file_name) {
     return ERROR;
   }
 
-  fprintf(pf, "Last played: %s", date);
+  fprintf(pf, "-------------------------------------------------------------------------\n");
+  fprintf(pf, "Info:\n");
+  fprintf(pf, "- Last played: %s", date);
+  fprintf(pf, "- Players:\n");
+  for (i = 0; i < game_get_num_players(game); i++) {
+    fprintf(pf, "   - %i. %s\n", i + 1, player_get_name(game_get_player_from_index(game, i)));
+  }
+  fprintf(pf, "- Current turn: %i (%s's turn)\n", game_get_turn(game), player_get_name(game_get_player_from_index(game, game_get_turn(game))));
+  fprintf(pf, "-------------------------------------------------------------------------\n");
 
   fprintf(pf, "\nSpaces:\n");
   for (i = 0; i < game_get_num_spaces(game); i++) {

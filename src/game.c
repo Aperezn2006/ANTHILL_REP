@@ -391,8 +391,6 @@ Status game_set_object_location(Game *game, Id next_location, Id object_id) {
       return ERROR;
     }
   } else if (game_get_id_type(game, next_location) == PLAYER) {
-    printf("Adding %s to %s's inventory\n", object_get_name(game_get_object_from_id(game, object_id)),
-           player_get_name(game_get_player(game, next_location)));
     if (player_add_object(game_get_player(game, next_location), object_id) == ERROR) {
       return ERROR;
     }
