@@ -25,7 +25,7 @@ struct _Space {
   Id id;
   char name[WORD_SIZE + 1];
   Set *objects;
-  Id character_id;
+  Set *characters;
   char gdesc[5][10];
   Bool discovered;
 };
@@ -46,7 +46,11 @@ Space *space_create(Id id) {
     free(newSpace);
     return NULL;
   }
-  newSpace->character_id = NO_ID;
+  newSpace->characters = set_create();
+  if (!newSpace->characters) {
+    free(newSpace);
+    return NULL;
+  }
   for (i = 0; i < 5; i++) {
     newSpace->gdesc[i][0] = '\0';
   }
@@ -62,6 +66,9 @@ Status space_destroy(Space *space) {
 
   if (space->objects) {
     set_destroy(space->objects);
+  }
+  if (space->characters) {
+    set_destroy(space->characters);
   }
 
   free(space);
@@ -137,45 +144,43 @@ Status space_add_object(Space *space, Id object_id) {
 }
 
 /*Manejo de character_id*/
-Id space_get_character(Space *space) {
-  if (!space) {
-    return NO_ID;
-  }
+/* Manejo de characters */
 
-  return space->character_id;
-}
-
-Status space_set_character(Space *space, Id character_id) {
-  if (!space) {
+Status space_add_character(Space *space, Id character_id) {
+  if (!space || !space->characters) {
     return ERROR;
   }
+  return set_add_id(space->characters, character_id);
+}
 
-  space->character_id = character_id;
-
-  return OK;
+Status space_remove_character(Space *space, Id character_id) {
+  if (!space || !space->characters) {
+    return ERROR;
+  }
+  return set_remove_id(space->characters, character_id);
 }
 
 Bool space_has_character(Space *space, Id character_id) {
-  if (!space || space->character_id == NO_ID) {
-    return WRONG;
+  if (!space || !space->characters) {
+    return FALSE;
   }
-
-  if (space->character_id == character_id) {
-    return TRUE;
-  }
-
-  return FALSE;
+  return set_has_id(space->characters, character_id);
 }
 
-Status space_remove_character(Space *space) {
-  if (!space) {
-    return ERROR;
+int space_get_num_characters(Space *space) {
+  if (!space || !space->characters) {
+    return -1;
   }
-
-  space->character_id = -1;
-
-  return OK;
+  return set_get_num_ids(space->characters);
 }
+
+Id space_get_character_from_index(Space *space, int index) {
+  if (!space || !space->characters) {
+    return NO_ID;
+  }
+  return set_get_id_from_index(space->characters, index);
+}
+
 
 /*Manejo de la descripción*/
 char **space_get_description(Space *space) {
