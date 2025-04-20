@@ -20,15 +20,16 @@
 #include "types.h"
 
 #define WIDTH_MAP 76 /*+8*/
-#define WIDTH_DES 37
-#define WIDTH_BAN 31
+#define WIDTH_DES 30
+#define WIDTH_TEA 12
+#define WIDTH_BAN 30
 #define HEIGHT_MAP 29
 #define HEIGHT_BAN 1
 #define HEIGHT_HLP 2
 #define HEIGHT_FDB 3
 
 struct _Graphic_engine {
-  Area *map, *descript, *banner, *help, *feedback;
+  Area *map, *descript, *banner, *help, *feedback, *team;
 };
 
 /**
@@ -76,7 +77,7 @@ Graphic_engine *graphic_engine_create() {
     return ge;
   }
 
-  screen_init(HEIGHT_MAP + HEIGHT_BAN + HEIGHT_HLP + HEIGHT_FDB + 4, WIDTH_MAP + WIDTH_DES + 3);
+  screen_init(HEIGHT_MAP + HEIGHT_BAN + HEIGHT_HLP + HEIGHT_FDB + 4, WIDTH_MAP + WIDTH_DES + WIDTH_TEA + 4);
   ge = (Graphic_engine *)malloc(sizeof(Graphic_engine));
   if (ge == NULL) {
     return NULL;
@@ -84,9 +85,10 @@ Graphic_engine *graphic_engine_create() {
 
   ge->map = screen_area_init(1, 1, WIDTH_MAP, HEIGHT_MAP);
   ge->descript = screen_area_init(WIDTH_MAP + 2, 1, WIDTH_DES, HEIGHT_MAP);
-  ge->banner = screen_area_init((int)((WIDTH_MAP + WIDTH_DES + 1 - WIDTH_BAN) / 2), HEIGHT_MAP + 2, WIDTH_BAN, HEIGHT_BAN);
-  ge->help = screen_area_init(1, HEIGHT_MAP + HEIGHT_BAN + 2, WIDTH_MAP + WIDTH_DES + 1, HEIGHT_HLP);
-  ge->feedback = screen_area_init(1, HEIGHT_MAP + HEIGHT_BAN + HEIGHT_HLP + 3, WIDTH_MAP + WIDTH_DES + 1, HEIGHT_FDB);
+  ge->team = screen_area_init(WIDTH_MAP + 3 + WIDTH_DES, 1, WIDTH_TEA, HEIGHT_MAP);
+  ge->banner = screen_area_init((int)((WIDTH_MAP + WIDTH_DES + WIDTH_TEA + 1 - WIDTH_BAN) / 2), HEIGHT_MAP + 2, WIDTH_BAN, HEIGHT_BAN);
+  ge->help = screen_area_init(1, HEIGHT_MAP + HEIGHT_BAN + 2, WIDTH_MAP + WIDTH_DES + WIDTH_TEA + 1, HEIGHT_HLP);
+  ge->feedback = screen_area_init(1, HEIGHT_MAP + HEIGHT_BAN + HEIGHT_HLP + 3, WIDTH_MAP + WIDTH_DES + WIDTH_TEA + 1, HEIGHT_FDB);
 
   return ge;
 }
@@ -293,6 +295,18 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game) {
 
   sprintf(str1, " %s (%s): %s", cmd_to_str[last_cmd - NO_CMD][CMDL], cmd_to_str[last_cmd - NO_CMD][CMDS], result);
   screen_area_puts(ge->feedback, str1);
+
+  /*TEAM*/
+  screen_area_clear(ge->team);
+  screen_area_puts(ge->team, " ");
+  screen_area_puts(ge->team, " My team:");
+  screen_area_puts(ge->team, " ----------");
+  screen_area_puts(ge->team, " ");
+  for (i = 0; i < game_get_num_characters(game); i++) {
+    sprintf(str1, " %s (%li)", character_get_description(game_get_character_from_index(game, i)),
+            character_get_health(game_get_character_from_index(game, i)));
+    screen_area_puts(ge->team, str1);
+  }
 
   /*  Renderizar en la terminal */
   screen_paint(game_get_turn(game) % 7);
