@@ -206,46 +206,46 @@ void test1_space_get_num_objects();
 void test2_space_get_num_objects();
 
 /**
- * @test Test space get character
+ * @test Test space add character
  * @pre Pointer to a valid space
- * @post Output == Valid character ID
+ * @post Output == OK
  */
-void test1_space_get_character();
+void test1_space_add_character();
 
 /**
  * @test Test space get character with NULL space
  * @pre NULL pointer
  * @post Output == NO_ID
  */
-void test2_space_get_character();
+void test2_space_add_character();
 
 /**
- * @test Test space set character
+ * @test Test space if has character
  * @pre Pointer to a valid space and a valid character ID
- * @post Output == OK
+ * @post Output == OK, or TRUE
  */
-void test1_space_set_character();
+void test1_space_has_character();
 
 /**
  * @test Test space set character with NULL space
  * @pre NULL pointer or invalid character ID
  * @post Output == ERROR
  */
-void test2_space_set_character();
+void test2_space_has_character();
 
 /**
- * @test Test space has character
+ * @test Test space remove character
  * @pre Pointer to a valid space and a valid character ID
- * @post Output == TRUE if the character exists, FALSE otherwise
+ * @post Output == OK if everything OK
  */
-void test1_space_has_character();
+void test1_space_remove_character();
 
 /**
  * @test Test space has character with NULL space
  * @pre NULL pointer
  * @post Output == WRONG
  */
-void test2_space_has_character();
+void test2_space_remove_character();
 
 /**
  * @test Test space get individual graphic description
