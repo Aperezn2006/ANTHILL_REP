@@ -17,7 +17,7 @@
 #include "space_test.h"
 #include "test.h"
 
-#define MAX_TESTS 36
+#define MAX_TESTS 39
 
 /*gcc -o space_test space_test.c space.c set.c -I. -I/(path)*/
 
@@ -73,21 +73,19 @@ int main(int argc, char **argv) {
   if (all || test == 22) test1_space_get_discovered();
   if (all || test == 23) test2_space_get_discovered();
 
-  if (all || test == 24) test1_space_get_character();
-  if (all || test == 25) test2_space_get_character();
-  if (all || test == 26) test1_space_set_character();
-  if (all || test == 27) test2_space_set_character();
-
-  if (all || test == 28) test1_space_has_character();
-  if (all || test == 29) test2_space_has_character();
+  if (all || test == 24) test1_space_add_character();
+  if (all || test == 25) test2_space_add_character();
+  if (all || test == 26) test1_space_has_character();
+  if (all || test == 27) test2_space_has_character();
+  if (all || test == 28) test1_space_remove_character();
+  if (all || test == 29) test2_space_remove_character();
 
   if (all || test == 30) test1_space_get_i_dynamic_description();
   if (all || test == 31) test2_space_get_i_dynamic_description();
-  if (all || test == 32)
 
-    if (all || test == 34) test1_space_multiple_objects();
-  if (all || test == 35) test2_space_multiple_objects();
-  if (all || test == 36) test3_space_multiple_objects();
+  if (all || test == 32) test1_space_multiple_objects();
+  if (all || test == 33) test2_space_multiple_objects();
+  if (all || test == 34) test3_space_multiple_objects();
 
   PRINT_PASSED_PERCENTAGE;
   return 1;
@@ -244,32 +242,21 @@ void test2_space_get_num_objects() {
   PRINT_TEST_RESULT(space_get_num_objects(s) == 0);
 }
 
-void test1_space_get_character() {
+void test1_space_add_character() {
   Space *s = space_create(1);
-  space_set_character(s, 42);
-  PRINT_TEST_RESULT(space_get_character(s) == 42);
+  space_add_character(s, 42);
+  PRINT_TEST_RESULT(space_has_character(s, 42) == TRUE);
   space_destroy(s);
 }
 
-void test2_space_get_character() {
+void test2_space_add_character() {
   Space *s = NULL;
-  PRINT_TEST_RESULT(space_get_character(s) == NO_ID);
-}
-
-void test1_space_set_character() {
-  Space *s = space_create(1);
-  PRINT_TEST_RESULT(space_set_character(s, 42) == OK);
-  space_destroy(s);
-}
-
-void test2_space_set_character() {
-  Space *s = NULL;
-  PRINT_TEST_RESULT(space_set_character(s, 42) == ERROR);
+  PRINT_TEST_RESULT(space_add_character(s, 42) == ERROR);
 }
 
 void test1_space_has_character() {
   Space *s = space_create(1);
-  space_set_character(s, 42);
+  space_add_character(s, 42);
   PRINT_TEST_RESULT(space_has_character(s, 42) == TRUE);
   space_destroy(s);
 }
@@ -278,6 +265,20 @@ void test2_space_has_character() {
   Space *s = NULL;
   PRINT_TEST_RESULT(space_has_character(s, 42) == WRONG);
 }
+
+void test1_space_remove_character() {
+  Space *s = space_create(1);
+  space_add_character(s, 42);
+  space_remove_character(s, 42);
+  PRINT_TEST_RESULT(space_has_character(s, 42) == FALSE);
+  space_destroy(s);
+}
+
+void test2_space_remove_character() {
+  Space *s = NULL;
+  PRINT_TEST_RESULT(space_remove_character(s, 42) == ERROR);
+}
+
 
 void test1_space_get_i_dynamic_description() {
   Space *s = space_create(1);
