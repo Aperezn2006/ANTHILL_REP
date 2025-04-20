@@ -103,6 +103,7 @@ void graphic_engine_destroy(Graphic_engine *ge) {
   screen_area_destroy(ge->banner);
   screen_area_destroy(ge->help);
   screen_area_destroy(ge->feedback);
+  screen_area_destroy(ge->team);
 
   screen_destroy();
   free(ge);
