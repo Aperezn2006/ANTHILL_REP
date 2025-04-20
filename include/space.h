@@ -123,44 +123,50 @@ Bool space_has_object(Space *space, Id object_id);
  */
 Status space_add_object(Space *space, Id object_id);
 
-/*Manejo de character_id*/
 /**
- * @brief It gets the character in the space
+ * @brief Adds a character to the space
  * @author Beatriz, Arturo, Rubén, Ana
- *
  * @param space a pointer to the space
- * @return the id of the character
+ * @param character_id the id of the character to add
+ * @return OK if successful, ERROR otherwise
  */
-Id space_get_character(Space *space);
+Status space_add_character(Space *space, Id character_id);
 
 /**
- * @brief It sets the character in the space
+ * @brief Removes a character from the space
  * @author Beatriz, Arturo, Rubén, Ana
- *
  * @param space a pointer to the space
- * @param character_id the id of the character to be set
- * @return OK, if everything goes well or ERROR if there was some mistake
+ * @param character_id the id of the character to remove
+ * @return OK if successful, ERROR otherwise
  */
-Status space_set_character(Space *space, Id character_id);
+Status space_remove_character(Space *space, Id character_id);
 
 /**
- * @brief It checks whether the space has a specific character
+ * @brief Checks whether the space has a specific character
  * @author Beatriz, Arturo, Rubén, Ana
- *
  * @param space a pointer to the space
  * @param character_id the id of the character to check
- * @return TRUE if it has the character, FALSE otherwise, WRONG if error
+ * @return TRUE if it has the character, FALSE otherwise
  */
 Bool space_has_character(Space *space, Id character_id);
 
 /**
- * @brief It removes the character from the space
+ * @brief Gets the number of characters in the space
  * @author Beatriz, Arturo, Rubén, Ana
- *
  * @param space a pointer to the space
- * @return OK, if everything goes well or ERROR if there was some mistake
+ * @return the number of characters in the space, or -1 if error
  */
-Status space_remove_character(Space *space);
+int space_get_num_characters(Space *space);
+
+/**
+ * @brief Gets a character id from the space by index
+ * @author Beatriz, Arturo, Rubén, Ana
+ * @param space a pointer to the space
+ * @param index index of the character to retrieve
+ * @return the id of the character at that index, or NO_ID on error
+ */
+Id space_get_character_from_index(Space *space, int index);
+
 
 /*Manejo de gdesc*/
 /**
