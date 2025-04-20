@@ -397,43 +397,15 @@ Status game_actions_drop(Game *game) {
 
 Status game_actions_attack(Game *game, int Seed) {
   Id player_location;
-  Id character_location;
-  Id character_id;
   Character *character = NULL;
   Player *player = NULL;
   int roll;
+  int i, num_chars;
+  Id char_id;
+  Space *space;
   char character_name[WORD_SIZE] = "";
 
   if (!game) {
-    return ERROR;
-  }
-
-  player_location = game_get_player_location(game);
-
-  if (space_get_character(game_get_space(game, player_location)) == NO_ID) {
-    return ERROR;
-  }
-
-  strcpy(character_name, character_get_name(game_get_character(game, space_get_character(game_get_space(game, player_location)))));
-
-  if (character_name[0] == '\0') {
-    return ERROR;
-  }
-
-  character_id = game_get_character_id_from_name(game, character_name);
-  if (character_id == NO_ID) {
-    printf("Character not found.\n");
-    return ERROR;
-  }
-
-  character_location = game_get_character_location(game, character_id);
-  if (player_location != character_location || player_location == NO_ID) {
-    printf("You are not in the same location as %s.\n", character_name);
-    return ERROR;
-  }
-
-  character = game_get_character(game, character_id);
-  if (!character) {
     return ERROR;
   }
 
@@ -442,71 +414,62 @@ Status game_actions_attack(Game *game, int Seed) {
     return ERROR;
   }
 
-  if (character_get_friendly(character)) {
-    printf("You cannot attack %s, they are friendly.\n", character_name);
+  player_location = game_get_player_location(game);
+  space = game_get_space(game, player_location);
+  if (!space) {
     return ERROR;
   }
 
-  /* Deterministic or random roll */
-  if (Seed) {
-    roll = 7; /* Always a successful hit in deterministic mode */
-  } else {
-    roll = rand() % 10; /* Random number between 0 and 9 */
+  num_chars = space_get_num_characters(space);
+  for (i = 0; i < num_chars; i++) {
+    char_id = space_get_character_from_index(space, i);
+    character = game_get_character(game, char_id);
+    if (!character) {
+      continue;
+    }
+
+    if (character_get_friendly(character)) {
+      continue; /* Skip friendly characters */
+    }
+
+    strcpy(character_name, character_get_name(character));
+    if (Seed) {
+      roll = 7; /* Deterministic */
+    } else {
+      roll = rand() % 10;
+    }
+
+    if (roll >= 0 && roll <= 4) {
+      player_decrease_health(player, 1);
+      printf("You missed! %s counterattacks. You lose 1 health point.\n", character_name);
+    } else {
+      character_decrease_health(character, 1);
+      printf("You hit %s! They lose 1 health point.\n", character_name);
+    }
+
+    if (character_get_health(character) == 0) {
+      space_remove_character(space, char_id);
+      printf("%s has been defeated.\n", character_name);
+    }
+
+    return OK; /* Only attack one hostile character */
   }
 
-  if (roll >= 0 && roll <= 4) {
-    player_decrease_health(player, 1);
-    printf("You missed! %s counterattacks. You lose 1 health point.\n", character_name);
-  } else {
-    character_decrease_health(character, 1);
-    printf("You hit %s! They lose 1 health point.\n", character_name);
-  }
-
-  if (character_get_health(character) == 0) {
-    space_remove_character(game_get_space(game, character_location));
-  }
-
-  return OK;
+  printf("There are no hostile characters to attack here.\n");
+  return ERROR;
 }
+
 
 Status game_actions_chat(Game *game) {
   Id player_location;
-  Id character_location;
-  Id character_id;
   Character *character = NULL;
   Player *player = NULL;
+  int i, num_chars;
+  Id char_id;
+  Space *space;
   char character_name[WORD_SIZE] = "";
 
   if (!game) {
-    return ERROR;
-  }
-
-  player_location = game_get_player_location(game);
-
-  if (space_get_character(game_get_space(game, player_location)) == NO_ID) {
-    return ERROR;
-  } else {
-    strcpy(character_name, character_get_name(game_get_character(game, space_get_character(game_get_space(game, player_location)))));
-    if (character_name[0] == '\0') {
-      return ERROR;
-    }
-  }
-
-  character_id = game_get_character_id_from_name(game, character_name);
-  if (character_id == NO_ID) {
-    printf("Character not found.\n");
-    return ERROR;
-  }
-  character_location = game_get_character_location(game, character_id);
-
-  if (player_location != character_location || player_location == NO_ID) {
-    printf("%s is in %li, player is in %li\n", character_name, character_location, player_location);
-    printf("You are not in the same location as %s.\n", character_name);
-    return ERROR; /*  No hay chat si no están en la misma ubicación */
-  }
-
-  character = game_get_character(game, character_id);
-  if (!character) {
     return ERROR;
   }
 
@@ -515,16 +478,32 @@ Status game_actions_chat(Game *game) {
     return ERROR;
   }
 
-  /*  Verificar si el personaje es "friendly" */
-  if (!character_get_friendly(character)) {
-    printf("%s does not seem interested in talking to you.\n", character_name);
-    return ERROR; /*  No habla si el personaje no es amistoso */
+  player_location = game_get_player_location(game);
+  space = game_get_space(game, player_location);
+  if (!space) {
+    return ERROR;
   }
 
-  /*  El personaje lanza su mensaje */
-  game_set_message(game, character_get_message(character));
+  num_chars = space_get_num_characters(space);
+  for (i = 0; i < num_chars; i++) {
+    char_id = space_get_character_from_index(space, i);
+    character = game_get_character(game, char_id);
+    if (!character) {
+      continue;
+    }
 
-  return OK;
+    if (!character_get_friendly(character)) {
+      continue; /* Only talk to friendly characters */
+    }
+
+    strcpy(character_name, character_get_name(character));
+    game_set_message(game, character_get_message(character));
+    printf("You talk to %s.\n", character_name);
+    return OK;
+  }
+
+  printf("There are no friendly characters here to talk to.\n");
+  return ERROR;
 }
 
 Status game_actions_inspect(Game *game) {
