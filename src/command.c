@@ -20,7 +20,8 @@
 /* Commands inside the game */
 char *cmd_to_str[N_CMD][N_CMDT] = {{"", "No command"}, {"", "Unknown"}, {"e", "Exit"}, {"m", "Move"},    {"t", "Take"},
                                    {"d", "Drop"},      {"a", "Attack"}, {"c", "Chat"}, {"i", "Inspect"}, {"n", "Inventory"},
-                                   {"e", "Use"},       {"o", "Open"},   {"l", "Load"}, {"s", "Save"}};
+                                   {"e", "Use"},       {"o", "Open"},   {"l", "Load"}, {"s", "Save"},    {"r", "Recruit"},
+                                   {"ab", "Abandon"}};
 
 char *conn_to_str[N_CON][N_CMDT] = {{"over", "OVER"}, {"with", "WITH"}, {"", ""}};
 

@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <strings.h>
 
 Status game_init_from_file(Game *game, char *filename) {
   Id first_space_id;
@@ -326,7 +327,12 @@ Status game_management_load(Game *game, char *file_name, Bool new) {
       strcpy(character_message, toks);
 
       toks = strtok(NULL, "|");
-      character_friendliness = atoi(toks);
+
+      if (strcasecmp(toks, "TRUE") == 0){
+        character_friendliness = TRUE;
+      } else {
+        character_friendliness = FALSE;
+      }
 
       character = character_create(id);
       if (character) {

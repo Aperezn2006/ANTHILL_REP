@@ -186,6 +186,26 @@ char *character_get_message(Character *character);
  */
 Status character_set_message(Character *character, char *message);
 
+/*  Manejo de following */
+/**
+ * @brief It gets the id of the character that the current character is following
+ * @author Arturo
+ * 
+ * @param character A pointer to the character whose following id is to be retrieved
+ * @return The id of the character being followed, or NO_ID if no character is being followed
+ */
+Id character_get_following(Character *character);
+
+/**
+ * @brief It sets the id of the character that the current character will follow
+ * @author Arturo
+ * @param character A pointer to the character whose following id is to be set
+ * @param id The id of the character to be followed
+ * @return OK if the operation was successful, or ERROR if there was an issue
+ */
+Status character_set_following(Character *character, Id id);
+
+
 /*  Print */
 /**
  * @brief It prints the character information

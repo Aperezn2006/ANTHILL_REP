@@ -276,6 +276,17 @@ Character *game_get_character_from_index(Game *game, int n);
  * @return ID of the space, or NO_ID if invalid
  */
 Id game_get_character_location(Game *game, Id character_id);
+/**
+ * @brief Sets the location of a character in the game.
+
+ *
+ * @param game Pointer to the Game structure.
+ * @param space_id The ID of the space where the character will be placed.
+ * @param character_id The ID of the character whose location is being set.
+ * @return Returns OK , or ERROR otherwise
+ */
+
+Status game_set_character_location(Game *game, Id space_id, Id character_id);
 
 /**
  * @brief Retrieves the ID of a character given its name

@@ -161,6 +161,24 @@ Status game_actions_load(Game *game);
 Status game_actions_save(Game *game);
 
 /**
+ * @brief It allows the player to recruit a friendly character
+ * @author Arturo
+ *
+ * @param game a pointer to the game
+ * @return OK if everything goes well, ERROR otherwise
+ */
+Status game_actions_recruit(Game *game);
+
+/**
+ * @brief It allows the player to abandon a friendly character
+ * @author Arturo
+ *
+ * @param game a pointer to the game
+ * @return OK if everything goes well, ERROR otherwise
+ */
+Status game_actions_abandon(Game *game);
+
+/**
    Game actions implementation
 */
 
@@ -221,6 +239,14 @@ Status game_actions_update(Game *game, Command *command, int Seed) {
 
     case SAVE:
       command_set_result(command, game_actions_save(game));
+      break;
+
+    case RECRUIT:
+      command_set_result(command, game_actions_recruit(game));
+      break;
+
+    case ABANDON:
+      command_set_result(command, game_actions_abandon(game));
       break;
 
     default:
@@ -758,4 +784,63 @@ Status game_actions_save(Game *game) {
   }
 
   return game_management_save(game, file_name);
+}
+
+Status game_actions_recruit (Game *game){
+  Command *c = NULL;  
+  char *word = NULL;
+  Character *character = NULL;
+  Player *player = NULL;
+
+  if (!game) {
+    return ERROR;
+  }
+
+  c = game_get_last_command(game);
+  if (!c) return ERROR;
+
+  word = command_get_word(c);
+  player = game_get_player(game, game_get_turn(game));
+  character = game_get_character(game, game_get_character_id_from_name (game, word));
+
+  if (game_get_player_location (game) != game_get_character_location(game, game_get_character_id_from_name (game, word))){
+    printf ("[DEBUG]: ERROR 3");
+    return ERROR;
+  }
+
+  if (character_get_friendly(character) == FALSE){
+    printf ("[DEBUG]: ERROR 2 %s\n", character_get_friendly(character) ? "Yes" : "No");
+    return ERROR;
+  }
+  
+  if (character_set_following(character, player_get_id (player)) == ERROR){
+    printf ("[DEBUG]: ERROR 3");
+    return ERROR;
+  } 
+
+  return OK;
+}
+Status game_actions_abandon (Game *game){
+  Command *c = NULL;  
+  char *word = NULL;
+  Character *character = NULL;
+  Player *player = NULL;
+
+  if (!game) {
+    return ERROR;
+  }
+
+  c = game_get_last_command(game);
+  if (!c) return ERROR;
+
+  word = command_get_word(c);
+  player = game_get_player(game, game_get_turn(game));
+  character = game_get_character(game, game_get_character_id_from_name (game, word));
+  
+  if (character_get_following(character) != player_get_id (player)){
+    return ERROR;
+  } 
+  character_set_following (character, NO_ID);
+
+  return OK;
 }

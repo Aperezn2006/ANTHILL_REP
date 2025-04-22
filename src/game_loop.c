@@ -126,6 +126,7 @@ int game_loop_init(Game *game, Graphic_engine **gengine, char *file_name) {
 
 void game_loop_run(Game *game, Graphic_engine *gengine, FILE *log_file, int seed) {
   Command *last_cmd;
+  int i;
 
   if (!gengine) {
     return;
@@ -164,6 +165,14 @@ void game_loop_run(Game *game, Graphic_engine *gengine, FILE *log_file, int seed
           }
         }*/
       }
+      /*Chequeo de following*/
+    
+    for (i=0; i < game_get_num_characters(game); i++){
+      if (player_get_id(game_get_player(game, game_get_turn(game))) == character_get_following(game_get_character_from_index(game, i))){
+        printf ("[[DEBUG]] MOVED %s %li %li\n", character_get_name(game_get_character_from_index(game, i)), player_get_id(game_get_player(game, game_get_turn(game))), character_get_following(game_get_character_from_index(game, i)));
+        game_set_character_location (game, game_get_player_location(game), character_get_id(game_get_character_from_index(game, i)));
+      }
+    }
 
       if (game_get_turn(game) == (game_get_num_players(game) - 1)) {
         game_set_turn(game, 0);

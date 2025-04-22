@@ -1,5 +1,4 @@
 #ifndef test1_TEST_H
-
 #define test1_TEST_H
 
 #include "character.h"

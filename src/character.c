@@ -26,6 +26,7 @@ struct _Character {
   long health;               /*!< Health points the character has */
   Bool friendly;             /*!< Indicates whether the character is hostile or not */
   char message[MAX_MESSAGE]; /*!< It saves the message*/
+  Id following;
 };
 
 /* Create y destroy */
@@ -49,6 +50,7 @@ Character *character_create(Id id) {
   newcharacter->health = CHARACTER_HEALTH;
   newcharacter->friendly = TRUE;
   newcharacter->message[0] = '\0';
+  newcharacter->following = NO_ID;
 
   return newcharacter;
 }
@@ -100,6 +102,7 @@ Status character_set_name(Character *character, char *name) {
 
   return OK;
 }
+
 
 /*  Manejo de gdesc */
 char *character_get_description(Character *character) {
@@ -185,6 +188,22 @@ Status character_set_message(Character *character, char *message) {
   return OK;
 }
 
+/*  Manejo de following */
+Id character_get_following(Character *character){
+  if (!character) return NO_ID;
+
+  return character->following;
+}
+
+Status character_set_following(Character *character, Id id){
+  if (!character) return ERROR;
+
+  character->following = id;
+  return OK;
+}
+
+
+
 /*  Print */
 Status character_print(Character *character) {
   /* Error Control */
@@ -193,7 +212,6 @@ Status character_print(Character *character) {
   }
 
   /* 1. Print the id and the name of the character */
-  fprintf(stdout, "--> Character (Id: %ld; Name: %s)\n", character->id, character->name);
-
+  fprintf(stdout, "--> Character (Id: %ld; Name: %s; Graphical Description: %s; Health: %ld; Friendly: %s; Message: %s; Following: %ld;)\n", character->id, character->name, character->gdesc, character->health, character->friendly ? "Yes" : "No", character->message, character->following);
   return OK;
 }

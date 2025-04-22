@@ -582,7 +582,7 @@ Status game_set_character_location(Game *game, Id space_id, Id character_id) {
   if (!game || space_id == NO_ID || character_id == NO_ID) {
     return ERROR;
   }
-
+  space_remove_character (game_get_space(game, game_get_character_location(game, character_id)), character_id);
   return space_add_character(game_get_space(game, space_id), character_id);
 }
 
