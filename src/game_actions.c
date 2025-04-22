@@ -426,7 +426,7 @@ Status game_actions_attack(Game *game, int Seed) {
   Character *character = NULL;
   Player *player = NULL;
   int roll;
-  int i, num_chars;
+  int i, j, num_chars, count = 0;
   Id char_id;
   Space *space;
   char character_name[WORD_SIZE] = "";
@@ -464,16 +464,42 @@ Status game_actions_attack(Game *game, int Seed) {
     } else {
       roll = rand() % 10;
     }
-
+    printf ("ROLL = %i", roll);
     if (roll >= 0 && roll <= 4) {
-      player_decrease_health(player, 1);
-      printf("You missed! %s counterattacks. You lose 1 health point.\n", character_name);
+      for (j=0; j < game_get_num_characters(game); j++){
+        if (player_get_id(game_get_player(game, game_get_turn(game))) == character_get_following(game_get_character_from_index(game, j))){
+          count++;
+        }
+      }
+      if (count > 0){
+        roll = rand() % (game_get_num_characters(game)+2);
+        for (j=roll; j; j++){
+          if (j>game_get_num_characters(game)-1){
+            j = 0;
+          }
+          if (player_get_id(game_get_player(game, game_get_turn(game))) == character_get_following(game_get_character_from_index(game, j))){
+            character_decrease_health(game_get_character_from_index(game, j), 1);
+            printf("You missed! %s counterattacks. Your recruited %s loses 1 health point.\n", character_name, character_get_name(game_get_character_from_index(game, j)));
+            break;
+          }
+        }
+      } else {
+        player_decrease_health(player, 1);
+        printf("You missed! %s counterattacks. You lose 1 health point.\n", character_name);
+      }
+      
+      
     } else {
-      character_decrease_health(character, 1);
-      printf("You hit %s! They lose 1 health point.\n", character_name);
+      for (j=0; j < game_get_num_characters(game); j++){
+        if (player_get_id(game_get_player(game, game_get_turn(game))) == character_get_following(game_get_character_from_index(game, j))){
+          count++;
+        }
+      }
+      character_decrease_health(character, 1 + count);
+      printf("You hit %s! They lose %i health points.\n", character_name, 1 + count);
     }
 
-    if (character_get_health(character) == 0) {
+    if (character_get_health(character) <= 0) {
       space_remove_character(space, char_id);
       printf("%s has been defeated.\n", character_name);
     }
