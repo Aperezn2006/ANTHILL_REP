@@ -679,6 +679,15 @@ Bool game_get_inventory_vis(Game *game);
  * @return OK if everything went well
  */
 Status game_update_player_health(Game *game, Id object_id);
+
+/**
+ * @brief It updates the character health
+ * @author Bea, Arturo, Rubén, Ana
+ *
+ * @param game a pointer to the game, Object_id
+ * @return OK if everything went well
+ */
+Status game_update_character_health(Game *game, Character *character, Id object_id);
 /**
  * @brief It checks if an objects needs another object
  * @author Bea, Arturo, Rubén, Ana
