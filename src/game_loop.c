@@ -15,10 +15,12 @@
 
 #include "command.h"
 #include "game.h"
+#include "game_rules.h"
 #include "game_actions.h"
 #include "game_management.h"
 #include "graphic_engine.h"
 #include "player.h"
+
 
 /**
  * @brief Initializes the game loop by loading game data and creating the graphic engine.
@@ -140,6 +142,7 @@ void game_loop_run(Game *game, Graphic_engine *gengine, FILE *log_file, int seed
     graphic_engine_paint_game(gengine, game);
     command_get_user_input(last_cmd);
     game_actions_update(game, last_cmd, seed);
+    update_game(game);
     last_cmd = game_get_last_command(game);
 
     if (log_file) {
