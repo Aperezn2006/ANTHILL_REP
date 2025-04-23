@@ -15,7 +15,7 @@ DOC_DIR = doc
 # Archivos fuente
 SRC = $(SRC_DIR)/game_loop.c $(SRC_DIR)/command.c $(SRC_DIR)/game_actions.c $(SRC_DIR)/game.c \
       $(SRC_DIR)/graphic_engine.c $(SRC_DIR)/space.c $(SRC_DIR)/game_management.c $(SRC_DIR)/player.c \
-      $(SRC_DIR)/object.c $(SRC_DIR)/character.c $(SRC_DIR)/set.c $(SRC_DIR)/link.c $(SRC_DIR)/inventory.c
+      $(SRC_DIR)/game_rules.c $(SRC_DIR)/object.c $(SRC_DIR)/character.c $(SRC_DIR)/set.c $(SRC_DIR)/link.c $(SRC_DIR)/inventory.c
 
 # Archivos fuente de los tests
 TEST_SRC = $(TEST_DIR)/space_test.c $(TEST_DIR)/link_test.c $(TEST_DIR)/player_test.c $(TEST_DIR)/set_test.c \
