@@ -192,8 +192,8 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game) {
       character = game_get_character_from_index(game, i);
 
       if (game_get_character_location(game, character_get_id(character)) != NO_ID) {
-        sprintf(str1, "  %s : %li (%li)", character_get_description(character), game_get_character_location(game, character_get_id(character)),
-                character_get_health(character));
+        sprintf(str1, "  %s : %li (%li) [%s]", character_get_description(character), game_get_character_location(game, character_get_id(character)),
+                character_get_health(character), character_get_name(character));
       } else {
         /*character_set_description(character, "/RIP\\_"); Molaba pero era poco intuitivo*/
         sprintf(str1, "  %s : Dead", character_get_description(character));
@@ -304,9 +304,11 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game) {
   screen_area_puts(ge->team, " ----------");
   screen_area_puts(ge->team, " ");
   for (i = 0; i < game_get_num_characters(game); i++) {
-    sprintf(str1, " %s (%li)", character_get_description(game_get_character_from_index(game, i)),
-            character_get_health(game_get_character_from_index(game, i)));
-    screen_area_puts(ge->team, str1);
+    character = game_get_character_from_index(game, i);
+    if (character_get_following(character) == player_get_id(game_get_current_player(game))) {
+      sprintf(str1, " %s (%li)", character_get_description(character), character_get_health(character));
+      screen_area_puts(ge->team, str1);
+    }
   }
 
   /*  Renderizar en la terminal */
