@@ -626,6 +626,9 @@ Status game_actions_use(Game *game) {
   char object_name[WORD_SIZE] = "";
   Connector connector = NO_DEST;
   char destiny[WORD_SIZE] = "";
+  Character *character = NULL;
+  Player *player = NULL;
+  Id character_id;
 
   if (!game) {
     printf("[DEBUG] Game is NULL\n");
@@ -673,8 +676,9 @@ Status game_actions_use(Game *game) {
     return ERROR;
   }
 
-  if (player_has_object(game_get_current_player(game), object_id) == TRUE && game_check_object_dependency(game, object_id) == TRUE) {
-    printf("[DEBUG] Player has object %s\n", object_name);
+  if (player_has_object(game_get_current_player(game), object_id) == TRUE &&
+      game_check_object_dependency(game, object_id) == TRUE) {
+
     if (strcmp(destiny, "player") == 0) {
       printf("[DEBUG] Applying object to player\n");
       if (game_update_player_health(game, object_id) == ERROR) {
@@ -682,10 +686,25 @@ Status game_actions_use(Game *game) {
         return ERROR;
       }
     } else {
-      printf("[DEBUG] Unhandled destiny: '%s'\n", destiny);
+      printf("[DEBUG] Applying object to character\n");
+      character_id = game_get_character_id_from_name(game, destiny);
+      printf("[DEBUG] Character ID from name '%s': %ld\n", destiny, character_id);
+      character = game_get_character(game, character_id);
+      player = game_get_current_player(game);
+
+      if (character != NULL && character_get_following(character) == player_get_id(player)) {
+        printf("[DEBUG] Applying object to character '%s'\n", destiny);
+        if (game_update_character_health(game, character, object_id) == ERROR) {
+          printf("Failed to apply health changes to character\n");
+          return ERROR;
+        }
+      } else {
+        printf("[DEBUG] Unhandled or invalid destiny: '%s'\n", destiny);
+        return ERROR;
+      }
     }
   } else {
-    printf("Player does not have object %s\n", object_name);
+    printf("Player does not have object %s or dependencies failed\n", object_name);
     return ERROR;
   }
 
