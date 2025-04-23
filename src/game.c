@@ -1108,6 +1108,28 @@ Status game_update_player_health(Game *game, Id object_id) {
   return ERROR;
 }
 
+Status game_update_character_health(Game *game, Character *character, Id object_id) {
+  int health = 0;
+  Object *object = NULL;
+
+  if (!game || !character || object_id == NO_ID) {
+    return ERROR;
+  }
+
+  object = game_get_object_from_id(game, object_id);
+  if (!object) {
+    return ERROR;
+  }
+
+  health = character_get_health(character) + object_get_health(object);
+
+  if (character_set_health(character, health) == OK) {
+    return OK;
+  }
+
+  return ERROR;
+}
+
 Bool game_check_object_dependency(Game *game, Id object_id) {
   /* TRUE means object can be used, i.e., either it doesn't have a dependency or player has that object */
   Object *object = NULL;
