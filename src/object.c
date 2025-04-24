@@ -25,6 +25,7 @@ struct _Object {
   Bool movable;
   Id dependency;
   Id open;
+  int turn_amplifier;
 };
 
 /*Create & destroy*/

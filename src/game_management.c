@@ -94,11 +94,11 @@ Status game_management_save(Game *game, char *file_name) {
   fprintf(pf, "\nPlayers:\n");
   for (i = 0; i < game_get_num_players(game); i++) {
     player = game_get_player_from_index(game, i);
-    /*id|name|gdesc|location|health|inventory_size|message|object_desc*/
-    fprintf(pf, "#p:%li|%s|%s|%li|%li|%i|%s|%s|\n", player_get_id(player), player_get_name(player), player_get_description(player),
+    /*id|name|gdesc|location|health|inventory_size|message|object_desc|max_turns*/
+    fprintf(pf, "#p:%li|%s|%s|%li|%li|%i|%s|%s|%i|\n", player_get_id(player), player_get_name(player), player_get_description(player),
             player_get_location(player), player_get_health(player), inventory_get_max_objects(player_get_inventory(player)),
             ((game_get_message_from_index(game, i)[0] == '\0') ? "." : game_get_message_from_index(game, i)),
-            ((game_get_object_desc_from_index(game, i)[0] == '\0') ? "." : game_get_object_desc_from_index(game, i)));
+            ((game_get_object_desc_from_index(game, i)[0] == '\0') ? "." : game_get_object_desc_from_index(game, i)), player_get_max_turns(player));
   }
 
   fprintf(pf, "\nLinks:\n");
@@ -178,6 +178,7 @@ Status game_management_load(Game *game, char *file_name, Bool new) {
   char message[WORD_SIZE];   /*PREVIOUS*/
   int i = 0;
   int health = 0;
+  int current_turn = 0;
   Id id = NO_ID;
   Status status = OK;
 
@@ -453,6 +454,12 @@ Status game_management_load(Game *game, char *file_name, Bool new) {
           break;
         }
       }
+    } else if (strncmp("- Current turn: ", line, 16) == 0) {
+      printf("Processing turn\n");
+      toks = strtok(line + 16, "|");
+      current_turn = atoi(toks);
+
+      game_set_turn(game, current_turn);
     }
   }
 
