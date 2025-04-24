@@ -215,6 +215,26 @@ Status player_set_max_objs(Player *player, int max);
  */
 Inventory *player_get_inventory(Player *player);
 
+/*Management of max_turns*/
+/**
+ * @brief It sets the max number of turns the player has
+ * @author Ana
+ *
+ * @param player a pointer to the player
+ * @param max_turns default number of turns the player has
+ * @return OK, if everything goes well or ERROR if there was some mistake
+ */
+Status player_set_max_turns(Player *player, int max_turns);
+
+/**
+ * @brief It gets the max number of turns the player has
+ * @author Ana
+ *
+ * @param player a pointer to the player
+ * @return the default number of turns the player has in a row
+ */
+int player_get_max_turns(Player *player);
+
 /*Print*/
 /**
  * @brief It prints the player information

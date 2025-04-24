@@ -42,6 +42,6 @@
 #l:417|Pasillo7ToAgujero|127|14|2|1|
 #l:418|Pasillo7ToAgujero|14|127|3|1|
 
-/*id|name|gdesc|location|health|inventory_size|message|object_desc*/
-#p:0|ant1|mO^|11|5|5|
-#p:1|ant2|mO^|123|5|3|
+/*id|name|gdesc|location|health|inventory_size|message|object_desc|max_turns*/
+#p:0|ant1|mO^|11|5|5|1|
+#p:1|ant2|mO^|123|5|3|2|

@@ -78,7 +78,8 @@ Status game_management_save(Game *game, char *file_name) {
   for (i = 0; i < game_get_num_players(game); i++) {
     fprintf(pf, "   - %i. %s\n", i + 1, player_get_name(game_get_player_from_index(game, i)));
   }
-  fprintf(pf, "- Current turn: %i (%s's turn)\n", game_get_turn(game), player_get_name(game_get_player_from_index(game, game_get_turn(game))));
+  fprintf(pf, "- Current turn: %i (%s's turn)\n", game_get_turn(game),
+          player_get_name(game_get_player_from_index(game, game_get_player_index_from_turn(game))));
   fprintf(pf, "-------------------------------------------------------------------------\n");
 
   fprintf(pf, "\nSpaces:\n");
@@ -140,6 +141,7 @@ Status game_management_load(Game *game, char *file_name, Bool new) {
   int player_max_obj = 0;
   char player_desc[7];
   Id location = NO_ID;
+  int max_turns = 1;
 
   /*CHARACTER*/
   Character *character = NULL;
@@ -328,7 +330,7 @@ Status game_management_load(Game *game, char *file_name, Bool new) {
 
       toks = strtok(NULL, "|");
 
-      if (strcasecmp(toks, "TRUE") == 0){
+      if (strcasecmp(toks, "TRUE") == 0) {
         character_friendliness = TRUE;
       } else {
         character_friendliness = FALSE;
@@ -351,8 +353,7 @@ Status game_management_load(Game *game, char *file_name, Bool new) {
         space = game_get_space(game, location);
         if (space) {
           if (space_add_character(space, id) == ERROR) {
-            printf("Failed to add character %s (%ld) to space %ld\n", name, id,
-                   location);
+            printf("Failed to add character %s (%ld) to space %ld\n", name, id, location);
             status = ERROR;
             break;
           }
@@ -424,6 +425,9 @@ Status game_management_load(Game *game, char *file_name, Bool new) {
         strcpy(object_desc, toks); /*REVIOUS*/
       }
 
+      toks = strtok(NULL, "|");
+      max_turns = atoi(toks);
+
       player = player_create(id);
       if (player) {
         player_set_name(player, name);
@@ -431,15 +435,14 @@ Status game_management_load(Game *game, char *file_name, Bool new) {
         player_set_description(player, player_desc);
         player_set_max_objs(player, player_max_obj);
         player_set_location(player, location);
+        player_set_max_turns(player, max_turns);
 
         if (new == FALSE) {
           if (strcmp(message, ".") != 0) { /*REVIOUS*/
-            game_set_message_from_index(game, message,
-                                        game_get_num_players(game));
+            game_set_message_from_index(game, message, game_get_num_players(game));
           }
           if (strcmp(object_desc, ".") != 0) { /*REVIOUS*/
-            game_set_object_desc_from_index(game, object_desc,
-                                            game_get_num_players(game));
+            game_set_object_desc_from_index(game, object_desc, game_get_num_players(game));
           }
         }
 

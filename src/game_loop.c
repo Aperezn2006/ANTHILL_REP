@@ -15,12 +15,11 @@
 
 #include "command.h"
 #include "game.h"
-#include "game_rules.h"
 #include "game_actions.h"
 #include "game_management.h"
+#include "game_rules.h"
 #include "graphic_engine.h"
 #include "player.h"
-
 
 /**
  * @brief Initializes the game loop by loading game data and creating the graphic engine.
@@ -169,22 +168,19 @@ void game_loop_run(Game *game, Graphic_engine *gengine, FILE *log_file, int seed
         }*/
       }
       /*Chequeo de following*/
-    
-    for (i=0; i < game_get_num_characters(game); i++){
-      if (player_get_id(game_get_player(game, game_get_turn(game))) == character_get_following(game_get_character_from_index(game, i))){
-        printf ("[[DEBUG]] MOVED %s %li %li\n", character_get_name(game_get_character_from_index(game, i)), player_get_id(game_get_player(game, game_get_turn(game))), character_get_following(game_get_character_from_index(game, i)));
-        game_set_character_location (game, game_get_player_location(game), character_get_id(game_get_character_from_index(game, i)));
+
+      for (i = 0; i < game_get_num_characters(game); i++) {
+        if (player_get_id(game_get_player(game, game_get_player_index_from_turn(game))) ==
+            character_get_following(game_get_character_from_index(game, i))) {
+          printf("[[DEBUG]] MOVED %s %li %li\n", character_get_name(game_get_character_from_index(game, i)),
+                 player_get_id(game_get_player(game, game_get_player_index_from_turn(game))),
+                 character_get_following(game_get_character_from_index(game, i)));
+          game_set_character_location(game, game_get_player_location(game), character_get_id(game_get_character_from_index(game, i)));
+        }
       }
     }
 
-      if (game_get_turn(game) == (game_get_num_players(game) - 1)) {
-        game_set_turn(game, 0);
-      } else {
-        game_set_turn(game, game_get_turn(game) + 1);
-      }
-    }
-
-    if (player_get_health(game_get_player_from_index(game, game_get_turn(game) - 1)) == 0) {
+    if (player_get_health(game_get_player_from_index(game, game_get_player_index_from_turn(game) - 1)) == 0) {
       game_set_finished(game, TRUE);
     }
   }

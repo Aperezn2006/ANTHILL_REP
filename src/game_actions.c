@@ -290,10 +290,14 @@ Status game_actions_move(Game *game) {
   if (!game) return ERROR;
 
   current_space_id = game_get_player_location(game);
-  if (current_space_id == NO_ID) return ERROR;
+  if (current_space_id == NO_ID) {
+    return ERROR;
+  }
 
   c = game_get_last_command(game);
-  if (!c) return ERROR;
+  if (!c) {
+    return ERROR;
+  }
 
   word = command_get_word(c);
   connector = command_get_connector(c);
@@ -304,7 +308,9 @@ Status game_actions_move(Game *game) {
   /* ----- Player move (e.g. "m n" or "move north") ----- */
   if (direction != -1 && (connector == NO_DEST && destiny[0] == '\0')) {
     next_space_id = game_get_neighbour(game, current_space_id, direction);
-    if (next_space_id == NO_ID) return ERROR;
+    if (next_space_id == NO_ID) {
+      return ERROR;
+    }
 
     if (!game_connection_is_open(game, current_space_id, direction)) {
       printf("The connection isn't open\n"); /* Debug */
@@ -312,12 +318,18 @@ Status game_actions_move(Game *game) {
     }
 
     game_set_player_location(game, next_space_id);
-    return OK;
+    return game_increment_turn(game);
   } else {
     direction = direction_from_string(destiny);
-    if (direction == -1) return ERROR;
-    return game_move_object(game, word, current_space_id, direction);
+    if (direction == -1) {
+      return ERROR;
+    }
+
+    game_move_object(game, word, current_space_id, direction);
+
+    return game_increment_turn(game);
   }
+
   return ERROR;
 }
 
@@ -375,13 +387,13 @@ Status game_actions_take(Game *game) {
     printf("[DEBUG] Space has object %ld ('%s')\n", object_id, object_name);
     game_set_object_location(game, player_get_id(game_get_current_player(game)), object_id);
     printf("[DEBUG] Object '%s' taken successfully\n", object_name);
-    return OK;
+    return game_increment_turn(game);
   } else {
     printf("[DEBUG] Object '%s' (ID %ld) not found in current space %ld\n", object_name, object_id, player_location);
     return ERROR;
   }
 
-  return OK;
+  return game_increment_turn(game);
 }
 
 Status game_actions_drop(Game *game) {
@@ -412,13 +424,13 @@ Status game_actions_drop(Game *game) {
   if (player_has_object(game_get_current_player(game), object_id) == TRUE) {
     game_set_object_location(game, location, object_id);
     printf("Object %s dropped\n", object_name); /*DEBUG*/
-    return OK;
+    return game_increment_turn(game);
   } else {
     printf("Player does not have object %s\n", object_name); /*DEBUG*/
     return ERROR;
   }
 
-  return OK;
+  return game_increment_turn(game);
 }
 
 Status game_actions_attack(Game *game, int Seed) {
@@ -464,22 +476,25 @@ Status game_actions_attack(Game *game, int Seed) {
     } else {
       roll = rand() % 10;
     }
-    printf ("ROLL = %i", roll);
+    printf("ROLL = %i", roll);
     if (roll >= 0 && roll <= 4) {
-      for (j=0; j < game_get_num_characters(game); j++){
-        if (player_get_id(game_get_player(game, game_get_turn(game))) == character_get_following(game_get_character_from_index(game, j))){
+      for (j = 0; j < game_get_num_characters(game); j++) {
+        if (player_get_id(game_get_player(game, game_get_player_index_from_turn(game))) ==
+            character_get_following(game_get_character_from_index(game, j))) {
           count++;
         }
       }
-      if (count > 0){
-        roll = rand() % (game_get_num_characters(game)+2);
-        for (j=roll; j; j++){
-          if (j>game_get_num_characters(game)-1){
+      if (count > 0) {
+        roll = rand() % (game_get_num_characters(game) + 2);
+        for (j = roll; j; j++) {
+          if (j > game_get_num_characters(game) - 1) {
             j = 0;
           }
-          if (player_get_id(game_get_player(game, game_get_turn(game))) == character_get_following(game_get_character_from_index(game, j))){
+          if (player_get_id(game_get_player(game, game_get_player_index_from_turn(game))) ==
+              character_get_following(game_get_character_from_index(game, j))) {
             character_decrease_health(game_get_character_from_index(game, j), 1);
-            printf("You missed! %s counterattacks. Your recruited %s loses 1 health point.\n", character_name, character_get_name(game_get_character_from_index(game, j)));
+            printf("You missed! %s counterattacks. Your recruited %s loses 1 health point.\n", character_name,
+                   character_get_name(game_get_character_from_index(game, j)));
             break;
           }
         }
@@ -487,11 +502,11 @@ Status game_actions_attack(Game *game, int Seed) {
         player_decrease_health(player, 1);
         printf("You missed! %s counterattacks. You lose 1 health point.\n", character_name);
       }
-      
-      
+
     } else {
-      for (j=0; j < game_get_num_characters(game); j++){
-        if (player_get_id(game_get_player(game, game_get_turn(game))) == character_get_following(game_get_character_from_index(game, j))){
+      for (j = 0; j < game_get_num_characters(game); j++) {
+        if (player_get_id(game_get_player(game, game_get_player_index_from_turn(game))) ==
+            character_get_following(game_get_character_from_index(game, j))) {
           count++;
         }
       }
@@ -504,13 +519,16 @@ Status game_actions_attack(Game *game, int Seed) {
       printf("%s has been defeated.\n", character_name);
     }
 
+    if ((player_get_health(player) == 0) || (character_get_health(character) == 0)) {
+      return game_increment_turn(game);
+    }
+
     return OK; /* Only attack one hostile character */
   }
 
   printf("There are no hostile characters to attack here.\n");
   return ERROR;
 }
-
 
 Status game_actions_chat(Game *game) {
   Id player_location;
@@ -551,7 +569,7 @@ Status game_actions_chat(Game *game) {
     strcpy(character_name, character_get_name(character));
     game_set_message(game, character_get_message(character));
     printf("You talk to %s.\n", character_name);
-    return OK;
+    return game_increment_turn(game);
   }
 
   printf("There are no friendly characters here to talk to.\n");
@@ -564,64 +582,51 @@ Status game_actions_inspect(Game *game) {
   char object_name[WORD_SIZE] = "";
   char object_description[WORD_SIZE];
 
-  fprintf(stdout, "[DEBUG] Starting game_actions_inspect\n");
-
   if (!game) {
-    fprintf(stdout, "[DEBUG] Game pointer is NULL\n");
     return ERROR;
   }
 
   player_location = game_get_player_location(game);
-  fprintf(stdout, "[DEBUG] Player location: %ld\n", player_location);
 
   c = game_get_last_command(game);
   if (!c) {
-    fprintf(stdout, "[DEBUG] Last command is NULL\n");
     return ERROR;
   }
 
   strcpy(object_name, command_get_word(c));
-  fprintf(stdout, "[DEBUG] Object name from command: %s\n", object_name);
 
   if (strcmp(object_name, "") == 0) {
-    fprintf(stdout, "[DEBUG] Object name is empty\n");
     return ERROR;
   }
 
   object_id = game_get_object_id_from_name(game, object_name);
-  fprintf(stdout, "[DEBUG] Object ID: %ld\n", object_id);
 
   if (space_has_object(game_get_space(game, player_location), object_id) == TRUE ||
       player_has_object(game_get_current_player(game), object_id) == TRUE) {
-    printf("AAAAAAAA\n");
     strcpy(object_description, object_get_desc(game_get_object_from_id(game, object_id)));
 
-    fprintf(stdout, "[DEBUG] Object description: %s\n", object_description);
     game_set_object_desc(game, object_description);
   } else {
-    fprintf(stdout, "[DEBUG] Object not found in player's location or inventory\n");
     return ERROR;
   }
 
   object_set_inspected(game_get_object_from_id(game, object_id), TRUE);
 
-  fprintf(stdout, "[DEBUG] game_actions_inspect completed successfully\n");
-  return OK;
+  return game_increment_turn(game);
 }
 
-Status game_actions_inventory(Game *game) {
+Status game_actions_inventory(Game *game) { /*No pierdes turno al abrir el inventario*/
   if (!game) {
     return ERROR;
   }
 
   game_toggle_inventory_vis(game);
 
-  return OK;
+  return game_increment_turn(game);
 }
 
 Status game_actions_use(Game *game) {
   Id object_id;
-  Id location;
   Command *c = NULL;
   char object_name[WORD_SIZE] = "";
   Connector connector = NO_DEST;
@@ -631,84 +636,61 @@ Status game_actions_use(Game *game) {
   Id character_id;
 
   if (!game) {
-    printf("[DEBUG] Game is NULL\n");
     return ERROR;
   }
 
   c = game_get_last_command(game);
   if (!c) {
-    printf("[DEBUG] Command is NULL\n");
     return ERROR;
   }
 
   strcpy(object_name, command_get_word(c));
-  printf("[DEBUG] Command word (object): '%s'\n", object_name);
 
   if (strcmp(object_name, "") == 0) {
-    printf("[DEBUG] Object name is empty\n");
     return ERROR;
   }
 
   object_id = game_get_object_id_from_name(game, object_name);
-  printf("[DEBUG] Retrieved object ID: %ld\n", object_id);
 
   if (object_id == NO_ID) {
-    printf("[DEBUG] Object '%s' not found in game\n", object_name);
     return ERROR;
   }
 
-  location = game_get_player_location(game);
-  printf("[DEBUG] Player's location is %ld\n", location);
-
   connector = command_get_connector(c);
-  printf("[DEBUG] Connector = %d\n", connector);
 
   if (connector == NO_DEST) {
-    printf("[DEBUG] Connector is NO_DEST\n");
     return ERROR;
   }
 
   strcpy(destiny, command_get_destiny(c));
-  printf("[DEBUG] Destiny = '%s'\n", destiny);
 
   if (strcmp(destiny, "") == 0) {
-    printf("[DEBUG] Destiny string is empty\n");
     return ERROR;
   }
 
-  if (player_has_object(game_get_current_player(game), object_id) == TRUE &&
-      game_check_object_dependency(game, object_id) == TRUE) {
-
+  if (player_has_object(game_get_current_player(game), object_id) == TRUE && game_check_object_dependency(game, object_id) == TRUE) {
     if (strcmp(destiny, "player") == 0) {
-      printf("[DEBUG] Applying object to player\n");
       if (game_update_player_health(game, object_id) == ERROR) {
-        printf("Failed to apply health changes\n");
         return ERROR;
       }
     } else {
-      printf("[DEBUG] Applying object to character\n");
       character_id = game_get_character_id_from_name(game, destiny);
-      printf("[DEBUG] Character ID from name '%s': %ld\n", destiny, character_id);
       character = game_get_character(game, character_id);
       player = game_get_current_player(game);
 
       if (character != NULL && character_get_following(character) == player_get_id(player)) {
-        printf("[DEBUG] Applying object to character '%s'\n", destiny);
         if (game_update_character_health(game, character, object_id) == ERROR) {
-          printf("Failed to apply health changes to character\n");
           return ERROR;
         }
       } else {
-        printf("[DEBUG] Unhandled or invalid destiny: '%s'\n", destiny);
         return ERROR;
       }
     }
   } else {
-    printf("Player does not have object %s or dependencies failed\n", object_name);
     return ERROR;
   }
 
-  return OK;
+  return game_increment_turn(game);
 }
 
 Status game_actions_open(Game *game) {
@@ -738,22 +720,18 @@ Status game_actions_open(Game *game) {
   if (!link_name || !object_name) return ERROR;
 
   if (connector == NO_DEST) {
-    printf("[DEBUG] Connector is NO_DEST\n");
     return ERROR;
   }
 
   link_id = game_get_link_id_from_name(game, (char *)link_name);
   if (link_id == NO_ID) {
-    printf("[DEBUG] No link found with name '%s'\n", link_name);
     return ERROR;
   }
 
   object_id = game_get_object_id_from_name(game, object_name);
   if (object_id == NO_ID) {
-    printf("[DEBUG] No object found with name '%s'\n", object_name);
     return ERROR;
   } else {
-    printf("[DEBUG] Object ID found: %ld for name '%s'\n", object_id, object_name);
   }
 
   /* Find the link object and its direction */
@@ -766,12 +744,15 @@ Status game_actions_open(Game *game) {
   }
 
   if (!link || direction == NO_DIR) {
-    printf("[DEBUG] Link not found starting at current space with given ID\n");
     return ERROR;
   }
 
   if (player_has_object(game_get_current_player(game), object_id) == TRUE && game_check_object_dependency(game, object_id) == TRUE) {
-    return game_set_link_open(game, current_space_id, direction);
+    if (game_set_link_open(game, current_space_id, direction) == OK) {
+      return game_increment_turn(game);
+    } else {
+      return ERROR;
+    }
   }
 
   return ERROR;
@@ -801,7 +782,11 @@ Status game_actions_load(Game *game) {
     return ERROR;
   }
 
-  return game_management_load(game, file_name, FALSE);
+  if (game_management_load(game, file_name, FALSE) == OK) {
+    return game_increment_turn(game);
+  }
+
+  return ERROR;
 }
 
 /**
@@ -828,11 +813,15 @@ Status game_actions_save(Game *game) {
     return ERROR;
   }
 
-  return game_management_save(game, file_name);
+  if (game_management_save(game, file_name) == OK) {
+    return game_increment_turn(game);
+  }
+
+  return ERROR;
 }
 
-Status game_actions_recruit (Game *game){
-  Command *c = NULL;  
+Status game_actions_recruit(Game *game) {
+  Command *c = NULL;
   char *word = NULL;
   Character *character = NULL;
   Player *player = NULL;
@@ -845,28 +834,26 @@ Status game_actions_recruit (Game *game){
   if (!c) return ERROR;
 
   word = command_get_word(c);
-  player = game_get_player(game, game_get_turn(game));
-  character = game_get_character(game, game_get_character_id_from_name (game, word));
+  player = game_get_player(game, game_get_player_index_from_turn(game));
+  character = game_get_character(game, game_get_character_id_from_name(game, word));
 
-  if (game_get_player_location (game) != game_get_character_location(game, game_get_character_id_from_name (game, word))){
-    printf ("[DEBUG]: ERROR 3");
+  if (game_get_player_location(game) != game_get_character_location(game, game_get_character_id_from_name(game, word))) {
     return ERROR;
   }
 
-  if (character_get_friendly(character) == FALSE){
-    printf ("[DEBUG]: ERROR 2 %s\n", character_get_friendly(character) ? "Yes" : "No");
+  if (character_get_friendly(character) == FALSE) {
     return ERROR;
   }
-  
-  if (character_set_following(character, player_get_id (player)) == ERROR){
-    printf ("[DEBUG]: ERROR 3");
-    return ERROR;
-  } 
 
-  return OK;
+  if (character_set_following(character, player_get_id(player)) == ERROR) {
+    return ERROR;
+  }
+
+  return game_increment_turn(game);
 }
-Status game_actions_abandon (Game *game){
-  Command *c = NULL;  
+
+Status game_actions_abandon(Game *game) {
+  Command *c = NULL;
   char *word = NULL;
   Character *character = NULL;
   Player *player = NULL;
@@ -879,13 +866,14 @@ Status game_actions_abandon (Game *game){
   if (!c) return ERROR;
 
   word = command_get_word(c);
-  player = game_get_player(game, game_get_turn(game));
-  character = game_get_character(game, game_get_character_id_from_name (game, word));
-  
-  if (character_get_following(character) != player_get_id (player)){
-    return ERROR;
-  } 
-  character_set_following (character, NO_ID);
+  player = game_get_player(game, game_get_player_index_from_turn(game));
+  character = game_get_character(game, game_get_character_id_from_name(game, word));
 
-  return OK;
+  if (character_get_following(character) != player_get_id(player)) {
+    return ERROR;
+  }
+
+  character_set_following(character, NO_ID);
+
+  return game_increment_turn(game);
 }

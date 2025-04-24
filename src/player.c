@@ -27,8 +27,9 @@ struct _Player {
   Id player_location;       /*!< Id number of the space the player is in */
   char name[WORD_SIZE + 1]; /*!< Name of the player */
   long health;              /*!< Health points the player has */
-  char gdesc[4];
-  Inventory *backpack;
+  char gdesc[4];            /*!< Graphical description of the player*/
+  Inventory *backpack;      /*!< Pointer to the player's inventory*/
+  int max_turns;            /*!< Default number of turns the player has in a row*/
 };
 
 /*Create & destroy*/
@@ -54,8 +55,9 @@ Player *player_create(Id id) {
     free(newPlayer);
     return NULL;
   }
-  newPlayer->player_location = NO_ID; /*  Añadir esta línea */
+  newPlayer->player_location = NO_ID;
   newPlayer->health = PLAYER_HEALTH;
+  newPlayer->max_turns = 1;
 
   return newPlayer;
 }
@@ -241,6 +243,34 @@ Inventory *player_get_inventory(Player *player) {
 
   return player->backpack;
 }
+
+/*Management of max_turns*/
+/**
+ * @brief It sets the max number of turns the player has
+ */
+Status player_set_max_turns(Player *player, int max_turns) {
+  /*CdE*/
+  if (!player) {
+    return ERROR;
+  }
+
+  player->max_turns = max_turns;
+
+  return OK;
+}
+
+/**
+ * @brief It gets the max number of turns the player has
+ */
+int player_get_max_turns(Player *player) {
+  /*CdE*/
+  if (!player) {
+    return -1;
+  }
+
+  return player->max_turns;
+}
+
 /*Print*/
 Status player_print(Player *player) {
   /* Error Control */

@@ -77,10 +77,10 @@ Status game_init(Game *game) {
   game->n_links = 0;
 
   game->finished = FALSE;
-  game->turn = 0;
+  game->turn = 1;
   game->inventory_vis = FALSE;
 
-  player_set_location(game->players[game_get_turn(game)], NO_ID);
+  player_set_location(game->players[game_get_player_index_from_turn(game)], NO_ID);
 
   return OK;
 }
@@ -246,7 +246,7 @@ Player *game_get_current_player(Game *game) {
     return NULL;
   }
 
-  return game->players[game_get_turn(game)];
+  return game->players[game_get_player_index_from_turn(game)];
 }
 
 /**
@@ -273,7 +273,7 @@ Player *game_get_player(Game *game, Id id) {
  */
 Player *game_get_player_from_index(Game *game, int index) {
   /*CdE*/
-  if (!game) {
+  if (!game || (index == -1)) {
     return NULL;
   }
 
@@ -285,11 +285,11 @@ Player *game_get_player_from_index(Game *game, int index) {
  */
 Status game_set_player_location(Game *game, Id id) {
   /*CdE*/
-  if (!game || !game->players[game_get_turn(game)] || id == NO_ID) {
+  if (!game || !game->players[game_get_player_index_from_turn(game)] || id == NO_ID) {
     return ERROR;
   }
 
-  return player_set_location(game->players[game_get_turn(game)], id);
+  return player_set_location(game->players[game_get_player_index_from_turn(game)], id);
 }
 
 /**
@@ -297,11 +297,11 @@ Status game_set_player_location(Game *game, Id id) {
  */
 Id game_get_player_location(Game *game) {
   /*CdE*/
-  if (!game || !game->players[game_get_turn(game)]) {
+  if (!game || !game->players[game_get_player_index_from_turn(game)]) {
     return NO_ID;
   }
 
-  return player_get_location(game->players[game_get_turn(game)]);
+  return player_get_location(game->players[game_get_player_index_from_turn(game)]);
 }
 
 /**
@@ -309,7 +309,7 @@ Id game_get_player_location(Game *game) {
  */
 Id game_get_player_location_from_index(Game *game, int index) {
   /*CdE*/
-  if (!game || !game->players[game_get_turn(game)]) {
+  if (!game || !game->players[game_get_player_index_from_turn(game)]) {
     return NO_ID;
   }
 
@@ -411,7 +411,7 @@ Id game_get_object_location(Game *game, Id object_id) {
 
   for (i = 0; i < game_get_num_players(game); i++) {
     if (player_has_object(game_get_player_from_index(game, i), object_id) == TRUE) {
-      return player_get_id(game->players[game_get_turn(game)]);
+      return player_get_id(game->players[game_get_player_index_from_turn(game)]);
     }
   }
 
@@ -582,7 +582,7 @@ Status game_set_character_location(Game *game, Id space_id, Id character_id) {
   if (!game || space_id == NO_ID || character_id == NO_ID) {
     return ERROR;
   }
-  space_remove_character (game_get_space(game, game_get_character_location(game, character_id)), character_id);
+  space_remove_character(game_get_space(game, game_get_character_location(game, character_id)), character_id);
   return space_add_character(game_get_space(game, space_id), character_id);
 }
 
@@ -596,7 +596,6 @@ Status game_remove_character_from_space(Game *game, Id space_id, Id character_id
 
   return space_remove_character(game_get_space(game, space_id), character_id);
 }
-
 
 /*Management of links*/
 /**
@@ -882,8 +881,8 @@ Status game_set_last_command(Game *game, Command *command) {
     return ERROR;
   }
 
-  printf("Setting command in %i index\n", game_get_turn(game));
-  game->last_cmd[game_get_turn(game)] = command;
+  printf("Setting command in %i index\n", game_get_player_index_from_turn(game));
+  game->last_cmd[game_get_player_index_from_turn(game)] = command;
 
   return OK;
 }
@@ -897,7 +896,7 @@ Command *game_get_last_command(Game *game) {
     return NULL;
   }
 
-  return game->last_cmd[game_get_turn(game)];
+  return game->last_cmd[game_get_player_index_from_turn(game)];
 }
 
 /*Management of message*/
@@ -910,7 +909,7 @@ Status game_set_message(Game *game, char *message) {
     return ERROR;
   }
 
-  strcpy(game->message[game_get_turn(game)], message);
+  strcpy(game->message[game_get_player_index_from_turn(game)], message);
 
   return OK;
 }
@@ -949,7 +948,7 @@ char *game_get_message(Game *game) {
     return NULL;
   }
 
-  return game->message[game_get_turn(game)];
+  return game->message[game_get_player_index_from_turn(game)];
 }
 
 /*Management of object_desc*/
@@ -974,7 +973,7 @@ char *game_get_object_desc(Game *game) {
     return NULL;
   }
 
-  return game->object_desc[game_get_turn(game)];
+  return game->object_desc[game_get_player_index_from_turn(game)];
 }
 
 /**
@@ -986,7 +985,7 @@ Status game_set_object_desc(Game *game, char *object_desc) {
     return ERROR;
   }
 
-  strcpy(game->object_desc[game_get_turn(game)], object_desc);
+  strcpy(game->object_desc[game_get_player_index_from_turn(game)], object_desc);
 
   return OK;
 }
@@ -1058,6 +1057,60 @@ int game_get_turn(Game *game) {
   return game->turn;
 }
 
+/**
+ * @brief Ir returns the index of the player whose turn it is
+ */
+int game_get_player_index_from_turn(Game *game) {
+  int i = 0, j = 0, guessed_turn = 0;
+  Player *last_player = NULL;
+  /*CdE*/
+  if (!game) {
+    return -1;
+  }
+
+  if (game->turn == 1) {
+    return 0;
+  }
+
+  for (i = 0; i < game_get_num_players(game); i++) {
+    last_player = game_get_player_from_index(game, i);
+
+    for (j = 0; j < player_get_max_turns(last_player); j++) {
+      guessed_turn++;
+      if (guessed_turn == game->turn) {
+        return i;
+      }
+    }
+  }
+
+  return -1;
+}
+
+/**
+ * @brief It increments the turn (if it exceeds the current number of players it goes back to 0)
+ */
+Status game_increment_turn(Game *game) {
+  int max_turns = 0, i = 0;
+  Player *player = NULL;
+  /*CdE*/
+  if (!game) {
+    return ERROR;
+  }
+
+  game->turn++;
+
+  for (i = 0; i < game_get_num_players(game); i++) {
+    player = game_get_player_from_index(game, i);
+    max_turns = max_turns + player_get_max_turns(player);
+  }
+
+  if (game->turn > max_turns) {
+    game->turn = 1;
+  }
+
+  return OK;
+}
+
 /*Management of inventory*/
 /**
  * @brief It toggles the inventory's visualization
@@ -1100,7 +1153,7 @@ Status game_update_player_health(Game *game, Id object_id) {
   if (!object) {
     return ERROR;
   }
-  turn = game_get_turn(game);
+  turn = game_get_player_index_from_turn(game);
   health = player_get_health(game->players[turn]) + object_get_health(object);
   if (player_set_health(game->players[turn], health) == OK) {
     return OK;
@@ -1150,7 +1203,7 @@ Bool game_check_object_dependency(Game *game, Id object_id) {
     return TRUE;
   }
 
-  if (player_has_object(game->players[game_get_turn(game)], object_dependency) == TRUE) {
+  if (player_has_object(game->players[game_get_player_index_from_turn(game)], object_dependency) == TRUE) {
     return TRUE;
   }
 
@@ -1221,9 +1274,9 @@ Id_Type game_get_id_type(Game *game, Id id) {
 
   return UNSIGNED;
 }
-Bool game_is_object_movable(Game *game, Id object_id){
-  Object *object =NULL;
-  if(!game || !object_id){
+Bool game_is_object_movable(Game *game, Id object_id) {
+  Object *object = NULL;
+  if (!game || !object_id) {
     return WRONG;
   }
 

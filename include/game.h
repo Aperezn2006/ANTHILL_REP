@@ -652,6 +652,24 @@ Status game_set_turn(Game *game, int turn);
  */
 int game_get_turn(Game *game);
 
+/**
+ * @brief Ir returns the index of the player whose turn it is
+ * @author Ana
+ *
+ * @param game a pointer to the game
+ * @return the index of the current player
+ */
+int game_get_player_index_from_turn(Game *game);
+
+/**
+ * @brief It increments the turn (if it exceeds the current number of players it goes back to 0)
+ * @author Ana
+ *
+ * @param game a pointer to the game
+ * @return OK if everything goes well, ERROR otherwise
+ */
+Status game_increment_turn(Game *game);
+
 /*Management of inventory*/
 /**
  * @brief It toggles the inventory's visualization
@@ -720,7 +738,7 @@ Id_Type game_get_id_type(Game *game, Id id);
  * @author Ana
  *
  * @param game a pointer to the game, id of an object
- * @param id 
+ * @param id
  * @return TRUE if can be moved
  */
 Bool game_is_object_movable(Game *game, Id object_id);
@@ -729,7 +747,7 @@ Bool game_is_object_movable(Game *game, Id object_id);
  * @brief It sets a link to open
  * @author Ana
  *
- * @param game a pointer to the game, 
+ * @param game a pointer to the game,
  * @param id of current space and a direction
  * @return Ok if everything went well
  */
