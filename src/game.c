@@ -315,6 +315,33 @@ Id game_get_player_location_from_index(Game *game, int index) {
 
   return player_get_location(game->players[index]);
 }
+Id game_get_player_id_from_name(Game *game, char *name) {
+  int i;
+
+  if (!game || !name) {
+    printf("[DEBUG] game_get_player_id_from_name: Game or name is NULL\n");
+    return NO_ID;
+  }
+
+  printf("[DEBUG] Searching for player with name: '%s'\n", name);
+
+  for (i = 0; i < game->n_players; i++) {
+    Player *p = game_get_player_from_index(game, i);
+    if (p) {
+      const char *player_name = player_get_name(p);
+      printf("[DEBUG] Comparing with player[%d] name: '%s'\n", i, player_name);
+
+      if (strcasecmp(player_name, name) == 0) {
+        Id found_id = player_get_id(p);
+        printf("[DEBUG] Match found! ID = %ld\n", found_id);
+        return found_id;
+      }
+    }
+  }
+
+  printf("[DEBUG] No matching player found for name: '%s'\n", name);
+  return NO_ID;
+}
 
 /*Management of objects*/
 /**
