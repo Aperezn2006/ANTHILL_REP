@@ -141,6 +141,7 @@ Status game_actions_use(Game *game);
  * @return  OK if everything goes well, ERROR otherwise
  */
 Status game_actions_open(Game *game);
+
 /**
  * @brief It allows the player to follow another player
  * @author Bea, Arturo, Rubén, Ana
@@ -149,6 +150,7 @@ Status game_actions_open(Game *game);
  * @return  OK if everything goes well, ERROR otherwise
  */
 Status game_actions_follow(Game *game);
+
 /**
  * @brief It allows the player to save its current game
  * @author Ana
@@ -838,6 +840,7 @@ Status game_actions_follow(Game *game) {
   printf("[DEBUG] Players are in the same space, attempting to handle follow logic...\n");
   return game_handle_follow(game, follower_id, leader_id);
 }
+
 
 /**
  * @brief It allows the player to save its current game
