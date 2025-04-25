@@ -96,7 +96,7 @@ Status game_actions_drop(Game *game);
  * @param game a pointer to the game
  * @return OK if everything goes well, ERROR otherwise
  */
-Status game_actions_attack(Game *game, int Seed);
+Status game_actions_attack(Game *game);
 
 /**
  * @brief It allows the player to chat with a character
@@ -141,7 +141,14 @@ Status game_actions_use(Game *game);
  * @return  OK if everything goes well, ERROR otherwise
  */
 Status game_actions_open(Game *game);
-
+/**
+ * @brief It allows the player to follow another player
+ * @author Bea, Arturo, Rubén, Ana
+ *
+ * @param game
+ * @return  OK if everything goes well, ERROR otherwise
+ */
+Status game_actions_follow(Game *game);
 /**
  * @brief It allows the player to save its current game
  * @author Ana
@@ -182,7 +189,7 @@ Status game_actions_abandon(Game *game);
    Game actions implementation
 */
 
-Status game_actions_update(Game *game, Command *command, int Seed) {
+Status game_actions_update(Game *game, Command *command) {
   CommandCode cmd;
 
   game_set_last_command(game, command);
@@ -211,7 +218,7 @@ Status game_actions_update(Game *game, Command *command, int Seed) {
       break;
 
     case ATTACK:
-      command_set_result(command, game_actions_attack(game, Seed));
+      command_set_result(command, game_actions_attack(game));
       break;
 
     case CHAT:
@@ -231,6 +238,9 @@ Status game_actions_update(Game *game, Command *command, int Seed) {
       break;
     case OPEN:
       command_set_result(command, game_actions_open(game));
+      break;
+    case FOLLOW:
+      command_set_result(command, game_actions_follow(game));
       break;
 
     case LOAD:
@@ -756,6 +766,81 @@ Status game_actions_open(Game *game) {
   }
 
   return ERROR;
+}
+
+Status game_actions_follow(Game *game) {
+  Command *c = NULL;
+  const char *follower_name = NULL;
+  Id follower_id = NO_ID;
+  Id leader_id = NO_ID;
+  Player *leader_player = NULL;
+  Player *follower_player = NULL;
+  Id leader_location = NO_ID;
+  Id follower_location = NO_ID;
+
+  if (!game) {
+    printf("[DEBUG] game is NULL\n");
+    return ERROR;
+  }
+
+  /* Get leader (current player) ID */
+  leader_player = game_get_current_player(game);
+  if (!leader_player) {
+    printf("[DEBUG] leader_player is NULL\n");
+    return ERROR;
+  }
+  leader_id = player_get_id(leader_player);
+  printf("[DEBUG] Leader ID: %ld\n", leader_id);
+
+  /* Get follower name from command */
+  c = game_get_last_command(game);
+  if (!c) {
+    printf("[DEBUG] Last command is NULL\n");
+    return ERROR;
+  }
+
+  follower_name = command_get_word(c);  /* e.g. "p2" from 'follow p2' */
+  if (!follower_name) {
+    printf("[DEBUG] follower_name is NULL\n");
+    return ERROR;
+  }
+  printf("[DEBUG] Follower name from command: %s\n", follower_name);
+
+  /* Get follower player by name and ID */
+  follower_id = game_get_player_id_from_name(game, (char *)follower_name);
+  if (follower_id == NO_ID) {
+    printf("[DEBUG] No player found with name: %s\n", follower_name);
+    return ERROR;
+  }
+  follower_player = game_get_player(game, follower_id);
+  if (!follower_player) {
+    printf("[DEBUG] follower_player with ID %ld is NULL\n", follower_id);
+    return ERROR;
+  }
+  printf("[DEBUG] Follower ID: %ld\n", follower_id);
+
+  /* Avoid self-following */
+  if (leader_id == follower_id) {
+    printf("[DEBUG] Leader and follower are the same player (ID %ld)\n", leader_id);
+    return ERROR;
+  }
+
+  /* Ensure both are in the same space */
+  leader_location = player_get_location(leader_player);
+  follower_location = player_get_location(follower_player);
+  if (leader_location == NO_ID || follower_location == NO_ID) {
+    printf("[DEBUG] One or both players have NO_ID location\n");
+    return ERROR;
+  }
+  printf("[DEBUG] Leader location: %ld, Follower location: %ld\n", leader_location, follower_location);
+
+  if (leader_location != follower_location) {
+    printf("[DEBUG] Players are not in the same space\n");
+    return ERROR;
+  }
+
+  printf("[DEBUG] Players are in the same space, attempting to handle follow logic...\n");
+  return game_handle_follow(game, follower_id, leader_id);
 }
 
 /**

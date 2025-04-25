@@ -34,6 +34,8 @@ struct _Game {
   Bool finished;                            /*!< Whether the game is finished or not */
   int turn;                                 /*!< Current game's turn */
   Bool inventory_vis;                       /*!< Whether the inventory is being visualized*/
+  Set *teams[MAX_TEAMS]; /*!< Equipos en el juego, cada uno es un conjunto de IDs de jugadores */
+  int n_teams;
 };
 
 /*Create & destroy*/
@@ -69,18 +71,21 @@ Status game_init(Game *game) {
   for (i = 0; i < MAX_LINK; i++) {
     game->links[i] = NULL;
   }
+  for (i = 0; i < MAX_TEAMS; i++) {
+    game->teams[i] = NULL;
+  }
 
   game->n_spaces = 0;
   game->n_players = 0;
   game->n_objects = 0;
   game->n_characters = 0;
   game->n_links = 0;
-
+  game->n_teams = 0;
   game->finished = FALSE;
-  game->turn = 1;
+  game->turn = 0;
   game->inventory_vis = FALSE;
 
-  player_set_location(game->players[game_get_player_index_from_turn(game)], NO_ID);
+  player_set_location(game->players[game_get_turn(game)], NO_ID);
 
   return OK;
 }
@@ -122,6 +127,10 @@ Status game_destroy(Game *game, Bool full_destruction) {
     link_destroy(game->links[i]);
     game->links[i] = NULL;
   }
+  for (i = 0; i < game->n_teams; i++) {
+    set_destroy(game->teams[i]);  /* <- liberar los sets */
+    game->teams[i] = NULL;
+  }
 
   if (full_destruction == TRUE) {
     free(game);
@@ -130,7 +139,6 @@ Status game_destroy(Game *game, Bool full_destruction) {
 
   return OK;
 }
-
 /**
  * @brief It allocates memory for the game
  */
@@ -314,6 +322,33 @@ Id game_get_player_location_from_index(Game *game, int index) {
   }
 
   return player_get_location(game->players[index]);
+}
+Id game_get_player_id_from_name(Game *game, char *name) {
+  int i;
+
+  if (!game || !name) {
+    printf("[DEBUG] game_get_player_id_from_name: Game or name is NULL\n");
+    return NO_ID;
+  }
+
+  printf("[DEBUG] Searching for player with name: '%s'\n", name);
+
+  for (i = 0; i < game->n_players; i++) {
+    Player *p = game_get_player_from_index(game, i);
+    if (p) {
+      const char *player_name = player_get_name(p);
+      printf("[DEBUG] Comparing with player[%d] name: '%s'\n", i, player_name);
+
+      if (strcasecmp(player_name, name) == 0) {
+        Id found_id = player_get_id(p);
+        printf("[DEBUG] Match found! ID = %ld\n", found_id);
+        return found_id;
+      }
+    }
+  }
+
+  printf("[DEBUG] No matching player found for name: '%s'\n", name);
+  return NO_ID;
 }
 
 /*Management of objects*/
@@ -1299,6 +1334,95 @@ Status game_set_link_open(Game *game, Id current_location, Direction direction) 
     }
   }
 
+  return ERROR;
+}
+Status game_add_team(Game *game) {
+  Set *new_team = set_create();
+  if (!game || game->n_teams >= MAX_TEAMS) return ERROR;
+
+  if (!new_team) return ERROR;
+
+  game->teams[game->n_teams++] = new_team;
+  return OK;
+}
+
+int game_get_team_of_player(const Game *game, Id player_id) {
+  int i;
+
+  if (!game || player_id == NO_ID) return -1;
+
+  for (i = 0; i < game->n_teams; i++) {
+    if (set_has_id(game->teams[i], player_id)) {
+      return i;
+    }
+  }
+
+  return -1;
+}
+Status game_add_player_to_team(Game *game, int team_index, Id player_id) {
+  if (!game || team_index < 0 || team_index >= game->n_teams || player_id == NO_ID) {
+    return ERROR;
+  }
+
+  return set_add_id(game->teams[team_index], player_id);
+}
+
+Status game_handle_follow(Game *game, Id follower, Id leader) {
+  int team_follower, team_leader, new_team_idx;
+
+  if (!game || follower == NO_ID || leader == NO_ID) {
+    printf("[DEBUG] game_handle_follow: Invalid input - game: %p, follower: %ld, leader: %ld\n",
+           (void *)game, follower, leader);
+    return ERROR;
+  }
+
+  team_follower = game_get_team_of_player(game, follower);
+  team_leader = game_get_team_of_player(game, leader);
+
+  printf("[DEBUG] Follower ID: %ld is in team %d\n", follower, team_follower);
+  printf("[DEBUG] Leader ID: %ld is in team %d\n", leader, team_leader);
+
+  /* Case 1: neither is in a team -> create a new team with both */
+  if (team_follower == -1 && team_leader == -1) {
+    printf("[DEBUG] Neither follower nor leader is in a team. Creating new team.\n");
+    if (game_add_team(game) == ERROR) {
+      printf("[DEBUG] Failed to add new team.\n");
+      return ERROR;
+    }
+    new_team_idx = game->n_teams - 1;
+    printf("[DEBUG] New team created at index %d\n", new_team_idx);
+
+    if (game_add_player_to_team(game, new_team_idx, follower) == ERROR) {
+      printf("[DEBUG] Failed to add follower %ld to new team %d\n", follower, new_team_idx);
+      return ERROR;
+    }
+
+    if (game_add_player_to_team(game, new_team_idx, leader) == ERROR) {
+      printf("[DEBUG] Failed to add leader %ld to new team %d\n", leader, new_team_idx);
+      return ERROR;
+    }
+
+    printf("[DEBUG] Both follower and leader added to new team %d\n", new_team_idx);
+
+    return OK;
+  }
+  /* Case 2: only follower is in a team -> add leader to that team */
+  else if (team_follower != -1 && team_leader == -1) {
+    printf("[DEBUG] Only follower is in a team. Adding leader %ld to team %d\n", leader, team_follower);
+    return game_add_player_to_team(game, team_follower, leader);
+  }
+  /* Case 3: only leader is in a team -> add follower to that team */
+  else if (team_follower == -1 && team_leader != -1) {
+    printf("[DEBUG] Only leader is in a team. Adding follower %ld to team %d\n", follower, team_leader);
+    return game_add_player_to_team(game, team_leader, follower);
+  }
+  /* Case 4: both are in the same team -> nothing to do */
+  else if (team_follower == team_leader) {
+    printf("[DEBUG] Both follower and leader are already in the same team %d. No action taken.\n", team_follower);
+    return OK;
+  }
+
+  printf("[DEBUG] Follower and leader are in different teams. Cannot follow.\n");
   return ERROR;
 }
 

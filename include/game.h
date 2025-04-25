@@ -170,6 +170,16 @@ Id game_get_player_location(Game *game);
  */
 Id game_get_player_location_from_index(Game *game, int index);
 
+/**
+ * @brief It gets the id of a player by name
+ * @author Bea, Arturo, Rubén, Ana
+ *
+ * @param game a pointer to the game
+ * @param name name of the player
+ * @return the player's id
+ */
+Id game_get_player_id_from_name(Game *game, char *name);
+
 /*Management of objects*/
 /**
  * @brief It adds objects to the game
@@ -752,6 +762,16 @@ Bool game_is_object_movable(Game *game, Id object_id);
  * @return Ok if everything went well
  */
 Status game_set_link_open(Game *game, Id current_location, Direction direction);
+
+/**
+ * @brief It sets teams
+ * @author Ana
+ *
+ * @param game a pointer to the game, 
+ * @param id of two players
+ * @return Ok if everything went well
+ */
+Status game_handle_follow(Game *game, Id follower, Id leader);
 
 /*Print*/
 /**

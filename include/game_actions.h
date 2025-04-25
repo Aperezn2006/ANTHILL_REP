@@ -28,6 +28,6 @@
  * @param command a pointer to the command
  * @return OK if everything goes well, ERROR otherwise
  */
-Status game_actions_update(Game *game, Command *command, int Seed);
+Status game_actions_update(Game *game, Command *command);
 
 #endif
