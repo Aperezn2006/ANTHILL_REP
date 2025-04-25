@@ -443,7 +443,7 @@ Status game_actions_drop(Game *game) {
   return game_increment_turn(game);
 }
 
-Status game_actions_attack(Game *game, int Seed) {
+Status game_actions_attack(Game *game) {
   Id player_location;
   Character *character = NULL;
   Player *player = NULL;
@@ -481,11 +481,7 @@ Status game_actions_attack(Game *game, int Seed) {
     }
 
     strcpy(character_name, character_get_name(character));
-    if (Seed) {
-      roll = 7; /* Deterministic */
-    } else {
-      roll = rand() % 10;
-    }
+    roll = rand() % 10; 
     printf("ROLL = %i", roll);
     if (roll >= 0 && roll <= 4) {
       for (j = 0; j < game_get_num_characters(game); j++) {
