@@ -41,7 +41,7 @@ int game_loop_init(Game *game, Graphic_engine **gengine, char *file_name);
  * @param gengine A pointer to the graphic engine.
  * @param log_file A file pointer for logging commands (can be NULL).
  */
-void game_loop_run(Game *game, Graphic_engine *gengine, FILE *log_file, int seed);
+void game_loop_run(Game *game, Graphic_engine *gengine, FILE *log_file);
 
 /**
  * @brief Cleans up resources used during the game loop, including the game and graphic engine.
@@ -94,6 +94,11 @@ int main(int argc, char *argv[]) {
     fprintf(stderr, "Error: No se proporcionó el archivo de datos del juego.\n");
     return 1;
   }
+  if (deterministic_mode) {
+    srand(1);
+  } else {
+    srand(time(NULL)); 
+  }
 
   game = game_alloc();
   if (!game) {
@@ -102,7 +107,7 @@ int main(int argc, char *argv[]) {
   }
 
   if (!game_loop_init(game, &gengine, data_file)) {
-    game_loop_run(game, gengine, log_file, deterministic_mode);
+    game_loop_run(game, gengine, log_file);
     graphic_engine_paint_end(gengine, game);
     game_loop_cleanup(game, gengine, log_file);
   }
@@ -125,7 +130,7 @@ int game_loop_init(Game *game, Graphic_engine **gengine, char *file_name) {
   return 0;
 }
 
-void game_loop_run(Game *game, Graphic_engine *gengine, FILE *log_file, int seed) {
+void game_loop_run(Game *game, Graphic_engine *gengine, FILE *log_file) {
   Command *last_cmd;
   int i;
 
@@ -140,7 +145,7 @@ void game_loop_run(Game *game, Graphic_engine *gengine, FILE *log_file, int seed
     space_set_discovered(game_get_space(game, game_get_player_location(game)), TRUE);
     graphic_engine_paint_game(gengine, game);
     command_get_user_input(last_cmd);
-    game_actions_update(game, last_cmd, seed);
+    game_actions_update(game, last_cmd);
     update_game(game);
     last_cmd = game_get_last_command(game);
 
