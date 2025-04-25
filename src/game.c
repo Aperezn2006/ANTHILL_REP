@@ -34,6 +34,8 @@ struct _Game {
   Bool finished;                            /*!< Whether the game is finished or not */
   int turn;                                 /*!< Current game's turn */
   Bool inventory_vis;                       /*!< Whether the inventory is being visualized*/
+  Set *teams[MAX_TEAMS]; /*!< Equipos en el juego, cada uno es un conjunto de IDs de jugadores */
+  int n_teams;
 };
 
 /*Create & destroy*/
@@ -69,18 +71,21 @@ Status game_init(Game *game) {
   for (i = 0; i < MAX_LINK; i++) {
     game->links[i] = NULL;
   }
+  for (i = 0; i < MAX_TEAMS; i++) {
+    game->teams[i] = NULL;
+  }
 
   game->n_spaces = 0;
   game->n_players = 0;
   game->n_objects = 0;
   game->n_characters = 0;
   game->n_links = 0;
-
+  game->n_teams = 0;
   game->finished = FALSE;
-  game->turn = 1;
+  game->turn = 0;
   game->inventory_vis = FALSE;
 
-  player_set_location(game->players[game_get_player_index_from_turn(game)], NO_ID);
+  player_set_location(game->players[game_get_turn(game)], NO_ID);
 
   return OK;
 }
@@ -122,6 +127,10 @@ Status game_destroy(Game *game, Bool full_destruction) {
     link_destroy(game->links[i]);
     game->links[i] = NULL;
   }
+  for (i = 0; i < game->n_teams; i++) {
+    set_destroy(game->teams[i]);  /* <- liberar los sets */
+    game->teams[i] = NULL;
+  }
 
   if (full_destruction == TRUE) {
     free(game);
@@ -130,7 +139,6 @@ Status game_destroy(Game *game, Bool full_destruction) {
 
   return OK;
 }
-
 /**
  * @brief It allocates memory for the game
  */
