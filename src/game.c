@@ -13,7 +13,8 @@
 #include <stdlib.h>
 #include <string.h>
 #include <strings.h>
-#define MAX_TEAMS 16
+#define MAX_TEAMS 16 /*!< Maximum number of teams in the game */
+
 /**
  Private structure
 */
@@ -82,10 +83,10 @@ Status game_init(Game *game) {
   game->n_links = 0;
   game->n_teams = 0;
   game->finished = FALSE;
-  game->turn = 0;
+  game->turn = 1;
   game->inventory_vis = FALSE;
 
-  player_set_location(game->players[game_get_turn(game)], NO_ID);
+  player_set_location(game->players[game_get_player_index_from_turn(game)], NO_ID);
 
   return OK;
 }
@@ -139,6 +140,7 @@ Status game_destroy(Game *game, Bool full_destruction) {
 
   return OK;
 }
+
 /**
  * @brief It allocates memory for the game
  */
@@ -323,6 +325,7 @@ Id game_get_player_location_from_index(Game *game, int index) {
 
   return player_get_location(game->players[index]);
 }
+
 Id game_get_player_id_from_name(Game *game, char *name) {
   int i;
 
@@ -1425,6 +1428,7 @@ Status game_handle_follow(Game *game, Id follower, Id leader) {
   printf("[DEBUG] Follower and leader are in different teams. Cannot follow.\n");
   return ERROR;
 }
+
 
 /*Print*/
 /**
