@@ -96,7 +96,7 @@ Status game_actions_drop(Game *game);
  * @param game a pointer to the game
  * @return OK if everything goes well, ERROR otherwise
  */
-Status game_actions_attack(Game *game, int Seed);
+Status game_actions_attack(Game *game);
 
 /**
  * @brief It allows the player to chat with a character
@@ -189,7 +189,7 @@ Status game_actions_abandon(Game *game);
    Game actions implementation
 */
 
-Status game_actions_update(Game *game, Command *command, int Seed) {
+Status game_actions_update(Game *game, Command *command) {
   CommandCode cmd;
 
   game_set_last_command(game, command);
@@ -218,7 +218,7 @@ Status game_actions_update(Game *game, Command *command, int Seed) {
       break;
 
     case ATTACK:
-      command_set_result(command, game_actions_attack(game, Seed));
+      command_set_result(command, game_actions_attack(game));
       break;
 
     case CHAT:
