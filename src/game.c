@@ -1301,6 +1301,95 @@ Status game_set_link_open(Game *game, Id current_location, Direction direction) 
 
   return ERROR;
 }
+Status game_add_team(Game *game) {
+  Set *new_team = set_create();
+  if (!game || game->n_teams >= MAX_TEAMS) return ERROR;
+
+  if (!new_team) return ERROR;
+
+  game->teams[game->n_teams++] = new_team;
+  return OK;
+}
+
+int game_get_team_of_player(const Game *game, Id player_id) {
+  int i;
+
+  if (!game || player_id == NO_ID) return -1;
+
+  for (i = 0; i < game->n_teams; i++) {
+    if (set_has_id(game->teams[i], player_id)) {
+      return i;
+    }
+  }
+
+  return -1;
+}
+Status game_add_player_to_team(Game *game, int team_index, Id player_id) {
+  if (!game || team_index < 0 || team_index >= game->n_teams || player_id == NO_ID) {
+    return ERROR;
+  }
+
+  return set_add_id(game->teams[team_index], player_id);
+}
+
+Status game_handle_follow(Game *game, Id follower, Id leader) {
+  int team_follower, team_leader, new_team_idx;
+
+  if (!game || follower == NO_ID || leader == NO_ID) {
+    printf("[DEBUG] game_handle_follow: Invalid input - game: %p, follower: %ld, leader: %ld\n",
+           (void *)game, follower, leader);
+    return ERROR;
+  }
+
+  team_follower = game_get_team_of_player(game, follower);
+  team_leader = game_get_team_of_player(game, leader);
+
+  printf("[DEBUG] Follower ID: %ld is in team %d\n", follower, team_follower);
+  printf("[DEBUG] Leader ID: %ld is in team %d\n", leader, team_leader);
+
+  /* Case 1: neither is in a team -> create a new team with both */
+  if (team_follower == -1 && team_leader == -1) {
+    printf("[DEBUG] Neither follower nor leader is in a team. Creating new team.\n");
+    if (game_add_team(game) == ERROR) {
+      printf("[DEBUG] Failed to add new team.\n");
+      return ERROR;
+    }
+    new_team_idx = game->n_teams - 1;
+    printf("[DEBUG] New team created at index %d\n", new_team_idx);
+
+    if (game_add_player_to_team(game, new_team_idx, follower) == ERROR) {
+      printf("[DEBUG] Failed to add follower %ld to new team %d\n", follower, new_team_idx);
+      return ERROR;
+    }
+
+    if (game_add_player_to_team(game, new_team_idx, leader) == ERROR) {
+      printf("[DEBUG] Failed to add leader %ld to new team %d\n", leader, new_team_idx);
+      return ERROR;
+    }
+
+    printf("[DEBUG] Both follower and leader added to new team %d\n", new_team_idx);
+
+    return OK;
+  }
+  /* Case 2: only follower is in a team -> add leader to that team */
+  else if (team_follower != -1 && team_leader == -1) {
+    printf("[DEBUG] Only follower is in a team. Adding leader %ld to team %d\n", leader, team_follower);
+    return game_add_player_to_team(game, team_follower, leader);
+  }
+  /* Case 3: only leader is in a team -> add follower to that team */
+  else if (team_follower == -1 && team_leader != -1) {
+    printf("[DEBUG] Only leader is in a team. Adding follower %ld to team %d\n", follower, team_leader);
+    return game_add_player_to_team(game, team_leader, follower);
+  }
+  /* Case 4: both are in the same team -> nothing to do */
+  else if (team_follower == team_leader) {
+    printf("[DEBUG] Both follower and leader are already in the same team %d. No action taken.\n", team_follower);
+    return OK;
+  }
+
+  printf("[DEBUG] Follower and leader are in different teams. Cannot follow.\n");
+  return ERROR;
+}
 
 /*Print*/
 /**
