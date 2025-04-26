@@ -301,6 +301,22 @@ Status game_set_player_location(Game *game, Id id) {
 
   return player_set_location(game->players[game_get_player_index_from_turn(game)], id);
 }
+Status game_set_player_location_from_id(Game *game, Id space_id, Id player_id) {
+  int i;
+
+  if (!game || space_id == NO_ID || player_id == NO_ID) {
+    return ERROR;
+  }
+
+  for (i = 0; i < game_get_num_players(game); i++) {
+    if (player_get_id(game->players[i]) == player_id) {
+      return player_set_location(game->players[i], space_id);
+    }
+  }
+
+  return ERROR;
+}
+
 
 /**
  * @brief It gets the current player's location
@@ -1428,6 +1444,20 @@ Status game_handle_follow(Game *game, Id follower, Id leader) {
   printf("[DEBUG] Follower and leader are in different teams. Cannot follow.\n");
   return ERROR;
 }
+Set *game_get_team(const Game *game, Id player_id) {
+  int i;
+
+  if (!game || player_id == NO_ID) return NULL;
+
+  for (i = 0; i < game->n_teams; i++) {
+    if (set_has_id(game->teams[i], player_id)) {
+      return game->teams[i];
+    }
+  }
+
+  return NULL;
+}
+
 
 
 /*Print*/
