@@ -4,9 +4,31 @@
 #include <stdlib.h>
 
 struct _Set {
-  Id *ids;   /*!< Ids in the game */
-  int n_ids; /*!< Number of ids in the game */
+  Id *ids;    /*!< Ids in the game */
+  int n_ids;  /*!< Number of ids in the game */
+  int cursor; /*SDL2*/
 };
+
+/*Cosas de SDL2*/
+int set_get_cursor(Set *set) {
+  if (!set) return -1;
+  printf("\nCURSOR IS AT %i\n\n", set->cursor);
+  if (set->cursor < 0) {
+    set->cursor = 0;
+  }
+  printf("\nREDIRECTED TO %i\n\n", set->cursor);
+  return set->cursor;
+}
+
+void set_set_cursor(Set *set, int cursor) {
+  if (!set) return;
+
+  set->cursor = cursor;
+
+  if (cursor < 0) {
+    set->cursor = 0;
+  }
+}
 
 /*Create & destroy*/
 /**

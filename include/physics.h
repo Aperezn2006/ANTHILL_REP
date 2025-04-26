@@ -21,9 +21,9 @@ void physics_handle_attack(Player *player);
 void physics_update_rays();
 void physics_update_player_movement(Player *player, Space *space);
 
-void physics_update_body_movement(Body *body, Space *space);
-
 /* Placeholder for future chat system */
 void physics_handle_chat(Game *game, Player *player);
+
+Link *physics_get_colliding_link(Game *game, Player *player);
 
 #endif

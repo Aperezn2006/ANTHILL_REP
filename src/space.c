@@ -28,7 +28,64 @@ struct _Space {
   Set *characters;
   char gdesc[5][10];
   Bool discovered;
+  Obstacle *obstacle[10];  /*SDL2*/
+  int num_obstacles;       /*SDL2*/
+  char image[MAX_MESSAGE]; /*SDL2*/
 };
+
+/*Cosas de SDL2*/
+
+Status space_add_obstacle(Space *space, Obstacle *p) {
+  if (!space) {
+    fprintf(stderr, "Debug: space is NULL\n");
+    return ERROR;
+  }
+  if (!p) {
+    fprintf(stderr, "Debug: obstacle is NULL\n");
+    return ERROR;
+  }
+
+  if (space->num_obstacles >= 10) {
+    fprintf(stderr, "Debug: Maximum obstacles reached in space (num_obstacles = %d)\n", space->num_obstacles);
+    return ERROR;
+  }
+
+  fprintf(stderr, "Debug: Adding obstacle. Current num_obstacles = %d\n", space->num_obstacles);
+
+  space->obstacle[space->num_obstacles++] = p;
+
+  fprintf(stderr, "Debug: Obstacle added. Updated num_obstacles = %d\n", space->num_obstacles);
+
+  return OK;
+}
+
+int space_get_num_obstacles(Space *space) {
+  if (!space) {
+    return -1;
+  }
+  return space->num_obstacles;
+}
+
+Obstacle *space_get_obstacle(Space *space, int index) {
+  if (!space || index < 0 || index >= space->num_obstacles) {
+    return NULL;
+  }
+  return space->obstacle[index];
+}
+
+/* Set space image */
+Status space_set_image(Space *space, const char *image) {
+  if (!space || !image) return ERROR;
+  strncpy(space->image, image, MAX_MESSAGE - 1);
+  space->image[MAX_MESSAGE - 1] = '\0';
+  return OK;
+}
+
+/* Get space image */
+const char *space_get_image(const Space *space) {
+  if (!space) return NULL;
+  return space->image;
+}
 
 /*Create & destroy*/
 Space *space_create(Id id) {
@@ -180,7 +237,6 @@ Id space_get_character_from_index(Space *space, int index) {
   }
   return set_get_id_from_index(space->characters, index);
 }
-
 
 /*Manejo de la descripción*/
 char **space_get_description(Space *space) {

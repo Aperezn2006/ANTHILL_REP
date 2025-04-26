@@ -59,7 +59,7 @@ CFLAGS = -Wall -g -Werror -Wpedantic -ansi -I$(INCLUDE_DIR)
 all: $(EXEC) $(TESTS)
 
 # Regla para compilar el ejecutable principal
-$(EXEC): $(OBJ_DIR)/game_loop.o $(OBJ_DIR)/command.o $(OBJ_DIR)/game_actions.o $(OBJ_DIR)/game.o $(OBJ_DIR)/graphic_engine.o $(OBJ_DIR)/space.o $(OBJ_DIR)/game_management.o $(OBJ_DIR)/player.o $(OBJ_DIR)/game_rules.o $(OBJ_DIR)/object.o $(OBJ_DIR)/character.o $(OBJ_DIR)/set.o $(OBJ_DIR)/link.o $(OBJ_DIR)/inventory.o
+$(EXEC): $(OBJ_DIR)/game_loop.o $(OBJ_DIR)/command.o $(OBJ_DIR)/game_actions.o $(OBJ_DIR)/game.o $(OBJ_DIR)/graphic_engine.o $(OBJ_DIR)/space.o $(OBJ_DIR)/game_management.o $(OBJ_DIR)/player.o $(OBJ_DIR)/game_rules.o $(OBJ_DIR)/object.o $(OBJ_DIR)/character.o $(OBJ_DIR)/set.o $(OBJ_DIR)/link.o $(OBJ_DIR)/inventory.o 
 	@echo "Compilando: $(EXEC)"
 	@$(CC) $(CFLAGS) -o $@ $^ $(LIBS)
 

@@ -308,10 +308,6 @@ Status game_actions_move(Game *game) {
     return ERROR;
   }
 
-  if (game_get_inventory_vis(game) == TRUE) {
-    return ERROR;
-  }
-
   current_space_id = game_get_player_location(game);
   if (current_space_id == NO_ID) {
     return ERROR;
@@ -383,10 +379,6 @@ Status game_actions_take(Game *game) {
     return ERROR;
   }
 
-  if (game_get_inventory_vis(game) == TRUE) {
-    return ERROR;
-  }
-
   c = game_get_last_command(game);
   if (!c) {
     printf("[DEBUG] Last command is NULL\n");
@@ -448,10 +440,6 @@ Status game_actions_drop(Game *game) {
     return ERROR;
   }
 
-  if (game_get_inventory_vis(game) == TRUE) {
-    return ERROR;
-  }
-
   c = game_get_last_command(game);
   strcpy(object_name, command_get_word(c)); /*Corrección: Podemos ahorrarnos la variable
                                                object_name si llamamos a get_obj*/
@@ -491,10 +479,6 @@ Status game_actions_attack(Game *game) {
   char character_name[WORD_SIZE] = "";
 
   if (!game) {
-    return ERROR;
-  }
-
-  if (game_get_inventory_vis(game) == TRUE) {
     return ERROR;
   }
 
@@ -592,10 +576,6 @@ Status game_actions_chat(Game *game) {
     return ERROR;
   }
 
-  if (game_get_inventory_vis(game) == TRUE) {
-    return ERROR;
-  }
-
   player = game_get_current_player(game);
   if (!player) {
     return ERROR;
@@ -675,7 +655,7 @@ Status game_actions_inventory(Game *game) { /*No pierdes turno al abrir el inven
 
   game_toggle_inventory_vis(game);
 
-  return OK;
+  return game_increment_turn(game);
 }
 
 Status game_actions_use(Game *game) {
@@ -826,10 +806,6 @@ Status game_actions_follow(Game *game) {
     return ERROR;
   }
 
-  if (game_get_inventory_vis(game) == TRUE) {
-    return ERROR;
-  }
-
   /* Get leader (current player) ID */
   leader_player = game_get_current_player(game);
   if (!leader_player) {
@@ -904,10 +880,6 @@ Status game_actions_load(Game *game) {
     return ERROR;
   }
 
-  if (game_get_inventory_vis(game) == TRUE) {
-    return ERROR;
-  }
-
   c = game_get_last_command(game);
   if (!c) {
     return ERROR;
@@ -936,10 +908,6 @@ Status game_actions_save(Game *game) {
 
   /*CdE*/
   if (!game) {
-    return ERROR;
-  }
-
-  if (game_get_inventory_vis(game) == TRUE) {
     return ERROR;
   }
 
@@ -972,10 +940,6 @@ Status game_actions_recruit(Game *game) {
     return ERROR;
   }
 
-  if (game_get_inventory_vis(game) == TRUE) {
-    return ERROR;
-  }
-
   c = game_get_last_command(game);
   if (!c) return ERROR;
 
@@ -1005,10 +969,6 @@ Status game_actions_abandon(Game *game) {
   Player *player = NULL;
 
   if (!game) {
-    return ERROR;
-  }
-
-  if (game_get_inventory_vis(game) == TRUE) {
     return ERROR;
   }
 

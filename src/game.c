@@ -35,9 +35,90 @@ struct _Game {
   Bool finished;                            /*!< Whether the game is finished or not */
   int turn;                                 /*!< Current game's turn */
   Bool inventory_vis;                       /*!< Whether the inventory is being visualized*/
-  Set *teams[MAX_TEAMS]; /*!< Equipos en el juego, cada uno es un conjunto de IDs de jugadores */
+  Set *teams[MAX_TEAMS];                    /*!< Equipos en el juego, cada uno es un conjunto de IDs de jugadores */
   int n_teams;
+  Ray *ray; /*SDL2*/
+  Bool SDL; /*SDL2*/
 };
+
+/*Cosas de SDL2*/
+Bool game_get_SDL(Game *game) {
+  if (!game) {
+    return FALSE;
+  }
+
+  return game->SDL;
+}
+void game_move_inventory_cursor(Game *game, int direction) {
+  Player *player = NULL;
+  Inventory *inventory = NULL;
+  int num_objects, cursor;
+
+  printf("\nMOVING CURSOR :)\n");
+  player = game_get_current_player(game);
+  if (!player) {
+    return;
+  }
+
+  inventory = player_get_inventory(player);
+  if (!inventory) {
+    return;
+  }
+
+  num_objects = inventory_get_max_objects(inventory);
+  if (num_objects == 0) {
+    return;
+  }
+
+  cursor = player_get_inventory_cursor(player);
+
+  cursor += direction;
+
+  if (cursor < 0) {
+    cursor = 0;
+  } else if (cursor >= num_objects) {
+    cursor = num_objects;
+  }
+
+  printf("\nTHE CURSOR IS IN THE %i POSITION\n\n", cursor);
+
+  player_set_inventory_cursor(player, cursor);
+}
+
+Ray *game_get_ray(Game *game) {
+  if (!game) return NULL;
+  return game->ray;
+}
+
+void game_set_ray(Game *game, Ray *ray) {
+  if (!game) return;
+  game->ray = ray;
+}
+
+Id game_get_connection(Game *game, Id current_location, Direction direction) {
+  int i;
+  if (!game || current_location == NO_ID) {
+    return NO_ID;
+  }
+
+  fprintf(stdout, "Buscando conexión desde la ubicación %ld en la dirección %d.\n", current_location, direction);
+
+  for (i = 0; i < game->n_links; i++) {
+    fprintf(stdout, "Comprobando enlace %d: Start = %ld, Direction = %d, End = %ld\n", i, link_get_start(game->links[i]),
+            link_get_direction(game->links[i]), link_get_end(game->links[i]));
+
+    if (link_get_start(game->links[i]) == current_location && link_get_direction(game->links[i]) == direction) {
+      fprintf(stdout, "Conexión encontrada. End = %ld\n", link_get_end(game->links[i]));
+      return link_get_end(game->links[i]);
+    }
+  }
+
+  fprintf(stdout,
+          "No se encontró una conexión válida en la dirección %d desde la "
+          "ubicación %ld.\n",
+          direction, current_location);
+  return NO_ID;
+}
 
 /*Create & destroy*/
 /**
@@ -129,7 +210,7 @@ Status game_destroy(Game *game, Bool full_destruction) {
     game->links[i] = NULL;
   }
   for (i = 0; i < game->n_teams; i++) {
-    set_destroy(game->teams[i]);  /* <- liberar los sets */
+    set_destroy(game->teams[i]); /* <- liberar los sets */
     game->teams[i] = NULL;
   }
 
@@ -316,7 +397,6 @@ Status game_set_player_location_from_id(Game *game, Id space_id, Id player_id) {
 
   return ERROR;
 }
-
 
 /**
  * @brief It gets the current player's location
@@ -1390,8 +1470,7 @@ Status game_handle_follow(Game *game, Id follower, Id leader) {
   int team_follower, team_leader, new_team_idx;
 
   if (!game || follower == NO_ID || leader == NO_ID) {
-    printf("[DEBUG] game_handle_follow: Invalid input - game: %p, follower: %ld, leader: %ld\n",
-           (void *)game, follower, leader);
+    printf("[DEBUG] game_handle_follow: Invalid input - game: %p, follower: %ld, leader: %ld\n", (void *)game, follower, leader);
     return ERROR;
   }
 
@@ -1457,8 +1536,6 @@ Set *game_get_team(const Game *game, Id player_id) {
 
   return NULL;
 }
-
-
 
 /*Print*/
 /**

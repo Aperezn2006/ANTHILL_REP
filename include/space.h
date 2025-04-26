@@ -10,6 +10,7 @@
 #define SPACE_H
 
 #include "object.h"
+#include "obstacle.h"
 #include "set.h"
 #include "types.h"
 
@@ -24,6 +25,17 @@ typedef struct _Space Space;
  * @return a new space, initialized
  */
 Space *space_create(Id id);
+
+/*Cosas de SDL2*/
+Status space_add_obstacle(Space *space, Obstacle *p);
+
+int space_get_num_obstacles(Space *space);
+
+Obstacle *space_get_obstacle(Space *space, int index);
+
+Status space_set_image(Space *space, const char *image);
+
+const char *space_get_image(const Space *space);
 
 /**
  * @brief It destroys a space, freeing the allocated memory
@@ -166,7 +178,6 @@ int space_get_num_characters(Space *space);
  * @return the id of the character at that index, or NO_ID on error
  */
 Id space_get_character_from_index(Space *space, int index);
-
 
 /*Manejo de gdesc*/
 /**

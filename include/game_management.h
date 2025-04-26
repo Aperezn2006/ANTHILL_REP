@@ -17,6 +17,7 @@
 #include "game_management.h"
 #include "graphic_engine.h"
 #include "object.h"
+#include "obstacle.h"
 #include "player.h"
 #include "space.h"
 #include "time.h"

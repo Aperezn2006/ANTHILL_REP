@@ -215,6 +215,9 @@ Status player_set_max_objs(Player *player, int max);
  */
 Inventory *player_get_inventory(Player *player);
 
+void player_set_inventory_cursor(Player *player, int cursor);
+int player_get_inventory_cursor(Player *player);
+
 /*Management of max_turns*/
 /**
  * @brief It sets the max number of turns the player has
@@ -237,7 +240,7 @@ int player_get_max_turns(Player *player);
 
 /*Management of image*/
 /**
- * @brief It sets the player's image_path
+ * @brief It sets the player's current image_path
  * @author Beatriz, Arturo, Rubén, Ana
  *
  * @param player a pointer to the player
@@ -247,13 +250,19 @@ int player_get_max_turns(Player *player);
 Status player_set_image(Player *player, char *image);
 
 /**
- * @brief It gets the player's image_path
+ * @brief It gets the player's current image_path
  * @author Beatriz, Arturo, Rubén, Ana
  *
  * @param player a pointer to the player
  * @return the path to the player's image
  */
 char *player_get_image(Player *player);
+
+Status player_set_East_image(Player *player, const char *East_image);
+const char *player_get_East_image(const Player *player);
+
+Status player_set_West_image(Player *player, const char *West_image);
+const char *player_get_West_image(const Player *player);
 
 /*Management of position*/
 /**

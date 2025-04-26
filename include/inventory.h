@@ -17,6 +17,10 @@
 
 typedef struct _Inventory Inventory;
 
+/*Cosas de SDL2*/
+int inventory_get_cursor(Inventory *inv);
+void inventory_set_cursor(Inventory *inv, int cursor);
+
 /*Create & destroy*/
 /**
  * @brief It creates a new player, allocating memory and initializing its members

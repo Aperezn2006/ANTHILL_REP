@@ -11,7 +11,41 @@ struct _Link {
   Id destination;
   Bool open;
   Direction direction;
+  char resource[MAX_CHARACTERS]; /*SDL2*/
+  int x, y;                      /*SDL2*/
 };
+
+/*Cosas de SDL2*/
+int link_get_x(Link *link) {
+  if (!link) {
+    printf("Couldn get x!\n");
+    return -1;
+  }
+
+  return link->x;
+}
+
+int link_get_y(Link *link) {
+  if (!link) {
+    printf("Couldn get y!\n");
+    return -1;
+  }
+
+  return link->y;
+}
+
+Status link_set_image(Link *link, const char *image) {
+  if (!link || !image) return ERROR;
+  strncpy(link->resource, image, MAX_CHARACTERS - 1);
+  link->resource[MAX_CHARACTERS - 1] = '\0';
+  return OK;
+}
+
+/* Get player image */
+const char *link_get_image(const Link *link) {
+  if (!link) return NULL;
+  return link->resource;
+}
 
 Link *link_create(Id id) {
   Link *newlink = NULL;

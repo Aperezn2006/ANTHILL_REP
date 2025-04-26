@@ -18,6 +18,12 @@
  */
 typedef struct _Link Link;
 
+/*Cosas de SDL2*/
+Status link_set_image(Link *link, const char *image);
+const char *link_get_image(const Link *link);
+int link_get_x(Link *link);
+int link_get_y(Link *link);
+
 /* Funciones de creación y destrucción */
 /**
  * @brief It creates a new link

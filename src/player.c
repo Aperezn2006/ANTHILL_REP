@@ -23,15 +23,17 @@
  * This struct stores all the information of a player.
  */
 struct _Player {
-  Id id;                    /*!< Id number of the player, it must be unique */
-  Id player_location;       /*!< Id number of the space the player is in */
-  char name[WORD_SIZE + 1]; /*!< Name of the player */
-  long health;              /*!< Health points the player has */
-  char gdesc[4];            /*!< Graphical description of the player*/
-  Inventory *backpack;      /*!< Pointer to the player's inventory*/
-  int max_turns;            /*!< Default number of turns the player has in a row*/
-  char image[MAX_IMAGE];    /*!< Path to the player's image (for SDL2)*/
-  int x, y;                 /*!< Player's position*/
+  Id id;                         /*!< Id number of the player, it must be unique */
+  Id player_location;            /*!< Id number of the space the player is in */
+  char name[WORD_SIZE + 1];      /*!< Name of the player */
+  long health;                   /*!< Health points the player has */
+  char gdesc[4];                 /*!< Graphical description of the player*/
+  Inventory *backpack;           /*!< Pointer to the player's inventory*/
+  int max_turns;                 /*!< Default number of turns the player has in a row*/
+  char current_image[MAX_IMAGE]; /*!< Path to the player's image (for SDL2)*/
+  char East_image[MAX_IMAGE];    /*!< Path to the player's image (for SDL2)*/
+  char West_image[MAX_IMAGE];    /*!< Path to the player's image (for SDL2)*/
+  int x, y;                      /*!< Player's position*/
 };
 
 /*Create & destroy*/
@@ -60,7 +62,9 @@ Player *player_create(Id id) {
   newPlayer->player_location = NO_ID;
   newPlayer->health = PLAYER_HEALTH;
   newPlayer->max_turns = 1;
-  newPlayer->image[0] = '\0';
+  newPlayer->current_image[0] = '\0';
+  newPlayer->East_image[0] = '\0';
+  newPlayer->West_image[0] = '\0';
   newPlayer->x = 0;
   newPlayer->y = 0;
 
@@ -249,6 +253,28 @@ Inventory *player_get_inventory(Player *player) {
   return player->backpack;
 }
 
+int player_get_inventory_cursor(Player *player) {
+  Inventory *inv;
+
+  if (!player) return -1;
+
+  inv = player_get_inventory(player);
+  if (!inv) return -1;
+
+  return inventory_get_cursor(inv);
+}
+
+void player_set_inventory_cursor(Player *player, int cursor) {
+  Inventory *inv;
+
+  if (!player) return;
+
+  inv = player_get_inventory(player);
+  if (!inv) return;
+
+  inventory_set_cursor(inv, cursor);
+}
+
 /*Management of max_turns*/
 /**
  * @brief It sets the max number of turns the player has
@@ -277,30 +303,48 @@ int player_get_max_turns(Player *player) {
 }
 
 /*Management of image*/
-/**
- * @brief It sets the object's image_path
- */
+/* Set player current_image */
 Status player_set_image(Player *player, char *image) {
-  if (!player) {
-    return ERROR;
-  }
-
-  strcpy(player->image, image);
-
+  if (!player || !image) return ERROR;
+  printf("\nImage now is %s\n\n", image);
+  strncpy(player->current_image, image, MAX_MESSAGE - 1);
+  player->current_image[MAX_MESSAGE - 1] = '\0';
   return OK;
 }
 
-/**
- * @brief It gets the player's image_path
- */
+/* Get player image */
 char *player_get_image(Player *player) {
-  if (!player) {
-    return NULL;
-  }
-
-  return player->image;
+  if (!player) return NULL;
+  return player->current_image;
 }
 
+/* Set player East_image */
+Status player_set_East_image(Player *player, const char *East_image) {
+  if (!player || !East_image) return ERROR;
+  strncpy(player->East_image, East_image, MAX_MESSAGE - 1);
+  player->East_image[MAX_MESSAGE - 1] = '\0';
+  return OK;
+}
+
+/* Get player East_image */
+const char *player_get_East_image(const Player *player) {
+  if (!player) return NULL;
+  return player->East_image;
+}
+
+/* Get player West_image */
+const char *player_get_West_image(const Player *player) {
+  if (!player) return NULL;
+  return player->West_image;
+}
+
+/* Set player West_image */
+Status player_set_West_image(Player *player, const char *West_image) {
+  if (!player || !West_image) return ERROR;
+  strncpy(player->West_image, West_image, MAX_MESSAGE - 1);
+  player->West_image[MAX_MESSAGE - 1] = '\0';
+  return OK;
+}
 /*Management of position*/
 /**
  * @brief It sets the player's position

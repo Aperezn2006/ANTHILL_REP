@@ -16,10 +16,30 @@
 #include "link.h"
 #include "object.h"
 #include "player.h"
+#include "ray.h"
 #include "space.h"
 #include "types.h"
 
 typedef struct _Game Game;
+
+/*Cosas de SDL2*/
+Bool game_get_SDL(Game *game);
+
+Id game_get_connection(Game *game, Id current_location, Direction direction);
+
+Bool game_connection_is_open(Game *game, Id current_location, Direction direction);
+
+Status game_add_link(Game *game, Link *link);
+
+Link *game_get_link_by_id(Game *game, Id link_id);
+
+Ray *game_get_ray(Game *game);
+
+void game_set_ray(Game *game, Ray *ray);
+
+void game_move_inventory_cursor(Game *game, int direction);
+
+Status game_select_inventory_object(Game *game);
 
 /*Create & destroy*/
 /**
@@ -776,7 +796,7 @@ Status game_set_link_open(Game *game, Id current_location, Direction direction);
  * @brief It sets teams
  * @author Ana
  *
- * @param game a pointer to the game, 
+ * @param game a pointer to the game,
  * @param id of two players
  * @return Ok if everything went well
  */
@@ -786,7 +806,7 @@ Status game_handle_follow(Game *game, Id follower, Id leader);
  * @brief It gets the team of a player
  * @author Ana
  *
- * @param game a pointer to the game, 
+ * @param game a pointer to the game,
  * @param id of a player
  * @return Ok if everything went well
  */

@@ -19,6 +19,29 @@ struct _Inventory {
   int max_objects; /*!< Capacity of the inventory */
 };
 
+/*Cosas de SDL2*/
+int inventory_get_cursor(Inventory *inv) {
+  Set *set;
+
+  if (!inv) return -1;
+
+  set = inventory_get_objects(inv);
+  if (!set) return -1;
+
+  return set_get_cursor(set);
+}
+
+void inventory_set_cursor(Inventory *inv, int cursor) {
+  Set *set;
+
+  if (!inv) return;
+
+  set = inventory_get_objects(inv);
+  if (!set) return;
+
+  set_set_cursor(set, cursor);
+}
+
 /*Create & destroy*/
 /**
  * @brief It creates a new player, allocating memory and initializing its members

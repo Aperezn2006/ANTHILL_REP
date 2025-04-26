@@ -13,6 +13,10 @@
 
 typedef struct _Set Set;
 
+/*Cosas de SDL2*/
+int set_get_cursor(Set *set);
+void set_set_cursor(Set *set, int cursor);
+
 /*Create & destroy*/
 /**
  * @brief It creates a set
