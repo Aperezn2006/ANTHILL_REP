@@ -235,6 +235,49 @@ Status player_set_max_turns(Player *player, int max_turns);
  */
 int player_get_max_turns(Player *player);
 
+/*Management of image*/
+/**
+ * @brief It sets the player's image_path
+ * @author Beatriz, Arturo, Rubén, Ana
+ *
+ * @param player a pointer to the player
+ * @param image the path to the player's image
+ * @return OK, if everything goes well or ERROR if there was some mistake
+ */
+Status player_set_image(Player *player, char *image);
+
+/**
+ * @brief It gets the player's image_path
+ * @author Beatriz, Arturo, Rubén, Ana
+ *
+ * @param player a pointer to the player
+ * @return the path to the player's image
+ */
+char *player_get_image(Player *player);
+
+/*Management of position*/
+/**
+ * @brief It sets the player's position
+ * @author Beatriz, Arturo, Rubén, Ana
+ *
+ * @param player a pointer to the player
+ * @param x the x coordinate of the player's position
+ * @param y the y coordinate of the player's position
+ * @return OK, if everything goes well or ERROR if there was some mistake
+ */
+Status player_set_position(Player *player, int x, int y);
+
+/**
+ * @brief It gets the player's position
+ * @author Beatriz, Arturo, Rubén, Ana
+ *
+ * @param player a pointer to the player
+ * @param x the x coordinate of the player's position
+ * @param y the y coordinate of the player's position
+ * @return OK, if everything goes well or ERROR if there was some mistake
+ */
+Status player_get_position(Player *player, int *x, int *y);
+
 /*Print*/
 /**
  * @brief It prints the player information

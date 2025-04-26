@@ -534,11 +534,11 @@ void graphic_engine_paint_inventory(Graphic_engine *ge, Game *game) {
 
   sprintf(str1, "       Object:      |                   Observations:                       ");
   screen_area_puts(ge->map, str1);
+  sprintf(str1, "----------------------------------------------------------------------------");
+  screen_area_puts(ge->map, str1);
   for (i = 0; i < MAX_OBJECTS; i++) {
     object = game_get_object_from_index(game, i);
     if (player_has_object(game_get_current_player(game), object_get_id(object)) == TRUE) {
-      sprintf(str1, "----------------------------------------------------------------------------");
-      screen_area_puts(ge->map, str1);
       if (object_get_inspected(object) == TRUE) {
         sprintf(str1, "       %12s |%s", object_get_name(object), object_get_desc(object));
         screen_area_puts(ge->map, str1);
@@ -546,8 +546,11 @@ void graphic_engine_paint_inventory(Graphic_engine *ge, Game *game) {
         sprintf(str1, "%20s| No info yet", object_get_name(object));
         screen_area_puts(ge->map, str1);
       }
+      sprintf(str1, "----------------------------------------------------------------------------");
+      screen_area_puts(ge->map, str1);
     }
   }
 
   screen_paint(game_get_player_index_from_turn(game) % 7);
+  printf("prompt:> ");
 }

@@ -122,6 +122,49 @@ Id object_get_dependency(const Object *object);
 Status object_set_open(Object *object, Id link_id);
 Id object_get_open(const Object *object);
 
+/*Management of image*/
+/**
+ * @brief It sets the object's image_path
+ * @author Beatriz, Arturo, Rubén, Ana
+ *
+ * @param object a pointer to the object
+ * @param image the path to the object's image
+ * @return OK, if everything goes well or ERROR if there was some mistake
+ */
+Status object_set_image(Object *object, char *image);
+
+/**
+ * @brief It gets the object's image_path
+ * @author Beatriz, Arturo, Rubén, Ana
+ *
+ * @param object a pointer to the object
+ * @return the path to the object's image
+ */
+char *object_get_image(Object *object);
+
+/*Management of position*/
+/**
+ * @brief It sets the object's position
+ * @author Beatriz, Arturo, Rubén, Ana
+ *
+ * @param object a pointer to the object
+ * @param x the x coordinate of the object's position
+ * @param y the y coordinate of the object's position
+ * @return OK, if everything goes well or ERROR if there was some mistake
+ */
+Status object_set_position(Object *object, int x, int y);
+
+/**
+ * @brief It gets the object's position
+ * @author Beatriz, Arturo, Rubén, Ana
+ *
+ * @param object a pointer to the object
+ * @param x the x coordinate of the object's position
+ * @param y the y coordinate of the object's position
+ * @return OK, if everything goes well or ERROR if there was some mistake
+ */
+Status object_get_position(Object *object, int *x, int *y);
+
 /*Print*/
 /**
  * @brief It prints the object information

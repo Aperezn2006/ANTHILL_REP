@@ -25,7 +25,14 @@ SRC = $(SRC_DIR)/game_loop.c \
       $(SRC_DIR)/character.c \
       $(SRC_DIR)/set.c \
       $(SRC_DIR)/link.c \
-      $(SRC_DIR)/inventory.c
+      $(SRC_DIR)/inventory.c \
+			$(SRC_DIR)/graphic_engine2.c \
+			$(SRC_DIR)/gun.c \
+			$(SRC_DIR)/input.c \
+			$(SRC_DIR)/obstacle.c \
+			$(SRC_DIR)/physics.c \
+			$(SRC_DIR)/ray.c \
+
 
 # Archivos fuente de los tests
 TEST_SRC = $(TEST_DIR)/space_test.c \
@@ -111,6 +118,30 @@ $(OBJ_DIR)/link.o: $(SRC_DIR)/link.c $(INCLUDE_DIR)/link.h
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 $(OBJ_DIR)/inventory.o: $(SRC_DIR)/inventory.c $(INCLUDE_DIR)/inventory.h
+	@echo "Compilando: $<"
+	@$(CC) $(CFLAGS) -c $< -o $@
+
+$(OBJ_DIR)/graphic_engine2.o: $(SRC_DIR)/graphic_engine2.c $(INCLUDE_DIR)/graphic_engine2.h
+	@echo "Compilando: $<"
+	@$(CC) $(CFLAGS) -c $< -o $@
+
+$(OBJ_DIR)/gun.o: $(SRC_DIR)/gun.c $(INCLUDE_DIR)/gun.h
+	@echo "Compilando: $<"
+	@$(CC) $(CFLAGS) -c $< -o $@
+
+$(OBJ_DIR)/input.o: $(SRC_DIR)/input.c $(INCLUDE_DIR)/input.h
+	@echo "Compilando: $<"
+	@$(CC) $(CFLAGS) -c $< -o $@
+
+$(OBJ_DIR)/obstacle.o: $(SRC_DIR)/obstacle.c $(INCLUDE_DIR)/obstacle.h
+	@echo "Compilando: $<"
+	@$(CC) $(CFLAGS) -c $< -o $@
+
+$(OBJ_DIR)/physics.o: $(SRC_DIR)/physics.c $(INCLUDE_DIR)/physics.h
+	@echo "Compilando: $<"
+	@$(CC) $(CFLAGS) -c $< -o $@
+
+$(OBJ_DIR)/ray.o: $(SRC_DIR)/ray.c $(INCLUDE_DIR)/ray.h
 	@echo "Compilando: $<"
 	@$(CC) $(CFLAGS) -c $< -o $@
 

@@ -13,8 +13,6 @@
 
 #include "types.h"
 
-#define MAX_MESSAGE 100
-
 typedef struct _Character Character;
 
 /*  Create y destroy */
@@ -190,7 +188,7 @@ Status character_set_message(Character *character, char *message);
 /**
  * @brief It gets the id of the character that the current character is following
  * @author Arturo
- * 
+ *
  * @param character A pointer to the character whose following id is to be retrieved
  * @return The id of the character being followed, or NO_ID if no character is being followed
  */
@@ -205,6 +203,48 @@ Id character_get_following(Character *character);
  */
 Status character_set_following(Character *character, Id id);
 
+/*Management of image*/
+/**
+ * @brief It sets the character's image_path
+ * @author Beatriz, Arturo, Rubén, Ana
+ *
+ * @param character a pointer to the character
+ * @param image the path to the character's image
+ * @return OK, if everything goes well or ERROR if there was some mistake
+ */
+Status character_set_image(Character *character, char *image);
+
+/**
+ * @brief It gets the character's image_path
+ * @author Beatriz, Arturo, Rubén, Ana
+ *
+ * @param character a pointer to the character
+ * @return the path to the character's image
+ */
+char *character_get_image(Character *character);
+
+/*Management of position*/
+/**
+ * @brief It sets the character's position
+ * @author Beatriz, Arturo, Rubén, Ana
+ *
+ * @param character a pointer to the character
+ * @param x the x coordinate of the character's position
+ * @param y the y coordinate of the character's position
+ * @return OK, if everything goes well or ERROR if there was some mistake
+ */
+Status character_set_position(Character *character, int x, int y);
+
+/**
+ * @brief It gets the character's position
+ * @author Beatriz, Arturo, Rubén, Ana
+ *
+ * @param character a pointer to the character
+ * @param x the x coordinate of the character's position
+ * @param y the y coordinate of the character's position
+ * @return OK, if everything goes well or ERROR if there was some mistake
+ */
+Status character_get_position(Character *character, int *x, int *y);
 
 /*  Print */
 /**

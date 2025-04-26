@@ -30,6 +30,8 @@ struct _Player {
   char gdesc[4];            /*!< Graphical description of the player*/
   Inventory *backpack;      /*!< Pointer to the player's inventory*/
   int max_turns;            /*!< Default number of turns the player has in a row*/
+  char image[MAX_IMAGE];    /*!< Path to the player's image (for SDL2)*/
+  int x, y;                 /*!< Player's position*/
 };
 
 /*Create & destroy*/
@@ -58,6 +60,9 @@ Player *player_create(Id id) {
   newPlayer->player_location = NO_ID;
   newPlayer->health = PLAYER_HEALTH;
   newPlayer->max_turns = 1;
+  newPlayer->image[0] = '\0';
+  newPlayer->x = 0;
+  newPlayer->y = 0;
 
   return newPlayer;
 }
@@ -269,6 +274,60 @@ int player_get_max_turns(Player *player) {
   }
 
   return player->max_turns;
+}
+
+/*Management of image*/
+/**
+ * @brief It sets the object's image_path
+ */
+Status player_set_image(Player *player, char *image) {
+  if (!player) {
+    return ERROR;
+  }
+
+  strcpy(player->image, image);
+
+  return OK;
+}
+
+/**
+ * @brief It gets the player's image_path
+ */
+char *player_get_image(Player *player) {
+  if (!player) {
+    return NULL;
+  }
+
+  return player->image;
+}
+
+/*Management of position*/
+/**
+ * @brief It sets the player's position
+ */
+Status player_set_position(Player *player, int x, int y) {
+  if (!player || (x < 0) || (y < 0)) {
+    return ERROR;
+  }
+
+  player->x = x;
+  player->y = y;
+
+  return OK;
+}
+
+/**
+ * @brief It gets the player's position
+ */
+Status player_get_position(Player *player, int *x, int *y) {
+  if (!player) {
+    return ERROR;
+  }
+
+  *x = player->x;
+  *y = player->y;
+
+  return OK;
 }
 
 /*Print*/

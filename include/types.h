@@ -21,6 +21,9 @@
 #define MAX_LINK 100
 #define MAX_PLAYERS 10
 
+#define MAX_MESSAGE 100
+#define MAX_IMAGE 100
+
 #define PLAYER_HEALTH 5
 #define CHARACTER_HEALTH 10
 

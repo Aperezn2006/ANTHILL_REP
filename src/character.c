@@ -27,6 +27,8 @@ struct _Character {
   Bool friendly;             /*!< Indicates whether the character is hostile or not */
   char message[MAX_MESSAGE]; /*!< It saves the message*/
   Id following;
+  char image[MAX_IMAGE]; /*!< Path to the character's image (for SDL2)*/
+  int x, y;              /*!< Character's position*/
 };
 
 /* Create y destroy */
@@ -51,6 +53,9 @@ Character *character_create(Id id) {
   newcharacter->friendly = TRUE;
   newcharacter->message[0] = '\0';
   newcharacter->following = NO_ID;
+  newcharacter->image[0] = '\0';
+  newcharacter->x = 0;
+  newcharacter->y = 0;
 
   return newcharacter;
 }
@@ -102,7 +107,6 @@ Status character_set_name(Character *character, char *name) {
 
   return OK;
 }
-
 
 /*  Manejo de gdesc */
 char *character_get_description(Character *character) {
@@ -189,20 +193,72 @@ Status character_set_message(Character *character, char *message) {
 }
 
 /*  Manejo de following */
-Id character_get_following(Character *character){
+Id character_get_following(Character *character) {
   if (!character) return NO_ID;
 
   return character->following;
 }
 
-Status character_set_following(Character *character, Id id){
+Status character_set_following(Character *character, Id id) {
   if (!character) return ERROR;
 
   character->following = id;
   return OK;
 }
 
+/*Management of image*/
+/**
+ * @brief It sets the character's image_path
+ */
+Status character_set_image(Character *character, char *image) {
+  if (!character) {
+    return ERROR;
+  }
 
+  strcpy(character->image, image);
+
+  return OK;
+}
+
+/**
+ * @brief It gets the character's image_path
+ */
+char *character_get_image(Character *character) {
+  if (!character) {
+    return NULL;
+  }
+
+  return character->image;
+}
+
+/*Management of position*/
+/**
+ * @brief It sets the character's position
+ */
+Status character_set_position(Character *character, int x, int y) {
+  if (!character || (x < 0) || (y < 0)) {
+    return ERROR;
+  }
+
+  character->x = x;
+  character->y = y;
+
+  return OK;
+}
+
+/**
+ * @brief It gets the character's position
+ */
+Status character_get_position(Character *character, int *x, int *y) {
+  if (!character) {
+    return ERROR;
+  }
+
+  *x = character->x;
+  *y = character->y;
+
+  return OK;
+}
 
 /*  Print */
 Status character_print(Character *character) {
@@ -212,6 +268,8 @@ Status character_print(Character *character) {
   }
 
   /* 1. Print the id and the name of the character */
-  fprintf(stdout, "--> Character (Id: %ld; Name: %s; Graphical Description: %s; Health: %ld; Friendly: %s; Message: %s; Following: %ld;)\n", character->id, character->name, character->gdesc, character->health, character->friendly ? "Yes" : "No", character->message, character->following);
+  fprintf(stdout, "--> Character (Id: %ld; Name: %s; Graphical Description: %s; Health: %ld; Friendly: %s; Message: %s; Following: %ld;)\n",
+          character->id, character->name, character->gdesc, character->health, character->friendly ? "Yes" : "No", character->message,
+          character->following);
   return OK;
 }

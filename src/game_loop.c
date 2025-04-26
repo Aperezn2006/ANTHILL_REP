@@ -97,7 +97,7 @@ int main(int argc, char *argv[]) {
   if (deterministic_mode) {
     srand(1);
   } else {
-    srand(time(NULL)); 
+    srand(time(NULL));
   }
 
   game = game_alloc();
@@ -144,6 +144,9 @@ void game_loop_run(Game *game, Graphic_engine *gengine, FILE *log_file) {
     last_cmd = game_get_last_command(game);
     space_set_discovered(game_get_space(game, game_get_player_location(game)), TRUE);
     graphic_engine_paint_game(gengine, game);
+    if (game_get_inventory_vis(game) == TRUE) {
+      graphic_engine_paint_inventory(gengine, game);
+    }
     command_get_user_input(last_cmd);
     game_actions_update(game, last_cmd);
     update_game(game);
@@ -159,19 +162,6 @@ void game_loop_run(Game *game, Graphic_engine *gengine, FILE *log_file) {
         /*sleep(1);*/
       }
 
-      if (game_get_inventory_vis(game) == TRUE) {
-        graphic_engine_paint_inventory(gengine, game);
-        sleep(2);
-        game_toggle_inventory_vis(game);
-        /*while (game_get_inventory_vis(game) == TRUE) {
-          if (command_get_code(game_get_last_command(game)) == INVENTORY) {
-            game_actions_update(game, game_get_last_command(game));
-            if (log_file) {
-              log_command(log_file, last_cmd);
-            }
-          }
-        }*/
-      }
       /*Chequeo de following*/
 
       for (i = 0; i < game_get_num_characters(game); i++) {

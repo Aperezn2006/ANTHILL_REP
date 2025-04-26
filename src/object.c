@@ -26,6 +26,8 @@ struct _Object {
   Id dependency;
   Id open;
   int turn_amplifier;
+  char image[MAX_IMAGE]; /*!< Path to the object's image (for SDL2)*/
+  int x, y;              /*!< Object's position*/
 };
 
 /*Create & destroy*/
@@ -53,6 +55,9 @@ Object *object_create(Id id, Id location) {
   newobject->movable = FALSE;
   newobject->dependency = NO_ID;
   newobject->open = NO_ID;
+  newobject->image[0] = '\0';
+  newobject->x = 0;
+  newobject->y = 0;
 
   return newobject;
 }
@@ -222,6 +227,60 @@ Bool object_get_inspected(Object *object) {
   }
 
   return object->inspected;
+}
+
+/*Management of image*/
+/**
+ * @brief It sets the object's image_path
+ */
+Status object_set_image(Object *object, char *image) {
+  if (!object) {
+    return ERROR;
+  }
+
+  strcpy(object->image, image);
+
+  return OK;
+}
+
+/**
+ * @brief It gets the object's image_path
+ */
+char *object_get_image(Object *object) {
+  if (!object) {
+    return NULL;
+  }
+
+  return object->image;
+}
+
+/*Management of position*/
+/**
+ * @brief It sets the object's position
+ */
+Status object_set_position(Object *object, int x, int y) {
+  if (!object || (x < 0) || (y < 0)) {
+    return ERROR;
+  }
+
+  object->x = x;
+  object->y = y;
+
+  return OK;
+}
+
+/**
+ * @brief It gets the object's position
+ */
+Status object_get_position(Object *object, int *x, int *y) {
+  if (!object) {
+    return ERROR;
+  }
+
+  *x = object->x;
+  *y = object->y;
+
+  return OK;
 }
 
 /*Print*/
