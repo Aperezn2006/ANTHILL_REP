@@ -283,6 +283,22 @@ Status object_get_position(Object *object, int *x, int *y) {
   return OK;
 }
 
+int object_get_x(Object *object) {
+  if (!object) {
+    return ERROR;
+  }
+
+  return object->x;
+}
+
+int object_get_y(Object *object) {
+  if (!object) {
+    return ERROR;
+  }
+
+  return object->y;
+}
+
 /*Print*/
 /**
  * @brief It prints the object information

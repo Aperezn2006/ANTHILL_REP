@@ -260,6 +260,22 @@ Status character_get_position(Character *character, int *x, int *y) {
   return OK;
 }
 
+int character_get_x(Character *character) {
+  if (!character) {
+    return ERROR;
+  }
+
+  return character->x;
+}
+
+int character_get_y(Character *character) {
+  if (!character) {
+    return ERROR;
+  }
+
+  return character->y;
+}
+
 /*  Print */
 Status character_print(Character *character) {
   /* Error Control */

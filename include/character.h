@@ -74,6 +74,9 @@ Id character_get_location(Character *character);
  */
 Status character_set_location(Character *character, Id character_location);
 
+int character_get_x(Character *character);
+int character_get_y(Character *character);
+
 /*  Manejo de name */
 /**
  * @brief It gets the name of a character

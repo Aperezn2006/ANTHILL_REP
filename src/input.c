@@ -90,7 +90,7 @@ void input_update(Game *game) {
                 update_key_state(1, &game_input.use);
                 break;
               case SDLK_TAB:
-                game_toggle_inventory_vis(game);  // Alterna la visibilidad del inventario
+                game_toggle_inventory_vis(game);
                 break;
             }
           }

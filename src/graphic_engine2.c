@@ -20,7 +20,7 @@ struct _Graphic_engine {
   SDL_Renderer *renderer;
   SDL_Texture *background_texture;
   SDL_Texture *ant_texture;
-  SDL_Texture *character_texture;
+  SDL_Texture *character_textures[MAX_CHARACTERS];
   SDL_Texture *obstacle_texture;
   SDL_Texture *link_textures[4];
   SDL_Texture *object_textures[MAX_OBJECTS];
@@ -101,7 +101,9 @@ Graphic_engine *graphic_engine_create(void) {
     gengine->link_textures[i] = NULL;
   }
 
-  gengine->character_texture = NULL;
+  for (i = 0; i < MAX_CHARACTERS; i++) {
+    gengine->character_textures[i] = NULL;
+  }
 
   gengine->ray_texture = load_texture(gengine->renderer, "resources/ray.jpeg");
   if (!gengine->ray_texture) {
@@ -157,9 +159,11 @@ void graphic_engine_destroy(Graphic_engine *gengine) {
     gengine->ant_texture = NULL;
   }
 
-  if (gengine->character_texture) {
-    SDL_DestroyTexture(gengine->character_texture);
-    gengine->character_texture = NULL;
+  for (i = 0; i < MAX_CHARACTERS; i++) {
+    if (gengine->character_textures[i]) {
+      SDL_DestroyTexture(gengine->character_textures[i]);
+      gengine->character_textures[i] = NULL;
+    }
   }
 
   if (gengine->ray_texture) {
@@ -217,15 +221,19 @@ void graphic_engine_render(Graphic_engine *gengine, Game *game) {
   Id id_act = NO_ID;
   Space *current_space = NULL;
   Player *player = NULL;
-  int player_x;
-  int player_y;
-  int character_x;
-  int character_y;
+  int player_x, player_y;
   const char *ant_path = NULL;
   const char *background_path = NULL;
   const char *character_path = NULL;
   Character *character = NULL;
-  int i = 0;
+  int character_x, character_y;
+  int i = 0, j = 0;
+  Direction directions[4] = {0, 1, 2, 3}; /* North, South, East, West */
+  Link *link = NULL;
+  int link_x, link_y;
+  Object *obj = NULL;
+  int obj_x, obj_y;
+  int inv_x, inv_y;
 
   if (!gengine || !game) {
     return;
@@ -262,7 +270,7 @@ void graphic_engine_render(Graphic_engine *gengine, Game *game) {
   }
 
   /* Get player position */
-  player = game_get_player(game);
+  player = game_get_current_player(game);
   player_x = 0;
   player_y = 0;
   player_get_position(player, &player_x, &player_y);
@@ -276,73 +284,25 @@ void graphic_engine_render(Graphic_engine *gengine, Game *game) {
     gengine->ant_texture = load_texture(gengine->renderer, ant_path);
   }
 
-  /* Get character position */
-  character = game_get_character(game, space_get_character(game_get_space(game, player_get_location(game_get_player(game)))));
+  for (i = 0; i < space_get_num_characters(game_get_space(game, player_get_location(game_get_current_player(game)))); i++) {
+    character = game_get_character_from_index(game, i);
+    if (character && (game_get_character_location(game, character_get_id(character)) == id_act)) {
+      character_x = character_get_x(character);
+      character_y = character_get_y(character);
+      SDL_Rect character_rect = {character_x * TILE_SIZE, character_y * TILE_SIZE, 40, 40};
+      gengine->character_textures[i] = load_texture(gengine->renderer, character_get_image(character));
 
-  if (character) {
-    character_x = character_get_x(character);
-    character_y = character_get_y(character);
-    /* Set link position - Use stored link position instead of relative to
-     * character */
-
-    /* Load character image dynamically */
-    character_path = character_get_image(character);
-    if (character_path) {
-      if (gengine->character_texture) {
-        printf("All good so far\n");
-        SDL_DestroyTexture(gengine->character_texture);
-        printf("Texture destroyed :)\n");
+      if (gengine->character_textures[i]) {
+        SDL_RenderCopy(gengine->renderer, gengine->character_textures[i], NULL, &character_rect);
+      } else {
+        printf("Warning: Object texture is NULL.\n");
       }
-      gengine->character_texture = load_texture(gengine->renderer, character_path);
-
-      /* Render character */
-      if (character) {
-        if (gengine->character_texture) {
-          SDL_Rect character_rect = {character_x * TILE_SIZE, character_y * TILE_SIZE, 60, 60};
-          SDL_RenderCopy(gengine->renderer, gengine->character_texture, NULL, &character_rect);
-        } else {
-          printf("Warning: Character texture is NULL.\n");
-        }
-      }
-    }
-  }
-
-  /* Render obstacles as segments */
-  int num_obstacles = space_get_num_obstacles(current_space);
-
-  for (int i = 0; i < num_obstacles; i++) {
-    obstacle *obstacle = space_get_obstacle(current_space, i);
-    if (!obstacle) continue;
-
-    // Loop over each segment in the obstacle and render the perimeter
-    for (int j = 0; j < obstacle_get_segment_count(obstacle); j++) {
-      int x1, y1, x2, y2;
-      int width, height;
-
-      // Get the coordinates of the current segment
-      obstacle_get_segment(obstacle, j, &x1, &y1, &x2, &y2);
-
-      width = abs(x2 - x1);
-      height = abs(y2 - y1);
-
-      // Set the render color (you can adjust this to fit your game's style)
-      SDL_SetRenderDrawColor(gengine->renderer, 255, 255, 255, 255);  // White color for outline
-
-      // Render the segment (line)
-      SDL_RenderDrawLine(gengine->renderer, x1 * TILE_SIZE, y1 * TILE_SIZE, x2 * TILE_SIZE, y2 * TILE_SIZE);
-
-      printf(". . . .. Loading segment in (%i,%i), width = %i, height = %i\n", x1, y1, width, height);
-      SDL_Rect segment_rect = {x2 * TILE_SIZE, y1 * TILE_SIZE, width * TILE_SIZE, 50};
-      /*SDL_RenderFillRect(gengine->renderer, &segment_rect);  // Este rellena el hueco*/
-
-      SDL_RenderCopy(gengine->renderer, gengine->obstacle_texture, NULL, &segment_rect);
     }
   }
 
   /* Render links */
-  Direction directions[4] = {0, 1, 2, 3}; /* North, South, East, West */
-  for (int i = 0; i < 4; i++) {
-    Link *link = game_get_link_at_direction(game, id_act, directions[i]);
+  for (i = 0; i < 4; i++) {
+    link = game_get_link_by_id(game, game_get_neighbour(game, id_act, directions[i]));
     if (link && game_connection_is_open(game, id_act, directions[i])) {
       const char *link_path = link_get_image(link);
       if (link_path) {
@@ -353,8 +313,8 @@ void graphic_engine_render(Graphic_engine *gengine, Game *game) {
       }
 
       /* Get fixed link position */
-      int link_x = link_get_x(link);
-      int link_y = link_get_y(link);
+      link_x = link_get_x(link);
+      link_y = link_get_y(link);
 
       if (gengine->link_textures[i]) {
         SDL_Rect link_rect = {link_x, link_y, 60, 60};
@@ -364,12 +324,12 @@ void graphic_engine_render(Graphic_engine *gengine, Game *game) {
     }
   }
 
-  Ray *ray = game_get_ray(game);         // Get the current ray instance
-  if (ray && ray_is_active(ray) == 1) {  // Render only if ray is active
-    ray_update(ray);                     // Update ray position dynamically
+  Ray *ray = game_get_ray(game);        /*Get the current ray instance*/
+  if (ray && ray_is_active(ray) == 1) { /*Render only if ray is active*/
+    ray_update(ray);                    /*Update ray position dynamically*/
 
     if (gengine->ray_texture) {
-      SDL_Rect ray_rect = {ray_get_x(ray), ray_get_y(ray), 50, 50};  // Adjust size as needed
+      SDL_Rect ray_rect = {ray_get_x(ray), ray_get_y(ray), 50, 50}; /*Adjust size as needed*/
       SDL_RenderCopy(gengine->renderer, gengine->ray_texture, NULL, &ray_rect);
       printf("Rendering ray at (%d, %d)\n", ray_get_x(ray), ray_get_y(ray));
     } else {
@@ -385,12 +345,11 @@ void graphic_engine_render(Graphic_engine *gengine, Game *game) {
     printf("Warning: Ant texture is NULL.\n");
   }
 
-  Object *obj = NULL;
   for (i = 0; i < MAX_OBJECTS; i++) {
     obj = game_get_object_from_index(game, i);
     if (obj && (game_get_object_location(game, object_get_id(obj)) == id_act)) {
-      int obj_x = object_get_x(obj);
-      int obj_y = object_get_y(obj);
+      obj_x = object_get_x(obj);
+      obj_y = object_get_y(obj);
       SDL_Rect obj_rect = {obj_x * TILE_SIZE, obj_y * TILE_SIZE, 40, 40};
       gengine->object_textures[i] = load_texture(gengine->renderer, object_get_image(obj));
 
@@ -403,7 +362,7 @@ void graphic_engine_render(Graphic_engine *gengine, Game *game) {
   }
 
   /*Render inventory*/
-  int inv_x = 220, inv_y = 20;
+  inv_x = 220, inv_y = 20;
   SDL_Texture *dynamic_inventory = NULL;
   if (game_get_inventory_vis(game) == TRUE) {
     printf("\n------------RENDERING INVENTORYYY---------------\n\n");

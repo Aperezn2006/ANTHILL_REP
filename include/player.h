@@ -11,10 +11,18 @@
 #ifndef PLAYER_H_
 #define PLAYER_H_
 
+#include "gun.h"
 #include "inventory.h"
+#include "set.h"
 #include "types.h"
 
 typedef struct _Player Player;
+
+/*Cosas de SDL2*/
+Gun *player_get_gun(const Player *player);
+void player_set_gun(Player *player, Gun *gun);
+void player_set_direction(Player *player, Direction direction);
+Direction player_get_direction(Player *player);
 
 /*Create & destroy*/
 /**

@@ -12,7 +12,7 @@
 #include "space.h"
 
 #define MAX_RAYS 10
-#define COLLISION_MARGIN 10  // Adjust based on your game scale
+#define COLLISION_MARGIN 10
 #define MOVE_STEP 2
 #define ACCELERATION 1
 #define MAX_SPEED 3
@@ -26,11 +26,14 @@ static int ray_count = 0;
 Bool physics_check_object_collision(Game *game, Player *player, Object *obj) {
   int player_x, player_y;
   int obj_x, obj_y;
+  Id player_space, obj_space;
 
-  if (!game || !player || !obj) return FALSE;
+  if (!game || !player || !obj) {
+    return FALSE;
+  }
 
-  Id player_space = game_get_player_location(game);
-  Id obj_space = game_get_object_location(game, object_get_id(obj));
+  player_space = game_get_player_location(game);
+  obj_space = game_get_object_location(game, object_get_id(obj));
 
   if (player_space == NO_ID || obj_space == NO_ID || player_space != obj_space) {
     return FALSE;
@@ -49,29 +52,31 @@ Bool physics_check_object_collision(Game *game, Player *player, Object *obj) {
 
 /* Detects if the player has collided with a link and returns the link */
 Link *physics_get_colliding_link(Game *game, Player *player) {
+  int player_x = 0, player_y = 0;
   Id current_space_id = game_get_player_location(game);
+  Direction directions[4] = {N, S, E, W};
+  int i = 0;
+  Link *link = NULL;
+  Character *character = NULL;
+
   if (current_space_id == NO_ID) {
     printf("[DEBUG] Player is not in a valid space.\n");
     return NULL;
   }
 
   printf("[DEBUG] Checking collision for player at space ID %ld\n", current_space_id);
-
-  int player_x = 0;
-  int player_y = 0;
   player_get_position(player, &player_x, &player_y);
 
-  Direction directions[4] = {N, S, E, W};
-  for (int i = 0; i < 4; i++) {
-    Link *link = game_get_link_at_direction(game, current_space_id, directions[i]);
+  for (i = 0; i < 4; i++) {
+    link = game_get_link_by_id(game, game_get_neighbour(game, current_space_id, directions[i]));
     if (link) {
       int link_x = link_get_x(link);
       int link_y = link_get_y(link);
 
       printf("[DEBUG] Checking link at (%d, %d) vs player at (%d, %d)\n", link_x, link_y, player_x, player_y);
 
-      // Exclude character positions from collision detection
-      Character *character = game_get_character(game, space_get_character(game_get_space(game, current_space_id)));
+      /*Exclude character positions from collision detection*/
+      character = game_get_character(game, space_get_character_from_index(game_get_space(game, current_space_id), 0)); /*HAY QUE GENERALIZAR ESTO*/
       if (character) {
         int character_x = character_get_x(character);
         int character_y = character_get_y(character);
@@ -94,8 +99,10 @@ Link *physics_get_colliding_link(Game *game, Player *player) {
 
 /* Handles space transition when the player collides with an open link */
 void physics_handle_space_transition(Game *game, Player *player) {
+  Link *colliding_link = NULL;
+
   printf("[DEBUG] Handling space transition...\n");
-  Link *colliding_link = physics_get_colliding_link(game, player);
+  colliding_link = physics_get_colliding_link(game, player);
 
   if (colliding_link) {
     printf("[DEBUG] Colliding link found. Checking if open...\n");
@@ -116,20 +123,24 @@ void physics_handle_space_transition(Game *game, Player *player) {
 
 /* Placeholder for future attack system */
 void physics_handle_attack(Player *player) {
-  if (ray_count >= MAX_RAYS) return;
+  Ray *new_ray = NULL;
+  int player_x = 0, player_y = 0;
 
-  int player_x = 0;
-  int player_y = 0;
+  if (ray_count >= MAX_RAYS) {
+    return;
+  }
+
   player_get_position(player, &player_x, &player_y);
 
-  Ray *new_ray = ray_create(player_x, player_y, player_get_direction(player));
+  new_ray = ray_create(player_x, player_y, player_get_direction(player));
   if (new_ray) {
     rays[ray_count++] = new_ray;
   }
 }
 
 void physics_update_rays() {
-  for (int i = 0; i < ray_count; i++) {
+  int i = 0;
+  for (i = 0; i < ray_count; i++) {
     if (rays[i]) {
       ray_update(rays[i]);
     }

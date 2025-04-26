@@ -1,13 +1,9 @@
 #ifndef GUN_H
 #define GUN_H
 
-typedef struct _Gun Gun;  // Opaque type
+typedef struct _Gun Gun;
 
-typedef enum {
-  GUN_TYPE_SINGLE,  
-  GUN_TYPE_SPREAD,  
-  GUN_TYPE_EXPLOSIVE
-} GunType;
+typedef enum { GUN_TYPE_SINGLE, GUN_TYPE_SPREAD, GUN_TYPE_EXPLOSIVE } GunType;
 
 Gun *gun_create(GunType type);
 void gun_destroy(Gun *gun);

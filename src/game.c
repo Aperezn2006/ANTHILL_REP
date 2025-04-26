@@ -42,6 +42,22 @@ struct _Game {
 };
 
 /*Cosas de SDL2*/
+Link *game_get_link_by_id(Game *game, Id link_id) {
+  int i;
+  /*CdE*/
+  if (!game) {
+    return NULL;
+  }
+
+  for (i = 0; i < game->n_links; i++) {
+    if (game->links[i] && link_get_id(game->links[i]) == link_id) {
+      return game->links[i];
+    }
+  }
+
+  return NULL;
+}
+
 Bool game_get_SDL(Game *game) {
   if (!game) {
     return FALSE;

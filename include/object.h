@@ -165,6 +165,9 @@ Status object_set_position(Object *object, int x, int y);
  */
 Status object_get_position(Object *object, int *x, int *y);
 
+int object_get_x(Object *object);
+int object_get_y(Object *object);
+
 /*Print*/
 /**
  * @brief It prints the object information

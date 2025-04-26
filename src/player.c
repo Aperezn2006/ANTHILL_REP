@@ -30,11 +30,30 @@ struct _Player {
   char gdesc[4];                 /*!< Graphical description of the player*/
   Inventory *backpack;           /*!< Pointer to the player's inventory*/
   int max_turns;                 /*!< Default number of turns the player has in a row*/
+  Direction direction;           /*SDL2*/
   char current_image[MAX_IMAGE]; /*!< Path to the player's image (for SDL2)*/
   char East_image[MAX_IMAGE];    /*!< Path to the player's image (for SDL2)*/
   char West_image[MAX_IMAGE];    /*!< Path to the player's image (for SDL2)*/
   int x, y;                      /*!< Player's position*/
+  Gun *current_gun;              /*SDL2*/
 };
+
+/*Cosas de SDL2*/
+Gun *player_get_gun(const Player *player) { return player ? player->current_gun : NULL; }
+
+void player_set_gun(Player *player, Gun *gun) {
+  if (player) {
+    player->current_gun = gun;
+  }
+}
+
+Direction player_get_direction(Player *player) { return player->direction; }
+
+void player_set_direction(Player *player, Direction direction) {
+  if (player) {
+    player->direction = direction;
+  }
+}
 
 /*Create & destroy*/
 Player *player_create(Id id) {
