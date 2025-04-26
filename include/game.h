@@ -150,6 +150,15 @@ Player *game_get_player_from_index(Game *game, int n);
  * @return OK if everything goes well, ERROR otherwise
  */
 Status game_set_player_location(Game *game, Id id);
+/**
+ * @brief It sets the player's location from an id
+ * @author Profesores PPROG
+ *
+ * @param game a pointer to the game
+ * @param id the id of the space the player will go, and id of the player
+ * @return OK if everything goes well, ERROR otherwise
+ */
+Status game_set_player_location_from_id(Game *game, Id space_id, Id player_id);
 
 /**
  * @brief It gets the current player's location
@@ -773,6 +782,15 @@ Status game_set_link_open(Game *game, Id current_location, Direction direction);
  */
 Status game_handle_follow(Game *game, Id follower, Id leader);
 
+/**
+ * @brief It gets the team of a player
+ * @author Ana
+ *
+ * @param game a pointer to the game, 
+ * @param id of a player
+ * @return Ok if everything went well
+ */
+Set *game_get_team(const Game *game, Id player_id);
 /*Print*/
 /**
  * @brief It prints the game
