@@ -23,8 +23,9 @@ typedef struct {
   Direction dir;
 } DirectionMap;
 
-DirectionMap direction_map[] = {{"north", N}, {"n", N}, {"south", S}, {"s", S}, {"east", E}, {"e", E},
-                                {"west", W},  {"w", W}, {"up", U},    {"u", U}, {"down", D}, {"d", D}};
+DirectionMap direction_map[] = {{"north", N}, {"n", N}, {"south", S}, {"s", S},
+                                {"east", E},  {"e", E}, {"west", W},  {"w", W},
+                                {"up", U},    {"u", U}, {"down", D},  {"d", D}};
 
 /**
    Private functions
@@ -63,7 +64,8 @@ Status game_actions_unknown(Game *game);
 Status game_actions_exit(Game *game);
 
 /**
- * @brief It moves the player in the desired direction (north, south, west or east)
+ * @brief It moves the player in the desired direction (north, south, west or
+ * east)
  * @author Ana
  *
  * @param game a pointer to the game
@@ -298,8 +300,14 @@ Status game_actions_move(Game *game) {
   Connector connector = NO_DEST;
   const char *destiny = NULL;
   Direction direction;
+  Id current_player_id = NO_ID;
+  Set *team = NULL;
+  int i, num_players;
+  Id pid = NO_ID;
 
-  if (!game) return ERROR;
+  if (!game) {
+    return ERROR;
+  }
 
   current_space_id = game_get_player_location(game);
   if (current_space_id == NO_ID) {
@@ -317,7 +325,7 @@ Status game_actions_move(Game *game) {
 
   direction = direction_from_string(word);
 
-  /* ----- Player move (e.g. "m n" or "move north") ----- */
+  /* --- Player move (e.g. "move north") --- */
   if (direction != -1 && (connector == NO_DEST && destiny[0] == '\0')) {
     next_space_id = game_get_neighbour(game, current_space_id, direction);
     if (next_space_id == NO_ID) {
@@ -325,25 +333,43 @@ Status game_actions_move(Game *game) {
     }
 
     if (!game_connection_is_open(game, current_space_id, direction)) {
-      printf("The connection isn't open\n"); /* Debug */
+      printf("The connection isn't open\n");
       return ERROR;
     }
 
-    game_set_player_location(game, next_space_id);
+    current_player_id = player_get_id(game_get_player(game, game_get_player_index_from_turn(game)));
+    team = game_get_team(game, current_player_id);
+
+    if (team != NULL) {
+      num_players = set_get_num_ids(team);
+      for (i = 0; i < num_players; i++) {
+        pid = set_get_id_from_index(team, i);
+        if (pid != NO_ID) {
+          game_set_player_location_from_id(game, next_space_id, pid);
+        }
+      }
+    } else {
+      game_set_player_location(game, next_space_id);
+    }
+
     return game_increment_turn(game);
-  } else {
+  }
+  /* --- Object move (e.g. "use connector destiny") --- */
+  else {
     direction = direction_from_string(destiny);
     if (direction == -1) {
       return ERROR;
     }
 
     game_move_object(game, word, current_space_id, direction);
-
     return game_increment_turn(game);
   }
 
   return ERROR;
 }
+
+
+
 
 Status game_actions_take(Game *game) {
   Id object_id;
@@ -384,7 +410,8 @@ Status game_actions_take(Game *game) {
     printf("[DEBUG] No object found with name '%s'\n", object_name);
     return ERROR;
   } else {
-    printf("[DEBUG] Object ID found: %ld for name '%s'\n", object_id, object_name);
+    printf("[DEBUG] Object ID found: %ld for name '%s'\n", object_id,
+           object_name);
   }
 
   space = game_get_space(game, player_location);
@@ -395,13 +422,16 @@ Status game_actions_take(Game *game) {
     printf("[DEBUG] Space found for location %ld\n", player_location);
   }
 
-  if (space_has_object(space, object_id) == TRUE && game_is_object_movable(game, object_id) == TRUE) {
+  if (space_has_object(space, object_id) == TRUE &&
+      game_is_object_movable(game, object_id) == TRUE) {
     printf("[DEBUG] Space has object %ld ('%s')\n", object_id, object_name);
-    game_set_object_location(game, player_get_id(game_get_current_player(game)), object_id);
+    game_set_object_location(game, player_get_id(game_get_current_player(game)),
+                             object_id);
     printf("[DEBUG] Object '%s' taken successfully\n", object_name);
     return game_increment_turn(game);
   } else {
-    printf("[DEBUG] Object '%s' (ID %ld) not found in current space %ld\n", object_name, object_id, player_location);
+    printf("[DEBUG] Object '%s' (ID %ld) not found in current space %ld\n",
+           object_name, object_id, player_location);
     return ERROR;
   }
 
@@ -419,7 +449,9 @@ Status game_actions_drop(Game *game) {
   }
 
   c = game_get_last_command(game);
-  strcpy(object_name, command_get_word(c)); /*Corrección: Podemos ahorrarnos la variable object_name si llamamos a get_obj*/
+  strcpy(object_name,
+         command_get_word(c)); /*Corrección: Podemos ahorrarnos la variable
+                                  object_name si llamamos a get_obj*/
 
   if (strcmp(object_name, "") == 0) {
     return ERROR;
@@ -483,11 +515,12 @@ Status game_actions_attack(Game *game) {
     }
 
     strcpy(character_name, character_get_name(character));
-    roll = rand() % 10; 
+    roll = rand() % 10;
     printf("ROLL = %i", roll);
     if (roll >= 0 && roll <= 4) {
       for (j = 0; j < game_get_num_characters(game); j++) {
-        if (player_get_id(game_get_player(game, game_get_player_index_from_turn(game))) ==
+        if (player_get_id(
+                game_get_player(game, game_get_player_index_from_turn(game))) ==
             character_get_following(game_get_character_from_index(game, j))) {
           count++;
         }
@@ -498,28 +531,36 @@ Status game_actions_attack(Game *game) {
           if (j > game_get_num_characters(game) - 1) {
             j = 0;
           }
-          if (player_get_id(game_get_player(game, game_get_player_index_from_turn(game))) ==
+          if (player_get_id(game_get_player(
+                  game, game_get_player_index_from_turn(game))) ==
               character_get_following(game_get_character_from_index(game, j))) {
-            character_decrease_health(game_get_character_from_index(game, j), 1);
-            printf("You missed! %s counterattacks. Your recruited %s loses 1 health point.\n", character_name,
-                   character_get_name(game_get_character_from_index(game, j)));
+            character_decrease_health(game_get_character_from_index(game, j),
+                                      1);
+            printf(
+                "You missed! %s counterattacks. Your recruited %s loses 1 "
+                "health point.\n",
+                character_name,
+                character_get_name(game_get_character_from_index(game, j)));
             break;
           }
         }
       } else {
         player_decrease_health(player, 1);
-        printf("You missed! %s counterattacks. You lose 1 health point.\n", character_name);
+        printf("You missed! %s counterattacks. You lose 1 health point.\n",
+               character_name);
       }
 
     } else {
       for (j = 0; j < game_get_num_characters(game); j++) {
-        if (player_get_id(game_get_player(game, game_get_player_index_from_turn(game))) ==
+        if (player_get_id(
+                game_get_player(game, game_get_player_index_from_turn(game))) ==
             character_get_following(game_get_character_from_index(game, j))) {
           count++;
         }
       }
       character_decrease_health(character, 1 + count);
-      printf("You hit %s! They lose %i health points.\n", character_name, 1 + count);
+      printf("You hit %s! They lose %i health points.\n", character_name,
+             1 + count);
     }
 
     if (character_get_health(character) <= 0) {
@@ -527,7 +568,8 @@ Status game_actions_attack(Game *game) {
       printf("%s has been defeated.\n", character_name);
     }
 
-    if ((player_get_health(player) == 0) || (character_get_health(character) == 0)) {
+    if ((player_get_health(player) == 0) ||
+        (character_get_health(character) == 0)) {
       return game_increment_turn(game);
     }
 
@@ -609,9 +651,11 @@ Status game_actions_inspect(Game *game) {
 
   object_id = game_get_object_id_from_name(game, object_name);
 
-  if (space_has_object(game_get_space(game, player_location), object_id) == TRUE ||
+  if (space_has_object(game_get_space(game, player_location), object_id) ==
+          TRUE ||
       player_has_object(game_get_current_player(game), object_id) == TRUE) {
-    strcpy(object_description, object_get_desc(game_get_object_from_id(game, object_id)));
+    strcpy(object_description,
+           object_get_desc(game_get_object_from_id(game, object_id)));
 
     game_set_object_desc(game, object_description);
   } else {
@@ -623,7 +667,8 @@ Status game_actions_inspect(Game *game) {
   return game_increment_turn(game);
 }
 
-Status game_actions_inventory(Game *game) { /*No pierdes turno al abrir el inventario*/
+Status game_actions_inventory(
+    Game *game) { /*No pierdes turno al abrir el inventario*/
   if (!game) {
     return ERROR;
   }
@@ -676,7 +721,8 @@ Status game_actions_use(Game *game) {
     return ERROR;
   }
 
-  if (player_has_object(game_get_current_player(game), object_id) == TRUE && game_check_object_dependency(game, object_id) == TRUE) {
+  if (player_has_object(game_get_current_player(game), object_id) == TRUE &&
+      game_check_object_dependency(game, object_id) == TRUE) {
     if (strcmp(destiny, "player") == 0) {
       if (game_update_player_health(game, object_id) == ERROR) {
         return ERROR;
@@ -686,7 +732,8 @@ Status game_actions_use(Game *game) {
       character = game_get_character(game, character_id);
       player = game_get_current_player(game);
 
-      if (character != NULL && character_get_following(character) == player_get_id(player)) {
+      if (character != NULL &&
+          character_get_following(character) == player_get_id(player)) {
         if (game_update_character_health(game, character, object_id) == ERROR) {
           return ERROR;
         }
@@ -745,7 +792,8 @@ Status game_actions_open(Game *game) {
   /* Find the link object and its direction */
   for (i = 0; i < game_get_num_links(game); i++) {
     link = game_get_link_from_index(game, i);
-    if (link && link_get_id(link) == link_id && link_get_start(link) == current_space_id) {
+    if (link && link_get_id(link) == link_id &&
+        link_get_start(link) == current_space_id) {
       direction = link_get_direction(link);
       break;
     }
@@ -755,7 +803,8 @@ Status game_actions_open(Game *game) {
     return ERROR;
   }
 
-  if (player_has_object(game_get_current_player(game), object_id) == TRUE && game_check_object_dependency(game, object_id) == TRUE) {
+  if (player_has_object(game_get_current_player(game), object_id) == TRUE &&
+      game_check_object_dependency(game, object_id) == TRUE) {
     if (game_set_link_open(game, current_space_id, direction) == OK) {
       return game_increment_turn(game);
     } else {
@@ -797,7 +846,7 @@ Status game_actions_follow(Game *game) {
     return ERROR;
   }
 
-  follower_name = command_get_word(c);  /* e.g. "p2" from 'follow p2' */
+  follower_name = command_get_word(c); /* e.g. "p2" from 'follow p2' */
   if (!follower_name) {
     printf("[DEBUG] follower_name is NULL\n");
     return ERROR;
@@ -819,7 +868,8 @@ Status game_actions_follow(Game *game) {
 
   /* Avoid self-following */
   if (leader_id == follower_id) {
-    printf("[DEBUG] Leader and follower are the same player (ID %ld)\n", leader_id);
+    printf("[DEBUG] Leader and follower are the same player (ID %ld)\n",
+           leader_id);
     return ERROR;
   }
 
@@ -830,17 +880,19 @@ Status game_actions_follow(Game *game) {
     printf("[DEBUG] One or both players have NO_ID location\n");
     return ERROR;
   }
-  printf("[DEBUG] Leader location: %ld, Follower location: %ld\n", leader_location, follower_location);
+  printf("[DEBUG] Leader location: %ld, Follower location: %ld\n",
+         leader_location, follower_location);
 
   if (leader_location != follower_location) {
     printf("[DEBUG] Players are not in the same space\n");
     return ERROR;
   }
 
-  printf("[DEBUG] Players are in the same space, attempting to handle follow logic...\n");
+  printf(
+      "[DEBUG] Players are in the same space, attempting to handle follow "
+      "logic...\n");
   return game_handle_follow(game, follower_id, leader_id);
 }
-
 
 /**
  * @brief It allows the player to save its current game
@@ -919,9 +971,12 @@ Status game_actions_recruit(Game *game) {
 
   word = command_get_word(c);
   player = game_get_player(game, game_get_player_index_from_turn(game));
-  character = game_get_character(game, game_get_character_id_from_name(game, word));
+  character =
+      game_get_character(game, game_get_character_id_from_name(game, word));
 
-  if (game_get_player_location(game) != game_get_character_location(game, game_get_character_id_from_name(game, word))) {
+  if (game_get_player_location(game) !=
+      game_get_character_location(
+          game, game_get_character_id_from_name(game, word))) {
     return ERROR;
   }
 
@@ -951,7 +1006,8 @@ Status game_actions_abandon(Game *game) {
 
   word = command_get_word(c);
   player = game_get_player(game, game_get_player_index_from_turn(game));
-  character = game_get_character(game, game_get_character_id_from_name(game, word));
+  character =
+      game_get_character(game, game_get_character_id_from_name(game, word));
 
   if (character_get_following(character) != player_get_id(player)) {
     return ERROR;
