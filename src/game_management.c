@@ -18,7 +18,7 @@ Status game_init_from_file(Game *game, char *filename) {
     return ERROR;
   }
 
-  if (game_management_load(game, filename, TRUE) == ERROR) {
+  if (game_management_load(game, filename, TRUE, FALSE) == ERROR) {
     printf("Error: Could not load spaces and objects from file\n");
     return ERROR;
   }
@@ -135,13 +135,14 @@ Status game_management_save(Game *game, char *file_name) {
 /**
  * @brief It loads a player's game from a certain file
  */
-Status game_management_load(Game *game, char *file_name, Bool new) {
+Status game_management_load(Game *game, char *file_name, Bool new, Bool SDL) {
   /*PLAYER*/
   Player *player = NULL;
   int player_max_obj = 0;
   char player_desc[7];
   Id location = NO_ID;
-  int max_turns = 1;
+  char north_image[MAX_MESSAGE], east_image[MAX_MESSAGE], south_image[MAX_MESSAGE], west_image[MAX_MESSAGE]; /*SDL2*/
+  int max_turns;
 
   /*CHARACTER*/
   Character *character = NULL;
@@ -169,6 +170,10 @@ Status game_management_load(Game *game, char *file_name, Bool new) {
   Direction dir = NO_DIR;
   Bool open = FALSE;
 
+  /*PLATFORM (SDL2)*/
+  Obstacle *obstacle = NULL;
+  int x, y, width, height;
+
   /*GENERAL*/
   FILE *file = NULL;
   char line[WORD_SIZE] = "";
@@ -181,6 +186,7 @@ Status game_management_load(Game *game, char *file_name, Bool new) {
   int current_turn = 0;
   Id id = NO_ID;
   Status status = OK;
+  char image[WORD_SIZE] = ""; /*SDL2*/
 
   /*CdE*/
   if (!game || !file_name) {
@@ -221,6 +227,13 @@ Status game_management_load(Game *game, char *file_name, Bool new) {
         discovered = atol(toks);  /*PREVIOUS*/
       }
 
+      if (SDL == TRUE) {
+        toks = strtok(NULL, "|");
+        if (toks) {
+          strcpy(image, toks);
+        }
+      }
+
       for (i = 0; i < 5; i++) {
         toks = strtok(NULL, "|");
         if (!toks) {
@@ -238,6 +251,7 @@ Status game_management_load(Game *game, char *file_name, Bool new) {
       space = space_create(id);
       if (space) {
         space_set_name(space, name);
+        space_set_image(space, image);
         if (new == FALSE) {
           space_set_discovered(space, discovered); /*PREVIOUS*/
         }
@@ -284,6 +298,13 @@ Status game_management_load(Game *game, char *file_name, Bool new) {
       toks = strtok(NULL, "|");
       strcpy(object_desc, toks);
 
+      if (SDL == TRUE) {
+        toks = strtok(NULL, "|");
+        if (toks) {
+          strcpy(image, toks);
+        }
+      }
+
       object = object_create(id, location);
       if (object) {
         object_set_name(object, name);
@@ -292,6 +313,11 @@ Status game_management_load(Game *game, char *file_name, Bool new) {
         object_set_movable(object, movable);
         object_set_dependency(object, dependency);
         object_set_open(object, open_door);
+
+        if (SDL == TRUE) {
+          object_set_image(object, image);
+        }
+
         if (new == FALSE) {
           object_set_inspected(object, inspected); /*PREVIOUS*/
         }
@@ -309,7 +335,7 @@ Status game_management_load(Game *game, char *file_name, Bool new) {
 
       /*CHARACTERS*/
     } else if (strncmp("#c:", line, 3) == 0) {
-      /* Format: id|name|location|health|gdesc|message|friendliness */
+      /*id|name|location|health|gdesc|message|friendliness*/
       printf("Processing character\n");
       toks = strtok(line + 3, "|");
       id = atol(toks);
@@ -330,11 +356,13 @@ Status game_management_load(Game *game, char *file_name, Bool new) {
       strcpy(character_message, toks);
 
       toks = strtok(NULL, "|");
+      character_friendliness = atoi(toks);
 
-      if (strcasecmp(toks, "TRUE") == 0) {
-        character_friendliness = TRUE;
-      } else {
-        character_friendliness = FALSE;
+      if (SDL == TRUE) {
+        toks = strtok(NULL, "|");
+        if (toks) {
+          strcpy(image, toks);
+        }
       }
 
       character = character_create(id);
@@ -345,6 +373,10 @@ Status game_management_load(Game *game, char *file_name, Bool new) {
         character_set_message(character, character_message);
         character_set_friendly(character, character_friendliness);
 
+        if (SDL == TRUE) {
+          character_set_image(character, image);
+        }
+
         if (game_add_character(game, character) == ERROR) {
           character_destroy(character);
           status = ERROR;
@@ -353,16 +385,12 @@ Status game_management_load(Game *game, char *file_name, Bool new) {
 
         space = game_get_space(game, location);
         if (space) {
-          if (space_add_character(space, id) == ERROR) {
-            printf("Failed to add character %s (%ld) to space %ld\n", name, id, location);
-            status = ERROR;
-            break;
-          }
+          space_add_character(space, id);
         }
       }
-    }
 
-    else if (strncmp("#l:", line, 3) == 0) {
+      /*LINKS*/
+    } else if (strncmp("#l:", line, 3) == 0) {
       /*id|name|origin|destination|direction|open*/
       printf("Processing link\n");
       toks = strtok(line + 3, "|");
@@ -383,6 +411,13 @@ Status game_management_load(Game *game, char *file_name, Bool new) {
       toks = strtok(NULL, "|");
       open = atoi(toks);
 
+      if (SDL == TRUE) {
+        toks = strtok(NULL, "|");
+        if (toks) {
+          strcpy(image, toks);
+        }
+      }
+
       link = link_create(id);
       if (link) {
         link_set_name(link, name);
@@ -391,12 +426,17 @@ Status game_management_load(Game *game, char *file_name, Bool new) {
         link_set_direction(link, dir);
         link_set_open(link, open);
 
+        if (SDL == TRUE) {
+          link_set_image(link, image);
+        }
+
         if (game_add_link(game, link) == ERROR) {
           link_destroy(link);
           status = ERROR;
           break;
         }
       }
+
     } else if (strncmp("#p:", line, 3) == 0) {
       /*id|name|gdesc|location|health|inventory_size|message|object_desc*/
       printf("Processing player\n");
@@ -418,6 +458,28 @@ Status game_management_load(Game *game, char *file_name, Bool new) {
       toks = strtok(NULL, "|");
       player_max_obj = atoi(toks);
 
+      if (SDL == TRUE) {
+        toks = strtok(NULL, "|");
+        if (toks) {
+          strcpy(north_image, toks);
+        }
+
+        toks = strtok(NULL, "|");
+        if (toks) {
+          strcpy(east_image, toks);
+        }
+
+        toks = strtok(NULL, "|");
+        if (toks) {
+          strcpy(south_image, toks);
+        }
+
+        toks = strtok(NULL, "|");
+        if (toks) {
+          strcpy(west_image, toks);
+        }
+      }
+
       if (new == FALSE) {
         toks = strtok(NULL, "|"); /*REVIOUS*/
         strcpy(message, toks);    /*REVIOUS*/
@@ -425,7 +487,6 @@ Status game_management_load(Game *game, char *file_name, Bool new) {
         toks = strtok(NULL, "|");  /*REVIOUS*/
         strcpy(object_desc, toks); /*REVIOUS*/
       }
-
       toks = strtok(NULL, "|");
       max_turns = atoi(toks);
 
@@ -437,6 +498,12 @@ Status game_management_load(Game *game, char *file_name, Bool new) {
         player_set_max_objs(player, player_max_obj);
         player_set_location(player, location);
         player_set_max_turns(player, max_turns);
+        if (SDL == TRUE) {
+          player_set_North_image(player, north_image);
+          player_set_East_image(player, east_image);
+          player_set_South_image(player, south_image);
+          player_set_West_image(player, west_image);
+        }
 
         if (new == FALSE) {
           if (strcmp(message, ".") != 0) { /*REVIOUS*/
@@ -453,6 +520,40 @@ Status game_management_load(Game *game, char *file_name, Bool new) {
           status = ERROR;
           break;
         }
+      }
+    } else if ((strncmp("#g:", line, 3) == 0) && (SDL == TRUE)) {
+      printf("Processing obstacle\n");
+      toks = strtok(line + 3, "|");
+      id = atol(toks);
+
+      toks = strtok(NULL, "|");
+      strcpy(name, toks);
+
+      toks = strtok(NULL, "|");
+      x = atoi(toks);
+
+      toks = strtok(NULL, "|");
+      y = atoi(toks);
+
+      toks = strtok(NULL, "|");
+      width = atoi(toks);
+
+      toks = strtok(NULL, "|");
+      height = atoi(toks);
+
+      toks = strtok(NULL, "|");
+      location = atol(toks);
+
+      toks = strtok(NULL, "|");
+      strcpy(image, toks);
+
+      obstacle = obstacle_create(id, x, y, width, height);
+      if (obstacle) {
+        space = game_get_space(game, location);
+        if (space) {
+          space_add_obstacle(space, obstacle);
+        }
+        obstacle_set_image(obstacle, image);
       }
     } else if (strncmp("- Current turn: ", line, 16) == 0) {
       printf("Processing turn\n");

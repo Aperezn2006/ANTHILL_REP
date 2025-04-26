@@ -32,8 +32,10 @@ struct _Player {
   int max_turns;                 /*!< Default number of turns the player has in a row*/
   Direction direction;           /*SDL2*/
   char current_image[MAX_IMAGE]; /*!< Path to the player's image (for SDL2)*/
-  char East_image[MAX_IMAGE];    /*!< Path to the player's image (for SDL2)*/
-  char West_image[MAX_IMAGE];    /*!< Path to the player's image (for SDL2)*/
+  char North_image[MAX_MESSAGE]; /*!< Path to the player's image (for SDL2)*/
+  char East_image[MAX_MESSAGE];  /*!< Path to the player's image (for SDL2)*/
+  char South_image[MAX_MESSAGE]; /*!< Path to the player's image (for SDL2)*/
+  char West_image[MAX_MESSAGE];  /*!< Path to the player's image (for SDL2)*/
   int x, y;                      /*!< Player's position*/
   Gun *current_gun;              /*SDL2*/
 };
@@ -337,6 +339,20 @@ char *player_get_image(Player *player) {
   return player->current_image;
 }
 
+/* Set player North_image */
+Status player_set_North_image(Player *player, const char *North_image) {
+  if (!player || !North_image) return ERROR;
+  strncpy(player->North_image, North_image, MAX_MESSAGE - 1);
+  player->North_image[MAX_MESSAGE - 1] = '\0';
+  return OK;
+}
+
+/* Get player North_image */
+const char *player_get_North_image(const Player *player) {
+  if (!player) return NULL;
+  return player->North_image;
+}
+
 /* Set player East_image */
 Status player_set_East_image(Player *player, const char *East_image) {
   if (!player || !East_image) return ERROR;
@@ -349,6 +365,20 @@ Status player_set_East_image(Player *player, const char *East_image) {
 const char *player_get_East_image(const Player *player) {
   if (!player) return NULL;
   return player->East_image;
+}
+
+/* Get player South_image */
+const char *player_get_South_image(const Player *player) {
+  if (!player) return NULL;
+  return player->South_image;
+}
+
+/* Set player South_image */
+Status player_set_South_image(Player *player, const char *South_image) {
+  if (!player || !South_image) return ERROR;
+  strncpy(player->South_image, South_image, MAX_MESSAGE - 1);
+  player->South_image[MAX_MESSAGE - 1] = '\0';
+  return OK;
 }
 
 /* Get player West_image */
@@ -364,6 +394,7 @@ Status player_set_West_image(Player *player, const char *West_image) {
   player->West_image[MAX_MESSAGE - 1] = '\0';
   return OK;
 }
+
 /*Management of position*/
 /**
  * @brief It sets the player's position

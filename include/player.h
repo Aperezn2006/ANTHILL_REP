@@ -266,8 +266,14 @@ Status player_set_image(Player *player, char *image);
  */
 char *player_get_image(Player *player);
 
+Status player_set_North_image(Player *player, const char *North_image);
+const char *player_get_North_image(const Player *player);
+
 Status player_set_East_image(Player *player, const char *East_image);
 const char *player_get_East_image(const Player *player);
+
+Status player_set_South_image(Player *player, const char *South_image);
+const char *player_get_South_image(const Player *player);
 
 Status player_set_West_image(Player *player, const char *West_image);
 const char *player_get_West_image(const Player *player);

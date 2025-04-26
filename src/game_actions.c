@@ -892,7 +892,7 @@ Status game_actions_load(Game *game) {
     return ERROR;
   }
 
-  if (game_management_load(game, file_name, FALSE) == OK) {
+  if (game_management_load(game, file_name, FALSE, FALSE) == OK) {
     return game_increment_turn(game);
   }
 

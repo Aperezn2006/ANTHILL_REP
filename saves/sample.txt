@@ -1,15 +1,15 @@
 -------------------------------------------------------------------------
 Info:
-- Last played: Thu Apr 24 23:29:10 2025
+- Last played: Sat Apr 26 20:16:54 2025
 - Players:
    - 1. ant1
    - 2. ant2
-- Current turn: 2 (ant2's turn)
+- Current turn: 3 (ant2's turn)
 -------------------------------------------------------------------------
 
 Spaces:
 #s:11|Entry|1| _       |\ \___   |\ mo'\_  |\ @ _    | \__/ \__|
-#s:121|Pasillo1|1|         |         |         |         |         |
+#s:121|Pasillo1|0|         |         |         |         |         |
 #s:122|Pasillo2|1|  ___    |_/   \__ |    o o )|mo^ _ 0o]|__/ \___)|
 #s:125|Pasillo5|0|         |         |         |         |         |
 #s:126|Pasillo6|0|         |         |         |         |         |
@@ -22,7 +22,7 @@ Spaces:
 #s:131|Prueba2|0|         |         |         |         |         |
 
 Players:
-#p:0|ant1|mO^|122|5|5|.|.|1|
+#p:0|ant1|mO^|11|5|5|.|.|1|
 #p:1|ant2|mO^|122|5|3|.|.|2|
 
 Links:
@@ -47,10 +47,10 @@ Links:
 
 Characters:
 #c:31|Spider|121|5|/\oo/\|Get out|0|
-#c:32|Ant|122|4|^0m   |Hello|1|
+#c:32|Ant|122|4|^0m   |Hello|0|
 
 Objects:
-#o:21|Seed|11|-2|1|-1|-1|0|Dont eat it|
-#o:22|Crumb|1|0|1|-1|47|0|Blublu|
+#o:21|Seed|1|-2|1|-1|-1|0|Dont eat it|
+#o:22|Crumb|122|0|1|-1|47|0|Blublu|
 #o:23|Grain|14|1|1|-1|-1|0|Prueba|
 #o:24|Leaf|13|2|0|-1|-1|0|It cures 2 health|

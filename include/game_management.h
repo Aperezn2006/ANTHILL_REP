@@ -50,6 +50,6 @@ Status game_management_save(Game *game, char *file_name);
  * @param file_name the name of the desired folder
  * @return OK if everything goes well, ERROR otherwise
  */
-Status game_management_load(Game *game, char *file_name, Bool new);
+Status game_management_load(Game *game, char *file_name, Bool new, Bool SDL);
 
 #endif
