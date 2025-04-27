@@ -241,7 +241,7 @@ $(OBJ_DIR)/inventory_test.o: $(SRC_DIR)/inventory_test.c $(INCLUDE_DIR)/inventor
 # Limpiar los archivos generados
 clean:
 	@echo "Limpiando archivos generados..."
-	@rm -f $(OBJ) $(EXEC) $(TEST_OBJ) $(TESTS)
+	@rm -f $(OBJ) $(SDL_OBJ) $(EXEC) $(TEST_OBJ) $(TESTS)
 
 # Regla para recompilar completamente (limpiar y compilar de nuevo)
 rebuild: clean all
