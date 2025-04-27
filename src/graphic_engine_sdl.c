@@ -10,9 +10,10 @@
 #include "obstacle.h"
 #include "ray.h"
 
-#define WINDOW_WIDTH 800
-#define WINDOW_HEIGHT 600
-#define TILE_SIZE 10
+#define SCREEN_ZOOM 2
+#define WINDOW_WIDTH (800 * SCREEN_ZOOM)
+#define WINDOW_HEIGHT (600 * SCREEN_ZOOM)
+#define TILE_SIZE (10 * SCREEN_ZOOM)
 
 /* Definition of the opaque structure */
 struct _Graphic_engine {
@@ -287,7 +288,7 @@ void graphic_engine_render(Graphic_engine *gengine, Game *game) {
     if (character && (game_get_character_location(game, character_get_id(character)) == id_act)) {
       character_x = character_get_x(character);
       character_y = character_get_y(character);
-      SDL_Rect character_rect = {character_x * TILE_SIZE, character_y * TILE_SIZE, 40, 40};
+      SDL_Rect character_rect = {character_x * TILE_SIZE, character_y * TILE_SIZE, 40 * SCREEN_ZOOM, 40 * SCREEN_ZOOM};
       gengine->character_textures[i] = load_texture(gengine->renderer, character_get_image(character));
 
       if (gengine->character_textures[i]) {
@@ -314,7 +315,7 @@ void graphic_engine_render(Graphic_engine *gengine, Game *game) {
       link_x = link_get_x(link);
       link_y = link_get_y(link);
       if (gengine->link_textures[i]) {
-        SDL_Rect link_rect = {link_x * TILE_SIZE, link_y * TILE_SIZE, 60, 60};
+        SDL_Rect link_rect = {link_x * TILE_SIZE, link_y * TILE_SIZE, 60 * SCREEN_ZOOM, 60 * SCREEN_ZOOM};
         SDL_RenderCopy(gengine->renderer, gengine->link_textures[i], NULL, &link_rect);
       }
     }
@@ -325,7 +326,7 @@ void graphic_engine_render(Graphic_engine *gengine, Game *game) {
     ray_update(ray);                    /*Update ray position dynamically*/
 
     if (gengine->ray_texture) {
-      SDL_Rect ray_rect = {ray_get_x(ray), ray_get_y(ray), 50, 50}; /*Adjust size as needed*/
+      SDL_Rect ray_rect = {ray_get_x(ray), ray_get_y(ray), 50 * SCREEN_ZOOM, 50 * SCREEN_ZOOM}; /*Adjust size as needed*/
       SDL_RenderCopy(gengine->renderer, gengine->ray_texture, NULL, &ray_rect);
       printf("Rendering ray at (%d, %d)\n", ray_get_x(ray), ray_get_y(ray));
     } else {
@@ -335,7 +336,7 @@ void graphic_engine_render(Graphic_engine *gengine, Game *game) {
 
   /* Render ant */
   if (gengine->ant_texture) {
-    SDL_Rect ant_rect = {player_x * TILE_SIZE, player_y * TILE_SIZE, 50, 50};
+    SDL_Rect ant_rect = {player_x * TILE_SIZE, player_y * TILE_SIZE, 50 * SCREEN_ZOOM, 50 * SCREEN_ZOOM};
     SDL_RenderCopy(gengine->renderer, gengine->ant_texture, NULL, &ant_rect);
   } else {
     printf("Warning: Ant texture is NULL.\n");
@@ -346,7 +347,7 @@ void graphic_engine_render(Graphic_engine *gengine, Game *game) {
     if (obj && (game_get_object_location(game, object_get_id(obj)) == id_act)) {
       obj_x = object_get_x(obj);
       obj_y = object_get_y(obj);
-      SDL_Rect obj_rect = {obj_x * TILE_SIZE, obj_y * TILE_SIZE, 40, 40};
+      SDL_Rect obj_rect = {obj_x * TILE_SIZE, obj_y * TILE_SIZE, 40 * SCREEN_ZOOM, 40 * SCREEN_ZOOM};
       printf(":::::: About to load [%s]\n", object_get_image(obj));
       gengine->object_textures[i] = load_texture(gengine->renderer, object_get_image(obj));
 
@@ -359,15 +360,15 @@ void graphic_engine_render(Graphic_engine *gengine, Game *game) {
   }
 
   /*Render inventory*/
-  inv_x = 220, inv_y = 20;
+  inv_x = 22, inv_y = 2;
   SDL_Texture *dynamic_inventory = NULL;
   if (game_get_inventory_vis(game) == TRUE) {
     printf("\n------------RENDERING INVENTORYYY---------------\n\n");
     for (i = 0; i < inventory_get_max_objects(player_get_inventory(player)); i++) {
       obj = game_get_object_from_id(game, inventory_get_object_by_index(player_get_inventory(player), i));
       gengine->inventory_textures[i] = load_texture(gengine->renderer, object_get_image(obj));
-      SDL_Rect inv_rect = {inv_x, inv_y, 50, 50};
-      SDL_Rect obj_rect = {inv_x + 5, inv_y + 5, 40, 40};
+      SDL_Rect inv_rect = {inv_x * TILE_SIZE, inv_y * TILE_SIZE, 50 * SCREEN_ZOOM, 50 * SCREEN_ZOOM};
+      SDL_Rect obj_rect = {(inv_x + 5) * TILE_SIZE, (inv_y + 5) * TILE_SIZE, 40 * SCREEN_ZOOM, 40 * SCREEN_ZOOM};
 
       if (inventory_get_cursor(player_get_inventory(player)) == i) {
         dynamic_inventory = gengine->inventory_yes_selected;
@@ -383,10 +384,10 @@ void graphic_engine_render(Graphic_engine *gengine, Game *game) {
         }
       }
 
-      inv_x += 60;
-      if (inv_x >= 440) {
-        inv_x = 220;
-        inv_y += 60;
+      inv_x += 6;
+      if (inv_x >= 44) {
+        inv_x = 22;
+        inv_y += 6;
       }
     }
   }
