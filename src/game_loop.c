@@ -147,6 +147,9 @@ void game_loop_run(Game *game, Graphic_engine *gengine, FILE *log_file) {
     if (game_get_inventory_vis(game) == TRUE) {
       graphic_engine_paint_inventory(gengine, game);
     }
+    if (game_get_zoom_vis(game) == TRUE) {
+      graphic_engine_paint_zoom(gengine, game);
+    }
     command_get_user_input(last_cmd);
     game_actions_update(game, last_cmd);
     update_game(game);

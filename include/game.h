@@ -729,6 +729,24 @@ Status game_toggle_inventory_vis(Game *game);
 Bool game_get_inventory_vis(Game *game);
 
 /**
+ * @brief It toggles the zoom's visualization
+ * @author Bea, Arturo, Rubén, Ana
+ *
+ * @param game a pointer to the game
+ * @return OK if everything goes well, ERROR otherwise
+ */
+Status game_toggle_zoom_vis(Game *game);
+
+/**
+ * @brief It gets whether the zoom is beinf visualized or not
+ * @author Bea, Arturo, Rubén, Ana
+ *
+ * @param game a pointer to the game
+ * @return whether the zoom is beinf visualized or not
+ */
+Bool game_get_zoom_vis(Game *game);
+
+/**
  * @brief It updates the players health
  * @author Bea, Arturo, Rubén, Ana
  *

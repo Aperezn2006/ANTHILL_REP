@@ -153,6 +153,15 @@ Status game_actions_open(Game *game);
 Status game_actions_follow(Game *game);
 
 /**
+ * @brief It allows the player to toggle the visualization of the space
+ * @author Bea, Arturo, Rubén, Ana
+ *
+ * @param game
+ * @return  OK if everything goes well, ERROR otherwise
+ */
+Status game_actions_zoom(Game *game);
+
+/**
  * @brief It allows the player to save its current game
  * @author Ana
  *
@@ -244,6 +253,9 @@ Status game_actions_update(Game *game, Command *command) {
       break;
     case FOLLOW:
       command_set_result(command, game_actions_follow(game));
+      break;
+    case ZOOM:
+      command_set_result(command, game_actions_zoom(game));
       break;
 
     case LOAD:
@@ -639,6 +651,16 @@ Status game_actions_inventory(Game *game) { /*No pierdes turno al abrir el inven
   }
 
   game_toggle_inventory_vis(game);
+
+  return OK;
+}
+
+Status game_actions_zoom(Game *game) { /*No pierdes turno al abrir el inventario*/
+  if (!game) {
+    return ERROR;
+  }
+
+  game_toggle_zoom_vis(game);
 
   return OK;
 }
