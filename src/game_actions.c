@@ -375,55 +375,40 @@ Status game_actions_take(Game *game) {
   char object_name[WORD_SIZE] = "";
 
   if (!game) {
-    printf("[DEBUG] Game is NULL\n");
     return ERROR;
   }
 
   c = game_get_last_command(game);
   if (!c) {
-    printf("[DEBUG] Last command is NULL\n");
     return ERROR;
   }
 
   strcpy(object_name, command_get_word(c));
-  printf("[DEBUG] Command word (object name): '%s'\n", object_name);
 
   if (strcmp(object_name, "") == 0) {
-    printf("[DEBUG] Object name is empty\n");
     return ERROR;
   }
 
   player_location = game_get_player_location(game);
   if (player_location == NO_ID) {
-    printf("[DEBUG] Invalid player location (NO_ID)\n");
     return ERROR;
-  } else {
-    printf("[DEBUG] Player location: %ld\n", player_location);
   }
 
   object_id = game_get_object_id_from_name(game, object_name);
   if (object_id == NO_ID) {
-    printf("[DEBUG] No object found with name '%s'\n", object_name);
     return ERROR;
   } else {
-    printf("[DEBUG] Object ID found: %ld for name '%s'\n", object_id, object_name);
   }
 
   space = game_get_space(game, player_location);
   if (!space) {
-    printf("[DEBUG] Could not get space for location %ld\n", player_location);
     return ERROR;
-  } else {
-    printf("[DEBUG] Space found for location %ld\n", player_location);
   }
 
   if (space_has_object(space, object_id) == TRUE && game_is_object_movable(game, object_id) == TRUE) {
-    printf("[DEBUG] Space has object %ld ('%s')\n", object_id, object_name);
     game_set_object_location(game, player_get_id(game_get_current_player(game)), object_id);
-    printf("[DEBUG] Object '%s' taken successfully\n", object_name);
     return game_increment_turn(game);
   } else {
-    printf("[DEBUG] Object '%s' (ID %ld) not found in current space %ld\n", object_name, object_id, player_location);
     return ERROR;
   }
 
@@ -655,7 +640,7 @@ Status game_actions_inventory(Game *game) { /*No pierdes turno al abrir el inven
 
   game_toggle_inventory_vis(game);
 
-  return game_increment_turn(game);
+  return OK;
 }
 
 Status game_actions_use(Game *game) {

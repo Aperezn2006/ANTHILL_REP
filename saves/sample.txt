@@ -1,6 +1,6 @@
 -------------------------------------------------------------------------
 Info:
-- Last played: Sun Apr 27 12:01:27 2025
+- Last played: Sun Apr 27 12:16:32 2025
 - Players:
    - 1. ant1
    - 2. ant2
@@ -51,6 +51,6 @@ Characters:
 
 Objects:
 #o:21|Seed|0|-2|1|-1|-1|0|Dont eat it|0|0|.|
-#o:22|Crumb|0|0|1|-1|47|0|Blublu|0|0|.|
+#o:22|Crumb|1|0|1|-1|47|0|Blublu|0|0|.|
 #o:23|Grain|14|1|1|-1|-1|0|Prueba|0|0|.|
 #o:24|Leaf|13|2|0|-1|-1|0|It cures 2 health|0|0|.|

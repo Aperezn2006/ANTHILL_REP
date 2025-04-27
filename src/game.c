@@ -65,6 +65,7 @@ Bool game_get_SDL(Game *game) {
 
   return game->SDL;
 }
+
 void game_move_inventory_cursor(Game *game, int direction) {
   Player *player = NULL;
   Inventory *inventory = NULL;
@@ -561,12 +562,14 @@ Id game_get_object_location(Game *game, Id object_id) {
 
   for (i = 0; i < game_get_num_players(game); i++) {
     if (player_has_object(game_get_player_from_index(game, i), object_id) == TRUE) {
-      return player_get_id(game->players[game_get_player_index_from_turn(game)]);
+      printf("Player nº %i has the object\n", i);
+      return player_get_id(game->players[i]);
     }
   }
 
   for (i = 0; i < game_get_num_spaces(game); i++) {
     if (space_has_object(game->spaces[i], object_id) == TRUE) {
+      printf("Space %li has the object\n", space_get_id(game->spaces[i]));
       return space_get_id(game->spaces[i]);
     }
   }

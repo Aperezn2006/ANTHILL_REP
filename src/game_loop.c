@@ -157,11 +157,6 @@ void game_loop_run(Game *game, Graphic_engine *gengine, FILE *log_file) {
     }
 
     if (command_get_code(last_cmd) != UNKNOWN && command_get_code(last_cmd) != NO_CMD) {
-      if (game_get_num_players(game) > 1) {
-        graphic_engine_paint_game(gengine, game);
-        /*sleep(1);*/
-      }
-
       /*Chequeo de following*/
 
       for (i = 0; i < game_get_num_characters(game); i++) {
