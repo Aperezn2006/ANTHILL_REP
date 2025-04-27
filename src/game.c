@@ -35,6 +35,7 @@ struct _Game {
   Bool finished;                            /*!< Whether the game is finished or not */
   int turn;                                 /*!< Current game's turn */
   Bool inventory_vis;                       /*!< Whether the inventory is being visualized*/
+  Bool zoom;
   Set *teams[MAX_TEAMS];                    /*!< Equipos en el juego, cada uno es un conjunto de IDs de jugadores */
   int n_teams;
   Ray *ray; /*SDL2*/
@@ -183,6 +184,7 @@ Status game_init(Game *game) {
   game->finished = FALSE;
   game->turn = 1;
   game->inventory_vis = FALSE;
+  game->zoom = FALSE;
 
   player_set_location(game->players[game_get_player_index_from_turn(game)], NO_ID);
 
@@ -1293,6 +1295,33 @@ Bool game_get_inventory_vis(Game *game) {
   }
 
   return game->inventory_vis;
+}
+
+Status game_toggle_zoom_vis(Game *game) {
+  /*CdE*/
+  if (!game) {
+    return ERROR;
+  }
+
+  if (game->zoom == TRUE) {
+    game->zoom = FALSE;
+  } else {
+    game->zoom = TRUE;
+  }
+
+  return OK;
+}
+
+/**
+ * @brief It gets whether the inventory is beinf visualized or not
+ */
+Bool game_get_zoom_vis(Game *game) {
+  /*CdE*/
+  if (!game) {
+    return FALSE;
+  }
+
+  return game->zoom;
 }
 
 Status game_update_player_health(Game *game, Id object_id) {
