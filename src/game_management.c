@@ -237,7 +237,7 @@ Status game_management_load(Game *game, char *file_name, Bool new, Bool SDL) {
       toks = strtok(NULL, "|");
       if (toks) {
         strcpy(image, toks);
-        printf("----------Image path is %s\n", image);
+        printf("----------Image path is [%s]\n", image);
       }
 
       for (i = 0; i < 5; i++) {
@@ -319,7 +319,7 @@ Status game_management_load(Game *game, char *file_name, Bool new, Bool SDL) {
         toks = strtok(NULL, "|");
         if (toks) {
           strcpy(image, toks);
-          printf("----------Image path is %s\n", image);
+          printf("----------Image path is [%s]\n", image);
         }
       }
 
@@ -389,7 +389,7 @@ Status game_management_load(Game *game, char *file_name, Bool new, Bool SDL) {
           strcpy(image, toks);
         }
 
-        printf("----------Image path is %s\n", image);
+        printf("----------Image path is [%s]\n", image);
       }
 
       character = character_create(id);
@@ -444,7 +444,7 @@ Status game_management_load(Game *game, char *file_name, Bool new, Bool SDL) {
         if (toks) {
           strcpy(image, toks);
         }
-        printf("----------Image path is %s\n", image);
+        printf("----------Image path is [%s]\n", image);
       }
 
       link = link_create(id);
@@ -508,25 +508,25 @@ Status game_management_load(Game *game, char *file_name, Bool new, Bool SDL) {
         toks = strtok(NULL, "|");
         if (toks) {
           strcpy(north_image, toks);
-          printf("----------Image path is %s\n", north_image);
+          printf("----------Image path is [%s]\n", north_image);
         }
 
         toks = strtok(NULL, "|");
         if (toks) {
           strcpy(east_image, toks);
-          printf("----------Image path is %s\n", east_image);
+          printf("----------Image path is [%s]\n", east_image);
         }
 
         toks = strtok(NULL, "|");
         if (toks) {
           strcpy(south_image, toks);
-          printf("----------Image path is %s\n", south_image);
+          printf("----------Image path is [%s]\n", south_image);
         }
 
         toks = strtok(NULL, "|");
         if (toks) {
           strcpy(west_image, toks);
-          printf("----------Image path is %s\n", west_image);
+          printf("----------Image path is [%s]\n", west_image);
         }
       }
 
@@ -541,6 +541,7 @@ Status game_management_load(Game *game, char *file_name, Bool new, Bool SDL) {
 
         if (SDL == TRUE) {
           player_set_position(player, x, y);
+          player_set_image(player, north_image);
           player_set_North_image(player, north_image);
           player_set_East_image(player, east_image);
           player_set_South_image(player, south_image);
@@ -588,7 +589,7 @@ Status game_management_load(Game *game, char *file_name, Bool new, Bool SDL) {
 
       toks = strtok(NULL, "|");
       strcpy(image, toks);
-      printf("----------Image path is %s\n", image);
+      printf("----------Image path is [%s]\n", image);
 
       obstacle = obstacle_create(id, x, y, width, height);
       if (obstacle) {

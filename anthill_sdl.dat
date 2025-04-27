@@ -13,23 +13,23 @@
 
 /*id|name|location|health|movable|dependency|open_door|desc|x|y|image|*/
 
-#o:20|Llave|5|0|1|-1|-1|Open chair|0|0|resources/leaf.png|
-#o:21|Hueso|3|0|1|-1|-1|Domesticate|0|0|resources/gre_pot.png|
-#o:22|Donut|3|1|1|-1|-1|Ñum Ñum|0|0|resources/red_pot.png|
-#o:23|Chaleco|7|5|1|-1|-1||0|0|resources/seed.png|
-#o:24|Pistola|11|-3|1|-1|-1||0|0|resources/stick.png|
-#o:25|Cuchara|8|0|1|-1|-1|Scape|0|0|resources/yel_pot.png|
-#o:26|CepilloDientes|8|-2|1|-1|-1|Dont use it|0|0|resources/stick.png|
-#o:27|Linterna|10|0|1|-1|-1||0|0|resources/leaf.png|
-#o:28|CartelPreso|5|0|1|-1|-1|2567|0|0|resources/seed.png|
-#o:29|Cigarrillos|7|1|1|-1|-1||0|0|resources/leaf.png|
+#o:20|Llave|18|0|1|-1|-1|Open chair|0|0|resources/leaf.png|
+#o:21|Hueso|18|0|1|-1|-1|Domesticate|0|0|resources/leaf.png|
+#o:22|Donut|18|1|1|-1|-1|Ñum Ñum|0|0|resources/leaf.png|
+#o:23|Chaleco|18|5|1|-1|-1||0|0|resources/leaf.png|
+#o:24|Pistola|18|-3|1|-1|-1||0|0|resources/leaf.png|
+#o:25|Cuchara|18|0|1|-1|-1|Scape|0|0|resources/leaf.png|
+#o:26|CepilloDientes|18|-2|1|-1|-1|Dont use it|0|0|resources/leaf.png|
+#o:27|Linterna|18|0|1|-1|-1||0|0|resources/leaf.png|
+#o:28|CartelPreso|18|0|1|-1|-1|2567|0|0|resources/leaf.png|
+#o:29|Cigarrillos|18|1|1|-1|-1||0|0|resources/leaf.png|
 
 /*id|name|location|health|gdesc|message|friendliness|x|y|image|*/
 
-#c:30|Enfermo|2|4|()__/\|Hello|TRUE|0|0|resources/spider.png|
-#c:31|Policia|11|4|/()\ |Hello|FALSE|0|0|resources/beetle.png|
-#c:32|Perro|9|4|U.^.U |Hello|FALSE|0|0|resources/beetle2.png|
-#c:33|Familiar|4|4|()__() |Hello|TRUE|0|0|resources/bicho_palo.png|
+#c:30|Enfermo|12|4|()__/\|Hello|TRUE|0|0|resources/spider.png|
+#c:31|Policia|111|4|/()\ |Hello|FALSE|0|0|resources/beetle.png|
+#c:32|Perro|19|4|U.^.U |Hello|FALSE|0|0|resources/beetle2.png|
+#c:33|Familiar|14|4|()__() |Hello|TRUE|0|0|resources/bicho_palo.png|
 
 /*id|name|origin|destination|direction|open|image|*/
 
@@ -54,5 +54,6 @@
 
 
 /*id|name|gdesc|location|health|inventory_size|max_turns|x|y|image|*/
-#p:50|ant1|mO^|8|5|5|1|0|0|resources/ant_E.png|resources/ant_E.png|resources/ant_W.png|resources/ant_W.png|
+
+#p:50|ant1|mO^|18|5|5|1|0|0|resources/ant_E.png|resources/ant_E.png|resources/ant_W.png|resources/ant_W.png|
 #p:51|ant2|mO^|16|5|3|2|0|0|resources/ant_E.png|resources/ant_E.png|resources/ant_W.png|resources/ant_W.png|

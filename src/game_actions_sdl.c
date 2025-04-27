@@ -171,6 +171,26 @@ void game_actions_update(Game *game, int seed) {
     return; /*Si el inventario está abierto, ignoramos el resto de acciones*/
   }
 
+  if (game_input.up == KS_PRESSED) {
+    player_set_position(player, player_get_x(player), player_get_y(player) - 1);
+    player_set_image(player, (char *)player_get_North_image(player));
+  }
+
+  if (game_input.down == KS_PRESSED) {
+    player_set_position(player, player_get_x(player), player_get_y(player) + 1);
+    player_set_image(player, (char *)player_get_South_image(player));
+  }
+
+  if (game_input.left == KS_PRESSED) {
+    player_set_position(player, player_get_x(player) - 1, player_get_y(player));
+    player_set_image(player, (char *)player_get_West_image(player));
+  }
+
+  if (game_input.right == KS_PRESSED) {
+    player_set_position(player, player_get_x(player) + 1, player_get_y(player));
+    player_set_image(player, (char *)player_get_East_image(player));
+  }
+
   /* ABRIR INVENTARIO */
   if (game_input.inventory_toggle == KS_PRESSED) {
     game_toggle_inventory_vis(game); /*Alternar visibilidad del inventario*/
