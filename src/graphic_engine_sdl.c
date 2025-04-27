@@ -299,16 +299,9 @@ void graphic_engine_render(Graphic_engine *gengine, Game *game) {
   }
 
   /* Render links */
-  printf("ABOUT TO RENDER LINKS\n");
   for (i = 0; i < 6; i++) {
     link = game_get_link_at_direction(game, id_act, i);
-    if (link) {
-      printf("THERE IS A LINK!!\n");
-    } else {
-      printf("WTF\n");
-    }
     if (link && game_connection_is_open(game, id_act, i)) {
-      printf("Connection is open!\n");
       const char *link_path = link_get_image(link);
       if (link_path) {
         if (gengine->link_textures[i]) {
@@ -320,14 +313,10 @@ void graphic_engine_render(Graphic_engine *gengine, Game *game) {
       /* Get fixed link position */
       link_x = link_get_x(link);
       link_y = link_get_y(link);
-      printf("\n||||||||||||> Link is at (%i,%i)\n", link_x, link_y);
       if (gengine->link_textures[i]) {
         SDL_Rect link_rect = {link_x * TILE_SIZE, link_y * TILE_SIZE, 60, 60};
         SDL_RenderCopy(gengine->renderer, gengine->link_textures[i], NULL, &link_rect);
-        printf("Rendering link in direction %d at (%d, %d)\n", i, link_x, link_y);
       }
-    } else {
-      printf("Connection isn't open!\n");
     }
   }
 
