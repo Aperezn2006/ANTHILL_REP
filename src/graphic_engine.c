@@ -554,3 +554,101 @@ void graphic_engine_paint_inventory(Graphic_engine *ge, Game *game) {
   screen_paint(game_get_player_index_from_turn(game) % 7);
   printf("prompt:> ");
 }
+
+void graphic_engine_paint_zoom(Graphic_engine *ge, Game *game) {
+  char str1[1024];
+  Space *space = NULL;
+  Id player_loc = NO_ID;
+  int i = 0;
+  int num_objects = 0;
+  Id object_id = NO_ID;
+  Object *object = NULL;
+
+  printf("[DEBUG] Entrando en graphic_engine_paint_zoom\n");
+
+  if (!ge || !game) {
+    printf("[ERROR] Graphic_engine o Game es NULL\n");
+    return;
+  }
+
+  screen_area_clear(ge->map);
+  screen_area_puts(ge->map, " ");
+
+  player_loc = game_get_player_location(game);
+  printf("[DEBUG] player_loc: %ld\n", player_loc);
+
+  space = game_get_space(game, player_loc);
+  printf("[DEBUG] space: %p\n", (void*)space);
+
+  if (!space) {
+    screen_area_puts(ge->map, "No current space.");
+    screen_paint(game_get_player_index_from_turn(game) % 7);
+    printf("prompt:> ");
+    return;
+  }
+
+  /* Print space name and description */
+  sprintf(str1, "Zoom view of the space:");
+  screen_area_puts(ge->map, str1);
+  sprintf(str1, "----------------------------------------------------------------------------");
+  screen_area_puts(ge->map, str1);
+
+  printf("[DEBUG] Obteniendo nombre del espacio\n");
+  if (space_get_name(space) == NULL) {
+    printf("[ERROR] space_get_name devolvió NULL\n");
+  }
+  sprintf(str1, "Name: %s", space_get_name(space));
+  screen_area_puts(ge->map, str1);
+  /*
+  printf("[DEBUG] Obteniendo descripción del espacio\n");
+  if (space_get_description(space) == NULL) {
+    printf("[ERROR] space_get_description devolvió NULL\n");
+  } else {
+    sprintf(str1, "Description: %s", *space_get_description(space)); 
+    screen_area_puts(ge->map, str1);
+  }
+  */
+  sprintf(str1, "----------------------------------------------------------------------------");
+  screen_area_puts(ge->map, str1);
+
+  /* Print objects in the space */
+  num_objects = space_get_num_objects(space);
+  printf("[DEBUG] num_objects: %d\n", num_objects);
+
+  if (num_objects > 0) {
+    sprintf(str1, "Objects in the space:");
+    screen_area_puts(ge->map, str1);
+
+    for (i = 0; i < num_objects; i++) {
+      printf("[DEBUG] Iterando objeto %d\n", i);
+
+      object_id = space_get_object_from_index(space, i);
+      printf("[DEBUG] object_id: %ld\n", object_id);
+
+      if (object_id != NO_ID) {
+        object = game_get_object_from_id(game, object_id);
+        printf("[DEBUG] object: %p\n", (void*)object);
+
+        if (object) {
+          if (object_get_name(object) == NULL) {
+            printf("[ERROR] object_get_name devolvió NULL para el objeto %d\n", i);
+          }
+          sprintf(str1, "- %s", object_get_name(object));
+          screen_area_puts(ge->map, str1);
+        } else {
+          printf("[WARNING] Objeto con ID %ld no encontrado en el juego\n", object_id);
+        }
+      }
+    }
+  } else {
+    sprintf(str1, "No objects in this space.");
+    screen_area_puts(ge->map, str1);
+  }
+
+  sprintf(str1, "----------------------------------------------------------------------------");
+  screen_area_puts(ge->map, str1);
+
+  screen_paint(game_get_player_index_from_turn(game) % 7);
+  printf("prompt:> ");
+}
+
