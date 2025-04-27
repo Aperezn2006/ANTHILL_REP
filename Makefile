@@ -121,7 +121,7 @@ $(OBJ_DIR)/graphic_engine.o: $(SRC_DIR)/graphic_engine.c $(INCLUDE_DIR)/graphic_
 
 $(OBJ_DIR)/graphic_engine_sdl.o: $(SRC_DIR)/graphic_engine_sdl.c $(INCLUDE_DIR)/graphic_engine_sdl.h $(INCLUDE_DIR)/game.h
 	@echo "Compilando: $<"
-	@$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) $(filter-out -Wpedantic -ansi, $(CFLAGS)) -c $< -o $@
 
 $(OBJ_DIR)/space.o: $(SRC_DIR)/space.c $(INCLUDE_DIR)/space.h $(INCLUDE_DIR)/set.h
 	@echo "Compilando: $<"
@@ -256,6 +256,7 @@ run: $(EXEC)
 	./$(EXEC) $(EXEC).dat
 
 run_sdl: $(SDL_EXEC)
+	export LD_LIBRARY_PATH=/lib/x86_64-linux-gnu:$LD_LIBRARY_PATH
 	./$(SDL_EXEC) $(SDL_EXEC)_sdl.dat
 
 # Regla para ejecutar Valgrind

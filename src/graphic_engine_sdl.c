@@ -224,16 +224,16 @@ void graphic_engine_render(Graphic_engine *gengine, Game *game) {
   int player_x, player_y;
   const char *ant_path = NULL;
   const char *background_path = NULL;
-  const char *character_path = NULL;
   Character *character = NULL;
   int character_x, character_y;
-  int i = 0, j = 0;
+  int i = 0;
   Direction directions[4] = {0, 1, 2, 3}; /* North, South, East, West */
   Link *link = NULL;
   int link_x, link_y;
   Object *obj = NULL;
   int obj_x, obj_y;
   int inv_x, inv_y;
+  Ray *ray = NULL;
 
   if (!gengine || !game) {
     return;
@@ -324,7 +324,7 @@ void graphic_engine_render(Graphic_engine *gengine, Game *game) {
     }
   }
 
-  Ray *ray = game_get_ray(game);        /*Get the current ray instance*/
+  ray = game_get_ray(game);             /*Get the current ray instance*/
   if (ray && ray_is_active(ray) == 1) { /*Render only if ray is active*/
     ray_update(ray);                    /*Update ray position dynamically*/
 
