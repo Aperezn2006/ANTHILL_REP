@@ -1,47 +1,59 @@
 /*id|name|discovered|image|gdesc*/
-#s:11|Entry|.| _       |\ \___   |\ mo'\_  |\ @ _    | \__/ \__|
-#s:121|Pasillo1|.|
-#s:122|Pasillo2|.|  ___    |_/   \__ |    o o )|mo^ _ 0o]|__/ \___)|
-#s:125|Pasillo5|.|
-#s:126|Pasillo6|.|
-#s:127|Pasillo7|.|  ___   _|_/   \_/ |     o 0 |mo'_ 0o8o|__/ \   /|
-#s:14|Agujero|.|  ___    |_/   \__ |    o o )|mo^ _ 0o]|__/ \___)|
-#s:123|Pasillo3|.|
-#s:124|Pasillo4|.|
-#s:13|Despensa|.|    V    |  \(")/  |  -(_)-  |o/(_-_)\o|o o\_/o o|
-#s:130|Prueba1|.|
-#s:131|Prueba2|.|
+
+#s:11|PuestoVigilancia|.|
+#s:2|Enfermeria|.|
+#s:3|Comedor|.|
+#s:4|Visitas|.|
+#s:5|Archivos|.|
+#s:6|Torturas|.|
+#s:7|Patio|.|
+#s:8|Habitacion|.|
+#s:9|Perrera|.|
+#s:10|Sotano|.|
 
 /*id|name|location|health|movable|dependency|open_door|desc|*/
-#o:21|Seed|11|-2|1|-1|-1|Dont eat it|
-#o:22|Crumb|122|0|1|-1|47|Blublu|
-#o:23|Grain|14|1|1|-1|-1|Prueba|
-#o:24|Leaf|13|2|0|-1|-1|It cures 2 health|
+
+#o:20|Llave|5|0|1|-1|-1|Open chair|
+#o:21|Hueso|3|0|1|-1|-1|Domesticate|
+#o:22|Donut|3|1|1|-1|-1|Ñum Ñum|
+#o:23|Chaleco|7|5|1|-1|-1||
+#o:24|Pistola|11|-3|1|-1|-1||
+#o:25|Cuchara|8|0|1|-1|-1|Scape|
+#o:26|CepilloDientes|8|-2|1|-1|-1|Dont use it|
+#o:27|Linterna|10|0|1|-1|-1||
+#o:28|CartelPreso|5|0|1|-1|-1|2567|
+#o:29|Cigarrillos|7|1|1|-1|-1||
+
 
 /*id|name|location|health|gdesc|message|friendliness*/
-#c:31|Spider|121|5|/\oo/\|Get out|FALSE|
-#c:32|Ant|122|4|^0m   |Hello|TRUE|
+
+#c:50|Enfermo|2|4|()__/\|Hello|TRUE|
+#c:51|Policia|11|4|/()\ |Hello|FALSE|
+#c:52|Perro|9|4|U.^.U |Hello|FALSE|
+#c:53|Familiar|4|4|()__() |Hello|TRUE|
 
 /*id|name|origin|destination|direction|open*/
-#l:41|EntryToPasillo1|11|121|1|1|
-#l:42|EntryToPasillo1|121|11|0|1|
-#l:43|Pasillo1ToPasillo2|121|122|1|1|
-#l:44|Pasillo1ToPasillo2|122|121|0|1|
-#l:45|Pasillo2ToPasillo3|122|123|1|1|
-#l:46|Pasillo2ToPasillo3|123|122|0|1|
-#l:47|Pasillo3ToPasillo4|123|124|1|0|
-#l:48|Pasillo3ToPasillo4|124|123|0|1|
-#l:49|Pasillo4ToDespensa|124|13|1|1|
-#l:410|Pasillo4ToDespensa|13|124|0|1|
-#l:411|Pasillo2ToPasillo5|122|125|2|1|
-#l:412|Pasillo2ToPasillo5|125|122|3|1|
-#l:413|Pasillo5ToPasillo6|125|126|2|1|
-#l:414|Pasillo5ToPasillo6|126|125|3|1|
-#l:415|Pasillo6ToPasillo7|126|127|2|1|
-#l:416|Pasillo6ToPasillo7|127|126|3|1|
-#l:417|Pasillo7ToAgujero|127|14|2|1|
-#l:418|Pasillo7ToAgujero|14|127|3|1|
+
+#l:100|PuestoVigilanciaToComedor|11|3|1|1|
+#l:101|ComedorToPuestoVigilancia|3|11|0|1|
+#l:102|EnfermeriaToComedor|2|3|2|1|
+#l:103|ComedorToEnfermeria|3|2|3|1|
+#l:104|ComedorToVisitas|3|4|2|1|
+#l:105|VisitasToComedor|4|3|3|1|
+#l:106|EnfermeriaToTorturas|2|6|1|1|
+#l:107|TorturasToEnfermeria|6|2|0|1|
+#l:108|VisitasToHabitacion|4|8|1|1|
+#l:109|HabitacionToVisitas|8|4|0|1|
+#l:110|ComedorToPatio|3|7|1|1|
+#l:111|PatioToComedor|7|3|0|1|
+#l:112|PatioToSotano|7|10|1|1|
+#l:113|SotanoToPatio|10|7|0|1|
+#l:114|SotanoToPerrera|10|9|2|1|
+#l:115|PerreraToSotano|9|10|3|1|
+#l:116|PerreraToArchivos|9|5|0|1|
+#l:117|ArchivosToPerrera|5|9|1|1|
+
 
 /*id|name|gdesc|location|health|inventory_size|message|object_desc|max_turns*/
-#p:0|ant1|mO^|11|5|5|1|
-#p:1|ant2|mO^|123|5|3|2|
+#p:0|ant1|mO^|8|5|5|1|
+#p:1|ant2|mO^|6|5|3|2|
