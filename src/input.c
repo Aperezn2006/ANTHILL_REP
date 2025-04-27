@@ -43,7 +43,6 @@ void input_update(Game *game) {
                 update_key_state(1, &game_input.inventory_down);
                 break;
               case SDLK_g:
-                printf("\n-------------------INPUT IS DROP\n\n");
                 update_key_state(1, &game_input.drop);
                 break;
               case SDLK_RETURN:
@@ -51,6 +50,9 @@ void input_update(Game *game) {
                 break;
               case SDLK_ESCAPE:
                 update_key_state(1, &game_input.inventory_cancel);
+                break;
+              case SDLK_TAB:
+                game_toggle_inventory_vis(game);
                 break;
             }
           } else {

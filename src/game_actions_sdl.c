@@ -334,7 +334,7 @@ Status game_actions_drop(Game *game) {
   Id object_id;
   Id location;
   int x, y;
-  /*Command *c = NULL;*/
+
   char object_name[WORD_SIZE] = "";
   printf("\n----------------------DROP HAS BEEN PRESSED\n\n");
 
@@ -342,22 +342,10 @@ Status game_actions_drop(Game *game) {
     return ERROR;
   }
 
-  /*c = game_get_last_command(game);
-  strcpy(object_name, command_get_word(c)); Corrección: Podemos ahorrarnos la variable object_name si llamamos a get_obj*/
-
-  /*if (strcmp(object_name, "") == 0) {
-    return ERROR;
-  }
-  */
-
   if ((object_id = player_get_object_from_index(game_get_current_player(game), player_get_inventory_cursor(game_get_current_player(game)))) ==
       NO_ID) {
     return ERROR;
   }
-  /*object_id = game_get_object_id_from_name(game, object_name);
-  if (object_id == NO_ID) {
-    return ERROR;
-  }*/
 
   location = game_get_player_location(game);
   printf("Player's location is %li\n", location); /*DEBUG*/

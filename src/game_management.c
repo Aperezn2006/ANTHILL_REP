@@ -124,7 +124,7 @@ Status game_management_save(Game *game, char *file_name) {
   fprintf(pf, "\nObjects:\n");
   for (i = 0; i < game_get_num_objects(game); i++) {
     object = game_get_object_from_index(game, i);
-    printf("\n%s is at %li!! [%s]\n", object_get_name(object), game_get_object_location(game, object_get_id(object)),
+    printf("%s is at %li [%s]\n", object_get_name(object), game_get_object_location(game, object_get_id(object)),
            (game_get_id_type(game, game_get_object_location(game, object_get_id(object))) == PLAYER) ? (char *)"player" : (char *)"space");
     /*id|name|location|health|movable|dependency|open_door|inspected|desc|x|y|image|*/
     fprintf(pf, "#o:%li|%s|%li|%i|%i|%li|%li|%i|%s|%i|%i|%s|\n", object_get_id(object), object_get_name(object),
