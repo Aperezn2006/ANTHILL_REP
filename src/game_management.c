@@ -326,13 +326,16 @@ Status game_management_load(Game *game, char *file_name, Bool new, Bool SDL) {
       object = object_create(id, location);
       if (object) {
         object_set_name(object, name);
-        object_set_desc(object, object_desc);
+        if (object_desc[0] != '.') {
+          object_set_desc(object, object_desc);
+        }
         object_set_health(object, health);
         object_set_movable(object, movable);
         object_set_dependency(object, dependency);
         object_set_open(object, open_door);
 
         if (SDL == TRUE) {
+          printf("Setting object image [%s]\n", image);
           object_set_image(object, image);
           object_set_position(object, x, y);
         }

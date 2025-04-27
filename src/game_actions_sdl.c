@@ -365,6 +365,7 @@ Status game_actions_drop(Game *game) {
   if (player_has_object(game_get_current_player(game), object_id) == TRUE) {
     game_set_object_location(game, location, object_id);
     player_get_position(game_get_current_player(game), &x, &y);
+    object_set_position(game_get_object_from_id(game, object_id), x, y);
     printf("Object %s dropped\n", object_name); /*DEBUG*/
     return OK;
   } else {

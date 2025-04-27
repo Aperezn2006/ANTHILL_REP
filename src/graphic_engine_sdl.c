@@ -350,7 +350,7 @@ void graphic_engine_render(Graphic_engine *gengine, Game *game) {
       obj_x = object_get_x(obj);
       obj_y = object_get_y(obj);
       SDL_Rect obj_rect = {obj_x * TILE_SIZE, obj_y * TILE_SIZE, 40, 40};
-      printf(":::::: About to load %s\n", object_get_image(obj));
+      printf(":::::: About to load [%s]\n", object_get_image(obj));
       gengine->object_textures[i] = load_texture(gengine->renderer, object_get_image(obj));
 
       if (gengine->object_textures[i]) {
