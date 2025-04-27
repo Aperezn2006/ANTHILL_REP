@@ -257,9 +257,10 @@ docs:
 run: $(EXEC)
 	./$(EXEC) $(EXEC).dat
 
+# ANTES HAY QUE USAR: export LD_LIBRARY_PATH=/lib/x86_64-linux-gnu:$LD_LIBRARY_PATH
 run_sdl: $(SDL_EXEC)
 	export LD_LIBRARY_PATH=/lib/x86_64-linux-gnu:$LD_LIBRARY_PATH
-	./$(SDL_EXEC) $(SDL_EXEC)_sdl.dat
+	./$(SDL_EXEC) $(SDL_EXEC).dat
 
 # Regla para ejecutar Valgrind
 valgrind: $(EXEC)
