@@ -67,5 +67,14 @@ void graphic_engine_paint_end(Graphic_engine *ge, Game *game);
  * @return nothing
  */
 void graphic_engine_paint_inventory(Graphic_engine *ge, Game *game);
+/**
+ * @brief It paints the space screen
+ * @author Ana
+ *
+ * @param ge a pointer to the graphic engine
+ * @param game a pointer to the game
+ * @return nothing
+ */
+void graphic_engine_paint_zoom(Graphic_engine *ge, Game *game);
 
 #endif
