@@ -233,7 +233,9 @@ Status game_actions_move(Game *game) {
   const char *destiny = NULL;
   Direction direction;
 
-  if (!game) return ERROR;
+  if (!game) {
+    return ERROR;
+  }
 
   current_space_id = game_get_player_location(game);
   if (current_space_id == NO_ID) return ERROR;

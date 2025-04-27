@@ -1,47 +1,58 @@
-#s:11|Entry|resources/pradera.png|
-#s:121|Pasillo1|resources/hielo.png|
-#s:122|Pasillo2|resources/desierto.png|
-#s:125|Pasillo5|resources/montanas.png|
-#s:126|Pasillo6|resources/pradera.png|
-#s:127|Pasillo7|  ___   _|_/   \_/ |     o 0 |mo'_ 0o8o|__/ \   /|resources/montanas.png|
-#s:14|Agujero|  ___    |_/   \__ |    o o )|mo^ _ 0o]|__/ \___)|resources/pradera.png|
-#s:123|Pasillo3|resources/desierto.png|
-#s:124|Pasillo4|resources/montanas.png|
-#s:13|Despensa|    V    |  \(")/  |  -(_)-  |o/(_-_)\o|o o\_/o o|resources/pradera.png|
-#s:130|Prueba1|resources/montanas.png|
-#s:131|Prueba2|resources/desierto.png|
+/*id|name|image|gdesc|*/
 
-/*id|name|location|health|movable|dependency|open_door|desc|*/
-#o:21|Seed|11|-2|1|-1|-1|Dont eat it|resources/seed.png|
-#o:22|Crumb|122|0|1|-1|-1|Blublu|resources/gre_pot.png|
-#o:23|Grain|14|1|1|-1|-1|Prueba|resources/yel_pot.png|
-#o:24|Leaf|13|2|0|-1|-1|It cures 2 health|resources/leaf.png|
-#o:25|Prueba|11|2|1|-1|-1|Para el inventory|resources/stick.png|
-#o:26|Prueba2|11|2|1|-1|-1|Para el inventory|resources/red_pot.png|
+#s:11|PuestoVigilancia|resources/desierto|
+#s:12|Enfermeria|resources/hielo|
+#s:13|Comedor|resources/laguna|
+#s:14|Visitas|resources/montanas|
+#s:15|Archivos|resources/hielo|
+#s:16|Torturas|resources/desierto|
+#s:17|Patio|resources/laguna|
+#s:18|Habitacion|resources/motanas|
+#s:19|Perrera|resources/desierto|
+#s:110|Sotano|resources/pradera|
 
-#c:31|Spider|121|5|/\oo/\|Get out|FALSE|resources/spider.png|
-#c:32|Beetle|122|4|^0m   |Hello|TRUE|resources/beetle.png|
+/*id|name|location|health|movable|dependency|open_door|desc|x|y|image|*/
 
-#l:41|EntryToPasillo1|11|121|1|1|resources/portal.png|
-#l:42|EntryToPasillo1|121|11|0|1|resources/portal.png|
-#l:43|Pasillo1ToPasillo2|121|122|1|1|resources/portal.png|
-#l:44|Pasillo1ToPasillo2|122|121|0|1|resources/portal.png|
-#l:45|Pasillo2ToPasillo3|122|123|1|1|resources/portal.png|
-#l:46|Pasillo2ToPasillo3|123|122|0|1|resources/portal.png|
-#l:47|Pasillo3ToPasillo4|123|124|1|0|resources/portal.png|
-#l:48|Pasillo3ToPasillo4|124|123|0|1|resources/portal.png|
-#l:49|Pasillo4ToDespensa|124|13|1|1|resources/portal.png|
-#l:410|Pasillo4ToDespensa|13|124|0|1|resources/portal.png|
-#l:411|Pasillo2ToPasillo5|122|125|2|1|resources/portal.png|
-#l:412|Pasillo2ToPasillo5|125|122|3|1|resources/portal.png|
-#l:413|Pasillo5ToPasillo6|125|126|2|1|resources/portal.png|
-#l:414|Pasillo5ToPasillo6|126|125|3|1|resources/portal.png|
-#l:415|Pasillo6ToPasillo7|126|127|2|1|resources/portal.png|
-#l:416|Pasillo6ToPasillo7|127|126|3|1|resources/portal.png|
-#l:417|Pasillo7ToAgujero|127|14|2|1|resources/portal.png|
-#l:418|Pasillo7ToAgujero|14|127|3|1|resources/portal.png|
+#o:20|Llave|5|0|1|-1|-1|Open chair|
+#o:21|Hueso|3|0|1|-1|-1|Domesticate|
+#o:22|Donut|3|1|1|-1|-1|Ñum Ñum|
+#o:23|Chaleco|7|5|1|-1|-1||
+#o:24|Pistola|11|-3|1|-1|-1||
+#o:25|Cuchara|8|0|1|-1|-1|Scape|
+#o:26|CepilloDientes|8|-2|1|-1|-1|Dont use it|
+#o:27|Linterna|10|0|1|-1|-1||
+#o:28|CartelPreso|5|0|1|-1|-1|2567|
+#o:29|Cigarrillos|7|1|1|-1|-1||
 
-#p:51|ant1|mO^|11|5|5|resources/ant_E.png|resources/ant_E.png|resources/ant_W.png|resources/ant_W.png|
-#p:52|ant2|mO^|123|5|3|resources/ant_E.png|resources/ant_E.png|resources/ant_W.png|resources/ant_W.png|
+/*id|name|location|health|gdesc|message|friendliness|x|y|image|*/
+
+#c:30|Enfermo|2|4|()__/\|Hello|TRUE|
+#c:31|Policia|11|4|/()\ |Hello|FALSE|
+#c:32|Perro|9|4|U.^.U |Hello|FALSE|
+#c:33|Familiar|4|4|()__() |Hello|TRUE|
+
+/*id|name|origin|destination|direction|open|image|*/
+
+#l:400|PuestoVigilanciaToComedor|11|3|1|1|
+#l:401|ComedorToPuestoVigilancia|3|11|0|1|
+#l:402|EnfermeriaToComedor|2|3|2|1|
+#l:403|ComedorToEnfermeria|3|2|3|1|
+#l:404|ComedorToVisitas|3|4|2|1|
+#l:405|VisitasToComedor|4|3|3|1|
+#l:406|EnfermeriaToTorturas|2|6|1|1|
+#l:407|TorturasToEnfermeria|6|2|0|1|
+#l:408|VisitasToHabitacion|4|8|1|1|
+#l:409|HabitacionToVisitas|8|4|0|1|
+#l:410|ComedorToPatio|3|7|1|1|
+#l:411|PatioToComedor|7|3|0|1|
+#l:412|PatioToSotano|7|10|1|1|
+#l:413|SotanoToPatio|10|7|0|1|
+#l:414|SotanoToPerrera|10|9|2|1|
+#l:415|PerreraToSotano|9|10|3|1|
+#l:416|PerreraToArchivos|9|5|0|1|
+#l:417|ArchivosToPerrera|5|9|1|1|
 
 
+/*id|name|gdesc|location|health|inventory_size|max_turns|x|y|image|*/#p:50|ant1|mO^|8|5|5|1|
+
+#p:51|ant2|mO^|16|5|3|2|
