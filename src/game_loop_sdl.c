@@ -125,6 +125,7 @@ int game_loop_init(Game *game, Graphic_engine **gengine, char *file_name) {
 
 void game_loop_run(Game *game, Graphic_engine *gengine, FILE *log_file) {
   int seed = 0; /* Puedes usar esto si estás en modo determinista */
+  int i = 0;
   if (!gengine) {
     return;
   }
@@ -134,6 +135,9 @@ void game_loop_run(Game *game, Graphic_engine *gengine, FILE *log_file) {
 
     /* Acciones del jugador basadas en input */
     game_actions_update(game, seed);
+    for (i = 0; i < game_get_num_characters(game); i++) {
+      game_character_chase_player(game, game_get_character_from_index(game, i));
+    }
 
     /* Colisiones y transición entre espacios */
     physics_handle_space_transition(game, game_get_current_player(game));

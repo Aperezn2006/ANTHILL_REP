@@ -262,17 +262,21 @@ Status character_get_position(Character *character, int *x, int *y) {
 
 int character_get_x(Character *character) {
   if (!character) {
-    return ERROR;
+    printf("oops\n");
+    return -1;
   }
 
+  printf("==== RETURING CHARACTER x: %i\n", character->x);
   return character->x;
 }
 
 int character_get_y(Character *character) {
   if (!character) {
-    return ERROR;
+    printf("oops\n");
+    return -1;
   }
 
+  printf("==== RETURING CHARACTER y: %i\n", character->y);
   return character->y;
 }
 

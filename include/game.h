@@ -23,6 +23,9 @@
 typedef struct _Game Game;
 
 /*Cosas de SDL2*/
+
+Status game_character_chase_player(Game *game, Character *character);
+
 Bool game_get_SDL(Game *game);
 
 Id game_get_connection(Game *game, Id current_location, Direction direction);

@@ -43,6 +43,41 @@ struct _Game {
 };
 
 /*Cosas de SDL2*/
+Status game_character_chase_player(Game *game, Character *character) {
+  Id leader_id;
+  int new_x = 0, new_y = 0;
+  /*CdE*/
+  if (!character) {
+    return ERROR;
+  }
+
+  /*leader_id = character_get_following(character);*/
+  leader_id = player_get_id(game_get_current_player(game));
+  if (leader_id == NO_ID || leader_id != player_get_id(game_get_current_player(game))) {
+    return OK;
+  } else {
+    if (character_get_x(character) > (player_get_x(game_get_player(game, leader_id)) + 5)) {
+      new_x = character_get_x(character) - 1;
+    } else if (character_get_x(character) < (player_get_x(game_get_player(game, leader_id)) - 5)) {
+      new_x = character_get_x(character) + 1;
+    } else {
+      new_x = character_get_x(character);
+    }
+
+    if (character_get_y(character) > (player_get_y(game_get_player(game, leader_id)) + 5)) {
+      new_y = character_get_y(character) - 1;
+    } else if (character_get_y(character) < (player_get_y(game_get_player(game, leader_id)) - 5)) {
+      new_y = character_get_y(character) + 1;
+    } else {
+      new_y = character_get_y(character);
+    }
+
+    character_set_position(character, new_x, new_y);
+  }
+
+  return OK;
+}
+
 Link *game_get_link_by_id(Game *game, Id link_id) {
   int i;
   /*CdE*/

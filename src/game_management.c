@@ -383,9 +383,11 @@ Status game_management_load(Game *game, char *file_name, Bool new, Bool SDL) {
       if (SDL == TRUE) {
         toks = strtok(NULL, "|");
         x = atoi(toks);
+        printf("\nCHARARCTER x IS %i\n", x);
 
         toks = strtok(NULL, "|");
         y = atoi(toks);
+        printf("\nCHARARCTER y IS %i\n", y);
 
         toks = strtok(NULL, "|");
         if (toks) {

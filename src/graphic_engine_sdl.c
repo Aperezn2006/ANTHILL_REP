@@ -284,17 +284,18 @@ void graphic_engine_render(Graphic_engine *gengine, Game *game) {
   }
 
   for (i = 0; i < space_get_num_characters(game_get_space(game, player_get_location(game_get_current_player(game)))); i++) {
-    character = game_get_character_from_index(game, i);
+    character = game_get_character(game, space_get_character_from_index(game_get_space(game, player_get_location(game_get_current_player(game))), i));
     if (character && (game_get_character_location(game, character_get_id(character)) == id_act)) {
       character_x = character_get_x(character);
       character_y = character_get_y(character);
       SDL_Rect character_rect = {character_x * TILE_SIZE, character_y * TILE_SIZE, 40 * SCREEN_ZOOM, 40 * SCREEN_ZOOM};
       gengine->character_textures[i] = load_texture(gengine->renderer, character_get_image(character));
 
+      printf("LOADING CHARACTER AT (%i,%i)\n", character_x, character_y);
       if (gengine->character_textures[i]) {
         SDL_RenderCopy(gengine->renderer, gengine->character_textures[i], NULL, &character_rect);
       } else {
-        printf("Warning: Object texture is NULL.\n");
+        printf("Warning: Character texture is NULL.\n");
       }
     }
   }

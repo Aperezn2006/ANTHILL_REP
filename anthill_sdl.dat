@@ -14,22 +14,22 @@
 /*id|name|location|health|movable|dependency|open_door|desc|x|y|image|*/
 
 #o:20|Llave|15|0|1|-1|-1|Open chair|0|0|resources/leaf.png|
-#o:21|Hueso|13|0|1|-1|-1|Domesticate|0|0|resources/leaf.png|
-#o:22|Donut|13|1|1|-1|-1|Ñum Ñum|0|0|resources/leaf.png|
-#o:23|Chaleco|17|5|1|-1|-1|.|0|0|resources/leaf.png|
-#o:24|Pistola|11|-3|1|-1|-1|.|0|0|resources/leaf.png|
+#o:21|Hueso|13|0|1|-1|-1|Domesticate|0|0|resources/stick.png|
+#o:22|Donut|13|1|1|-1|-1|Ñum Ñum|0|0|resources/gre_pot.png|
+#o:23|Chaleco|17|5|1|-1|-1|.|0|0|resources/yel_pot.png|
+#o:24|Pistola|11|-3|1|-1|-1|.|0|0|resources/red_pot.png|
 #o:25|Cuchara|18|0|1|-1|-1|Scape|0|0|resources/leaf.png|
-#o:26|CepilloDientes|18|-2|1|-1|-1|Dont use it|0|0|resources/leaf.png|
-#o:27|Linterna|110|0|1|-1|-1|.|0|0|resources/leaf.png|
-#o:28|CartelPreso|15|0|1|-1|-1|2567|.|0|0|0|resources/leaf.png|
+#o:26|CepilloDientes|18|-2|1|-1|-1|Dont use it|0|0|resources/stick.png|
+#o:27|Linterna|110|0|1|-1|-1|.|0|0|resources/seed.png|
+#o:28|CartelPreso|15|0|1|-1|-1|2567|.|0|0|0|resources/seed.png|
 #o:29|Cigarrillos|17|1|1|-1|-1|.|0|0|resources/leaf.png|
 
 /*id|name|location|health|gdesc|message|friendliness|x|y|image|*/
 
-#c:30|Enfermo|12|4|()__/\|Hello|TRUE|0|0|resources/spider.png|
-#c:31|Policia|111|4|/()\ |Hello|FALSE|0|0|resources/beetle.png|
-#c:32|Perro|19|4|U.^.U |Hello|FALSE|0|0|resources/beetle2.png|
-#c:33|Familiar|14|4|()__() |Hello|TRUE|0|0|resources/bicho_palo.png|
+#c:30|Enfermo|12|4|()__/\|Hello|0|0|0|resources/spider.png|
+#c:31|Policia|111|4|/()\ |Hello|1|0|10|resources/beetle.png|
+#c:32|Perro|19|4|U.^.U |Hello|1|10|10|resources/beetle2.png|
+#c:33|Familiar|14|4|()__() |Hello|0|15|20|resources/bicho_palo.png|
 
 /*id|name|origin|destination|direction|open|image|*/
 
