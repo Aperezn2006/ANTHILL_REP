@@ -147,6 +147,8 @@ void game_loop_run(Game *game, Graphic_engine *gengine, FILE *log_file) {
 
     SDL_Delay(16);
   }
+
+  game_management_save(game, "sdl.txt");
 }
 
 void game_loop_cleanup(Game *game, Graphic_engine *gengine, FILE *log_file) {

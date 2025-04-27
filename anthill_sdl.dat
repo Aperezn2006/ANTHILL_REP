@@ -1,58 +1,58 @@
 /*id|name|image|gdesc|*/
 
-#s:11|PuestoVigilancia|resources/desierto|
-#s:12|Enfermeria|resources/hielo|
-#s:13|Comedor|resources/laguna|
-#s:14|Visitas|resources/montanas|
-#s:15|Archivos|resources/hielo|
-#s:16|Torturas|resources/desierto|
-#s:17|Patio|resources/laguna|
-#s:18|Habitacion|resources/motanas|
-#s:19|Perrera|resources/desierto|
-#s:110|Sotano|resources/pradera|
+#s:11|PuestoVigilancia|resources/desierto.png|
+#s:12|Enfermeria|resources/hielo.png|
+#s:13|Comedor|resources/laguna.png|
+#s:14|Visitas|resources/montanas.png|
+#s:15|Archivos|resources/hielo.png|
+#s:16|Torturas|resources/desierto.png|
+#s:17|Patio|resources/laguna.png|
+#s:18|Habitacion|resources/montanas.png|
+#s:19|Perrera|resources/desierto.png|
+#s:110|Sotano|resources/pradera.png|
 
 /*id|name|location|health|movable|dependency|open_door|desc|x|y|image|*/
 
-#o:20|Llave|5|0|1|-1|-1|Open chair|
-#o:21|Hueso|3|0|1|-1|-1|Domesticate|
-#o:22|Donut|3|1|1|-1|-1|Ñum Ñum|
-#o:23|Chaleco|7|5|1|-1|-1||
-#o:24|Pistola|11|-3|1|-1|-1||
-#o:25|Cuchara|8|0|1|-1|-1|Scape|
-#o:26|CepilloDientes|8|-2|1|-1|-1|Dont use it|
-#o:27|Linterna|10|0|1|-1|-1||
-#o:28|CartelPreso|5|0|1|-1|-1|2567|
-#o:29|Cigarrillos|7|1|1|-1|-1||
+#o:20|Llave|5|0|1|-1|-1|Open chair|0|0|resources/leaf.png|
+#o:21|Hueso|3|0|1|-1|-1|Domesticate|0|0|resources/gre_pot.png|
+#o:22|Donut|3|1|1|-1|-1|Ñum Ñum|0|0|resources/red_pot.png|
+#o:23|Chaleco|7|5|1|-1|-1||0|0|resources/seed.png|
+#o:24|Pistola|11|-3|1|-1|-1||0|0|resources/stick.png|
+#o:25|Cuchara|8|0|1|-1|-1|Scape|0|0|resources/yel_pot.png|
+#o:26|CepilloDientes|8|-2|1|-1|-1|Dont use it|0|0|resources/stick.png|
+#o:27|Linterna|10|0|1|-1|-1||0|0|resources/leaf.png|
+#o:28|CartelPreso|5|0|1|-1|-1|2567|0|0|resources/seed.png|
+#o:29|Cigarrillos|7|1|1|-1|-1||0|0|resources/leaf.png|
 
 /*id|name|location|health|gdesc|message|friendliness|x|y|image|*/
 
-#c:30|Enfermo|2|4|()__/\|Hello|TRUE|
-#c:31|Policia|11|4|/()\ |Hello|FALSE|
-#c:32|Perro|9|4|U.^.U |Hello|FALSE|
-#c:33|Familiar|4|4|()__() |Hello|TRUE|
+#c:30|Enfermo|2|4|()__/\|Hello|TRUE|0|0|resources/spider.png|
+#c:31|Policia|11|4|/()\ |Hello|FALSE|0|0|resources/beetle.png|
+#c:32|Perro|9|4|U.^.U |Hello|FALSE|0|0|resources/beetle2.png|
+#c:33|Familiar|4|4|()__() |Hello|TRUE|0|0|resources/bicho_palo.png|
 
 /*id|name|origin|destination|direction|open|image|*/
 
-#l:400|PuestoVigilanciaToComedor|11|3|1|1|
-#l:401|ComedorToPuestoVigilancia|3|11|0|1|
-#l:402|EnfermeriaToComedor|2|3|2|1|
-#l:403|ComedorToEnfermeria|3|2|3|1|
-#l:404|ComedorToVisitas|3|4|2|1|
-#l:405|VisitasToComedor|4|3|3|1|
-#l:406|EnfermeriaToTorturas|2|6|1|1|
-#l:407|TorturasToEnfermeria|6|2|0|1|
-#l:408|VisitasToHabitacion|4|8|1|1|
-#l:409|HabitacionToVisitas|8|4|0|1|
-#l:410|ComedorToPatio|3|7|1|1|
-#l:411|PatioToComedor|7|3|0|1|
-#l:412|PatioToSotano|7|10|1|1|
-#l:413|SotanoToPatio|10|7|0|1|
-#l:414|SotanoToPerrera|10|9|2|1|
-#l:415|PerreraToSotano|9|10|3|1|
-#l:416|PerreraToArchivos|9|5|0|1|
-#l:417|ArchivosToPerrera|5|9|1|1|
+#l:400|PuestoVigilanciaToComedor|11|3|1|1|resources/portal.png|
+#l:401|ComedorToPuestoVigilancia|3|11|0|1|resources/portal.png|
+#l:402|EnfermeriaToComedor|2|3|2|1|resources/portal.png|
+#l:403|ComedorToEnfermeria|3|2|3|1|resources/portal.png|
+#l:404|ComedorToVisitas|3|4|2|1|resources/portal.png|
+#l:405|VisitasToComedor|4|3|3|1|resources/portal.png|
+#l:406|EnfermeriaToTorturas|2|6|1|1|resources/portal.png|
+#l:407|TorturasToEnfermeria|6|2|0|1|resources/portal.png|
+#l:408|VisitasToHabitacion|4|8|1|1|resources/portal.png|
+#l:409|HabitacionToVisitas|8|4|0|1|resources/portal.png|
+#l:410|ComedorToPatio|3|7|1|1|resources/portal.png|
+#l:411|PatioToComedor|7|3|0|1|resources/portal.png|
+#l:412|PatioToSotano|7|10|1|1|resources/portal.png|
+#l:413|SotanoToPatio|10|7|0|1|resources/portal.png|
+#l:414|SotanoToPerrera|10|9|2|1|resources/portal.png|
+#l:415|PerreraToSotano|9|10|3|1|resources/portal.png|
+#l:416|PerreraToArchivos|9|5|0|1|resources/portal.png|
+#l:417|ArchivosToPerrera|5|9|1|1|resources/portal.png|
 
 
-/*id|name|gdesc|location|health|inventory_size|max_turns|x|y|image|*/#p:50|ant1|mO^|8|5|5|1|
-
-#p:51|ant2|mO^|16|5|3|2|
+/*id|name|gdesc|location|health|inventory_size|max_turns|x|y|image|*/
+#p:50|ant1|mO^|8|5|5|1|0|0|resources/ant_E.png|resources/ant_E.png|resources/ant_W.png|resources/ant_W.png|
+#p:51|ant2|mO^|16|5|3|2|0|0|resources/ant_E.png|resources/ant_E.png|resources/ant_W.png|resources/ant_W.png|

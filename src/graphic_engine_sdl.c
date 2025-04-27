@@ -25,9 +25,7 @@ struct _Graphic_engine {
   SDL_Texture *link_textures[4];
   SDL_Texture *object_textures[MAX_OBJECTS];
   SDL_Texture *inventory_textures[MAX_OBJECTS];
-
   SDL_Texture *ray_texture;
-
   SDL_Texture *inventory_not_selected;
   SDL_Texture *inventory_yes_selected;
 };
@@ -110,7 +108,7 @@ Graphic_engine *graphic_engine_create(void) {
     printf("Error loading ray texture.\n");
   }
 
-  gengine->obstacle_texture = load_texture(gengine->renderer, "resources/obstacle.png");
+  gengine->obstacle_texture = load_texture(gengine->renderer, "resources/platform.png");
   if (!gengine->obstacle_texture) {
     printf("Error loading obstacle texture.\n");
   }
@@ -246,6 +244,7 @@ void graphic_engine_render(Graphic_engine *gengine, Game *game) {
   if (id_act == NO_ID) {
     printf("\nSomething went wrong when changing player's location\n\n");
   }
+
   current_space = game_get_space(game, id_act);
   if (!current_space) {
     printf("Error: Could not get current space for player.\n");
@@ -351,6 +350,7 @@ void graphic_engine_render(Graphic_engine *gengine, Game *game) {
       obj_x = object_get_x(obj);
       obj_y = object_get_y(obj);
       SDL_Rect obj_rect = {obj_x * TILE_SIZE, obj_y * TILE_SIZE, 40, 40};
+      printf(":::::: About to load %s\n", object_get_image(obj));
       gengine->object_textures[i] = load_texture(gengine->renderer, object_get_image(obj));
 
       if (gengine->object_textures[i]) {

@@ -1,0 +1,66 @@
+-------------------------------------------------------------------------
+Info:
+- Last played: Sun Apr 27 17:26:09 2025
+- Players:
+   - 1. ant1
+   - 2. ant2
+- Current turn: 1 (ant1's turn)
+-------------------------------------------------------------------------
+
+Spaces:
+#s:11|PuestoVigilancia|0|resources/desierto.png|         |         |         |         |         |
+#s:12|Enfermeria|0|resources/hielo.png|         |         |         |         |         |
+#s:13|Comedor|0|resources/laguna.png|         |         |         |         |         |
+#s:14|Visitas|0|resources/montanas.png|         |         |         |         |         |
+#s:15|Archivos|0|resources/hielo.png|         |         |         |         |         |
+#s:16|Torturas|0|resources/desierto.png|         |         |         |         |         |
+#s:17|Patio|0|resources/laguna.png|         |         |         |         |         |
+#s:18|Habitacion|0|resources/montanas.png|         |         |         |         |         |
+#s:19|Perrera|0|resources/desierto.png|         |         |         |         |         |
+#s:110|Sotano|0|resources/pradera.png|         |         |         |         |         |
+
+Players:
+#p:50|ant1|mO^|11|5|5|.|.|1|0|0|.|
+#p:51|ant2|mO^|16|5|3|.|.|2|0|0|.|
+
+Links:
+#l:400|PuestoVigilanciaToComedor|11|3|1|1|resources/portal.png|
+#l:401|ComedorToPuestoVigilancia|3|11|0|1|resources/portal.png|
+#l:402|EnfermeriaToComedor|2|3|2|1|resources/portal.png|
+#l:403|ComedorToEnfermeria|3|2|3|1|resources/portal.png|
+#l:404|ComedorToVisitas|3|4|2|1|resources/portal.png|
+#l:405|VisitasToComedor|4|3|3|1|resources/portal.png|
+#l:406|EnfermeriaToTorturas|2|6|1|1|resources/portal.png|
+#l:407|TorturasToEnfermeria|6|2|0|1|resources/portal.png|
+#l:408|VisitasToHabitacion|4|8|1|1|resources/portal.png|
+#l:409|HabitacionToVisitas|8|4|0|1|resources/portal.png|
+#l:410|ComedorToPatio|3|7|1|1|resources/portal.png|
+#l:411|PatioToComedor|7|3|0|1|resources/portal.png|
+#l:412|PatioToSotano|7|10|1|1|resources/portal.png|
+#l:413|SotanoToPatio|10|7|0|1|resources/portal.png|
+#l:414|SotanoToPerrera|10|9|2|1|resources/portal.png|
+#l:415|PerreraToSotano|9|10|3|1|resources/portal.png|
+#l:416|PerreraToArchivos|9|5|0|1|resources/portal.png|
+#l:417|ArchivosToPerrera|5|9|1|1|resources/portal.png|
+
+Characters:
+#c:30|Enfermo|-1|4|()__/\|Hello|0|0|0|resources/spider.png|
+#c:31|Policia|11|4|/()\ |Hello|0|0|0|resources/beetle.png|
+#c:32|Perro|-1|4|U.^.U |Hello|0|0|0|resources/beetle2.png|
+#c:33|Familiar|-1|0|()__() |Hello|0|0|0|resources/bicho_palo.png|
+
+Objects:
+#o:20|Llave|-1|0|1|-1|-1|0|Open chair|0|0|resources/leaf.png|
+#o:21|Hueso|-1|0|1|-1|-1|0|Domesticate|0|0|resources/gre_pot.png|
+#o:22|Donut|-1|1|1|-1|-1|0|Ñum Ñum|0|0|resources/red_pot.png|
+#o:23|Chaleco|-1|5|1|-1|-1|0|0|0|0|
+|
+#o:24|Pistola|11|-3|1|-1|-1|0|0|0|0|
+|
+#o:25|Cuchara|-1|0|1|-1|-1|0|Scape|0|0|resources/yel_pot.png|
+#o:26|CepilloDientes|-1|-2|1|-1|-1|0|Dont use it|0|0|resources/stick.png|
+#o:27|Linterna|-1|0|1|-1|-1|0|0|0|0|
+|
+#o:28|CartelPreso|-1|0|1|-1|-1|0|2567|0|0|resources/seed.png|
+#o:29|Cigarrillos|-1|1|1|-1|-1|0|0|0|0|
+|
