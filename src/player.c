@@ -424,6 +424,22 @@ Status player_get_position(Player *player, int *x, int *y) {
   return OK;
 }
 
+int player_get_x(Player *player) {
+  if (!player) {
+    return ERROR;
+  }
+
+  return player->x;
+}
+
+int player_get_y(Player *player) {
+  if (!player) {
+    return ERROR;
+  }
+
+  return player->y;
+}
+
 /*Print*/
 Status player_print(Player *player) {
   /* Error Control */

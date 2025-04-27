@@ -301,6 +301,9 @@ Status player_set_position(Player *player, int x, int y);
  */
 Status player_get_position(Player *player, int *x, int *y);
 
+int player_get_x(Player *player);
+int player_get_y(Player *player);
+
 /*Print*/
 /**
  * @brief It prints the player information

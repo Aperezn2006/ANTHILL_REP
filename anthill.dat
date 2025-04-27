@@ -1,16 +1,16 @@
-/*id|name|discovered|gdesc*/
-#s:11|Entry| _       |\ \___   |\ mo'\_  |\ @ _    | \__/ \__|
-#s:121|Pasillo1|
-#s:122|Pasillo2|  ___    |_/   \__ |    o o )|mo^ _ 0o]|__/ \___)|
-#s:125|Pasillo5|
-#s:126|Pasillo6|
-#s:127|Pasillo7|  ___   _|_/   \_/ |     o 0 |mo'_ 0o8o|__/ \   /|
-#s:14|Agujero|  ___    |_/   \__ |    o o )|mo^ _ 0o]|__/ \___)|
-#s:123|Pasillo3|
-#s:124|Pasillo4|
-#s:13|Despensa|    V    |  \(")/  |  -(_)-  |o/(_-_)\o|o o\_/o o|
-#s:130|Prueba1|
-#s:131|Prueba2|
+/*id|name|discovered|image|gdesc*/
+#s:11|Entry|.| _       |\ \___   |\ mo'\_  |\ @ _    | \__/ \__|
+#s:121|Pasillo1|.|
+#s:122|Pasillo2|.|  ___    |_/   \__ |    o o )|mo^ _ 0o]|__/ \___)|
+#s:125|Pasillo5|.|
+#s:126|Pasillo6|.|
+#s:127|Pasillo7|.|  ___   _|_/   \_/ |     o 0 |mo'_ 0o8o|__/ \   /|
+#s:14|Agujero|.|  ___    |_/   \__ |    o o )|mo^ _ 0o]|__/ \___)|
+#s:123|Pasillo3|.|
+#s:124|Pasillo4|.|
+#s:13|Despensa|.|    V    |  \(")/  |  -(_)-  |o/(_-_)\o|o o\_/o o|
+#s:130|Prueba1|.|
+#s:131|Prueba2|.|
 
 /*id|name|location|health|movable|dependency|open_door|desc|*/
 #o:21|Seed|11|-2|1|-1|-1|Dont eat it|
