@@ -126,7 +126,42 @@ Status link_set_direction(Link *link, Direction dir) {
   if (!link || dir < 0 || dir > 5) {
     return ERROR;
   }
+
   link->direction = dir;
+
+  switch (dir) {
+    case 0:
+      link->x = 35;
+      link->y = 0;
+      break;
+
+    case 1:
+      link->x = 35;
+      link->y = 55;
+      break;
+
+    case 2:
+      link->x = 73;
+      link->y = 30;
+      break;
+
+    case 3:
+      link->x = 0;
+      link->y = 30;
+      break;
+
+    case 4:
+      link->x = 10;
+      link->y = 15;
+      break;
+
+    case 5:
+      link->x = 20;
+      link->y = 15;
+      break;
+  }
+
+  printf("-------LINK SET TO (%i,%i)\n", link->x, link->y);
   return OK;
 }
 

@@ -56,6 +56,7 @@ Link *game_get_link_by_id(Game *game, Id link_id) {
     }
   }
 
+  printf(".........Link %li not found\n", link_id);
   return NULL;
 }
 
@@ -785,6 +786,7 @@ Link *game_get_link_from_index(Game *game, int index) {
 
   return game->links[index];
 }
+
 Id game_get_link_id_from_name(Game *game, char *name) {
   int i;
   /*CdE*/
@@ -877,12 +879,28 @@ Id game_get_neighbour(Game *game, Id current_location, Direction direction) {
   }
 
   for (i = 0; i < game->n_links; i++) {
-    if (link_get_start(game->links[i]) == current_location && link_get_direction(game->links[i]) == direction) {
+    if ((link_get_start(game->links[i]) == current_location) && (link_get_direction(game->links[i]) == direction)) {
       return link_get_end(game->links[i]);
     }
   }
 
   return NO_ID;
+}
+
+Link *game_get_link_at_direction(Game *game, Id current_location, Direction d) {
+  int i = 0;
+  if (!game || current_location == NO_ID) {
+    return NULL;
+  }
+
+  for (i = 0; i < game->n_links; i++) {
+    if (link_get_start(game->links[i]) == current_location && link_get_direction(game->links[i]) == d) {
+      printf("\nLink at direction found\n");
+      return game->links[i];
+    }
+  }
+
+  return NULL;
 }
 
 /**

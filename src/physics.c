@@ -54,7 +54,6 @@ Bool physics_check_object_collision(Game *game, Player *player, Object *obj) {
 Link *physics_get_colliding_link(Game *game, Player *player) {
   int player_x = 0, player_y = 0;
   Id current_space_id = game_get_player_location(game);
-  Direction directions[4] = {N, S, E, W};
   int i = 0;
   Link *link = NULL;
   Character *character = NULL;
@@ -68,7 +67,7 @@ Link *physics_get_colliding_link(Game *game, Player *player) {
   player_get_position(player, &player_x, &player_y);
 
   for (i = 0; i < 4; i++) {
-    link = game_get_link_by_id(game, game_get_neighbour(game, current_space_id, directions[i]));
+    link = game_get_link_by_id(game, game_get_neighbour(game, current_space_id, i));
     if (link) {
       int link_x = link_get_x(link);
       int link_y = link_get_y(link);
@@ -87,7 +86,7 @@ Link *physics_get_colliding_link(Game *game, Player *player) {
       }
 
       if (abs(10 * player_x - link_x) <= COLLISION_MARGIN && abs(10 * player_y - link_y) <= COLLISION_MARGIN) {
-        printf("[DEBUG] Collision detected with link in direction %d\n", directions[i]);
+        printf("[DEBUG] Collision detected with link in direction %d\n", i);
         return link;
       }
     }

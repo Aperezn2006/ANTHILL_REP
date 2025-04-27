@@ -448,6 +448,8 @@ Id game_get_down(Game *game, Id current_location);
  */
 Id game_get_neighbour(Game *game, Id current_location, Direction direction);
 
+Link *game_get_link_at_direction(Game *game, Id current_location, Direction d);
+
 /**
  * @brief It gets whether the connection of a space in a certain direction is open
  *

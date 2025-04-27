@@ -1,6 +1,6 @@
 -------------------------------------------------------------------------
 Info:
-- Last played: Sun Apr 27 18:19:53 2025
+- Last played: Sun Apr 27 19:07:53 2025
 - Players:
    - 1. ant1
    - 2. ant2
@@ -20,28 +20,28 @@ Spaces:
 #s:110|Sotano|0|resources/pradera.png|         |         |         |         |         |
 
 Players:
-#p:50|ant1|mO^|11|5|5|.|.|1|0|0|resources/ant_E.png|
+#p:50|ant1|mO^|11|5|5|.|.|1|36|49|resources/ant_E.png|
 #p:51|ant2|mO^|16|5|3|.|.|2|0|0|resources/ant_E.png|
 
 Links:
-#l:400|PuestoVigilanciaToComedor|11|3|1|1|resources/portal.png|
-#l:401|ComedorToPuestoVigilancia|3|11|0|1|resources/portal.png|
-#l:402|EnfermeriaToComedor|2|3|2|1|resources/portal.png|
-#l:403|ComedorToEnfermeria|3|2|3|1|resources/portal.png|
-#l:404|ComedorToVisitas|3|4|2|1|resources/portal.png|
-#l:405|VisitasToComedor|4|3|3|1|resources/portal.png|
-#l:406|EnfermeriaToTorturas|2|6|1|1|resources/portal.png|
-#l:407|TorturasToEnfermeria|6|2|0|1|resources/portal.png|
-#l:408|VisitasToHabitacion|4|8|1|1|resources/portal.png|
-#l:409|HabitacionToVisitas|8|4|0|1|resources/portal.png|
-#l:410|ComedorToPatio|3|7|1|1|resources/portal.png|
-#l:411|PatioToComedor|7|3|0|1|resources/portal.png|
-#l:412|PatioToSotano|7|10|1|1|resources/portal.png|
-#l:413|SotanoToPatio|10|7|0|1|resources/portal.png|
-#l:414|SotanoToPerrera|10|9|2|1|resources/portal.png|
-#l:415|PerreraToSotano|9|10|3|1|resources/portal.png|
-#l:416|PerreraToArchivos|9|5|0|1|resources/portal.png|
-#l:417|ArchivosToPerrera|5|9|1|1|resources/portal.png|
+#l:400|PuestoVigilanciaToComedor|11|13|1|1|resources/portal.png|
+#l:401|ComedorToPuestoVigilancia|13|11|0|1|resources/portal.png|
+#l:402|EnfermeriaToComedor|12|13|2|1|resources/portal.png|
+#l:403|ComedorToEnfermeria|13|12|3|1|resources/portal.png|
+#l:404|ComedorToVisitas|13|14|2|1|resources/portal.png|
+#l:405|VisitasToComedor|14|13|3|1|resources/portal.png|
+#l:406|EnfermeriaToTorturas|12|16|1|1|resources/portal.png|
+#l:407|TorturasToEnfermeria|16|12|0|1|resources/portal.png|
+#l:408|VisitasToHabitacion|14|18|1|1|resources/portal.png|
+#l:409|HabitacionToVisitas|18|14|0|1|resources/portal.png|
+#l:410|ComedorToPatio|13|17|1|1|resources/portal.png|
+#l:411|PatioToComedor|17|13|0|1|resources/portal.png|
+#l:412|PatioToSotano|17|110|1|1|resources/portal.png|
+#l:413|SotanoToPatio|110|17|0|1|resources/portal.png|
+#l:414|SotanoToPerrera|110|19|2|1|resources/portal.png|
+#l:415|PerreraToSotano|19|110|3|1|resources/portal.png|
+#l:416|PerreraToArchivos|19|15|0|1|resources/portal.png|
+#l:417|ArchivosToPerrera|15|19|1|1|resources/portal.png|
 
 Characters:
 #c:30|Enfermo|12|4|()__/\|Hello|0|0|0|resources/spider.png|
