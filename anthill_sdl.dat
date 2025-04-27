@@ -1,0 +1,47 @@
+#s:11|Entry|resources/pradera.png|
+#s:121|Pasillo1|resources/hielo.png|
+#s:122|Pasillo2|resources/desierto.png|
+#s:125|Pasillo5|resources/montanas.png|
+#s:126|Pasillo6|resources/pradera.png|
+#s:127|Pasillo7|  ___   _|_/   \_/ |     o 0 |mo'_ 0o8o|__/ \   /|resources/montanas.png|
+#s:14|Agujero|  ___    |_/   \__ |    o o )|mo^ _ 0o]|__/ \___)|resources/pradera.png|
+#s:123|Pasillo3|resources/desierto.png|
+#s:124|Pasillo4|resources/montanas.png|
+#s:13|Despensa|    V    |  \(")/  |  -(_)-  |o/(_-_)\o|o o\_/o o|resources/pradera.png|
+#s:130|Prueba1|resources/montanas.png|
+#s:131|Prueba2|resources/desierto.png|
+
+/*id|name|location|health|movable|dependency|open_door|desc|*/
+#o:21|Seed|11|-2|1|-1|-1|Dont eat it|resources/seed.png|
+#o:22|Crumb|122|0|1|-1|-1|Blublu|resources/gre_pot.png|
+#o:23|Grain|14|1|1|-1|-1|Prueba|resources/yel_pot.png|
+#o:24|Leaf|13|2|0|-1|-1|It cures 2 health|resources/leaf.png|
+#o:25|Prueba|11|2|1|-1|-1|Para el inventory|resources/stick.png|
+#o:26|Prueba2|11|2|1|-1|-1|Para el inventory|resources/red_pot.png|
+
+#c:31|Spider|121|5|/\oo/\|Get out|FALSE|resources/spider.png|
+#c:32|Beetle|122|4|^0m   |Hello|TRUE|resources/beetle.png|
+
+#l:1|EntryToPasillo1|11|121|1|1|resources/portal.png|
+#l:2|EntryToPasillo1|121|11|0|1|resources/portal.png|
+#l:3|Pasillo1ToPasillo2|121|122|1|1|resources/portal.png|
+#l:4|Pasillo1ToPasillo2|122|121|0|1|resources/portal.png|
+#l:5|Pasillo2ToPasillo3|122|123|1|1|resources/portal.png|
+#l:6|Pasillo2ToPasillo3|123|122|0|1|resources/portal.png|
+#l:7|Pasillo3ToPasillo4|123|124|1|0|resources/portal.png|
+#l:8|Pasillo3ToPasillo4|124|123|0|1|resources/portal.png|
+#l:9|Pasillo4ToDespensa|124|13|1|1|resources/portal.png|
+#l:10|Pasillo4ToDespensa|13|124|0|1|resources/portal.png|
+#l:11|Pasillo2ToPasillo5|122|125|2|1|resources/portal.png|
+#l:12|Pasillo2ToPasillo5|125|122|3|1|resources/portal.png|
+#l:13|Pasillo5ToPasillo6|125|126|2|1|resources/portal.png|
+#l:14|Pasillo5ToPasillo6|126|125|3|1|resources/portal.png|
+#l:15|Pasillo6ToPasillo7|126|127|2|1|resources/portal.png|
+#l:16|Pasillo6ToPasillo7|127|126|3|1|resources/portal.png|
+#l:17|Pasillo7ToAgujero|127|14|2|1|resources/portal.png|
+#l:18|Pasillo7ToAgujero|14|127|3|1|resources/portal.png|
+
+#p:1|ant1|mO^|11|5|5|resources/ant_E.png|resources/ant_E.png|resources/ant_W.png|resources/ant_W.png|
+#p:2|ant2|mO^|123|5|3|resources/ant_E.png|resources/ant_E.png|resources/ant_W.png|resources/ant_W.png|
+
+

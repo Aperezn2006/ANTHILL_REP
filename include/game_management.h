@@ -15,7 +15,6 @@
 #include "game.h"
 #include "game_actions.h"
 #include "game_management.h"
-#include "graphic_engine.h"
 #include "object.h"
 #include "obstacle.h"
 #include "player.h"
@@ -31,7 +30,7 @@
  * @param filename a pointer to the file where the spaces are defined
  * @return OK if everything goes well, ERROR otherwise
  */
-Status game_init_from_file(Game *game, char *filename);
+Status game_init_from_file(Game *game, char *filename, Bool SDL);
 
 /**
  * @brief It saves the current game's info in a specified file

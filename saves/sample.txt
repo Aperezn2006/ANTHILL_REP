@@ -1,10 +1,10 @@
 -------------------------------------------------------------------------
 Info:
-- Last played: Sun Apr 27 12:16:32 2025
+- Last played: Sun Apr 27 14:41:55 2025
 - Players:
    - 1. ant1
    - 2. ant2
-- Current turn: 1 (ant1's turn)
+- Current turn: 3 (ant2's turn)
 -------------------------------------------------------------------------
 
 Spaces:
@@ -22,8 +22,8 @@ Spaces:
 #s:131|Prueba2|0|.|         |         |         |         |         |
 
 Players:
-#p:0|ant1|mO^|121|5|5|.|.|1|0|0|.|
-#p:1|ant2|mO^|126|5|3|.|.|2|0|0|.|
+#p:0|ant1|mO^|122|5|5|.|.|1|0|0|.|
+#p:1|ant2|mO^|125|5|3|.|.|2|0|0|.|
 
 Links:
 #l:41|EntryToPasillo1|11|121|1|1|.|
@@ -46,11 +46,11 @@ Links:
 #l:418|Pasillo7ToAgujero|14|127|3|1|.|
 
 Characters:
-#c:31|Spider|121|5|/\oo/\|Get out|0|0|0|.|
+#c:31|Spider|121|4|/\oo/\|Get out|0|0|0|.|
 #c:32|Ant|122|4|^0m   |Hello|0|0|0|.|
 
 Objects:
-#o:21|Seed|0|-2|1|-1|-1|0|Dont eat it|0|0|.|
+#o:21|Seed|11|-2|1|-1|-1|0|Dont eat it|0|0|.|
 #o:22|Crumb|1|0|1|-1|47|0|Blublu|0|0|.|
 #o:23|Grain|14|1|1|-1|-1|0|Prueba|0|0|.|
 #o:24|Leaf|13|2|0|-1|-1|0|It cures 2 health|0|0|.|

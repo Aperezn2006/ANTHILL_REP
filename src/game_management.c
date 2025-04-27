@@ -5,7 +5,7 @@
 #include <string.h>
 #include <strings.h>
 
-Status game_init_from_file(Game *game, char *filename) {
+Status game_init_from_file(Game *game, char *filename, Bool SDL) {
   Id first_space_id;
 
   if (!game || !filename) {
@@ -18,7 +18,7 @@ Status game_init_from_file(Game *game, char *filename) {
     return ERROR;
   }
 
-  if (game_management_load(game, filename, TRUE, FALSE) == ERROR) {
+  if (game_management_load(game, filename, TRUE, SDL) == ERROR) {
     printf("Error: Could not load spaces and objects from file\n");
     return ERROR;
   }

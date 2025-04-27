@@ -116,7 +116,7 @@ int main(int argc, char *argv[]) {
 }
 
 int game_loop_init(Game *game, Graphic_engine **gengine, char *file_name) {
-  if (game_init_from_file(game, file_name) == ERROR) {
+  if (game_init_from_file(game, file_name, FALSE) == ERROR) {
     fprintf(stderr, "Error while initializing game.\n");
     return 1;
   }

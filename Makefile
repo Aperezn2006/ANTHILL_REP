@@ -1,5 +1,6 @@
 # Nombre del ejecutable principal
 EXEC = anthill
+SDL_EXEC = anthill_sdl
 
 # Ejecutables de los tests
 TESTS = space_test link_test player_test set_test object_test character_test inventory_test
@@ -26,12 +27,30 @@ SRC = $(SRC_DIR)/game_loop.c \
       $(SRC_DIR)/set.c \
       $(SRC_DIR)/link.c \
       $(SRC_DIR)/inventory.c \
-			$(SRC_DIR)/graphic_engine2.c \
 			$(SRC_DIR)/gun.c \
-			$(SRC_DIR)/input.c \
 			$(SRC_DIR)/obstacle.c \
 			$(SRC_DIR)/physics.c \
 			$(SRC_DIR)/ray.c \
+
+SDL_SRC = $(SRC_DIR)/game_loop_sdl.c \
+					$(SRC_DIR)/command.c \
+					$(SRC_DIR)/game_actions_sdl.c \
+					$(SRC_DIR)/game.c \
+					$(SRC_DIR)/graphic_engine_sdl.c \
+					$(SRC_DIR)/space.c \
+					$(SRC_DIR)/game_management.c \
+					$(SRC_DIR)/player.c \
+					$(SRC_DIR)/game_rules.c \
+					$(SRC_DIR)/object.c \
+					$(SRC_DIR)/character.c \
+					$(SRC_DIR)/set.c \
+					$(SRC_DIR)/link.c \
+					$(SRC_DIR)/inventory.c \
+					$(SRC_DIR)/gun.c \
+					$(SRC_DIR)/obstacle.c \
+					$(SRC_DIR)/physics.c \
+					$(SRC_DIR)/ray.c \
+					$(SRC_DIR)/input.c \
 
 
 # Archivos fuente de los tests
@@ -45,6 +64,7 @@ TEST_SRC = $(TEST_DIR)/space_test.c \
 
 # Archivos objeto generados a partir de los archivos fuente
 OBJ = $(SRC:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
+SDL_OBJ = = $(SDL_SRC:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 
 # Archivos objeto de los tests
 TEST_OBJ = $(TEST_SRC:$(TEST_DIR)/%.c=$(OBJ_DIR)/%.o)
@@ -57,14 +77,24 @@ CFLAGS = -Wall -g -Werror -Wpedantic -ansi -I$(INCLUDE_DIR)
 
 # Reglas
 all: $(EXEC) $(TESTS)
+sdl: $(SDL_EXEC) $(TESTS)
 
 # Regla para compilar el ejecutable principal
 $(EXEC): $(OBJ_DIR)/game_loop.o $(OBJ_DIR)/command.o $(OBJ_DIR)/game_actions.o $(OBJ_DIR)/game.o $(OBJ_DIR)/graphic_engine.o $(OBJ_DIR)/space.o $(OBJ_DIR)/game_management.o $(OBJ_DIR)/player.o $(OBJ_DIR)/game_rules.o $(OBJ_DIR)/object.o $(OBJ_DIR)/character.o $(OBJ_DIR)/set.o $(OBJ_DIR)/link.o $(OBJ_DIR)/inventory.o $(SRC_DIR)/gun.c $(SRC_DIR)/obstacle.c $(SRC_DIR)/physics.c $(SRC_DIR)/ray.c 
 	@echo "Compilando: $(EXEC)"
 	@$(CC) $(CFLAGS) -o $@ $^ $(LIBS)
 
+$(SDL_EXEC): $(OBJ_DIR)/game_loop_sdl.o $(OBJ_DIR)/command.o $(OBJ_DIR)/game_actions_sdl.o $(OBJ_DIR)/game.o $(OBJ_DIR)/graphic_engine_sdl.o $(OBJ_DIR)/space.o $(OBJ_DIR)/game_management.o $(OBJ_DIR)/player.o $(OBJ_DIR)/game_rules.o $(OBJ_DIR)/object.o $(OBJ_DIR)/character.o $(OBJ_DIR)/set.o $(OBJ_DIR)/link.o $(OBJ_DIR)/inventory.o $(SRC_DIR)/gun.c $(SRC_DIR)/obstacle.c $(SRC_DIR)/physics.c $(SRC_DIR)/ray.c $(SRC_DIR)/input.c
+	@echo "Compilando: $(SDL_EXEC)"
+	@$(CC) $(CFLAGS) -o $@ $^ $(LIBS)
+
 # Reglas para compilar cada archivo fuente con dependencias específicas
 $(OBJ_DIR)/game_loop.o: $(SRC_DIR)/game_loop.c $(INCLUDE_DIR)/game.h $(INCLUDE_DIR)/command.h
+	@echo "Compilando: $<"
+	@mkdir -p $(OBJ_DIR)
+	@$(CC) $(CFLAGS) -c $< -o $@
+
+$(OBJ_DIR)/game_loop_sdl.o: $(SRC_DIR)/game_loop_sdl.c $(INCLUDE_DIR)/game.h $(INCLUDE_DIR)/command.h
 	@echo "Compilando: $<"
 	@mkdir -p $(OBJ_DIR)
 	@$(CC) $(CFLAGS) -c $< -o $@
@@ -77,11 +107,19 @@ $(OBJ_DIR)/game_actions.o: $(SRC_DIR)/game_actions.c $(INCLUDE_DIR)/game.h $(INC
 	@echo "Compilando: $<"
 	@$(CC) $(CFLAGS) -c $< -o $@
 
+$(OBJ_DIR)/game_actions_sdl.o: $(SRC_DIR)/game_actions_sdl.c $(INCLUDE_DIR)/game.h $(INCLUDE_DIR)/command.h
+	@echo "Compilando: $<"
+	@$(CC) $(CFLAGS) -c $< -o $@
+
 $(OBJ_DIR)/game.o: $(SRC_DIR)/game.c $(INCLUDE_DIR)/game.h $(INCLUDE_DIR)/space.h $(INCLUDE_DIR)/player.h
 	@echo "Compilando: $<"
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 $(OBJ_DIR)/graphic_engine.o: $(SRC_DIR)/graphic_engine.c $(INCLUDE_DIR)/graphic_engine.h $(INCLUDE_DIR)/game.h
+	@echo "Compilando: $<"
+	@$(CC) $(CFLAGS) -c $< -o $@
+
+$(OBJ_DIR)/graphic_engine_sdl.o: $(SRC_DIR)/graphic_engine_sdl.c $(INCLUDE_DIR)/graphic_engine_sdl.h $(INCLUDE_DIR)/game.h
 	@echo "Compilando: $<"
 	@$(CC) $(CFLAGS) -c $< -o $@
 
@@ -118,10 +156,6 @@ $(OBJ_DIR)/link.o: $(SRC_DIR)/link.c $(INCLUDE_DIR)/link.h
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 $(OBJ_DIR)/inventory.o: $(SRC_DIR)/inventory.c $(INCLUDE_DIR)/inventory.h
-	@echo "Compilando: $<"
-	@$(CC) $(CFLAGS) -c $< -o $@
-
-$(OBJ_DIR)/graphic_engine2.o: $(SRC_DIR)/graphic_engine2.c $(INCLUDE_DIR)/graphic_engine2.h
 	@echo "Compilando: $<"
 	@$(CC) $(CFLAGS) -c $< -o $@
 
@@ -221,9 +255,15 @@ docs:
 run: $(EXEC)
 	./$(EXEC) $(EXEC).dat
 
+run_sdl: $(SDL_EXEC)
+	./$(SDL_EXEC) $(SDL_EXEC)_sdl.dat
+
 # Regla para ejecutar Valgrind
 valgrind: $(EXEC)
 	valgrind -s --show-leak-kinds=all --track-origins=yes --leak-check=full ./$(EXEC) $(EXEC).dat
+
+valgrind_sdl: $(SDL_EXECEXEC)
+	valgrind -s --show-leak-kinds=all --track-origins=yes --leak-check=full ./$(SDL_EXEC) $(SDL_EXEC)_sdl.dat
 
 # Regla para organizar los archivos en sus carpetitas correspondientes
 organize:
