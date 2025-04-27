@@ -69,7 +69,9 @@ SDL_OBJ = = $(SDL_SRC:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 # Archivos objeto de los tests
 TEST_OBJ = $(TEST_SRC:$(TEST_DIR)/%.c=$(OBJ_DIR)/%.o)
 
+# Librerias
 LIBS = -Llib -lscreen
+SDL_LIBS = -Llib -lscreen -lSDL2 -lSDL2_image
 
 # Compilador y sus opciones
 CC = gcc
@@ -86,7 +88,7 @@ $(EXEC): $(OBJ_DIR)/game_loop.o $(OBJ_DIR)/command.o $(OBJ_DIR)/game_actions.o $
 
 $(SDL_EXEC): $(OBJ_DIR)/game_loop_sdl.o $(OBJ_DIR)/command.o $(OBJ_DIR)/game_actions_sdl.o $(OBJ_DIR)/game.o $(OBJ_DIR)/graphic_engine_sdl.o $(OBJ_DIR)/space.o $(OBJ_DIR)/game_management.o $(OBJ_DIR)/player.o $(OBJ_DIR)/game_rules.o $(OBJ_DIR)/object.o $(OBJ_DIR)/character.o $(OBJ_DIR)/set.o $(OBJ_DIR)/link.o $(OBJ_DIR)/inventory.o $(SRC_DIR)/gun.c $(SRC_DIR)/obstacle.c $(SRC_DIR)/physics.c $(SRC_DIR)/ray.c $(SRC_DIR)/input.c
 	@echo "Compilando: $(SDL_EXEC)"
-	@$(CC) $(CFLAGS) -o $@ $^ $(LIBS)
+	@$(CC) $(CFLAGS) -o $@ $^ $(SDL_LIBS)
 
 # Reglas para compilar cada archivo fuente con dependencias específicas
 $(OBJ_DIR)/game_loop.o: $(SRC_DIR)/game_loop.c $(INCLUDE_DIR)/game.h $(INCLUDE_DIR)/command.h

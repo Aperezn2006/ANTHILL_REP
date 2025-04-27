@@ -36,7 +36,7 @@ struct _Game {
   int turn;                                 /*!< Current game's turn */
   Bool inventory_vis;                       /*!< Whether the inventory is being visualized*/
   Bool zoom;
-  Set *teams[MAX_TEAMS];                    /*!< Equipos en el juego, cada uno es un conjunto de IDs de jugadores */
+  Set *teams[MAX_TEAMS]; /*!< Equipos en el juego, cada uno es un conjunto de IDs de jugadores */
   int n_teams;
   Ray *ray; /*SDL2*/
   Bool SDL; /*SDL2*/
@@ -101,6 +101,15 @@ void game_move_inventory_cursor(Game *game, int direction) {
   printf("\nTHE CURSOR IS IN THE %i POSITION\n\n", cursor);
 
   player_set_inventory_cursor(player, cursor);
+}
+
+Status game_select_inventory_object(Game *game) {
+  /*CdE*/
+  if (!game) {
+    return ERROR;
+  }
+  /*TODO - */
+  return OK;
 }
 
 Ray *game_get_ray(Game *game) {
