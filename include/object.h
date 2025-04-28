@@ -122,6 +122,26 @@ Id object_get_dependency(const Object *object);
 Status object_set_open(Object *object, Id link_id);
 Id object_get_open(const Object *object);
 
+/*Management of turn_amplifier*/
+/**
+ * @brief It sets the amount of turns the object increases
+ * @author Ana
+ *
+ * @param object a pointer to the object
+ * @param turn_amplifier the amount of turns the object increases
+ * @return OK, if everything goes well or ERROR if there was some mistake
+ */
+Status object_set_turn_amplifier(Object *object, int turn_amplifier);
+
+/**
+ * @brief It gets the amount of turns the object increases
+ * @author Ana
+ *
+ * @param object a pointer to the object
+ * @return the amount of turns the object increases
+ */
+int object_get_turn_amplifier(Object *object);
+
 /*Management of image*/
 /**
  * @brief It sets the object's image_path

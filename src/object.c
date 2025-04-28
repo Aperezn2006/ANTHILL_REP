@@ -229,6 +229,32 @@ Bool object_get_inspected(Object *object) {
   return object->inspected;
 }
 
+/*Management of turn_amplifier*/
+/**
+ * @brief It sets the amount of turns the object increases
+ */
+Status object_set_turn_amplifier(Object *object, int turn_amplifier) {
+  /*CdE*/
+  if (!object) {
+    return ERROR;
+  }
+
+  object->turn_amplifier = turn_amplifier;
+
+  return OK;
+}
+
+/**
+ * @brief It gets the amount of turns the object increases
+ */
+int object_get_turn_amplifier(Object *object) { /*CdE*/
+  if (!object) {
+    return 0;
+  }
+
+  return object->turn_amplifier;
+}
+
 /*Management of image*/
 /**
  * @brief It sets the object's image_path

@@ -212,6 +212,8 @@ Id game_get_player_location_from_index(Game *game, int index);
  */
 Id game_get_player_id_from_name(Game *game, char *name);
 
+int game_get_player_max_turns(Game *game, Id player_id);
+
 /*Management of objects*/
 /**
  * @brief It adds objects to the game

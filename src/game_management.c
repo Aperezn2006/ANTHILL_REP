@@ -99,8 +99,9 @@ Status game_management_save(Game *game, char *file_name) {
     fprintf(pf, "#p:%li|%s|%s|%li|%li|%i|%s|%s|%i|%i|%i|%s|\n", player_get_id(player), player_get_name(player), player_get_description(player),
             player_get_location(player), player_get_health(player), inventory_get_max_objects(player_get_inventory(player)),
             ((game_get_message_from_index(game, i)[0] == '\0') ? "." : game_get_message_from_index(game, i)),
-            ((game_get_object_desc_from_index(game, i)[0] == '\0') ? "." : game_get_object_desc_from_index(game, i)), player_get_max_turns(player),
-            player_get_x(player), player_get_y(player), ((player_get_image(player)[0] == '\0') ? "." : player_get_image(player)));
+            ((game_get_object_desc_from_index(game, i)[0] == '\0') ? "." : game_get_object_desc_from_index(game, i)),
+            game_get_player_max_turns(game, player_get_id(player)), player_get_x(player), player_get_y(player),
+            ((player_get_image(player)[0] == '\0') ? "." : player_get_image(player)));
   }
 
   fprintf(pf, "\nLinks:\n");
@@ -163,6 +164,7 @@ Status game_management_load(Game *game, char *file_name, Bool new, Bool SDL) {
   Bool inspected = FALSE; /*PREVIOUS*/
   Id dependency;
   Id open_door;
+  int turn_amplifier;
 
   /*SPACE*/
   Space *space = NULL;
@@ -278,7 +280,7 @@ Status game_management_load(Game *game, char *file_name, Bool new, Bool SDL) {
 
       /*OBJECTS*/
     } else if (strncmp("#o:", line, 3) == 0) {
-      /*id|name|location|health|movable|dependency|open_door|inspected|desc|x|y|image|*/
+      /*id|name|location|health|movable|dependency|open_door|inspected|desc|turn_amplifier|x|y|image|*/
       printf("Processing object\n");
       toks = strtok(line + 3, "|");
       id = atol(toks);
@@ -309,6 +311,9 @@ Status game_management_load(Game *game, char *file_name, Bool new, Bool SDL) {
       toks = strtok(NULL, "|");
       strcpy(object_desc, toks);
 
+      toks = strtok(NULL, "|");
+      turn_amplifier = atoi(toks);
+
       if (SDL == TRUE) {
         toks = strtok(NULL, "|");
         x = atoi(toks);
@@ -333,6 +338,7 @@ Status game_management_load(Game *game, char *file_name, Bool new, Bool SDL) {
         object_set_movable(object, movable);
         object_set_dependency(object, dependency);
         object_set_open(object, open_door);
+        object_set_turn_amplifier(object, turn_amplifier);
 
         if (SDL == TRUE) {
           printf("Setting object image [%s]\n", image);

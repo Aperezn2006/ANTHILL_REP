@@ -753,6 +753,26 @@ Id game_get_character_id_from_name(Game *game, char *name) {
   return NO_ID;
 }
 
+int game_get_player_max_turns(Game *game, Id player_id) {
+  int i = 0, total_turns = 0;
+  Object *object = NULL;
+  /*CdE*/
+  if (!game || (player_id == NO_ID)) {
+    return -1;
+  }
+
+  total_turns = player_get_max_turns(game_get_player(game, player_id));
+
+  for (i = 0; i < game_get_num_objects(game); i++) {
+    object = game_get_object_from_index(game, i);
+    if (player_has_object(game_get_player(game, player_id), object_get_id(object)) == TRUE) {
+      total_turns = total_turns + object_get_turn_amplifier(object);
+    }
+  }
+
+  return total_turns;
+}
+
 /**
  * @brief It gets the description of the character located in a certain space
  */
@@ -1290,7 +1310,7 @@ int game_get_player_index_from_turn(Game *game) {
   for (i = 0; i < game_get_num_players(game); i++) {
     last_player = game_get_player_from_index(game, i);
 
-    for (j = 0; j < player_get_max_turns(last_player); j++) {
+    for (j = 0; j < game_get_player_max_turns(game, player_get_id(last_player)); j++) {
       guessed_turn++;
       if (guessed_turn == game->turn) {
         return i;
@@ -1316,7 +1336,7 @@ Status game_increment_turn(Game *game) {
 
   for (i = 0; i < game_get_num_players(game); i++) {
     player = game_get_player_from_index(game, i);
-    max_turns = max_turns + player_get_max_turns(player);
+    max_turns = max_turns + game_get_player_max_turns(game, player_get_id(player));
   }
 
   if (game->turn > max_turns) {

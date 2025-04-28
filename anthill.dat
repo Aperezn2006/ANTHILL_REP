@@ -11,18 +11,18 @@
 #s:9|Perrera|.|
 #s:10|Sotano|.|
 
-/*id|name|location|health|movable|dependency|open_door|desc|*/
+/*id|name|location|health|movable|dependency|open_door|desc|turn_amplifier*/
 
-#o:20|Llave|5|0|1|-1|-1|Open chair|
-#o:21|Hueso|3|0|1|-1|-1|Domesticate|
-#o:22|Donut|3|1|1|-1|-1|Ñum Ñum|
-#o:23|Chaleco|7|5|1|-1|-1||
-#o:24|Pistola|11|-3|1|-1|-1||
-#o:25|Cuchara|8|0|1|-1|-1|Scape|
-#o:26|CepilloDientes|8|-2|1|-1|-1|Dont use it|
-#o:27|Linterna|10|0|1|-1|-1||
-#o:28|CartelPreso|5|0|1|-1|-1|2567|
-#o:29|Cigarrillos|7|1|1|-1|-1||
+#o:20|Llave|5|0|1|-1|-1|Open chair|0|
+#o:21|Hueso|3|0|1|-1|-1|Domesticate|0|
+#o:22|Donut|3|1|1|-1|-1|Ñum Ñum|0|
+#o:23|Chaleco|7|5|1|-1|-1||0|
+#o:24|Pistola|11|-3|1|-1|-1||0|
+#o:25|Cuchara|8|0|1|-1|-1|Scape|0|
+#o:26|CepilloDientes|8|-2|1|-1|-1|Dont use it|0|
+#o:27|Linterna|10|0|1|-1|-1||0|
+#o:28|CartelPreso|5|0|1|-1|-1|2567|1|
+#o:29|Cigarrillos|7|1|1|-1|-1||0|
 
 
 /*id|name|location|health|gdesc|message|friendliness*/
