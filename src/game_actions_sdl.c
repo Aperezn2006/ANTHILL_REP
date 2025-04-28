@@ -32,7 +32,7 @@ DirectionMap direction_map[] = {{"north", N}, {"n", N}, {"south", S}, {"s", S}, 
 /**
    Private functions
 */
-Direction direction_from_string_sdl(const char *str) {
+Direction direction_from_string(const char *str) {
   int i;
   if (!str) return -1;
   for (i = 0; i < DIRECTION_MAP_SIZE; i++) {
@@ -198,27 +198,27 @@ void game_actions_update_sdl(Game *game, int seed) {
 
   /* ATAQUE */
   if (game_input.attack == KS_PRESSED) {
-    game_actions_attack(game, seed);
+    game_actions_attack_sdl(game, seed);
   }
 
   /* TOMAR OBJETO */
   if (game_input.take == KS_PRESSED) {
-    game_actions_take(game);
+    game_actions_take_sdl(game);
   }
 
   /* DEJAR OBJETO */
   if (game_input.drop == KS_PRESSED) {
-    game_actions_drop(game);
+    game_actions_drop_sdl(game);
   }
 
   /* INSPECCIONAR */
   if (game_input.inspect == KS_PRESSED) {
-    game_actions_inspect(game);
+    game_actions_inspect_sdl(game);
   }
 
   /* USAR OBJETO */
   if (game_input.jump == KS_PRESSED) {
-    game_actions_use(game);
+    game_actions_use_sdl(game);
   }
 }
 

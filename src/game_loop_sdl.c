@@ -32,7 +32,7 @@
  * @param file_name The name of the file containing game data.
  * @return 0 on success, 1 on failure.
  */
-int game_loop_init(Game *game, Graphic_engine **gengine, char *file_name);
+int game_loop_init(Game *game, Graphic_engine_sdl **gengine, char *file_name);
 
 /**
  * @brief Runs the main game loop, processing commands and updating the game state.
@@ -42,7 +42,7 @@ int game_loop_init(Game *game, Graphic_engine **gengine, char *file_name);
  * @param gengine A pointer to the graphic engine.
  * @param log_file A file pointer for logging commands (can be NULL).
  */
-void game_loop_run(Game *game, Graphic_engine *gengine, FILE *log_file);
+void game_loop_run(Game *game, Graphic_engine_sdl *gengine, FILE *log_file);
 
 /**
  * @brief Cleans up resources used during the game loop, including the game and graphic engine.
@@ -52,7 +52,7 @@ void game_loop_run(Game *game, Graphic_engine *gengine, FILE *log_file);
  * @param gengine A pointer to the graphic engine.
  * @param log_file A file pointer for logging commands (can be NULL).
  */
-void game_loop_cleanup(Game *game, Graphic_engine *gengine, FILE *log_file);
+void game_loop_cleanup(Game *game, Graphic_engine_sdl *gengine, FILE *log_file);
 
 /**
  * @brief Logs the details of a command to the specified log file.
@@ -65,7 +65,7 @@ void log_command(FILE *log_file, Command *cmd);
 
 int main(int argc, char *argv[]) {
   Game *game;
-  Graphic_engine *gengine;
+  Graphic_engine_sdl *gengine;
   FILE *log_file = NULL;
   char *data_file = NULL;
   int i;
@@ -108,13 +108,13 @@ int main(int argc, char *argv[]) {
   return 0;
 }
 
-int game_loop_init(Game *game, Graphic_engine **gengine, char *file_name) {
+int game_loop_init(Game *game, Graphic_engine_sdl **gengine, char *file_name) {
   if (game_init_from_file(game, file_name, TRUE) == ERROR) {
     fprintf(stderr, "Error while initializing game.\n");
     return 1;
   }
 
-  if ((*gengine = graphic_engine_create()) == NULL) {
+  if ((*gengine = graphic_engine_create_sdl()) == NULL) {
     fprintf(stderr, "Error while initializing graphic engine.\n");
     game_destroy(game, TRUE);
     return 1;
@@ -123,7 +123,7 @@ int game_loop_init(Game *game, Graphic_engine **gengine, char *file_name) {
   return 0;
 }
 
-void game_loop_run(Game *game, Graphic_engine *gengine, FILE *log_file) {
+void game_loop_run(Game *game, Graphic_engine_sdl *gengine, FILE *log_file) {
   int seed = 0; /* Puedes usar esto si estás en modo determinista */
   int i = 0;
   if (!gengine) {
@@ -134,7 +134,7 @@ void game_loop_run(Game *game, Graphic_engine *gengine, FILE *log_file) {
     input_update(game);
 
     /* Acciones del jugador basadas en input */
-    game_actions_update(game, seed);
+    game_actions_update_sdl(game, seed);
     for (i = 0; i < game_get_num_characters(game); i++) {
       game_character_chase_player(game, game_get_character_from_index(game, i));
     }
@@ -143,7 +143,7 @@ void game_loop_run(Game *game, Graphic_engine *gengine, FILE *log_file) {
     physics_handle_space_transition(game, game_get_current_player(game));
 
     /* Render */
-    graphic_engine_render(gengine, game);
+    graphic_engine_render_sdl(gengine, game);
     if (game_input.escape == KS_PRESSED) {
       game_set_finished(game, TRUE);
       break;
@@ -155,9 +155,9 @@ void game_loop_run(Game *game, Graphic_engine *gengine, FILE *log_file) {
   game_management_save(game, "sdl.txt");
 }
 
-void game_loop_cleanup(Game *game, Graphic_engine *gengine, FILE *log_file) {
+void game_loop_cleanup(Game *game, Graphic_engine_sdl *gengine, FILE *log_file) {
   game_destroy(game, TRUE);
-  graphic_engine_destroy(gengine);
+  graphic_engine_destroy_sdl(gengine);
   if (log_file) {
     fclose(log_file);
   }
