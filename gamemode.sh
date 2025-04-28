@@ -1,5 +1,5 @@
 #!/bin/bash
-# chmod -x gamemode.sh
+# chmod +x gamemode.sh
 # ./gamemode.sh
 
 echo " ----------------------------------"
@@ -17,7 +17,7 @@ if [ "$mode" -eq 1 ]; then
   make run
 elif [ "$mode" -eq 2 ]; then
   make clean
-  make run-sdl
+  make run_sdl
 else 
   echo "Invalid mode"
 fi

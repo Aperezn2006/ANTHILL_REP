@@ -369,7 +369,7 @@ void graphic_engine_render_sdl(Graphic_engine_sdl *gengine, Game *game) {
       obj = game_get_object_from_id(game, inventory_get_object_by_index(player_get_inventory(player), i));
       gengine->inventory_textures[i] = load_texture(gengine->renderer, object_get_image(obj));
       SDL_Rect inv_rect = {inv_x * TILE_SIZE, inv_y * TILE_SIZE, 50 * SCREEN_ZOOM, 50 * SCREEN_ZOOM};
-      SDL_Rect obj_rect = {(inv_x + 5) * TILE_SIZE, (inv_y + 5) * TILE_SIZE, 40 * SCREEN_ZOOM, 40 * SCREEN_ZOOM};
+      SDL_Rect obj_rect = {(inv_x * TILE_SIZE) + (5 * SCREEN_ZOOM), (inv_y * TILE_SIZE) + (5 * SCREEN_ZOOM), 40 * SCREEN_ZOOM, 40 * SCREEN_ZOOM};
 
       if (inventory_get_cursor(player_get_inventory(player)) == i) {
         dynamic_inventory = gengine->inventory_yes_selected;

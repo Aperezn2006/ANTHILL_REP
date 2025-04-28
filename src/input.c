@@ -83,8 +83,6 @@ void input_update(Game *game) {
                 update_key_state(1, &game_input.take);
                 break;
               case SDLK_g:
-                update_key_state(1, &game_input.drop);
-                break;
               case SDLK_q:
                 update_key_state(1, &game_input.inspect);
                 break;
@@ -147,8 +145,6 @@ void input_update(Game *game) {
               update_key_state(0, &game_input.take);
               break;
             case SDLK_g:
-              update_key_state(0, &game_input.drop);
-              break;
             case SDLK_q:
               update_key_state(0, &game_input.inspect);
               break;
