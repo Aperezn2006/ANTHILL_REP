@@ -1,15 +1,15 @@
 /*id|name|image|gdesc|*/
 
-#s:11|PuestoVigilancia|resources/desierto.png|
-#s:12|Enfermeria|resources/hielo.png|
-#s:13|Comedor|resources/laguna.png|
-#s:14|Visitas|resources/montanas.png|
-#s:15|Archivos|resources/hielo.png|
-#s:16|Torturas|resources/desierto.png|
-#s:17|Patio|resources/laguna.png|
-#s:18|Habitacion|resources/montanas.png|
-#s:19|Perrera|resources/desierto.png|
-#s:110|Sotano|resources/pradera.png|
+#s:11|PuestoVigilancia|resources/grid.jpg|
+#s:12|Enfermeria|resources/grid.jpg|
+#s:13|Comedor|resources/grid.jpg|
+#s:14|Visitas|resources/grid.jpg|
+#s:15|Archivos|resources/grid.jpg|
+#s:16|Torturas|resources/grid.jpg|
+#s:17|Patio|resources/grid.jpg|
+#s:18|Habitacion|resources/grid.jpg|
+#s:19|Perrera|resources/grid.jpg|
+#s:110|Sotano|resources/grid.jpg|
 
 /*id|name|location|health|movable|dependency|open_door|desc|turn_amplifier|x|y|image|*/
 
