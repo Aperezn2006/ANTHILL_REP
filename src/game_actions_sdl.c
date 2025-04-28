@@ -166,6 +166,8 @@ void game_actions_update_sdl(Game *game, int seed) {
       game_select_inventory_object(game); /*Seleccionar o usar el objeto*/
     } else if (game_input.inventory_cancel == KS_PRESSED) {
       game_toggle_inventory_vis(game); /*Cerrar el inventario*/
+    } else if (game_input.drop == KS_PRESSED) {
+      game_actions_drop_sdl(game);
     }
 
     return; /*Si el inventario está abierto, ignoramos el resto de acciones*/
@@ -204,11 +206,6 @@ void game_actions_update_sdl(Game *game, int seed) {
   /* TOMAR OBJETO */
   if (game_input.take == KS_PRESSED) {
     game_actions_take_sdl(game);
-  }
-
-  /* DEJAR OBJETO */
-  if (game_input.drop == KS_PRESSED) {
-    game_actions_drop_sdl(game);
   }
 
   /* INSPECCIONAR */
