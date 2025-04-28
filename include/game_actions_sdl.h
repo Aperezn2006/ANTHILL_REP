@@ -27,6 +27,6 @@
  * @param command a pointer to the command
  * @return OK if everything goes well, ERROR otherwise
  */
-void game_actions_update(Game *game, int seed);
+void game_actions_update_sdl(Game *game, int seed);
 
 #endif

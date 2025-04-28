@@ -32,7 +32,7 @@ DirectionMap direction_map[] = {{"north", N}, {"n", N}, {"south", S}, {"s", S}, 
 /**
    Private functions
 */
-Direction direction_from_string(const char *str) {
+Direction direction_from_string_sdl(const char *str) {
   int i;
   if (!str) return -1;
   for (i = 0; i < DIRECTION_MAP_SIZE; i++) {
@@ -54,7 +54,7 @@ Direction direction_from_string(const char *str) {
  * @param game a pointer to the game
  * @return OK always
  */
-Status game_actions_unknown(Game *game);
+Status game_actions_unknown_sdl(Game *game);
 
 /**
  * @brief It allows the user to exit the game
@@ -63,7 +63,7 @@ Status game_actions_unknown(Game *game);
  * @param game a pointer to the game
  * @return OK always
  */
-Status game_actions_exit(Game *game);
+Status game_actions_exit_sdl(Game *game);
 
 /**
  * @brief It moves the player in the desired direction (north, south, west or east)
@@ -72,7 +72,7 @@ Status game_actions_exit(Game *game);
  * @param game a pointer to the game
  * @return OK if everything goes well, ERROR otherwise
  */
-Status game_actions_move(Game *game);
+Status game_actions_move_sdl(Game *game);
 
 /**
  * @brief It allows a player to pick up an object if they're in the same room
@@ -81,7 +81,7 @@ Status game_actions_move(Game *game);
  * @param game a pointer to the game
  * @return OK if everything goes well, ERROR otherwise
  */
-Status game_actions_take(Game *game);
+Status game_actions_take_sdl(Game *game);
 
 /**
  * @brief It allows a player to drop an object if they have it
@@ -90,7 +90,7 @@ Status game_actions_take(Game *game);
  * @param game a pointer to the game
  * @return OK if everything goes well, ERROR otherwise
  */
-Status game_actions_drop(Game *game);
+Status game_actions_drop_sdl(Game *game);
 
 /**
  * @brief It allows the player to attack a character
@@ -99,7 +99,7 @@ Status game_actions_drop(Game *game);
  * @param game a pointer to the game
  * @return OK if everything goes well, ERROR otherwise
  */
-Status game_actions_attack(Game *game, int seed);
+Status game_actions_attack_sdl(Game *game, int seed);
 
 /**
  * @brief It allows the player to chat with a character
@@ -108,7 +108,7 @@ Status game_actions_attack(Game *game, int seed);
  * @param game a pointer to the game
  * @return OK if everything goes well, ERROR otherwise
  */
-Status game_actions_chat(Game *game);
+Status game_actions_chat_sdl(Game *game);
 
 /**
  * @brief It allows the player to inspect an object
@@ -117,7 +117,7 @@ Status game_actions_chat(Game *game);
  * @param game a pointer to the game
  * @return OK if everything goes well, ERROR otherwise
  */
-Status game_actions_inspect(Game *game);
+Status game_actions_inspect_sdl(Game *game);
 
 /**
  * @brief It allows the player to toggle the visualization of the inventory
@@ -126,9 +126,9 @@ Status game_actions_inspect(Game *game);
  * @param game
  * @return  OK if everything goes well, ERROR otherwise
  */
-Status game_actions_inventory(Game *game);
+Status game_actions_inventory_sdl(Game *game);
 
-Status game_actions_use(Game *game);
+Status game_actions_use_sdl(Game *game);
 
 /**
  * @brief It allows the player to save its current game
@@ -137,7 +137,7 @@ Status game_actions_use(Game *game);
  * @param game a pointer to the game
  * @return OK if everything goes well, ERROR otherwise
  */
-Status game_actions_load(Game *game);
+Status game_actions_load_sdl(Game *game);
 
 /**
  * @brief It allows the player to load a saved game
@@ -146,13 +146,13 @@ Status game_actions_load(Game *game);
  * @param game a pointer to the game
  * @return OK if everything goes well, ERROR otherwise
  */
-Status game_actions_save(Game *game);
+Status game_actions_save_sdl(Game *game);
 
 /**
    Game actions implementation
 */
 
-void game_actions_update(Game *game, int seed) {
+void game_actions_update_sdl(Game *game, int seed) {
   Player *player = game_get_current_player(game);
   if (!player) return;
 
@@ -226,7 +226,7 @@ void game_actions_update(Game *game, int seed) {
    Calls implementation for each action
 */
 
-Status game_actions_unknown(Game *game) {
+Status game_actions_unknown_sdl(Game *game) {
   /*CdE*/
   if (!game) {
     return ERROR;
@@ -235,7 +235,7 @@ Status game_actions_unknown(Game *game) {
   return OK;
 }
 
-Status game_actions_exit(Game *game) {
+Status game_actions_exit_sdl(Game *game) {
   /*CdE*/
   if (!game) {
     return ERROR;
@@ -244,7 +244,7 @@ Status game_actions_exit(Game *game) {
   return OK;
 }
 
-Status game_actions_move(Game *game) {
+Status game_actions_move_sdl(Game *game) {
   Id current_space_id = NO_ID;
   Id next_space_id = NO_ID;
   Command *c = NULL;
@@ -288,7 +288,7 @@ Status game_actions_move(Game *game) {
   return ERROR;
 }
 
-Status game_actions_take(Game *game) {
+Status game_actions_take_sdl(Game *game) {
   Player *player = game_get_current_player(game);
   Space *space = NULL;
   Object *obj = NULL;
@@ -330,7 +330,7 @@ Status game_actions_take(Game *game) {
   return OK;
 }
 
-Status game_actions_drop(Game *game) {
+Status game_actions_drop_sdl(Game *game) {
   Id object_id;
   Id location;
   int x, y;
@@ -364,7 +364,7 @@ Status game_actions_drop(Game *game) {
   return OK;
 }
 
-Status game_actions_attack(Game *game, int seed) {
+Status game_actions_attack_sdl(Game *game, int seed) {
   Id player_location;
   Id character_location;
   Id character_id;
@@ -438,7 +438,7 @@ Status game_actions_attack(Game *game, int seed) {
   return OK;
 }
 
-Status game_actions_chat(Game *game) {
+Status game_actions_chat_sdl(Game *game) {
   Id player_location;
   Id character_location;
   Id character_id;
@@ -496,7 +496,7 @@ Status game_actions_chat(Game *game) {
   return OK;
 }
 
-Status game_actions_inspect(Game *game) {
+Status game_actions_inspect_sdl(Game *game) {
   Id player_location, object_id;
   Command *c = NULL;
   char object_name[WORD_SIZE] = "";
@@ -547,7 +547,7 @@ Status game_actions_inspect(Game *game) {
   return OK;
 }
 
-Status game_actions_inventory(Game *game) {
+Status game_actions_inventory_sdl(Game *game) {
   if (!game) {
     return ERROR;
   }
@@ -557,7 +557,7 @@ Status game_actions_inventory(Game *game) {
   return OK;
 }
 
-Status game_actions_use(Game *game) {
+Status game_actions_use_sdl(Game *game) {
   Id object_id;
   Id location;
   Command *c = NULL;
@@ -633,7 +633,7 @@ Status game_actions_use(Game *game) {
 /**
  * @brief It allows the player to save its current game
  */
-Status game_actions_load(Game *game) {
+Status game_actions_load_sdl(Game *game) {
   Command *c = NULL;
   char file_name[WORD_SIZE] = "";
 
@@ -660,7 +660,7 @@ Status game_actions_load(Game *game) {
 /**
  * @brief It allows the player to load a saved game
  */
-Status game_actions_save(Game *game) {
+Status game_actions_save_sdl(Game *game) {
   Command *c = NULL;
   char file_name[WORD_SIZE] = "";
 

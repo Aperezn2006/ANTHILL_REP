@@ -16,7 +16,7 @@
 #define TILE_SIZE (10 * SCREEN_ZOOM)
 
 /* Definition of the opaque structure */
-struct _Graphic_engine {
+struct _Graphic_engine_sdl {
   SDL_Window *window;
   SDL_Renderer *renderer;
   SDL_Texture *background_texture;
@@ -57,9 +57,9 @@ SDL_Texture *load_texture(SDL_Renderer *renderer, const char *file_path) {
 }
 
 /* Create the graphic engine */
-Graphic_engine *graphic_engine_create(void) {
+Graphic_engine_sdl *graphic_engine_create_sdl() {
   int i;
-  Graphic_engine *gengine = (Graphic_engine *)malloc(sizeof(Graphic_engine));
+  Graphic_engine_sdl *gengine = (Graphic_engine_sdl *)malloc(sizeof(Graphic_engine_sdl));
   if (!gengine) {
     fprintf(stderr, "Error allocating memory for graphic engine\n");
     return NULL;
@@ -133,7 +133,7 @@ Graphic_engine *graphic_engine_create(void) {
 }
 
 /* Free resources used by the graphic engine */
-void graphic_engine_destroy(Graphic_engine *gengine) {
+void graphic_engine_destroy_sdl(Graphic_engine_sdl *gengine) {
   int i;
   if (!gengine) {
     return;
@@ -216,7 +216,7 @@ void graphic_engine_destroy(Graphic_engine *gengine) {
 }
 
 /* Function to render the graphic engine */
-void graphic_engine_render(Graphic_engine *gengine, Game *game) {
+void graphic_engine_render_sdl(Graphic_engine_sdl *gengine, Game *game) {
   Id id_act = NO_ID;
   Space *current_space = NULL;
   Player *player = NULL;
