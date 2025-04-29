@@ -159,8 +159,6 @@ void game_loop_run(Game *game, Graphic_engine_sdl *gengine, FILE *log_file) {
       }
     }
   }
-
-  game_management_save(game, "sdl.txt");
 }
 
 void game_loop_cleanup(Game *game, Graphic_engine_sdl *gengine, FILE *log_file) {
