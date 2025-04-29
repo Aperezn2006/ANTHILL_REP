@@ -25,7 +25,7 @@
 #define WIDTH_BAN 30
 #define HEIGHT_MAP 29
 #define HEIGHT_BAN 1
-#define HEIGHT_HLP 2
+#define HEIGHT_HLP 3
 #define HEIGHT_FDB 3
 
 struct _Graphic_engine {
@@ -279,7 +279,9 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game) {
   screen_area_clear(ge->help);
   sprintf(str1, " The commands you can use are:");
   screen_area_puts(ge->help, str1);
-  sprintf(str1, "    m or move, t or take, d or drop, a or attack, c or chat, n or inventory, exit or e");
+  sprintf(str1, "    m or move, t or take, d or drop, a or attack, c or chat, n or inventory, u or use, o or open, f or follow, z or zoom, l or load");
+  screen_area_puts(ge->help, str1);
+  sprintf(str1, "    s or save, r or recruit, ab or abandon, exit or e");
   screen_area_puts(ge->help, str1);
 
   /*  FEEDBACK */
