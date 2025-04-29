@@ -83,6 +83,7 @@ int main(int argc, char *argv[]) {
         fprintf(stderr, "Error: No se pudo abrir el archivo de log %s\n", argv[i]);
         return 1;
       }
+      fprintf(log_file, "-------- LOGFILE --------\n\n");
     } else if (strcmp(argv[i], "-d") == 0) {
     } else if (!data_file) {
       data_file = argv[i]; /* El primer argumento sin prefijo es el archivo de datos */
@@ -150,6 +151,13 @@ void game_loop_run(Game *game, Graphic_engine_sdl *gengine, FILE *log_file) {
     }
 
     SDL_Delay(16);
+
+    for (i = 0; i < game_get_num_players(game); i++) {
+      if (player_get_health(game_get_player_from_index(game, i)) == 0) {
+        graphic_engine_paint_game(gengine, game);
+        game_set_finished(game, TRUE);
+      }
+    }
   }
 
   game_management_save(game, "sdl.txt");
