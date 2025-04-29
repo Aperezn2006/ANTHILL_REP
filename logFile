@@ -1,13 +1,19 @@
-Comando ejecutado: Take, seed, OK
-Comando ejecutado: Move, n, OK
-Comando ejecutado: Move, s, OK
-Comando ejecutado: Take, crumb, OK
-Comando ejecutado: Attack, , OK
-Comando ejecutado: Chat, , OK
-Comando ejecutado: Attack, , OK
-Comando ejecutado: Move, e, OK
-Comando ejecutado: Move, s, OK
-Comando ejecutado: Move, e, OK
-Comando ejecutado: Move, e, OK
-Comando ejecutado: Move, w, OK
-Comando ejecutado: Exit, , OK
+-------- LOGFILE --------
+
+Comando ejecutado: No command , OK (P1)
+Comando ejecutado: Move n, OK (P1)
+Comando ejecutado: Attack , OK (P1)
+Comando ejecutado: Attack , OK (P1)
+Comando ejecutado: Attack , OK (P1)
+Comando ejecutado: Attack , OK (P1)
+Comando ejecutado: Take pistola, OK (P0)
+Comando ejecutado: Attack , OK (P1)
+Comando ejecutado: Move s, OK (P1)
+Comando ejecutado: Move s, OK (P0)
+Comando ejecutado: Move n, OK (P1)
+Comando ejecutado: Move e, OK (P1)
+Comando ejecutado: Take hueso, OK (P0)
+Comando ejecutado: Move e, OK (P1)
+Comando ejecutado: Attack , OK (P1)
+Comando ejecutado: Take donut, OK (P0)
+Comando ejecutado: Exit , OK (P0)

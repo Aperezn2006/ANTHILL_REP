@@ -60,7 +60,7 @@ void game_loop_cleanup(Game *game, Graphic_engine *gengine, FILE *log_file);
  * @param log_file A file pointer to the log file.
  * @param cmd A pointer to the command to be logged.
  */
-void log_command(FILE *log_file, Command *cmd);
+void log_command(Game *game, FILE *log_file, Command *cmd);
 
 int main(int argc, char *argv[]) {
   Game *game;
@@ -83,6 +83,7 @@ int main(int argc, char *argv[]) {
         fprintf(stderr, "Error: No se pudo abrir el archivo de log %s\n", argv[i]);
         return 1;
       }
+      fprintf(log_file, "-------- LOGFILE --------\n\n");
     } else if (strcmp(argv[i], "-d") == 0) {
       deterministic_mode = 1;
     } else if (!data_file) {
@@ -156,7 +157,7 @@ void game_loop_run(Game *game, Graphic_engine *gengine, FILE *log_file) {
     last_cmd = game_get_last_command(game);
 
     if (log_file) {
-      log_command(log_file, last_cmd);
+      log_command(game, log_file, last_cmd);
     }
 
     if (command_get_code(last_cmd) != UNKNOWN && command_get_code(last_cmd) != NO_CMD) {
@@ -187,7 +188,7 @@ void game_loop_cleanup(Game *game, Graphic_engine *gengine, FILE *log_file) {
   }
 }
 
-void log_command(FILE *log_file, Command *cmd) {
+void log_command(Game *game, FILE *log_file, Command *cmd) {
   CommandCode code = command_get_code(cmd);
   char result[WORD_SIZE];
 
@@ -201,6 +202,7 @@ void log_command(FILE *log_file, Command *cmd) {
     strcpy(result, "ERROR");
   }
 
-  fprintf(log_file, "Comando ejecutado: %s, %s, %s\n", command_to_str(code), command_get_word(cmd), result);
+  fprintf(log_file, "Comando ejecutado: %s %s, %s (P%li)\n", command_to_str(code), command_get_word(cmd), result,
+          player_get_id(game_get_current_player(game)));
   fflush(log_file);
 }
