@@ -148,7 +148,8 @@ Status game_management_load(Game *game, char *file_name, Bool new, Bool SDL) {
   int player_max_obj = 0;
   char player_desc[7];
   Id location = NO_ID;
-  char north_image[MAX_MESSAGE], east_image[MAX_MESSAGE], south_image[MAX_MESSAGE], west_image[MAX_MESSAGE]; /*SDL2*/
+  char north_image_1[MAX_MESSAGE], east_image_1[MAX_MESSAGE], south_image_1[MAX_MESSAGE], west_image_1[MAX_MESSAGE]; /*SDL2*/
+  char north_image_2[MAX_MESSAGE], east_image_2[MAX_MESSAGE], south_image_2[MAX_MESSAGE], west_image_2[MAX_MESSAGE]; /*SDL2*/
   int max_turns;
 
   /*CHARACTER*/
@@ -389,11 +390,9 @@ Status game_management_load(Game *game, char *file_name, Bool new, Bool SDL) {
       if (SDL == TRUE) {
         toks = strtok(NULL, "|");
         x = atoi(toks);
-        printf("\nCHARARCTER x IS %i\n", x);
 
         toks = strtok(NULL, "|");
         y = atoi(toks);
-        printf("\nCHARARCTER y IS %i\n", y);
 
         toks = strtok(NULL, "|");
         if (toks) {
@@ -478,7 +477,7 @@ Status game_management_load(Game *game, char *file_name, Bool new, Bool SDL) {
       }
 
     } else if (strncmp("#p:", line, 3) == 0) {
-      /*id|name|gdesc|location|health|inventory_size|message|object_desc|max_turns|x|y|image|*/
+      /*id|name|gdesc|location|health|inventory_size|message|object_desc|max_turns|x|y|n1|n2|e1|e2|s1|s2|w1|w2*/
       printf("Processing player\n");
       toks = strtok(line + 3, "|");
       id = atol(toks);
@@ -518,26 +517,42 @@ Status game_management_load(Game *game, char *file_name, Bool new, Bool SDL) {
 
         toks = strtok(NULL, "|");
         if (toks) {
-          strcpy(north_image, toks);
-          printf("----------Image path is [%s]\n", north_image);
+          strcpy(north_image_1, toks);
         }
 
         toks = strtok(NULL, "|");
         if (toks) {
-          strcpy(east_image, toks);
-          printf("----------Image path is [%s]\n", east_image);
+          strcpy(north_image_2, toks);
         }
 
         toks = strtok(NULL, "|");
         if (toks) {
-          strcpy(south_image, toks);
-          printf("----------Image path is [%s]\n", south_image);
+          strcpy(east_image_1, toks);
         }
 
         toks = strtok(NULL, "|");
         if (toks) {
-          strcpy(west_image, toks);
-          printf("----------Image path is [%s]\n", west_image);
+          strcpy(east_image_2, toks);
+        }
+
+        toks = strtok(NULL, "|");
+        if (toks) {
+          strcpy(south_image_1, toks);
+        }
+
+        toks = strtok(NULL, "|");
+        if (toks) {
+          strcpy(south_image_2, toks);
+        }
+
+        toks = strtok(NULL, "|");
+        if (toks) {
+          strcpy(west_image_1, toks);
+        }
+
+        toks = strtok(NULL, "|");
+        if (toks) {
+          strcpy(west_image_2, toks);
         }
       }
 
@@ -552,11 +567,15 @@ Status game_management_load(Game *game, char *file_name, Bool new, Bool SDL) {
 
         if (SDL == TRUE) {
           player_set_position(player, x, y);
-          player_set_image(player, north_image);
-          player_set_North_image(player, north_image);
-          player_set_East_image(player, east_image);
-          player_set_South_image(player, south_image);
-          player_set_West_image(player, west_image);
+          player_set_image(player, north_image_1, north_image_2);
+          player_set_North_image(player, north_image_1, 0);
+          player_set_North_image(player, north_image_2, 1);
+          player_set_East_image(player, east_image_1, 0);
+          player_set_East_image(player, east_image_2, 1);
+          player_set_South_image(player, south_image_1, 0);
+          player_set_South_image(player, south_image_2, 1);
+          player_set_West_image(player, west_image_1, 0);
+          player_set_West_image(player, west_image_2, 1);
         }
 
         if (new == FALSE) {
