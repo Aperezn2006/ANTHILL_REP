@@ -53,7 +53,7 @@
 #l:417|ArchivosToPerrera|15|19|1|1|resources/portal.png|
 
 
-/*id|name|gdesc|location|health|inventory_size|max_turns|x|y|image|*/
+/*id|name|gdesc|location|health|inventory_size|message|object_desc|max_turns|x|y|n1|n2|e1|e2|s1|s2|w1|w2*/
 
-#p:50|ant1|mO^|18|5|5|1|0|0|resources/ant_E.png|resources/ant_E.png|resources/ant_W.png|resources/ant_W.png|
-#p:51|ant2|mO^|16|5|3|2|0|0|resources/ant_E.png|resources/ant_E.png|resources/ant_W.png|resources/ant_W.png|
+#p:50|ant1|mO^|18|5|5|1|0|0|resources/player1/p1_N_1.png|resources/player1/p1_N_2.png|resources/player1/p1_E_1.png|resources/player1/p1_E_2.png|resources/player1/p1_S_1.png|resources/player1/p1_S_2.png|resources/player1/p1_W_1.png|resources/player1/p1_W_2.png|
+#:51|ant2|mO^|16|5|3|2|0|0|resources/ant_E.png|resources/ant_E.png|resources/ant_W.png|resources/ant_W.png|
