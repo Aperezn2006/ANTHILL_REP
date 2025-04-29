@@ -21,7 +21,7 @@
 
 #define WIDTH_MAP 76 /*+8*/
 #define WIDTH_DES 30
-#define WIDTH_TEA 12
+#define WIDTH_TEA 25
 #define WIDTH_BAN 30
 #define HEIGHT_MAP 29
 #define HEIGHT_BAN 1
@@ -29,7 +29,7 @@
 #define HEIGHT_FDB 3
 
 struct _Graphic_engine {
-  Area *map, *descript, *banner, *help, *feedback, *team;
+  Area *map, *descript, *banner, *help, *feedback, *player_info;
 };
 
 /**
@@ -85,7 +85,7 @@ Graphic_engine *graphic_engine_create() {
 
   ge->map = screen_area_init(1, 1, WIDTH_MAP, HEIGHT_MAP);
   ge->descript = screen_area_init(WIDTH_MAP + 2, 1, WIDTH_DES, HEIGHT_MAP);
-  ge->team = screen_area_init(WIDTH_MAP + 3 + WIDTH_DES, 1, WIDTH_TEA, HEIGHT_MAP);
+  ge->player_info = screen_area_init(WIDTH_MAP + 3 + WIDTH_DES, 1, WIDTH_TEA, HEIGHT_MAP);
   ge->banner = screen_area_init((int)((WIDTH_MAP + WIDTH_DES + WIDTH_TEA + 1 - WIDTH_BAN) / 2), HEIGHT_MAP + 2, WIDTH_BAN, HEIGHT_BAN);
   ge->help = screen_area_init(1, HEIGHT_MAP + HEIGHT_BAN + 2, WIDTH_MAP + WIDTH_DES + WIDTH_TEA + 1, HEIGHT_HLP);
   ge->feedback = screen_area_init(1, HEIGHT_MAP + HEIGHT_BAN + HEIGHT_HLP + 3, WIDTH_MAP + WIDTH_DES + WIDTH_TEA + 1, HEIGHT_FDB);
@@ -103,7 +103,7 @@ void graphic_engine_destroy(Graphic_engine *ge) {
   screen_area_destroy(ge->banner);
   screen_area_destroy(ge->help);
   screen_area_destroy(ge->feedback);
-  screen_area_destroy(ge->team);
+  screen_area_destroy(ge->player_info);
 
   screen_destroy();
   free(ge);
@@ -214,12 +214,22 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game) {
     screen_area_puts(ge->descript, str1);
   }
 
+  screen_area_clear(ge->player_info);
+  /*Brújula*/
+  screen_area_puts(ge->player_info, " ");
+
+  screen_area_puts(ge->player_info, "        .-----.");
+  screen_area_puts(ge->player_info, "       |   N   |");
+  screen_area_puts(ge->player_info, "       | W + E |");
+  screen_area_puts(ge->player_info, "       |   S   |");
+  screen_area_puts(ge->player_info, "        '-----'");
+
   /*  Bucle para los objetos dentro del inventario */
   sprintf(str1, " "); /*  Hueco para que quede mono */
-  screen_area_puts(ge->descript, str1);
+  screen_area_puts(ge->player_info, str1);
   sprintf(str1, " Inventory: (%i/%i)", inventory_get_num_objects(player_get_inventory(game_get_current_player(game))),
           inventory_get_max_objects(player_get_inventory(game_get_current_player(game)))); /*  Banner */
-  screen_area_puts(ge->descript, str1);
+  screen_area_puts(ge->player_info, str1);
 
   for (i = 0; i < game_get_num_objects(game); i++) {
     obj = game_get_object_from_index(game, i);
@@ -236,14 +246,14 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game) {
       if (player_has_object(game_get_current_player(game), object_id) == TRUE) {
         sprintf(str1, "  %s", object_get_name(obj));
         n_inventory++;
-        screen_area_puts(ge->descript, str1);
+        screen_area_puts(ge->player_info, str1);
       }
     }
   }
 
   if (n_inventory == 0) {
     sprintf(str1, "  Player has no objects");
-    screen_area_puts(ge->descript, str1);
+    screen_area_puts(ge->player_info, str1);
   }
 
   /*  Message */
@@ -261,16 +271,6 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game) {
     sprintf(str1, " Object description: %s", game_get_object_desc(game)); /*  Banner */
     screen_area_puts(ge->descript, str1);
   }
-
-  /*Brújula*/
-  screen_area_puts(ge->descript, " ");
-  screen_area_puts(ge->descript, " ");
-
-  screen_area_puts(ge->descript, "           .-----.");
-  screen_area_puts(ge->descript, "          |   N   |");
-  screen_area_puts(ge->descript, "          | W + E |");
-  screen_area_puts(ge->descript, "          |   S   |");
-  screen_area_puts(ge->descript, "           '-----'");
 
   /*  BANNER r */
   screen_area_puts(ge->banner, "       The anthill game ");
@@ -298,16 +298,14 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game) {
   screen_area_puts(ge->feedback, str1);
 
   /*TEAM*/
-  screen_area_clear(ge->team);
-  screen_area_puts(ge->team, " ");
-  screen_area_puts(ge->team, " My team:");
-  screen_area_puts(ge->team, " ----------");
-  screen_area_puts(ge->team, " ");
+  screen_area_puts(ge->player_info, " ");
+  screen_area_puts(ge->player_info, " My team:");
+  screen_area_puts(ge->player_info, " ");
   for (i = 0; i < game_get_num_characters(game); i++) {
     character = game_get_character_from_index(game, i);
     if (character_get_following(character) == player_get_id(game_get_current_player(game))) {
       sprintf(str1, " %s (%li)", character_get_description(character), character_get_health(character));
-      screen_area_puts(ge->team, str1);
+      screen_area_puts(ge->player_info, str1);
     }
   }
 
@@ -578,7 +576,7 @@ void graphic_engine_paint_zoom(Graphic_engine *ge, Game *game) {
   printf("[DEBUG] player_loc: %ld\n", player_loc);
 
   space = game_get_space(game, player_loc);
-  printf("[DEBUG] space: %p\n", (void*)space);
+  printf("[DEBUG] space: %p\n", (void *)space);
 
   if (!space) {
     screen_area_puts(ge->map, "No current space.");
@@ -604,7 +602,7 @@ void graphic_engine_paint_zoom(Graphic_engine *ge, Game *game) {
   if (space_get_description(space) == NULL) {
     printf("[ERROR] space_get_description devolvió NULL\n");
   } else {
-    sprintf(str1, "Description: %s", *space_get_description(space)); 
+    sprintf(str1, "Description: %s", *space_get_description(space));
     screen_area_puts(ge->map, str1);
   }
   */
@@ -627,7 +625,7 @@ void graphic_engine_paint_zoom(Graphic_engine *ge, Game *game) {
 
       if (object_id != NO_ID) {
         object = game_get_object_from_id(game, object_id);
-        printf("[DEBUG] object: %p\n", (void*)object);
+        printf("[DEBUG] object: %p\n", (void *)object);
 
         if (object) {
           if (object_get_name(object) == NULL) {
@@ -651,4 +649,3 @@ void graphic_engine_paint_zoom(Graphic_engine *ge, Game *game) {
   screen_paint(game_get_player_index_from_turn(game) % 7);
   printf("prompt:> ");
 }
-
