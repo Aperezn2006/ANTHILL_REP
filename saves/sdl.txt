@@ -1,6 +1,6 @@
 -------------------------------------------------------------------------
 Info:
-- Last played: Mon Apr 28 10:54:59 2025
+- Last played: Tue Apr 29 12:11:43 2025
 - Players:
    - 1. ant1
    - 2. ant2
@@ -20,7 +20,7 @@ Spaces:
 #s:110|Sotano|0|resources/grid.jpg|         |         |         |         |         |
 
 Players:
-#p:50|ant1|mO^|13|5|5|.|.|1|29|34|resources/ant_E.png|
+#p:50|ant1|mO^|11|5|5|.|.|1|0|0|resources/ant_E.png|
 #p:51|ant2|mO^|16|5|3|.|.|2|0|0|resources/ant_E.png|
 
 Links:
@@ -44,17 +44,17 @@ Links:
 #l:417|ArchivosToPerrera|15|19|1|1|resources/portal.png|
 
 Characters:
-#c:30|Enfermo|12|4|()__/\|Hello|0|24|29|resources/spider.png|
-#c:31|Policia|-1|4|/()\ |Hello|1|24|29|resources/beetle.png|
-#c:32|Perro|19|4|U.^.U |Hello|1|24|29|resources/beetle2.png|
-#c:33|Familiar|14|0|()__() |Hello|0|24|29|resources/bicho_palo.png|
+#c:30|Enfermo|12|4|()__/\|Hello|0|0|0|resources/spider.png|
+#c:31|Policia|-1|4|/()\ |Hello|1|0|5|resources/beetle.png|
+#c:32|Perro|19|4|U.^.U |Hello|1|5|5|resources/beetle2.png|
+#c:33|Familiar|14|0|()__() |Hello|0|5|5|resources/bicho_palo.png|
 
 Objects:
 #o:20|Llave|15|0|1|-1|-1|0|Open chair|0|0|resources/leaf.png|
-#o:21|Hueso|50|0|1|-1|-1|0|Domesticate|0|0|resources/stick.png|
-#o:22|Donut|13|1|1|-1|-1|0|Ñum Ñum|29|34|resources/gre_pot.png|
+#o:21|Hueso|13|0|1|-1|-1|0|Domesticate|0|0|resources/stick.png|
+#o:22|Donut|13|1|1|-1|-1|0|Ñum Ñum|0|0|resources/gre_pot.png|
 #o:23|Chaleco|17|5|1|-1|-1|0||0|0|resources/yel_pot.png|
-#o:24|Pistola|50|-3|1|-1|-1|0||25|26|resources/red_pot.png|
+#o:24|Pistola|11|-3|1|-1|-1|0||0|0|resources/red_pot.png|
 #o:25|Cuchara|18|0|1|-1|-1|0|Scape|0|0|resources/leaf.png|
 #o:26|CepilloDientes|18|-2|1|-1|-1|0|Dont use it|0|0|resources/stick.png|
 #o:27|Linterna|110|0|1|-1|-1|0||0|0|resources/seed.png|

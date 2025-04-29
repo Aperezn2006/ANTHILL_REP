@@ -154,7 +154,7 @@ void game_loop_run(Game *game, Graphic_engine_sdl *gengine, FILE *log_file) {
 
     for (i = 0; i < game_get_num_players(game); i++) {
       if (player_get_health(game_get_player_from_index(game, i)) == 0) {
-        graphic_engine_paint_game(gengine, game);
+        graphic_engine_render_sdl(gengine, game);
         game_set_finished(game, TRUE);
       }
     }
