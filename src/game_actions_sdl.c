@@ -335,35 +335,55 @@ Status game_actions_drop_sdl(Game *game) {
   Id object_id;
   Id location;
   int x, y;
+  Inventory *inv;
+  Set *set;
+  Player *player;
+  int cursor;
 
-  char object_name[WORD_SIZE] = "";
-  printf("\n----------------------DROP HAS BEEN PRESSED\n\n");
+  if (!game) return ERROR;
 
-  if (!game) {
+  player = game_get_current_player(game);
+  if (!player) return ERROR;
+
+  /* Solo permitimos soltar si el inventario está abierto */
+  if (!game_get_inventory_vis(game)) {
+    printf("Inventory is not open. Cannot drop.\n");
     return ERROR;
   }
 
-  if ((object_id = player_get_object_from_index(game_get_current_player(game), player_get_inventory_cursor(game_get_current_player(game)))) ==
-      NO_ID) {
+  inv = player_get_inventory(player);
+  if (!inv) return ERROR;
+
+  set = inventory_get_objects(inv);
+  if (!set) return ERROR;
+
+  cursor = set_get_cursor(set);
+  if (cursor < 0 || cursor >= set_get_num_ids(set)) {
+    printf("Cursor out of range. Cannot drop.\n");
+    return ERROR;
+  }
+
+  object_id = set_get_id_from_index(set, cursor);
+  if (object_id == NO_ID) {
+    printf("No object selected to drop.\n");
     return ERROR;
   }
 
   location = game_get_player_location(game);
-  printf("Player's location is %li\n", location); /*DEBUG*/
+  player_get_position(player, &x, &y);
 
-  if (player_has_object(game_get_current_player(game), object_id) == TRUE) {
+  if (player_has_object(player, object_id) == TRUE) {
     game_set_object_location(game, location, object_id);
-    player_get_position(game_get_current_player(game), &x, &y);
     object_set_position(game_get_object_from_id(game, object_id), x, y);
-    printf("Object %s dropped\n", object_name); /*DEBUG*/
+    player_remove_object(player, object_id);
+    printf("Object %ld dropped at (%d, %d)\n", object_id, x, y);
     return OK;
-  } else {
-    printf("Player does not have object %s\n", object_name); /*DEBUG*/
-    return ERROR;
   }
 
-  return OK;
+  printf("Player does not have object %ld\n", object_id);
+  return ERROR;
 }
+
 
 Status game_actions_attack_sdl(Game *game, int seed) {
   Id player_location;
