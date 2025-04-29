@@ -7,6 +7,7 @@
 #define INFO_HEIGHT (100 * SCREEN_ZOOM)
 
 #define MY_FONT "fonts/04b_25__.ttf"
+#define FONT_SIZE (25 * SCREEN_ZOOM)
 
 /* Definition of the opaque structure */
 struct _Graphic_engine_sdl {
@@ -23,6 +24,7 @@ struct _Graphic_engine_sdl {
   SDL_Texture *inventory_not_selected;
   SDL_Texture *inventory_yes_selected;
   TTF_Font *font;
+  TTF_Font *health;
   SDL_Texture *text_texture;
 };
 
@@ -80,8 +82,14 @@ Graphic_engine_sdl *graphic_engine_create_sdl() {
     return NULL;
   }
 
-  gengine->font = TTF_OpenFont(MY_FONT, 25 * SCREEN_ZOOM); /*specify the path to your font file and font size*/
+  gengine->font = TTF_OpenFont(MY_FONT, FONT_SIZE); /*specify the path to your font file and font size*/
   if (!gengine->font) {
+    printf("Failed to load font: %s\n", TTF_GetError());
+    return NULL;
+  }
+
+  gengine->health = TTF_OpenFont(MY_FONT, FONT_SIZE / 2); /*specify the path to your font file and font size*/
+  if (!gengine->health) {
     printf("Failed to load font: %s\n", TTF_GetError());
     return NULL;
   }
@@ -250,12 +258,18 @@ void graphic_engine_render_sdl(Graphic_engine_sdl *gengine, Game *game) {
   const char *player_path = NULL;
   const char *background_path = NULL;
   /*SDL_Color black_text_color = {0, 0, 0, 255};*/
-  SDL_Color white_text_color = {255, 255, 255, 0};
+  SDL_Color red_text_color = {255, 0, 0, 0};
   char aux_string[WORD_SIZE];
 
   if (!gengine || !game) {
     return;
   }
+
+  /* Get player position */
+  player = game_get_current_player(game);
+  player_x = 0;
+  player_y = 0;
+  player_get_position(player, &player_x, &player_y);
 
   SDL_RenderClear(gengine->renderer);
 
@@ -292,8 +306,11 @@ void graphic_engine_render_sdl(Graphic_engine_sdl *gengine, Game *game) {
   SDL_RenderCopy(gengine->renderer, gengine->inventory_not_selected, NULL, &info_rect);
 
   /*TTF*/
-  sprintf(aux_string, "Health: %li", player_get_health(game_get_current_player(game)));
-  SDL_Surface *textSurface = TTF_RenderText_Solid(gengine->font, aux_string, white_text_color);
+  sprintf(aux_string, "|");
+  for (i = 0; i < player_get_health(player) - 1; i++) {
+    strcat(aux_string, "|");
+  }
+  SDL_Surface *textSurface = TTF_RenderText_Solid(gengine->health, aux_string, red_text_color);
   if (!textSurface) {
     printf("Failed to create text surface: %s\n", TTF_GetError());
     return;
@@ -307,15 +324,9 @@ void graphic_engine_render_sdl(Graphic_engine_sdl *gengine, Game *game) {
   }
 
   // Render text
-  SDL_Rect textRect = {5 * TILE_SIZE, WINDOW_HEIGHT - INFO_HEIGHT, textSurface->w, textSurface->h};
+  SDL_Rect textRect = {(player_x)*TILE_SIZE + 35 * SCREEN_ZOOM - (textSurface->h / 2), player_y * TILE_SIZE, textSurface->w, textSurface->h};
   SDL_RenderCopy(gengine->renderer, gengine->text_texture, NULL, &textRect);
   /*TTF*/
-
-  /* Get player position */
-  player = game_get_current_player(game);
-  player_x = 0;
-  player_y = 0;
-  player_get_position(player, &player_x, &player_y);
 
   /* Load player image dynamically */
   player_path = player_get_image(player);
