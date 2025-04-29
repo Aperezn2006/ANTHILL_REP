@@ -17,6 +17,14 @@ void update_key_state(Uint8 current_state, Key_State *key_state) {
   }
 }
 
+/* Reset movement keys to KS_UNPRESSED */
+void input_reset_movement_keys(void) {
+  game_input.up = KS_UNPRESSED;
+  game_input.down = KS_UNPRESSED;
+  game_input.left = KS_UNPRESSED;
+  game_input.right = KS_UNPRESSED;
+}
+
 /* Reads input from SDL and updates game_input */
 void input_update(Game *game) {
   SDL_Event event;
@@ -29,9 +37,14 @@ void input_update(Game *game) {
 
       case SDL_KEYDOWN:
         if (event.key.repeat == 0) {
-          
           if (event.key.keysym.sym == SDLK_TAB) {
-            game_toggle_inventory_vis(game); 
+            game_toggle_inventory_vis(game);
+
+            if (!game_get_inventory_vis(game)) {
+              /* Inventory just closed */
+              input_reset_movement_keys();
+            }
+
           } else {
             if (game_get_inventory_vis(game)) {
               switch (event.key.keysym.sym) {
@@ -54,7 +67,6 @@ void input_update(Game *game) {
                   break;
               }
             } else {
-              
               switch (event.key.keysym.sym) {
                 case SDLK_w:
                   update_key_state(1, &game_input.up);
