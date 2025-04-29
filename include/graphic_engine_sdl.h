@@ -2,8 +2,17 @@
 #define GRAPHIC_ENGINE2_H
 
 #include <SDL2/SDL.h>
+#include <SDL2/SDL_image.h>
+#include <SDL2/SDL_ttf.h>
+#include <limits.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
 
 #include "game.h"
+#include "input.h"
+#include "obstacle.h"
+#include "ray.h"
 
 /**
  * @brief Graphic engine
