@@ -24,8 +24,10 @@ struct _Graphic_engine_sdl {
   SDL_Texture *inventory_not_selected;
   SDL_Texture *inventory_yes_selected;
   TTF_Font *font;
-  TTF_Font *health;
-  SDL_Texture *text_texture;
+  TTF_Font *player_health[MAX_PLAYERS];
+  SDL_Texture *player_health_textures[MAX_PLAYERS];
+  TTF_Font *character_health[MAX_CHARACTERS];
+  SDL_Texture *character_health_textures[MAX_CHARACTERS];
 };
 
 /* Function to load a texture from a file */
@@ -88,10 +90,20 @@ Graphic_engine_sdl *graphic_engine_create_sdl() {
     return NULL;
   }
 
-  gengine->health = TTF_OpenFont(MY_FONT, FONT_SIZE / 2); /*specify the path to your font file and font size*/
-  if (!gengine->health) {
-    printf("Failed to load font: %s\n", TTF_GetError());
-    return NULL;
+  for (i = 0; i < MAX_PLAYERS; i++) {
+    gengine->player_health[i] = TTF_OpenFont(MY_FONT, FONT_SIZE / 2); /*specify the path to your font file and font size*/
+    if (!gengine->player_health[i]) {
+      printf("Failed to load font: %s\n", TTF_GetError());
+      return NULL;
+    }
+  }
+
+  for (i = 0; i < MAX_CHARACTERS; i++) {
+    gengine->character_health[i] = TTF_OpenFont(MY_FONT, FONT_SIZE / 2); /*specify the path to your font file and font size*/
+    if (!gengine->character_health[i]) {
+      printf("Failed to load font: %s\n", TTF_GetError());
+      return NULL;
+    }
   }
 
   gengine->window =
@@ -145,7 +157,13 @@ Graphic_engine_sdl *graphic_engine_create_sdl() {
     printf("Error loading inventory texture 2.\n");
   }
 
-  gengine->text_texture = NULL;
+  for (i = 0; i < MAX_PLAYERS; i++) {
+    gengine->player_health_textures[i] = NULL;
+  }
+
+  for (i = 0; i < MAX_CHARACTERS; i++) {
+    gengine->character_health_textures[i] = NULL;
+  }
 
   return gengine;
 }
@@ -226,9 +244,18 @@ void graphic_engine_destroy_sdl(Graphic_engine_sdl *gengine) {
     gengine->inventory_yes_selected = NULL;
   }
 
-  if (gengine->text_texture) {
-    SDL_DestroyTexture(gengine->text_texture);
-    gengine->text_texture = NULL;
+  for (i = 0; i < MAX_PLAYERS; i++) {
+    if (gengine->player_health_textures[i]) {
+      SDL_DestroyTexture(gengine->player_health_textures[i]);
+      gengine->player_health_textures[i] = NULL;
+    }
+  }
+
+  for (i = 0; i < MAX_CHARACTERS; i++) {
+    if (gengine->character_health_textures[i]) {
+      SDL_DestroyTexture(gengine->character_health_textures[i]);
+      gengine->character_health_textures[i] = NULL;
+    }
   }
 
   TTF_Quit();
@@ -310,22 +337,22 @@ void graphic_engine_render_sdl(Graphic_engine_sdl *gengine, Game *game) {
   for (i = 0; i < player_get_health(player) - 1; i++) {
     strcat(aux_string, "|");
   }
-  SDL_Surface *textSurface = TTF_RenderText_Solid(gengine->health, aux_string, red_text_color);
+  SDL_Surface *textSurface = TTF_RenderText_Solid(gengine->player_health[0], aux_string, red_text_color);
   if (!textSurface) {
     printf("Failed to create text surface: %s\n", TTF_GetError());
     return;
   }
 
   // Create texture from surface
-  gengine->text_texture = SDL_CreateTextureFromSurface(gengine->renderer, textSurface);
-  if (!gengine->text_texture) {
+  gengine->player_health_textures[0] = SDL_CreateTextureFromSurface(gengine->renderer, textSurface);
+  if (!gengine->player_health_textures[0]) {
     printf("Failed to create text texture: %s\n", SDL_GetError());
     return;
   }
 
   // Render text
-  SDL_Rect textRect = {(player_x)*TILE_SIZE + 35 * SCREEN_ZOOM - (textSurface->h / 2), player_y * TILE_SIZE, textSurface->w, textSurface->h};
-  SDL_RenderCopy(gengine->renderer, gengine->text_texture, NULL, &textRect);
+  SDL_Rect textRect = {player_x * TILE_SIZE + 35 * SCREEN_ZOOM - (textSurface->h / 2), player_y * TILE_SIZE, textSurface->w, textSurface->h};
+  SDL_RenderCopy(gengine->renderer, gengine->player_health_textures[0], NULL, &textRect);
   /*TTF*/
 
   /* Load player image dynamically */
