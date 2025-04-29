@@ -2,9 +2,9 @@
 
 #define SCREEN_ZOOM 2
 #define WINDOW_WIDTH (800 * SCREEN_ZOOM)
-#define WINDOW_HEIGHT ((600 + INFO_HEIGHT) * SCREEN_ZOOM)
+#define WINDOW_HEIGHT (600 * SCREEN_ZOOM + INFO_HEIGHT)
 #define TILE_SIZE (10 * SCREEN_ZOOM)
-#define INFO_HEIGHT 100
+#define INFO_HEIGHT (100 * SCREEN_ZOOM)
 
 #define MY_FONT "fonts/04b_25__.ttf"
 
@@ -13,7 +13,7 @@ struct _Graphic_engine_sdl {
   SDL_Window *window;
   SDL_Renderer *renderer;
   SDL_Texture *background_texture;
-  SDL_Texture *ant_texture;
+  SDL_Texture *player_texture;
   SDL_Texture *character_textures[MAX_CHARACTERS];
   SDL_Texture *obstacle_texture;
   SDL_Texture *link_textures[4];
@@ -80,7 +80,7 @@ Graphic_engine_sdl *graphic_engine_create_sdl() {
     return NULL;
   }
 
-  gengine->font = TTF_OpenFont(MY_FONT, 64); /*specify the path to your font file and font size*/
+  gengine->font = TTF_OpenFont(MY_FONT, 25 * SCREEN_ZOOM); /*specify the path to your font file and font size*/
   if (!gengine->font) {
     printf("Failed to load font: %s\n", TTF_GetError());
     return NULL;
@@ -163,9 +163,9 @@ void graphic_engine_destroy_sdl(Graphic_engine_sdl *gengine) {
     gengine->background_texture = NULL;
   }
 
-  if (gengine->ant_texture) {
-    SDL_DestroyTexture(gengine->ant_texture);
-    gengine->ant_texture = NULL;
+  if (gengine->player_texture) {
+    SDL_DestroyTexture(gengine->player_texture);
+    gengine->player_texture = NULL;
   }
 
   for (i = 0; i < MAX_CHARACTERS; i++) {
@@ -247,10 +247,11 @@ void graphic_engine_render_sdl(Graphic_engine_sdl *gengine, Game *game) {
   int link_x, link_y;
   int obj_x, obj_y;
   int inv_x, inv_y;
-  const char *ant_path = NULL;
+  const char *player_path = NULL;
   const char *background_path = NULL;
   /*SDL_Color black_text_color = {0, 0, 0, 255};*/
   SDL_Color white_text_color = {255, 255, 255, 0};
+  char aux_string[WORD_SIZE];
 
   if (!gengine || !game) {
     return;
@@ -291,7 +292,8 @@ void graphic_engine_render_sdl(Graphic_engine_sdl *gengine, Game *game) {
   SDL_RenderCopy(gengine->renderer, gengine->inventory_not_selected, NULL, &info_rect);
 
   /*TTF*/
-  SDL_Surface *textSurface = TTF_RenderText_Solid(gengine->font, "Hello World!", white_text_color);
+  sprintf(aux_string, "Health: %li", player_get_health(game_get_current_player(game)));
+  SDL_Surface *textSurface = TTF_RenderText_Solid(gengine->font, aux_string, white_text_color);
   if (!textSurface) {
     printf("Failed to create text surface: %s\n", TTF_GetError());
     return;
@@ -315,13 +317,13 @@ void graphic_engine_render_sdl(Graphic_engine_sdl *gengine, Game *game) {
   player_y = 0;
   player_get_position(player, &player_x, &player_y);
 
-  /* Load ant image dynamically */
-  ant_path = player_get_image(player);
-  if (ant_path) {
-    if (gengine->ant_texture) {
-      SDL_DestroyTexture(gengine->ant_texture);
+  /* Load player image dynamically */
+  player_path = player_get_image(player);
+  if (player_path) {
+    if (gengine->player_texture) {
+      SDL_DestroyTexture(gengine->player_texture);
     }
-    gengine->ant_texture = load_texture(gengine->renderer, ant_path);
+    gengine->player_texture = load_texture(gengine->renderer, player_path);
   }
 
   for (i = 0; i < space_get_num_characters(game_get_space(game, player_get_location(game_get_current_player(game)))); i++) {
@@ -376,10 +378,10 @@ void graphic_engine_render_sdl(Graphic_engine_sdl *gengine, Game *game) {
     }
   }
 
-  /* Render ant */
-  if (gengine->ant_texture) {
-    SDL_Rect ant_rect = {player_x * TILE_SIZE, player_y * TILE_SIZE, 50 * SCREEN_ZOOM, 50 * SCREEN_ZOOM};
-    SDL_RenderCopy(gengine->renderer, gengine->ant_texture, NULL, &ant_rect);
+  /* Render player */
+  if (gengine->player_texture) {
+    SDL_Rect player_rect = {player_x * TILE_SIZE, player_y * TILE_SIZE, 70 * SCREEN_ZOOM, 70 * SCREEN_ZOOM};
+    SDL_RenderCopy(gengine->renderer, gengine->player_texture, NULL, &player_rect);
   } else {
     printf("Warning: Ant texture is NULL.\n");
   }

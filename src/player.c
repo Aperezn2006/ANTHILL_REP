@@ -351,10 +351,10 @@ Status player_toggle_curr_image_mode(Player *player) {
     return ERROR;
   }
 
-  if (player->curr_image_mode == 0 && player->sprite_slowed == 3) {
+  if (player->curr_image_mode == 0 && player->sprite_slowed == 7) {
     player->curr_image_mode = 1;
     player->sprite_slowed = 0;
-  } else if (player->curr_image_mode == 1 && player->sprite_slowed == 3) {
+  } else if (player->curr_image_mode == 1 && player->sprite_slowed == 7) {
     player->curr_image_mode = 0;
     player->sprite_slowed = 0;
   } else {
