@@ -13,16 +13,16 @@
 
 /*id|name|location|health|movable|dependency|open_door|desc|turn_amplifier|x|y|image|*/
 
-#o:20|Llave|15|0|1|-1|-1|Open chair|0|0|0|resources/leaf.png|
-#o:21|Hueso|13|0|1|-1|-1|Domesticate|0|0|0|resources/stick.png|
-#o:22|Donut|13|1|1|-1|-1|Ñum Ñum|0|0|0|resources/gre_pot.png|
-#o:23|Chaleco|17|5|1|-1|-1|.|0|0|0|resources/yel_pot.png|
-#o:24|Pistola|11|-3|1|-1|-1|.|0|0|0|resources/red_pot.png|
-#o:25|Cuchara|18|0|1|-1|-1|Scape|0|0|0|resources/leaf.png|
-#o:26|CepilloDientes|18|-2|1|-1|-1|Dont use it|0|0|0|resources/stick.png|
-#o:27|Linterna|110|0|1|-1|-1|.|0|0|0|resources/seed.png|
-#o:28|CartelPreso|15|0|1|-1|-1|2567|.|1|0|0|0|resources/seed.png|
-#o:29|Cigarrillos|17|1|1|-1|-1|.|0|0|0|resources/leaf.png|
+#o:20|Llave|15|0|1|-1|-1|Open chair|0|0|0|resources/Key.png|
+#o:21|Hueso|13|0|1|-1|-1|Domesticate|0|0|0|resources/Bone.png|
+#o:22|Donut|13|1|1|-1|-1|Ñum Ñum|0|0|0|resources/Donut.png|
+#o:23|Chaleco|17|5|1|-1|-1|.|0|0|0|resources/Vest.png|
+#o:24|Pistola|11|-3|1|-1|-1|.|0|0|0|resources/Gun.png|
+#o:25|Cuchara|18|0|1|-1|-1|Scape|0|0|0|resources/Spoon.png|
+#o:26|CepilloDientes|18|-2|1|-1|-1|Dont use it|0|0|0|resources/Toothbrush.png|
+#o:27|Linterna|110|0|1|-1|-1|.|0|0|0|resources/Flashlight.png|
+#o:28|CartelPreso|15|0|1|-1|-1|2567|.|1|0|0|0|resources/Poster.png|
+#o:29|Cigarrillos|17|1|1|-1|-1|.|0|0|0|resources/Cigarrette.png|
 
 /*id|name|location|health|gdesc|message|friendliness|x|y|image|*/
 
