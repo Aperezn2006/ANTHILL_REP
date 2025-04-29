@@ -25,6 +25,7 @@ typedef struct {
   Key_State escape;
   Key_State jump;
   Key_State use;      /* Added use key */
+  Key_State open;     /* Added open key */
   Bool is_selecting_drop;
   Key_State inventory_toggle;
   Key_State inventory_up;
