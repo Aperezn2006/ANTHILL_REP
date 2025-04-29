@@ -15,7 +15,6 @@
 #include "command.h"
 #include "game.h"
 #include "game_management.h"
-#include "input.h"
 #include "object.h"
 #include "physics.h"
 #include "player.h"
