@@ -171,6 +171,8 @@ void game_actions_update_sdl(Game *game, int seed) {
       game_actions_drop_sdl(game); /* Botón de drop */
     } else if (game_input.use == KS_PRESSED) {
       game_actions_use_sdl(game); /* Usar objeto */
+    }else if (game_input.open == KS_PRESSED) {
+      game_actions_open_sdl(game);
     }
 
     return; /* Si el inventario está abierto, ignoramos el resto de acciones */
@@ -227,9 +229,7 @@ void game_actions_update_sdl(Game *game, int seed) {
   
 
   /* ABRIR PUERTA O CONTENEDOR */
-  if (game_input.open == KS_PRESSED) {
-    game_actions_open_sdl(game);
-  }
+  
 }
 
 
@@ -661,7 +661,6 @@ Status game_actions_use_sdl(Game *game) {
   player_remove_object(player, object_id);
 
   printf("[DEBUG] Object %ld used successfully. Advancing turn.\n", object_id);
-  game_input.use = KS_UNPRESSED;
   return game_increment_turn(game);
 }
 
@@ -669,81 +668,88 @@ Status game_actions_use_sdl(Game *game) {
 
 
 Status game_actions_open_sdl(Game *game) {
-  Id object_id = NO_ID;
-  Id current_space_id = NO_ID;
-  Id link_id = NO_ID;
-  Command *c = NULL;
-  const char *link_name = NULL;
-  Connector connector = NO_DEST;
-  const char *object_name = NULL;
-  Direction direction = NO_DIR;
-  Link *link = NULL;
-  int i;
+  Player *player;
+  Inventory *inv;
+  Set *set;
+  int cursor;
+  Id object_id;
+  Link *link;
+  Id current_space_id;
 
-  if (!game) return ERROR;
+  printf("[DEBUG] Entered game_actions_open_sdl\n");
+
+  if (!game) {
+    printf("[ERROR] game is NULL\n");
+    return ERROR;
+  }
 
   if (!game_get_inventory_vis(game)) {
-    printf("Inventory is not open. Cannot open link.\n");
+    printf("[ERROR] Inventory is not open. Cannot open link.\n");
+    return ERROR;
+  }
+
+  player = game_get_current_player(game);
+  if (!player) {
+    printf("[ERROR] Failed to get current player\n");
+    return ERROR;
+  }
+
+  inv = player_get_inventory(player);
+  if (!inv) {
+    printf("[ERROR] Failed to get player inventory\n");
+    return ERROR;
+  }
+
+  set = inventory_get_objects(inv);
+  if (!set) {
+    printf("[ERROR] Failed to get object set from inventory\n");
+    return ERROR;
+  }
+
+  cursor = set_get_cursor(set);
+  printf("[DEBUG] Inventory cursor at index: %d\n", cursor);
+
+  if (cursor < 0 || cursor >= set_get_num_ids(set)) {
+    printf("[ERROR] Cursor out of range. Cannot open.\n");
+    return ERROR;
+  }
+
+  object_id = set_get_id_from_index(set, cursor);
+  if (object_id == NO_ID) {
+    printf("[ERROR] No object selected to open.\n");
+    return ERROR;
+  }
+
+  if (!player_has_object(player, object_id)) {
+    printf("[ERROR] Player does not have object %ld\n", object_id);
+    return ERROR;
+  }
+
+  if (!game_check_object_dependency(game, object_id)) {
+    printf("[ERROR] Dependency check failed for object %ld\n", object_id);
     return ERROR;
   }
 
   current_space_id = game_get_player_location(game);
-  if (current_space_id == NO_ID) return ERROR;
-
-  c = game_get_last_command(game);
-  if (!c) return ERROR;
-
-  link_name = command_get_word(c);
-  connector = command_get_connector(c);
-  object_name = command_get_destiny(c);
-
-  if (!link_name || !object_name) {
-    printf("Invalid command format.\n");
+  if (current_space_id == NO_ID) {
+    printf("[ERROR] Invalid player location\n");
     return ERROR;
   }
 
-  if (connector == NO_DEST) {
-    printf("No connector specified.\n");
+  link = physics_get_colliding_link(game, player);
+  if (!link) {
+    printf("[ERROR] No link collision detected. Cannot open.\n");
     return ERROR;
   }
 
-  link_id = game_get_link_id_from_name(game, (char *)link_name);
-  if (link_id == NO_ID) {
-    printf("Link '%s' not found.\n", link_name);
-    return ERROR;
+  if (game_set_link_open(game, current_space_id, link_get_direction(link)) == OK) {
+    printf("[DEBUG] Link '%s' opened successfully with object %ld.\n",
+           link_get_name(link), object_id);
+    player_remove_object(player, object_id);
+    return game_increment_turn(game);
   }
 
-  object_id = game_get_object_id_from_name(game, object_name);
-  if (object_id == NO_ID) {
-    printf("Object '%s' not found.\n", object_name);
-    return ERROR;
-  }
-
-  for (i = 0; i < game_get_num_links(game); i++) {
-    link = game_get_link_from_index(game, i);
-    if (link && link_get_id(link) == link_id && link_get_start(link) == current_space_id) {
-      direction = link_get_direction(link);
-      break;
-    }
-  }
-
-  if (!link || direction == NO_DIR) {
-    printf("Link direction invalid or link not found at current location.\n");
-    return ERROR;
-  }
-
-  if (player_has_object(game_get_current_player(game), object_id) == TRUE &&
-      game_check_object_dependency(game, object_id) == TRUE) {
-    if (game_set_link_open(game, current_space_id, direction) == OK) {
-      printf("Link '%s' opened using object '%s'.\n", link_name, object_name);
-      return game_increment_turn(game);
-    } else {
-      printf("Failed to open link.\n");
-      return ERROR;
-    }
-  }
-
-  printf("Player does not have object '%s' or dependency failed.\n", object_name);
+  printf("[ERROR] Failed to open link.\n");
   return ERROR;
 }
 
