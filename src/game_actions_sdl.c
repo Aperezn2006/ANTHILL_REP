@@ -175,22 +175,26 @@ void game_actions_update_sdl(Game *game, int seed) {
 
   if (game_input.up == KS_PRESSED) {
     player_set_position(player, player_get_x(player), player_get_y(player) - 1);
-    player_set_image(player, (char *)player_get_North_image(player));
+    player_toggle_curr_image_mode(player);
+    player_set_image(player, (char *)player_get_North_image(player, 0), (char *)player_get_North_image(player, 1));
   }
 
   if (game_input.down == KS_PRESSED) {
     player_set_position(player, player_get_x(player), player_get_y(player) + 1);
-    player_set_image(player, (char *)player_get_South_image(player));
+    player_toggle_curr_image_mode(player);
+    player_set_image(player, (char *)player_get_South_image(player, 0), (char *)player_get_South_image(player, 1));
   }
 
   if (game_input.left == KS_PRESSED) {
     player_set_position(player, player_get_x(player) - 1, player_get_y(player));
-    player_set_image(player, (char *)player_get_West_image(player));
+    player_toggle_curr_image_mode(player);
+    player_set_image(player, (char *)player_get_West_image(player, 0), (char *)player_get_West_image(player, 1));
   }
 
   if (game_input.right == KS_PRESSED) {
     player_set_position(player, player_get_x(player) + 1, player_get_y(player));
-    player_set_image(player, (char *)player_get_East_image(player));
+    player_toggle_curr_image_mode(player);
+    player_set_image(player, (char *)player_get_East_image(player, 0), (char *)player_get_East_image(player, 1));
   }
 
   /* ABRIR INVENTARIO */

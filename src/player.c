@@ -39,6 +39,7 @@ struct _Player {
   int curr_image_mode;              /*!< Identifies which image is being used*/
   int x, y;                         /*!< Player's position*/
   Gun *current_gun;                 /*SDL2*/
+  int sprite_slowed;
 };
 
 /*Cosas de SDL2*/
@@ -345,15 +346,27 @@ Status player_set_image(Player *player, char *image1, char *image2) {
 }
 
 /* Get player image */
+Status player_toggle_curr_image_mode(Player *player) {
+  if (!player) {
+    return ERROR;
+  }
+
+  if (player->curr_image_mode == 0 && player->sprite_slowed == 5) {
+    player->curr_image_mode = 1;
+    player->sprite_slowed = 0;
+  } else if (player->curr_image_mode == 1 && player->sprite_slowed == 5) {
+    player->curr_image_mode = 0;
+    player->sprite_slowed = 0;
+  } else {
+    player->sprite_slowed++;
+  }
+
+  return OK;
+}
+
 char *player_get_image(Player *player) {
   if (!player) {
     return NULL;
-  }
-
-  if (player->curr_image_mode == 0) {
-    player->curr_image_mode = 1;
-  } else {
-    player->curr_image_mode = 0;
   }
 
   return player->current_image[player->curr_image_mode];
@@ -362,7 +375,7 @@ char *player_get_image(Player *player) {
 /* Set player North_image */
 Status player_set_North_image(Player *player, const char *North_image, int sprite) {
   if (!player || !North_image) return ERROR;
-  strncpy(player->North_image, North_image, MAX_MESSAGE - 1);
+  strncpy(player->North_image[sprite], North_image, MAX_MESSAGE - 1);
   player->North_image[sprite][MAX_MESSAGE - 1] = '\0';
   return OK;
 }
@@ -376,7 +389,7 @@ const char *player_get_North_image(const Player *player, int sprite) {
 /* Set player East_image */
 Status player_set_East_image(Player *player, const char *East_image, int sprite) {
   if (!player || !East_image) return ERROR;
-  strncpy(player->East_image, East_image, MAX_MESSAGE - 1);
+  strncpy(player->East_image[sprite], East_image, MAX_MESSAGE - 1);
   player->East_image[sprite][MAX_MESSAGE - 1] = '\0';
   return OK;
 }
@@ -396,7 +409,7 @@ const char *player_get_South_image(const Player *player, int sprite) {
 /* Set player South_image */
 Status player_set_South_image(Player *player, const char *South_image, int sprite) {
   if (!player || !South_image) return ERROR;
-  strncpy(player->South_image, South_image, MAX_MESSAGE - 1);
+  strncpy(player->South_image[sprite], South_image, MAX_MESSAGE - 1);
   player->South_image[sprite][MAX_MESSAGE - 1] = '\0';
   return OK;
 }
@@ -410,7 +423,7 @@ const char *player_get_West_image(const Player *player, int sprite) {
 /* Set player West_image */
 Status player_set_West_image(Player *player, const char *West_image, int sprite) {
   if (!player || !West_image) return ERROR;
-  strncpy(player->West_image, West_image, MAX_MESSAGE - 1);
+  strncpy(player->West_image[sprite], West_image, MAX_MESSAGE - 1);
   player->West_image[sprite][MAX_MESSAGE - 1] = '\0';
   return OK;
 }

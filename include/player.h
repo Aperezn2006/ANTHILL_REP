@@ -247,6 +247,8 @@ Status player_set_max_turns(Player *player, int max_turns);
 int player_get_max_turns(Player *player);
 
 /*Management of image*/
+Status player_toggle_curr_image_mode(Player *player);
+
 /**
  * @brief It sets the player's current image_path
  * @author Beatriz, Arturo, Rubén, Ana
