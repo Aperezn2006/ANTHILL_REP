@@ -160,20 +160,6 @@ void game_loop_run(Game *game, Graphic_engine *gengine, FILE *log_file) {
       log_command(game, log_file, last_cmd);
     }
 
-    if (command_get_code(last_cmd) != UNKNOWN && command_get_code(last_cmd) != NO_CMD) {
-      /*Chequeo de following*/
-
-      for (i = 0; i < game_get_num_characters(game); i++) {
-        if (player_get_id(game_get_player(game, game_get_player_index_from_turn(game))) ==
-            character_get_following(game_get_character_from_index(game, i))) {
-          printf("[[DEBUG]] MOVED %s %li %li\n", character_get_name(game_get_character_from_index(game, i)),
-                 player_get_id(game_get_player(game, game_get_player_index_from_turn(game))),
-                 character_get_following(game_get_character_from_index(game, i)));
-          game_set_character_location(game, game_get_player_location(game), character_get_id(game_get_character_from_index(game, i)));
-        }
-      }
-    }
-
     for (i = 0; i < game_get_num_players(game); i++) {
       if (player_get_health(game_get_player_from_index(game, i)) == 0) {
         graphic_engine_paint_game(gengine, game);

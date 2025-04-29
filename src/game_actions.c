@@ -362,6 +362,17 @@ Status game_actions_move(Game *game) {
     } else {
       game_set_player_location(game, next_space_id);
     }
+    
+    /* --- Character follow --- */
+    for (i = 0; i < game_get_num_characters(game); i++) {
+      if (player_get_id(game_get_player(game, game_get_player_index_from_turn(game))) ==
+          character_get_following(game_get_character_from_index(game, i))) {
+        printf("[[DEBUG]] MOVED %s %li %li\n", character_get_name(game_get_character_from_index(game, i)),
+              player_get_id(game_get_player(game, game_get_player_index_from_turn(game))),
+              character_get_following(game_get_character_from_index(game, i)));
+        game_set_character_location(game, game_get_player_location(game), character_get_id(game_get_character_from_index(game, i)));
+      }
+    }
 
     return game_increment_turn(game);
   }
@@ -944,28 +955,53 @@ Status game_actions_recruit(Game *game) {
   Player *player = NULL;
 
   if (!game) {
+    printf("[DEBUG] game is NULL\n");
     return ERROR;
   }
 
   c = game_get_last_command(game);
-  if (!c) return ERROR;
+  if (!c) {
+    printf("[DEBUG] Last command is NULL\n");
+    return ERROR;
+  }
 
   word = command_get_word(c);
+  if (!word) {
+    printf("[DEBUG] Command word is NULL\n");
+    return ERROR;
+  }
+  printf("[DEBUG] Command word: %s\n", word);
+
   player = game_get_player(game, game_get_player_index_from_turn(game));
+  if (!player) {
+    printf("[DEBUG] Current player is NULL\n");
+    return ERROR;
+  }
+  printf("[DEBUG] Player ID: %ld\n", player_get_id(player));
+
   character = game_get_character(game, game_get_character_id_from_name(game, word));
+  if (!character) {
+    printf("[DEBUG] Character with name '%s' not found\n", word);
+    return ERROR;
+  }
+  printf("[DEBUG] Character ID: %ld\n", character_get_id(character));
 
   if (game_get_player_location(game) != game_get_character_location(game, game_get_character_id_from_name(game, word))) {
+    printf("[DEBUG] Player and character are not in the same location\n");
     return ERROR;
   }
 
   if (character_get_friendly(character) == FALSE) {
+    printf("[DEBUG] Character '%s' is not friendly\n", word);
     return ERROR;
   }
 
   if (character_set_following(character, player_get_id(player)) == ERROR) {
+    printf("[DEBUG] Failed to set character '%s' as following the player\n", word);
     return ERROR;
   }
 
+  printf("[DEBUG] Character '%s' successfully recruited\n", word);
   return game_increment_turn(game);
 }
 

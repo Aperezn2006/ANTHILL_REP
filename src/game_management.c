@@ -385,7 +385,11 @@ Status game_management_load(Game *game, char *file_name, Bool new, Bool SDL) {
       strcpy(character_message, toks);
 
       toks = strtok(NULL, "|");
-      character_friendliness = atoi(toks);
+      if (strcmp(toks, "FALSE") == 0) {
+        character_friendliness = FALSE;
+      } else {
+        character_friendliness = TRUE;
+      }
 
       if (SDL == TRUE) {
         toks = strtok(NULL, "|");
