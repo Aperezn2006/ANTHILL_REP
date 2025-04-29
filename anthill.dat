@@ -28,9 +28,9 @@
 /*id|name|location|health|gdesc|message|friendliness*/
 
 #c:50|Enfermo|2|4|()__/\|Hello|TRUE|
-#c:51|Policia|11|4|/()\ |Hello|FALSE|
-#c:52|Perro|9|4|U.^.U |Hello|FALSE|
-#c:53|Familiar|4|4|()__() |Hello|TRUE|
+#c:51|Policia|11|4|/()\|Hello|FALSE|
+#c:52|Perro|9|4|U.^.U|Hello|FALSE|
+#c:53|Familiar|4|4|()__()|Hello|TRUE|
 
 /*id|name|origin|destination|direction|open*/
 

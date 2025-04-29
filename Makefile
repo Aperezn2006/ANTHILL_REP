@@ -71,7 +71,7 @@ TEST_OBJ = $(TEST_SRC:$(TEST_DIR)/%.c=$(OBJ_DIR)/%.o)
 
 # Librerias
 LIBS = -Llib -lscreen
-SDL_LIBS = -Llib -lscreen -lSDL2 -lSDL2_image
+SDL_LIBS = -Llib -lscreen -lSDL2 -lSDL2_image -lSDL2_ttf
 
 # Compilador y sus opciones
 CC = gcc

@@ -5,7 +5,6 @@
 
 Game_Input game_input = {0};
 
-/* Function to update the key state */
 void update_key_state(Uint8 current_state, Key_State *key_state) {
   if (current_state) {
     if (*key_state > 0)
@@ -17,7 +16,15 @@ void update_key_state(Uint8 current_state, Key_State *key_state) {
   }
 }
 
-/* Reset movement keys to KS_UNPRESSED */
+/* Para teclas que deben considerarse siempre como "presionadas de nuevo" */
+void update_action_key_state(Uint8 current_state, Key_State *key_state) {
+  if (current_state) {
+    *key_state = KS_PRESSED;
+  } else {
+    *key_state = KS_UNPRESSED;
+  }
+}
+
 void input_reset_movement_keys(void) {
   game_input.up = KS_UNPRESSED;
   game_input.down = KS_UNPRESSED;
@@ -25,7 +32,6 @@ void input_reset_movement_keys(void) {
   game_input.right = KS_UNPRESSED;
 }
 
-/* Reads input from SDL and updates game_input */
 void input_update(Game *game) {
   SDL_Event event;
 
@@ -41,7 +47,6 @@ void input_update(Game *game) {
             game_toggle_inventory_vis(game);
 
             if (!game_get_inventory_vis(game)) {
-              /* Inventory just closed */
               input_reset_movement_keys();
             }
 
@@ -57,13 +62,23 @@ void input_update(Game *game) {
                   update_key_state(1, &game_input.inventory_down);
                   break;
                 case SDLK_g:
-                  update_key_state(1, &game_input.drop);
+                  update_action_key_state(1, &game_input.drop);
+                  break;
+                case SDLK_q:
+                  update_action_key_state(1, &game_input.inspect);
                   break;
                 case SDLK_RETURN:
                   update_key_state(1, &game_input.inventory_confirm);
                   break;
                 case SDLK_ESCAPE:
                   update_key_state(1, &game_input.inventory_cancel);
+                  break;
+                case SDLK_r:
+                  update_action_key_state(1, &game_input.use);
+                  printf("Presionada la tecla r (inventario activo)\n");
+                  break;
+                case SDLK_o:
+                  update_action_key_state(1, &game_input.open);
                   break;
               }
             } else {
@@ -94,10 +109,14 @@ void input_update(Game *game) {
                   break;
                 case SDLK_g:
                 case SDLK_q:
-                  update_key_state(1, &game_input.inspect);
+                  update_action_key_state(1, &game_input.inspect);
                   break;
                 case SDLK_r:
-                  update_key_state(1, &game_input.use);
+                  update_action_key_state(1, &game_input.use);
+                  printf("Presionada la tecla r\n");
+                  break;
+                case SDLK_o:
+                  update_action_key_state(1, &game_input.open);
                   break;
               }
             }
@@ -117,13 +136,22 @@ void input_update(Game *game) {
               update_key_state(0, &game_input.inventory_down);
               break;
             case SDLK_g:
-              update_key_state(0, &game_input.drop);
+              update_action_key_state(0, &game_input.drop);
+              break;
+            case SDLK_q:
+              update_action_key_state(0, &game_input.inspect);
               break;
             case SDLK_RETURN:
               update_key_state(0, &game_input.inventory_confirm);
               break;
             case SDLK_ESCAPE:
               update_key_state(0, &game_input.inventory_cancel);
+              break;
+            case SDLK_r:
+              update_action_key_state(0, &game_input.use);
+              break;
+            case SDLK_o:
+              update_action_key_state(0, &game_input.open);
               break;
           }
         } else {
@@ -154,10 +182,13 @@ void input_update(Game *game) {
               break;
             case SDLK_g:
             case SDLK_q:
-              update_key_state(0, &game_input.inspect);
+              update_action_key_state(0, &game_input.inspect);
               break;
             case SDLK_r:
-              update_key_state(0, &game_input.use);
+              update_action_key_state(0, &game_input.use);
+              break;
+            case SDLK_o:
+              update_action_key_state(0, &game_input.open);
               break;
           }
         }
