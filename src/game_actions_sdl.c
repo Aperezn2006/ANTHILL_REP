@@ -129,6 +129,7 @@ Status game_actions_inspect_sdl(Game *game);
 Status game_actions_inventory_sdl(Game *game);
 
 Status game_actions_use_sdl(Game *game);
+Status game_actions_open_sdl(Game *game);
 
 /**
  * @brief It allows the player to save its current game
@@ -159,20 +160,27 @@ void game_actions_update_sdl(Game *game, int seed) {
   /* INVENTARIO - Si está activo, solo procesamos las teclas del menú */
   if (game_get_inventory_vis(game)) {
     if (game_input.inventory_up == KS_PRESSED) {
-      game_move_inventory_cursor(game, -1); /*Mover el cursor hacia arriba*/
+      game_move_inventory_cursor(game, -1); /* Mover el cursor hacia arriba */
     } else if (game_input.inventory_down == KS_PRESSED) {
-      game_move_inventory_cursor(game, 1); /*Mover el cursor hacia abajo*/
+      game_move_inventory_cursor(game, 1); /* Mover el cursor hacia abajo */
     } else if (game_input.inventory_confirm == KS_PRESSED) {
-      game_select_inventory_object(game); /*Seleccionar o usar el objeto*/
+      game_select_inventory_object(game); /* Seleccionar o usar el objeto */
     } else if (game_input.inventory_cancel == KS_PRESSED) {
-      game_toggle_inventory_vis(game); /*Cerrar el inventario*/
+      game_toggle_inventory_vis(game); /* Cerrar el inventario */
     } else if (game_input.drop == KS_PRESSED) {
-      game_actions_drop_sdl(game);
+      game_actions_drop_sdl(game); /* Botón de drop */
+    } else if (game_input.use == KS_PRESSED) {
+      game_actions_use_sdl(game); /* Usar objeto */
+    }else if (game_input.open == KS_PRESSED) {
+      game_actions_open_sdl(game);
     }
 
-    return; /*Si el inventario está abierto, ignoramos el resto de acciones*/
+    return; /* Si el inventario está abierto, ignoramos el resto de acciones */
   }
 
+  /* Si el inventario no está abierto, se procesan las acciones del juego */
+
+  /* Movimiento */
   if (game_input.up == KS_PRESSED) {
     player_set_position(player, player_get_x(player), player_get_y(player) - 1);
     player_toggle_curr_image_mode(player);
@@ -199,7 +207,7 @@ void game_actions_update_sdl(Game *game, int seed) {
 
   /* ABRIR INVENTARIO */
   if (game_input.inventory_toggle == KS_PRESSED) {
-    game_toggle_inventory_vis(game); /*Alternar visibilidad del inventario*/
+    game_toggle_inventory_vis(game); /* Alternar visibilidad del inventario */
   }
 
   /* ATAQUE */
@@ -218,10 +226,12 @@ void game_actions_update_sdl(Game *game, int seed) {
   }
 
   /* USAR OBJETO */
-  if (game_input.jump == KS_PRESSED) {
-    game_actions_use_sdl(game);
-  }
+  
+
+  /* ABRIR PUERTA O CONTENEDOR */
+  
 }
+
 
 /**
    Calls implementation for each action
@@ -580,76 +590,170 @@ Status game_actions_inventory_sdl(Game *game) {
 
 Status game_actions_use_sdl(Game *game) {
   Id object_id;
-  Id location;
-  Command *c = NULL;
-  char object_name[WORD_SIZE] = "";
-  Connector connector = NO_DEST;
-  char destiny[WORD_SIZE] = "";
+  Inventory *inv;
+  Set *set;
+  Player *player;
+  int cursor;
+
+  printf("[DEBUG] Entered game_actions_use_sdl\n");
 
   if (!game) {
-    printf("[DEBUG] Game is NULL\n");
+    printf("[ERROR] game is NULL\n");
     return ERROR;
   }
 
-  c = game_get_last_command(game);
-  if (!c) {
-    printf("[DEBUG] Command is NULL\n");
+  /* Solo permitimos usar objetos si el inventario está abierto */
+  if (!game_get_inventory_vis(game)) {
+    printf("[ERROR] Inventory is not open. Cannot use.\n");
     return ERROR;
   }
 
-  strcpy(object_name, command_get_word(c));
-  printf("[DEBUG] Command word (object): '%s'\n", object_name);
-
-  if (strcmp(object_name, "") == 0) {
-    printf("[DEBUG] Object name is empty\n");
+  player = game_get_current_player(game);
+  if (!player) {
+    printf("[ERROR] Failed to get current player\n");
     return ERROR;
   }
 
-  object_id = game_get_object_id_from_name(game, object_name);
-  printf("[DEBUG] Retrieved object ID: %ld\n", object_id);
+  inv = player_get_inventory(player);
+  if (!inv) {
+    printf("[ERROR] Failed to get player inventory\n");
+    return ERROR;
+  }
 
+  set = inventory_get_objects(inv);
+  if (!set) {
+    printf("[ERROR] Failed to get object set from inventory\n");
+    return ERROR;
+  }
+
+  cursor = set_get_cursor(set);
+  printf("[DEBUG] Inventory cursor at index: %d\n", cursor);
+
+  if (cursor < 0 || cursor >= set_get_num_ids(set)) {
+    printf("[ERROR] Cursor out of range. Cannot use.\n");
+    return ERROR;
+  }
+
+  object_id = set_get_id_from_index(set, cursor);
   if (object_id == NO_ID) {
-    printf("[DEBUG] Object '%s' not found in game\n", object_name);
+    printf("[ERROR] No object selected to use.\n");
     return ERROR;
   }
 
-  location = game_get_player_location(game);
-  printf("[DEBUG] Player's location is %ld\n", location);
+  printf("[DEBUG] Selected object ID: %ld\n", object_id);
 
-  connector = command_get_connector(c);
-  printf("[DEBUG] Connector = %d\n", connector);
-
-  if (connector == NO_DEST) {
-    printf("[DEBUG] Connector is NO_DEST\n");
+  if (!player_has_object(player, object_id)) {
+    printf("[ERROR] Player does not have object %ld\n", object_id);
     return ERROR;
   }
 
-  strcpy(destiny, command_get_destiny(c));
-  printf("[DEBUG] Destiny = '%s'\n", destiny);
-
-  if (strcmp(destiny, "") == 0) {
-    printf("[DEBUG] Destiny string is empty\n");
+  if (!game_check_object_dependency(game, object_id)) {
+    printf("[ERROR] Dependency check failed for object %ld\n", object_id);
     return ERROR;
   }
 
-  if (player_has_object(game_get_current_player(game), object_id) == TRUE && game_check_object_dependency(game, object_id) == TRUE) {
-    printf("[DEBUG] Player has object %s\n", object_name);
-    if (strcmp(destiny, "player") == 0) {
-      printf("[DEBUG] Applying object to player\n");
-      if (game_update_player_health(game, object_id) == ERROR) {
-        printf("Failed to apply health changes\n");
-        return ERROR;
-      }
-    } else {
-      printf("[DEBUG] Unhandled destiny: '%s'\n", destiny);
-    }
-  } else {
-    printf("Player does not have object %s\n", object_name);
+  printf("[DEBUG] Applying object %ld to player\n", object_id);
+
+  if (game_update_player_health(game, object_id) == ERROR) {
+    printf("[ERROR] Failed to apply object effect to player.\n");
     return ERROR;
   }
+  player_remove_object(player, object_id);
 
-  return OK;
+  printf("[DEBUG] Object %ld used successfully. Advancing turn.\n", object_id);
+  return game_increment_turn(game);
 }
+
+
+
+
+Status game_actions_open_sdl(Game *game) {
+  Player *player;
+  Inventory *inv;
+  Set *set;
+  int cursor;
+  Id object_id;
+  Link *link;
+  Id current_space_id;
+
+  printf("[DEBUG] Entered game_actions_open_sdl\n");
+
+  if (!game) {
+    printf("[ERROR] game is NULL\n");
+    return ERROR;
+  }
+
+  if (!game_get_inventory_vis(game)) {
+    printf("[ERROR] Inventory is not open. Cannot open link.\n");
+    return ERROR;
+  }
+
+  player = game_get_current_player(game);
+  if (!player) {
+    printf("[ERROR] Failed to get current player\n");
+    return ERROR;
+  }
+
+  inv = player_get_inventory(player);
+  if (!inv) {
+    printf("[ERROR] Failed to get player inventory\n");
+    return ERROR;
+  }
+
+  set = inventory_get_objects(inv);
+  if (!set) {
+    printf("[ERROR] Failed to get object set from inventory\n");
+    return ERROR;
+  }
+
+  cursor = set_get_cursor(set);
+  printf("[DEBUG] Inventory cursor at index: %d\n", cursor);
+
+  if (cursor < 0 || cursor >= set_get_num_ids(set)) {
+    printf("[ERROR] Cursor out of range. Cannot open.\n");
+    return ERROR;
+  }
+
+  object_id = set_get_id_from_index(set, cursor);
+  if (object_id == NO_ID) {
+    printf("[ERROR] No object selected to open.\n");
+    return ERROR;
+  }
+
+  if (!player_has_object(player, object_id)) {
+    printf("[ERROR] Player does not have object %ld\n", object_id);
+    return ERROR;
+  }
+
+  if (!game_check_object_dependency(game, object_id)) {
+    printf("[ERROR] Dependency check failed for object %ld\n", object_id);
+    return ERROR;
+  }
+
+  current_space_id = game_get_player_location(game);
+  if (current_space_id == NO_ID) {
+    printf("[ERROR] Invalid player location\n");
+    return ERROR;
+  }
+
+  link = physics_get_colliding_link(game, player);
+  if (!link) {
+    printf("[ERROR] No link collision detected. Cannot open.\n");
+    return ERROR;
+  }
+
+  if (game_set_link_open(game, current_space_id, link_get_direction(link)) == OK) {
+    printf("[DEBUG] Link '%s' opened successfully with object %ld.\n",
+           link_get_name(link), object_id);
+    player_remove_object(player, object_id);
+    return game_increment_turn(game);
+  }
+
+  printf("[ERROR] Failed to open link.\n");
+  return ERROR;
+}
+
+
 
 /**
  * @brief It allows the player to save its current game
