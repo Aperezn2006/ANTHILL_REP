@@ -366,15 +366,17 @@ Status player_toggle_curr_image_mode(Player *player) {
     return ERROR;
   }
 
-  if (player->curr_image_mode < 3 && player->sprite_slowed == 6) {
+  if (player->curr_image_mode < 2 && player->sprite_slowed == 4) {
     player->curr_image_mode++;
     player->sprite_slowed = 0;
-  } else if (player->curr_image_mode == 3 && player->sprite_slowed == 6) {
+  } else if (player->curr_image_mode == 2 && player->sprite_slowed == 4) {
     player->curr_image_mode = 0;
     player->sprite_slowed = 0;
   } else {
     player->sprite_slowed++;
   }
+
+  printf("CURRENT IMAGE MODE IS %i, SPRITE Nº %i\n", player->curr_image_mode, player->sprite_slowed);
 
   return OK;
 }
@@ -383,6 +385,8 @@ char *player_get_image(Player *player) {
   if (!player) {
     return NULL;
   }
+
+  printf("IMAGE PATH IS %s\n", player->current_image[player->curr_image_mode]);
 
   return player->current_image[player->curr_image_mode];
 }
