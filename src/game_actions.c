@@ -362,14 +362,14 @@ Status game_actions_move(Game *game) {
     } else {
       game_set_player_location(game, next_space_id);
     }
-    
+
     /* --- Character follow --- */
     for (i = 0; i < game_get_num_characters(game); i++) {
       if (player_get_id(game_get_player(game, game_get_player_index_from_turn(game))) ==
           character_get_following(game_get_character_from_index(game, i))) {
         printf("[[DEBUG]] MOVED %s %li %li\n", character_get_name(game_get_character_from_index(game, i)),
-              player_get_id(game_get_player(game, game_get_player_index_from_turn(game))),
-              character_get_following(game_get_character_from_index(game, i)));
+               player_get_id(game_get_player(game, game_get_player_index_from_turn(game))),
+               character_get_following(game_get_character_from_index(game, i)));
         game_set_character_location(game, game_get_player_location(game), character_get_id(game_get_character_from_index(game, i)));
       }
     }
