@@ -171,7 +171,7 @@ void game_actions_update_sdl(Game *game, int seed) {
       game_actions_drop_sdl(game); /* Botón de drop */
     } else if (game_input.use == KS_PRESSED) {
       game_actions_use_sdl(game); /* Usar objeto */
-    }else if (game_input.open == KS_PRESSED) {
+    } else if (game_input.open == KS_PRESSED) {
       game_actions_open_sdl(game);
     }
 
@@ -184,25 +184,25 @@ void game_actions_update_sdl(Game *game, int seed) {
   if (game_input.up == KS_PRESSED) {
     player_set_position(player, player_get_x(player), player_get_y(player) - 1);
     player_toggle_curr_image_mode(player);
-    player_set_image(player, (char *)player_get_North_image(player, 0), (char *)player_get_North_image(player, 1));
+    player_set_image(player, (char *)player_get_north_image(player, 0), (char *)player_get_north_image(player, 1));
   }
 
   if (game_input.down == KS_PRESSED) {
     player_set_position(player, player_get_x(player), player_get_y(player) + 1);
     player_toggle_curr_image_mode(player);
-    player_set_image(player, (char *)player_get_South_image(player, 0), (char *)player_get_South_image(player, 1));
+    player_set_image(player, (char *)player_get_south_image(player, 0), (char *)player_get_south_image(player, 1));
   }
 
   if (game_input.left == KS_PRESSED) {
     player_set_position(player, player_get_x(player) - 1, player_get_y(player));
     player_toggle_curr_image_mode(player);
-    player_set_image(player, (char *)player_get_West_image(player, 0), (char *)player_get_West_image(player, 1));
+    player_set_image(player, (char *)player_get_west_image(player, 0), (char *)player_get_west_image(player, 1));
   }
 
   if (game_input.right == KS_PRESSED) {
     player_set_position(player, player_get_x(player) + 1, player_get_y(player));
     player_toggle_curr_image_mode(player);
-    player_set_image(player, (char *)player_get_East_image(player, 0), (char *)player_get_East_image(player, 1));
+    player_set_image(player, (char *)player_get_east_image(player, 0), (char *)player_get_east_image(player, 1));
   }
 
   /* ABRIR INVENTARIO */
@@ -226,12 +226,9 @@ void game_actions_update_sdl(Game *game, int seed) {
   }
 
   /* USAR OBJETO */
-  
 
   /* ABRIR PUERTA O CONTENEDOR */
-  
 }
-
 
 /**
    Calls implementation for each action
@@ -393,7 +390,6 @@ Status game_actions_drop_sdl(Game *game) {
   printf("Player does not have object %ld\n", object_id);
   return ERROR;
 }
-
 
 Status game_actions_attack_sdl(Game *game, int seed) {
   Id player_location;
@@ -664,9 +660,6 @@ Status game_actions_use_sdl(Game *game) {
   return game_increment_turn(game);
 }
 
-
-
-
 Status game_actions_open_sdl(Game *game) {
   Player *player;
   Inventory *inv;
@@ -743,8 +736,7 @@ Status game_actions_open_sdl(Game *game) {
   }
 
   if (game_set_link_open(game, current_space_id, link_get_direction(link)) == OK) {
-    printf("[DEBUG] Link '%s' opened successfully with object %ld.\n",
-           link_get_name(link), object_id);
+    printf("[DEBUG] Link '%s' opened successfully with object %ld.\n", link_get_name(link), object_id);
     player_remove_object(player, object_id);
     return game_increment_turn(game);
   }
@@ -752,8 +744,6 @@ Status game_actions_open_sdl(Game *game) {
   printf("[ERROR] Failed to open link.\n");
   return ERROR;
 }
-
-
 
 /**
  * @brief It allows the player to save its current game

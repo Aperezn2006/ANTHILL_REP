@@ -259,7 +259,7 @@ Status player_toggle_curr_image_mode(Player *player);
  * @param image the path to the player's image
  * @return OK, if everything goes well or ERROR if there was some mistake
  */
-Status player_set_image(Player *player, char *image1, char *image2);
+Status player_set_image(Player *player, char *image1, char *image2, char *image3);
 
 /**
  * @brief It gets the player's current image_path
@@ -270,17 +270,17 @@ Status player_set_image(Player *player, char *image1, char *image2);
  */
 char *player_get_image(Player *player);
 
-Status player_set_North_image(Player *player, const char *North_image, int sprite);
-const char *player_get_North_image(const Player *player, int sprite);
+Status player_set_north_image(Player *player, const char *north_image, int sprite);
+const char *player_get_north_image(const Player *player, int sprite);
 
-Status player_set_East_image(Player *player, const char *East_image, int sprite);
-const char *player_get_East_image(const Player *player, int sprite);
+Status player_set_east_image(Player *player, const char *east_image, int sprite);
+const char *player_get_east_image(const Player *player, int sprite);
 
-Status player_set_South_image(Player *player, const char *South_image, int sprite);
-const char *player_get_South_image(const Player *player, int sprite);
+Status player_set_south_image(Player *player, const char *south_image, int sprite);
+const char *player_get_south_image(const Player *player, int sprite);
 
-Status player_set_West_image(Player *player, const char *West_image, int sprite);
-const char *player_get_West_image(const Player *player, int sprite);
+Status player_set_west_image(Player *player, const char *west_image, int sprite);
+const char *player_get_west_image(const Player *player, int sprite);
 
 /*Management of position*/
 /**

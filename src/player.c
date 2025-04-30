@@ -31,20 +31,18 @@ struct _Player {
   Inventory *backpack;              /*!< Pointer to the player's inventory*/
   int max_turns;                    /*!< Default number of turns the player has in a row*/
   Direction direction;              /*SDL2*/
-  char current_image[2][MAX_IMAGE]; /*!< Path to the player's image (for SDL2)*/
-  char North_image[2][MAX_MESSAGE]; /*!< Path to the player's image (for SDL2)*/
-  char East_image[2][MAX_MESSAGE];  /*!< Path to the player's image (for SDL2)*/
-  char South_image[2][MAX_MESSAGE]; /*!< Path to the player's image (for SDL2)*/
-  char West_image[2][MAX_MESSAGE];  /*!< Path to the player's image (for SDL2)*/
+  char current_image[3][MAX_IMAGE]; /*!< Path to the player's image (for SDL2)*/
+  char north_image[3][MAX_MESSAGE]; /*!< Path to the player's image (for SDL2)*/
+  char east_image[3][MAX_MESSAGE];  /*!< Path to the player's image (for SDL2)*/
+  char south_image[3][MAX_MESSAGE]; /*!< Path to the player's image (for SDL2)*/
+  char west_image[3][MAX_MESSAGE];  /*!< Path to the player's image (for SDL2)*/
   int curr_image_mode;              /*!< Identifies which image is being used*/
   int x, y;                         /*!< Player's position*/
   Gun *current_gun;                 /*SDL2*/
   int sprite_slowed;
   int blink_timer;
 };
-int player_get_blink_timer(Player *player) {
-  return player ? player->blink_timer : 0;
-}
+int player_get_blink_timer(Player *player) { return player ? player->blink_timer : 0; }
 
 void player_update_blink_timer(Player *player) {
   if (player && player->blink_timer > 0) {
@@ -97,18 +95,17 @@ Player *player_create(Id id) {
   newPlayer->max_turns = 1;
   newPlayer->current_image[0][0] = '\0';
   newPlayer->current_image[1][0] = '\0';
-  newPlayer->North_image[0][0] = '\0';
-  newPlayer->North_image[1][0] = '\0';
-  newPlayer->East_image[0][0] = '\0';
-  newPlayer->East_image[1][0] = '\0';
-  newPlayer->South_image[0][0] = '\0';
-  newPlayer->South_image[1][0] = '\0';
-  newPlayer->West_image[0][0] = '\0';
-  newPlayer->West_image[1][0] = '\0';
+  newPlayer->north_image[0][0] = '\0';
+  newPlayer->north_image[1][0] = '\0';
+  newPlayer->east_image[0][0] = '\0';
+  newPlayer->east_image[1][0] = '\0';
+  newPlayer->south_image[0][0] = '\0';
+  newPlayer->south_image[1][0] = '\0';
+  newPlayer->west_image[0][0] = '\0';
+  newPlayer->west_image[1][0] = '\0';
   newPlayer->x = 0;
   newPlayer->y = 0;
   newPlayer->blink_timer = 0;
-
 
   return newPlayer;
 }
@@ -250,14 +247,13 @@ Status player_set_health(Player *player, long health) {
   return OK;
 }
 
-
 Status player_decrease_health(Player *player, long damage) {
   if (!player || damage <= 0) {
     return ERROR;
   }
 
   player->health -= damage;
-  player->blink_timer = 30; 
+  player->blink_timer = 30;
 
   return OK;
 }
@@ -349,14 +345,18 @@ int player_get_max_turns(Player *player) {
 
 /*Management of image*/
 /* Set player current_image */
-Status player_set_image(Player *player, char *image1, char *image2) {
-  if (!player || !image1 || !image2) {
+Status player_set_image(Player *player, char *image1, char *image2, char *image3) {
+  if (!player || !image1 || !image2 || !image3) {
     return ERROR;
   }
   strncpy(player->current_image[0], image1, MAX_MESSAGE - 1);
   strncpy(player->current_image[1], image2, MAX_MESSAGE - 1);
+  strncpy(player->current_image[2], image3, MAX_MESSAGE - 1);
+
   player->current_image[0][MAX_MESSAGE - 1] = '\0';
   player->current_image[1][MAX_MESSAGE - 1] = '\0';
+  player->current_image[2][MAX_MESSAGE - 1] = '\0';
+
   return OK;
 }
 
@@ -366,10 +366,10 @@ Status player_toggle_curr_image_mode(Player *player) {
     return ERROR;
   }
 
-  if (player->curr_image_mode == 0 && player->sprite_slowed == 7) {
-    player->curr_image_mode = 1;
+  if (player->curr_image_mode < 3 && player->sprite_slowed == 7) {
+    player->curr_image_mode++;
     player->sprite_slowed = 0;
-  } else if (player->curr_image_mode == 1 && player->sprite_slowed == 7) {
+  } else if (player->curr_image_mode < 3 && player->sprite_slowed == 7) {
     player->curr_image_mode = 0;
     player->sprite_slowed = 0;
   } else {
@@ -387,59 +387,63 @@ char *player_get_image(Player *player) {
   return player->current_image[player->curr_image_mode];
 }
 
-/* Set player North_image */
-Status player_set_North_image(Player *player, const char *North_image, int sprite) {
-  if (!player || !North_image) return ERROR;
-  strncpy(player->North_image[sprite], North_image, MAX_MESSAGE - 1);
-  player->North_image[sprite][MAX_MESSAGE - 1] = '\0';
+/* Set player north_image */
+Status player_set_north_image(Player *player, const char *north_image, int sprite) {
+  if (!player || !north_image) {
+    return ERROR;
+  }
+  strncpy(player->north_image[sprite], north_image, MAX_MESSAGE - 1);
+  player->north_image[sprite][MAX_MESSAGE - 1] = '\0';
   return OK;
 }
 
-/* Get player North_image */
-const char *player_get_North_image(const Player *player, int sprite) {
-  if (!player) return NULL;
-  return player->North_image[sprite];
+/* Get player north_image */
+const char *player_get_north_image(const Player *player, int sprite) {
+  if (!player) {
+    return NULL;
+  }
+  return player->north_image[sprite];
 }
 
-/* Set player East_image */
-Status player_set_East_image(Player *player, const char *East_image, int sprite) {
-  if (!player || !East_image) return ERROR;
-  strncpy(player->East_image[sprite], East_image, MAX_MESSAGE - 1);
-  player->East_image[sprite][MAX_MESSAGE - 1] = '\0';
+/* Set player east_image */
+Status player_set_east_image(Player *player, const char *east_image, int sprite) {
+  if (!player || !east_image) return ERROR;
+  strncpy(player->east_image[sprite], east_image, MAX_MESSAGE - 1);
+  player->east_image[sprite][MAX_MESSAGE - 1] = '\0';
   return OK;
 }
 
-/* Get player East_image */
-const char *player_get_East_image(const Player *player, int sprite) {
+/* Get player east_image */
+const char *player_get_east_image(const Player *player, int sprite) {
   if (!player) return NULL;
-  return player->East_image[sprite];
+  return player->east_image[sprite];
 }
 
-/* Get player South_image */
-const char *player_get_South_image(const Player *player, int sprite) {
+/* Get player south_image */
+const char *player_get_south_image(const Player *player, int sprite) {
   if (!player) return NULL;
-  return player->South_image[sprite];
+  return player->south_image[sprite];
 }
 
-/* Set player South_image */
-Status player_set_South_image(Player *player, const char *South_image, int sprite) {
-  if (!player || !South_image) return ERROR;
-  strncpy(player->South_image[sprite], South_image, MAX_MESSAGE - 1);
-  player->South_image[sprite][MAX_MESSAGE - 1] = '\0';
+/* Set player south_image */
+Status player_set_south_image(Player *player, const char *south_image, int sprite) {
+  if (!player || !south_image) return ERROR;
+  strncpy(player->south_image[sprite], south_image, MAX_MESSAGE - 1);
+  player->south_image[sprite][MAX_MESSAGE - 1] = '\0';
   return OK;
 }
 
-/* Get player West_image */
-const char *player_get_West_image(const Player *player, int sprite) {
+/* Get player west_image */
+const char *player_get_west_image(const Player *player, int sprite) {
   if (!player) return NULL;
-  return player->West_image[sprite];
+  return player->west_image[sprite];
 }
 
-/* Set player West_image */
-Status player_set_West_image(Player *player, const char *West_image, int sprite) {
-  if (!player || !West_image) return ERROR;
-  strncpy(player->West_image[sprite], West_image, MAX_MESSAGE - 1);
-  player->West_image[sprite][MAX_MESSAGE - 1] = '\0';
+/* Set player west_image */
+Status player_set_west_image(Player *player, const char *west_image, int sprite) {
+  if (!player || !west_image) return ERROR;
+  strncpy(player->west_image[sprite], west_image, MAX_MESSAGE - 1);
+  player->west_image[sprite][MAX_MESSAGE - 1] = '\0';
   return OK;
 }
 

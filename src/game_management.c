@@ -150,6 +150,7 @@ Status game_management_load(Game *game, char *file_name, Bool new, Bool SDL) {
   Id location = NO_ID;
   char north_image_1[MAX_MESSAGE], east_image_1[MAX_MESSAGE], south_image_1[MAX_MESSAGE], west_image_1[MAX_MESSAGE]; /*SDL2*/
   char north_image_2[MAX_MESSAGE], east_image_2[MAX_MESSAGE], south_image_2[MAX_MESSAGE], west_image_2[MAX_MESSAGE]; /*SDL2*/
+  char north_image_3[MAX_MESSAGE], east_image_3[MAX_MESSAGE], south_image_3[MAX_MESSAGE], west_image_3[MAX_MESSAGE]; /*SDL2*/
   int max_turns;
 
   /*CHARACTER*/
@@ -481,7 +482,7 @@ Status game_management_load(Game *game, char *file_name, Bool new, Bool SDL) {
       }
 
     } else if (strncmp("#p:", line, 3) == 0) {
-      /*id|name|gdesc|location|health|inventory_size|message|object_desc|max_turns|x|y|n1|n2|e1|e2|s1|s2|w1|w2*/
+      /*id|name|gdesc|location|health|inventory_size|message|object_desc|max_turns|x|y|n1|n2|n3|e1|e2|e3|s1|s2|s3|w1|w2|w3*/
       printf("Processing player\n");
       toks = strtok(line + 3, "|");
       id = atol(toks);
@@ -531,12 +532,22 @@ Status game_management_load(Game *game, char *file_name, Bool new, Bool SDL) {
 
         toks = strtok(NULL, "|");
         if (toks) {
+          strcpy(north_image_3, toks);
+        }
+
+        toks = strtok(NULL, "|");
+        if (toks) {
           strcpy(east_image_1, toks);
         }
 
         toks = strtok(NULL, "|");
         if (toks) {
           strcpy(east_image_2, toks);
+        }
+
+        toks = strtok(NULL, "|");
+        if (toks) {
+          strcpy(east_image_3, toks);
         }
 
         toks = strtok(NULL, "|");
@@ -551,12 +562,22 @@ Status game_management_load(Game *game, char *file_name, Bool new, Bool SDL) {
 
         toks = strtok(NULL, "|");
         if (toks) {
+          strcpy(south_image_3, toks);
+        }
+
+        toks = strtok(NULL, "|");
+        if (toks) {
           strcpy(west_image_1, toks);
         }
 
         toks = strtok(NULL, "|");
         if (toks) {
           strcpy(west_image_2, toks);
+        }
+
+        toks = strtok(NULL, "|");
+        if (toks) {
+          strcpy(west_image_3, toks);
         }
       }
 
@@ -571,15 +592,19 @@ Status game_management_load(Game *game, char *file_name, Bool new, Bool SDL) {
 
         if (SDL == TRUE) {
           player_set_position(player, x, y);
-          player_set_image(player, north_image_1, north_image_2);
-          player_set_North_image(player, north_image_1, 0);
-          player_set_North_image(player, north_image_2, 1);
-          player_set_East_image(player, east_image_1, 0);
-          player_set_East_image(player, east_image_2, 1);
-          player_set_South_image(player, south_image_1, 0);
-          player_set_South_image(player, south_image_2, 1);
-          player_set_West_image(player, west_image_1, 0);
-          player_set_West_image(player, west_image_2, 1);
+          player_set_image(player, north_image_1, north_image_2, north_image_3);
+          player_set_north_image(player, north_image_1, 0);
+          player_set_north_image(player, north_image_2, 1);
+          player_set_north_image(player, north_image_3, 2);
+          player_set_east_image(player, east_image_1, 0);
+          player_set_east_image(player, east_image_2, 1);
+          player_set_east_image(player, east_image_3, 2);
+          player_set_south_image(player, south_image_1, 0);
+          player_set_south_image(player, south_image_2, 1);
+          player_set_south_image(player, south_image_3, 2);
+          player_set_west_image(player, west_image_1, 0);
+          player_set_west_image(player, west_image_2, 1);
+          player_set_west_image(player, west_image_3, 2);
         }
 
         if (new == FALSE) {
