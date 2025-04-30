@@ -40,7 +40,17 @@ struct _Player {
   int x, y;                         /*!< Player's position*/
   Gun *current_gun;                 /*SDL2*/
   int sprite_slowed;
+  int blink_timer;
 };
+int player_get_blink_timer(Player *player) {
+  return player ? player->blink_timer : 0;
+}
+
+void player_update_blink_timer(Player *player) {
+  if (player && player->blink_timer > 0) {
+    player->blink_timer--;
+  }
+}
 
 /*Cosas de SDL2*/
 Gun *player_get_gun(const Player *player) { return player ? player->current_gun : NULL; }
@@ -97,6 +107,8 @@ Player *player_create(Id id) {
   newPlayer->West_image[1][0] = '\0';
   newPlayer->x = 0;
   newPlayer->y = 0;
+  newPlayer->blink_timer = 0;
+
 
   return newPlayer;
 }
@@ -228,14 +240,16 @@ long player_get_health(Player *player) {
 }
 
 Status player_set_health(Player *player, long health) {
-  if (!player) {
-    return ERROR;
+  if (!player) return ERROR;
+
+  if (player->health != health) {
+    player->blink_timer = 30; /* Parpadear durante 30 frames (~0.5s si vas a 60fps) */
   }
 
   player->health = health;
-
   return OK;
 }
+
 
 Status player_decrease_health(Player *player, long damage) {
   if (!player || damage <= 0) {
@@ -243,6 +257,7 @@ Status player_decrease_health(Player *player, long damage) {
   }
 
   player->health -= damage;
+  player->blink_timer = 30; 
 
   return OK;
 }

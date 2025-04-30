@@ -23,6 +23,8 @@ Gun *player_get_gun(const Player *player);
 void player_set_gun(Player *player, Gun *gun);
 void player_set_direction(Player *player, Direction direction);
 Direction player_get_direction(Player *player);
+void player_update_blink_timer(Player *player);
+int player_get_blink_timer(Player *player);
 
 /*Create & destroy*/
 /**

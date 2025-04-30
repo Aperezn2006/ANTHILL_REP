@@ -59,7 +59,8 @@ SDL_Texture *load_texture(SDL_Renderer *renderer, const char *file_path) {
 Graphic_engine_sdl *graphic_engine_create_sdl() {
   int i;
 
-  Graphic_engine_sdl *gengine = (Graphic_engine_sdl *)malloc(sizeof(Graphic_engine_sdl));
+  Graphic_engine_sdl *gengine =
+      (Graphic_engine_sdl *)malloc(sizeof(Graphic_engine_sdl));
   if (!gengine) {
     fprintf(stderr, "Error allocating memory for graphic engine\n");
     return NULL;
@@ -71,7 +72,8 @@ Graphic_engine_sdl *graphic_engine_create_sdl() {
     return NULL;
   }
 
-  if (!(IMG_Init(IMG_INIT_JPG | IMG_INIT_PNG) & (IMG_INIT_JPG | IMG_INIT_PNG))) {
+  if (!(IMG_Init(IMG_INIT_JPG | IMG_INIT_PNG) &
+        (IMG_INIT_JPG | IMG_INIT_PNG))) {
     printf("IMG_Init failed: %s\n", IMG_GetError());
     free(gengine);
     SDL_Quit();
@@ -84,14 +86,17 @@ Graphic_engine_sdl *graphic_engine_create_sdl() {
     return NULL;
   }
 
-  gengine->font = TTF_OpenFont(MY_FONT, FONT_SIZE); /*specify the path to your font file and font size*/
+  gengine->font = TTF_OpenFont(
+      MY_FONT, FONT_SIZE); /*specify the path to your font file and font size*/
   if (!gengine->font) {
     printf("Failed to load font: %s\n", TTF_GetError());
     return NULL;
   }
 
   for (i = 0; i < MAX_PLAYERS; i++) {
-    gengine->player_health[i] = TTF_OpenFont(MY_FONT, FONT_SIZE / 2); /*specify the path to your font file and font size*/
+    gengine->player_health[i] = TTF_OpenFont(
+        MY_FONT,
+        FONT_SIZE / 2); /*specify the path to your font file and font size*/
     if (!gengine->player_health[i]) {
       printf("Failed to load font: %s\n", TTF_GetError());
       return NULL;
@@ -99,15 +104,18 @@ Graphic_engine_sdl *graphic_engine_create_sdl() {
   }
 
   for (i = 0; i < MAX_CHARACTERS; i++) {
-    gengine->character_health[i] = TTF_OpenFont(MY_FONT, FONT_SIZE / 2); /*specify the path to your font file and font size*/
+    gengine->character_health[i] = TTF_OpenFont(
+        MY_FONT,
+        FONT_SIZE / 2); /*specify the path to your font file and font size*/
     if (!gengine->character_health[i]) {
       printf("Failed to load font: %s\n", TTF_GetError());
       return NULL;
     }
   }
 
-  gengine->window =
-      SDL_CreateWindow("Ant Hill Game", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, WINDOW_WIDTH, WINDOW_HEIGHT, SDL_WINDOW_SHOWN);
+  gengine->window = SDL_CreateWindow("Ant Hill Game", SDL_WINDOWPOS_UNDEFINED,
+                                     SDL_WINDOWPOS_UNDEFINED, WINDOW_WIDTH,
+                                     WINDOW_HEIGHT, SDL_WINDOW_SHOWN);
   if (!gengine->window) {
     printf("SDL_CreateWindow failed: %s\n", SDL_GetError());
     free(gengine);
@@ -115,7 +123,8 @@ Graphic_engine_sdl *graphic_engine_create_sdl() {
     return NULL;
   }
 
-  gengine->renderer = SDL_CreateRenderer(gengine->window, -1, SDL_RENDERER_ACCELERATED);
+  gengine->renderer =
+      SDL_CreateRenderer(gengine->window, -1, SDL_RENDERER_ACCELERATED);
   if (!gengine->renderer) {
     printf("SDL_CreateRenderer failed: %s\n", SDL_GetError());
     SDL_DestroyWindow(gengine->window);
@@ -137,7 +146,8 @@ Graphic_engine_sdl *graphic_engine_create_sdl() {
     printf("Error loading ray texture.\n");
   }
 
-  gengine->obstacle_texture = load_texture(gengine->renderer, "resources/platform.png");
+  gengine->obstacle_texture =
+      load_texture(gengine->renderer, "resources/platform.png");
   if (!gengine->obstacle_texture) {
     printf("Error loading obstacle texture.\n");
   }
@@ -147,12 +157,14 @@ Graphic_engine_sdl *graphic_engine_create_sdl() {
     gengine->inventory_textures[i] = NULL;
   }
 
-  gengine->inventory_not_selected = load_texture(gengine->renderer, "resources/inventario_no.png");
+  gengine->inventory_not_selected =
+      load_texture(gengine->renderer, "resources/inventario_no.png");
   if (!gengine->inventory_not_selected) {
     printf("Error loading inventory texture 1.\n");
   }
 
-  gengine->inventory_yes_selected = load_texture(gengine->renderer, "resources/inventario_si.png");
+  gengine->inventory_yes_selected =
+      load_texture(gengine->renderer, "resources/inventario_si.png");
   if (!gengine->inventory_yes_selected) {
     printf("Error loading inventory texture 2.\n");
   }
@@ -318,41 +330,51 @@ void graphic_engine_render_sdl(Graphic_engine_sdl *gengine, Game *game) {
     if (gengine->background_texture) {
       SDL_DestroyTexture(gengine->background_texture);
     }
-    gengine->background_texture = load_texture(gengine->renderer, background_path);
+    gengine->background_texture =
+        load_texture(gengine->renderer, background_path);
   }
 
   /* Render background */
   if (gengine->background_texture) {
-    SDL_Rect background_rect = {0, 0, WINDOW_WIDTH, WINDOW_HEIGHT - INFO_HEIGHT};
-    SDL_RenderCopy(gengine->renderer, gengine->background_texture, NULL, &background_rect);
+    SDL_Rect background_rect = {0, 0, WINDOW_WIDTH,
+                                WINDOW_HEIGHT - INFO_HEIGHT};
+    SDL_RenderCopy(gengine->renderer, gengine->background_texture, NULL,
+                   &background_rect);
   } else {
     printf("Warning: Background texture is NULL.\n");
   }
 
-  SDL_Rect info_rect = {0, WINDOW_HEIGHT - INFO_HEIGHT, WINDOW_WIDTH, INFO_HEIGHT};
-  SDL_RenderCopy(gengine->renderer, gengine->inventory_not_selected, NULL, &info_rect);
+  SDL_Rect info_rect = {0, WINDOW_HEIGHT - INFO_HEIGHT, WINDOW_WIDTH,
+                        INFO_HEIGHT};
+  SDL_RenderCopy(gengine->renderer, gengine->inventory_not_selected, NULL,
+                 &info_rect);
 
   /*TTF*/
   sprintf(aux_string, "|");
   for (i = 0; i < player_get_health(player) - 1; i++) {
     strcat(aux_string, "|");
   }
-  SDL_Surface *textSurface = TTF_RenderText_Solid(gengine->player_health[0], aux_string, red_text_color);
+  SDL_Surface *textSurface = TTF_RenderText_Solid(gengine->player_health[0],
+                                                  aux_string, red_text_color);
   if (!textSurface) {
     printf("Failed to create text surface: %s\n", TTF_GetError());
     return;
   }
 
   // Create texture from surface
-  gengine->player_health_textures[0] = SDL_CreateTextureFromSurface(gengine->renderer, textSurface);
+  gengine->player_health_textures[0] =
+      SDL_CreateTextureFromSurface(gengine->renderer, textSurface);
   if (!gengine->player_health_textures[0]) {
     printf("Failed to create text texture: %s\n", SDL_GetError());
     return;
   }
 
   // Render text
-  SDL_Rect textRect = {player_x * TILE_SIZE + 35 * SCREEN_ZOOM - (textSurface->h / 2), player_y * TILE_SIZE, textSurface->w, textSurface->h};
-  SDL_RenderCopy(gengine->renderer, gengine->player_health_textures[0], NULL, &textRect);
+  SDL_Rect textRect = {
+      player_x * TILE_SIZE + 35 * SCREEN_ZOOM - (textSurface->h / 2),
+      player_y * TILE_SIZE, textSurface->w, textSurface->h};
+  SDL_RenderCopy(gengine->renderer, gengine->player_health_textures[0], NULL,
+                 &textRect);
   /*TTF*/
 
   /* Load player image dynamically */
@@ -364,17 +386,29 @@ void graphic_engine_render_sdl(Graphic_engine_sdl *gengine, Game *game) {
     gengine->player_texture = load_texture(gengine->renderer, player_path);
   }
 
-  for (i = 0; i < space_get_num_characters(game_get_space(game, player_get_location(game_get_current_player(game)))); i++) {
-    character = game_get_character(game, space_get_character_from_index(game_get_space(game, player_get_location(game_get_current_player(game))), i));
-    if (character && (game_get_character_location(game, character_get_id(character)) == id_act)) {
+  for (i = 0;
+       i < space_get_num_characters(game_get_space(
+               game, player_get_location(game_get_current_player(game))));
+       i++) {
+    character = game_get_character(
+        game, space_get_character_from_index(
+                  game_get_space(
+                      game, player_get_location(game_get_current_player(game))),
+                  i));
+    if (character && (game_get_character_location(
+                          game, character_get_id(character)) == id_act)) {
       character_x = character_get_x(character);
       character_y = character_get_y(character);
-      SDL_Rect character_rect = {character_x * TILE_SIZE, character_y * TILE_SIZE, 40 * SCREEN_ZOOM, 40 * SCREEN_ZOOM};
-      gengine->character_textures[i] = load_texture(gengine->renderer, character_get_image(character));
+      SDL_Rect character_rect = {character_x * TILE_SIZE,
+                                 character_y * TILE_SIZE, 40 * SCREEN_ZOOM,
+                                 40 * SCREEN_ZOOM};
+      gengine->character_textures[i] =
+          load_texture(gengine->renderer, character_get_image(character));
 
       printf("LOADING CHARACTER AT (%i,%i)\n", character_x, character_y);
       if (gengine->character_textures[i]) {
-        SDL_RenderCopy(gengine->renderer, gengine->character_textures[i], NULL, &character_rect);
+        SDL_RenderCopy(gengine->renderer, gengine->character_textures[i], NULL,
+                       &character_rect);
       } else {
         printf("Warning: Character texture is NULL.\n");
       }
@@ -397,8 +431,10 @@ void graphic_engine_render_sdl(Graphic_engine_sdl *gengine, Game *game) {
       link_x = link_get_x(link);
       link_y = link_get_y(link);
       if (gengine->link_textures[i]) {
-        SDL_Rect link_rect = {link_x * TILE_SIZE, link_y * TILE_SIZE, 60 * SCREEN_ZOOM, 60 * SCREEN_ZOOM};
-        SDL_RenderCopy(gengine->renderer, gengine->link_textures[i], NULL, &link_rect);
+        SDL_Rect link_rect = {link_x * TILE_SIZE, link_y * TILE_SIZE,
+                              60 * SCREEN_ZOOM, 60 * SCREEN_ZOOM};
+        SDL_RenderCopy(gengine->renderer, gengine->link_textures[i], NULL,
+                       &link_rect);
       }
     }
   }
@@ -408,7 +444,8 @@ void graphic_engine_render_sdl(Graphic_engine_sdl *gengine, Game *game) {
     ray_update(ray);                    /*Update ray position dynamically*/
 
     if (gengine->ray_texture) {
-      SDL_Rect ray_rect = {ray_get_x(ray), ray_get_y(ray), 50 * SCREEN_ZOOM, 50 * SCREEN_ZOOM}; /*Adjust size as needed*/
+      SDL_Rect ray_rect = {ray_get_x(ray), ray_get_y(ray), 50 * SCREEN_ZOOM,
+                           50 * SCREEN_ZOOM}; /*Adjust size as needed*/
       SDL_RenderCopy(gengine->renderer, gengine->ray_texture, NULL, &ray_rect);
       printf("Rendering ray at (%d, %d)\n", ray_get_x(ray), ray_get_y(ray));
     } else {
@@ -418,8 +455,18 @@ void graphic_engine_render_sdl(Graphic_engine_sdl *gengine, Game *game) {
 
   /* Render player */
   if (gengine->player_texture) {
-    SDL_Rect player_rect = {player_x * TILE_SIZE, player_y * TILE_SIZE, 70 * SCREEN_ZOOM, 70 * SCREEN_ZOOM};
-    SDL_RenderCopy(gengine->renderer, gengine->player_texture, NULL, &player_rect);
+    int blink_timer = player_get_blink_timer(player);
+
+    /* Si está parpadeando, alterna entre mostrar y ocultar */
+    if (blink_timer == 0 || ((blink_timer / 5) % 2 == 0)) {
+      SDL_Rect player_rect = {player_x * TILE_SIZE, player_y * TILE_SIZE,
+                              70 * SCREEN_ZOOM, 70 * SCREEN_ZOOM};
+      SDL_RenderCopy(gengine->renderer, gengine->player_texture, NULL,
+                     &player_rect);
+    }
+
+    /* Actualiza el temporizador de parpadeo */
+    player_update_blink_timer(player);
   } else {
     printf("Warning: Ant texture is NULL.\n");
   }
@@ -429,12 +476,15 @@ void graphic_engine_render_sdl(Graphic_engine_sdl *gengine, Game *game) {
     if (obj && (game_get_object_location(game, object_get_id(obj)) == id_act)) {
       obj_x = object_get_x(obj);
       obj_y = object_get_y(obj);
-      SDL_Rect obj_rect = {obj_x * TILE_SIZE, obj_y * TILE_SIZE, 40 * SCREEN_ZOOM, 40 * SCREEN_ZOOM};
+      SDL_Rect obj_rect = {obj_x * TILE_SIZE, obj_y * TILE_SIZE,
+                           40 * SCREEN_ZOOM, 40 * SCREEN_ZOOM};
       printf(":::::: About to load [%s]\n", object_get_image(obj));
-      gengine->object_textures[i] = load_texture(gengine->renderer, object_get_image(obj));
+      gengine->object_textures[i] =
+          load_texture(gengine->renderer, object_get_image(obj));
 
       if (gengine->object_textures[i]) {
-        SDL_RenderCopy(gengine->renderer, gengine->object_textures[i], NULL, &obj_rect);
+        SDL_RenderCopy(gengine->renderer, gengine->object_textures[i], NULL,
+                       &obj_rect);
       } else {
         printf("Warning: Object texture is NULL.\n");
       }
@@ -446,11 +496,17 @@ void graphic_engine_render_sdl(Graphic_engine_sdl *gengine, Game *game) {
   SDL_Texture *dynamic_inventory = NULL;
   if (game_get_inventory_vis(game) == TRUE) {
     printf("\n------------RENDERING INVENTORYYY---------------\n\n");
-    for (i = 0; i < inventory_get_max_objects(player_get_inventory(player)); i++) {
-      obj = game_get_object_from_id(game, inventory_get_object_by_index(player_get_inventory(player), i));
-      gengine->inventory_textures[i] = load_texture(gengine->renderer, object_get_image(obj));
-      SDL_Rect inv_rect = {inv_x * TILE_SIZE, inv_y * TILE_SIZE, 50 * SCREEN_ZOOM, 50 * SCREEN_ZOOM};
-      SDL_Rect obj_rect = {(inv_x * TILE_SIZE) + (5 * SCREEN_ZOOM), (inv_y * TILE_SIZE) + (5 * SCREEN_ZOOM), 40 * SCREEN_ZOOM, 40 * SCREEN_ZOOM};
+    for (i = 0; i < inventory_get_max_objects(player_get_inventory(player));
+         i++) {
+      obj = game_get_object_from_id(
+          game, inventory_get_object_by_index(player_get_inventory(player), i));
+      gengine->inventory_textures[i] =
+          load_texture(gengine->renderer, object_get_image(obj));
+      SDL_Rect inv_rect = {inv_x * TILE_SIZE, inv_y * TILE_SIZE,
+                           50 * SCREEN_ZOOM, 50 * SCREEN_ZOOM};
+      SDL_Rect obj_rect = {(inv_x * TILE_SIZE) + (5 * SCREEN_ZOOM),
+                           (inv_y * TILE_SIZE) + (5 * SCREEN_ZOOM),
+                           40 * SCREEN_ZOOM, 40 * SCREEN_ZOOM};
 
       if (inventory_get_cursor(player_get_inventory(player)) == i) {
         dynamic_inventory = gengine->inventory_yes_selected;
@@ -462,7 +518,8 @@ void graphic_engine_render_sdl(Graphic_engine_sdl *gengine, Game *game) {
         SDL_RenderCopy(gengine->renderer, dynamic_inventory, NULL, &inv_rect);
 
         if (gengine->inventory_textures[i]) {
-          SDL_RenderCopy(gengine->renderer, gengine->inventory_textures[i], NULL, &obj_rect);
+          SDL_RenderCopy(gengine->renderer, gengine->inventory_textures[i],
+                         NULL, &obj_rect);
         }
       }
 
