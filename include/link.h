@@ -19,7 +19,7 @@
 typedef struct _Link Link;
 
 /*Cosas de SDL2*/
-Status link_set_image(Link *link, const char *image);
+Status link_set_image(Link *link, const char *image, int sprite);
 const char *link_get_image(const Link *link);
 int link_get_x(Link *link);
 int link_get_y(Link *link);

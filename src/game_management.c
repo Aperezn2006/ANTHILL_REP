@@ -179,6 +179,7 @@ Status game_management_load(Game *game, char *file_name, Bool new, Bool SDL) {
   Id link_destination = NO_ID;
   Direction dir = NO_DIR;
   Bool open = FALSE;
+  char open_image[MAX_MESSAGE], closed_image[MAX_MESSAGE];
 
   /*OBSTACLE (SDL2)*/
   Obstacle *obstacle = NULL;
@@ -434,7 +435,7 @@ Status game_management_load(Game *game, char *file_name, Bool new, Bool SDL) {
 
       /*LINKS*/
     } else if (strncmp("#l:", line, 3) == 0) {
-      /*id|name|origin|destination|direction|open|image|*/
+      /*id|name|origin|destination|direction|open|closed_image|open_image|*/
       printf("Processing link\n");
       toks = strtok(line + 3, "|");
       id = atol(toks);
@@ -457,9 +458,13 @@ Status game_management_load(Game *game, char *file_name, Bool new, Bool SDL) {
       if (SDL == TRUE) {
         toks = strtok(NULL, "|");
         if (toks) {
-          strcpy(image, toks);
+          strcpy(closed_image, toks);
         }
-        printf("----------Image path is [%s]\n", image);
+
+        toks = strtok(NULL, "|");
+        if (toks) {
+          strcpy(open_image, toks);
+        }
       }
 
       link = link_create(id);
@@ -471,7 +476,8 @@ Status game_management_load(Game *game, char *file_name, Bool new, Bool SDL) {
         link_set_open(link, open);
 
         if (SDL == TRUE) {
-          link_set_image(link, image);
+          link_set_image(link, closed_image, 0);
+          link_set_image(link, open_image, 1);
         }
 
         if (game_add_link(game, link) == ERROR) {
