@@ -55,5 +55,4 @@
 
 /*id|name|gdesc|location|health|inventory_size|message|object_desc|max_turns|x|y|n1|n2|e1|e2|s1|s2|w1|w2*/
 
-#p:50|ant1|mO^|18|5|5|1|0|0|resources/p1/p1107.png|resources/p1/p1109.png|resources/p1/p1110.png|resources/p1/p1144.png|resources/p1/p1143.png|resources/p1/p1147.png|resources/p1/p1134.png|resources/p1/p1131.png|resources/p1/p1138.png|resources/p1/p1117.png|resources/p1/p1121.png|
-#:51|ant2|mO^|16|5|3|2|0|0|resources/ant_E.png|resources/ant_E.png|resources/ant_W.png|resources/ant_W.png|
+#p:50|ant1|mO^|18|5|5|1|0|0|resources/p1/p1107.png|resources/p1/p1109.png|resources/p1/p1110.png|resources/p1/p1144.png|resources/p1/p1143.png|resources/p1/p1147.png|resources/p1/p1134.png|resources/p1/p1131.png|resources/p1/p1138.png|resources/p1/p1117.png|resources/p1/p1121.png|resources/p1/p1118.png|
