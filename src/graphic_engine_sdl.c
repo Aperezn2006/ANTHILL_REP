@@ -371,21 +371,54 @@ void graphic_engine_render_sdl(Graphic_engine_sdl *gengine, Game *game) {
       character_y = character_get_y(character);
       SDL_Rect character_rect = {character_x * TILE_SIZE, character_y * TILE_SIZE, 40 * SCREEN_ZOOM, 40 * SCREEN_ZOOM};
 
+      /*TTF*/
+      sprintf(aux_string, "|");
+      for (i = 0; i < character_get_health(character) - 1; i++) {
+        strcat(aux_string, "|");
+      }
+      SDL_Surface *textSurface = TTF_RenderText_Solid(gengine->character_health[0], aux_string, red_text_color);
+      if (!textSurface) {
+        printf("Failed to create text surface: %s\n", TTF_GetError());
+        return;
+      }
+
+      // Create texture from surface
+      gengine->character_health_textures[0] = SDL_CreateTextureFromSurface(gengine->renderer, textSurface);
+      if (!gengine->character_health_textures[0]) {
+        printf("Failed to create text texture: %s\n", SDL_GetError());
+        return;
+      }
+
+      // Render text
+      SDL_Rect textRect = {character_x * TILE_SIZE + 20 * SCREEN_ZOOM - (textSurface->h / 2), character_y * TILE_SIZE, textSurface->w,
+                           textSurface->h};
+      SDL_RenderCopy(gengine->renderer, gengine->character_health_textures[0], NULL, &textRect);
+      /*TTF*/
+
       int blink_timer = character_get_blink_timer(character);
 
       /* Parpadeo: alterna visibilidad */
-      if (blink_timer == 0 || ((blink_timer / 5) % 2 == 0)) {
+      if (character_get_health(character) == 0) {
+        if (blink_timer == 0 || ((blink_timer / 5) % 2 == 0)) {
+          gengine->character_textures[i] = load_texture(gengine->renderer, character_get_image(character));
+
+          if (gengine->character_textures[i]) {
+            SDL_RenderCopy(gengine->renderer, gengine->character_textures[i], NULL, &character_rect);
+          } else {
+            printf("Warning: Character texture is NULL.\n");
+          }
+        }
+
+        character_update_blink_timer(character);
+      } else {
         gengine->character_textures[i] = load_texture(gengine->renderer, character_get_image(character));
 
-        printf("LOADING CHARACTER AT (%i,%i)\n", character_x, character_y);
         if (gengine->character_textures[i]) {
           SDL_RenderCopy(gengine->renderer, gengine->character_textures[i], NULL, &character_rect);
         } else {
           printf("Warning: Character texture is NULL.\n");
         }
       }
-
-      character_update_blink_timer(character);
     }
   }
 
