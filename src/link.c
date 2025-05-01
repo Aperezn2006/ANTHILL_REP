@@ -11,8 +11,8 @@ struct _Link {
   Id destination;
   Bool open;
   Direction direction;
-  char resource[MAX_CHARACTERS]; /*SDL2*/
-  int x, y;                      /*SDL2*/
+  char images[2][MAX_CHARACTERS]; /*SDL2*/
+  int x, y;                       /*SDL2*/
 };
 
 /*Cosas de SDL2*/
@@ -34,17 +34,29 @@ int link_get_y(Link *link) {
   return link->y;
 }
 
-Status link_set_image(Link *link, const char *image) {
-  if (!link || !image) return ERROR;
-  strncpy(link->resource, image, MAX_CHARACTERS - 1);
-  link->resource[MAX_CHARACTERS - 1] = '\0';
+Status link_set_image(Link *link, const char *image, int sprite) {
+  if (!link || !image) {
+    return ERROR;
+  }
+  strncpy(link->images[sprite], image, MAX_CHARACTERS - 1);
+  link->images[sprite][MAX_CHARACTERS - 1] = '\0';
   return OK;
 }
 
 /* Get player image */
 const char *link_get_image(const Link *link) {
-  if (!link) return NULL;
-  return link->resource;
+  int sprite;
+  if (!link) {
+    return NULL;
+  }
+
+  if (link_get_open((Link *)link) == TRUE) {
+    sprite = 1;
+  } else {
+    sprite = 0;
+  }
+
+  return link->images[sprite];
 }
 
 Link *link_create(Id id) {

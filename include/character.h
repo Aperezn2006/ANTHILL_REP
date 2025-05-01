@@ -15,6 +15,10 @@
 
 typedef struct _Character Character;
 
+int character_get_blink_timer(Character *character);
+
+void character_update_blink_timer(Character *character);
+
 /*  Create y destroy */
 /**
  * @brief It creates a new character, allocating memory and initializing its members

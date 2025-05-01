@@ -31,26 +31,26 @@
 #c:32|Perro|19|4|U.^.U |Hello|1|10|10|resources/beetle2.png|
 #c:33|Familiar|14|4|()__() |Hello|0|15|20|resources/bicho_palo.png|
 
-/*id|name|origin|destination|direction|open|image|*/
+/*id|name|origin|destination|direction|open|closed_image|open_image|*/
 
-#l:400|PuestoVigilanciaToComedor|11|13|1|1|resources/portal.png|
-#l:401|ComedorToPuestoVigilancia|13|11|0|1|resources/portal.png|
-#l:402|EnfermeriaToComedor|12|13|2|1|resources/portal.png|
-#l:403|ComedorToEnfermeria|13|12|3|1|resources/portal.png|
-#l:404|ComedorToVisitas|13|14|2|1|resources/portal.png|
-#l:405|VisitasToComedor|14|13|3|1|resources/portal.png|
-#l:406|EnfermeriaToTorturas|12|16|1|1|resources/portal.png|
-#l:407|TorturasToEnfermeria|16|12|0|1|resources/portal.png|
-#l:408|VisitasToHabitacion|14|18|1|1|resources/portal.png|
-#l:409|HabitacionToVisitas|18|14|0|1|resources/portal.png|
-#l:410|ComedorToPatio|13|17|1|1|resources/portal.png|
-#l:411|PatioToComedor|17|13|0|1|resources/portal.png|
-#l:412|PatioToSotano|17|110|1|1|resources/portal.png|
-#l:413|SotanoToPatio|110|17|0|1|resources/portal.png|
-#l:414|SotanoToPerrera|110|19|2|1|resources/portal.png|
-#l:415|PerreraToSotano|19|110|3|1|resources/portal.png|
-#l:416|PerreraToArchivos|19|15|0|1|resources/portal.png|
-#l:417|ArchivosToPerrera|15|19|1|1|resources/portal.png|
+#l:400|PuestoVigilanciaToComedor|11|13|1|1|resources/closed_door.png|resources/open_door.png|
+#l:401|ComedorToPuestoVigilancia|13|11|0|1|resources/closed_door.png|resources/open_door.png|
+#l:402|EnfermeriaToComedor|12|13|2|0|resources/closed_door.png|resources/open_door.png|
+#l:403|ComedorToEnfermeria|13|12|3|1|resources/closed_door.png|resources/open_door.png|
+#l:404|ComedorToVisitas|13|14|2|0|resources/closed_door.png|resources/open_door.png|
+#l:405|VisitasToComedor|14|13|3|1|resources/closed_door.png|resources/open_door.png|
+#l:406|EnfermeriaToTorturas|12|16|1|1|resources/closed_door.png|resources/open_door.png|
+#l:407|TorturasToEnfermeria|16|12|0|0|resources/closed_door.png|resources/open_door.png|
+#l:408|VisitasToHabitacion|14|18|1|0|resources/closed_door.png|resources/open_door.png|
+#l:409|HabitacionToVisitas|18|14|0|0|resources/closed_door.png|resources/open_door.png|
+#l:410|ComedorToPatio|13|17|1|1|resources/closed_door.png|resources/open_door.png|
+#l:411|PatioToComedor|17|13|0|1|resources/closed_door.png|resources/open_door.png|
+#l:412|PatioToSotano|17|110|1|1|resources/closed_door.png|resources/open_door.png|
+#l:413|SotanoToPatio|110|17|0|1|resources/closed_door.png|resources/open_door.png|
+#l:414|SotanoToPerrera|110|19|2|1|resources/closed_door.png|resources/open_door.png|
+#l:415|PerreraToSotano|19|110|3|1|resources/closed_door.png|resources/open_door.png|
+#l:416|PerreraToArchivos|19|15|0|1|resources/closed_door.png|resources/open_door.png|
+#l:417|ArchivosToPerrera|15|19|1|1|resources/closed_door.png|resources/open_door.png|
 
 
 /*id|name|gdesc|location|health|inventory_size|message|object_desc|max_turns|x|y|n1|n2|e1|e2|s1|s2|w1|w2*/

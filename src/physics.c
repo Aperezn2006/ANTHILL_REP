@@ -13,7 +13,7 @@
 static Ray *rays[MAX_RAYS];
 static int ray_count = 0;
 
-#define COLLISION_MARGIN 1
+#define COLLISION_MARGIN 2
 
 Bool physics_check_object_collision(Game *game, Player *player, Object *obj) {
   int player_x, player_y;
@@ -68,6 +68,55 @@ Link *physics_get_colliding_link(Game *game, Player *player) {
     }
   }
   printf("[DEBUG] No collision detected.\n");
+  return NULL;
+}
+
+Character *physics_get_colliding_character(Game *game, Player *player) {
+  Id current_space_id = game_get_player_location(game);
+  Character *character = NULL;
+  Space *space = NULL;
+  int character_x, character_y, player_x, player_y;
+  int i, num_characters;
+  Id char_id;
+
+  if (current_space_id == NO_ID) {
+    printf("[DEBUG] Player is not in a valid space.\n");
+    return NULL;
+  }
+
+  space = game_get_space(game, current_space_id);
+  if (!space) {
+    printf("[DEBUG] Could not retrieve space.\n");
+    return NULL;
+  }
+
+  player_x = player_get_x(player);
+  player_y = player_get_y(player);
+
+  num_characters = space_get_num_characters(space);
+
+  for (i = 0; i < num_characters; i++) {
+    char_id = space_get_character_from_index(space, i);
+    character = game_get_character(game, char_id);
+
+    if (!character) {
+      printf("[DEBUG] Null character at index %d\n", i);
+      continue;
+    }
+
+    character_x = character_get_x(character);
+    character_y = character_get_y(character);
+
+    printf("[DEBUG] Checking character %ld at (%d, %d) vs player at (%d, %d)\n", character_get_id(character), character_x, character_y, player_x,
+           player_y);
+
+    if (abs(player_x - character_x) <= COLLISION_MARGIN && abs(player_y - character_y) <= COLLISION_MARGIN) {
+      printf("[DEBUG] Collision detected with character ID %ld\n", character_get_id(character));
+      return character;
+    }
+  }
+
+  printf("[DEBUG] No character collision detected.\n");
   return NULL;
 }
 
