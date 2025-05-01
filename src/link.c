@@ -164,12 +164,12 @@ Status link_set_direction(Link *link, Direction dir) {
 
     case 4:
       link->x = (SDL_MAP_BORDER + SDL_WINDOW_WIDTH / 3 - SDL_LINK_HW / 2 - SDL_SCREEN_ZOOM) / (SDL_TILE_SIZE);
-      link->y = (SDL_MAP_BORDER + SDL_WALL_HEIGHT - SDL_LINK_HW / 2) / (SDL_TILE_SIZE);
+      link->y = (SDL_WALL_HEIGHT - SDL_LINK_HW / 2 - SDL_SCREEN_ZOOM) / (SDL_TILE_SIZE);
       break;
 
     case 5:
       link->x = (SDL_WINDOW_WIDTH / 3 - SDL_LINK_HW / 2 - SDL_SCREEN_ZOOM) / (SDL_TILE_SIZE);
-      link->y = (SDL_MAP_BORDER + SDL_WALL_HEIGHT - SDL_LINK_HW / 2) / (SDL_TILE_SIZE);
+      link->y = (SDL_WALL_HEIGHT - SDL_LINK_HW / 2 - SDL_SCREEN_ZOOM) / (SDL_TILE_SIZE);
       break;
   }
 

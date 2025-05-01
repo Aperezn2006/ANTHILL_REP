@@ -460,8 +460,21 @@ Status player_set_position(Player *player, int x, int y) {
     return ERROR;
   }
 
-  player->x = x;
-  player->y = y;
+  if ((x > ((SDL_MAP_BORDER - SDL_PLAYER_HW) / SDL_TILE_SIZE)) &&
+      (x < ((SDL_WINDOW_WIDTH - 2 * SDL_MAP_BORDER - SDL_PLAYER_HW / 2) / SDL_TILE_SIZE))) {
+    player->x = x;
+  } else if ((player->x <= ((SDL_MAP_BORDER - SDL_PLAYER_HW) / SDL_TILE_SIZE)) ||
+             (player->x >= ((SDL_WINDOW_WIDTH - 2 * SDL_MAP_BORDER - SDL_PLAYER_HW / 2) / SDL_TILE_SIZE))) {
+    player->x = (SDL_MAP_BORDER + SDL_PLAYER_HW + 1) / SDL_TILE_SIZE;
+  }
+
+  if ((y > ((SDL_MAP_BORDER + SDL_WALL_HEIGHT - SDL_PLAYER_HW) / SDL_TILE_SIZE)) &&
+      (y < ((SDL_MAP_HEIGHT - 2 * SDL_MAP_BORDER - SDL_PLAYER_HW / 2) / SDL_TILE_SIZE))) {
+    player->y = y;
+  } else if ((player->y <= ((SDL_MAP_BORDER + SDL_WALL_HEIGHT - SDL_PLAYER_HW) / SDL_TILE_SIZE)) ||
+             (player->y >= ((SDL_MAP_HEIGHT - 2 * SDL_MAP_BORDER - SDL_PLAYER_HW / 2) / SDL_TILE_SIZE))) {
+    player->y = (SDL_MAP_BORDER + SDL_WALL_HEIGHT - SDL_PLAYER_HW + 1) / SDL_TILE_SIZE;
+  }
 
   return OK;
 }

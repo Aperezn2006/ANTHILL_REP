@@ -253,8 +253,21 @@ Status character_set_position(Character *character, int x, int y) {
     return ERROR;
   }
 
-  character->x = x;
-  character->y = y;
+  if ((x > ((SDL_MAP_BORDER - SDL_CHARACTER_HW) / SDL_TILE_SIZE)) &&
+      (x < ((SDL_WINDOW_WIDTH - 2 * SDL_MAP_BORDER - SDL_CHARACTER_HW / 2) / SDL_TILE_SIZE))) {
+    character->x = x;
+  } else if ((character->x <= ((SDL_MAP_BORDER - SDL_CHARACTER_HW) / SDL_TILE_SIZE)) ||
+             (character->x >= ((SDL_WINDOW_WIDTH - 2 * SDL_MAP_BORDER - SDL_CHARACTER_HW / 2) / SDL_TILE_SIZE))) {
+    character->x = (SDL_MAP_BORDER + SDL_CHARACTER_HW + 1) / SDL_TILE_SIZE;
+  }
+
+  if ((y > ((SDL_MAP_BORDER + SDL_WALL_HEIGHT - SDL_CHARACTER_HW) / SDL_TILE_SIZE)) &&
+      (y < ((SDL_MAP_HEIGHT - 2 * SDL_MAP_BORDER - SDL_CHARACTER_HW / 2) / SDL_TILE_SIZE))) {
+    character->y = y;
+  } else if ((character->y <= ((SDL_MAP_BORDER + SDL_WALL_HEIGHT - SDL_CHARACTER_HW) / SDL_TILE_SIZE)) ||
+             (character->y >= ((SDL_MAP_HEIGHT - 2 * SDL_MAP_BORDER - SDL_CHARACTER_HW / 2) / SDL_TILE_SIZE))) {
+    character->y = (SDL_MAP_BORDER + SDL_WALL_HEIGHT - SDL_CHARACTER_HW + 1) / SDL_TILE_SIZE;
+  }
 
   return OK;
 }

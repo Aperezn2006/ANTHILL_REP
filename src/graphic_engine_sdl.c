@@ -364,7 +364,7 @@ void graphic_engine_render_sdl(Graphic_engine_sdl *gengine, Game *game) {
     if (character && (game_get_character_location(game, character_get_id(character)) == id_act)) {
       character_x = character_get_x(character);
       character_y = character_get_y(character);
-      SDL_Rect character_rect = {character_x * SDL_TILE_SIZE, character_y * SDL_TILE_SIZE, 40 * SDL_SCREEN_ZOOM, 40 * SDL_SCREEN_ZOOM};
+      SDL_Rect character_rect = {character_x * SDL_TILE_SIZE, character_y * SDL_TILE_SIZE, SDL_CHARACTER_HW, SDL_CHARACTER_HW};
 
       /*TTF*/
       sprintf(aux_string, "|");
@@ -458,7 +458,7 @@ void graphic_engine_render_sdl(Graphic_engine_sdl *gengine, Game *game) {
 
     /* Si está parpadeando, alterna entre mostrar y ocultar */
     if (blink_timer == 0 || ((blink_timer / 5) % 2 == 0)) {
-      SDL_Rect player_rect = {player_x * SDL_TILE_SIZE, player_y * SDL_TILE_SIZE, 70 * SDL_SCREEN_ZOOM, 70 * SDL_SCREEN_ZOOM};
+      SDL_Rect player_rect = {player_x * SDL_TILE_SIZE, player_y * SDL_TILE_SIZE, SDL_PLAYER_HW, SDL_PLAYER_HW};
       SDL_RenderCopy(gengine->renderer, gengine->player_texture, NULL, &player_rect);
     }
 
@@ -473,7 +473,7 @@ void graphic_engine_render_sdl(Graphic_engine_sdl *gengine, Game *game) {
     if (obj && (game_get_object_location(game, object_get_id(obj)) == id_act)) {
       obj_x = object_get_x(obj);
       obj_y = object_get_y(obj);
-      SDL_Rect obj_rect = {obj_x * SDL_TILE_SIZE, obj_y * SDL_TILE_SIZE, 40 * SDL_SCREEN_ZOOM, 40 * SDL_SCREEN_ZOOM};
+      SDL_Rect obj_rect = {obj_x * SDL_TILE_SIZE, obj_y * SDL_TILE_SIZE, SDL_OBJECT_HW, SDL_OBJECT_HW};
       printf(":::::: About to load [%s]\n", object_get_image(obj));
       gengine->object_textures[i] = load_texture(gengine->renderer, object_get_image(obj));
 

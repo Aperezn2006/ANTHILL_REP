@@ -289,8 +289,21 @@ Status object_set_position(Object *object, int x, int y) {
     return ERROR;
   }
 
-  object->x = x;
-  object->y = y;
+  if ((x > ((SDL_MAP_BORDER - SDL_OBJECT_HW) / SDL_TILE_SIZE)) &&
+      (x < ((SDL_WINDOW_WIDTH - 2 * SDL_MAP_BORDER - SDL_OBJECT_HW / 2) / SDL_TILE_SIZE))) {
+    object->x = x;
+  } else if ((object->x <= ((SDL_MAP_BORDER - SDL_OBJECT_HW) / SDL_TILE_SIZE)) ||
+             (object->x >= ((SDL_WINDOW_WIDTH - 2 * SDL_MAP_BORDER - SDL_OBJECT_HW / 2) / SDL_TILE_SIZE))) {
+    object->x = (SDL_MAP_BORDER + SDL_OBJECT_HW + 1) / SDL_TILE_SIZE;
+  }
+
+  if ((y > ((SDL_MAP_BORDER + SDL_WALL_HEIGHT - SDL_OBJECT_HW) / SDL_TILE_SIZE)) &&
+      (y < ((SDL_MAP_HEIGHT - 2 * SDL_MAP_BORDER - SDL_OBJECT_HW / 2) / SDL_TILE_SIZE))) {
+    object->y = y;
+  } else if ((object->y <= ((SDL_MAP_BORDER + SDL_WALL_HEIGHT - SDL_OBJECT_HW) / SDL_TILE_SIZE)) ||
+             (object->y >= ((SDL_MAP_HEIGHT - 2 * SDL_MAP_BORDER - SDL_OBJECT_HW / 2) / SDL_TILE_SIZE))) {
+    object->y = (SDL_MAP_BORDER + SDL_WALL_HEIGHT - SDL_OBJECT_HW + 1) / SDL_TILE_SIZE;
+  }
 
   return OK;
 }
