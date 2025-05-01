@@ -99,7 +99,7 @@ Status game_actions_drop_sdl(Game *game);
  * @param game a pointer to the game
  * @return OK if everything goes well, ERROR otherwise
  */
-Status game_actions_attack_sdl(Game *game, int seed);
+Status game_actions_attack_sdl(Game *game);
 
 /**
  * @brief It allows the player to chat with a character
@@ -216,7 +216,7 @@ void game_actions_update_sdl(Game *game, int seed) {
 
   /* ATAQUE */
   if (game_input.attack == KS_PRESSED) {
-    game_actions_attack_sdl(game, seed);
+    game_actions_attack_sdl(game);
   }
 
   /* TOMAR OBJETO */
@@ -395,45 +395,13 @@ Status game_actions_drop_sdl(Game *game) {
   return ERROR;
 }
 
-Status game_actions_attack_sdl(Game *game, int seed) {
-  Id player_location;
-  Id character_location;
-  Id character_id;
-  Character *character = NULL;
+Status game_actions_attack_sdl(Game *game) {
   Player *player = NULL;
+  Character *target = NULL;
+  Id player_location, target_location;
   int roll;
-  char character_name[WORD_SIZE] = "";
 
   if (!game) {
-    return ERROR;
-  }
-
-  player_location = game_get_player_location(game);
-
-  if (space_get_character_from_index(game_get_space(game, player_location), 0) == NO_ID) {
-    return ERROR;
-  }
-
-  strcpy(character_name, character_get_name(game_get_character(game, space_get_character_from_index(game_get_space(game, player_location), 0))));
-
-  if (character_name[0] == '\0') {
-    return ERROR;
-  }
-
-  character_id = game_get_character_id_from_name(game, character_name);
-  if (character_id == NO_ID) {
-    printf("Character not found.\n");
-    return ERROR;
-  }
-
-  character_location = game_get_character_location(game, character_id);
-  if (player_location != character_location || player_location == NO_ID) {
-    printf("You are not in the same location as %s.\n", character_name);
-    return ERROR;
-  }
-
-  character = game_get_character(game, character_id);
-  if (!character) {
     return ERROR;
   }
 
@@ -442,28 +410,42 @@ Status game_actions_attack_sdl(Game *game, int seed) {
     return ERROR;
   }
 
-  if (character_get_friendly(character)) {
-    printf("You cannot attack %s, they are friendly.\n", character_name);
+  player_location = game_get_player_location(game);
+  if (player_location == NO_ID) {
     return ERROR;
   }
 
-  /* Deterministic or random roll */
-  if (seed) {
-    roll = 7; /* Always a successful hit in deterministic mode */
-  } else {
-    roll = rand() % 10; /* Random number between 0 and 9 */
+  target = physics_get_colliding_character(game, player);
+  if (!target) {
+    printf("No character to attack.\n");
+    return ERROR;
   }
 
-  if (roll >= 0 && roll <= 4) {
+  target_location = game_get_character_location(game, character_get_id(target));
+  if (target_location != player_location) {
+    printf("Target is not in the same space.\n");
+    return ERROR;
+  }
+
+  if (character_get_friendly(target)) {
+    printf("You cannot attack %s, they are friendly.\n", character_get_name(target));
+    return ERROR;
+  }
+
+  /* Random roll */
+  roll = rand() % 10;
+
+  if (roll <= 4) {
     player_decrease_health(player, 1);
-    printf("You missed! %s counterattacks. You lose 1 health point.\n", character_name);
+    printf("You missed! %s counterattacks. You lose 1 health point.\n", character_get_name(target));
   } else {
-    character_decrease_health(character, 1);
-    printf("You hit %s! They lose 1 health point.\n", character_name);
+    character_decrease_health(target, 1);
+    printf("You hit %s! They lose 1 health point.\n", character_get_name(target));
   }
 
-  if (character_get_health(character) == 0) {
-    space_remove_character(game_get_space(game, character_location), character_get_id(character));
+  if (character_get_health(target) == 0) {
+    printf("%s has been defeated.\n", character_get_name(target));
+    space_remove_character(game_get_space(game, target_location), character_get_id(target));
   }
 
   return OK;

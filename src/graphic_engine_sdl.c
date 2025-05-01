@@ -370,14 +370,22 @@ void graphic_engine_render_sdl(Graphic_engine_sdl *gengine, Game *game) {
       character_x = character_get_x(character);
       character_y = character_get_y(character);
       SDL_Rect character_rect = {character_x * TILE_SIZE, character_y * TILE_SIZE, 40 * SCREEN_ZOOM, 40 * SCREEN_ZOOM};
-      gengine->character_textures[i] = load_texture(gengine->renderer, character_get_image(character));
 
-      printf("LOADING CHARACTER AT (%i,%i)\n", character_x, character_y);
-      if (gengine->character_textures[i]) {
-        SDL_RenderCopy(gengine->renderer, gengine->character_textures[i], NULL, &character_rect);
-      } else {
-        printf("Warning: Character texture is NULL.\n");
+      int blink_timer = character_get_blink_timer(character);
+
+      /* Parpadeo: alterna visibilidad */
+      if (blink_timer == 0 || ((blink_timer / 5) % 2 == 0)) {
+        gengine->character_textures[i] = load_texture(gengine->renderer, character_get_image(character));
+
+        printf("LOADING CHARACTER AT (%i,%i)\n", character_x, character_y);
+        if (gengine->character_textures[i]) {
+          SDL_RenderCopy(gengine->renderer, gengine->character_textures[i], NULL, &character_rect);
+        } else {
+          printf("Warning: Character texture is NULL.\n");
+        }
       }
+
+      character_update_blink_timer(character);
     }
   }
 

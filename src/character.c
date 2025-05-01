@@ -29,7 +29,16 @@ struct _Character {
   Id following;
   char image[MAX_IMAGE]; /*!< Path to the character's image (for SDL2)*/
   int x, y;              /*!< Character's position*/
+  int blink_timer;
 };
+
+int character_get_blink_timer(Character *character) { return character ? character->blink_timer : 0; }
+
+void character_update_blink_timer(Character *character) {
+  if (character && character->blink_timer > 0) {
+    character->blink_timer--;
+  }
+}
 
 /* Create y destroy */
 /*character_create allocates memory for a new characte and initializes its members*/
@@ -56,6 +65,7 @@ Character *character_create(Id id) {
   newcharacter->image[0] = '\0';
   newcharacter->x = 0;
   newcharacter->y = 0;
+  newcharacter->blink_timer = 0;
 
   return newcharacter;
 }
@@ -140,7 +150,9 @@ Status character_set_health(Character *character, long health) {
   if (!character) {
     return ERROR;
   }
-
+  if (character->health != health) {
+    character->blink_timer = 30; /* Parpadear durante 30 frames (~0.5s si vas a 60fps) */
+  }
   character->health = health;
 
   return OK;
@@ -151,6 +163,7 @@ Status character_decrease_health(Character *character, long damage) {
     return ERROR;
   }
   character->health -= damage;
+  character->blink_timer = 30;
   return OK;
 }
 

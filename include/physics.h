@@ -26,4 +26,6 @@ void physics_handle_chat(Game *game, Player *player);
 
 Link *physics_get_colliding_link(Game *game, Player *player);
 
+Character *physics_get_colliding_character(Game *game, Player *player);
+
 #endif
