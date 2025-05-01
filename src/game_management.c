@@ -171,6 +171,7 @@ Status game_management_load(Game *game, char *file_name, Bool new, Bool SDL) {
   /*SPACE*/
   Space *space = NULL;
   char space_desc[5][10];
+  char space_zoom_desc[17][WORD_SIZE];
   Bool discovered = FALSE; /*PREVIOUS*/
 
   /*LINK*/
@@ -226,7 +227,7 @@ Status game_management_load(Game *game, char *file_name, Bool new, Bool SDL) {
 
     /*SPACES*/
     if (strncmp("#s:", line, 3) == 0) {
-      /*id|name|discovered|image|gdesc|*/
+      /*id|name|discovered|image|zoom|gdesc|*/
       printf("Processing space\n");
       toks = strtok(line + 3, "|");
       id = atol(toks);
@@ -243,6 +244,11 @@ Status game_management_load(Game *game, char *file_name, Bool new, Bool SDL) {
       if (toks) {
         strcpy(image, toks);
         printf("----------Image path is [%s]\n", image);
+      }
+
+      for (i = 0; i < 17; i++) {
+        toks = strtok(NULL, "|");
+        strcpy(space_zoom_desc[i], toks);
       }
 
       for (i = 0; i < 5; i++) {
@@ -268,6 +274,10 @@ Status game_management_load(Game *game, char *file_name, Bool new, Bool SDL) {
 
         if (new == FALSE) {
           space_set_discovered(space, discovered); /*PREVIOUS*/
+        }
+
+        for (i = 0; i < 17; i++) {
+          space_set_zoom_description(space, space_zoom_desc);
         }
 
         for (i = 0; i < 5; i++) {

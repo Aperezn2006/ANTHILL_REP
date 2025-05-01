@@ -279,7 +279,8 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game) {
   screen_area_clear(ge->help);
   sprintf(str1, " The commands you can use are:");
   screen_area_puts(ge->help, str1);
-  sprintf(str1, "    m or move, t or take, d or drop, a or attack, c or chat, n or inventory, u or use, o or open, f or follow, z or zoom, l or load");
+  sprintf(str1,
+          "    m or move, t or take, d or drop, a or attack, c or chat, n or inventory, u or use, o or open, f or follow, z or zoom, l or load");
   screen_area_puts(ge->help, str1);
   sprintf(str1, "    s or save, r or recruit, ab or abandon, exit or e");
   screen_area_puts(ge->help, str1);
@@ -648,7 +649,93 @@ void graphic_engine_paint_zoom(Graphic_engine *ge, Game *game) {
   sprintf(str1, "----------------------------------------------------------------------------");
   screen_area_puts(ge->map, str1);
 
-  if(space_get_id(space) == 6)
+  if(space_get_id(space) == 11){
+    sprintf(str1, "            |       _____                  /||/ /||/ /||/ /||/ /||/ /||");
+    screen_area_puts(ge->map, str1); 
+    sprintf(str1, "            |      /  _  \\                /||/ /||/ /||/ /||/ /||/ /||");
+    screen_area_puts(ge->map, str1);  
+    sprintf(str1, "            |      | |_| |                /||/ /||/ /||/ /||/ /||/ /||");
+    screen_area_puts(ge->map, str1); 
+    sprintf(str1, "            |      \\_____/                /||/ /||/ /||/ /||/ /||/ /||");
+    screen_area_puts(ge->map, str1); 
+    sprintf(str1, "            |                             /||/ /||/ /||/ /||/ /||/ /||");
+    screen_area_puts(ge->map, str1); 
+    sprintf(str1, "            |                  ____       /||/ /||/ /||/ /||/ /||/ /||");
+    screen_area_puts(ge->map, str1); 
+    sprintf(str1, "            |_______          |    |      /||/ /||/ /||/ /||/ /||/ /||");
+    screen_area_puts(ge->map, str1);
+    sprintf(str1, "          /_______ /|         | __ |      /||/ /||/ /||/ /||/ /||/ /||");
+    screen_area_puts(ge->map, str1); 
+    sprintf(str1, "        /_______ /_||________/ /_/ /|_____/||/_/||/_/||/_/||/_/||/__||____");
+    screen_area_puts(ge->map, str1); 
+    sprintf(str1, "      /_______ /            /____/ /      /||/ /||/ /||/ /||/ /|| /");
+    screen_area_puts(ge->map, str1); 
+    sprintf(str1, "    /________/              |____|/       /||/ /||/ /||/ /||/  ||");
+    screen_area_puts(ge->map, str1); 
+    sprintf(str1, "   ||/     ||                             /||/ /||/ /||/ /|| /");
+    screen_area_puts(ge->map, str1); 
+    sprintf(str1, "   ||      ||                             /||/ /||/ /||/  ||");
+    screen_area_puts(ge->map, str1);
+    sprintf(str1, "  /                                       /||/ /||/ /|| /");
+    screen_area_puts(ge->map, str1);
+    sprintf(str1, "                                          /||/ /||/  ||");
+    screen_area_puts(ge->map, str1);
+    sprintf(str1, "                                          /||/ /|| /");
+    screen_area_puts(ge->map, str1);
+    sprintf(str1, "                                          /||/  ||");
+    screen_area_puts(ge->map, str1);
+    sprintf(str1, "                                          /|| /");
+    screen_area_puts(ge->map, str1);
+    sprintf(str1, "                                          /||");
+    screen_area_puts(ge->map, str1);
+    sprintf(str1, "                                          /");
+    screen_area_puts(ge->map, str1);
+
+
+  }
+  else if(space_get_id(space) == 5){
+    sprintf(str1, "                                     ||                                    ");
+    screen_area_puts(ge->map, str1); 
+    sprintf(str1, "                                     ||                                    ");
+    screen_area_puts(ge->map, str1);
+    sprintf(str1, "                                    (__)                                    ");
+    screen_area_puts(ge->map, str1);
+    sprintf(str1, " ");
+    screen_area_puts(ge->map, str1);
+    sprintf(str1, "                _____           _____           _____");
+    screen_area_puts(ge->map, str1);
+    sprintf(str1, "              /     /|        /     /|        /     /|");
+    screen_area_puts(ge->map, str1);
+    sprintf(str1, "            /     /  |      /     /  |      /     /  | ");
+    screen_area_puts(ge->map, str1);
+    sprintf(str1, "          /     /| / |    /     /| / |    /     /| / |");
+    screen_area_puts(ge->map, str1);
+    sprintf(str1, "        /     /  |  /|  /     /  |  /|  /     /  |  /|");
+    screen_area_puts(ge->map, str1);
+    sprintf(str1, "      /     /| / |/  |/     /| / |/  |/     /| / |/  |");
+    screen_area_puts(ge->map, str1);
+    sprintf(str1, "    /____ /  |  /| //____ /  |  /| //____ /  |  /| / |");
+    screen_area_puts(ge->map, str1);
+    sprintf(str1, "   |     | / |/  | |     | / |/  | |     | / |/  |  /|         ____/|_____");
+    screen_area_puts(ge->map, str1);
+    sprintf(str1, "   |     |  /| / |/|     |  /| / |/|     |  /| / |/  |       /  __/ |    /|");
+    screen_area_puts(ge->map, str1);
+    sprintf(str1, "___|     |/  |  /| |     |/  |  /| |     |/  |  /| / |_____/  /  | /   /_||");
+    screen_area_puts(ge->map, str1);
+    sprintf(str1, "   |     | / |/  | |     | / |/  | |     | / |/  |  /    /  /____|/  /   ||");
+    screen_area_puts(ge->map, str1);
+    sprintf(str1, "   |     |  /| / |/|     |  /| / |/|     |  /| / |/    /___________/     ||");
+    screen_area_puts(ge->map, str1);
+    sprintf(str1, "   |     |/  |  /  |     |/  |  /  |     |/  |  /      ||        ||");
+    screen_area_puts(ge->map, str1);
+    sprintf(str1, "   |     | / |/    |     | / |/    |     | / |/        ||        ||");
+    screen_area_puts(ge->map, str1);
+    sprintf(str1, "   |     |  /      |     |  /      |     |  /          ||        || ");
+    screen_area_puts(ge->map, str1);
+    sprintf(str1, "   |_____|/        |_____|/        |_____|/            ||        ||");
+    screen_area_puts(ge->map, str1);
+  }
+  else if(space_get_id(space) == 6)
   {
     sprintf(str1, "   ___________________                   \\______/");
     screen_area_puts(ge->map, str1);
@@ -782,7 +869,7 @@ void graphic_engine_paint_zoom(Graphic_engine *ge, Game *game) {
     screen_area_puts(ge->map, str1);
 
   }
-  else if (space_get_id(space) == 11)
+  else if (space_get_id(space) == 8)
   {
     sprintf(str1, "     ________");
     screen_area_puts(ge->map, str1);

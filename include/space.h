@@ -221,6 +221,28 @@ char *space_get_i_dynamic_description(Space *space, int n);
  */
 Status space_set_description(Space *space, char description[5][10]);
 
+/*Manejo de zoom_description*/
+/**
+ * @brief It gets the graphical description of the space located in the n
+ * position of the array, it its hidden it hids it
+ * @author Beatriz, Arturo, Rubén, Ana
+ *
+ * @param space a pointer to the space
+ * @param n the position of the graphical description to get
+ * @return the n line of the graphical zoom description, it is char one-dimension
+ */
+char *space_get_zoom_description_from_index(Space *space, int n);
+
+/**
+ * @brief It sets the graphical zoom description of a space
+ * @author Beatriz, Arturo, Rubén, Ana
+ *
+ * @param space a pointer to the space
+ * @param description the graphical zoom description to set
+ * @return OK, if everything goes well or ERROR if there was some mistake
+ */
+Status space_set_zoom_description(Space *space, char description[17][WORD_SIZE]);
+
 /*Manejo de discovered*/
 /**
  * @brief It gets whether the space is discovered or not
