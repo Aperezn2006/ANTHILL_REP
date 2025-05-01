@@ -26,10 +26,10 @@
 
 /*id|name|location|health|gdesc|message|friendliness|x|y|image|*/
 
-#c:30|Enfermo|12|4|()__/\|Hello|0|0|0|resources/spider.png|
-#c:31|Policia|111|4|/()\ |Hello|1|0|10|resources/beetle.png|
-#c:32|Perro|19|4|U.^.U |Hello|1|10|10|resources/beetle2.png|
-#c:33|Familiar|14|4|()__() |Hello|0|15|20|resources/bicho_palo.png|
+#c:30|Enfermo|12|4|()__/\|Hello|TRUE|0|0|resources/spider.png|
+#c:31|Policia|11|4|/()\ |Hello|FALSE|0|10|resources/beetle.png|
+#c:32|Perro|19|4|U.^.U |Hello|FALSE|10|10|resources/beetle2.png|
+#c:33|Familiar|14|4|()__() |Hello|TRUE|15|20|resources/bicho_palo.png|
 
 /*id|name|origin|destination|direction|open|closed_image|open_image|*/
 
