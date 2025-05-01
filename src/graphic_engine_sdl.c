@@ -8,6 +8,7 @@ struct _Graphic_engine_sdl {
   SDL_Window *window;
   SDL_Renderer *renderer;
   SDL_Texture *background_texture;
+  SDL_Texture *info_texture;
   SDL_Texture *player_texture;
   SDL_Texture *character_textures[MAX_CHARACTERS];
   SDL_Texture *obstacle_texture;
@@ -20,8 +21,14 @@ struct _Graphic_engine_sdl {
   TTF_Font *font;
   TTF_Font *player_health[MAX_PLAYERS];
   SDL_Texture *player_health_textures[MAX_PLAYERS];
+  TTF_Font *player_name[MAX_CHARACTERS];
+  SDL_Texture *player_name_textures[MAX_PLAYERS];
   TTF_Font *character_health[MAX_CHARACTERS];
   SDL_Texture *character_health_textures[MAX_CHARACTERS];
+  TTF_Font *character_name[MAX_CHARACTERS];
+  SDL_Texture *character_name_texture[MAX_CHARACTERS];
+  TTF_Font *character_message;
+  SDL_Texture *character_message_texture;
 };
 
 /* Function to load a texture from a file */
@@ -90,11 +97,23 @@ Graphic_engine_sdl *graphic_engine_create_sdl() {
       printf("Failed to load font: %s\n", TTF_GetError());
       return NULL;
     }
+
+    gengine->player_name[i] = TTF_OpenFont(MY_FONT, FONT_SIZE / 2); /*specify the path to your font file and font size*/
+    if (!gengine->player_name[i]) {
+      printf("Failed to load font: %s\n", TTF_GetError());
+      return NULL;
+    }
   }
 
   for (i = 0; i < MAX_CHARACTERS; i++) {
     gengine->character_health[i] = TTF_OpenFont(MY_FONT, FONT_SIZE / 2); /*specify the path to your font file and font size*/
     if (!gengine->character_health[i]) {
+      printf("Failed to load font: %s\n", TTF_GetError());
+      return NULL;
+    }
+
+    gengine->character_name[i] = TTF_OpenFont(MY_FONT, FONT_SIZE / 2); /*specify the path to your font file and font size*/
+    if (!gengine->character_name[i]) {
       printf("Failed to load font: %s\n", TTF_GetError());
       return NULL;
     }
@@ -118,6 +137,8 @@ Graphic_engine_sdl *graphic_engine_create_sdl() {
     return NULL;
   }
 
+  gengine->info_texture = NULL;
+
   for (i = 0; i < 4; i++) {
     gengine->link_textures[i] = NULL;
   }
@@ -131,10 +152,10 @@ Graphic_engine_sdl *graphic_engine_create_sdl() {
     printf("Error loading ray texture.\n");
   }
 
-  gengine->obstacle_texture = load_texture(gengine->renderer, "resources/platform.png");
+  /*gengine->obstacle_texture = load_texture(gengine->renderer, "resources/platform.png");
   if (!gengine->obstacle_texture) {
     printf("Error loading obstacle texture.\n");
-  }
+  }*/
 
   for (i = 0; i < MAX_OBJECTS; i++) {
     gengine->object_textures[i] = NULL;
@@ -153,10 +174,12 @@ Graphic_engine_sdl *graphic_engine_create_sdl() {
 
   for (i = 0; i < MAX_PLAYERS; i++) {
     gengine->player_health_textures[i] = NULL;
+    gengine->player_name_textures[i] = NULL;
   }
 
   for (i = 0; i < MAX_CHARACTERS; i++) {
     gengine->character_health_textures[i] = NULL;
+    gengine->character_name_texture[i] = NULL;
   }
 
   return gengine;
@@ -181,6 +204,11 @@ void graphic_engine_destroy_sdl(Graphic_engine_sdl *gengine) {
   if (gengine->background_texture) {
     SDL_DestroyTexture(gengine->background_texture);
     gengine->background_texture = NULL;
+  }
+
+  if (gengine->info_texture) {
+    SDL_DestroyTexture(gengine->info_texture);
+    gengine->info_texture = NULL;
   }
 
   if (gengine->player_texture) {
@@ -243,6 +271,11 @@ void graphic_engine_destroy_sdl(Graphic_engine_sdl *gengine) {
       SDL_DestroyTexture(gengine->player_health_textures[i]);
       gengine->player_health_textures[i] = NULL;
     }
+
+    if (gengine->player_name_textures[i]) {
+      SDL_DestroyTexture(gengine->player_name_textures[i]);
+      gengine->player_name_textures[i] = NULL;
+    }
   }
 
   for (i = 0; i < MAX_CHARACTERS; i++) {
@@ -250,13 +283,17 @@ void graphic_engine_destroy_sdl(Graphic_engine_sdl *gengine) {
       SDL_DestroyTexture(gengine->character_health_textures[i]);
       gengine->character_health_textures[i] = NULL;
     }
-  }
 
-  TTF_Quit();
+    if (gengine->character_name_texture[i]) {
+      SDL_DestroyTexture(gengine->character_name_texture[i]);
+      gengine->character_name_texture[i] = NULL;
+    }
+  }
 
   /* Now, safely free the structure */
   free(gengine);
 
+  TTF_Quit();
   IMG_Quit();
   SDL_Quit();
 }
@@ -280,6 +317,7 @@ void graphic_engine_render_sdl(Graphic_engine_sdl *gengine, Game *game) {
   const char *background_path = NULL;
   /*SDL_Color black_text_color = {0, 0, 0, 255};*/
   SDL_Color red_text_color = {255, 0, 0, 0};
+  /*SDL_Color white_text_color = {255, 255, 255, 0};*/
   char aux_string[WORD_SIZE];
 
   if (!gengine || !game) {
@@ -323,6 +361,7 @@ void graphic_engine_render_sdl(Graphic_engine_sdl *gengine, Game *game) {
     printf("Warning: Background texture is NULL.\n");
   }
 
+  /*gengine->info_texture = load_texture(gengine->renderer, "resources/info.png");*/
   SDL_Rect info_rect = {0, SDL_MAP_HEIGHT, SDL_WINDOW_WIDTH, SDL_INFO_HEIGHT};
   SDL_RenderCopy(gengine->renderer, gengine->inventory_not_selected, NULL, &info_rect);
 
@@ -345,8 +384,7 @@ void graphic_engine_render_sdl(Graphic_engine_sdl *gengine, Game *game) {
   }
 
   // Render text
-  SDL_Rect textRect = {player_x * SDL_TILE_SIZE + 35 * SDL_SCREEN_ZOOM - (textSurface->h / 2), player_y * SDL_TILE_SIZE, textSurface->w,
-                       textSurface->h};
+  SDL_Rect textRect = {player_x * SDL_TILE_SIZE + SDL_PLAYER_HW / 2 - (textSurface->h / 2), player_y * SDL_TILE_SIZE, textSurface->w, textSurface->h};
   SDL_RenderCopy(gengine->renderer, gengine->player_health_textures[0], NULL, &textRect);
   /*TTF*/
 
