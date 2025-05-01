@@ -1,15 +1,15 @@
 /*id|name|image|gdesc|*/
 
-#s:11|PuestoVigilancia|resources/grid.jpg|
-#s:12|Enfermeria|resources/grid.jpg|
-#s:13|Comedor|resources/grid.jpg|
-#s:14|Visitas|resources/grid.jpg|
-#s:15|Archivos|resources/grid.jpg|
-#s:16|Torturas|resources/grid.jpg|
-#s:17|Patio|resources/grid.jpg|
-#s:18|Habitacion|resources/grid.jpg|
-#s:19|Perrera|resources/grid.jpg|
-#s:110|Sotano|resources/grid.jpg|
+#s:11|PuestoVigilancia|resources/Room.png|
+#s:12|Enfermeria|resources/Room.png|
+#s:13|Comedor|resources/Room.png|
+#s:14|Visitas|resources/Room.png|
+#s:15|Archivos|resources/Room.png|
+#s:16|Torturas|resources/Room.png|
+#s:17|Patio|resources/Room.png|
+#s:18|Habitacion|resources/Room.png|
+#s:19|Perrera|resources/Room.png|
+#s:110|Sotano|resources/Room.png|
 
 /*id|name|location|health|movable|dependency|links/open_N|desc|turn_amplifier|x|y|image|*/
 

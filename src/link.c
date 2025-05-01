@@ -140,36 +140,36 @@ Status link_set_direction(Link *link, Direction dir) {
   }
 
   link->direction = dir;
-
+  /*typedef enum { N, S, E, W, U, D } Direction;*/
   switch (dir) {
     case 0:
-      link->x = 35;
-      link->y = 0;
+      link->x = (SDL_WINDOW_WIDTH / 2 - SDL_LINK_HW / 2) / (SDL_TILE_SIZE);
+      link->y = (SDL_WALL_HEIGHT - SDL_LINK_HW / 2 - SDL_SCREEN_ZOOM) / (SDL_TILE_SIZE);
       break;
 
     case 1:
-      link->x = 35;
-      link->y = 55;
+      link->x = (SDL_WINDOW_WIDTH / 2 - SDL_LINK_HW / 2) / (SDL_TILE_SIZE);
+      link->y = (2 * SDL_MAP_BORDER + SDL_MAP_HEIGHT - SDL_LINK_HW / 2 - SDL_WALL_HEIGHT) / (SDL_TILE_SIZE);
       break;
 
     case 2:
-      link->x = 73;
-      link->y = 30;
+      link->x = (SDL_WINDOW_WIDTH - SDL_LINK_HW + SDL_SCREEN_ZOOM) / (SDL_TILE_SIZE);
+      link->y = (SDL_WALL_HEIGHT / 2 + SDL_MAP_HEIGHT / 2 - SDL_LINK_HW / 2) / (SDL_TILE_SIZE);
       break;
 
     case 3:
-      link->x = 0;
-      link->y = 30;
+      link->x = SDL_SCREEN_ZOOM / SDL_TILE_SIZE;
+      link->y = (SDL_WALL_HEIGHT / 2 + SDL_MAP_HEIGHT / 2 - SDL_LINK_HW / 2) / (SDL_TILE_SIZE);
       break;
 
     case 4:
-      link->x = 10;
-      link->y = 15;
+      link->x = (SDL_MAP_BORDER + SDL_WINDOW_WIDTH / 3 - SDL_LINK_HW / 2 - SDL_SCREEN_ZOOM) / (SDL_TILE_SIZE);
+      link->y = (SDL_MAP_BORDER + SDL_WALL_HEIGHT - SDL_LINK_HW / 2) / (SDL_TILE_SIZE);
       break;
 
     case 5:
-      link->x = 20;
-      link->y = 15;
+      link->x = (SDL_WINDOW_WIDTH / 3 - SDL_LINK_HW / 2 - SDL_SCREEN_ZOOM) / (SDL_TILE_SIZE);
+      link->y = (SDL_MAP_BORDER + SDL_WALL_HEIGHT - SDL_LINK_HW / 2) / (SDL_TILE_SIZE);
       break;
   }
 

@@ -134,7 +134,8 @@ void physics_handle_space_transition(Game *game, Player *player) {
       printf("[DEBUG] Link is open. Transitioning to space ID %ld\n", next_space_id);
       if (next_space_id != NO_ID) {
         game_set_player_location(game, next_space_id);
-        player_set_position(player, 35, 30);
+        player_set_position(player, (SDL_WINDOW_WIDTH / 2 - SDL_PLAYER_HW / 2) / SDL_TILE_SIZE,
+                            (SDL_WINDOW_HEIGHT / 2 - SDL_PLAYER_HW / 2) / SDL_TILE_SIZE);
       }
     } else {
       printf("[DEBUG] Link is closed. Cannot transition.\n");

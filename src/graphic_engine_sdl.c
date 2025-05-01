@@ -1,13 +1,7 @@
 #include "graphic_engine_sdl.h"
 
-#define SCREEN_ZOOM 2
-#define WINDOW_WIDTH (800 * SCREEN_ZOOM)
-#define WINDOW_HEIGHT (600 * SCREEN_ZOOM + INFO_HEIGHT)
-#define TILE_SIZE (10 * SCREEN_ZOOM)
-#define INFO_HEIGHT (100 * SCREEN_ZOOM)
-
 #define MY_FONT "fonts/04b_25__.ttf"
-#define FONT_SIZE (25 * SCREEN_ZOOM)
+#define FONT_SIZE (25 * SDL_SCREEN_ZOOM)
 
 /* Definition of the opaque structure */
 struct _Graphic_engine_sdl {
@@ -107,7 +101,7 @@ Graphic_engine_sdl *graphic_engine_create_sdl() {
   }
 
   gengine->window =
-      SDL_CreateWindow("Ant Hill Game", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, WINDOW_WIDTH, WINDOW_HEIGHT, SDL_WINDOW_SHOWN);
+      SDL_CreateWindow("Ant Hill Game", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SDL_WINDOW_WIDTH, SDL_WINDOW_HEIGHT, SDL_WINDOW_SHOWN);
   if (!gengine->window) {
     printf("SDL_CreateWindow failed: %s\n", SDL_GetError());
     free(gengine);
@@ -323,13 +317,13 @@ void graphic_engine_render_sdl(Graphic_engine_sdl *gengine, Game *game) {
 
   /* Render background */
   if (gengine->background_texture) {
-    SDL_Rect background_rect = {0, 0, WINDOW_WIDTH, WINDOW_HEIGHT - INFO_HEIGHT};
+    SDL_Rect background_rect = {0, 0, SDL_WINDOW_WIDTH, SDL_MAP_HEIGHT};
     SDL_RenderCopy(gengine->renderer, gengine->background_texture, NULL, &background_rect);
   } else {
     printf("Warning: Background texture is NULL.\n");
   }
 
-  SDL_Rect info_rect = {0, WINDOW_HEIGHT - INFO_HEIGHT, WINDOW_WIDTH, INFO_HEIGHT};
+  SDL_Rect info_rect = {0, SDL_MAP_HEIGHT, SDL_WINDOW_WIDTH, SDL_INFO_HEIGHT};
   SDL_RenderCopy(gengine->renderer, gengine->inventory_not_selected, NULL, &info_rect);
 
   /*TTF*/
@@ -351,7 +345,8 @@ void graphic_engine_render_sdl(Graphic_engine_sdl *gengine, Game *game) {
   }
 
   // Render text
-  SDL_Rect textRect = {player_x * TILE_SIZE + 35 * SCREEN_ZOOM - (textSurface->h / 2), player_y * TILE_SIZE, textSurface->w, textSurface->h};
+  SDL_Rect textRect = {player_x * SDL_TILE_SIZE + 35 * SDL_SCREEN_ZOOM - (textSurface->h / 2), player_y * SDL_TILE_SIZE, textSurface->w,
+                       textSurface->h};
   SDL_RenderCopy(gengine->renderer, gengine->player_health_textures[0], NULL, &textRect);
   /*TTF*/
 
@@ -369,7 +364,7 @@ void graphic_engine_render_sdl(Graphic_engine_sdl *gengine, Game *game) {
     if (character && (game_get_character_location(game, character_get_id(character)) == id_act)) {
       character_x = character_get_x(character);
       character_y = character_get_y(character);
-      SDL_Rect character_rect = {character_x * TILE_SIZE, character_y * TILE_SIZE, 40 * SCREEN_ZOOM, 40 * SCREEN_ZOOM};
+      SDL_Rect character_rect = {character_x * SDL_TILE_SIZE, character_y * SDL_TILE_SIZE, 40 * SDL_SCREEN_ZOOM, 40 * SDL_SCREEN_ZOOM};
 
       /*TTF*/
       sprintf(aux_string, "|");
@@ -390,7 +385,7 @@ void graphic_engine_render_sdl(Graphic_engine_sdl *gengine, Game *game) {
       }
 
       // Render text
-      SDL_Rect textRect = {character_x * TILE_SIZE + 20 * SCREEN_ZOOM - (textSurface->h / 2), character_y * TILE_SIZE, textSurface->w,
+      SDL_Rect textRect = {character_x * SDL_TILE_SIZE + 20 * SDL_SCREEN_ZOOM - (textSurface->h / 2), character_y * SDL_TILE_SIZE, textSurface->w,
                            textSurface->h};
       SDL_RenderCopy(gengine->renderer, gengine->character_health_textures[0], NULL, &textRect);
       /*TTF*/
@@ -438,7 +433,7 @@ void graphic_engine_render_sdl(Graphic_engine_sdl *gengine, Game *game) {
       link_x = link_get_x(link);
       link_y = link_get_y(link);
       if (gengine->link_textures[i]) {
-        SDL_Rect link_rect = {link_x * TILE_SIZE, link_y * TILE_SIZE, 60 * SCREEN_ZOOM, 60 * SCREEN_ZOOM};
+        SDL_Rect link_rect = {link_x * SDL_TILE_SIZE, link_y * SDL_TILE_SIZE, SDL_LINK_HW, SDL_LINK_HW};
         SDL_RenderCopy(gengine->renderer, gengine->link_textures[i], NULL, &link_rect);
       }
     }
@@ -449,7 +444,7 @@ void graphic_engine_render_sdl(Graphic_engine_sdl *gengine, Game *game) {
     ray_update(ray);                    /*Update ray position dynamically*/
 
     if (gengine->ray_texture) {
-      SDL_Rect ray_rect = {ray_get_x(ray), ray_get_y(ray), 50 * SCREEN_ZOOM, 50 * SCREEN_ZOOM}; /*Adjust size as needed*/
+      SDL_Rect ray_rect = {ray_get_x(ray), ray_get_y(ray), 50 * SDL_SCREEN_ZOOM, 50 * SDL_SCREEN_ZOOM}; /*Adjust size as needed*/
       SDL_RenderCopy(gengine->renderer, gengine->ray_texture, NULL, &ray_rect);
       printf("Rendering ray at (%d, %d)\n", ray_get_x(ray), ray_get_y(ray));
     } else {
@@ -463,7 +458,7 @@ void graphic_engine_render_sdl(Graphic_engine_sdl *gengine, Game *game) {
 
     /* Si está parpadeando, alterna entre mostrar y ocultar */
     if (blink_timer == 0 || ((blink_timer / 5) % 2 == 0)) {
-      SDL_Rect player_rect = {player_x * TILE_SIZE, player_y * TILE_SIZE, 70 * SCREEN_ZOOM, 70 * SCREEN_ZOOM};
+      SDL_Rect player_rect = {player_x * SDL_TILE_SIZE, player_y * SDL_TILE_SIZE, 70 * SDL_SCREEN_ZOOM, 70 * SDL_SCREEN_ZOOM};
       SDL_RenderCopy(gengine->renderer, gengine->player_texture, NULL, &player_rect);
     }
 
@@ -478,7 +473,7 @@ void graphic_engine_render_sdl(Graphic_engine_sdl *gengine, Game *game) {
     if (obj && (game_get_object_location(game, object_get_id(obj)) == id_act)) {
       obj_x = object_get_x(obj);
       obj_y = object_get_y(obj);
-      SDL_Rect obj_rect = {obj_x * TILE_SIZE, obj_y * TILE_SIZE, 40 * SCREEN_ZOOM, 40 * SCREEN_ZOOM};
+      SDL_Rect obj_rect = {obj_x * SDL_TILE_SIZE, obj_y * SDL_TILE_SIZE, 40 * SDL_SCREEN_ZOOM, 40 * SDL_SCREEN_ZOOM};
       printf(":::::: About to load [%s]\n", object_get_image(obj));
       gengine->object_textures[i] = load_texture(gengine->renderer, object_get_image(obj));
 
@@ -498,8 +493,9 @@ void graphic_engine_render_sdl(Graphic_engine_sdl *gengine, Game *game) {
     for (i = 0; i < inventory_get_max_objects(player_get_inventory(player)); i++) {
       obj = game_get_object_from_id(game, inventory_get_object_by_index(player_get_inventory(player), i));
       gengine->inventory_textures[i] = load_texture(gengine->renderer, object_get_image(obj));
-      SDL_Rect inv_rect = {inv_x * TILE_SIZE, inv_y * TILE_SIZE, 50 * SCREEN_ZOOM, 50 * SCREEN_ZOOM};
-      SDL_Rect obj_rect = {(inv_x * TILE_SIZE) + (5 * SCREEN_ZOOM), (inv_y * TILE_SIZE) + (5 * SCREEN_ZOOM), 40 * SCREEN_ZOOM, 40 * SCREEN_ZOOM};
+      SDL_Rect inv_rect = {inv_x * SDL_TILE_SIZE, inv_y * SDL_TILE_SIZE, 50 * SDL_SCREEN_ZOOM, 50 * SDL_SCREEN_ZOOM};
+      SDL_Rect obj_rect = {(inv_x * SDL_TILE_SIZE) + (5 * SDL_SCREEN_ZOOM), (inv_y * SDL_TILE_SIZE) + (5 * SDL_SCREEN_ZOOM), 40 * SDL_SCREEN_ZOOM,
+                           40 * SDL_SCREEN_ZOOM};
 
       if (inventory_get_cursor(player_get_inventory(player)) == i) {
         dynamic_inventory = gengine->inventory_yes_selected;
