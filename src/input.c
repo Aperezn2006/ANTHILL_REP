@@ -1,5 +1,7 @@
 #include "input.h"
+
 #include <stdio.h>
+
 #include "game_actions.h"
 #include "ray.h"
 
@@ -101,6 +103,9 @@ void input_update(Game *game) {
                 case SDLK_e:
                   update_key_state(1, &game_input.attack);
                   break;
+                case SDLK_c:
+                  update_key_state(1, &game_input.chat);
+                  break;
                 case SDLK_SPACE:
                   update_key_state(1, &game_input.jump);
                   break;
@@ -173,6 +178,9 @@ void input_update(Game *game) {
               break;
             case SDLK_e:
               update_key_state(0, &game_input.attack);
+              break;
+            case SDLK_c:
+              update_key_state(0, &game_input.chat);
               break;
             case SDLK_SPACE:
               update_key_state(0, &game_input.jump);

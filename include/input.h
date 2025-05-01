@@ -2,15 +2,12 @@
 #define INPUT_H
 
 #include <SDL2/SDL.h>
+
 #include "game.h"
-#include "types.h"  
+#include "types.h"
 
 /* Key states */
-typedef enum {
-  KS_UNPRESSED = 0,  
-  KS_PRESSED,        
-  KS_HELD            
-} Key_State;
+typedef enum { KS_UNPRESSED = 0, KS_PRESSED, KS_HELD } Key_State;
 
 /* Structure to store input states */
 typedef struct {
@@ -19,13 +16,14 @@ typedef struct {
   Key_State up;
   Key_State down;
   Key_State attack;
+  Key_State chat;
   Key_State take;
   Key_State drop;
   Key_State inspect;
   Key_State escape;
   Key_State jump;
-  Key_State use;      /* Added use key */
-  Key_State open;     /* Added open key */
+  Key_State use;  /* Added use key */
+  Key_State open; /* Added open key */
   Bool is_selecting_drop;
   Key_State inventory_toggle;
   Key_State inventory_up;
@@ -41,4 +39,3 @@ extern Game_Input game_input;
 void input_update(Game *game);
 
 #endif /* INPUT_H */
-

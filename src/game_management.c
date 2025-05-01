@@ -240,15 +240,15 @@ Status game_management_load(Game *game, char *file_name, Bool new, Bool SDL) {
         discovered = atol(toks);  /*PREVIOUS*/
       }
 
+      for (i = 0; i < 17; i++) {
+        toks = strtok(NULL, "|");
+        strcpy(space_zoom_desc[i], toks);
+      }
+
       toks = strtok(NULL, "|");
       if (toks) {
         strcpy(image, toks);
         printf("----------Image path is [%s]\n", image);
-      }
-
-      for (i = 0; i < 17; i++) {
-        toks = strtok(NULL, "|");
-        strcpy(space_zoom_desc[i], toks);
       }
 
       for (i = 0; i < 5; i++) {
@@ -276,13 +276,8 @@ Status game_management_load(Game *game, char *file_name, Bool new, Bool SDL) {
           space_set_discovered(space, discovered); /*PREVIOUS*/
         }
 
-        for (i = 0; i < 17; i++) {
-          space_set_zoom_description(space, space_zoom_desc);
-        }
-
-        for (i = 0; i < 5; i++) {
-          space_set_description(space, space_desc);
-        }
+        space_set_zoom_description(space, space_zoom_desc);
+        space_set_description(space, space_desc);
 
         if (game_add_space(game, space) == ERROR) {
           space_destroy(space);

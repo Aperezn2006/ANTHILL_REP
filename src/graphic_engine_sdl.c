@@ -9,6 +9,7 @@ struct _Graphic_engine_sdl {
   SDL_Renderer *renderer;
   SDL_Texture *background_texture;
   SDL_Texture *info_texture;
+  SDL_Texture *chat_texture;
   SDL_Texture *player_texture;
   SDL_Texture *character_textures[MAX_CHARACTERS];
   SDL_Texture *obstacle_texture;
@@ -91,6 +92,12 @@ Graphic_engine_sdl *graphic_engine_create_sdl() {
     return NULL;
   }
 
+  gengine->character_message = TTF_OpenFont(MY_FONT, FONT_SIZE); /*specify the path to your font file and font size*/
+  if (!gengine->character_message) {
+    printf("Failed to load font: %s\n", TTF_GetError());
+    return NULL;
+  }
+
   for (i = 0; i < MAX_PLAYERS; i++) {
     gengine->player_health[i] = TTF_OpenFont(MY_FONT, FONT_SIZE / 2); /*specify the path to your font file and font size*/
     if (!gengine->player_health[i]) {
@@ -138,6 +145,7 @@ Graphic_engine_sdl *graphic_engine_create_sdl() {
   }
 
   gengine->info_texture = NULL;
+  gengine->chat_texture = NULL;
 
   for (i = 0; i < 4; i++) {
     gengine->link_textures[i] = NULL;
@@ -209,6 +217,11 @@ void graphic_engine_destroy_sdl(Graphic_engine_sdl *gengine) {
   if (gengine->info_texture) {
     SDL_DestroyTexture(gengine->info_texture);
     gengine->info_texture = NULL;
+  }
+
+  if (gengine->chat_texture) {
+    SDL_DestroyTexture(gengine->chat_texture);
+    gengine->chat_texture = NULL;
   }
 
   if (gengine->player_texture) {
@@ -317,7 +330,7 @@ void graphic_engine_render_sdl(Graphic_engine_sdl *gengine, Game *game) {
   const char *background_path = NULL;
   /*SDL_Color black_text_color = {0, 0, 0, 255};*/
   SDL_Color red_text_color = {255, 0, 0, 0};
-  /*SDL_Color white_text_color = {255, 255, 255, 0};*/
+  SDL_Color white_text_color = {255, 255, 255, 0};
   char aux_string[WORD_SIZE];
 
   if (!gengine || !game) {
@@ -361,9 +374,35 @@ void graphic_engine_render_sdl(Graphic_engine_sdl *gengine, Game *game) {
     printf("Warning: Background texture is NULL.\n");
   }
 
-  /*gengine->info_texture = load_texture(gengine->renderer, "resources/info.png");*/
+  gengine->info_texture = load_texture(gengine->renderer, "resources/Info.png");
   SDL_Rect info_rect = {0, SDL_MAP_HEIGHT, SDL_WINDOW_WIDTH, SDL_INFO_HEIGHT};
-  SDL_RenderCopy(gengine->renderer, gengine->inventory_not_selected, NULL, &info_rect);
+  SDL_RenderCopy(gengine->renderer, gengine->info_texture, NULL, &info_rect);
+
+  /*Chat*/
+  gengine->chat_texture = load_texture(gengine->renderer, "resources/bocadillo.png");
+
+  SDL_Surface *message_textSurface = TTF_RenderText_Solid(gengine->character_message, "Talk to someone", white_text_color);
+  if (!message_textSurface) {
+    printf("Failed to create text surface: %s\n", TTF_GetError());
+    return;
+  }
+
+  // Create texture from surface
+  gengine->character_message_texture = SDL_CreateTextureFromSurface(gengine->renderer, message_textSurface);
+  if (!gengine->character_message_texture) {
+    printf("Failed to create text texture: %s\n", SDL_GetError());
+    return;
+  }
+
+  // Render text
+  SDL_Rect message_rect = {10 * SDL_TILE_SIZE, SDL_MAP_HEIGHT + SDL_INFO_HEIGHT / 2 - message_textSurface->h / 2, message_textSurface->w,
+                           message_textSurface->h};
+  SDL_RenderCopy(gengine->renderer, gengine->info_texture, NULL, &message_rect);
+
+  SDL_Rect message_textRect = {10 * SDL_TILE_SIZE, SDL_MAP_HEIGHT + SDL_INFO_HEIGHT / 2 - message_textSurface->h / 2, message_textSurface->w,
+                               message_textSurface->h};
+  SDL_RenderCopy(gengine->renderer, gengine->character_message_texture, NULL, &message_textRect);
+  /*Chat*/
 
   /*TTF*/
   sprintf(aux_string, "|");
