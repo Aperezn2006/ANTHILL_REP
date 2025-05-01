@@ -1,15 +1,15 @@
-/*id|name|discovered|image|gdesc*/
+/*id|name|discovered|image|zoom|gdesc*/
 
-#s:11|PuestoVigilancia|.|
-#s:2|Enfermeria|.|
-#s:3|Comedor|.|
-#s:4|Visitas|.|
-#s:5|Archivos|.|
-#s:6|Torturas|.|
-#s:7|Patio|.|
-#s:8|Habitacion|.|
-#s:9|Perrera|.|
-#s:10|Sotano|.|
+#s:11|PuestoVigilancia|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|.|
+#s:2|Enfermeria|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|.|
+#s:3|Comedor|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|.|
+#s:4|Visitas|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|.|
+#s:5|Archivos|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|.|
+#s:6|Torturas|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|.|
+#s:7|Patio|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|.|
+#s:8|Habitacion|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|.|
+#s:9|Perrera|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|.|
+#s:10|Sotano|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|.|
 
 /*id|name|location|health|movable|dependency|open_door|desc|turn_amplifier*/
 

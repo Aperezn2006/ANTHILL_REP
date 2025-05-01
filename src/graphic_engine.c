@@ -279,7 +279,8 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game) {
   screen_area_clear(ge->help);
   sprintf(str1, " The commands you can use are:");
   screen_area_puts(ge->help, str1);
-  sprintf(str1, "    m or move, t or take, d or drop, a or attack, c or chat, n or inventory, u or use, o or open, f or follow, z or zoom, l or load");
+  sprintf(str1,
+          "    m or move, t or take, d or drop, a or attack, c or chat, n or inventory, u or use, o or open, f or follow, z or zoom, l or load");
   screen_area_puts(ge->help, str1);
   sprintf(str1, "    s or save, r or recruit, ab or abandon, exit or e");
   screen_area_puts(ge->help, str1);
@@ -648,8 +649,7 @@ void graphic_engine_paint_zoom(Graphic_engine *ge, Game *game) {
   sprintf(str1, "----------------------------------------------------------------------------");
   screen_area_puts(ge->map, str1);
 
-  if(space_get_id(space) == 6)
-  {
+  if (space_get_id(space) == 6) {
     sprintf(str1, "   ___________________                   \\______/");
     screen_area_puts(ge->map, str1);
     sprintf(str1, "  |___________________|                                      ");
@@ -687,11 +687,7 @@ void graphic_engine_paint_zoom(Graphic_engine *ge, Game *game) {
     sprintf(str1, "                                 |_______________________|       ");
     screen_area_puts(ge->map, str1);
 
-
-
-  }
-  else if(space_get_id(space) == 10)
-  {
+  } else if (space_get_id(space) == 10) {
     sprintf(str1, "                                     ||                          ___/|\\_ ");
     screen_area_puts(ge->map, str1);
     sprintf(str1, "                                     ||                         /__|__|__\\");
@@ -735,9 +731,7 @@ void graphic_engine_paint_zoom(Graphic_engine *ge, Game *game) {
     sprintf(str1, "                                                            |      |");
     screen_area_puts(ge->map, str1);
 
-  }
-  else if (space_get_id(space) == 9)
-  {
+  } else if (space_get_id(space) == 9) {
     sprintf(str1, " ________________________________________________________________________");
     screen_area_puts(ge->map, str1);
     sprintf(str1, " ||  |  |  ||  |  |  ||  |  |  ||  |  |  ||  |  |  ||  |  |  ||  |  |  ||");
@@ -781,9 +775,7 @@ void graphic_engine_paint_zoom(Graphic_engine *ge, Game *game) {
     sprintf(str1, "                                                    ");
     screen_area_puts(ge->map, str1);
 
-  }
-  else if (space_get_id(space) == 11)
-  {
+  } else if (space_get_id(space) == 11) {
     sprintf(str1, "     ________");
     screen_area_puts(ge->map, str1);
     sprintf(str1, "    / / || \\ \\");
@@ -794,8 +786,8 @@ void graphic_engine_paint_zoom(Graphic_engine *ge, Game *game) {
     screen_area_puts(ge->map, str1);
     sprintf(str1, " |_|__|__|__|__||");
     screen_area_puts(ge->map, str1);
-    sprintf(str2, " ||__|__|__|__|_|        ___                                        ___");
-    screen_area_puts(ge->map, str2);
+    sprintf(str1, " ||__|__|__|__|_|        ___                                        ___");
+    screen_area_puts(ge->map, str1);
     sprintf(str1, "    \\ |__|_| /          / /||                                      ||\\ \\");
     screen_area_puts(ge->map, str1);
     sprintf(str1, "_____\\|_|__|/___________\\/_||______________________________________||_\\/__");
@@ -818,9 +810,7 @@ void graphic_engine_paint_zoom(Graphic_engine *ge, Game *game) {
     screen_area_puts(ge->map, str1);
     sprintf(str1, "/\\/\\/\\|__|_|/\\/\\/\\/\\/\\/\\/\\/| |_________________||_________________| |/\\/\\/\\ ");
     screen_area_puts(ge->map, str1);
-  }
-  else if (space_get_id(space) == 2)
-  {
+  } else if (space_get_id(space) == 2) {
     sprintf(str1, " ");
     screen_area_puts(ge->map, str1);
     sprintf(str1, " ");

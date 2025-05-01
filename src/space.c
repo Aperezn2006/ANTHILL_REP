@@ -27,6 +27,7 @@ struct _Space {
   Set *objects;
   Set *characters;
   char gdesc[5][10];
+  char zoom_desc[17][WORD_SIZE];
   Bool discovered;
   Obstacle *obstacle[10];  /*SDL2*/
   int num_obstacles;       /*SDL2*/
@@ -281,6 +282,29 @@ Status space_set_description(Space *space, char description[5][10]) {
 
   for (i = 0; i < 5; i++) {
     strcpy(space->gdesc[i], description[i]);
+  }
+
+  return OK;
+}
+
+/*Manejo de zoom_desc*/
+char *space_get_zoom_description_from_index(Space *space, int n) {
+  if (!space) {
+    return NULL;
+  }
+
+  return space->zoom_desc[n];
+}
+
+Status space_set_zoom_description(Space *space, char description[17][WORD_SIZE]) {
+  int i = 0;
+
+  if (!space || !description) {
+    return ERROR;
+  }
+
+  for (i = 0; i < 5; i++) {
+    strcpy(space->zoom_desc[i], description[i]);
   }
 
   return OK;
