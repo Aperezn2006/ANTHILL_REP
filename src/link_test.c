@@ -152,7 +152,7 @@ void test1_link_set_direction() {
 
 void test2_link_set_direction() {
     Link *link = link_create(1);
-    PRINT_TEST_RESULT(link_set_direction(link, 4) == ERROR);
+    PRINT_TEST_RESULT(link_set_direction(link, -1) == ERROR);
     link_destroy(link);
 }
 
