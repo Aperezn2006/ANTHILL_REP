@@ -643,7 +643,9 @@ Status game_actions_use_sdl(Game *game) {
   player_remove_object(player, object_id);
 
   printf("[DEBUG] Object %ld used successfully. Advancing turn.\n", object_id);
-  return game_increment_turn(game);
+
+  /*return game_increment_turn(game);*/
+  return OK;
 }
 
 Status game_actions_open_sdl(Game *game) {
