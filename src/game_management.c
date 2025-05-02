@@ -167,6 +167,7 @@ Status game_management_load(Game *game, char *file_name, Bool new, Bool SDL) {
   Id dependency;
   Id open_door;
   int turn_amplifier;
+  int uses;
 
   /*SPACE*/
   Space *space = NULL;
@@ -322,6 +323,9 @@ Status game_management_load(Game *game, char *file_name, Bool new, Bool SDL) {
       toks = strtok(NULL, "|");
       turn_amplifier = atoi(toks);
 
+      toks = strtok(NULL, "|");
+      uses = atoi(toks);
+
       if (SDL == TRUE) {
         toks = strtok(NULL, "|");
         x = atoi(toks);
@@ -347,6 +351,7 @@ Status game_management_load(Game *game, char *file_name, Bool new, Bool SDL) {
         object_set_dependency(object, dependency);
         object_set_open(object, open_door);
         object_set_turn_amplifier(object, turn_amplifier);
+        object_set_uses(object, uses);
 
         if (SDL == TRUE) {
           printf("Setting object image [%s]\n", image);
@@ -367,6 +372,7 @@ Status game_management_load(Game *game, char *file_name, Bool new, Bool SDL) {
         if (game_set_object_location(game, location, id) == ERROR) {
           status = ERROR;
         }
+        printf("Object %s is at %li with %d uses\n", object_get_name(object), game_get_object_location(game, id), object_get_uses(object));
       }
 
       /*CHARACTERS*/
