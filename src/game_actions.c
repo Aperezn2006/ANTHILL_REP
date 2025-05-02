@@ -398,45 +398,72 @@ Status game_actions_take(Game *game) {
   char object_name[WORD_SIZE] = "";
 
   if (!game) {
+    printf("[DEBUG] game_actions_take: Error, el juego no es válido.\n");
     return ERROR;
   }
 
   c = game_get_last_command(game);
   if (!c) {
+    printf("[DEBUG] game_actions_take: Error, comando no disponible.\n");
     return ERROR;
   }
 
   strcpy(object_name, command_get_word(c));
+  printf("[DEBUG] game_actions_take: Objeto recibido: '%s'\n", object_name);
 
   if (strcmp(object_name, "") == 0) {
+    printf("[DEBUG] game_actions_take: Nombre de objeto vacío.\n");
     return ERROR;
   }
 
   player_location = game_get_player_location(game);
   if (player_location == NO_ID) {
+    printf("[DEBUG] game_actions_take: La ubicación del jugador es inválida (NO_ID).\n");
     return ERROR;
   }
 
+  printf("[DEBUG] game_actions_take: Ubicación del jugador: %ld\n", player_location);
+
   object_id = game_get_object_id_from_name(game, object_name);
   if (object_id == NO_ID) {
+    printf("[DEBUG] game_actions_take: Objeto no encontrado: '%s'\n", object_name);
     return ERROR;
   } else {
+    printf("[DEBUG] game_actions_take: Objeto encontrado, ID: %ld\n", object_id);
   }
 
   space = game_get_space(game, player_location);
   if (!space) {
+    printf("[DEBUG] game_actions_take: Error, espacio no válido.\n");
     return ERROR;
+  }
+
+  printf("[DEBUG] game_actions_take: Espacio donde el jugador está ubicado: %ld\n", player_location);
+
+  if (space_has_object(space, object_id) == TRUE) {
+    printf("[DEBUG] game_actions_take: El espacio tiene el objeto con ID %ld.\n", object_id);
+  } else {
+    printf("[DEBUG] game_actions_take: El objeto no está en el espacio del jugador.\n");
+  }
+
+  if (game_is_object_movable(game, object_id) == TRUE) {
+    printf("[DEBUG] game_actions_take: El objeto es movible.\n");
+  } else {
+    printf("[DEBUG] game_actions_take: El objeto no es movible.\n");
   }
 
   if (space_has_object(space, object_id) == TRUE && game_is_object_movable(game, object_id) == TRUE) {
     game_set_object_location(game, player_get_id(game_get_current_player(game)), object_id);
+    printf("[DEBUG] game_actions_take: Objeto '%s' tomado con éxito.\n", object_name);
     return game_increment_turn(game);
   } else {
+    printf("[DEBUG] game_actions_take: No se pudo tomar el objeto '%s'.\n", object_name);
     return ERROR;
   }
 
-  return game_increment_turn(game);
+  return game_increment_turn(game); 
 }
+
 
 Status game_actions_drop(Game *game) {
   Id object_id;
@@ -685,6 +712,8 @@ Status game_actions_use(Game *game) {
   Character *character = NULL;
   Player *player = NULL;
   Id character_id;
+  Object *object = NULL;
+  int uses;
 
   if (!game) {
     return ERROR;
@@ -696,30 +725,28 @@ Status game_actions_use(Game *game) {
   }
 
   strcpy(object_name, command_get_word(c));
-
   if (strcmp(object_name, "") == 0) {
     return ERROR;
   }
 
   object_id = game_get_object_id_from_name(game, object_name);
-
   if (object_id == NO_ID) {
     return ERROR;
   }
 
   connector = command_get_connector(c);
-
   if (connector == NO_DEST) {
     return ERROR;
   }
 
   strcpy(destiny, command_get_destiny(c));
-
   if (strcmp(destiny, "") == 0) {
     return ERROR;
   }
 
-  if (player_has_object(game_get_current_player(game), object_id) == TRUE && game_check_object_dependency(game, object_id) == TRUE) {
+  if (player_has_object(game_get_current_player(game), object_id) == TRUE &&
+      game_check_object_dependency(game, object_id) == TRUE) {
+
     if (strcmp(destiny, "player") == 0) {
       if (game_update_player_health(game, object_id) == ERROR) {
         return ERROR;
@@ -736,14 +763,27 @@ Status game_actions_use(Game *game) {
       } else {
         return ERROR;
       }
-      player_remove_object(game_get_current_player(game), object_id);
     }
+
+    object = game_get_object_from_id(game, object_id);
+    if (!object) {
+      return ERROR;
+    }
+
+    uses = object_get_uses(object);
+    if (uses <= 1) {
+      player_remove_object(game_get_current_player(game), object_id);
+    } else {
+      object_set_uses(object, uses - 1);
+    }
+
   } else {
     return ERROR;
   }
 
   return game_increment_turn(game);
 }
+
 
 Status game_actions_open(Game *game) {
   Id object_id = NO_ID;
