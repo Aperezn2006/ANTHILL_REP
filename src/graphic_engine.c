@@ -881,8 +881,8 @@ void graphic_engine_paint_zoom(Graphic_engine *ge, Game *game) {
     screen_area_puts(ge->map, str1);
     sprintf(str1, " |_|__|__|__|__||");
     screen_area_puts(ge->map, str1);
-    sprintf(str2, " ||__|__|__|__|_|        ___                                        ___");
-    screen_area_puts(ge->map, str2);
+    sprintf(str1, " ||__|__|__|__|_|        ___                                        ___");
+    screen_area_puts(ge->map, str1);
     sprintf(str1, "    \\ |__|_| /          / /||                                      ||\\ \\");
     screen_area_puts(ge->map, str1);
     sprintf(str1, "_____\\|_|__|/___________\\/_||______________________________________||_\\/__");
