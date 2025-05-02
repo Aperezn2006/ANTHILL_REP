@@ -736,6 +736,7 @@ Status game_actions_use(Game *game) {
       } else {
         return ERROR;
       }
+      player_remove_object(game_get_current_player(game), object_id);
     }
   } else {
     return ERROR;
@@ -804,6 +805,7 @@ Status game_actions_open(Game *game) {
     } else {
       return ERROR;
     }
+    player_remove_object(game_get_current_player(game), object_id);
   }
 
   return ERROR;
