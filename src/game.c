@@ -50,6 +50,9 @@ Status game_character_chase_player(Game *game, Character *character) {
   if (!character) {
     return ERROR;
   }
+ if (rand() % 2 == 0) {
+    return OK;
+  }
 
   /*leader_id = character_get_following(character);*/
   leader_id = player_get_id(game_get_current_player(game));
