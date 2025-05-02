@@ -45,8 +45,8 @@
 #l:409|HabitacionToVisitas|18|14|0|0|resources/links/closed_N.png|resources/links/open_N.png|
 #l:410|ComedorToPatio|13|17|1|1|resources/links/closed_S.png|resources/links/open_S.png|
 #l:411|PatioToComedor|17|13|0|1|resources/links/closed_N.png|resources/links/open_N.png|
-#l:412|PatioToSotano|17|110|1|1|resources/links/closed_S.png|resources/links/open_S.png|
-#l:413|SotanoToPatio|110|17|0|1|resources/links/closed_N.png|resources/links/open_N.png|
+#l:412|PatioToSotano|17|110|5|1|resources/links/closed_D.png|resources/links/open_D.png|
+#l:413|SotanoToPatio|110|17|4|1|resources/links/closed_U.png|resources/links/open_U.png|
 #l:414|SotanoToPerrera|110|19|2|1|resources/links/closed_E.png|resources/links/open_E.png|
 #l:415|PerreraToSotano|19|110|3|1|resources/links/closed_W.png|resources/links/open_W.png|
 #l:416|PerreraToArchivos|19|15|0|1|resources/links/closed_N.png|resources/links/open_N.png|
