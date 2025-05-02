@@ -461,9 +461,8 @@ Status game_actions_take(Game *game) {
     return ERROR;
   }
 
-  return game_increment_turn(game); 
+  return game_increment_turn(game);
 }
-
 
 Status game_actions_drop(Game *game) {
   Id object_id;
@@ -744,9 +743,7 @@ Status game_actions_use(Game *game) {
     return ERROR;
   }
 
-  if (player_has_object(game_get_current_player(game), object_id) == TRUE &&
-      game_check_object_dependency(game, object_id) == TRUE) {
-
+  if (player_has_object(game_get_current_player(game), object_id) == TRUE && game_check_object_dependency(game, object_id) == TRUE) {
     if (strcmp(destiny, "player") == 0) {
       if (game_update_player_health(game, object_id) == ERROR) {
         return ERROR;
@@ -781,9 +778,9 @@ Status game_actions_use(Game *game) {
     return ERROR;
   }
 
-  return game_increment_turn(game);
+  /*return game_increment_turn(game);*/
+  return OK;
 }
-
 
 Status game_actions_open(Game *game) {
   Id object_id = NO_ID;

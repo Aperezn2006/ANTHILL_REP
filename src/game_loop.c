@@ -153,7 +153,7 @@ void game_loop_run(Game *game, Graphic_engine *gengine, FILE *log_file) {
     }
     command_get_user_input(last_cmd);
     game_actions_update(game, last_cmd);
-    update_game(game);
+    update_game(game, last_cmd);
     last_cmd = game_get_last_command(game);
 
     if (log_file) {

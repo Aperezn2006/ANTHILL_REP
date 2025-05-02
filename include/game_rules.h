@@ -3,6 +3,6 @@
 
 #include "game.h"
 
-void update_game(Game *game);
+void update_game(Game *game, Command *cmd);
 
 #endif /* UPDATE_GAME_H */
