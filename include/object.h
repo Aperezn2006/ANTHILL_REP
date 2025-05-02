@@ -141,6 +141,23 @@ Status object_set_turn_amplifier(Object *object, int turn_amplifier);
  * @return the amount of turns the object increases
  */
 int object_get_turn_amplifier(Object *object);
+/**
+ * @brief It set the uses an object has
+ * @author Ana
+ *
+ * @param object a pointer to the object
+ * @return OK, if everything goes well or ERROR if there was some mistake
+ */
+Status object_set_uses(Object *object, int uses);
+/**
+ * @brief It gets the amount of uses the object has
+ * @author Ana
+ *
+ * @param object a pointer to the object
+ * @return the amount of uses the object has
+ */
+int object_get_uses(const Object *object);
+
 
 /*Management of image*/
 /**
