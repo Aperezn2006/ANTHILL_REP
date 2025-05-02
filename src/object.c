@@ -28,6 +28,7 @@ struct _Object {
   int turn_amplifier;
   char image[MAX_IMAGE]; /*!< Path to the object's image (for SDL2)*/
   int x, y;              /*!< Object's position*/
+  int uses;
 };
 
 /*Create & destroy*/
@@ -58,6 +59,8 @@ Object *object_create(Id id, Id location) {
   newobject->image[0] = '\0';
   newobject->x = 0;
   newobject->y = 0;
+  newobject->uses = 1;
+
 
   return newobject;
 }
@@ -254,6 +257,22 @@ int object_get_turn_amplifier(Object *object) { /*CdE*/
 
   return object->turn_amplifier;
 }
+
+Status object_set_uses(Object *object, int uses) {
+  if (!object || uses < 0) {
+    return ERROR;
+  }
+  object->uses = uses;
+  return OK;
+}
+
+int object_get_uses(const Object *object) {
+  if (!object) {
+    return -1; /* Valor inválido */
+  }
+  return object->uses;
+}
+
 
 /*Management of image*/
 /**
