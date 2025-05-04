@@ -229,6 +229,9 @@ void game_actions_update_sdl(Game *game, int seed) {
     game_actions_inspect_sdl(game);
   }
 
+  if (game_input.chat == KS_PRESSED) {
+    game_actions_chat_sdl(game);
+  }
   /* USAR OBJETO */
 
   /* ABRIR PUERTA O CONTENEDOR */

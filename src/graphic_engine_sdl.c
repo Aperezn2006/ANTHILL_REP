@@ -27,7 +27,7 @@ struct _Graphic_engine_sdl {
   TTF_Font *character_health[MAX_CHARACTERS];
   SDL_Texture *character_health_textures[MAX_CHARACTERS];
   TTF_Font *character_name[MAX_CHARACTERS];
-  SDL_Texture *character_name_texture[MAX_CHARACTERS];
+  SDL_Texture *character_name_textures[MAX_CHARACTERS];
   TTF_Font *character_message;
   SDL_Texture *character_message_texture;
 };
@@ -187,7 +187,7 @@ Graphic_engine_sdl *graphic_engine_create_sdl() {
 
   for (i = 0; i < MAX_CHARACTERS; i++) {
     gengine->character_health_textures[i] = NULL;
-    gengine->character_name_texture[i] = NULL;
+    gengine->character_name_textures[i] = NULL;
   }
 
   return gengine;
@@ -297,9 +297,9 @@ void graphic_engine_destroy_sdl(Graphic_engine_sdl *gengine) {
       gengine->character_health_textures[i] = NULL;
     }
 
-    if (gengine->character_name_texture[i]) {
-      SDL_DestroyTexture(gengine->character_name_texture[i]);
-      gengine->character_name_texture[i] = NULL;
+    if (gengine->character_name_textures[i]) {
+      SDL_DestroyTexture(gengine->character_name_textures[i]);
+      gengine->character_name_textures[i] = NULL;
     }
   }
 
@@ -328,7 +328,7 @@ void graphic_engine_render_sdl(Graphic_engine_sdl *gengine, Game *game) {
   int inv_x, inv_y;
   const char *player_path = NULL;
   const char *background_path = NULL;
-  /*SDL_Color black_text_color = {0, 0, 0, 255};*/
+  SDL_Color black_text_color = {0, 0, 0, 255};
   SDL_Color red_text_color = {255, 0, 0, 0};
   SDL_Color white_text_color = {255, 255, 255, 0};
   char aux_string[WORD_SIZE];
@@ -382,20 +382,20 @@ void graphic_engine_render_sdl(Graphic_engine_sdl *gengine, Game *game) {
   /*gengine->chat_texture = load_texture(gengine->renderer, "resources/bocadillo.png");*/
 
   SDL_Surface *message_textSurface = TTF_RenderText_Solid(
-      gengine->character_message, (game_get_message(game)[0] == '\0' ? "Talk to someone" : game_get_message(game)), white_text_color);
+      gengine->character_message,
+      ((game_get_message(game)[0] == '\0' || strcmp(game_get_message(game), ".") == 0) ? "Talk to someone" : game_get_message(game)),
+      white_text_color);
   if (!message_textSurface) {
     printf("Failed to create text surface: %s\n", TTF_GetError());
     return;
   }
 
-  // Create texture from surface
   gengine->character_message_texture = SDL_CreateTextureFromSurface(gengine->renderer, message_textSurface);
   if (!gengine->character_message_texture) {
     printf("Failed to create text texture: %s\n", SDL_GetError());
     return;
   }
 
-  // Render text
   /*SDL_Rect message_rect = {10 * SDL_TILE_SIZE, SDL_MAP_HEIGHT + SDL_INFO_HEIGHT / 2 - message_textSurface->h, 2 * message_textSurface->w,
                            2 * message_textSurface->h};
   SDL_RenderCopy(gengine->renderer, gengine->chat_texture, NULL, &message_rect);*/
@@ -405,7 +405,25 @@ void graphic_engine_render_sdl(Graphic_engine_sdl *gengine, Game *game) {
   SDL_RenderCopy(gengine->renderer, gengine->character_message_texture, NULL, &message_textRect);
   /*Chat*/
 
+  for (i = 0; i < MAX_OBJECTS; i++) {
+    obj = game_get_object_from_index(game, i);
+    if (obj && (game_get_object_location(game, object_get_id(obj)) == id_act)) {
+      obj_x = object_get_x(obj);
+      obj_y = object_get_y(obj);
+      SDL_Rect obj_rect = {obj_x * SDL_TILE_SIZE, obj_y * SDL_TILE_SIZE, SDL_OBJECT_HW, SDL_OBJECT_HW};
+      printf(":::::: About to load [%s]\n", object_get_image(obj));
+      gengine->object_textures[i] = load_texture(gengine->renderer, object_get_image(obj));
+
+      if (gengine->object_textures[i]) {
+        SDL_RenderCopy(gengine->renderer, gengine->object_textures[i], NULL, &obj_rect);
+      } else {
+        printf("Warning: Object texture is NULL.\n");
+      }
+    }
+  }
+
   /*TTF*/
+  /*Health*/
   sprintf(aux_string, "|");
   for (i = 0; i < player_get_health(player) - 1; i++) {
     strcat(aux_string, "|");
@@ -416,16 +434,31 @@ void graphic_engine_render_sdl(Graphic_engine_sdl *gengine, Game *game) {
     return;
   }
 
-  // Create texture from surface
   gengine->player_health_textures[0] = SDL_CreateTextureFromSurface(gengine->renderer, textSurface);
   if (!gengine->player_health_textures[0]) {
     printf("Failed to create text texture: %s\n", SDL_GetError());
     return;
   }
 
-  // Render text
-  SDL_Rect textRect = {player_x * SDL_TILE_SIZE + SDL_PLAYER_HW / 2 - (textSurface->h / 2), player_y * SDL_TILE_SIZE, textSurface->w, textSurface->h};
+  SDL_Rect textRect = {player_x * SDL_TILE_SIZE + SDL_PLAYER_HW / 2 - (textSurface->w / 2), player_y * SDL_TILE_SIZE, textSurface->w, textSurface->h};
   SDL_RenderCopy(gengine->renderer, gengine->player_health_textures[0], NULL, &textRect);
+
+  /*Name*/
+  SDL_Surface *name_textSurface = TTF_RenderText_Solid(gengine->player_name[0], player_get_name(player), black_text_color);
+  if (!name_textSurface) {
+    printf("Failed to create text surface: %s\n", TTF_GetError());
+    return;
+  }
+
+  gengine->player_name_textures[0] = SDL_CreateTextureFromSurface(gengine->renderer, name_textSurface);
+  if (!gengine->player_name_textures[0]) {
+    printf("Failed to create text texture: %s\n", SDL_GetError());
+    return;
+  }
+
+  SDL_Rect name_textRect = {player_x * SDL_TILE_SIZE + SDL_PLAYER_HW / 2 - (name_textSurface->w / 2), player_y * SDL_TILE_SIZE + SDL_PLAYER_HW,
+                            name_textSurface->w, name_textSurface->h};
+  SDL_RenderCopy(gengine->renderer, gengine->player_name_textures[0], NULL, &name_textRect);
   /*TTF*/
 
   /* Load player image dynamically */
@@ -449,23 +482,38 @@ void graphic_engine_render_sdl(Graphic_engine_sdl *gengine, Game *game) {
       for (i = 0; i < character_get_health(character) - 1; i++) {
         strcat(aux_string, "|");
       }
-      SDL_Surface *textSurface = TTF_RenderText_Solid(gengine->character_health[0], aux_string, red_text_color);
+      SDL_Surface *textSurface = TTF_RenderText_Solid(gengine->character_health[i], aux_string, red_text_color);
       if (!textSurface) {
         printf("Failed to create text surface: %s\n", TTF_GetError());
         return;
       }
 
-      // Create texture from surface
-      gengine->character_health_textures[0] = SDL_CreateTextureFromSurface(gengine->renderer, textSurface);
-      if (!gengine->character_health_textures[0]) {
+      gengine->character_health_textures[i] = SDL_CreateTextureFromSurface(gengine->renderer, textSurface);
+      if (!gengine->character_health_textures[i]) {
         printf("Failed to create text texture: %s\n", SDL_GetError());
         return;
       }
 
-      // Render text
-      SDL_Rect textRect = {character_x * SDL_TILE_SIZE + 20 * SDL_SCREEN_ZOOM - (textSurface->h / 2), character_y * SDL_TILE_SIZE, textSurface->w,
+      SDL_Rect textRect = {character_x * SDL_TILE_SIZE + SDL_PLAYER_HW / 2 - (textSurface->w / 2), character_y * SDL_TILE_SIZE, textSurface->w,
                            textSurface->h};
-      SDL_RenderCopy(gengine->renderer, gengine->character_health_textures[0], NULL, &textRect);
+      SDL_RenderCopy(gengine->renderer, gengine->character_health_textures[i], NULL, &textRect);
+
+      /*Name*/
+      SDL_Surface *name_textSurface = TTF_RenderText_Solid(gengine->character_name[i], character_get_name(character), black_text_color);
+      if (!name_textSurface) {
+        printf("Failed to create text surface: %s\n", TTF_GetError());
+        return;
+      }
+
+      gengine->character_name_textures[i] = SDL_CreateTextureFromSurface(gengine->renderer, name_textSurface);
+      if (!gengine->character_name_textures[i]) {
+        printf("Failed to create text texture: %s\n", SDL_GetError());
+        return;
+      }
+
+      SDL_Rect name_textRect = {character_x * SDL_TILE_SIZE + SDL_PLAYER_HW / 2 - (name_textSurface->w / 2),
+                                character_y * SDL_TILE_SIZE + SDL_PLAYER_HW, name_textSurface->w, name_textSurface->h};
+      SDL_RenderCopy(gengine->renderer, gengine->character_name_textures[i], NULL, &name_textRect);
       /*TTF*/
 
       int blink_timer = character_get_blink_timer(character);
@@ -544,23 +592,6 @@ void graphic_engine_render_sdl(Graphic_engine_sdl *gengine, Game *game) {
     player_update_blink_timer(player);
   } else {
     printf("Warning: Ant texture is NULL.\n");
-  }
-
-  for (i = 0; i < MAX_OBJECTS; i++) {
-    obj = game_get_object_from_index(game, i);
-    if (obj && (game_get_object_location(game, object_get_id(obj)) == id_act)) {
-      obj_x = object_get_x(obj);
-      obj_y = object_get_y(obj);
-      SDL_Rect obj_rect = {obj_x * SDL_TILE_SIZE, obj_y * SDL_TILE_SIZE, SDL_OBJECT_HW, SDL_OBJECT_HW};
-      printf(":::::: About to load [%s]\n", object_get_image(obj));
-      gengine->object_textures[i] = load_texture(gengine->renderer, object_get_image(obj));
-
-      if (gengine->object_textures[i]) {
-        SDL_RenderCopy(gengine->renderer, gengine->object_textures[i], NULL, &obj_rect);
-      } else {
-        printf("Warning: Object texture is NULL.\n");
-      }
-    }
   }
 
   /*Render inventory*/
