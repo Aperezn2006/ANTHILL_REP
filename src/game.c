@@ -50,7 +50,7 @@ Status game_character_chase_player(Game *game, Character *character) {
   if (!character) {
     return ERROR;
   }
- if (rand() % 2 == 0) {
+  if (rand() % 2 == 0) {
     return OK;
   }
 
@@ -59,20 +59,32 @@ Status game_character_chase_player(Game *game, Character *character) {
   if (leader_id == NO_ID || leader_id != player_get_id(game_get_current_player(game))) {
     return OK;
   } else {
-    if (character_get_x(character) > (player_get_x(game_get_player(game, leader_id)) + 5)) {
-      new_x = character_get_x(character) - 1;
-    } else if (character_get_x(character) < (player_get_x(game_get_player(game, leader_id)) - 5)) {
-      new_x = character_get_x(character) + 1;
-    } else {
-      new_x = character_get_x(character);
-    }
-
     if (character_get_y(character) > (player_get_y(game_get_player(game, leader_id)) + 5)) {
       new_y = character_get_y(character) - 1;
+      character_toggle_curr_image_mode(character);
+      character_set_image(character, (char *)character_get_north_image(character, 0), (char *)character_get_north_image(character, 1),
+                          (char *)character_get_north_image(character, 2));
     } else if (character_get_y(character) < (player_get_y(game_get_player(game, leader_id)) - 5)) {
       new_y = character_get_y(character) + 1;
+      character_toggle_curr_image_mode(character);
+      character_set_image(character, (char *)character_get_south_image(character, 0), (char *)character_get_south_image(character, 1),
+                          (char *)character_get_south_image(character, 2));
     } else {
       new_y = character_get_y(character);
+    }
+
+    if (character_get_x(character) > (player_get_x(game_get_player(game, leader_id)) + 5)) {
+      new_x = character_get_x(character) - 1;
+      character_toggle_curr_image_mode(character);
+      character_set_image(character, (char *)character_get_west_image(character, 0), (char *)character_get_west_image(character, 1),
+                          (char *)character_get_west_image(character, 2));
+    } else if (character_get_x(character) < (player_get_x(game_get_player(game, leader_id)) - 5)) {
+      new_x = character_get_x(character) + 1;
+      character_toggle_curr_image_mode(character);
+      character_set_image(character, (char *)character_get_east_image(character, 0), (char *)character_get_east_image(character, 1),
+                          (char *)character_get_east_image(character, 2));
+    } else {
+      new_x = character_get_x(character);
     }
 
     character_set_position(character, new_x, new_y);

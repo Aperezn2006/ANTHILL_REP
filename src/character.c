@@ -234,7 +234,7 @@ Status character_set_following(Character *character, Id id) {
   return OK;
 }
 
-//*Management of image*/
+/*Management of image*/
 /* Set character current_image */
 Status character_set_image(Character *character, char *image1, char *image2, char *image3) {
   if (!character || !image1 || !image2 || !image3) {
