@@ -148,9 +148,6 @@ Status game_management_load(Game *game, char *file_name, Bool new, Bool SDL) {
   int player_max_obj = 0;
   char player_desc[7];
   Id location = NO_ID;
-  char north_image_1[MAX_MESSAGE], east_image_1[MAX_MESSAGE], south_image_1[MAX_MESSAGE], west_image_1[MAX_MESSAGE]; /*SDL2*/
-  char north_image_2[MAX_MESSAGE], east_image_2[MAX_MESSAGE], south_image_2[MAX_MESSAGE], west_image_2[MAX_MESSAGE]; /*SDL2*/
-  char north_image_3[MAX_MESSAGE], east_image_3[MAX_MESSAGE], south_image_3[MAX_MESSAGE], west_image_3[MAX_MESSAGE]; /*SDL2*/
   int max_turns;
 
   /*CHARACTER*/
@@ -172,7 +169,7 @@ Status game_management_load(Game *game, char *file_name, Bool new, Bool SDL) {
   /*SPACE*/
   Space *space = NULL;
   char space_desc[5][10];
-  char space_zoom_desc[17][WORD_SIZE];
+  /*char space_zoom_desc[17][WORD_SIZE];*/
   Bool discovered = FALSE; /*PREVIOUS*/
 
   /*LINK*/
@@ -201,6 +198,9 @@ Status game_management_load(Game *game, char *file_name, Bool new, Bool SDL) {
   Status status = OK;
   char image[WORD_SIZE] = ""; /*SDL2*/
   int x, y;
+  char north_image_1[MAX_MESSAGE], east_image_1[MAX_MESSAGE], south_image_1[MAX_MESSAGE], west_image_1[MAX_MESSAGE]; /*SDL2*/
+  char north_image_2[MAX_MESSAGE], east_image_2[MAX_MESSAGE], south_image_2[MAX_MESSAGE], west_image_2[MAX_MESSAGE]; /*SDL2*/
+  char north_image_3[MAX_MESSAGE], east_image_3[MAX_MESSAGE], south_image_3[MAX_MESSAGE], west_image_3[MAX_MESSAGE]; /*SDL2*/
 
   /*CdE*/
   if (!game || !file_name) {
@@ -241,10 +241,10 @@ Status game_management_load(Game *game, char *file_name, Bool new, Bool SDL) {
         discovered = atol(toks);  /*PREVIOUS*/
       }
 
-      for (i = 0; i < 17; i++) {
+      /*for (i = 0; i < 17; i++) {
         toks = strtok(NULL, "|");
         strcpy(space_zoom_desc[i], toks);
-      }
+      }*/
 
       toks = strtok(NULL, "|");
       if (toks) {
@@ -277,7 +277,7 @@ Status game_management_load(Game *game, char *file_name, Bool new, Bool SDL) {
           space_set_discovered(space, discovered); /*PREVIOUS*/
         }
 
-        space_set_zoom_description(space, space_zoom_desc);
+        /*space_set_zoom_description(space, space_zoom_desc);*/
         space_set_description(space, space_desc);
 
         if (game_add_space(game, space) == ERROR) {
@@ -413,10 +413,63 @@ Status game_management_load(Game *game, char *file_name, Bool new, Bool SDL) {
 
         toks = strtok(NULL, "|");
         if (toks) {
-          strcpy(image, toks);
+          strcpy(north_image_1, toks);
         }
 
-        printf("----------Image path is [%s]\n", image);
+        toks = strtok(NULL, "|");
+        if (toks) {
+          strcpy(north_image_2, toks);
+        }
+
+        toks = strtok(NULL, "|");
+        if (toks) {
+          strcpy(north_image_3, toks);
+        }
+
+        toks = strtok(NULL, "|");
+        if (toks) {
+          strcpy(east_image_1, toks);
+        }
+
+        toks = strtok(NULL, "|");
+        if (toks) {
+          strcpy(east_image_2, toks);
+        }
+
+        toks = strtok(NULL, "|");
+        if (toks) {
+          strcpy(east_image_3, toks);
+        }
+
+        toks = strtok(NULL, "|");
+        if (toks) {
+          strcpy(south_image_1, toks);
+        }
+
+        toks = strtok(NULL, "|");
+        if (toks) {
+          strcpy(south_image_2, toks);
+        }
+
+        toks = strtok(NULL, "|");
+        if (toks) {
+          strcpy(south_image_3, toks);
+        }
+
+        toks = strtok(NULL, "|");
+        if (toks) {
+          strcpy(west_image_1, toks);
+        }
+
+        toks = strtok(NULL, "|");
+        if (toks) {
+          strcpy(west_image_2, toks);
+        }
+
+        toks = strtok(NULL, "|");
+        if (toks) {
+          strcpy(west_image_3, toks);
+        }
       }
 
       character = character_create(id);
@@ -428,8 +481,20 @@ Status game_management_load(Game *game, char *file_name, Bool new, Bool SDL) {
         character_set_friendly(character, character_friendliness);
 
         if (SDL == TRUE) {
-          character_set_image(character, image);
           character_set_position(character, x, y);
+          character_set_image(character, north_image_1, north_image_2, north_image_3);
+          character_set_north_image(character, north_image_1, 0);
+          character_set_north_image(character, north_image_2, 1);
+          character_set_north_image(character, north_image_3, 2);
+          character_set_east_image(character, east_image_1, 0);
+          character_set_east_image(character, east_image_2, 1);
+          character_set_east_image(character, east_image_3, 2);
+          character_set_south_image(character, south_image_1, 0);
+          character_set_south_image(character, south_image_2, 1);
+          character_set_south_image(character, south_image_3, 2);
+          character_set_west_image(character, west_image_1, 0);
+          character_set_west_image(character, west_image_2, 1);
+          character_set_west_image(character, west_image_3, 2);
         }
 
         if (game_add_character(game, character) == ERROR) {

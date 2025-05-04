@@ -211,24 +211,38 @@ Id character_get_following(Character *character);
 Status character_set_following(Character *character, Id id);
 
 /*Management of image*/
+Status character_toggle_curr_image_mode(Character *character);
+
 /**
- * @brief It sets the character's image_path
+ * @brief It sets the character's current image_path
  * @author Beatriz, Arturo, Rubén, Ana
  *
  * @param character a pointer to the character
  * @param image the path to the character's image
  * @return OK, if everything goes well or ERROR if there was some mistake
  */
-Status character_set_image(Character *character, char *image);
+Status character_set_image(Character *character, char *image1, char *image2, char *image3);
 
 /**
- * @brief It gets the character's image_path
+ * @brief It gets the character's current image_path
  * @author Beatriz, Arturo, Rubén, Ana
  *
  * @param character a pointer to the character
  * @return the path to the character's image
  */
 char *character_get_image(Character *character);
+
+Status character_set_north_image(Character *character, const char *north_image, int sprite);
+const char *character_get_north_image(const Character *character, int sprite);
+
+Status character_set_east_image(Character *character, const char *east_image, int sprite);
+const char *character_get_east_image(const Character *character, int sprite);
+
+Status character_set_south_image(Character *character, const char *south_image, int sprite);
+const char *character_get_south_image(const Character *character, int sprite);
+
+Status character_set_west_image(Character *character, const char *west_image, int sprite);
+const char *character_get_west_image(const Character *character, int sprite);
 
 /*Management of position*/
 /**

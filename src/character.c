@@ -27,8 +27,14 @@ struct _Character {
   Bool friendly;             /*!< Indicates whether the character is hostile or not */
   char message[MAX_MESSAGE]; /*!< It saves the message*/
   Id following;
-  char image[MAX_IMAGE]; /*!< Path to the character's image (for SDL2)*/
-  int x, y;              /*!< Character's position*/
+  char current_image[3][MAX_IMAGE]; /*!< Path to the character's image (for SDL2)*/
+  char north_image[3][MAX_MESSAGE]; /*!< Path to the character's image (for SDL2)*/
+  char east_image[3][MAX_MESSAGE];  /*!< Path to the character's image (for SDL2)*/
+  char south_image[3][MAX_MESSAGE]; /*!< Path to the character's image (for SDL2)*/
+  char west_image[3][MAX_MESSAGE];  /*!< Path to the character's image (for SDL2)*/
+  int curr_image_mode;              /*!< Identifies which image is being used*/
+  int sprite_slowed;
+  int x, y; /*!< Character's position*/
   int blink_timer;
 };
 
@@ -62,7 +68,16 @@ Character *character_create(Id id) {
   newcharacter->friendly = TRUE;
   newcharacter->message[0] = '\0';
   newcharacter->following = NO_ID;
-  newcharacter->image[0] = '\0';
+  newcharacter->current_image[0][0] = '\0';
+  newcharacter->current_image[1][0] = '\0';
+  newcharacter->north_image[0][0] = '\0';
+  newcharacter->north_image[1][0] = '\0';
+  newcharacter->east_image[0][0] = '\0';
+  newcharacter->east_image[1][0] = '\0';
+  newcharacter->south_image[0][0] = '\0';
+  newcharacter->south_image[1][0] = '\0';
+  newcharacter->west_image[0][0] = '\0';
+  newcharacter->west_image[1][0] = '\0';
   newcharacter->x = 0;
   newcharacter->y = 0;
   newcharacter->blink_timer = 0;
@@ -219,29 +234,112 @@ Status character_set_following(Character *character, Id id) {
   return OK;
 }
 
-/*Management of image*/
-/**
- * @brief It sets the character's image_path
- */
-Status character_set_image(Character *character, char *image) {
-  if (!character) {
+//*Management of image*/
+/* Set character current_image */
+Status character_set_image(Character *character, char *image1, char *image2, char *image3) {
+  if (!character || !image1 || !image2 || !image3) {
     return ERROR;
   }
+  strncpy(character->current_image[0], image1, MAX_MESSAGE - 1);
+  strncpy(character->current_image[1], image2, MAX_MESSAGE - 1);
+  strncpy(character->current_image[2], image3, MAX_MESSAGE - 1);
 
-  strcpy(character->image, image);
+  character->current_image[0][MAX_MESSAGE - 1] = '\0';
+  character->current_image[1][MAX_MESSAGE - 1] = '\0';
+  character->current_image[2][MAX_MESSAGE - 1] = '\0';
 
   return OK;
 }
 
-/**
- * @brief It gets the character's image_path
- */
+/* Get character image */
+Status character_toggle_curr_image_mode(Character *character) {
+  if (!character) {
+    return ERROR;
+  }
+
+  if (character->curr_image_mode < 2 && character->sprite_slowed == 4) {
+    character->curr_image_mode++;
+    character->sprite_slowed = 0;
+  } else if (character->curr_image_mode == 2 && character->sprite_slowed == 4) {
+    character->curr_image_mode = 0;
+    character->sprite_slowed = 0;
+  } else {
+    character->sprite_slowed++;
+  }
+
+  printf("CURRENT IMAGE MODE IS %i, SPRITE Nº %i\n", character->curr_image_mode, character->sprite_slowed);
+
+  return OK;
+}
+
 char *character_get_image(Character *character) {
   if (!character) {
     return NULL;
   }
 
-  return character->image;
+  printf("IMAGE PATH IS %s\n", character->current_image[character->curr_image_mode]);
+
+  return character->current_image[character->curr_image_mode];
+}
+
+/* Set character north_image */
+Status character_set_north_image(Character *character, const char *north_image, int sprite) {
+  if (!character || !north_image) {
+    return ERROR;
+  }
+  strncpy(character->north_image[sprite], north_image, MAX_MESSAGE - 1);
+  character->north_image[sprite][MAX_MESSAGE - 1] = '\0';
+  return OK;
+}
+
+/* Get character north_image */
+const char *character_get_north_image(const Character *character, int sprite) {
+  if (!character) {
+    return NULL;
+  }
+  return character->north_image[sprite];
+}
+
+/* Set character east_image */
+Status character_set_east_image(Character *character, const char *east_image, int sprite) {
+  if (!character || !east_image) return ERROR;
+  strncpy(character->east_image[sprite], east_image, MAX_MESSAGE - 1);
+  character->east_image[sprite][MAX_MESSAGE - 1] = '\0';
+  return OK;
+}
+
+/* Get character east_image */
+const char *character_get_east_image(const Character *character, int sprite) {
+  if (!character) return NULL;
+  return character->east_image[sprite];
+}
+
+/* Get character south_image */
+const char *character_get_south_image(const Character *character, int sprite) {
+  if (!character) return NULL;
+  return character->south_image[sprite];
+}
+
+/* Set character south_image */
+Status character_set_south_image(Character *character, const char *south_image, int sprite) {
+  if (!character || !south_image) return ERROR;
+  strncpy(character->south_image[sprite], south_image, MAX_MESSAGE - 1);
+  character->south_image[sprite][MAX_MESSAGE - 1] = '\0';
+  return OK;
+}
+
+/* Get character west_image */
+const char *character_get_west_image(const Character *character, int sprite) {
+  if (!character) return NULL;
+  return character->west_image[sprite];
+}
+
+/* Set character west_image */
+Status character_set_west_image(Character *character, const char *west_image, int sprite) {
+  if (!character || !west_image) return ERROR;
+  strncpy(character->west_image[sprite], west_image, MAX_MESSAGE - 1);
+  character->west_image[sprite][MAX_MESSAGE - 1] = '\0';
+  return OK;
 }
 
 /*Management of position*/

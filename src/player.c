@@ -37,9 +37,9 @@ struct _Player {
   char south_image[3][MAX_MESSAGE]; /*!< Path to the player's image (for SDL2)*/
   char west_image[3][MAX_MESSAGE];  /*!< Path to the player's image (for SDL2)*/
   int curr_image_mode;              /*!< Identifies which image is being used*/
-  int x, y;                         /*!< Player's position*/
-  Gun *current_gun;                 /*SDL2*/
   int sprite_slowed;
+  int x, y;         /*!< Player's position*/
+  Gun *current_gun; /*SDL2*/
   int blink_timer;
 };
 int player_get_blink_timer(Player *player) { return player ? player->blink_timer : 0; }
