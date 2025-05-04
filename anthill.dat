@@ -33,7 +33,6 @@
 #s:140|HallCentral|.|
 #s:141|Cocina|.|
 
-
 #o:20|Llave|5|0|1|-1|-1|Open chair|0|10|
 #o:21|Hueso|3|0|1|-1|-1|Domesticate|0|5|
 #o:22|Donut|3|1|1|-1|-1|Ñum Ñum|0|1|
@@ -52,15 +51,14 @@
 #o:35|Dinamita|6|7|1|-1|-1|Explosivo para abrir paso|0|1|
 
 #c:50|Enfermo|2|4|()__/\|Hello|TRUE|
-#c:51|Policia|11|4|/()\|Hello|FALSE|
+#c:51|Policia|11|4|/()\ |Hello|FALSE|
 #c:52|Perro|9|4|U.^.U|Hello|FALSE|
 #c:53|Familiar|4|4|()__()|Hello|TRUE|
-#c:60|Prisionero1|3|4|(-_-)||TRUE|    
-#c:61|Prisionero2|7|4|(-_-)||TRUE|    
-#c:62|Guardia1|3|4|/O_O\||FALSE|      
-#c:63|Guardia2|7|4|/O_O\||FALSE|      
-#c:64|Guardia3|140|4|/O_O\||FALSE|   
-
+#c:60|Prisionero1|3|4|(-_-) |.|TRUE|    
+#c:61|Prisionero2|7|4|(-_-) |.|TRUE|    
+#c:62|Guardia1|10|4|/O_O\ |.|FALSE|      
+#c:63|Guardia2|7|4|/O_O\ |.|FALSE|      
+#c:64|Guardia3|140|4|/O_O\ |.|FALSE|   
 
 /*id|name|origin|destination|direction|open*/
 
@@ -82,51 +80,50 @@
 #l:115|PerreraToSotano|9|10|3|1|
 #l:116|PerreraToArchivos|9|5|0|1|
 #l:117|ArchivosToPerrera|5|9|1|1|
-#l:118|SotanoToAlmacen|10|120|1|0|
-#l:119|AlmacenToSotano|120|10|0|0|
-#l:120|AlmacenToTunelSecreto1|120|121|2|0|
-#l:121|TunelSecreto1ToAlmacen|121|120|3|0|
-#l:122|TunelSecreto1ToTunelSecreto2|121|122|1|0|
-#l:123|TunelSecreto2ToTunelSecreto1|122|121|0|0|
-#l:124|TunelSecreto2ToSalaMaquinas|122|123|2|0|
-#l:125|SalaMaquinasToTunelSecreto2|123|122|3|0|
-#l:126|SalaMaquinasToCeldasCastigo|123|124|4|0|
-#l:127|CeldasCastigoToSalaMaquinas|124|123|5|0|
-#l:128|SotanoToLaboratorio|10|125|3|0|
-#l:129|LaboratorioToSotano|125|10|2|0|
-#l:130|LaboratorioToBoveda|125|126|1|0|
-#l:131|BovedaToLaboratorio|126|125|0|0|
-#l:132|BovedaToNivel1|126|127|4|0|
-#l:133|Nivel1ToBoveda|127|126|5|0|
-#l:134|Nivel1ToNivel2|127|128|1|0|
-#l:135|Nivel2ToNivel1|128|127|0|0|
-#l:136|Nivel2ToNivel3|128|129|1|0|
-#l:137|Nivel3ToNivel2|129|128|0|0|
-#l:138|Nivel3ToPasilloSur|129|130|2|0|
-#l:139|PasilloSurToNivel3|130|129|3|0|
-#l:140|PasilloSurToPasilloNorte|130|131|1|0|
-#l:141|PasilloNorteToPasilloSur|131|130|0|0|
-#l:142|PasilloNorteToPasilloEste|131|132|2|0|
-#l:143|PasilloEsteToPasilloNorte|132|131|3|0|
-#l:144|PasilloEsteToPasilloOeste|132|133|1|0|
-#l:145|PasilloOesteToPasilloEste|133|132|0|0|
-#l:146|PasilloOesteToSalaControl|133|134|4|0|
-#l:147|SalaControlToPasilloOeste|134|133|5|0|
-#l:148|SalaControlToSalaTesoro|134|135|1|0|  
-#l:149|SalaTesoroToSalaControl|135|134|0|0|
-#l:150|SalaControlToTrampa1|134|136|2|0|    
-#l:151|Trampa1ToSalaControl|136|134|3|0|
-#l:152|SalaControlToTrampa2|134|137|3|0|    
-#l:153|Trampa2ToSalaControl|137|134|2|0|
-#l:154|SalaControlToTrampa3|134|138|4|0|    
-#l:155|Trampa3ToSalaControl|138|134|5|0|
-#l:156|SalaTesoroToSalidaSecreta|135|139|1|0|
-#l:157|SalidaSecretaToSalaTesoro|139|135|0|0|
+#l:118|SotanoToAlmacen|10|120|1|1|
+#l:119|AlmacenToSotano|120|10|0|1|
+#l:120|AlmacenToTunelSecreto1|120|121|2|1|
+#l:121|TunelSecreto1ToAlmacen|121|120|3|1|
+#l:122|TunelSecreto1ToTunelSecreto2|121|122|1|1|
+#l:123|TunelSecreto2ToTunelSecreto1|122|121|0|1|
+#l:124|TunelSecreto2ToSalaMaquinas|122|123|2|1|
+#l:125|SalaMaquinasToTunelSecreto2|123|122|3|1|
+#l:126|SalaMaquinasToCeldasCastigo|123|124|4|1|
+#l:127|CeldasCastigoToSalaMaquinas|124|123|5|1|
+#l:128|SotanoToLaboratorio|10|125|3|1|
+#l:129|LaboratorioToSotano|125|10|2|1|
+#l:130|LaboratorioToBoveda|125|126|1|1|
+#l:131|BovedaToLaboratorio|126|125|0|1|
+#l:132|BovedaToNivel1|126|127|4|1|
+#l:133|Nivel1ToBoveda|127|126|5|1|
+#l:134|Nivel1ToNivel2|127|128|1|1|
+#l:135|Nivel2ToNivel1|128|127|0|1|
+#l:136|Nivel2ToNivel3|128|129|1|1|
+#l:137|Nivel3ToNivel2|129|128|0|1|
+#l:138|Nivel3ToPasilloSur|129|130|2|1|
+#l:139|PasilloSurToNivel3|130|129|3|1|
+#l:140|PasilloSurToPasilloNorte|130|131|1|1|
+#l:141|PasilloNorteToPasilloSur|131|130|0|1|
+#l:142|PasilloNorteToPasilloEste|131|132|2|1|
+#l:143|PasilloEsteToPasilloNorte|132|131|3|1|
+#l:144|PasilloEsteToPasilloOeste|132|133|1|1|
+#l:145|PasilloOesteToPasilloEste|133|132|0|1|
+#l:146|PasilloOesteToSalaControl|133|134|4|1|
+#l:147|SalaControlToPasilloOeste|134|133|5|1|
+#l:148|SalaControlToSalaTesoro|134|135|1|1|  
+#l:149|SalaTesoroToSalaControl|135|134|0|1|
+#l:150|SalaControlToTrampa1|134|136|2|1|    
+#l:151|Trampa1ToSalaControl|136|134|3|1|
+#l:152|SalaControlToTrampa2|134|137|3|1|    
+#l:153|Trampa2ToSalaControl|137|134|2|1|
+#l:154|SalaControlToTrampa3|134|138|4|1|    
+#l:155|Trampa3ToSalaControl|138|134|5|1|
+#l:156|SalaTesoroToSalidaSecreta|135|139|1|1|
+#l:157|SalidaSecretaToSalaTesoro|139|135|0|1|
 #l:158|ComedorToHall|3|140|4|1|
 #l:159|HallToComedor|140|3|5|1|
 #l:160|HallToCocina|140|141|1|1|
 #l:161|CocinaToHall|141|140|0|1|
-
 
 /*id|name|gdesc|location|health|inventory_size|message|object_desc|max_turns*/
 #p:0|ant1|mO^|8|5|5|1|
