@@ -35,22 +35,22 @@
 
 /*id|name|location|health|movable|dependency|links/open_N|desc|turn_amplifier|x|y|image|*/
 
-#o:20|Llave|5|0|1|-1|-1|Open chair|0|0|0|resources/objects/Key.png|
-#o:21|Hueso|3|0|1|-1|-1|Domesticate|0|0|0|resources/objects/Bone.png|
-#o:22|Donut|3|1|1|-1|-1|Ñum Ñum|0|0|0|resources/objects/Donut.png|
-#o:23|Chaleco|7|5|1|-1|-1|Protection|0|0|0|resources/objects/Vest.png|
-#o:24|Pistola|11|-3|1|-1|-1|Shoots proyectiles|0|0|0|resources/objects/Gun.png|
-#o:25|Cuchara|8|0|1|-1|-1|Escape|0|0|0|resources/objects/Spoon.png|
-#o:26|CepilloDientes|8|-2|1|-1|-1|Dont use it|0|0|0|resources/objects/Toothbrush.png|
-#o:27|Linterna|10|0|1|-1|-1|Lights up dark areas|0|0|0|resources/objects/Flashlight.png|
-#o:28|CartelPreso|5|0|1|-1|-1|2567|0|0|0|resources/objects/Poster.png|
-#o:29|Cigarrillos|7|1|1|-1|-1|Relaxing|0|0|0|resources/objects/Cigarrette.png|
-#o:30|Pico|6|2|1|-1|-1|Breaks rocks|0|15||0|0|0|resources/objects/pico.png|
-#o:31|Pala|6|3|1|-1|-1|Digs tunnels|0|20||0|0|0|resources/objects/pala.png|
-#o:32|Taladro|6|4|1|-1|-1|Perfora paredes|0|10||0|0|0|resources/objects/taladro.png|
-#o:33|Casco|6|5|1|-1|-1|Protección en túneles|0|30||0|0|0|resources/objects/Cigarrette.png|
-#o:34|LinternaCabeza|6|6|1|-1|-1|Luz manos libres|0|25||0|0|0|resources/objects/Cigarrette.png|
-#o:35|Dinamita|6|7|1|-1|-1|Explosivo para abrir paso|0|1||0|0|0|resources/objects/dinamita.png|
+#o:20|Llave|5|0|1|-1|-1|Open chair|0|1|0|0|resources/objects/Key.png|
+#o:21|Hueso|3|0|1|-1|-1|Domesticate|0|1|0|0|resources/objects/Bone.png|
+#o:22|Donut|3|1|1|-1|-1|Ñum Ñum|0|1|0|0|resources/objects/Donut.png|
+#o:23|Chaleco|7|5|1|-1|-1|Protection|0|1|0|0|resources/objects/Vest.png|
+#o:24|Pistola|11|-3|1|-1|-1|Shoots proyectiles|0|1|0|0|resources/objects/Gun.png|
+#o:25|Cuchara|8|0|1|-1|-1|Escape|0|1|0|0|resources/objects/Spoon.png|
+#o:26|CepilloDientes|8|-2|1|-1|-1|Dont use it|0|1|0|0|resources/objects/Toothbrush.png|
+#o:27|Linterna|10|0|1|-1|-1|Lights up dark areas|0|1|0|0|resources/objects/Flashlight.png|
+#o:28|CartelPreso|5|0|1|-1|-1|2567|0|1|0|0|resources/objects/Poster.png|
+#o:29|Cigarrillos|7|1|1|-1|-1|Relaxing|0|1|0|0|resources/objects/Cigarrette.png|
+#o:30|Pico|6|2|1|-1|-1|Breaks rocks|0|15|0|0|resources/objects/pico.png|
+#o:31|Pala|6|3|1|-1|-1|Digs tunnels|0|20|0|0|resources/objects/pala.png|
+#o:32|Taladro|6|4|1|-1|-1|Perfora paredes|0|10|0|0|resources/objects/taladro.png|
+#o:33|Casco|6|5|1|-1|-1|Protección en túneles|0|30|0|0|resources/objects/Cigarrette.png|
+#o:34|LinternaCabeza|6|6|1|-1|-1|Luz manos libres|0|25|0|0|resources/objects/Cigarrette.png|
+#o:35|Dinamita|6|7|1|-1|-1|Explosivo para abrir paso|0|1|0|0|resources/objects/dinamita.png|
 
 /*id|name|location|health|gdesc|message|friendliness|x|y|n1|n2|n3|e1|e2|e3|s1|s2|s3|w1|w2|w3*/
 
@@ -132,4 +132,4 @@
 /*id|name|gdesc|location|health|inventory_size|message|object_desc|max_turns|x|y|n1|n2|n3|e1|e2|e3|s1|s2|s3|w1|w2|w3*/
 
 #p:0|ant1|mO^|18|5|5|1|0|0|resources/p1/p1107.png|resources/p1/p1109.png|resources/p1/p1110.png|resources/p1/p1144.png|resources/p1/p1143.png|resources/p1/p1147.png|resources/p1/p1134.png|resources/p1/p1131.png|resources/p1/p1138.png|resources/p1/p1117.png|resources/p1/p1121.png|resources/p1/p1118.png|
-#p:1|ant2|mO^|6|5|3|2||0|0|resources/p2/p2107.png|resources/p2/p2109.png|resources/p2/p2110.png|resources/p2/p2144.png|resources/p2/p2143.png|resources/p2/p2147.png|resources/p2/p2134.png|resources/p2/p2131.png|resources/p2/p2138.png|resources/p2/p2117.png|resources/p2/p2121.png|resources/p2/p2118.png|
+#p:1|ant2|mO^|6|5|3|2|0|0|resources/p2/p2107.png|resources/p2/p2109.png|resources/p2/p2110.png|resources/p2/p2144.png|resources/p2/p2143.png|resources/p2/p2147.png|resources/p2/p2134.png|resources/p2/p2131.png|resources/p2/p2138.png|resources/p2/p2117.png|resources/p2/p2121.png|resources/p2/p2118.png|

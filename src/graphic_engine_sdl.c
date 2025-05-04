@@ -379,9 +379,10 @@ void graphic_engine_render_sdl(Graphic_engine_sdl *gengine, Game *game) {
   SDL_RenderCopy(gengine->renderer, gengine->info_texture, NULL, &info_rect);
 
   /*Chat*/
-  gengine->chat_texture = load_texture(gengine->renderer, "resources/bocadillo.png");
+  /*gengine->chat_texture = load_texture(gengine->renderer, "resources/bocadillo.png");*/
 
-  SDL_Surface *message_textSurface = TTF_RenderText_Solid(gengine->character_message, "Talk to someone", white_text_color);
+  SDL_Surface *message_textSurface = TTF_RenderText_Solid(
+      gengine->character_message, (game_get_message(game)[0] == '\0' ? "Talk to someone" : game_get_message(game)), white_text_color);
   if (!message_textSurface) {
     printf("Failed to create text surface: %s\n", TTF_GetError());
     return;
@@ -395,12 +396,12 @@ void graphic_engine_render_sdl(Graphic_engine_sdl *gengine, Game *game) {
   }
 
   // Render text
-  SDL_Rect message_rect = {10 * SDL_TILE_SIZE, SDL_MAP_HEIGHT + SDL_INFO_HEIGHT / 2 - message_textSurface->h / 2, message_textSurface->w,
-                           message_textSurface->h};
-  SDL_RenderCopy(gengine->renderer, gengine->info_texture, NULL, &message_rect);
+  /*SDL_Rect message_rect = {10 * SDL_TILE_SIZE, SDL_MAP_HEIGHT + SDL_INFO_HEIGHT / 2 - message_textSurface->h, 2 * message_textSurface->w,
+                           2 * message_textSurface->h};
+  SDL_RenderCopy(gengine->renderer, gengine->chat_texture, NULL, &message_rect);*/
 
-  SDL_Rect message_textRect = {10 * SDL_TILE_SIZE, SDL_MAP_HEIGHT + SDL_INFO_HEIGHT / 2 - message_textSurface->h / 2, message_textSurface->w,
-                               message_textSurface->h};
+  SDL_Rect message_textRect = {SDL_WINDOW_WIDTH / 2 - message_textSurface->w / 2, SDL_MAP_HEIGHT + SDL_INFO_HEIGHT / 2 - message_textSurface->h / 2,
+                               message_textSurface->w, message_textSurface->h};
   SDL_RenderCopy(gengine->renderer, gengine->character_message_texture, NULL, &message_textRect);
   /*Chat*/
 

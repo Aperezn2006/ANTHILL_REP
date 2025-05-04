@@ -289,7 +289,7 @@ Status game_management_load(Game *game, char *file_name, Bool new, Bool SDL) {
 
       /*OBJECTS*/
     } else if (strncmp("#o:", line, 3) == 0) {
-      /*id|name|location|health|movable|dependency|open_door|inspected|desc|turn_amplifier|x|y|image|*/
+      /*id|name|location|health|movable|dependency|open_door|inspected|desc|turn_amplifier|uses|x|y|image|*/
       printf("Processing object\n");
       toks = strtok(line + 3, "|");
       id = atol(toks);
