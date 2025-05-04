@@ -118,12 +118,62 @@ Status game_rules_process_digging(Game *game, Command *cmd) {
   return OK;
 }
 
+void move_guards(Game *game) {
+  Id guard_ids[] = {62, 63, 64};                      /* IDs de los guardias */
+  Id room_ids[] = {2, 3, 4, 5};               /* IDs de las salas comunes */
+  int num_guards = 3;
+  int num_rooms = 4;
+
+  int guard_index = rand() % num_guards;
+  int room_index = rand() % num_rooms;
+
+  Id guard_id = guard_ids[guard_index];
+  Character *guard = game_get_character(game, guard_id);
+
+  
+
+  Id current_location = game_get_character_location(game, guard_id);
+  Space *current_space = game_get_space(game, current_location);
+  Space *new_space = game_get_space(game, room_ids[room_index]);
+  if (!guard) {
+    printf("[DEBUG] No se encontró al guardia con ID %ld\n", guard_id);
+    return;
+  }
+
+  if (!current_space || !new_space) {
+    printf("[DEBUG] Espacio inválido (actual o nuevo) para el guardia %ld\n", guard_id);
+    return;
+  }
+
+  /* Evitar mover al mismo sitio */
+  if (current_location == room_ids[room_index]) {
+    printf("[DEBUG] Guardia %ld ya está en la sala %ld, no se mueve\n", guard_id, current_location);
+    return;
+  }
+
+  if (space_remove_character(current_space, guard_id) == ERROR) {
+    printf("[DEBUG] Error al eliminar al guardia %ld de la sala %ld\n", guard_id, current_location);
+    return;
+  }
+  
+  if (space_add_character(new_space, guard_id) == ERROR) {
+    printf("[DEBUG] Error al añadir al guardia %ld a la sala %ld\n", guard_id, room_ids[room_index]);
+    return;
+  }
+  
+  /* Ahora sí: movimiento exitoso */
+  printf("[DEBUG] Guardia %ld movido de %ld a %ld\n", guard_id, current_location, room_ids[room_index]);
+  
+}
+
+
+
 void update_game(Game *game, Command *cmd) {
   Character *character = game_get_character(game, 31);
   Id open_link = 123;
 
   printf("[DEBUG] update_game: actualizando juego\n");
-
+  move_guards(game);
   if (cmd) {
     printf("[DEBUG] Comando recibido: código=%d, palabra='%s', conector=%d, destino='%s'\n", command_get_code(cmd), command_get_word(cmd),
            command_get_connector(cmd), command_get_destiny(cmd));

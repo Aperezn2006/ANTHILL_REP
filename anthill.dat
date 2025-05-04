@@ -30,6 +30,9 @@
 #s:137|Trampa2|0|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|.|
 #s:138|Trampa3|0|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|.|
 #s:139|SalidaSecreta|0|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|.|
+#s:140|HallCentral|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|.|
+#s:141|Cocina|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|.|
+
 
 #o:20|Llave|5|0|1|-1|-1|Open chair|0|10|
 #o:21|Hueso|3|0|1|-1|-1|Domesticate|0|5|
@@ -52,6 +55,12 @@
 #c:51|Policia|11|4|/()\|Hello|FALSE|
 #c:52|Perro|9|4|U.^.U|Hello|FALSE|
 #c:53|Familiar|4|4|()__()|Hello|TRUE|
+#c:60|Prisionero1|3|4|(-_-)||TRUE|    
+#c:61|Prisionero2|7|4|(-_-)||TRUE|    
+#c:62|Guardia1|3|4|/O_O\||FALSE|      
+#c:63|Guardia2|7|4|/O_O\||FALSE|      
+#c:64|Guardia3|140|4|/O_O\||FALSE|   
+
 
 /*id|name|origin|destination|direction|open*/
 
@@ -113,6 +122,11 @@
 #l:155|Trampa3ToSalaControl|138|134|5|0|
 #l:156|SalaTesoroToSalidaSecreta|135|139|1|0|
 #l:157|SalidaSecretaToSalaTesoro|139|135|0|0|
+#l:158|ComedorToHall|3|140|4|1|
+#l:159|HallToComedor|140|3|5|1|
+#l:160|HallToCocina|140|141|1|1|
+#l:161|CocinaToHall|141|140|0|1|
+
 
 /*id|name|gdesc|location|health|inventory_size|message|object_desc|max_turns*/
 #p:0|ant1|mO^|8|5|5|1|
