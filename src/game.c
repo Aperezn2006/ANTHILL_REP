@@ -652,7 +652,9 @@ Status game_get_string_of_objects_in_space(Game *game, Id space_id, char *objs) 
 
   for (i = 0; i < space_get_num_objects(game_get_space(game, space_id)); i++) {
     space_get_object_name_from_index(game, space_id, i, temp_obj);
-    if (strlen(objs) + strlen(temp_obj) > BOX_WIDTH + 1 - 3) {
+    if (strlen(objs) >= BOX_WIDTH + 1 - 3) {
+      /*No hace nada*/
+    } else if (strlen(objs) + strlen(temp_obj) > BOX_WIDTH + 1 - 3) {
       strcat(objs, "...");
     } else {
       strcat(objs, temp_obj);
