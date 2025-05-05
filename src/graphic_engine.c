@@ -19,7 +19,7 @@
 #include "space.h"
 #include "types.h"
 
-#define WIDTH_MAP 76 /*+8*/
+#define WIDTH_MAP 76
 #define WIDTH_DES 30
 #define WIDTH_TEA 30
 #define WIDTH_BAN 30

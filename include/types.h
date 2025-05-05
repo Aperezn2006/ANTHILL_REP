@@ -20,6 +20,7 @@
 #define MAX_CHARACTERS 100
 #define MAX_LINK 100
 #define MAX_PLAYERS 10
+#define MAX_TEAMS 16
 
 #define MAX_MESSAGE 100
 #define MAX_IMAGE 100

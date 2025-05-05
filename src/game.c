@@ -13,31 +13,30 @@
 #include <stdlib.h>
 #include <string.h>
 #include <strings.h>
-#define MAX_TEAMS 16 /*!< Maximum number of teams in the game */
 
 /**
  Private structure
 */
 struct _Game {
+  Command *last_cmd[MAX_PLAYERS];           /*!< Last command of the game */
   Space *spaces[MAX_SPACES];                /*!< Spaces in the game */
   Player *players[MAX_PLAYERS];             /*!< Players in the game */
   Object *objects[MAX_OBJECTS];             /*!< Objects in the game */
   Character *characters[MAX_CHARACTERS];    /*!< Characters in the game */
   Link *links[MAX_LINK];                    /*!< Links in the game */
+  Set *teams[MAX_TEAMS];                    /*!< Equipos en el juego, cada uno es un conjunto de IDs de jugadores */
   int n_spaces;                             /*!< Number of spaces in the game */
   int n_players;                            /*!< Number of players in the game */
   int n_objects;                            /*!< Number of objects in the game */
   int n_characters;                         /*!< Number of characters in the game */
   int n_links;                              /*!< Number of links in the game */
-  Command *last_cmd[MAX_PLAYERS];           /*!< Last command of the game */
+  int n_teams;                              /*!< Number of teams in the game*/
+  int turn;                                 /*!< Current game's turn */
   char message[MAX_PLAYERS][WORD_SIZE];     /*!< Highlighted message in the game */
   char object_desc[MAX_PLAYERS][WORD_SIZE]; /*!< Highlighted object description in the game */
   Bool finished;                            /*!< Whether the game is finished or not */
-  int turn;                                 /*!< Current game's turn */
   Bool inventory_vis;                       /*!< Whether the inventory is being visualized*/
   Bool zoom;                                /*!< Whether a space is being visualized in zoom mode*/
-  Set *teams[MAX_TEAMS];                    /*!< Equipos en el juego, cada uno es un conjunto de IDs de jugadores */
-  int n_teams;                              /*!< Number of teams in the game*/
   Bool SDL;                                 /*!< Whether the game was launched using SDL2*/
   Ray *ray;
 };
