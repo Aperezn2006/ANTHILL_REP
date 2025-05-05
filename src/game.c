@@ -35,11 +35,11 @@ struct _Game {
   Bool finished;                            /*!< Whether the game is finished or not */
   int turn;                                 /*!< Current game's turn */
   Bool inventory_vis;                       /*!< Whether the inventory is being visualized*/
-  Bool zoom;
-  Set *teams[MAX_TEAMS]; /*!< Equipos en el juego, cada uno es un conjunto de IDs de jugadores */
-  int n_teams;
-  Ray *ray; /*SDL2*/
-  Bool SDL; /*SDL2*/
+  Bool zoom;                                /*!< Whether a space is being visualized in zoom mode*/
+  Set *teams[MAX_TEAMS];                    /*!< Equipos en el juego, cada uno es un conjunto de IDs de jugadores */
+  int n_teams;                              /*!< Number of teams in the game*/
+  Bool SDL;                                 /*!< Whether the game was launched using SDL2*/
+  Ray *ray;
 };
 
 /*Cosas de SDL2*/
@@ -106,7 +106,6 @@ Link *game_get_link_by_id(Game *game, Id link_id) {
     }
   }
 
-  printf(".........Link %li not found\n", link_id);
   return NULL;
 }
 
@@ -123,7 +122,6 @@ void game_move_inventory_cursor(Game *game, int direction) {
   Inventory *inventory = NULL;
   int num_objects, cursor;
 
-  printf("\nMOVING CURSOR :)\n");
   player = game_get_current_player(game);
   if (!player) {
     return;
@@ -149,18 +147,7 @@ void game_move_inventory_cursor(Game *game, int direction) {
     cursor = num_objects;
   }
 
-  printf("\nTHE CURSOR IS IN THE %i POSITION\n\n", cursor);
-
   player_set_inventory_cursor(player, cursor);
-}
-
-Status game_select_inventory_object(Game *game) {
-  /*CdE*/
-  if (!game) {
-    return ERROR;
-  }
-  /*TODO - */
-  return OK;
 }
 
 Ray *game_get_ray(Game *game) {
@@ -179,22 +166,12 @@ Id game_get_connection(Game *game, Id current_location, Direction direction) {
     return NO_ID;
   }
 
-  fprintf(stdout, "Buscando conexión desde la ubicación %ld en la dirección %d.\n", current_location, direction);
-
   for (i = 0; i < game->n_links; i++) {
-    fprintf(stdout, "Comprobando enlace %d: Start = %ld, Direction = %d, End = %ld\n", i, link_get_start(game->links[i]),
-            link_get_direction(game->links[i]), link_get_end(game->links[i]));
-
     if (link_get_start(game->links[i]) == current_location && link_get_direction(game->links[i]) == direction) {
-      fprintf(stdout, "Conexión encontrada. End = %ld\n", link_get_end(game->links[i]));
       return link_get_end(game->links[i]);
     }
   }
 
-  fprintf(stdout,
-          "No se encontró una conexión válida en la dirección %d desde la "
-          "ubicación %ld.\n",
-          direction, current_location);
   return NO_ID;
 }
 
@@ -399,7 +376,7 @@ Status game_add_player(Game *game, Player *player) {
   if (!game || !player || game_get_num_players(game) >= MAX_PLAYERS) {
     return ERROR;
   }
-  printf("Allocating command nº%i\n", game_get_num_players(game));
+
   game->last_cmd[game_get_num_players(game)] = command_create();
   game->players[game_get_num_players(game)] = player;
   game_increment_num_players(game);
@@ -589,22 +566,27 @@ Status game_set_object_location(Game *game, Id next_location, Id object_id) {
   current_location = game_get_object_location(game, object_id);
 
   /*The object can be in a player's inventory or in a space*/
+  if (game_get_id_type(game, next_location) == SPACE) {
+    if (space_add_object(game_get_space(game, next_location), object_id) == ERROR) {
+      return ERROR;
+    }
+  } else if (game_get_id_type(game, next_location) == PLAYER) {
+    if (inventory_get_max_objects(player_get_inventory(game_get_player(game, next_location))) >
+        inventory_get_num_objects(player_get_inventory(game_get_player(game, next_location)))) {
+      if (player_add_object(game_get_player(game, next_location), object_id) == ERROR) {
+        return ERROR;
+      }
+    } else {
+      return OK;
+    }
+  }
+
   if (game_get_id_type(game, current_location) == SPACE) {
     if (space_remove_object(game_get_space(game, current_location), object_id) == ERROR) {
       return ERROR;
     }
   } else if (game_get_id_type(game, current_location) == PLAYER) {
     if (player_remove_object(game_get_current_player(game), object_id) == ERROR) {
-      return ERROR;
-    }
-  }
-
-  if (game_get_id_type(game, next_location) == SPACE) {
-    if (space_add_object(game_get_space(game, next_location), object_id) == ERROR) {
-      return ERROR;
-    }
-  } else if (game_get_id_type(game, next_location) == PLAYER) {
-    if (player_add_object(game_get_player(game, next_location), object_id) == ERROR) {
       return ERROR;
     }
   }
@@ -1495,9 +1477,11 @@ Status game_move_object(Game *game, const char *object_name, Id current_location
   if (!game || !object_name || !current_location || !direction) {
     return ERROR;
   }
+
   if (game_connection_is_open(game, current_location, direction) == FALSE) {
     return ERROR;
   }
+
   object_id = game_get_object_id_from_name(game, object_name);
   next_space_id = game_get_neighbour(game, current_location, direction);
   current_space = game_get_space(game, current_location);
