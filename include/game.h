@@ -24,24 +24,101 @@ typedef struct _Game Game;
 
 /*Cosas de SDL2*/
 
+/**
+ * @brief
+ * @author Arturo
+ *
+ * @param game a pointer to the game
+ * @param character
+ * @return Status
+ */
 Status game_character_chase_player(Game *game, Character *character);
 
+/**
+ * @brief
+ * @author
+ *
+ * @param game a pointer to the game
+ * @return Bool
+ */
 Bool game_get_SDL(Game *game);
 
+/**
+ * @brief
+ * @author
+ *
+ * @param game a pointer to the game
+ * @param current_location
+ * @param direction
+ * @return Id
+ */
 Id game_get_connection(Game *game, Id current_location, Direction direction);
 
+/**
+ * @brief
+ * @author
+ *
+ * @param game a pointer to the game
+ * @param current_location
+ * @param direction
+ * @return Bool
+ */
 Bool game_connection_is_open(Game *game, Id current_location, Direction direction);
 
+/**
+ * @brief
+ * @author
+ *
+ * @param game a pointer to the game
+ * @param link
+ * @return Status
+ */
 Status game_add_link(Game *game, Link *link);
 
+/**
+ * @brief
+ * @author
+ *
+ * @param game a pointer to the game
+ * @param link_id
+ * @return Link*
+ */
 Link *game_get_link_by_id(Game *game, Id link_id);
 
+/**
+ * @brief
+ * @author
+ *
+ * @param game a pointer to the game
+ * @return Ray*
+ */
 Ray *game_get_ray(Game *game);
 
+/**
+ * @brief
+ * @author
+ *
+ * @param game a pointer to the game
+ * @param ray
+ */
 void game_set_ray(Game *game, Ray *ray);
 
+/**
+ * @brief
+ * @author
+ *
+ * @param game a pointer to the game
+ * @param direction
+ */
 void game_move_inventory_cursor(Game *game, int direction);
 
+/**
+ * @brief
+ * @author
+ *
+ * @param game a pointer to the game
+ * @return Status
+ */
 Status game_select_inventory_object(Game *game);
 
 /*Create & destroy*/
@@ -212,6 +289,14 @@ Id game_get_player_location_from_index(Game *game, int index);
  */
 Id game_get_player_id_from_name(Game *game, char *name);
 
+/**
+ * @brief It gets the player's max amount of consecutive turns
+ * @author Ana
+ *
+ * @param game a pointer to the game
+ * @param player_id the player's id
+ * @return the player's max amount of consecutive turns
+ */
 int game_get_player_max_turns(Game *game, Id player_id);
 
 /*Management of objects*/
@@ -453,6 +538,15 @@ Id game_get_down(Game *game, Id current_location);
  */
 Id game_get_neighbour(Game *game, Id current_location, Direction direction);
 
+/**
+ * @brief It gets a space's link in a specified direction
+ * @author Rubén
+ *
+ * @param game a pointer to the game
+ * @param current_location the id of the space
+ * @param d the direction in which to look for the link
+ * @return a pointer to said link
+ */
 Link *game_get_link_at_direction(Game *game, Id current_location, Direction d);
 
 /**

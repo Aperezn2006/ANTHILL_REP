@@ -12,9 +12,7 @@
 #define LIBSCREEN_H
 
 typedef struct _Area Area;
-typedef enum {BLUE, GREEN, BLACK, RED, YELLOW, PURPLE, CYAN, WHITE} Frame_color;
-
-
+typedef enum { BLUE, GREEN, BLACK, RED, YELLOW, PURPLE, CYAN, WHITE } Frame_color;
 
 /**
  * @brief It creates a new screen
@@ -35,6 +33,8 @@ void screen_init(int rows, int columns);
  *  once the areas created have been freed.
  */
 void screen_destroy();
+
+void screen_color_paint(Frame_color color, int foreground, int background);
 
 /**
  * @brief It paints in the terminal the actual screen composition

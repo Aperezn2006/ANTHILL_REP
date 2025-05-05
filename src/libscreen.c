@@ -76,6 +76,35 @@ void screen_paint(Frame_color color) {
   }
 }
 
+void screen_color_paint(Frame_color color, int foreground, int background) {
+  char* src = NULL;
+  char dest[COLUMNS + 1];
+  int i = 0;
+  char colours[1024];
+
+  memset(dest, 0, COLUMNS + 1);
+
+  if (__data) {
+    /* puts(__data); */ /*Dump data directly to the terminal*/
+    /*It works fine if the terminal window has the right size*/
+
+    puts("\033[2J"); /*Clear the terminal*/
+    for (src = __data; src < (__data + TOTAL_DATA - 1); src += COLUMNS) {
+      memcpy(dest, src, COLUMNS);
+      /* printf("%s\n", dest); */
+      for (i = 0; i < COLUMNS; i++) {
+        if (dest[i] == BG_CHAR) {
+          printf("%s%c\033[0m", frame_color_to_string(color), dest[i]); /* fg:blue(34);bg:blue(44) */
+        } else {
+          sprintf(colours, "\033[0;%i;%im%c\033[0m", foreground, background, dest[i]);
+          printf("%s", colours); /* fg:black(30);bg:white(47)*/
+        }
+      }
+      printf("\n");
+    }
+  }
+}
+
 char* frame_color_to_string(Frame_color color) {
   switch (color) {
     case BLACK:
@@ -106,6 +135,8 @@ char* frame_color_to_string(Frame_color color) {
     default:
       break;
   }
+
+  return NULL;
 }
 
 Area* screen_area_init(int x, int y, int width, int height) {

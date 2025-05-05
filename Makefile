@@ -31,6 +31,7 @@ SRC = $(SRC_DIR)/game_loop.c \
 			$(SRC_DIR)/obstacle.c \
 			$(SRC_DIR)/physics.c \
 			$(SRC_DIR)/ray.c \
+			$(SRC_DIR)/libscreen.c
 
 SDL_SRC = $(SRC_DIR)/game_loop_sdl.c \
 					$(SRC_DIR)/command.c \
@@ -51,6 +52,7 @@ SDL_SRC = $(SRC_DIR)/game_loop_sdl.c \
 					$(SRC_DIR)/physics.c \
 					$(SRC_DIR)/ray.c \
 					$(SRC_DIR)/input.c \
+					$(SRC_DIR)/libscreen.c
 
 
 # Archivos fuente de los tests
@@ -71,11 +73,11 @@ TEST_OBJ = $(TEST_SRC:$(TEST_DIR)/%.c=$(OBJ_DIR)/%.o)
 
 # Librerias
 LIBS = -Llib -lscreen
-SDL_LIBS = -Llib -lscreen -lSDL2 -lSDL2_image -lSDL2_ttf
+SDL_LIBS = -Llib -lSDL2 -lSDL2_image -lSDL2_ttf
 
 # Compilador y sus opciones
 CC = gcc
-CFLAGS = -Wall -g -Werror -Wpedantic -ansi -I$(INCLUDE_DIR)
+CFLAGS = -Wall -g -Werror -Wpedantic -ansi -I$(INCLUDE_DIR) -Wno-vla
 
 # Reglas
 all: $(EXEC) $(TESTS)
@@ -83,11 +85,11 @@ sdl: $(SDL_EXEC)
 tests: $(TESTS)
 
 # Regla para compilar el ejecutable principal
-$(EXEC): $(OBJ_DIR)/game_loop.o $(OBJ_DIR)/command.o $(OBJ_DIR)/game_actions.o $(OBJ_DIR)/game.o $(OBJ_DIR)/graphic_engine.o $(OBJ_DIR)/space.o $(OBJ_DIR)/game_management.o $(OBJ_DIR)/player.o $(OBJ_DIR)/game_rules.o $(OBJ_DIR)/object.o $(OBJ_DIR)/character.o $(OBJ_DIR)/set.o $(OBJ_DIR)/link.o $(OBJ_DIR)/inventory.o $(SRC_DIR)/gun.c $(SRC_DIR)/obstacle.c $(SRC_DIR)/physics.c $(SRC_DIR)/ray.c 
+$(EXEC): $(OBJ_DIR)/game_loop.o $(OBJ_DIR)/command.o $(OBJ_DIR)/game_actions.o $(OBJ_DIR)/game.o $(OBJ_DIR)/graphic_engine.o $(OBJ_DIR)/space.o $(OBJ_DIR)/game_management.o $(OBJ_DIR)/player.o $(OBJ_DIR)/game_rules.o $(OBJ_DIR)/object.o $(OBJ_DIR)/character.o $(OBJ_DIR)/set.o $(OBJ_DIR)/link.o $(OBJ_DIR)/inventory.o $(SRC_DIR)/gun.c $(SRC_DIR)/obstacle.c $(SRC_DIR)/physics.c $(SRC_DIR)/ray.c $(SRC_DIR)/libscreen.c
 	@echo "Compilando: $(EXEC)"
 	@$(CC) $(CFLAGS) -o $@ $^ $(LIBS)
 
-$(SDL_EXEC): $(OBJ_DIR)/game_loop_sdl.o $(OBJ_DIR)/command.o $(OBJ_DIR)/game_actions_sdl.o $(OBJ_DIR)/game.o $(OBJ_DIR)/graphic_engine_sdl.o $(OBJ_DIR)/space.o $(OBJ_DIR)/game_management.o $(OBJ_DIR)/player.o $(OBJ_DIR)/game_rules.o $(OBJ_DIR)/object.o $(OBJ_DIR)/character.o $(OBJ_DIR)/set.o $(OBJ_DIR)/link.o $(OBJ_DIR)/inventory.o $(SRC_DIR)/gun.c $(SRC_DIR)/obstacle.c $(SRC_DIR)/physics.c $(SRC_DIR)/ray.c $(SRC_DIR)/input.c
+$(SDL_EXEC): $(OBJ_DIR)/game_loop_sdl.o $(OBJ_DIR)/command.o $(OBJ_DIR)/game_actions_sdl.o $(OBJ_DIR)/game.o $(OBJ_DIR)/graphic_engine_sdl.o $(OBJ_DIR)/space.o $(OBJ_DIR)/game_management.o $(OBJ_DIR)/player.o $(OBJ_DIR)/game_rules.o $(OBJ_DIR)/object.o $(OBJ_DIR)/character.o $(OBJ_DIR)/set.o $(OBJ_DIR)/link.o $(OBJ_DIR)/inventory.o $(SRC_DIR)/gun.c $(SRC_DIR)/obstacle.c $(SRC_DIR)/physics.c $(SRC_DIR)/ray.c $(SRC_DIR)/input.c $(SRC_DIR)/libscreen.c
 	@echo "Compilando: $(SDL_EXEC)"
 	@$(CC) $(CFLAGS) -o $@ $^ $(SDL_LIBS)
 
@@ -179,6 +181,10 @@ $(OBJ_DIR)/physics.o: $(SRC_DIR)/physics.c $(INCLUDE_DIR)/physics.h
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 $(OBJ_DIR)/ray.o: $(SRC_DIR)/ray.c $(INCLUDE_DIR)/ray.h
+	@echo "Compilando: $<"
+	@$(CC) $(CFLAGS) -c $< -o $@
+
+$(OBJ_DIR)/ray.o: $(SRC_DIR)/libscreen.c $(INCLUDE_DIR)/libscreen.h
 	@echo "Compilando: $<"
 	@$(CC) $(CFLAGS) -c $< -o $@
 

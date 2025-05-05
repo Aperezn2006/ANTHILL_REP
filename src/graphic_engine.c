@@ -510,7 +510,7 @@ void graphic_engine_paint_end(Graphic_engine *ge, Game *game) {
   screen_area_puts(ge->map, "                     Someone from your party died");
   screen_area_puts(ge->map, "                          or exited the game");
 
-  screen_paint(game_get_player_index_from_turn(game) % 7);
+  screen_color_paint(2, 31, 40);
 
   sleep(2);
 
@@ -524,7 +524,7 @@ void graphic_engine_paint_end(Graphic_engine *ge, Game *game) {
     screen_area_puts(ge->map, " ");
   }
 
-  screen_paint(game_get_player_index_from_turn(game) % 7);
+  screen_color_paint(2, 31, 40);
 }
 
 void graphic_engine_paint_inventory(Graphic_engine *ge, Game *game) {
