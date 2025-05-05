@@ -38,6 +38,10 @@ Graphic_engine *graphic_engine_create();
  */
 void graphic_engine_destroy(Graphic_engine *ge);
 
+void graphic_engine_toggle_fullscreen(Graphic_engine *ge);
+
+void graphic_engine_init_game_areas(Graphic_engine *ge);
+
 /**
  * @brief It paints the game's data on the user's screen
  * @author Rubén, Arturo, Bea, Ana, Profesores PPROG

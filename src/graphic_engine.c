@@ -29,7 +29,7 @@
 #define HEIGHT_FDB 3
 
 struct _Graphic_engine {
-  Area *map, *descript, *banner, *help, *feedback, *player_info;
+  Area *map, *descript, *banner, *help, *feedback, *player_info, *full_screen;
 };
 
 /**
@@ -83,13 +83,7 @@ Graphic_engine *graphic_engine_create() {
     return NULL;
   }
 
-  ge->map = screen_area_init(1, 1, WIDTH_MAP, HEIGHT_MAP);
-  ge->descript = screen_area_init(WIDTH_MAP + 2, 1, WIDTH_DES, HEIGHT_MAP);
-  ge->player_info = screen_area_init(WIDTH_MAP + 3 + WIDTH_DES, 1, WIDTH_TEA, HEIGHT_MAP);
-  ge->banner = screen_area_init((int)((WIDTH_MAP + WIDTH_DES + WIDTH_TEA + 1 - WIDTH_BAN) / 2), HEIGHT_MAP + 2, WIDTH_BAN, HEIGHT_BAN);
-  ge->help = screen_area_init(1, HEIGHT_MAP + HEIGHT_BAN + 2, WIDTH_MAP + WIDTH_DES + WIDTH_TEA + 1, HEIGHT_HLP);
-  ge->feedback = screen_area_init(1, HEIGHT_MAP + HEIGHT_BAN + HEIGHT_HLP + 3, WIDTH_MAP + WIDTH_DES + WIDTH_TEA + 1, HEIGHT_FDB);
-
+  graphic_engine_init_game_areas(ge);
   return ge;
 }
 
@@ -98,15 +92,64 @@ void graphic_engine_destroy(Graphic_engine *ge) {
     return;
   }
 
-  screen_area_destroy(ge->map);
-  screen_area_destroy(ge->descript);
-  screen_area_destroy(ge->banner);
-  screen_area_destroy(ge->help);
-  screen_area_destroy(ge->feedback);
-  screen_area_destroy(ge->player_info);
+  if (ge->map) {
+    screen_area_destroy(ge->map);
+  }
+  if (ge->descript) {
+    screen_area_destroy(ge->descript);
+  }
+  if (ge->banner) {
+    screen_area_destroy(ge->banner);
+  }
+  if (ge->help) {
+    screen_area_destroy(ge->help);
+  }
+  if (ge->feedback) {
+    screen_area_destroy(ge->feedback);
+  }
+  if (ge->player_info) {
+    screen_area_destroy(ge->player_info);
+  }
+  if (ge->full_screen) {
+    screen_area_destroy(ge->full_screen);
+  }
 
   screen_destroy();
   free(ge);
+}
+
+void graphic_engine_toggle_fullscreen(Graphic_engine *ge) {
+  if (ge->map && ge->descript && ge->player_info && ge->banner && ge->help && ge->feedback) {
+    screen_area_destroy(ge->map);
+    ge->map = NULL;
+    screen_area_destroy(ge->descript);
+    ge->descript = NULL;
+    screen_area_destroy(ge->banner);
+    ge->banner = NULL;
+    screen_area_destroy(ge->help);
+    ge->help = NULL;
+    screen_area_destroy(ge->feedback);
+    ge->feedback = NULL;
+    screen_area_destroy(ge->player_info);
+    ge->player_info = NULL;
+
+    ge->full_screen = screen_area_init(1, 1, WIDTH_MAP + WIDTH_DES + WIDTH_TEA + 2, HEIGHT_MAP + HEIGHT_BAN + HEIGHT_FDB + HEIGHT_HLP + 2);
+
+  } else if (ge->full_screen) {
+    screen_area_destroy(ge->full_screen);
+    ge->full_screen = NULL;
+
+    graphic_engine_init_game_areas(ge);
+  }
+}
+
+void graphic_engine_init_game_areas(Graphic_engine *ge) {
+  ge->map = screen_area_init(1, 1, WIDTH_MAP, HEIGHT_MAP);
+  ge->descript = screen_area_init(WIDTH_MAP + 2, 1, WIDTH_DES, HEIGHT_MAP);
+  ge->player_info = screen_area_init(WIDTH_MAP + 3 + WIDTH_DES, 1, WIDTH_TEA, HEIGHT_MAP);
+  ge->banner = screen_area_init((int)((WIDTH_MAP + WIDTH_DES + WIDTH_TEA + 1 - WIDTH_BAN) / 2), HEIGHT_MAP + 2, WIDTH_BAN, HEIGHT_BAN);
+  ge->help = screen_area_init(1, HEIGHT_MAP + HEIGHT_BAN + 2, WIDTH_MAP + WIDTH_DES + WIDTH_TEA + 1, HEIGHT_HLP);
+  ge->feedback = screen_area_init(1, HEIGHT_MAP + HEIGHT_BAN + HEIGHT_HLP + 3, WIDTH_MAP + WIDTH_DES + WIDTH_TEA + 1, HEIGHT_FDB);
 }
 
 void graphic_engine_paint_game(Graphic_engine *ge, Game *game) {
@@ -504,27 +547,57 @@ void printHorizontalSection(Graphic_engine *ge, Game *game, Id space_id, char *p
 void graphic_engine_paint_end(Graphic_engine *ge, Game *game) {
   int i = 0;
 
-  screen_area_clear(ge->map);
+  graphic_engine_toggle_fullscreen(ge);
+  screen_area_clear(ge->full_screen);
 
-  for (i = 0; i < 14; i++) {
-    screen_area_puts(ge->map, " ");
+  for (i = 0; i < 18; i++) {
+    screen_area_puts(ge->full_screen, " ");
   }
-  screen_area_puts(ge->map, "                     Someone from your party died");
-  screen_area_puts(ge->map, "                          or exited the game");
+  screen_area_puts(ge->full_screen, "                                               Someone from your party died");
+  screen_area_puts(ge->full_screen, "                                                   or exited the game");
 
   screen_color_paint(game_get_player_index_from_turn(game) % 7, 31, 40);
 
   sleep(2);
 
-  screen_area_clear(ge->map);
+  screen_area_clear(ge->full_screen);
 
-  for (i = 0; i < 14; i++) {
-    screen_area_puts(ge->map, " ");
-  }
-  screen_area_puts(ge->map, "                                 GAME OVER");
-  for (i = 0; i < 15; i++) {
-    screen_area_puts(ge->map, " ");
-  }
+  screen_area_puts(ge->full_screen, "                                                                                                  ");
+  screen_area_puts(ge->full_screen, " ");
+  screen_area_puts(ge->full_screen, " ");
+  screen_area_puts(ge->full_screen, "                                GGGGGGGGGGGGG");
+  screen_area_puts(ge->full_screen, "                             GGG::::::::::::G");
+  screen_area_puts(ge->full_screen, "                           GG:::::::::::::::G");
+  screen_area_puts(ge->full_screen, "                          G:::::GGGGGGGG::::G");
+  screen_area_puts(ge->full_screen, "                         G:::::G        GGGGGG  aaaaaaaaaaaaa      mmmmmmm    mmmmmmm       eeeeeeeeeeee");
+  screen_area_puts(ge->full_screen, "                         G:::::G                a::::::::::::a   mm:::::::m  m:::::::mm   ee::::::::::::ee");
+  screen_area_puts(ge->full_screen, "                         G:::::G                aaaaaaaaa:::::a m::::::::::mm::::::::::m e::::::eeeee:::::ee");
+  screen_area_puts(ge->full_screen, "                         G:::::G    GGGGGGGGGG           a::::a m::::::::::::::::::::::me::::::e     e:::::e");
+  screen_area_puts(ge->full_screen, "                         G:::::G    G::::::::G    aaaaaaa:::::a m:::::mmm::::::mmm:::::me:::::::eeeee::::::e");
+  screen_area_puts(ge->full_screen, "                         G:::::G    GGGGG::::G  aa::::::::::::a m::::m   m::::m   m::::me:::::::::::::::::e");
+  screen_area_puts(ge->full_screen, "                         G:::::G        G::::G a::::aaaa::::::a m::::m   m::::m   m::::me::::::eeeeeeeeeee");
+  screen_area_puts(ge->full_screen, "                          G:::::G       G::::Ga::::a    a:::::a m::::m   m::::m   m::::me:::::::e");
+  screen_area_puts(ge->full_screen, "                           G:::::GGGGGGGG::::Ga::::a    a:::::a m::::m   m::::m   m::::me::::::::e");
+  screen_area_puts(ge->full_screen, "                            GG:::::::::::::::Ga:::::aaaa::::::a m::::m   m::::m   m::::m e::::::::eeeeeeee");
+  screen_area_puts(ge->full_screen, "                              GGG::::::GGG:::G a::::::::::aa:::am::::m   m::::m   m::::m  ee:::::::::::::e");
+  screen_area_puts(ge->full_screen, "                                 GGGGGG   GGGG  aaaaaaaaaa  aaaammmmmm   mmmmmm   mmmmmm    eeeeeeeeeeeeee");
+  screen_area_puts(ge->full_screen, " ");
+  screen_area_puts(ge->full_screen, " ");
+  screen_area_puts(ge->full_screen, " ");
+  screen_area_puts(ge->full_screen, "                                 ooooooooooo vvvvvvv           vvvvvvv eeeeeeeeeeee    rrrrr   rrrrrrrrr");
+  screen_area_puts(ge->full_screen, "                               oo:::::::::::oov:::::v         v:::::vee::::::::::::ee  r::::rrr:::::::::r");
+  screen_area_puts(ge->full_screen, "                              o:::::::::::::::ov:::::v       v:::::ve::::::eeeee:::::eer:::::::::::::::::r");
+  screen_area_puts(ge->full_screen, "                              o:::::ooooo:::::o v:::::v     v:::::ve::::::e     e:::::err::::::rrrrr::::::r");
+  screen_area_puts(ge->full_screen, "                              o::::o     o::::o  v:::::v   v:::::v e:::::::eeeee::::::e r:::::r     r:::::r");
+  screen_area_puts(ge->full_screen, "                              o::::o     o::::o   v:::::v v:::::v  e:::::::::::::::::e  r:::::r     rrrrrrr");
+  screen_area_puts(ge->full_screen, "                              o::::o     o::::o    v:::::v:::::v   e::::::eeeeeeeeeee   r:::::r");
+  screen_area_puts(ge->full_screen, "                              o::::o     o::::o     v:::::::::v    e:::::::e            r:::::r");
+  screen_area_puts(ge->full_screen, "                              o:::::ooooo:::::o      v:::::::v     e::::::::e           r:::::r");
+  screen_area_puts(ge->full_screen, "                              o:::::::::::::::o       v:::::v       e::::::::eeeeeeee   r:::::r");
+  screen_area_puts(ge->full_screen, "                               oo:::::::::::oo         v:::v         ee:::::::::::::e   r:::::r");
+  screen_area_puts(ge->full_screen, "                                 ooooooooooo            vvv            eeeeeeeeeeeeee   rrrrrrr");
+  screen_area_puts(ge->full_screen, " ");
+  screen_area_puts(ge->full_screen, " ");
 
   screen_color_paint(game_get_player_index_from_turn(game) % 7, 31, 40);
 }
