@@ -164,7 +164,7 @@ void game_actions_update_sdl(Game *game, int seed) {
     } else if (game_input.inventory_down == KS_PRESSED) {
       game_move_inventory_cursor(game, 1); /* Mover el cursor hacia abajo */
     } else if (game_input.inventory_confirm == KS_PRESSED) {
-      game_select_inventory_object(game); /* Seleccionar o usar el objeto */
+      /*game_select_inventory_object(game); Seleccionar o usar el objeto */
     } else if (game_input.inventory_cancel == KS_PRESSED) {
       game_toggle_inventory_vis(game); /* Cerrar el inventario */
     } else if (game_input.drop == KS_PRESSED) {
