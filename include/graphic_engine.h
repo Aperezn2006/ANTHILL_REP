@@ -52,6 +52,8 @@ void graphic_engine_init_game_areas(Graphic_engine *ge);
  */
 void graphic_engine_paint_game(Graphic_engine *ge, Game *game);
 
+void graphic_engine_paint_start(Graphic_engine *ge, Game *game);
+
 /**
  * @brief It paints the end game screen
  * @author Rubén, Arturo, Bea, Ana

@@ -120,24 +120,35 @@ void graphic_engine_destroy(Graphic_engine *ge) {
 
 void graphic_engine_toggle_fullscreen(Graphic_engine *ge) {
   if (ge->map && ge->descript && ge->player_info && ge->banner && ge->help && ge->feedback) {
+    screen_area_clear(ge->map);
     screen_area_destroy(ge->map);
     ge->map = NULL;
+    screen_area_clear(ge->descript);
     screen_area_destroy(ge->descript);
     ge->descript = NULL;
+    screen_area_clear(ge->banner);
     screen_area_destroy(ge->banner);
     ge->banner = NULL;
+    screen_area_clear(ge->help);
     screen_area_destroy(ge->help);
     ge->help = NULL;
+    screen_area_clear(ge->feedback);
     screen_area_destroy(ge->feedback);
     ge->feedback = NULL;
+    screen_area_clear(ge->player_info);
     screen_area_destroy(ge->player_info);
     ge->player_info = NULL;
+
+    screen_init(HEIGHT_MAP + HEIGHT_BAN + HEIGHT_HLP + HEIGHT_FDB + 4, WIDTH_MAP + WIDTH_DES + WIDTH_TEA + 4);
 
     ge->full_screen = screen_area_init(1, 1, WIDTH_MAP + WIDTH_DES + WIDTH_TEA + 2, HEIGHT_MAP + HEIGHT_BAN + HEIGHT_FDB + HEIGHT_HLP + 2);
 
   } else if (ge->full_screen) {
+    screen_area_clear(ge->full_screen);
     screen_area_destroy(ge->full_screen);
     ge->full_screen = NULL;
+
+    screen_init(HEIGHT_MAP + HEIGHT_BAN + HEIGHT_HLP + HEIGHT_FDB + 4, WIDTH_MAP + WIDTH_DES + WIDTH_TEA + 4);
 
     graphic_engine_init_game_areas(ge);
   }
@@ -544,6 +555,71 @@ void printHorizontalSection(Graphic_engine *ge, Game *game, Id space_id, char *p
   }
 }
 
+void graphic_engine_paint_start(Graphic_engine *ge, Game *game) {
+  graphic_engine_toggle_fullscreen(ge);
+
+  screen_area_puts(ge->full_screen, "                                                                                                  ");
+  screen_area_puts(ge->full_screen, "                                  ,");
+  screen_area_puts(ge->full_screen, "                         _,-'\\   /|   .    .    /`.");
+  screen_area_puts(ge->full_screen, "                     _,-'     \\_/_|_  |\\   |`. /   `._,--===--.__");
+  screen_area_puts(ge->full_screen, "                    ^       _/\"/  \" \\ : \\__|_ /.   ,'    :.  :. .`-._");
+  screen_area_puts(ge->full_screen, "                           // ^   /7 t'\"\"    \"`-._/ ,'\\   :   :  :  .`.");
+  screen_area_puts(ge->full_screen, "                           Y      L/ )\\         ]],'   \\  :   :  :   : `.");
+  screen_area_puts(ge->full_screen,
+                   "                           |        /  `.n_n_n,','\\_    \\ ;   ;  ;   ;  _>                   _    _     _  _  _ ");
+  screen_area_puts(ge->full_screen,
+                   "                           |__    ,'     |  \\`-'    `-.__\\_______.==---'          __ _ _ __ | |_ | |__ (_)| || |");
+  screen_area_puts(ge->full_screen,
+                   "                          //  `\"\"\\\\      |   \\            \\                      / _` | '_ \\| __/| '_ \\| || || |");
+  screen_area_puts(ge->full_screen,
+                   "                          \\|     |/      /    \\            \\                    | (_| | | | | |_ | | | | || || |");
+  screen_area_puts(ge->full_screen,
+                   "                                        /     |             `.                   \\__,_|_| |_|\\__||_| |_|_||_||_|");
+  screen_area_puts(ge->full_screen,
+                   "                                       /      |               ^                                        The game");
+  screen_area_puts(ge->full_screen, "                                      ^       |                              ");
+  screen_area_puts(ge->full_screen, "                                              ^                                ");
+  screen_area_puts(ge->full_screen,
+                   "                                                                                                                     ");
+  screen_area_puts(ge->full_screen,
+                   "                                                         _ _ _ _ _ _ _ _ _ _ _                                       ");
+  screen_area_puts(ge->full_screen,
+                   "                      (\\   (\\   (\\   (\\   (\\   (\\   (\\ '                     '   /)   /)   /)   /)   /)   /)   /)");
+  screen_area_puts(ge->full_screen,
+                   "                    o - - - - - - - - - - - - - - - - - '  Escape jail to win ' - - - - - - - - - - - - - - - - - o");
+  screen_area_puts(ge->full_screen,
+                   "                      (/   (/   (/   (/   (/   (/   (/  '_ _ _ _ _ _ _ _ _ _ _'   \\)   \\)   \\)   \\)   \\)   \\)   \\)");
+  screen_area_puts(ge->full_screen,
+                   "                                                                                                                     ");
+  screen_area_puts(ge->full_screen,
+                   "                                                                                                                     ");
+  screen_area_puts(ge->full_screen, "                                                                           ,");
+  screen_area_puts(ge->full_screen, "                                                                  _,-'\\   /|   .    .    /`.");
+  screen_area_puts(ge->full_screen, "                                                              _,-'     \\_/_|_  |\\   |`. /   `._,--===--.__");
+  screen_area_puts(ge->full_screen,
+                   "                                                             ^       _/\"/  \" \\ : \\__|_ /.   ,'    :.  :. .`-._");
+  screen_area_puts(ge->full_screen,
+                   "                                                                    // ^   /7 t'\"\"    \"`-._/ ,'\\   :   :  :  .`.");
+  screen_area_puts(ge->full_screen,
+                   "                                  Made by:                          Y      L/ )\\         ]],'   \\  :   :  :   : `.");
+  screen_area_puts(ge->full_screen,
+                   "                                  Ruben Garcia,                     |        /  `.n_n_n,','\\_    \\ ;   ;  ;   ;  _>");
+  screen_area_puts(ge->full_screen,
+                   "                                  Arturo Perez,                     |__    ,'     |  \\`-'    `-.__\\_______.==---'");
+  screen_area_puts(ge->full_screen, "                                  Beatriz Gallo                    //  `\"\"\\\\      |   \\            \\");
+  screen_area_puts(ge->full_screen, "                                  & Ana Olsson                     \\|     |/      /    \\            \\");
+  screen_area_puts(ge->full_screen, "                                                                                 /     |             `.");
+  screen_area_puts(ge->full_screen, "                                                                                /      |               ^");
+  screen_area_puts(ge->full_screen, "                                                                               ^       |");
+  screen_area_puts(ge->full_screen, "                                                                                       ^");
+
+  /*  Renderizar en la terminal */
+  screen_paint(game_get_player_index_from_turn(game) % 7);
+  printf(" ");
+
+  graphic_engine_toggle_fullscreen(ge);
+}
+
 void graphic_engine_paint_end(Graphic_engine *ge, Game *game) {
   int i = 0;
 
@@ -600,6 +676,7 @@ void graphic_engine_paint_end(Graphic_engine *ge, Game *game) {
   screen_area_puts(ge->full_screen, " ");
 
   screen_color_paint(game_get_player_index_from_turn(game) % 7, 31, 40);
+  printf(" ");
 }
 
 void graphic_engine_paint_inventory(Graphic_engine *ge, Game *game) {

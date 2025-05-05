@@ -108,6 +108,8 @@ int main(int argc, char *argv[]) {
   }
 
   if (!game_loop_init(game, &gengine, data_file)) {
+    graphic_engine_paint_start(gengine, game);
+    sleep(2);
     game_loop_run(game, gengine, log_file);
     graphic_engine_paint_end(gengine, game);
     game_loop_cleanup(game, gengine, log_file);
