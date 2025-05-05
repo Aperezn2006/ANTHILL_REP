@@ -15,9 +15,24 @@
 
 typedef struct _Character Character;
 
+/*Management of blink_timer*/
+/**
+ * @brief It gets the blink_timer
+ * @author Rubén
+ *
+ * @param character a pointer to the character
+ * @return the blink_timer
+ */
 int character_get_blink_timer(Character *character);
 
-void character_update_blink_timer(Character *character);
+/**
+ * @brief It updates the blink_timer
+ * @author Rubén
+ *
+ * @param character a pointer to the character
+ * @return OK, if everything goes well or ERROR if there was some mistake
+ */
+Status character_update_blink_timer(Character *character);
 
 /*  Create y destroy */
 /**
@@ -77,9 +92,6 @@ Id character_get_location(Character *character);
  * @return OK if everything went well, ERROR otherwise
  */
 Status character_set_location(Character *character, Id character_location);
-
-int character_get_x(Character *character);
-int character_get_y(Character *character);
 
 /*  Manejo de name */
 /**
@@ -204,6 +216,7 @@ Id character_get_following(Character *character);
 /**
  * @brief It sets the id of the character that the current character will follow
  * @author Arturo
+ *
  * @param character A pointer to the character whose following id is to be set
  * @param id The id of the character to be followed
  * @return OK if the operation was successful, or ERROR if there was an issue
@@ -211,6 +224,13 @@ Id character_get_following(Character *character);
 Status character_set_following(Character *character, Id id);
 
 /*Management of image*/
+/**
+ * @brief It cycles the current sprite through the available ones (3)
+ * @author Ana
+ *
+ * @param character a pointer to the character
+ * @return OK if the operation was successful, or ERROR if there was an issue
+ */
 Status character_toggle_curr_image_mode(Character *character);
 
 /**
@@ -232,16 +252,76 @@ Status character_set_image(Character *character, char *image1, char *image2, cha
  */
 char *character_get_image(Character *character);
 
+/**
+ * @brief It sets the character's north image_path
+ * @author Ana
+ *
+ * @param character a pointer to the character
+ * @return OK, if everything goes well or ERROR if there was some mistake
+ */
 Status character_set_north_image(Character *character, const char *north_image, int sprite);
+
+/**
+ * @brief It gets the character's north image_path
+ * @author Ana
+ *
+ * @param character a pointer to the character
+ * @return the path to the character's image
+ */
 const char *character_get_north_image(const Character *character, int sprite);
 
+/**
+ * @brief It sets the character's east image_path
+ * @author Ana
+ *
+ * @param character a pointer to the character
+ * @return OK, if everything goes well or ERROR if there was some mistake
+ */
 Status character_set_east_image(Character *character, const char *east_image, int sprite);
+
+/**
+ * @brief It gets the character's eats image_path
+ * @author Ana
+ *
+ * @param character a pointer to the character
+ * @return the path to the character's image
+ */
 const char *character_get_east_image(const Character *character, int sprite);
 
+/**
+ * @brief It sets the character's south image_path
+ * @author Ana
+ *
+ * @param character a pointer to the character
+ * @return OK, if everything goes well or ERROR if there was some mistake
+ */
 Status character_set_south_image(Character *character, const char *south_image, int sprite);
+
+/**
+ * @brief It gets the character's south image_path
+ * @author Ana
+ *
+ * @param character a pointer to the character
+ * @return the path to the character's image
+ */
 const char *character_get_south_image(const Character *character, int sprite);
 
+/**
+ * @brief It sets the character's west image_path
+ * @author Ana
+ *
+ * @param character a pointer to the character
+ * @return OK, if everything goes well or ERROR if there was some mistake
+ */
 Status character_set_west_image(Character *character, const char *west_image, int sprite);
+
+/**
+ * @brief It gets the character's west image_path
+ * @author Ana
+ *
+ * @param character a pointer to the character
+ * @return the path to the character's image
+ */
 const char *character_get_west_image(const Character *character, int sprite);
 
 /*Management of position*/
@@ -266,6 +346,24 @@ Status character_set_position(Character *character, int x, int y);
  * @return OK, if everything goes well or ERROR if there was some mistake
  */
 Status character_get_position(Character *character, int *x, int *y);
+
+/**
+ * @brief It gets the x coordinate of the character's position
+ * @author Beatriz, Arturo, Rubén, Ana
+ *
+ * @param character a pointer to the character
+ * @return the x coordinate
+ */
+int character_get_x(Character *character);
+
+/**
+ * @brief It gets the y coordinate of the character's position
+ * @author Beatriz, Arturo, Rubén, Ana
+ *
+ * @param character a pointer to the character
+ * @return the y coordinate
+ */
+int character_get_y(Character *character);
 
 /*  Print */
 /**

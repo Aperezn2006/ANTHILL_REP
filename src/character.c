@@ -20,30 +20,38 @@
  * This struct stores all the information of a character.
  */
 struct _Character {
-  Id id;                     /*!< Id number of the character, it must be unique */
-  char name[WORD_SIZE + 1];  /*!< Name of the character */
-  char gdesc[7];             /*!< Graphical description of the character */
-  long health;               /*!< Health points the character has */
-  Bool friendly;             /*!< Indicates whether the character is hostile or not */
-  char message[MAX_MESSAGE]; /*!< It saves the message*/
-  Id following;
+  Id id;                            /*!< Id number of the character, it must be unique */
+  Id following;                     /*!< The id of the player the character's following*/
+  Bool friendly;                    /*!< Indicates whether the character is hostile or not */
+  long health;                      /*!< Health points the character has */
+  char name[WORD_SIZE + 1];         /*!< Name of the character */
+  char gdesc[7];                    /*!< Graphical description of the character */
+  char message[MAX_MESSAGE];        /*!< It saves the message*/
   char current_image[3][MAX_IMAGE]; /*!< Path to the character's image (for SDL2)*/
   char north_image[3][MAX_MESSAGE]; /*!< Path to the character's image (for SDL2)*/
   char east_image[3][MAX_MESSAGE];  /*!< Path to the character's image (for SDL2)*/
   char south_image[3][MAX_MESSAGE]; /*!< Path to the character's image (for SDL2)*/
   char west_image[3][MAX_MESSAGE];  /*!< Path to the character's image (for SDL2)*/
-  int curr_image_mode;              /*!< Identifies which image is being used*/
-  int sprite_slowed;
-  int x, y; /*!< Character's position*/
-  int blink_timer;
+  int curr_image_mode;              /*!< Identifies which sprite is being used (for SDL2)*/
+  int sprite_slower;                /*!< It controls how often the sprites change (for SDL2)*/
+  int x, y;                         /*!< The character's coordinates (for SDL2)*/
+  int blink_timer;                  /*!< It controls the character's image blinking upon death (for SDL2)*/
 };
 
+/*Management of blink_timer*/
 int character_get_blink_timer(Character *character) { return character ? character->blink_timer : 0; }
 
-void character_update_blink_timer(Character *character) {
-  if (character && character->blink_timer > 0) {
+Status character_update_blink_timer(Character *character) {
+  /*CdE*/
+  if (!character) {
+    return ERROR;
+  }
+
+  if (character->blink_timer > 0) {
     character->blink_timer--;
   }
+
+  return OK;
 }
 
 /* Create y destroy */
@@ -257,17 +265,17 @@ Status character_toggle_curr_image_mode(Character *character) {
     return ERROR;
   }
 
-  if (character->curr_image_mode < 2 && character->sprite_slowed == 4) {
+  if (character->curr_image_mode < 2 && character->sprite_slower == 4) {
     character->curr_image_mode++;
-    character->sprite_slowed = 0;
-  } else if (character->curr_image_mode == 2 && character->sprite_slowed == 4) {
+    character->sprite_slower = 0;
+  } else if (character->curr_image_mode == 2 && character->sprite_slower == 4) {
     character->curr_image_mode = 0;
-    character->sprite_slowed = 0;
+    character->sprite_slower = 0;
   } else {
-    character->sprite_slowed++;
+    character->sprite_slower++;
   }
 
-  printf("CURRENT IMAGE MODE IS %i, SPRITE Nº %i\n", character->curr_image_mode, character->sprite_slowed);
+  printf("CURRENT IMAGE MODE IS %i, SPRITE Nº %i\n", character->curr_image_mode, character->sprite_slower);
 
   return OK;
 }

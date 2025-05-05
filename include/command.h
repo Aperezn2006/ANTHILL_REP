@@ -19,7 +19,26 @@
 
 typedef enum { CMDS, CMDL } CommandType;
 
-typedef enum { NO_CMD = -1, UNKNOWN, EXIT, MOVE, TAKE, DROP, ATTACK, CHAT, INSPECT, INVENTORY, USE, OPEN, FOLLOW, ZOOM, LOAD, SAVE, RECRUIT, ABANDON} CommandCode;
+typedef enum {
+  NO_CMD = -1,
+  UNKNOWN,
+  EXIT,
+  MOVE,
+  TAKE,
+  DROP,
+  ATTACK,
+  CHAT,
+  INSPECT,
+  INVENTORY,
+  USE,
+  OPEN,
+  FOLLOW,
+  ZOOM,
+  LOAD,
+  SAVE,
+  RECRUIT,
+  ABANDON
+} CommandCode;
 
 typedef enum { NO_DEST = -1, OVER, WITH } Connector;
 typedef struct _Command Command;
@@ -79,9 +98,42 @@ Status command_set_word(Command *c, const char *word);
  */
 char *command_get_word(Command *c);
 
+/**
+ * @brief It sets the connector between commands
+ * @author Rubén
+ *
+ * @param command a pointer to the command
+ * @param connector the connector
+ * @return OK if everything goes well, ERROR otherwise
+ */
 Status command_set_connector(Command *command, Connector connector);
+
+/**
+ * @brief It gets the connector between commands
+ * @author Rubén
+ *
+ * @param command a pointer to the command
+ * @return the connector
+ */
 Connector command_get_connector(Command *command);
+
+/**
+ * @brief  It sets the command's destiny
+ * @author Rubén
+ *
+ * @param c a pointer to the command
+ * @param destiny the destiny
+ * @return OK if everything goes well, ERROR otherwise
+ */
 Status command_set_destiny(Command *c, const char *destiny);
+
+/**
+ * @brief  It gets the command's destiny
+ * @author Rubén
+ *
+ * @param c a pointer to the command
+ * @return the destiny
+ */
 char *command_get_destiny(Command *c);
 
 /**

@@ -37,7 +37,7 @@ struct _Player {
   char south_image[3][MAX_MESSAGE]; /*!< Path to the player's image (for SDL2)*/
   char west_image[3][MAX_MESSAGE];  /*!< Path to the player's image (for SDL2)*/
   int curr_image_mode;              /*!< Identifies which image is being used*/
-  int sprite_slowed;
+  int sprite_slower;
   int x, y;         /*!< Player's position*/
   Gun *current_gun; /*SDL2*/
   int blink_timer;
@@ -366,17 +366,17 @@ Status player_toggle_curr_image_mode(Player *player) {
     return ERROR;
   }
 
-  if (player->curr_image_mode < 2 && player->sprite_slowed == 4) {
+  if (player->curr_image_mode < 2 && player->sprite_slower == 4) {
     player->curr_image_mode++;
-    player->sprite_slowed = 0;
-  } else if (player->curr_image_mode == 2 && player->sprite_slowed == 4) {
+    player->sprite_slower = 0;
+  } else if (player->curr_image_mode == 2 && player->sprite_slower == 4) {
     player->curr_image_mode = 0;
-    player->sprite_slowed = 0;
+    player->sprite_slower = 0;
   } else {
-    player->sprite_slowed++;
+    player->sprite_slower++;
   }
 
-  printf("CURRENT IMAGE MODE IS %i, SPRITE Nº %i\n", player->curr_image_mode, player->sprite_slowed);
+  printf("CURRENT IMAGE MODE IS %i, SPRITE Nº %i\n", player->curr_image_mode, player->sprite_slower);
 
   return OK;
 }

@@ -5,6 +5,110 @@
 
 #include "game.h"
 
+/**
+ * @brief
+ * @author Rubén
+ *
+ * @param location
+ * @return
+ */
+Bool is_in_tunnel(Id location);
+
+/**
+ * @brief It closes all the links surrounding a space
+ * @author Rubén
+ *
+ * @param game a pointer to the game
+ * @param space a pointer to the space
+ */
+void close_links_in_space(Game *game, Space *space);
+
+/**
+ * @brief It opens all the links surrounding a space
+ * @author Rubén
+ *
+ * @param game a pointer to the game
+ * @param space a pointer to the space
+ */
+void open_links_in_space(Game *game, Space *space);
+
+/**
+ * @brief It checks whether an object can be used to dig
+ * @author Rubén
+ *
+ * @param obj a pointer to the object
+ * @return TRUE if it is a digging tool, FALSE otherwise
+ */
+Bool object_is_digging_tool(Object *obj);
+
+/**
+ * @brief It checks whether a space is in the tunnel
+ * @author Rubén
+ *
+ * @param space_id the id os the space
+ * @return TRUE if it is a tunnel, FALSE otherwise
+ */
+Bool space_is_tunnel(Id space_id);
+
+/**
+ * @brief It gets the id of the space where a player can access the tunnel
+ * @author Ana
+ *
+ * @param game a pointer to the game
+ * @param current_location th current player's location
+ * @return The id of the access
+ */
+Id game_rules_get_tunnel_access(Game *game, Id current_location);
+
+/**
+ * @brief It allows the player to dig
+ * @author Rubén
+ *
+ * @param game a pointer to the game
+ * @param cmd a pointer to the last command
+ * @return OK if everything went well, ERROR otherwise
+ */
+Status game_rules_process_digging(Game *game, Command *cmd);
+
+/**
+ * @brief It moves the guards (characters) and allows them to catch players in tunnels
+ * @author Rubén
+ *
+ * @param game a pointer to the game
+ */
+void move_guards(Game *game);
+
+Status update_game(Game *game, Command *cmd) {
+  Character *character = game_get_character(game, 31);
+  Id open_link = 123;
+
+  printf("[DEBUG] update_game: actualizando juego\n");
+  move_guards(game);
+  if (cmd) {
+    printf(
+        "[DEBUG] Comando recibido: código=%d, palabra='%s', conector=%d, "
+        "destino='%s'\n",
+        command_get_code(cmd), command_get_word(cmd), command_get_connector(cmd), command_get_destiny(cmd));
+  } else {
+    printf("[DEBUG] No se ha recibido ningún comando válido.\n");
+  }
+
+  if (character_get_health(character) == 0) {
+    printf("[DEBUG] Personaje 31 muerto, abriendo enlace %ld\n", open_link);
+    game_set_link_open(game, open_link, S);
+  }
+
+  if (command_get_code(cmd) == USE) {
+    if (game_rules_process_digging(game, cmd) == ERROR) {
+      printf("[DEBUG] Error al procesar la acción de excavar.\n");
+    } else {
+      printf("[DEBUG] Acción de excavar procesada correctamente.\n");
+    }
+  }
+
+  return OK;
+}
+
 Id game_rules_get_tunnel_access(Game *game, Id current_location);
 
 Bool is_in_tunnel(Id location) {
@@ -301,35 +405,6 @@ void move_guards(Game *game) {
         current_space = new_space;
       }
       path_indices[i]--;
-    }
-  }
-}
-
-void update_game(Game *game, Command *cmd) {
-  Character *character = game_get_character(game, 31);
-  Id open_link = 123;
-
-  printf("[DEBUG] update_game: actualizando juego\n");
-  move_guards(game);
-  if (cmd) {
-    printf(
-        "[DEBUG] Comando recibido: código=%d, palabra='%s', conector=%d, "
-        "destino='%s'\n",
-        command_get_code(cmd), command_get_word(cmd), command_get_connector(cmd), command_get_destiny(cmd));
-  } else {
-    printf("[DEBUG] No se ha recibido ningún comando válido.\n");
-  }
-
-  if (character_get_health(character) == 0) {
-    printf("[DEBUG] Personaje 31 muerto, abriendo enlace %ld\n", open_link);
-    game_set_link_open(game, open_link, S);
-  }
-
-  if (command_get_code(cmd) == USE) {
-    if (game_rules_process_digging(game, cmd) == ERROR) {
-      printf("[DEBUG] Error al procesar la acción de excavar.\n");
-    } else {
-      printf("[DEBUG] Acción de excavar procesada correctamente.\n");
     }
   }
 }
