@@ -172,7 +172,7 @@ Bool object_is_digging_tool(Object *obj) {
 
 Bool space_is_tunnel(Id space_id) {
   int i;
-  Id tunnel_spaces[] = {10, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139};
+  Id tunnel_spaces[] = {11, 200, 201, 202, 203, 204};
   size_t num_spaces = sizeof(tunnel_spaces) / sizeof(tunnel_spaces[0]);
 
   printf("[DEBUG] space_is_tunnel: comprobando espacio ID %ld\n", space_id);

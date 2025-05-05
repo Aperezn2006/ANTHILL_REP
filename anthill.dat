@@ -33,6 +33,13 @@
 #s:140|HallCentral|.|
 #s:141|Cocina|.|
 
+#s:200|HabitacionN1|0|.|
+#s:201|HabitacionN2|0|.|
+#s:202|HabitacionN3|0|.|
+#s:203|HabitacionN4|0|.|
+#s:204|HabitacionN5|0|.|
+
+
 #o:20|Llave|5|0|1|-1|-1|Open chair|0|10|
 #o:21|Hueso|3|0|1|-1|-1|Domesticate|0|5|
 #o:22|Donut|3|1|1|-1|-1|Ñum Ñum|0|1|
@@ -124,6 +131,22 @@
 #l:159|HallToComedor|140|3|5|1|
 #l:160|HallToCocina|140|141|1|1|
 #l:161|CocinaToHall|141|140|0|1|
+
+#l:200|HabitacionToHabitacionN1|11|200|0|0|
+#l:201|HabitacionN1ToHabitacion|200|11|1|1|
+
+#l:202|HabitacionN1ToHabitacionN2|200|201|0|0|
+#l:203|HabitacionN2ToHabitacionN1|201|200|1|1|
+
+#l:204|HabitacionN2ToHabitacionN3|201|202|0|0|
+#l:205|HabitacionN3ToHabitacionN2|202|201|1|1|
+
+#l:206|HabitacionN3ToHabitacionN4|202|203|0|0|
+#l:207|HabitacionN4ToHabitacionN3|203|202|1|1|
+
+#l:208|HabitacionN4ToHabitacionN5|203|204|0|0|
+#l:209|HabitacionN5ToHabitacionN4|204|203|1|1|
+
 
 /*id|name|gdesc|location|health|inventory_size|message|object_desc|max_turns*/
 #p:0|ant1|mO^|8|5|5|1|
