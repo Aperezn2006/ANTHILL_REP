@@ -12,7 +12,7 @@
  * @param location
  * @return
  */
-Bool is_in_tunnel(Id location);
+Bool alcantarillado(Id location);
 
 /**
  * @brief It closes all the links surrounding a space
@@ -111,7 +111,7 @@ Status update_game(Game *game, Command *cmd) {
 
 Id game_rules_get_tunnel_access(Game *game, Id current_location);
 
-Bool is_in_tunnel(Id location) {
+Bool alcantarillado(Id location) {
   int i;
   Id tunnel_spaces[21] = {10, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139};
   for (i = 0; i < 21; i++) {
@@ -172,7 +172,7 @@ Bool object_is_digging_tool(Object *obj) {
 
 Bool space_is_tunnel(Id space_id) {
   int i;
-  Id tunnel_spaces[] = {11, 200, 201, 202, 203, 204};
+  Id tunnel_spaces[] = {11, 200, 201, 202, 203};
   size_t num_spaces = sizeof(tunnel_spaces) / sizeof(tunnel_spaces[0]);
 
   printf("[DEBUG] space_is_tunnel: comprobando espacio ID %ld\n", space_id);
@@ -303,7 +303,7 @@ void move_guards(Game *game) {
 
     if (!guard || !current_space) continue;
 
-    if ((guard_loc == player_loc) && is_in_tunnel(guard_loc) == FALSE) {
+    if ((guard_loc == player_loc) && alcantarillado(guard_loc) == FALSE) {
       if ((rand() % 100) < 30) {
         int cell_index = rand() % 2;
         Id cell_id = cell_rooms[cell_index];
@@ -313,7 +313,7 @@ void move_guards(Game *game) {
     }
 
     /* 1. Si el jugador y el guardia están en el mismo espacio del túnel */
-    if (guard_loc == player_loc && is_in_tunnel(guard_loc)) {
+    if (guard_loc == player_loc && alcantarillado(guard_loc)) {
       char message[256];
       sprintf(message, "[!] A guard has detected you in the tunnel, currently %ld", guard_loc);
       game_set_message(game, message);
@@ -322,7 +322,6 @@ void move_guards(Game *game) {
       printf("[DEBUG] Enlace cerrado en el túnel\n");
 
       player_health = player_get_health(player);
-      printf("\nThis is for game_rules:");
       guard_health = character_get_health(guard);
 
       if (guard_health <= 0 && player_health > 0) {
@@ -339,7 +338,6 @@ void move_guards(Game *game) {
 
     /* 2. Movimiento según camino predefinido */
     next_room = guard_paths[i][path_indices[i]];
-    printf("\nNext room %li is guard_paths[%i][%i]\n", next_room, i, path_indices[i]);
 
     for (j = 0; j < 17; j++) {
       if (space_get_id(current_space) == tunnel_spaces[j]) {
@@ -350,11 +348,8 @@ void move_guards(Game *game) {
       }
     }
 
-    if ((next_room != NO_ID) && (next_room != guard_loc)) {
+    if (next_room != NO_ID && next_room != guard_loc) {
       next_space = game_get_space(game, next_room);
-      if (!next_space) {
-        printf("---Something went wrong trying to find %li\n", next_room);
-      }
       link = game_get_link_by_id(game, game_get_connection(game, guard_loc, next_room));
 
       if ((link && link_get_open(link)) || (!link)) {
@@ -401,9 +396,6 @@ void move_guards(Game *game) {
     if (valid_moves > 0) {
       new_room = valid_destinations[rand() % valid_moves];
       new_space = game_get_space(game, new_room);
-      if (!new_space) {
-        printf("---Something went wrong 2\n");
-      }
 
       if (space_remove_character(current_space, guard_ids[i]) == OK && space_add_character(new_space, guard_ids[i]) == OK) {
         printf("[DEBUG] Guardia %ld movido de %ld a %ld (aleatorio)\n", guard_ids[i], guard_loc, new_room);
@@ -412,9 +404,7 @@ void move_guards(Game *game) {
         guard_loc = new_room;
         current_space = new_space;
       }
-      if (path_indices[i] > 0) {
-        path_indices[i]--;
-      }
+      path_indices[i]--;
     }
   }
 }
