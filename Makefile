@@ -184,10 +184,6 @@ $(OBJ_DIR)/ray.o: $(SRC_DIR)/ray.c $(INCLUDE_DIR)/ray.h
 	@echo "Compilando: $<"
 	@$(CC) $(CFLAGS) -c $< -o $@
 
-$(OBJ_DIR)/ray.o: $(SRC_DIR)/libscreen.c $(INCLUDE_DIR)/libscreen.h
-	@echo "Compilando: $<"
-	@$(CC) $(CFLAGS) -c $< -o $@
-
 # Reglas para compilar cada test con dependencias específicas
 space_test: $(OBJ_DIR)/space_test.o $(OBJ_DIR)/space.o $(OBJ_DIR)/set.o
 	@echo "Compilando: space_test"

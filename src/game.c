@@ -1436,6 +1436,7 @@ Status game_update_character_health(Game *game, Character *character, Id object_
 
   health = character_get_health(character) + object_get_health(object);
 
+  printf("%s will now have %i health\n", character_get_name(character), health);
   if (character_set_health(character, health) == OK) {
     return OK;
   }

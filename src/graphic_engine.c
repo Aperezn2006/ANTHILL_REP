@@ -191,13 +191,15 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game) {
 
     for (i = 0; i < game_get_num_characters(game); i++) {
       character = game_get_character_from_index(game, i);
-
+      printf("Studying %s...\n", character_get_name(character));
       if (game_get_character_location(game, character_get_id(character)) != NO_ID) {
         sprintf(str1, "  %s : %li (%li) [%s]", character_get_description(character), game_get_character_location(game, character_get_id(character)),
                 character_get_health(character), character_get_name(character));
-      } else {
+      } else if (character_get_health(character) <= 0) {
         /*character_set_description(character, "/RIP\\_"); Molaba pero era poco intuitivo*/
         sprintf(str1, "  %s : Dead", character_get_description(character));
+      } else {
+        sprintf(str1, "  ERROR");
       }
 
       if (character_get_following(character) != player_get_id(game_get_current_player(game))) {
@@ -510,7 +512,7 @@ void graphic_engine_paint_end(Graphic_engine *ge, Game *game) {
   screen_area_puts(ge->map, "                     Someone from your party died");
   screen_area_puts(ge->map, "                          or exited the game");
 
-  screen_color_paint(2, 31, 40);
+  screen_color_paint(game_get_player_index_from_turn(game) % 7, 31, 40);
 
   sleep(2);
 
@@ -524,7 +526,7 @@ void graphic_engine_paint_end(Graphic_engine *ge, Game *game) {
     screen_area_puts(ge->map, " ");
   }
 
-  screen_color_paint(2, 31, 40);
+  screen_color_paint(game_get_player_index_from_turn(game) % 7, 31, 40);
 }
 
 void graphic_engine_paint_inventory(Graphic_engine *ge, Game *game) {

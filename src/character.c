@@ -166,6 +166,7 @@ long character_get_health(Character *character) {
     return -1;
   }
 
+  printf("%s-->%li\n", character->name, character->health);
   return character->health;
 }
 
@@ -173,9 +174,12 @@ Status character_set_health(Character *character, long health) {
   if (!character) {
     return ERROR;
   }
+
   if (character->health != health) {
     character->blink_timer = 30; /* Parpadear durante 30 frames (~0.5s si vas a 60fps) */
   }
+
+  printf("CHANGING %s's HEALTH: %li\n", character->name, character->health);
   character->health = health;
 
   return OK;
@@ -185,8 +189,12 @@ Status character_decrease_health(Character *character, long damage) {
   if (!character || !damage || damage < 0) {
     return ERROR;
   }
+
+  printf("Decreasing %li points from %s's health...\n", character->health, character->name);
   character->health -= damage;
   character->blink_timer = 30;
+  printf("--> Now %li\n", character->health);
+
   return OK;
 }
 
