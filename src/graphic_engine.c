@@ -438,11 +438,20 @@ void printHorizontalSection(Graphic_engine *ge, Game *game, Id space_id, char *p
   /*  Espacio ACTUAL */
   if (space_id != NO_ID) {
     initDescStuff(game, space_id, objects, character_desc, space_desc1, space_desc2, space_desc3, space_desc4, space_desc5);
-    if (game_get_up(game, space_id) != NO_ID) {
+    if ((game_get_up(game, space_id) != NO_ID) && (game_connection_is_open(game, space_id, U) == TRUE)) {
       strcpy(up_signal, "[/\\]");
+    } else if ((game_get_up(game, space_id) != NO_ID) && (game_connection_is_open(game, space_id, U) == FALSE)) {
+      strcpy(up_signal, "[x]");
+    } else {
+      strcpy(up_signal, "   ");
     }
-    if (game_get_down(game, space_id) != NO_ID) {
+
+    if ((game_get_down(game, space_id) != NO_ID) && (game_connection_is_open(game, space_id, D) == TRUE)) {
       strcpy(down_signal, "[\\/]");
+    } else if ((game_get_down(game, space_id) != NO_ID) && (game_connection_is_open(game, space_id, D) == FALSE)) {
+      strcpy(down_signal, "[x]");
+    } else {
+      strcpy(down_signal, "   ");
     }
 
     sprintf(str1, "                          +------------------+");
