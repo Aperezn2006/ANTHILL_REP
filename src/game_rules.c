@@ -70,6 +70,10 @@ Id game_rules_get_tunnel_access(Game *game, Id current_location);
  */
 Status game_rules_process_digging(Game *game, Command *cmd);
 
+Status create_parachute(Game *game);
+
+Status game_rules_process_use_parachute(Game *game, Id object_id);
+
 /**
  * @brief It moves the guards (characters) and allows them to catch players in tunnels
  * @author Rubén
@@ -99,14 +103,104 @@ Status update_game(Game *game, Command *cmd) {
   }
 
   if (command_get_code(cmd) == USE) {
-    if (game_rules_process_digging(game, cmd) == ERROR) {
-      printf("[DEBUG] Error al procesar la acción de excavar.\n");
+    const char *word = command_get_word(cmd);
+    Id obj = game_get_object_id_from_name(game, word); /* Suponiendo que tienes esto */
+    Object *object = game_get_object_from_id(game, obj);
+    if (obj == 41) {
+      game_rules_process_use_parachute(game, object_get_id(object));
     } else {
-      printf("[DEBUG] Acción de excavar procesada correctamente.\n");
+      game_rules_process_digging(game, cmd); /* Tu lógica anterior */
+    }
+  }
+  if(create_parachute(game)==ERROR){
+    printf("[DEBUG] Error al crear el paracaídas.\n");
+  }
+
+  
+  return OK;
+}
+Status game_rules_process_use_parachute(Game *game, Id object_id) {
+  Player *player = game_get_current_player(game);
+  Id current_space = player_get_location(player);
+  int r;
+  if (current_space != 141) {
+    printf("[DEBUG] El jugador no está en la sala 141. No se puede usar el paracaídas aquí.\n");
+    return ERROR;
+  }
+
+  if (!player_has_object(player, object_id)) {
+    printf("[DEBUG] El jugador no tiene el paracaídas para usar.\n");
+    return ERROR;
+  }
+
+  /* Eliminar el paracaídas del inventario */
+  player_remove_object(player, object_id);
+  printf("[DEBUG] Paracaídas usado. Determinando el resultado...\n");
+
+  /* Probabilidad: 70% éxito */
+  r = rand() % 100;
+  if (r < 70) {
+    printf("[DEBUG] ¡El jugador ha escapado con éxito usando el paracaídas!\n");
+    /* Aquí puedes marcar el juego como ganado, ejemplo: */
+    game_set_finished(game, TRUE); /* Si tienes una función así */
+    return OK;
+  } else {
+    printf("[DEBUG] El paracaídas se ha roto... ¡el jugador ha perdido!\n");
+    game_set_finished(game, TRUE); /* Si tienes una función así */
+    return ERROR;
+  }
+}
+
+
+Status create_parachute(Game *game) {
+  Id required_ids[] = {37, 38, 39, 40}; /* Tela, Cuerda, Varillas, CintaAdhesiva */
+  const int required_count = 4;
+  Bool has_all = TRUE;
+  Player *player = game_get_current_player(game);
+  int i;
+  Id parachute_id = 41; /* Asegúrate de que esté definido en tu .dat */
+  int player_object_count = player_get_num_objects(player);
+
+  printf("[DEBUG] Comprobando si el jugador tiene todos los objetos necesarios para crear el paracaídas\n");
+
+  /* Mostrar todos los objetos actuales del jugador */
+  printf("[DEBUG] Objetos actuales del jugador (%d):\n", player_object_count);
+  for (i = 0; i < player_object_count; i++) {
+    Id obj_id = player_get_object_from_index(player, i);
+    printf("  [DEBUG] - Objeto %d: ID = %ld\n", i, obj_id);
+  }
+
+  /* Comprobar si tiene todos los objetos requeridos */
+  for (i = 0; i < required_count; i++) {
+    if (!player_has_object(player, required_ids[i])) {
+      printf("[DEBUG] FALTA el objeto requerido con ID = %ld\n", required_ids[i]);
+      has_all = FALSE;
+    } else {
+      printf("[DEBUG] Objeto requerido con ID = %ld encontrado\n", required_ids[i]);
     }
   }
 
-  return OK;
+  if (has_all == TRUE) {
+    printf("[DEBUG] Todos los objetos requeridos están presentes. Procediendo a eliminarlos...\n");
+    for (i = 0; i < required_count; i++) {
+      if (player_remove_object(player, required_ids[i]) == OK) {
+        printf("[DEBUG] Objeto con ID = %ld eliminado del inventario del jugador\n", required_ids[i]);
+      } else {
+        printf("[DEBUG] ERROR al eliminar el objeto con ID = %ld\n", required_ids[i]);
+      }
+    }
+
+    if (player_add_object(player, parachute_id) == OK) {
+      printf("[DEBUG] Paracaídas (ID = %ld) añadido al inventario del jugador\n", parachute_id);
+      return OK;
+    } else {
+      printf("[DEBUG] ERROR al añadir el paracaídas (ID = %ld) al inventario del jugador\n", parachute_id);
+      return ERROR;
+    }
+  }
+
+  printf("[DEBUG] No se han cumplido los requisitos para crear el paracaídas\n");
+  return ERROR;
 }
 
 Id game_rules_get_tunnel_access(Game *game, Id current_location);
