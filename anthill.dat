@@ -55,6 +55,14 @@
 #o:33|Casco|6|5|1|-1|-1|Protección en túneles|0|30|
 #o:34|LinternaCabeza|6|6|1|-1|-1|Luz manos libres|0|25|
 #o:35|Dinamita|6|7|1|-1|-1|Explosivo para abrir paso|0|1|
+#o:36|LlaveCocina|11|1|1|-1|-1|Abre la cocina|0|5|
+#o:37|Tela|6|2|1|-1|-1|Trozo de tela resistente|0|3|
+#o:38|Cuerda|6|3|1|-1|-1|Cuerda fuerte|0|4|
+#o:39|Varillas|6|1|1|-1|-1|Soporte estructural|0|2|
+#o:40|Cinta|6|-1|1|-1|-1|Para unir partes|0|2|
+#o:41|Paracaidas|0|0|0|-1|-1|Permite saltar desde alturas|0|50|
+
+
 
 #c:50|Enfermo|2|4|()__/\|Hello|TRUE|
 #c:51|Policia|11|4|/()\ |Hello|FALSE|
@@ -149,4 +157,4 @@
 
 /*id|name|gdesc|location|health|inventory_size|message|object_desc|max_turns*/
 #p:0|ant1|mO^|8|5|5|1|
-#p:1|ant2|mO^|6|5|3|2|
+#p:1|ant2|mO^|6|5|4|2|
