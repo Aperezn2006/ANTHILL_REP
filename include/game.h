@@ -22,105 +22,6 @@
 
 typedef struct _Game Game;
 
-/*Cosas de SDL2*/
-
-/**
- * @brief
- * @author Arturo
- *
- * @param game a pointer to the game
- * @param character
- * @return Status
- */
-Status game_character_chase_player(Game *game, Character *character);
-
-/**
- * @brief
- * @author
- *
- * @param game a pointer to the game
- * @return Bool
- */
-Bool game_get_SDL(Game *game);
-
-/**
- * @brief
- * @author
- *
- * @param game a pointer to the game
- * @param current_location
- * @param direction
- * @return Id
- */
-Id game_get_connection(Game *game, Id current_location, Direction direction);
-
-/**
- * @brief
- * @author
- *
- * @param game a pointer to the game
- * @param current_location
- * @param direction
- * @return Bool
- */
-Bool game_connection_is_open(Game *game, Id current_location, Direction direction);
-
-/**
- * @brief
- * @author
- *
- * @param game a pointer to the game
- * @param link
- * @return Status
- */
-Status game_add_link(Game *game, Link *link);
-
-/**
- * @brief
- * @author
- *
- * @param game a pointer to the game
- * @param link_id
- * @return Link*
- */
-Link *game_get_link_by_id(Game *game, Id link_id);
-
-/**
- * @brief
- * @author
- *
- * @param game a pointer to the game
- * @return Ray*
- */
-Ray *game_get_ray(Game *game);
-
-/**
- * @brief
- * @author
- *
- * @param game a pointer to the game
- * @param ray
- */
-void game_set_ray(Game *game, Ray *ray);
-
-/**
- * @brief
- * @author
- *
- * @param game a pointer to the game
- * @param direction
- */
-void game_move_inventory_cursor(Game *game, int direction);
-
-/**
- * @brief
- * @author
- *
- * @param game a pointer to the game
- * @return Status
- */
-Status game_select_inventory_object(Game *game);
-
 /*Create & destroy*/
 /**
  * @brief It creates a new game a "restarts" everything
@@ -148,6 +49,26 @@ Status game_destroy(Game *game, Bool full_destruction);
  * @return a pointer to the game
  */
 Game *game_alloc();
+
+/*Management of last_cmd*/
+/**
+ * @brief It sets the game's last command for a certain turn/player
+ * @author Profesores PPROG
+ *
+ * @param game a pointer to the game
+ * @param command a pointer to a command
+ * @return OK if everything goes well
+ */
+Status game_set_last_command(Game *game, Command *command);
+
+/**
+ * @brief It gets the game's last command
+ * @author Profesores PPROG
+ *
+ * @param game a pointer to the game
+ * @return a pointer to the last command
+ */
+Command *game_get_last_command(Game *game);
 
 /*Management of spaces*/
 /**
@@ -250,6 +171,7 @@ Player *game_get_player_from_index(Game *game, int n);
  * @return OK if everything goes well, ERROR otherwise
  */
 Status game_set_player_location(Game *game, Id id);
+
 /**
  * @brief It sets the player's location from an id
  * @author Profesores PPROG
@@ -298,6 +220,34 @@ Id game_get_player_id_from_name(Game *game, char *name);
  * @return the player's max amount of consecutive turns
  */
 int game_get_player_max_turns(Game *game, Id player_id);
+
+/**
+ * @brief
+ * @author Arturo
+ *
+ * @param game a pointer to the game
+ * @param character
+ * @return Status
+ */
+Status game_character_chase_player(Game *game, Character *character);
+
+/**
+ * @brief Ir returns the index of the player whose turn it is
+ * @author Ana
+ *
+ * @param game a pointer to the game
+ * @return the index of the current player
+ */
+int game_get_player_index_from_turn(Game *game);
+
+/**
+ * @brief It updates the players health
+ * @author Bea, Arturo, Rubén, Ana
+ *
+ * @param game a pointer to the game, Object_id
+ * @return OK if everything went well
+ */
+Status game_update_player_health(Game *game, Id object_id);
 
 /*Management of objects*/
 /**
@@ -369,6 +319,34 @@ Id game_get_object_id_from_name(Game *game, const char *object_name);
  */
 Status game_get_string_of_objects_in_space(Game *game, Id space_id, char *objs);
 
+/**
+ * @brief It checks if an objects needs another object
+ * @author Bea, Arturo, Rubén, Ana
+ *
+ * @param game a pointer to the game, an object_id
+ * @return TRUE if object can be used, FALSE if cant, WRONG if error
+ */
+Bool game_check_object_dependency(Game *game, Id object_id);
+
+/**
+ * @brief It moves an object in a direction
+ * @author Bea, Arturo, Rubén, Ana
+ *
+ * @param game a pointer to the game, an object_id, Id of current space, direction
+ * @return Ok if everything went well
+ */
+Status game_move_object(Game *game, const char *object_name, Id current_location, Direction direction);
+
+/**
+ * @brief It tells if an object can be moved or not
+ * @author Ana
+ *
+ * @param game a pointer to the game, id of an object
+ * @param id
+ * @return TRUE if can be moved
+ */
+Bool game_is_object_movable(Game *game, Id object_id);
+
 /*Management of characters*/
 /**
  * @brief Adds a character to the game and places them in the appropriate space
@@ -405,6 +383,7 @@ Character *game_get_character_from_index(Game *game, int n);
  * @return ID of the space, or NO_ID if invalid
  */
 Id game_get_character_location(Game *game, Id character_id);
+
 /**
  * @brief Sets the location of a character in the game.
 
@@ -414,7 +393,6 @@ Id game_get_character_location(Game *game, Id character_id);
  * @param character_id The ID of the character whose location is being set.
  * @return Returns OK , or ERROR otherwise
  */
-
 Status game_set_character_location(Game *game, Id space_id, Id character_id);
 
 /**
@@ -435,8 +413,16 @@ Id game_get_character_id_from_name(Game *game, char *name);
  */
 char *game_get_character_desc_at_space(Game *game, Id space_id);
 
-/*Management of links*/
+/**
+ * @brief It updates the character health
+ * @author Bea, Arturo, Rubén, Ana
+ *
+ * @param game a pointer to the game, Object_id
+ * @return OK if everything went well
+ */
+Status game_update_character_health(Game *game, Character *character, Id object_id);
 
+/*Management of links*/
 /**
  * @brief It adds a link to the game
  * @author Rubén
@@ -559,24 +545,47 @@ Link *game_get_link_at_direction(Game *game, Id current_location, Direction d);
  */
 Bool game_connection_is_open(Game *game, Id current_location, Direction direction);
 
-/*Management of n_objects*/
 /**
- * @brief It gets the number of objects in the game
- * @author Bea, Arturo, Rubén, Ana
+ * @brief
+ * @author
  *
  * @param game a pointer to the game
- * @return the number of objects
+ * @param current_location
+ * @param direction
+ * @return Id
  */
-int game_get_num_objects(Game *game);
+Id game_get_connection(Game *game, Id current_location, Direction direction);
 
 /**
- * @brief It increments the number of objects in the game
- * @author Bea, Arturo, Rubén, Ana
+ * @brief
+ * @author
  *
  * @param game a pointer to the game
- * @return OK if everything went well
+ * @param link_id
+ * @return Link*
  */
-Status game_increment_num_objects(Game *game);
+Link *game_get_link_by_id(Game *game, Id link_id);
+
+/**
+ * @brief It sets a link to open
+ * @author Ana
+ *
+ * @param game a pointer to the game,
+ * @param id of current space and a direction
+ * @return Ok if everything went well
+ */
+Status game_set_link_open(Game *game, Id current_location, Direction direction);
+
+/*Management of teams*/
+/**
+ * @brief It gets the team of a player
+ * @author Ana
+ *
+ * @param game a pointer to the game,
+ * @param id of a player
+ * @return Ok if everything went well
+ */
+Set *game_get_team(const Game *game, Id player_id);
 
 /*Management of n_spaces*/
 /**
@@ -597,25 +606,6 @@ int game_get_num_spaces(Game *game);
  */
 Status game_increment_num_spaces(Game *game);
 
-/*Management of n_characters*/
-/**
- * @brief It gets the number of characters in the game
- * @author Bea, Arturo, Rubén, Ana
- *
- * @param game a pointer to the game
- * @return the number of characters
- */
-int game_get_num_characters(Game *game);
-
-/**
- * @brief It increments the number of characters in the game
- * @author Bea, Arturo, Rubén, Ana
- *
- * @param game a pointer to the game
- * @return OK if everything went well
- */
-Status game_increment_num_characters(Game *game);
-
 /*Management of n_players*/
 /**
  * @brief It gets the number of players in the game
@@ -634,6 +624,44 @@ int game_get_num_players(Game *game);
  * @return OK if everything went well
  */
 Status game_increment_num_players(Game *game);
+
+/*Management of n_objects*/
+/**
+ * @brief It gets the number of objects in the game
+ * @author Bea, Arturo, Rubén, Ana
+ *
+ * @param game a pointer to the game
+ * @return the number of objects
+ */
+int game_get_num_objects(Game *game);
+
+/**
+ * @brief It increments the number of objects in the game
+ * @author Bea, Arturo, Rubén, Ana
+ *
+ * @param game a pointer to the game
+ * @return OK if everything went well
+ */
+Status game_increment_num_objects(Game *game);
+
+/*Management of n_characters*/
+/**
+ * @brief It gets the number of characters in the game
+ * @author Bea, Arturo, Rubén, Ana
+ *
+ * @param game a pointer to the game
+ * @return the number of characters
+ */
+int game_get_num_characters(Game *game);
+
+/**
+ * @brief It increments the number of characters in the game
+ * @author Bea, Arturo, Rubén, Ana
+ *
+ * @param game a pointer to the game
+ * @return OK if everything went well
+ */
+Status game_increment_num_characters(Game *game);
 
 /*Management of n_links*/
 /**
@@ -654,25 +682,34 @@ int game_get_num_links(Game *game);
  */
 Status game_increment_num_links(Game *game);
 
-/*Management of last_cmd*/
+/*Management of turn*/
 /**
- * @brief It sets the game's last command for a certain turn/player
- * @author Profesores PPROG
+ * @brief It sets the game's current turn
+ * @author Ana
  *
  * @param game a pointer to the game
- * @param command a pointer to a command
+ * @param turn the current turn
  * @return OK if everything goes well
  */
-Status game_set_last_command(Game *game, Command *command);
+Status game_set_turn(Game *game, int turn);
 
 /**
- * @brief It gets the game's last command
- * @author Profesores PPROG
+ * @brief It gets the game's current turn
+ * @author Ana
  *
  * @param game a pointer to the game
- * @return a pointer to the last command
+ * @return the game's current turn
  */
-Command *game_get_last_command(Game *game);
+int game_get_turn(Game *game);
+
+/**
+ * @brief It increments the turn (if it exceeds the current number of players it goes back to 0)
+ * @author Ana
+ *
+ * @param game a pointer to the game
+ * @return OK if everything goes well, ERROR otherwise
+ */
+Status game_increment_turn(Game *game);
 
 /*Management of message*/
 /**
@@ -731,6 +768,7 @@ char *game_get_object_desc_from_index(Game *game, int index);
  * @return the description of the last inspected object
  */
 char *game_get_object_desc(Game *game);
+
 /**
  * @brief It sets the description of the current player's last inspected object
  * @author Bea, Arturo, Rubén, Ana
@@ -772,45 +810,7 @@ Bool game_get_finished(Game *game);
  */
 Status game_set_finished(Game *game, Bool finished);
 
-/*Management of turn*/
-/**
- * @brief It sets the game's current turn
- * @author Ana
- *
- * @param game a pointer to the game
- * @param turn the current turn
- * @return OK if everything goes well
- */
-Status game_set_turn(Game *game, int turn);
-
-/**
- * @brief It gets the game's current turn
- * @author Ana
- *
- * @param game a pointer to the game
- * @return the game's current turn
- */
-int game_get_turn(Game *game);
-
-/**
- * @brief Ir returns the index of the player whose turn it is
- * @author Ana
- *
- * @param game a pointer to the game
- * @return the index of the current player
- */
-int game_get_player_index_from_turn(Game *game);
-
-/**
- * @brief It increments the turn (if it exceeds the current number of players it goes back to 0)
- * @author Ana
- *
- * @param game a pointer to the game
- * @return OK if everything goes well, ERROR otherwise
- */
-Status game_increment_turn(Game *game);
-
-/*Management of inventory*/
+/*Management of inventory_vis*/
 /**
  * @brief It toggles the inventory's visualization
  * @author Bea, Arturo, Rubén, Ana
@@ -829,6 +829,7 @@ Status game_toggle_inventory_vis(Game *game);
  */
 Bool game_get_inventory_vis(Game *game);
 
+/*Management of zoom_vis*/
 /**
  * @brief It toggles the zoom's visualization
  * @author Bea, Arturo, Rubén, Ana
@@ -847,39 +848,21 @@ Status game_toggle_zoom_vis(Game *game);
  */
 Bool game_get_zoom_vis(Game *game);
 
+/*Management of SDL*/
 /**
- * @brief It updates the players health
- * @author Bea, Arturo, Rubén, Ana
+ * @brief
+ * @author
  *
- * @param game a pointer to the game, Object_id
- * @return OK if everything went well
+ * @param game a pointer to the game
+ * @return Bool
  */
-Status game_update_player_health(Game *game, Id object_id);
+Bool game_get_SDL(Game *game);
 
-/**
- * @brief It updates the character health
- * @author Bea, Arturo, Rubén, Ana
- *
- * @param game a pointer to the game, Object_id
- * @return OK if everything went well
- */
-Status game_update_character_health(Game *game, Character *character, Id object_id);
-/**
- * @brief It checks if an objects needs another object
- * @author Bea, Arturo, Rubén, Ana
- *
- * @param game a pointer to the game, an object_id
- * @return TRUE if object can be used, FALSE if cant, WRONG if error
- */
-Bool game_check_object_dependency(Game *game, Id object_id);
-/**
- * @brief It moves an object in a direction
- * @author Bea, Arturo, Rubén, Ana
- *
- * @param game a pointer to the game, an object_id, Id of current space, direction
- * @return Ok if everything went well
- */
-Status game_move_object(Game *game, const char *object_name, Id current_location, Direction direction);
+/*Management of won*/
+/*TODO - */
+Status game_set_won(Game *game, Bool won);
+
+Bool game_get_won(Game *game);
 
 /*Misc*/
 /**
@@ -891,25 +874,6 @@ Status game_move_object(Game *game, const char *object_name, Id current_location
  * @return the category in the Id_Type format
  */
 Id_Type game_get_id_type(Game *game, Id id);
-/**
- * @brief It tells if an object can be moved or not
- * @author Ana
- *
- * @param game a pointer to the game, id of an object
- * @param id
- * @return TRUE if can be moved
- */
-Bool game_is_object_movable(Game *game, Id object_id);
-
-/**
- * @brief It sets a link to open
- * @author Ana
- *
- * @param game a pointer to the game,
- * @param id of current space and a direction
- * @return Ok if everything went well
- */
-Status game_set_link_open(Game *game, Id current_location, Direction direction);
 
 /**
  * @brief It sets teams
@@ -921,15 +885,44 @@ Status game_set_link_open(Game *game, Id current_location, Direction direction);
  */
 Status game_handle_follow(Game *game, Id follower, Id leader);
 
+/*Cosas de SDL2*/
 /**
- * @brief It gets the team of a player
- * @author Ana
+ * @brief
+ * @author
  *
- * @param game a pointer to the game,
- * @param id of a player
- * @return Ok if everything went well
+ * @param game a pointer to the game
+ * @param direction
  */
-Set *game_get_team(const Game *game, Id player_id);
+void game_move_inventory_cursor(Game *game, int direction);
+
+/**
+ * @brief
+ * @author
+ *
+ * @param game a pointer to the game
+ * @return Status
+ */
+Status game_select_inventory_object(Game *game);
+
+/*Management of ray*/
+/**
+ * @brief
+ * @author
+ *
+ * @param game a pointer to the game
+ * @return Ray*
+ */
+Ray *game_get_ray(Game *game);
+
+/**
+ * @brief
+ * @author
+ *
+ * @param game a pointer to the game
+ * @param ray
+ */
+void game_set_ray(Game *game, Ray *ray);
+
 /*Print*/
 /**
  * @brief It prints the game

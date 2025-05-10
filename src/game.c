@@ -36,8 +36,9 @@ struct _Game {
   char object_desc[MAX_PLAYERS][WORD_SIZE]; /*!< Highlighted object description in the game */
   Bool finished;                            /*!< Whether the game is finished or not */
   Bool inventory_vis;                       /*!< Whether the inventory is being visualized*/
-  Bool zoom;                                /*!< Whether a space is being visualized in zoom mode*/
+  Bool zoom_vis;                            /*!< Whether a space is being visualized in zoom mode*/
   Bool SDL;                                 /*!< Whether the game was launched using SDL2*/
+  Bool won;                                 /*!< Whether the players won the game*/
   Ray *ray;
 };
 
@@ -114,6 +115,25 @@ Bool game_get_SDL(Game *game) {
   }
 
   return game->SDL;
+}
+
+/*Management of won*/
+Status game_set_won(Game *game, Bool won) {
+  if (!game) {
+    return ERROR;
+  }
+
+  game->won = won;
+
+  return OK;
+}
+
+Bool game_get_won(Game *game) {
+  if (!game) {
+    return FALSE;
+  }
+
+  return game->won;
 }
 
 void game_move_inventory_cursor(Game *game, int direction) {
@@ -220,7 +240,8 @@ Status game_init(Game *game) {
   game->finished = FALSE;
   game->turn = 1;
   game->inventory_vis = FALSE;
-  game->zoom = FALSE;
+  game->zoom_vis = FALSE;
+  game->won = FALSE;
 
   player_set_location(game->players[game_get_player_index_from_turn(game)], NO_ID);
 
@@ -1381,10 +1402,10 @@ Status game_toggle_zoom_vis(Game *game) {
     return ERROR;
   }
 
-  if (game->zoom == TRUE) {
-    game->zoom = FALSE;
+  if (game->zoom_vis == TRUE) {
+    game->zoom_vis = FALSE;
   } else {
-    game->zoom = TRUE;
+    game->zoom_vis = TRUE;
   }
 
   return OK;
@@ -1399,7 +1420,7 @@ Bool game_get_zoom_vis(Game *game) {
     return FALSE;
   }
 
-  return game->zoom;
+  return game->zoom_vis;
 }
 
 Status game_update_player_health(Game *game, Id object_id) {

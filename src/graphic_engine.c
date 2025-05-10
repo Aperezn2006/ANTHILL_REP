@@ -635,56 +635,95 @@ void graphic_engine_paint_end(Graphic_engine *ge, Game *game) {
   graphic_engine_toggle_fullscreen(ge);
   screen_area_clear(ge->full_screen);
 
-  for (i = 0; i < 18; i++) {
+  if (game_get_won(game) == FALSE) {
+    for (i = 0; i < 18; i++) {
+      screen_area_puts(ge->full_screen, " ");
+    }
+    screen_area_puts(ge->full_screen, "                                               Someone from your party died");
+    screen_area_puts(ge->full_screen, "                                                   or exited the game");
+
+    screen_color_paint(game_get_player_index_from_turn(game) % 7, 31, 40);
+
+    sleep(2);
+
+    screen_area_clear(ge->full_screen);
+
     screen_area_puts(ge->full_screen, " ");
+    screen_area_puts(ge->full_screen, " ");
+    screen_area_puts(ge->full_screen, " ");
+    screen_area_puts(ge->full_screen, "                                GGGGGGGGGGGGG");
+    screen_area_puts(ge->full_screen, "                             GGG::::::::::::G");
+    screen_area_puts(ge->full_screen, "                           GG:::::::::::::::G");
+    screen_area_puts(ge->full_screen, "                          G:::::GGGGGGGG::::G");
+    screen_area_puts(ge->full_screen, "                         G:::::G        GGGGGG  aaaaaaaaaaaaa      mmmmmmm    mmmmmmm       eeeeeeeeeeee");
+    screen_area_puts(ge->full_screen, "                         G:::::G                a::::::::::::a   mm:::::::m  m:::::::mm   ee::::::::::::ee");
+    screen_area_puts(ge->full_screen, "                         G:::::G                aaaaaaaaa:::::a m::::::::::mm::::::::::m e::::::eeeee:::::ee");
+    screen_area_puts(ge->full_screen, "                         G:::::G    GGGGGGGGGG           a::::a m::::::::::::::::::::::me::::::e     e:::::e");
+    screen_area_puts(ge->full_screen, "                         G:::::G    G::::::::G    aaaaaaa:::::a m:::::mmm::::::mmm:::::me:::::::eeeee::::::e");
+    screen_area_puts(ge->full_screen, "                         G:::::G    GGGGG::::G  aa::::::::::::a m::::m   m::::m   m::::me:::::::::::::::::e");
+    screen_area_puts(ge->full_screen, "                         G:::::G        G::::G a::::aaaa::::::a m::::m   m::::m   m::::me::::::eeeeeeeeeee");
+    screen_area_puts(ge->full_screen, "                          G:::::G       G::::Ga::::a    a:::::a m::::m   m::::m   m::::me:::::::e");
+    screen_area_puts(ge->full_screen, "                           G:::::GGGGGGGG::::Ga::::a    a:::::a m::::m   m::::m   m::::me::::::::e");
+    screen_area_puts(ge->full_screen, "                            GG:::::::::::::::Ga:::::aaaa::::::a m::::m   m::::m   m::::m e::::::::eeeeeeee");
+    screen_area_puts(ge->full_screen, "                              GGG::::::GGG:::G a::::::::::aa:::am::::m   m::::m   m::::m  ee:::::::::::::e");
+    screen_area_puts(ge->full_screen, "                                 GGGGGG   GGGG  aaaaaaaaaa  aaaammmmmm   mmmmmm   mmmmmm    eeeeeeeeeeeeee");
+    screen_area_puts(ge->full_screen, " ");
+    screen_area_puts(ge->full_screen, " ");
+    screen_area_puts(ge->full_screen, " ");
+    screen_area_puts(ge->full_screen, "                                 ooooooooooo vvvvvvv           vvvvvvv eeeeeeeeeeee    rrrrr   rrrrrrrrr");
+    screen_area_puts(ge->full_screen, "                               oo:::::::::::oov:::::v         v:::::vee::::::::::::ee  r::::rrr:::::::::r");
+    screen_area_puts(ge->full_screen, "                              o:::::::::::::::ov:::::v       v:::::ve::::::eeeee:::::eer:::::::::::::::::r");
+    screen_area_puts(ge->full_screen, "                              o:::::ooooo:::::o v:::::v     v:::::ve::::::e     e:::::err::::::rrrrr::::::r");
+    screen_area_puts(ge->full_screen, "                              o::::o     o::::o  v:::::v   v:::::v e:::::::eeeee::::::e r:::::r     r:::::r");
+    screen_area_puts(ge->full_screen, "                              o::::o     o::::o   v:::::v v:::::v  e:::::::::::::::::e  r:::::r     rrrrrrr");
+    screen_area_puts(ge->full_screen, "                              o::::o     o::::o    v:::::v:::::v   e::::::eeeeeeeeeee   r:::::r");
+    screen_area_puts(ge->full_screen, "                              o::::o     o::::o     v:::::::::v    e:::::::e            r:::::r");
+    screen_area_puts(ge->full_screen, "                              o:::::ooooo:::::o      v:::::::v     e::::::::e           r:::::r");
+    screen_area_puts(ge->full_screen, "                              o:::::::::::::::o       v:::::v       e::::::::eeeeeeee   r:::::r");
+    screen_area_puts(ge->full_screen, "                               oo:::::::::::oo         v:::v         ee:::::::::::::e   r:::::r");
+    screen_area_puts(ge->full_screen, "                                 ooooooooooo            vvv            eeeeeeeeeeeeee   rrrrrrr");
+    screen_area_puts(ge->full_screen, " ");
+    screen_area_puts(ge->full_screen, " ");
+
+    screen_color_paint(game_get_player_index_from_turn(game) % 7, 31, 40);
+  } else {
+    screen_area_puts(ge->full_screen, " ");
+    screen_area_puts(ge->full_screen, " ");
+    screen_area_puts(ge->full_screen, " ");
+    screen_area_puts(ge->full_screen, "                                        YYYYYYY       YYYYYYY");
+    screen_area_puts(ge->full_screen, "                                        Y:::::Y       Y:::::Y");
+    screen_area_puts(ge->full_screen, "                                        Y:::::Y       Y:::::Y");
+    screen_area_puts(ge->full_screen, "                                        Y::::::Y     Y::::::Y");
+    screen_area_puts(ge->full_screen, "                                        YYY:::::Y   Y:::::YYYooooooooooo   uuuuuu    uuuuuu");
+    screen_area_puts(ge->full_screen, "                                           Y:::::Y Y:::::Y oo:::::::::::oo u::::u    u::::u");
+    screen_area_puts(ge->full_screen, "                                            Y:::::Y:::::Y o:::::::::::::::ou::::u    u::::u");
+    screen_area_puts(ge->full_screen, "                                             Y:::::::::Y  o:::::ooooo:::::ou::::u    u::::u");
+    screen_area_puts(ge->full_screen, "                                              Y:::::::Y   o::::o     o::::ou::::u    u::::u");
+    screen_area_puts(ge->full_screen, "                                               Y:::::Y    o::::o     o::::ou::::u    u::::u");
+    screen_area_puts(ge->full_screen, "                                               Y:::::Y    o::::o     o::::ou::::u    u::::u");
+    screen_area_puts(ge->full_screen, "                                               Y:::::Y    o::::o     o::::ou:::::uuuu:::::u");
+    screen_area_puts(ge->full_screen, "                                               Y:::::Y    o:::::ooooo:::::ou:::::::::::::::uu");
+    screen_area_puts(ge->full_screen, "                                            YYYY:::::YYYY o:::::::::::::::o u:::::::::::::::u");
+    screen_area_puts(ge->full_screen, "                                            Y:::::::::::Y  oo:::::::::::oo   uu::::::::uu:::u");
+    screen_area_puts(ge->full_screen, "                                            YYYYYYYYYYYYY    ooooooooooo       uuuuuuuu  uuuu");
+    screen_area_puts(ge->full_screen, " ");
+    screen_area_puts(ge->full_screen, " ");
+    screen_area_puts(ge->full_screen, " ");
+    screen_area_puts(ge->full_screen, "                            wwwwwww           wwwww           wwwwwww ooooooooooo   nnnn  nnnnnnnn    !:::!");
+    screen_area_puts(ge->full_screen, "                             w:::::w         w:::::w         w:::::woo:::::::::::oo n:::nn::::::::nn  !:::!");
+    screen_area_puts(ge->full_screen, "                              w:::::w       w:::::::w       w:::::wo:::::::::::::::on::::::::::::::nn !:::!");
+    screen_area_puts(ge->full_screen, "                               w:::::w     w:::::::::w     w:::::w o:::::ooooo:::::onn:::::::::::::::n!:::!");
+    screen_area_puts(ge->full_screen, "                                w:::::w   w:::::w:::::w   w:::::w  o::::o     o::::o  n:::::nnnn:::::n!:::!");
+    screen_area_puts(ge->full_screen, "                                 w:::::w w:::::w w:::::w w:::::w   o::::o     o::::o  n::::n    n::::n!:::!");
+    screen_area_puts(ge->full_screen, "                                  w:::::w:::::w   w:::::w:::::w    o::::o     o::::o  n::::n    n::::n!!:!!");
+    screen_area_puts(ge->full_screen, "                                   w:::::::::w     w:::::::::w     o::::o     o::::o  n::::n    n::::n !!!");
+    screen_area_puts(ge->full_screen, "                                    w:::::::w       w:::::::w      o:::::ooooo:::::o  n::::n    n::::n ");
+    screen_area_puts(ge->full_screen, "                                     w:::::w         w:::::w       o:::::::::::::::o  n::::n    n::::n !!! ");
+    screen_area_puts(ge->full_screen, "                                      w:::w           w:::w         oo:::::::::::oo   n::::n    n::::n!!:!!");
+    screen_area_puts(ge->full_screen, "                                       www             www            ooooooooooo     nnnnnn    nnnnnn !!!");
+
+    screen_color_paint(game_get_player_index_from_turn(game) % 7, 32, 40);
   }
-  screen_area_puts(ge->full_screen, "                                               Someone from your party died");
-  screen_area_puts(ge->full_screen, "                                                   or exited the game");
-
-  screen_color_paint(game_get_player_index_from_turn(game) % 7, 31, 40);
-
-  sleep(2);
-
-  screen_area_clear(ge->full_screen);
-
-  screen_area_puts(ge->full_screen, "                                                                                                  ");
-  screen_area_puts(ge->full_screen, " ");
-  screen_area_puts(ge->full_screen, " ");
-  screen_area_puts(ge->full_screen, "                                GGGGGGGGGGGGG");
-  screen_area_puts(ge->full_screen, "                             GGG::::::::::::G");
-  screen_area_puts(ge->full_screen, "                           GG:::::::::::::::G");
-  screen_area_puts(ge->full_screen, "                          G:::::GGGGGGGG::::G");
-  screen_area_puts(ge->full_screen, "                         G:::::G        GGGGGG  aaaaaaaaaaaaa      mmmmmmm    mmmmmmm       eeeeeeeeeeee");
-  screen_area_puts(ge->full_screen, "                         G:::::G                a::::::::::::a   mm:::::::m  m:::::::mm   ee::::::::::::ee");
-  screen_area_puts(ge->full_screen, "                         G:::::G                aaaaaaaaa:::::a m::::::::::mm::::::::::m e::::::eeeee:::::ee");
-  screen_area_puts(ge->full_screen, "                         G:::::G    GGGGGGGGGG           a::::a m::::::::::::::::::::::me::::::e     e:::::e");
-  screen_area_puts(ge->full_screen, "                         G:::::G    G::::::::G    aaaaaaa:::::a m:::::mmm::::::mmm:::::me:::::::eeeee::::::e");
-  screen_area_puts(ge->full_screen, "                         G:::::G    GGGGG::::G  aa::::::::::::a m::::m   m::::m   m::::me:::::::::::::::::e");
-  screen_area_puts(ge->full_screen, "                         G:::::G        G::::G a::::aaaa::::::a m::::m   m::::m   m::::me::::::eeeeeeeeeee");
-  screen_area_puts(ge->full_screen, "                          G:::::G       G::::Ga::::a    a:::::a m::::m   m::::m   m::::me:::::::e");
-  screen_area_puts(ge->full_screen, "                           G:::::GGGGGGGG::::Ga::::a    a:::::a m::::m   m::::m   m::::me::::::::e");
-  screen_area_puts(ge->full_screen, "                            GG:::::::::::::::Ga:::::aaaa::::::a m::::m   m::::m   m::::m e::::::::eeeeeeee");
-  screen_area_puts(ge->full_screen, "                              GGG::::::GGG:::G a::::::::::aa:::am::::m   m::::m   m::::m  ee:::::::::::::e");
-  screen_area_puts(ge->full_screen, "                                 GGGGGG   GGGG  aaaaaaaaaa  aaaammmmmm   mmmmmm   mmmmmm    eeeeeeeeeeeeee");
-  screen_area_puts(ge->full_screen, " ");
-  screen_area_puts(ge->full_screen, " ");
-  screen_area_puts(ge->full_screen, " ");
-  screen_area_puts(ge->full_screen, "                                 ooooooooooo vvvvvvv           vvvvvvv eeeeeeeeeeee    rrrrr   rrrrrrrrr");
-  screen_area_puts(ge->full_screen, "                               oo:::::::::::oov:::::v         v:::::vee::::::::::::ee  r::::rrr:::::::::r");
-  screen_area_puts(ge->full_screen, "                              o:::::::::::::::ov:::::v       v:::::ve::::::eeeee:::::eer:::::::::::::::::r");
-  screen_area_puts(ge->full_screen, "                              o:::::ooooo:::::o v:::::v     v:::::ve::::::e     e:::::err::::::rrrrr::::::r");
-  screen_area_puts(ge->full_screen, "                              o::::o     o::::o  v:::::v   v:::::v e:::::::eeeee::::::e r:::::r     r:::::r");
-  screen_area_puts(ge->full_screen, "                              o::::o     o::::o   v:::::v v:::::v  e:::::::::::::::::e  r:::::r     rrrrrrr");
-  screen_area_puts(ge->full_screen, "                              o::::o     o::::o    v:::::v:::::v   e::::::eeeeeeeeeee   r:::::r");
-  screen_area_puts(ge->full_screen, "                              o::::o     o::::o     v:::::::::v    e:::::::e            r:::::r");
-  screen_area_puts(ge->full_screen, "                              o:::::ooooo:::::o      v:::::::v     e::::::::e           r:::::r");
-  screen_area_puts(ge->full_screen, "                              o:::::::::::::::o       v:::::v       e::::::::eeeeeeee   r:::::r");
-  screen_area_puts(ge->full_screen, "                               oo:::::::::::oo         v:::v         ee:::::::::::::e   r:::::r");
-  screen_area_puts(ge->full_screen, "                                 ooooooooooo            vvv            eeeeeeeeeeeeee   rrrrrrr");
-  screen_area_puts(ge->full_screen, " ");
-  screen_area_puts(ge->full_screen, " ");
-
-  screen_color_paint(game_get_player_index_from_turn(game) % 7, 31, 40);
   printf(" ");
 }
 
