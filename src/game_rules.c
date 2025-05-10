@@ -112,11 +112,10 @@ Status update_game(Game *game, Command *cmd) {
       game_rules_process_digging(game, cmd); /* Tu lógica anterior */
     }
   }
-  if(create_parachute(game)==ERROR){
+  if (create_parachute(game) == ERROR) {
     printf("[DEBUG] Error al crear el paracaídas.\n");
   }
 
-  
   return OK;
 }
 Status game_rules_process_use_parachute(Game *game, Id object_id) {
@@ -150,7 +149,6 @@ Status game_rules_process_use_parachute(Game *game, Id object_id) {
     return ERROR;
   }
 }
-
 
 Status create_parachute(Game *game) {
   Id required_ids[] = {37, 38, 39, 40}; /* Tela, Cuerda, Varillas, CintaAdhesiva */
@@ -364,7 +362,13 @@ void move_guards(Game *game) {
   Player *player = NULL;
   int player_health = 0;
   int guard_health = 0;
-  Id guard_loc, player_loc;
+  static int path_indices[] = {0, 0, 0}; /* Índices actuales para cada guardia */
+  int num_guards = 3;
+  int i = 0, j = 0;
+  int valid_moves = 0;
+  Link *link = NULL;
+  Space *new_space = NULL;
+  Space *next_space = NULL;
   Space *current_space = NULL;
   Id guard_ids[] = {62, 63, 64};
   Id cell_rooms[] = {124, 125}; /* Celdas de castigo y laboratorio */
@@ -373,19 +377,13 @@ void move_guards(Game *game) {
       {134, 126, 120, 134, NO_ID},           /* Guardia 2 */
       {127, 128, 129, 121, 122, 127, NO_ID}  /* Guardia 3 */
   };
-  static int path_indices[] = {0, 0, 0}; /* Índices actuales para cada guardia */
-  int num_guards = 3;
-  int i = 0, j = 0;
+  Id guard_loc, player_loc = NO_ID;
   Id tunnel_spaces[17] = {10, 120, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139};
   Id next_room = NO_ID;
-  Id north, south, east, west;
+  Id north, south, east, west = NO_ID;
   Id possible_moves[4];
-  int valid_moves = 0;
   Id valid_destinations[4] = {NO_ID, NO_ID, NO_ID, NO_ID};
-  Link *link = NULL;
   Id new_room = NO_ID;
-  Space *new_space = NULL;
-  Space *next_space = NULL;
 
   player = game_get_current_player(game);
   player_loc = game_get_player_location(game);
