@@ -143,4 +143,88 @@ void test1_object_print();
  */
 void test2_object_print();
 
+/**
+ * @test Test object set uses
+ * @pre Pointer to a valid object
+ * @post Output == OK
+ */
+void test1_object_set_uses();
+
+/**
+ * @test Test object set uses with NULL object
+ * @pre NULL pointer
+ * @post Output == ERROR
+ */
+void test2_object_set_uses();
+
+/**
+ * @test Test object get uses
+ * @pre Pointer to a valid object with uses set
+ * @post Output == Number of uses
+ */
+void test1_object_get_uses();
+
+/**
+ * @test Test object get uses with NULL object
+ * @pre NULL pointer
+ * @post Output == -1
+ */
+void test2_object_get_uses();
+
+/**
+ * @test Test object set turn amplifier
+ * @pre Pointer to a valid object
+ * @post Output == OK
+ */
+void test1_object_set_turn_amplifier();
+
+/**
+ * @test Test object set turn amplifier with NULL object
+ * @pre NULL pointer
+ * @post Output == ERROR
+ */
+void test2_object_set_turn_amplifier();
+
+/**
+ * @test Test object get turn amplifier
+ * @pre Pointer to a valid object with turn amplifier set
+ * @post Output == Turn amplifier value
+ */
+void test1_object_get_turn_amplifier();
+
+/**
+ * @test Test object get turn amplifier with NULL object
+ * @pre NULL pointer
+ * @post Output == -1
+ */
+void test2_object_get_turn_amplifier();
+
+/**
+ * @test Test object set dependency
+ * @pre Pointer to a valid object
+ * @post Output == OK
+ */
+void test1_object_set_dependency();
+
+/**
+ * @test Test object set dependency with NULL object
+ * @pre NULL pointer
+ * @post Output == ERROR
+ */
+void test2_object_set_dependency();
+
+/**
+ * @test Test object get dependency
+ * @pre Pointer to a valid object with dependency set
+ * @post Output == Dependency ID
+ */
+void test1_object_get_dependency();
+
+/**
+ * @test Test object get dependency with NULL object
+ * @pre NULL pointer
+ * @post Output == NO_ID
+ */
+void test2_object_get_dependency();
+
 #endif

@@ -158,7 +158,6 @@ Status object_set_uses(Object *object, int uses);
  */
 int object_get_uses(const Object *object);
 
-
 /*Management of image*/
 /**
  * @brief It sets the object's image_path

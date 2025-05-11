@@ -57,6 +57,10 @@ int main(int argc, char **argv) {
   if (all || test == 27) test2_character_set_message();
   if (all || test == 28) test1_character_print();
   if (all || test == 29) test2_character_print();
+  if (all || test == 30) test1_character_get_following();
+  if (all || test == 31) test2_character_get_following();
+  if (all || test == 32) test1_character_set_following();
+  if (all || test == 33) test2_character_set_following();
 
   PRINT_PASSED_PERCENTAGE;
   return 1;
@@ -259,4 +263,31 @@ void test1_character_print() {
 void test2_character_print() {
   Character *c = NULL;
   PRINT_TEST_RESULT(character_print(c) == ERROR);
+}
+
+/*  Manejo de following */
+
+void test1_character_get_following() {
+  Character *c;
+  c = character_create(1);
+  character_set_following(c, 42);
+  PRINT_TEST_RESULT(character_get_following(c) == 42);
+  character_destroy(c);
+}
+
+void test2_character_get_following() {
+  Character *c = NULL;
+  PRINT_TEST_RESULT(character_get_following(c) == NO_ID);
+}
+
+void test1_character_set_following() {
+  Character *c;
+  c = character_create(1);
+  PRINT_TEST_RESULT(character_set_following(c, 42) == OK);
+  character_destroy(c);
+}
+
+void test2_character_set_following() {
+  Character *c = NULL;
+  PRINT_TEST_RESULT(character_set_following(c, 42) == ERROR);
 }

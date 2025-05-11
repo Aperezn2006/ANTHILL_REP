@@ -47,6 +47,18 @@ int main(int argc, char **argv) {
   if (all || test == 18) test2_object_get_inspected();
   if (all || test == 19) test1_object_print();
   if (all || test == 20) test2_object_print();
+  if (all || test == 21) test1_object_set_uses();
+  if (all || test == 22) test2_object_set_uses();
+  if (all || test == 23) test1_object_get_uses();
+  if (all || test == 24) test2_object_get_uses();
+  if (all || test == 25) test1_object_set_turn_amplifier();
+  if (all || test == 26) test2_object_set_turn_amplifier();
+  if (all || test == 27) test1_object_get_turn_amplifier();
+  if (all || test == 28) test2_object_get_turn_amplifier();
+  if (all || test == 29) test1_object_set_dependency();
+  if (all || test == 30) test2_object_set_dependency();
+  if (all || test == 31) test1_object_get_dependency();
+  if (all || test == 32) test2_object_get_dependency();
 
   PRINT_PASSED_PERCENTAGE;
   return 1;
@@ -173,4 +185,76 @@ void test1_object_print() {
 void test2_object_print() {
   Object *o = NULL;
   PRINT_TEST_RESULT(object_print(o) == ERROR);
+}
+
+/* Management of uses */
+void test1_object_set_uses() {
+  Object *o = object_create(1, 1);
+  PRINT_TEST_RESULT(object_set_uses(o, 5) == OK);
+  object_destroy(o);
+}
+
+void test2_object_set_uses() {
+  Object *o = NULL;
+  PRINT_TEST_RESULT(object_set_uses(o, 5) == ERROR);
+}
+
+void test1_object_get_uses() {
+  Object *o = object_create(1, 1);
+  object_set_uses(o, 5);
+  PRINT_TEST_RESULT(object_get_uses(o) == 5);
+  object_destroy(o);
+}
+
+void test2_object_get_uses() {
+  Object *o = NULL;
+  PRINT_TEST_RESULT(object_get_uses(o) == -1);
+}
+
+/* Management of turn amplifier */
+void test1_object_set_turn_amplifier() {
+  Object *o = object_create(1, 1);
+  PRINT_TEST_RESULT(object_set_turn_amplifier(o, 3) == OK);
+  object_destroy(o);
+}
+
+void test2_object_set_turn_amplifier() {
+  Object *o = NULL;
+  PRINT_TEST_RESULT(object_set_turn_amplifier(o, 3) == ERROR);
+}
+
+void test1_object_get_turn_amplifier() {
+  Object *o = object_create(1, 1);
+  object_set_turn_amplifier(o, 3);
+  PRINT_TEST_RESULT(object_get_turn_amplifier(o) == 3);
+  object_destroy(o);
+}
+
+void test2_object_get_turn_amplifier() {
+  Object *o = NULL;
+  PRINT_TEST_RESULT(object_get_turn_amplifier(o) == 0);
+}
+
+/* Management of dependencies */
+void test1_object_set_dependency() {
+  Object *o = object_create(1, 1);
+  PRINT_TEST_RESULT(object_set_dependency(o, 42) == OK);
+  object_destroy(o);
+}
+
+void test2_object_set_dependency() {
+  Object *o = NULL;
+  PRINT_TEST_RESULT(object_set_dependency(o, 42) == ERROR);
+}
+
+void test1_object_get_dependency() {
+  Object *o = object_create(1, 1);
+  object_set_dependency(o, 42);
+  PRINT_TEST_RESULT(object_get_dependency(o) == 42);
+  object_destroy(o);
+}
+
+void test2_object_get_dependency() {
+  Object *o = NULL;
+  PRINT_TEST_RESULT(object_get_dependency(o) == NO_ID);
 }

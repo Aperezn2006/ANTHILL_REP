@@ -215,4 +215,32 @@ void test1_character_print();
  */
 void test2_character_print();
 
+/*Manejo de following*/
+/**
+ * @test Test character get following
+ * @pre Pointer to a valid character with a following ID set
+ * @post Output == ID of the following character
+ */
+void test1_character_get_following();
+
+/**
+ * @test Test character get following with NULL character
+ * @pre NULL pointer
+ * @post Output == NO_ID
+ */
+void test2_character_get_following();
+
+/**
+ * @test Test character set following
+ * @pre Pointer to a valid character
+ * @post Output == OK
+ */
+void test1_character_set_following();
+
+/**
+ * @test Test character set following with NULL character
+ * @pre NULL pointer
+ * @post Output == ERROR
+ */
+void test2_character_set_following();
 #endif
