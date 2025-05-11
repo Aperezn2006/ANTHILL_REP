@@ -90,15 +90,13 @@ Status update_game(Game *game, Command *cmd) {
   Id player_location = player_get_location(player);
   Link *link2 = game_get_link_by_id(game, 107);
 
-
-
-  if(player_location == 6 && link_get_open(link) == FALSE){
-    if(game_get_current_player(game) == player){
+  if (player_location == 6 && link_get_open(link) == FALSE) {
+    if (game_get_current_player(game) == player) {
       game_increment_turn(game);
     }
   }
 
-  if(link_get_open(link) == TRUE){
+  if (link_get_open(link) == TRUE) {
     link_set_open(link2, TRUE);
   }
 
@@ -132,8 +130,7 @@ Status update_game(Game *game, Command *cmd) {
     printf("[DEBUG] Error al crear el paracaídas.\n");
   }
 
-
-  if(link_get_open(link) == TRUE){
+  if (link_get_open(link) == TRUE) {
     link_set_open(link2, TRUE);
   }
 
@@ -162,6 +159,7 @@ Status game_rules_process_use_parachute(Game *game, Id object_id) {
   if (r < 70) {
     printf("[DEBUG] ¡El jugador ha escapado con éxito usando el paracaídas!\n");
     /* Aquí puedes marcar el juego como ganado, ejemplo: */
+    game_set_won(game, TRUE);
     game_set_finished(game, TRUE); /* Si tienes una función así */
     return OK;
   } else {
