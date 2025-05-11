@@ -29,7 +29,6 @@ Status game_init_from_file(Game *game, char *filename, Bool SDL) {
     return ERROR;
   }
 
-  game_set_player_location(game, first_space_id);
   printf("Game created from file successfully\n");
 
   return OK;
