@@ -1,0 +1,18 @@
+<map id="graphic_engine_toggle_fullscreen" name="graphic_engine_toggle_fullscreen">
+<area shape="rect" id="Node000001" title="It allows for the visualization of only one screen." alt="" coords="5,113,175,153"/>
+<area shape="rect" id="Node000002" href="$graphic__engine_8c.html#ab78b520fe5bb403249f4d32b9fa092b2" title="It initializes the game areas." alt="" coords="227,5,376,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="128,111,221,62,246,49,249,54,224,66,130,115"/>
+<area shape="rect" id="Node000003" href="$libscreen_8c.html#a4c601f4602ad83e212facc1f53da8f88" title="It creates a new area inside a screen." alt="" coords="457,42,587,67"/>
+<area shape="poly" id="edge6_Node000001_Node000003" title=" " alt="" coords="174,114,222,105,444,65,445,71,223,111,175,120"/>
+<area shape="rect" id="Node000004" href="$libscreen_8c.html#a0950dc68cba3d491b909a8abaac1c666" title="It cleares an area, eraising all its content." alt="" coords="231,121,371,146"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="175,131,217,131,217,136,175,136"/>
+<area shape="rect" id="Node000006" href="$libscreen_8c.html#aca5123ed5a7afb75e79c0001e5d1df4f" title="It destroys a new screen area." alt="" coords="223,170,380,195"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="176,151,234,164,233,169,174,156"/>
+<area shape="rect" id="Node000007" href="$libscreen_8c.html#a3c7e0099996732d34b143dde1a40f02c" title="It creates a new screen." alt="" coords="255,219,348,245"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="124,151,170,179,224,206,242,213,240,218,222,210,167,183,121,156"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="377,33,444,42,443,47,376,38"/>
+<area shape="rect" id="Node000005" href="$libscreen_8c.html#af77fa9df4f7170e1e3bf1c6209b7f0c2" title="It resets the cursor of an area." alt="" coords="428,121,616,146"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="372,131,414,131,414,136,372,136"/>
+<area shape="rect" id="Node000008" href="$libscreen_8c.html#a3d6d82dde2bb4f3ddc4d276dabe313ef" title="It destroys a new screen area." alt="" coords="461,219,583,245"/>
+<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="348,229,447,229,447,235,348,235"/>
+</map>

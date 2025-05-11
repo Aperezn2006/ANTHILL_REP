@@ -1,0 +1,1010 @@
+\doxysection{/mnt/c/\+Ubuntu/\+Shared\+\_\+folder/\+PPROG/\+I4/\+ANTHILL\+\_\+\+REP/src/space.c File Reference}
+\hypertarget{space_8c}{}\label{space_8c}\index{/mnt/c/Ubuntu/Shared\_folder/PPROG/I4/ANTHILL\_REP/src/space.c@{/mnt/c/Ubuntu/Shared\_folder/PPROG/I4/ANTHILL\_REP/src/space.c}}
+
+
+It implements the space module.  
+
+
+{\ttfamily \#include "{}space.\+h"{}}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include "{}game.\+h"{}}\newline
+Include dependency graph for space.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{space_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct__Space}{Space}}
+\begin{DoxyCompactList}\small\item\em Space. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{space_8c_a9efb9be3cc4b3d75b62b3208afac1fff}{space\+\_\+add\+\_\+obstacle}} (Space \texorpdfstring{$\ast$}{*}space, Obstacle \texorpdfstring{$\ast$}{*}p)
+\item 
+int \mbox{\hyperlink{space_8c_afea6536d734dfbbd953cef6031fdbda7}{space\+\_\+get\+\_\+num\+\_\+obstacles}} (Space \texorpdfstring{$\ast$}{*}space)
+\item 
+Obstacle \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{space_8c_af01e20d0a71e899d2083710d5398ce23}{space\+\_\+get\+\_\+obstacle}} (Space \texorpdfstring{$\ast$}{*}space, int index)
+\item 
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{space_8c_a9ce9e795cb9278fc299d3eecc0404d42}{space\+\_\+set\+\_\+image}} (Space \texorpdfstring{$\ast$}{*}space, const char \texorpdfstring{$\ast$}{*}image)
+\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{space_8c_afc3e073ab51172c985d370e8eec45273}{space\+\_\+get\+\_\+image}} (const Space \texorpdfstring{$\ast$}{*}space)
+\item 
+Space \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{space_8c_ad3a5834be733066e8a7d8586be0ac610}{space\+\_\+create}} (\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} id)
+\begin{DoxyCompactList}\small\item\em It creates a new space, allocating memory and initializing its members. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{space_8c_a278763d4b530df17823ef9e4f9db2896}{space\+\_\+destroy}} (Space \texorpdfstring{$\ast$}{*}space)
+\begin{DoxyCompactList}\small\item\em It destroys a space, freeing the allocated memory. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} \mbox{\hyperlink{space_8c_ac8ddfd0d8692fd852ee49698c446cb50}{space\+\_\+get\+\_\+id}} (Space \texorpdfstring{$\ast$}{*}space)
+\begin{DoxyCompactList}\small\item\em It gets the id of a space. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{space_8c_aada6d45e2331eaaa53fa943d559ab67c}{space\+\_\+set\+\_\+id}} (Space \texorpdfstring{$\ast$}{*}space, \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} id)
+\begin{DoxyCompactList}\small\item\em It set the id of a space. \end{DoxyCompactList}\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{space_8c_ae2006c76eb167f71c7fd7614e0edd37a}{space\+\_\+get\+\_\+name}} (Space \texorpdfstring{$\ast$}{*}space)
+\begin{DoxyCompactList}\small\item\em It gets the name of a space. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{space_8c_a03ae5d9d7a842346d89e56409c3cb3e1}{space\+\_\+set\+\_\+name}} (Space \texorpdfstring{$\ast$}{*}space, char \texorpdfstring{$\ast$}{*}name)
+\begin{DoxyCompactList}\small\item\em It sets the name of a space. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} \mbox{\hyperlink{space_8c_a76326e0ed421ddc6ad5a951d75f0ebd6}{space\+\_\+get\+\_\+object\+\_\+from\+\_\+index}} (Space \texorpdfstring{$\ast$}{*}space, int n)
+\begin{DoxyCompactList}\small\item\em It gets the object in the n position of the array. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{space_8c_a9a1ff6ef242ec7c80732c3a3e1e5817f}{space\+\_\+get\+\_\+num\+\_\+objects}} (Space \texorpdfstring{$\ast$}{*}space)
+\begin{DoxyCompactList}\small\item\em It gets the number of objects in the space. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{space_8c_a04d04100bbf986c34d0788a2370cc82e}{space\+\_\+remove\+\_\+object}} (Space \texorpdfstring{$\ast$}{*}space, \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} object\+\_\+id)
+\begin{DoxyCompactList}\small\item\em It removes an object from the space. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a39db6982619d623273fad8a383489309}{Bool}} \mbox{\hyperlink{space_8c_ad3bc0f1c4d5e11a86d533dc0cd73fc57}{space\+\_\+has\+\_\+object}} (Space \texorpdfstring{$\ast$}{*}space, \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} object\+\_\+id)
+\begin{DoxyCompactList}\small\item\em It checks whether the space has a specific object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{space_8c_a7f81b9098bde8cf07621adfe90345e09}{space\+\_\+add\+\_\+object}} (Space \texorpdfstring{$\ast$}{*}space, \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} object\+\_\+id)
+\begin{DoxyCompactList}\small\item\em It adds an object to the space. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{space_8c_a3c1a1502a0c9d8252c452dfe40d93dc8}{space\+\_\+add\+\_\+character}} (Space \texorpdfstring{$\ast$}{*}space, \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} character\+\_\+id)
+\begin{DoxyCompactList}\small\item\em Adds a character to the space. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{space_8c_a34699ef15e9c8d8ae5173ee403cd813e}{space\+\_\+remove\+\_\+character}} (Space \texorpdfstring{$\ast$}{*}space, \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} character\+\_\+id)
+\begin{DoxyCompactList}\small\item\em Removes a character from the space. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a39db6982619d623273fad8a383489309}{Bool}} \mbox{\hyperlink{space_8c_a39e092c7b3799c16bd6177c1155a683b}{space\+\_\+has\+\_\+character}} (Space \texorpdfstring{$\ast$}{*}space, \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} character\+\_\+id)
+\begin{DoxyCompactList}\small\item\em Checks whether the space has a specific character. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{space_8c_a664d39e67fd075fea73971d375e6b9fb}{space\+\_\+get\+\_\+num\+\_\+characters}} (Space \texorpdfstring{$\ast$}{*}space)
+\begin{DoxyCompactList}\small\item\em Gets the number of characters in the space. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} \mbox{\hyperlink{space_8c_a8f30c49e1550d06137a7b44d68b18559}{space\+\_\+get\+\_\+character\+\_\+from\+\_\+index}} (Space \texorpdfstring{$\ast$}{*}space, int index)
+\begin{DoxyCompactList}\small\item\em Gets a character id from the space by index. \end{DoxyCompactList}\item 
+char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{space_8c_a553122e84e7cc30e8144420b5e521a0f}{space\+\_\+get\+\_\+description}} (Space \texorpdfstring{$\ast$}{*}space)
+\begin{DoxyCompactList}\small\item\em It gets the description of a space. \end{DoxyCompactList}\item 
+char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{space_8c_a6f5c27b7db56bb39e1312d599d832d1f}{space\+\_\+get\+\_\+i\+\_\+static\+\_\+description}} (Space \texorpdfstring{$\ast$}{*}space, int n)
+\begin{DoxyCompactList}\small\item\em It gets the graphical description of the space located in the n position of the array, whether its hidden or not. \end{DoxyCompactList}\item 
+char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{space_8c_a87ca3f3f62c1e918de1c9a9d40f804b4}{space\+\_\+get\+\_\+i\+\_\+dynamic\+\_\+description}} (Space \texorpdfstring{$\ast$}{*}space, int n)
+\begin{DoxyCompactList}\small\item\em It gets the graphical description of the space located in the n position of the array, it its hidden it hids it. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{space_8c_abc82644726c192b32747474c214a7898}{space\+\_\+set\+\_\+description}} (Space \texorpdfstring{$\ast$}{*}space, char description\mbox{[}5\mbox{]}\mbox{[}10\mbox{]})
+\begin{DoxyCompactList}\small\item\em It sets the graphical description of a space. \end{DoxyCompactList}\item 
+char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{space_8c_a6453a868d9d98fcb6fd53ee2f185d23f}{space\+\_\+get\+\_\+zoom\+\_\+description\+\_\+from\+\_\+index}} (Space \texorpdfstring{$\ast$}{*}space, int n)
+\begin{DoxyCompactList}\small\item\em It gets the graphical description of the space located in the n position of the array, it its hidden it hids it. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{space_8c_a74fbf9e86829216b3465844732f7b186}{space\+\_\+set\+\_\+zoom\+\_\+description}} (Space \texorpdfstring{$\ast$}{*}space, char description\mbox{[}17\mbox{]}\mbox{[}\mbox{\hyperlink{types_8h_a92ed8507d1cd2331ad09275c5c4c1c89}{WORD\+\_\+\+SIZE}}\mbox{]})
+\begin{DoxyCompactList}\small\item\em It sets the graphical zoom description of a space. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a39db6982619d623273fad8a383489309}{Bool}} \mbox{\hyperlink{space_8c_ad5849ae1901586f6f8a7fdad6bbaea0f}{space\+\_\+get\+\_\+discovered}} (Space \texorpdfstring{$\ast$}{*}space)
+\begin{DoxyCompactList}\small\item\em It gets whether the space is discovered or not. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{space_8c_ad184783dc62e61c9b3c0c2879f3277e3}{space\+\_\+set\+\_\+discovered}} (Space \texorpdfstring{$\ast$}{*}space, \mbox{\hyperlink{types_8h_a39db6982619d623273fad8a383489309}{Bool}} discovered)
+\begin{DoxyCompactList}\small\item\em It sets whether the space is discovered or not. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{space_8c_a013d3166ac751f717612c5b0d6510c2c}{space\+\_\+print}} (Space \texorpdfstring{$\ast$}{*}space)
+\begin{DoxyCompactList}\small\item\em It prints the space information. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+It implements the space module. 
+
+\begin{DoxyAuthor}{Author}
+Profesores PPROG, Beatriz, Arturo, Rubén, Ana 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+11-\/02-\/2025 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+GNU Public License 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{space_8c_a3c1a1502a0c9d8252c452dfe40d93dc8}\label{space_8c_a3c1a1502a0c9d8252c452dfe40d93dc8} 
+\index{space.c@{space.c}!space\_add\_character@{space\_add\_character}}
+\index{space\_add\_character@{space\_add\_character}!space.c@{space.c}}
+\doxysubsubsection{\texorpdfstring{space\_add\_character()}{space\_add\_character()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} space\+\_\+add\+\_\+character (\begin{DoxyParamCaption}\item[{Space \texorpdfstring{$\ast$}{*}}]{space,  }\item[{\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}}}]{character\+\_\+id }\end{DoxyParamCaption})}
+
+
+
+Adds a character to the space. 
+
+\begin{DoxyAuthor}{Author}
+Beatriz, Arturo, Rubén, Ana 
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em space} & a pointer to the space \\
+\hline
+{\em character\+\_\+id} & the id of the character to add \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK if successful, ERROR otherwise 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=304pt]{space_8c_a3c1a1502a0c9d8252c452dfe40d93dc8_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{space_8c_a3c1a1502a0c9d8252c452dfe40d93dc8_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{space_8c_a7f81b9098bde8cf07621adfe90345e09}\label{space_8c_a7f81b9098bde8cf07621adfe90345e09} 
+\index{space.c@{space.c}!space\_add\_object@{space\_add\_object}}
+\index{space\_add\_object@{space\_add\_object}!space.c@{space.c}}
+\doxysubsubsection{\texorpdfstring{space\_add\_object()}{space\_add\_object()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} space\+\_\+add\+\_\+object (\begin{DoxyParamCaption}\item[{Space \texorpdfstring{$\ast$}{*}}]{space,  }\item[{\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}}}]{object\+\_\+id }\end{DoxyParamCaption})}
+
+
+
+It adds an object to the space. 
+
+\begin{DoxyAuthor}{Author}
+Beatriz, Arturo, Rubén, Ana
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em space} & a pointer to the space \\
+\hline
+{\em object\+\_\+id} & the id of the object to be added \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK, if everything goes well or ERROR if there was some mistake 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=289pt]{space_8c_a7f81b9098bde8cf07621adfe90345e09_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{space_8c_a7f81b9098bde8cf07621adfe90345e09_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{space_8c_a9efb9be3cc4b3d75b62b3208afac1fff}\label{space_8c_a9efb9be3cc4b3d75b62b3208afac1fff} 
+\index{space.c@{space.c}!space\_add\_obstacle@{space\_add\_obstacle}}
+\index{space\_add\_obstacle@{space\_add\_obstacle}!space.c@{space.c}}
+\doxysubsubsection{\texorpdfstring{space\_add\_obstacle()}{space\_add\_obstacle()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} space\+\_\+add\+\_\+obstacle (\begin{DoxyParamCaption}\item[{Space \texorpdfstring{$\ast$}{*}}]{space,  }\item[{Obstacle \texorpdfstring{$\ast$}{*}}]{p }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{space_8c_a9efb9be3cc4b3d75b62b3208afac1fff_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{space_8c_ad3a5834be733066e8a7d8586be0ac610}\label{space_8c_ad3a5834be733066e8a7d8586be0ac610} 
+\index{space.c@{space.c}!space\_create@{space\_create}}
+\index{space\_create@{space\_create}!space.c@{space.c}}
+\doxysubsubsection{\texorpdfstring{space\_create()}{space\_create()}}
+{\footnotesize\ttfamily Space \texorpdfstring{$\ast$}{*} space\+\_\+create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}}}]{id }\end{DoxyParamCaption})}
+
+
+
+It creates a new space, allocating memory and initializing its members. 
+
+\begin{DoxyAuthor}{Author}
+Profesores PPROG
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em id} & the identification number for the new space \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a new space, initialized 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=265pt]{space_8c_ad3a5834be733066e8a7d8586be0ac610_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{space_8c_ad3a5834be733066e8a7d8586be0ac610_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{space_8c_a278763d4b530df17823ef9e4f9db2896}\label{space_8c_a278763d4b530df17823ef9e4f9db2896} 
+\index{space.c@{space.c}!space\_destroy@{space\_destroy}}
+\index{space\_destroy@{space\_destroy}!space.c@{space.c}}
+\doxysubsubsection{\texorpdfstring{space\_destroy()}{space\_destroy()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} space\+\_\+destroy (\begin{DoxyParamCaption}\item[{Space \texorpdfstring{$\ast$}{*}}]{space }\end{DoxyParamCaption})}
+
+
+
+It destroys a space, freeing the allocated memory. 
+
+\begin{DoxyAuthor}{Author}
+Profesores PPROG
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em space} & a pointer to the space that must be destroyed \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK, if everything goes well or ERROR if there was some mistake 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=277pt]{space_8c_a278763d4b530df17823ef9e4f9db2896_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{space_8c_a278763d4b530df17823ef9e4f9db2896_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{space_8c_a8f30c49e1550d06137a7b44d68b18559}\label{space_8c_a8f30c49e1550d06137a7b44d68b18559} 
+\index{space.c@{space.c}!space\_get\_character\_from\_index@{space\_get\_character\_from\_index}}
+\index{space\_get\_character\_from\_index@{space\_get\_character\_from\_index}!space.c@{space.c}}
+\doxysubsubsection{\texorpdfstring{space\_get\_character\_from\_index()}{space\_get\_character\_from\_index()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} space\+\_\+get\+\_\+character\+\_\+from\+\_\+index (\begin{DoxyParamCaption}\item[{Space \texorpdfstring{$\ast$}{*}}]{space,  }\item[{int}]{index }\end{DoxyParamCaption})}
+
+
+
+Gets a character id from the space by index. 
+
+\begin{DoxyAuthor}{Author}
+Beatriz, Arturo, Rubén, Ana 
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em space} & a pointer to the space \\
+\hline
+{\em index} & index of the character to retrieve \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the id of the character at that index, or NO\+\_\+\+ID on error 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{space_8c_a8f30c49e1550d06137a7b44d68b18559_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{space_8c_a8f30c49e1550d06137a7b44d68b18559_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{space_8c_a553122e84e7cc30e8144420b5e521a0f}\label{space_8c_a553122e84e7cc30e8144420b5e521a0f} 
+\index{space.c@{space.c}!space\_get\_description@{space\_get\_description}}
+\index{space\_get\_description@{space\_get\_description}!space.c@{space.c}}
+\doxysubsubsection{\texorpdfstring{space\_get\_description()}{space\_get\_description()}}
+{\footnotesize\ttfamily char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} space\+\_\+get\+\_\+description (\begin{DoxyParamCaption}\item[{Space \texorpdfstring{$\ast$}{*}}]{space }\end{DoxyParamCaption})}
+
+
+
+It gets the description of a space. 
+
+\begin{DoxyAuthor}{Author}
+Beatriz, Arturo, Rubén, Ana
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em space} & a pointer to the space \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the graphical description, it is a char bidimensional 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{space_8c_a553122e84e7cc30e8144420b5e521a0f_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{space_8c_ad5849ae1901586f6f8a7fdad6bbaea0f}\label{space_8c_ad5849ae1901586f6f8a7fdad6bbaea0f} 
+\index{space.c@{space.c}!space\_get\_discovered@{space\_get\_discovered}}
+\index{space\_get\_discovered@{space\_get\_discovered}!space.c@{space.c}}
+\doxysubsubsection{\texorpdfstring{space\_get\_discovered()}{space\_get\_discovered()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a39db6982619d623273fad8a383489309}{Bool}} space\+\_\+get\+\_\+discovered (\begin{DoxyParamCaption}\item[{Space \texorpdfstring{$\ast$}{*}}]{space }\end{DoxyParamCaption})}
+
+
+
+It gets whether the space is discovered or not. 
+
+\begin{DoxyAuthor}{Author}
+Beatriz, Arturo, Rubén, Ana
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em space} & a pointer to the space \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+TRUE if it\textquotesingle{}s discovered, FALSE otherwise, WRONG if error 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{space_8c_ad5849ae1901586f6f8a7fdad6bbaea0f_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{space_8c_a87ca3f3f62c1e918de1c9a9d40f804b4}\label{space_8c_a87ca3f3f62c1e918de1c9a9d40f804b4} 
+\index{space.c@{space.c}!space\_get\_i\_dynamic\_description@{space\_get\_i\_dynamic\_description}}
+\index{space\_get\_i\_dynamic\_description@{space\_get\_i\_dynamic\_description}!space.c@{space.c}}
+\doxysubsubsection{\texorpdfstring{space\_get\_i\_dynamic\_description()}{space\_get\_i\_dynamic\_description()}}
+{\footnotesize\ttfamily char \texorpdfstring{$\ast$}{*} space\+\_\+get\+\_\+i\+\_\+dynamic\+\_\+description (\begin{DoxyParamCaption}\item[{Space \texorpdfstring{$\ast$}{*}}]{space,  }\item[{int}]{n }\end{DoxyParamCaption})}
+
+
+
+It gets the graphical description of the space located in the n position of the array, it its hidden it hids it. 
+
+\begin{DoxyAuthor}{Author}
+Beatriz, Arturo, Rubén, Ana
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em space} & a pointer to the space \\
+\hline
+{\em n} & the position of the graphical description to get \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the n line of the graphical description, it is char one-\/dimension 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{space_8c_a87ca3f3f62c1e918de1c9a9d40f804b4_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{space_8c_a87ca3f3f62c1e918de1c9a9d40f804b4_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{space_8c_a6f5c27b7db56bb39e1312d599d832d1f}\label{space_8c_a6f5c27b7db56bb39e1312d599d832d1f} 
+\index{space.c@{space.c}!space\_get\_i\_static\_description@{space\_get\_i\_static\_description}}
+\index{space\_get\_i\_static\_description@{space\_get\_i\_static\_description}!space.c@{space.c}}
+\doxysubsubsection{\texorpdfstring{space\_get\_i\_static\_description()}{space\_get\_i\_static\_description()}}
+{\footnotesize\ttfamily char \texorpdfstring{$\ast$}{*} space\+\_\+get\+\_\+i\+\_\+static\+\_\+description (\begin{DoxyParamCaption}\item[{Space \texorpdfstring{$\ast$}{*}}]{space,  }\item[{int}]{n }\end{DoxyParamCaption})}
+
+
+
+It gets the graphical description of the space located in the n position of the array, whether its hidden or not. 
+
+\begin{DoxyAuthor}{Author}
+Beatriz, Arturo, Rubén, Ana
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em space} & a pointer to the space \\
+\hline
+{\em n} & the position of the graphical description to get \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the n line of the graphical description, it is char one-\/dimension 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{space_8c_a6f5c27b7db56bb39e1312d599d832d1f_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{space_8c_ac8ddfd0d8692fd852ee49698c446cb50}\label{space_8c_ac8ddfd0d8692fd852ee49698c446cb50} 
+\index{space.c@{space.c}!space\_get\_id@{space\_get\_id}}
+\index{space\_get\_id@{space\_get\_id}!space.c@{space.c}}
+\doxysubsubsection{\texorpdfstring{space\_get\_id()}{space\_get\_id()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} space\+\_\+get\+\_\+id (\begin{DoxyParamCaption}\item[{Space \texorpdfstring{$\ast$}{*}}]{space }\end{DoxyParamCaption})}
+
+
+
+It gets the id of a space. 
+
+\begin{DoxyAuthor}{Author}
+Profesores PPROG
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em space} & a pointer to the space \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the id of space 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{space_8c_ac8ddfd0d8692fd852ee49698c446cb50_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{space_8c_afc3e073ab51172c985d370e8eec45273}\label{space_8c_afc3e073ab51172c985d370e8eec45273} 
+\index{space.c@{space.c}!space\_get\_image@{space\_get\_image}}
+\index{space\_get\_image@{space\_get\_image}!space.c@{space.c}}
+\doxysubsubsection{\texorpdfstring{space\_get\_image()}{space\_get\_image()}}
+{\footnotesize\ttfamily const char \texorpdfstring{$\ast$}{*} space\+\_\+get\+\_\+image (\begin{DoxyParamCaption}\item[{const Space \texorpdfstring{$\ast$}{*}}]{space }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{space_8c_afc3e073ab51172c985d370e8eec45273_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{space_8c_ae2006c76eb167f71c7fd7614e0edd37a}\label{space_8c_ae2006c76eb167f71c7fd7614e0edd37a} 
+\index{space.c@{space.c}!space\_get\_name@{space\_get\_name}}
+\index{space\_get\_name@{space\_get\_name}!space.c@{space.c}}
+\doxysubsubsection{\texorpdfstring{space\_get\_name()}{space\_get\_name()}}
+{\footnotesize\ttfamily const char \texorpdfstring{$\ast$}{*} space\+\_\+get\+\_\+name (\begin{DoxyParamCaption}\item[{Space \texorpdfstring{$\ast$}{*}}]{space }\end{DoxyParamCaption})}
+
+
+
+It gets the name of a space. 
+
+\begin{DoxyAuthor}{Author}
+Profesores PPROG
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em space} & a pointer to the space \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a string with the name of the space 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{space_8c_ae2006c76eb167f71c7fd7614e0edd37a_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{space_8c_a664d39e67fd075fea73971d375e6b9fb}\label{space_8c_a664d39e67fd075fea73971d375e6b9fb} 
+\index{space.c@{space.c}!space\_get\_num\_characters@{space\_get\_num\_characters}}
+\index{space\_get\_num\_characters@{space\_get\_num\_characters}!space.c@{space.c}}
+\doxysubsubsection{\texorpdfstring{space\_get\_num\_characters()}{space\_get\_num\_characters()}}
+{\footnotesize\ttfamily int space\+\_\+get\+\_\+num\+\_\+characters (\begin{DoxyParamCaption}\item[{Space \texorpdfstring{$\ast$}{*}}]{space }\end{DoxyParamCaption})}
+
+
+
+Gets the number of characters in the space. 
+
+\begin{DoxyAuthor}{Author}
+Beatriz, Arturo, Rubén, Ana 
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em space} & a pointer to the space \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the number of characters in the space, or -\/1 if error 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{space_8c_a664d39e67fd075fea73971d375e6b9fb_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{space_8c_a664d39e67fd075fea73971d375e6b9fb_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{space_8c_a9a1ff6ef242ec7c80732c3a3e1e5817f}\label{space_8c_a9a1ff6ef242ec7c80732c3a3e1e5817f} 
+\index{space.c@{space.c}!space\_get\_num\_objects@{space\_get\_num\_objects}}
+\index{space\_get\_num\_objects@{space\_get\_num\_objects}!space.c@{space.c}}
+\doxysubsubsection{\texorpdfstring{space\_get\_num\_objects()}{space\_get\_num\_objects()}}
+{\footnotesize\ttfamily int space\+\_\+get\+\_\+num\+\_\+objects (\begin{DoxyParamCaption}\item[{Space \texorpdfstring{$\ast$}{*}}]{space }\end{DoxyParamCaption})}
+
+
+
+It gets the number of objects in the space. 
+
+\begin{DoxyAuthor}{Author}
+Beatriz, Arturo, Rubén, Ana
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em space} & a pointer to the space \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the number of objects 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=349pt]{space_8c_a9a1ff6ef242ec7c80732c3a3e1e5817f_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{space_8c_a9a1ff6ef242ec7c80732c3a3e1e5817f_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{space_8c_afea6536d734dfbbd953cef6031fdbda7}\label{space_8c_afea6536d734dfbbd953cef6031fdbda7} 
+\index{space.c@{space.c}!space\_get\_num\_obstacles@{space\_get\_num\_obstacles}}
+\index{space\_get\_num\_obstacles@{space\_get\_num\_obstacles}!space.c@{space.c}}
+\doxysubsubsection{\texorpdfstring{space\_get\_num\_obstacles()}{space\_get\_num\_obstacles()}}
+{\footnotesize\ttfamily int space\+\_\+get\+\_\+num\+\_\+obstacles (\begin{DoxyParamCaption}\item[{Space \texorpdfstring{$\ast$}{*}}]{space }\end{DoxyParamCaption})}
+
+\Hypertarget{space_8c_a76326e0ed421ddc6ad5a951d75f0ebd6}\label{space_8c_a76326e0ed421ddc6ad5a951d75f0ebd6} 
+\index{space.c@{space.c}!space\_get\_object\_from\_index@{space\_get\_object\_from\_index}}
+\index{space\_get\_object\_from\_index@{space\_get\_object\_from\_index}!space.c@{space.c}}
+\doxysubsubsection{\texorpdfstring{space\_get\_object\_from\_index()}{space\_get\_object\_from\_index()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} space\+\_\+get\+\_\+object\+\_\+from\+\_\+index (\begin{DoxyParamCaption}\item[{Space \texorpdfstring{$\ast$}{*}}]{space,  }\item[{int}]{n }\end{DoxyParamCaption})}
+
+
+
+It gets the object in the n position of the array. 
+
+\begin{DoxyAuthor}{Author}
+Beatriz, Arturo, Rubén, Ana
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em space} & a pointer to the space \\
+\hline
+{\em n} & number of the array position where the desired object is \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the object\textquotesingle{}s id 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{space_8c_a76326e0ed421ddc6ad5a951d75f0ebd6_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{space_8c_a76326e0ed421ddc6ad5a951d75f0ebd6_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{space_8c_af01e20d0a71e899d2083710d5398ce23}\label{space_8c_af01e20d0a71e899d2083710d5398ce23} 
+\index{space.c@{space.c}!space\_get\_obstacle@{space\_get\_obstacle}}
+\index{space\_get\_obstacle@{space\_get\_obstacle}!space.c@{space.c}}
+\doxysubsubsection{\texorpdfstring{space\_get\_obstacle()}{space\_get\_obstacle()}}
+{\footnotesize\ttfamily Obstacle \texorpdfstring{$\ast$}{*} space\+\_\+get\+\_\+obstacle (\begin{DoxyParamCaption}\item[{Space \texorpdfstring{$\ast$}{*}}]{space,  }\item[{int}]{index }\end{DoxyParamCaption})}
+
+\Hypertarget{space_8c_a6453a868d9d98fcb6fd53ee2f185d23f}\label{space_8c_a6453a868d9d98fcb6fd53ee2f185d23f} 
+\index{space.c@{space.c}!space\_get\_zoom\_description\_from\_index@{space\_get\_zoom\_description\_from\_index}}
+\index{space\_get\_zoom\_description\_from\_index@{space\_get\_zoom\_description\_from\_index}!space.c@{space.c}}
+\doxysubsubsection{\texorpdfstring{space\_get\_zoom\_description\_from\_index()}{space\_get\_zoom\_description\_from\_index()}}
+{\footnotesize\ttfamily char \texorpdfstring{$\ast$}{*} space\+\_\+get\+\_\+zoom\+\_\+description\+\_\+from\+\_\+index (\begin{DoxyParamCaption}\item[{Space \texorpdfstring{$\ast$}{*}}]{space,  }\item[{int}]{n }\end{DoxyParamCaption})}
+
+
+
+It gets the graphical description of the space located in the n position of the array, it its hidden it hids it. 
+
+\begin{DoxyAuthor}{Author}
+Beatriz, Arturo, Rubén, Ana
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em space} & a pointer to the space \\
+\hline
+{\em n} & the position of the graphical description to get \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the n line of the graphical zoom description, it is char one-\/dimension 
+\end{DoxyReturn}
+\Hypertarget{space_8c_a39e092c7b3799c16bd6177c1155a683b}\label{space_8c_a39e092c7b3799c16bd6177c1155a683b} 
+\index{space.c@{space.c}!space\_has\_character@{space\_has\_character}}
+\index{space\_has\_character@{space\_has\_character}!space.c@{space.c}}
+\doxysubsubsection{\texorpdfstring{space\_has\_character()}{space\_has\_character()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a39db6982619d623273fad8a383489309}{Bool}} space\+\_\+has\+\_\+character (\begin{DoxyParamCaption}\item[{Space \texorpdfstring{$\ast$}{*}}]{space,  }\item[{\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}}}]{character\+\_\+id }\end{DoxyParamCaption})}
+
+
+
+Checks whether the space has a specific character. 
+
+\begin{DoxyAuthor}{Author}
+Beatriz, Arturo, Rubén, Ana 
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em space} & a pointer to the space \\
+\hline
+{\em character\+\_\+id} & the id of the character to check \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+TRUE if it has the character, FALSE otherwise 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=303pt]{space_8c_a39e092c7b3799c16bd6177c1155a683b_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{space_8c_a39e092c7b3799c16bd6177c1155a683b_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{space_8c_ad3bc0f1c4d5e11a86d533dc0cd73fc57}\label{space_8c_ad3bc0f1c4d5e11a86d533dc0cd73fc57} 
+\index{space.c@{space.c}!space\_has\_object@{space\_has\_object}}
+\index{space\_has\_object@{space\_has\_object}!space.c@{space.c}}
+\doxysubsubsection{\texorpdfstring{space\_has\_object()}{space\_has\_object()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a39db6982619d623273fad8a383489309}{Bool}} space\+\_\+has\+\_\+object (\begin{DoxyParamCaption}\item[{Space \texorpdfstring{$\ast$}{*}}]{space,  }\item[{\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}}}]{object\+\_\+id }\end{DoxyParamCaption})}
+
+
+
+It checks whether the space has a specific object. 
+
+\begin{DoxyAuthor}{Author}
+Beatriz, Arturo, Rubén, Ana
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em space} & a pointer to the space \\
+\hline
+{\em object\+\_\+id} & the id of the object to check \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+TRUE if it has the object, FALSE otherwise, WRONG if error 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=287pt]{space_8c_ad3bc0f1c4d5e11a86d533dc0cd73fc57_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{space_8c_ad3bc0f1c4d5e11a86d533dc0cd73fc57_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{space_8c_a013d3166ac751f717612c5b0d6510c2c}\label{space_8c_a013d3166ac751f717612c5b0d6510c2c} 
+\index{space.c@{space.c}!space\_print@{space\_print}}
+\index{space\_print@{space\_print}!space.c@{space.c}}
+\doxysubsubsection{\texorpdfstring{space\_print()}{space\_print()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} space\+\_\+print (\begin{DoxyParamCaption}\item[{Space \texorpdfstring{$\ast$}{*}}]{space }\end{DoxyParamCaption})}
+
+
+
+It prints the space information. 
+
+\begin{DoxyAuthor}{Author}
+Profesores PPROG
+\end{DoxyAuthor}
+
+\begin{DoxyEnumerate}
+\item Print the id and the name of the space
+\item Print if there is an object in the space or not
+\item Print its descrption 
+\begin{DoxyParams}{Parameters}
+{\em space} & a pointer to the space \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK, if everything goes well or ERROR if there was some mistake 
+\end{DoxyReturn}
+
+\end{DoxyEnumerate}Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{space_8c_a013d3166ac751f717612c5b0d6510c2c_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=261pt]{space_8c_a013d3166ac751f717612c5b0d6510c2c_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{space_8c_a34699ef15e9c8d8ae5173ee403cd813e}\label{space_8c_a34699ef15e9c8d8ae5173ee403cd813e} 
+\index{space.c@{space.c}!space\_remove\_character@{space\_remove\_character}}
+\index{space\_remove\_character@{space\_remove\_character}!space.c@{space.c}}
+\doxysubsubsection{\texorpdfstring{space\_remove\_character()}{space\_remove\_character()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} space\+\_\+remove\+\_\+character (\begin{DoxyParamCaption}\item[{Space \texorpdfstring{$\ast$}{*}}]{space,  }\item[{\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}}}]{character\+\_\+id }\end{DoxyParamCaption})}
+
+
+
+Removes a character from the space. 
+
+\begin{DoxyAuthor}{Author}
+Beatriz, Arturo, Rubén, Ana 
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em space} & a pointer to the space \\
+\hline
+{\em character\+\_\+id} & the id of the character to remove \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK if successful, ERROR otherwise 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=344pt]{space_8c_a34699ef15e9c8d8ae5173ee403cd813e_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{space_8c_a34699ef15e9c8d8ae5173ee403cd813e_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{space_8c_a04d04100bbf986c34d0788a2370cc82e}\label{space_8c_a04d04100bbf986c34d0788a2370cc82e} 
+\index{space.c@{space.c}!space\_remove\_object@{space\_remove\_object}}
+\index{space\_remove\_object@{space\_remove\_object}!space.c@{space.c}}
+\doxysubsubsection{\texorpdfstring{space\_remove\_object()}{space\_remove\_object()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} space\+\_\+remove\+\_\+object (\begin{DoxyParamCaption}\item[{Space \texorpdfstring{$\ast$}{*}}]{space,  }\item[{\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}}}]{object\+\_\+id }\end{DoxyParamCaption})}
+
+
+
+It removes an object from the space. 
+
+\begin{DoxyAuthor}{Author}
+Beatriz, Arturo, Rubén, Ana
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em space} & a pointer to the space \\
+\hline
+{\em object\+\_\+id} & the id of the object to be removed \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK, if everything goes well or ERROR if there was some mistake 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=328pt]{space_8c_a04d04100bbf986c34d0788a2370cc82e_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{space_8c_a04d04100bbf986c34d0788a2370cc82e_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{space_8c_abc82644726c192b32747474c214a7898}\label{space_8c_abc82644726c192b32747474c214a7898} 
+\index{space.c@{space.c}!space\_set\_description@{space\_set\_description}}
+\index{space\_set\_description@{space\_set\_description}!space.c@{space.c}}
+\doxysubsubsection{\texorpdfstring{space\_set\_description()}{space\_set\_description()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} space\+\_\+set\+\_\+description (\begin{DoxyParamCaption}\item[{Space \texorpdfstring{$\ast$}{*}}]{space,  }\item[{char}]{description\mbox{[}5\mbox{]}\mbox{[}10\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+It sets the graphical description of a space. 
+
+\begin{DoxyAuthor}{Author}
+Beatriz, Arturo, Rubén, Ana
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em space} & a pointer to the space \\
+\hline
+{\em description} & the graphical description to set \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK, if everything goes well or ERROR if there was some mistake 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{space_8c_abc82644726c192b32747474c214a7898_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{space_8c_ad184783dc62e61c9b3c0c2879f3277e3}\label{space_8c_ad184783dc62e61c9b3c0c2879f3277e3} 
+\index{space.c@{space.c}!space\_set\_discovered@{space\_set\_discovered}}
+\index{space\_set\_discovered@{space\_set\_discovered}!space.c@{space.c}}
+\doxysubsubsection{\texorpdfstring{space\_set\_discovered()}{space\_set\_discovered()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} space\+\_\+set\+\_\+discovered (\begin{DoxyParamCaption}\item[{Space \texorpdfstring{$\ast$}{*}}]{space,  }\item[{\mbox{\hyperlink{types_8h_a39db6982619d623273fad8a383489309}{Bool}}}]{discovered }\end{DoxyParamCaption})}
+
+
+
+It sets whether the space is discovered or not. 
+
+\begin{DoxyAuthor}{Author}
+Beatriz, Arturo, Rubén, Ana
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em space} & a pointer to the space \\
+\hline
+{\em discovered} & TRUE if it\textquotesingle{}s discovered, FALSE otherwise \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK, if everything goes well or ERROR if there was some mistake 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{space_8c_ad184783dc62e61c9b3c0c2879f3277e3_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{space_8c_aada6d45e2331eaaa53fa943d559ab67c}\label{space_8c_aada6d45e2331eaaa53fa943d559ab67c} 
+\index{space.c@{space.c}!space\_set\_id@{space\_set\_id}}
+\index{space\_set\_id@{space\_set\_id}!space.c@{space.c}}
+\doxysubsubsection{\texorpdfstring{space\_set\_id()}{space\_set\_id()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} space\+\_\+set\+\_\+id (\begin{DoxyParamCaption}\item[{Space \texorpdfstring{$\ast$}{*}}]{space,  }\item[{\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}}}]{id }\end{DoxyParamCaption})}
+
+
+
+It set the id of a space. 
+
+\begin{DoxyAuthor}{Author}
+Ruben, Ana, Arturo, Bea
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em space} & a pointer to the space, Id of the space \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Status, Ok if everything went well, ERROR if something happens 
+\end{DoxyReturn}
+\Hypertarget{space_8c_a9ce9e795cb9278fc299d3eecc0404d42}\label{space_8c_a9ce9e795cb9278fc299d3eecc0404d42} 
+\index{space.c@{space.c}!space\_set\_image@{space\_set\_image}}
+\index{space\_set\_image@{space\_set\_image}!space.c@{space.c}}
+\doxysubsubsection{\texorpdfstring{space\_set\_image()}{space\_set\_image()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} space\+\_\+set\+\_\+image (\begin{DoxyParamCaption}\item[{Space \texorpdfstring{$\ast$}{*}}]{space,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{image }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{space_8c_a9ce9e795cb9278fc299d3eecc0404d42_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{space_8c_a03ae5d9d7a842346d89e56409c3cb3e1}\label{space_8c_a03ae5d9d7a842346d89e56409c3cb3e1} 
+\index{space.c@{space.c}!space\_set\_name@{space\_set\_name}}
+\index{space\_set\_name@{space\_set\_name}!space.c@{space.c}}
+\doxysubsubsection{\texorpdfstring{space\_set\_name()}{space\_set\_name()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} space\+\_\+set\+\_\+name (\begin{DoxyParamCaption}\item[{Space \texorpdfstring{$\ast$}{*}}]{space,  }\item[{char \texorpdfstring{$\ast$}{*}}]{name }\end{DoxyParamCaption})}
+
+
+
+It sets the name of a space. 
+
+\begin{DoxyAuthor}{Author}
+Profesores PPROG
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em space} & a pointer to the space \\
+\hline
+{\em name} & a string with the name to store \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK, if everything goes well or ERROR if there was some mistake 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{space_8c_a03ae5d9d7a842346d89e56409c3cb3e1_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{space_8c_a74fbf9e86829216b3465844732f7b186}\label{space_8c_a74fbf9e86829216b3465844732f7b186} 
+\index{space.c@{space.c}!space\_set\_zoom\_description@{space\_set\_zoom\_description}}
+\index{space\_set\_zoom\_description@{space\_set\_zoom\_description}!space.c@{space.c}}
+\doxysubsubsection{\texorpdfstring{space\_set\_zoom\_description()}{space\_set\_zoom\_description()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} space\+\_\+set\+\_\+zoom\+\_\+description (\begin{DoxyParamCaption}\item[{Space \texorpdfstring{$\ast$}{*}}]{space,  }\item[{char}]{description\mbox{[}17\mbox{]}\mbox{[}\+WORD\+\_\+\+SIZE\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+It sets the graphical zoom description of a space. 
+
+\begin{DoxyAuthor}{Author}
+Beatriz, Arturo, Rubén, Ana
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em space} & a pointer to the space \\
+\hline
+{\em description} & the graphical zoom description to set \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK, if everything goes well or ERROR if there was some mistake 
+\end{DoxyReturn}

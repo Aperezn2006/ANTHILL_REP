@@ -1,0 +1,10 @@
+<map id="graphic_engine_toggle_fullscreen" name="graphic_engine_toggle_fullscreen">
+<area shape="rect" id="Node000001" title="It allows for the visualization of only one screen." alt="" coords="348,27,517,67"/>
+<area shape="rect" id="Node000002" href="$graphic__engine_8c.html#a944f77c736cfe97f5ac0d08f16cb6785" title="It paints the end game screen." alt="" coords="108,5,300,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="334,37,300,33,301,28,335,32"/>
+<area shape="rect" id="Node000004" href="$graphic__engine_8c.html#a69e45b47bd8d4bd4b750fbdc58c2471d" title="It paints the welcome screen." alt="" coords="123,55,285,95"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="334,62,285,68,284,63,334,57"/>
+<area shape="rect" id="Node000003" href="$game__loop_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,35,60,60"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="117,36,61,45,60,40,116,30"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="110,63,60,54,61,49,110,57"/>
+</map>

@@ -1,0 +1,25 @@
+<map id="game_loop_cleanup" name="game_loop_cleanup">
+<area shape="rect" id="Node000001" title="Cleans up resources used during the game loop, including the game and graphic engine." alt="" coords="5,179,157,204"/>
+<area shape="rect" id="Node000002" href="$game_8c.html#a51e25c77a7c3d9a58ebb5faecc182b81" title="It frees the memory the game was occupying." alt="" coords="249,153,364,179"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="157,180,235,171,236,177,158,185"/>
+<area shape="rect" id="Node000011" href="$graphic__engine__sdl_8c.html#a159fad3d97ad98964531db1ab91c7620" title="It destroys a graphic engine." alt="" coords="205,203,408,228"/>
+<area shape="poly" id="edge12_Node000001_Node000011" title=" " alt="" coords="158,197,192,200,191,206,157,202"/>
+<area shape="rect" id="Node000003" href="$character_8c.html#a56873e94f3e967d9ad10a36f2338a64a" title="It destroys a character, freeing the allocated memory." alt="" coords="458,5,597,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="318,151,374,98,413,67,455,40,467,34,469,38,457,44,416,72,377,102,322,155"/>
+<area shape="rect" id="Node000004" href="$command_8c.html#abfb6dbf1977dc1a9a6136baefd91b451" title="It frees the memory of a certain command." alt="" coords="456,55,599,80"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="330,151,386,121,455,89,472,82,474,87,457,94,389,126,332,155"/>
+<area shape="rect" id="Node000005" href="$link_8c.html#a117e4e5a82b23b805052d1eace34d068" title="It destroys a link." alt="" coords="476,104,579,129"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="364,151,462,128,463,134,365,156"/>
+<area shape="rect" id="Node000006" href="$object_8c.html#aab2d9fe61ae9c48522635d006dd50396" title="It destroys a object, freeing the allocated memory." alt="" coords="468,153,587,179"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="364,163,454,163,454,169,364,169"/>
+<area shape="rect" id="Node000007" href="$player_8c.html#a2c5f78378722793bb82da46e5c0e7b82" title="It destroys a player, freeing the allocated memory." alt="" coords="468,203,587,228"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="365,176,457,197,456,202,364,181"/>
+<area shape="rect" id="Node000009" href="$set_8c.html#a5b4e14914ec3c85b83363f57697f175a" title="It destroys a set." alt="" coords="835,253,933,279"/>
+<area shape="poly" id="edge9_Node000002_Node000009" title=" " alt="" coords="365,171,409,188,425,201,434,214,442,226,457,237,503,255,552,267,602,275,651,279,744,279,821,273,821,278,744,285,651,285,601,280,551,272,502,260,455,242,439,230,429,217,421,204,407,192,363,176"/>
+<area shape="rect" id="Node000010" href="$space_8c.html#a278763d4b530df17823ef9e4f9db2896" title="It destroys a space, freeing the allocated memory." alt="" coords="659,304,775,329"/>
+<area shape="poly" id="edge10_Node000002_Node000010" title=" " alt="" coords="365,168,388,176,410,188,421,200,428,212,434,238,440,262,446,272,458,282,502,305,550,318,600,323,645,322,645,328,599,328,550,323,500,310,454,287,442,276,435,264,429,239,423,214,417,203,406,192,386,180,363,173"/>
+<area shape="rect" id="Node000008" href="$inventory_8c.html#ae23961749b6ed45fd5fe1c18941fe586" title="It destroys an inventory, freeing the allocated memory." alt="" coords="647,203,787,228"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="587,213,633,213,633,218,587,218"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="760,226,829,247,828,252,759,231"/>
+<area shape="poly" id="edge11_Node000010_Node000009" title=" " alt="" coords="759,301,828,280,829,285,760,306"/>
+</map>

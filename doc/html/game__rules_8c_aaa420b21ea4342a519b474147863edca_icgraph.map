@@ -1,0 +1,9 @@
+<map id="create_parachute" name="create_parachute">
+<area shape="rect" id="Node000001" title=" " alt="" coords="437,5,572,31"/>
+<area shape="rect" id="Node000002" href="$game__rules_8c.html#a5ff9e62eff85bf5ee110179996ef3396" title="It updates the game according to its rules." alt="" coords="279,5,389,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="423,21,389,21,389,15,423,15"/>
+<area shape="rect" id="Node000003" href="$game__loop_8c.html#afb6a670628dffdd01661658f29a1e8ca" title="Runs the main game loop, processing commands and updating the game state." alt="" coords="108,5,231,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="265,21,231,21,231,15,265,15"/>
+<area shape="rect" id="Node000004" href="$game__loop_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,5,60,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="94,21,60,21,60,15,94,15"/>
+</map>

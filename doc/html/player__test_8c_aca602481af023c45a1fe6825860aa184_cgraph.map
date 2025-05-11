@@ -1,0 +1,5 @@
+<map id="test2_player_set_health" name="test2_player_set_health">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,184,31"/>
+<area shape="rect" id="Node000002" href="$player_8c.html#a9f00330134cc509e60ae6b5f7b3b395e" title="It sets the player&#39;s health." alt="" coords="232,5,371,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="184,15,218,15,218,21,184,21"/>
+</map>

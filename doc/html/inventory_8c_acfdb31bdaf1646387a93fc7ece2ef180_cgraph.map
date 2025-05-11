@@ -1,0 +1,5 @@
+<map id="inventory_create" name="inventory_create">
+<area shape="rect" id="Node000001" title="It creates a new player, allocating memory and initializing its members." alt="" coords="5,5,137,31"/>
+<area shape="rect" id="Node000002" href="$set_8c.html#aaad3bdcac9fbbfc38b4800b12bb17449" title="It creates a set." alt="" coords="185,5,276,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="138,15,172,15,172,21,138,21"/>
+</map>

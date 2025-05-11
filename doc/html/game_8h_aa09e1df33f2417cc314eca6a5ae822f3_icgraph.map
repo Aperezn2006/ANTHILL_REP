@@ -1,0 +1,15 @@
+<map id="game_get_turn" name="game_get_turn">
+<area shape="rect" id="Node000001" title="It gets the game&#39;s current turn." alt="" coords="956,31,1076,56"/>
+<area shape="rect" id="Node000002" href="$game__management_8c.html#a6992189a2b2dc313c76a755bba1ff062" title="It saves the current game&#39;s info in a specified file." alt="" coords="717,31,908,56"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="942,46,908,46,908,41,942,41"/>
+<area shape="rect" id="Node000003" href="$game__actions_8c.html#a0684f9dcafe712984445034038704be4" title="It allows the player to load a saved game." alt="" coords="505,5,656,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="703,34,656,29,656,24,704,29"/>
+<area shape="rect" id="Node000007" href="$game__actions__sdl_8c.html#a61c21e2028a7333c943e946a442d44f8" title="It allows the player to load a saved game." alt="" coords="492,55,669,80"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="704,57,670,61,669,56,703,52"/>
+<area shape="rect" id="Node000004" href="$game__actions_8c.html#a0693694a3e70b4a4129e2da4ddb1f1a7" title="It updates the current command based on user input." alt="" coords="279,5,444,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="491,21,444,21,444,15,491,15"/>
+<area shape="rect" id="Node000005" href="$game__loop_8c.html#afb6a670628dffdd01661658f29a1e8ca" title="Runs the main game loop, processing commands and updating the game state." alt="" coords="108,5,231,31"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="265,21,231,21,231,15,265,15"/>
+<area shape="rect" id="Node000006" href="$game__loop_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,5,60,31"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="94,21,60,21,60,15,94,15"/>
+</map>

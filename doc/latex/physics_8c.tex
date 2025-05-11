@@ -1,0 +1,182 @@
+\doxysection{/mnt/c/\+Ubuntu/\+Shared\+\_\+folder/\+PPROG/\+I4/\+ANTHILL\+\_\+\+REP/src/physics.c File Reference}
+\hypertarget{physics_8c}{}\label{physics_8c}\index{/mnt/c/Ubuntu/Shared\_folder/PPROG/I4/ANTHILL\_REP/src/physics.c@{/mnt/c/Ubuntu/Shared\_folder/PPROG/I4/ANTHILL\_REP/src/physics.c}}
+{\ttfamily \#include "{}physics.\+h"{}}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include "{}game.\+h"{}}\newline
+{\ttfamily \#include "{}gun.\+h"{}}\newline
+{\ttfamily \#include "{}link.\+h"{}}\newline
+{\ttfamily \#include "{}player.\+h"{}}\newline
+{\ttfamily \#include "{}ray.\+h"{}}\newline
+Include dependency graph for physics.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{physics_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{physics_8c_aac4cd1862ceb77b39631694e0ace5430}{MAX\+\_\+\+RAYS}}~10
+\item 
+\#define \mbox{\hyperlink{physics_8c_af54fbb9ee2b16238828d45f6a3208a60}{COLLISION\+\_\+\+MARGIN}}~2
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{types_8h_a39db6982619d623273fad8a383489309}{Bool}} \mbox{\hyperlink{physics_8c_ae77c8fb6afc14e78f9626f741e0440bf}{physics\+\_\+check\+\_\+object\+\_\+collision}} (Game \texorpdfstring{$\ast$}{*}game, Player \texorpdfstring{$\ast$}{*}player, Object \texorpdfstring{$\ast$}{*}obj)
+\item 
+Link \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{physics_8c_a1f723a8ee80cc8a08ccf3f2f02c6f1a4}{physics\+\_\+get\+\_\+colliding\+\_\+link}} (Game \texorpdfstring{$\ast$}{*}game, Player \texorpdfstring{$\ast$}{*}player)
+\item 
+Character \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{physics_8c_aadd0752b44ed4bdffc4d271ddda51e75}{physics\+\_\+get\+\_\+colliding\+\_\+character}} (Game \texorpdfstring{$\ast$}{*}game, Player \texorpdfstring{$\ast$}{*}player)
+\item 
+void \mbox{\hyperlink{physics_8c_ad6a897511a9a61b0e94396562b61a6e5}{physics\+\_\+handle\+\_\+space\+\_\+transition}} (Game \texorpdfstring{$\ast$}{*}game, Player \texorpdfstring{$\ast$}{*}player)
+\item 
+void \mbox{\hyperlink{physics_8c_ae360f0b61263956f3712a672afc7fbc2}{physics\+\_\+handle\+\_\+attack}} (Player \texorpdfstring{$\ast$}{*}player)
+\item 
+void \mbox{\hyperlink{physics_8c_af819a426e5106d1147d803d877a6ec15}{physics\+\_\+update\+\_\+rays}} ()
+\item 
+void \mbox{\hyperlink{physics_8c_a4a7065b4a6220154669c1825b8e8917c}{physics\+\_\+handle\+\_\+chat}} (Game \texorpdfstring{$\ast$}{*}game, Player \texorpdfstring{$\ast$}{*}player)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{physics_8c_af54fbb9ee2b16238828d45f6a3208a60}\label{physics_8c_af54fbb9ee2b16238828d45f6a3208a60} 
+\index{physics.c@{physics.c}!COLLISION\_MARGIN@{COLLISION\_MARGIN}}
+\index{COLLISION\_MARGIN@{COLLISION\_MARGIN}!physics.c@{physics.c}}
+\doxysubsubsection{\texorpdfstring{COLLISION\_MARGIN}{COLLISION\_MARGIN}}
+{\footnotesize\ttfamily \#define COLLISION\+\_\+\+MARGIN~2}
+
+\Hypertarget{physics_8c_aac4cd1862ceb77b39631694e0ace5430}\label{physics_8c_aac4cd1862ceb77b39631694e0ace5430} 
+\index{physics.c@{physics.c}!MAX\_RAYS@{MAX\_RAYS}}
+\index{MAX\_RAYS@{MAX\_RAYS}!physics.c@{physics.c}}
+\doxysubsubsection{\texorpdfstring{MAX\_RAYS}{MAX\_RAYS}}
+{\footnotesize\ttfamily \#define MAX\+\_\+\+RAYS~10}
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{physics_8c_ae77c8fb6afc14e78f9626f741e0440bf}\label{physics_8c_ae77c8fb6afc14e78f9626f741e0440bf} 
+\index{physics.c@{physics.c}!physics\_check\_object\_collision@{physics\_check\_object\_collision}}
+\index{physics\_check\_object\_collision@{physics\_check\_object\_collision}!physics.c@{physics.c}}
+\doxysubsubsection{\texorpdfstring{physics\_check\_object\_collision()}{physics\_check\_object\_collision()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a39db6982619d623273fad8a383489309}{Bool}} physics\+\_\+check\+\_\+object\+\_\+collision (\begin{DoxyParamCaption}\item[{Game \texorpdfstring{$\ast$}{*}}]{game,  }\item[{Player \texorpdfstring{$\ast$}{*}}]{player,  }\item[{Object \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{physics_8c_ae77c8fb6afc14e78f9626f741e0440bf_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{physics_8c_ae77c8fb6afc14e78f9626f741e0440bf_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{physics_8c_aadd0752b44ed4bdffc4d271ddda51e75}\label{physics_8c_aadd0752b44ed4bdffc4d271ddda51e75} 
+\index{physics.c@{physics.c}!physics\_get\_colliding\_character@{physics\_get\_colliding\_character}}
+\index{physics\_get\_colliding\_character@{physics\_get\_colliding\_character}!physics.c@{physics.c}}
+\doxysubsubsection{\texorpdfstring{physics\_get\_colliding\_character()}{physics\_get\_colliding\_character()}}
+{\footnotesize\ttfamily Character \texorpdfstring{$\ast$}{*} physics\+\_\+get\+\_\+colliding\+\_\+character (\begin{DoxyParamCaption}\item[{Game \texorpdfstring{$\ast$}{*}}]{game,  }\item[{Player \texorpdfstring{$\ast$}{*}}]{player }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{physics_8c_aadd0752b44ed4bdffc4d271ddda51e75_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{physics_8c_aadd0752b44ed4bdffc4d271ddda51e75_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{physics_8c_a1f723a8ee80cc8a08ccf3f2f02c6f1a4}\label{physics_8c_a1f723a8ee80cc8a08ccf3f2f02c6f1a4} 
+\index{physics.c@{physics.c}!physics\_get\_colliding\_link@{physics\_get\_colliding\_link}}
+\index{physics\_get\_colliding\_link@{physics\_get\_colliding\_link}!physics.c@{physics.c}}
+\doxysubsubsection{\texorpdfstring{physics\_get\_colliding\_link()}{physics\_get\_colliding\_link()}}
+{\footnotesize\ttfamily Link \texorpdfstring{$\ast$}{*} physics\+\_\+get\+\_\+colliding\+\_\+link (\begin{DoxyParamCaption}\item[{Game \texorpdfstring{$\ast$}{*}}]{game,  }\item[{Player \texorpdfstring{$\ast$}{*}}]{player }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{physics_8c_a1f723a8ee80cc8a08ccf3f2f02c6f1a4_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{physics_8c_a1f723a8ee80cc8a08ccf3f2f02c6f1a4_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{physics_8c_ae360f0b61263956f3712a672afc7fbc2}\label{physics_8c_ae360f0b61263956f3712a672afc7fbc2} 
+\index{physics.c@{physics.c}!physics\_handle\_attack@{physics\_handle\_attack}}
+\index{physics\_handle\_attack@{physics\_handle\_attack}!physics.c@{physics.c}}
+\doxysubsubsection{\texorpdfstring{physics\_handle\_attack()}{physics\_handle\_attack()}}
+{\footnotesize\ttfamily void physics\+\_\+handle\+\_\+attack (\begin{DoxyParamCaption}\item[{Player \texorpdfstring{$\ast$}{*}}]{player }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{physics_8c_ae360f0b61263956f3712a672afc7fbc2_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{physics_8c_a4a7065b4a6220154669c1825b8e8917c}\label{physics_8c_a4a7065b4a6220154669c1825b8e8917c} 
+\index{physics.c@{physics.c}!physics\_handle\_chat@{physics\_handle\_chat}}
+\index{physics\_handle\_chat@{physics\_handle\_chat}!physics.c@{physics.c}}
+\doxysubsubsection{\texorpdfstring{physics\_handle\_chat()}{physics\_handle\_chat()}}
+{\footnotesize\ttfamily void physics\+\_\+handle\+\_\+chat (\begin{DoxyParamCaption}\item[{Game \texorpdfstring{$\ast$}{*}}]{game,  }\item[{Player \texorpdfstring{$\ast$}{*}}]{player }\end{DoxyParamCaption})}
+
+\Hypertarget{physics_8c_ad6a897511a9a61b0e94396562b61a6e5}\label{physics_8c_ad6a897511a9a61b0e94396562b61a6e5} 
+\index{physics.c@{physics.c}!physics\_handle\_space\_transition@{physics\_handle\_space\_transition}}
+\index{physics\_handle\_space\_transition@{physics\_handle\_space\_transition}!physics.c@{physics.c}}
+\doxysubsubsection{\texorpdfstring{physics\_handle\_space\_transition()}{physics\_handle\_space\_transition()}}
+{\footnotesize\ttfamily void physics\+\_\+handle\+\_\+space\+\_\+transition (\begin{DoxyParamCaption}\item[{Game \texorpdfstring{$\ast$}{*}}]{game,  }\item[{Player \texorpdfstring{$\ast$}{*}}]{player }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{physics_8c_ad6a897511a9a61b0e94396562b61a6e5_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{physics_8c_ad6a897511a9a61b0e94396562b61a6e5_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{physics_8c_af819a426e5106d1147d803d877a6ec15}\label{physics_8c_af819a426e5106d1147d803d877a6ec15} 
+\index{physics.c@{physics.c}!physics\_update\_rays@{physics\_update\_rays}}
+\index{physics\_update\_rays@{physics\_update\_rays}!physics.c@{physics.c}}
+\doxysubsubsection{\texorpdfstring{physics\_update\_rays()}{physics\_update\_rays()}}
+{\footnotesize\ttfamily void physics\+\_\+update\+\_\+rays (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=306pt]{physics_8c_af819a426e5106d1147d803d877a6ec15_cgraph}
+\end{center}
+\end{figure}

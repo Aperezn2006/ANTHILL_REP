@@ -1,0 +1,25 @@
+<map id="game_get_character_id_from_name" name="game_get_character_id_from_name">
+<area shape="rect" id="Node000001" title="Retrieves the ID of a character given its name." alt="" coords="741,73,896,113"/>
+<area shape="rect" id="Node000002" href="$game__actions_8c.html#a33f1850efdb4cd4753953107dd1fd6a8" title="It allows the player to abandon a friendly character." alt="" coords="517,5,693,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="758,70,692,45,656,33,657,28,694,39,760,65"/>
+<area shape="rect" id="Node000006" href="$game__actions__sdl_8c.html#a0d08414021bba8dd75889d7503808b9b" title="It allows the player to chat with a character." alt="" coords="518,153,693,179"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="757,120,694,143,654,156,652,151,692,138,755,115"/>
+<area shape="rect" id="Node000010" href="$game__actions_8c.html#aa4097c2de55049c481f714ff2a41091c" title="It allows the player to recruit a friendly character." alt="" coords="524,55,687,80"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="728,85,687,80,687,74,728,79"/>
+<area shape="rect" id="Node000011" href="$game__actions_8c.html#a8ff24b2a36351e92760b4bf21da4abae" title="It allows the player to use an object." alt="" coords="534,104,677,129"/>
+<area shape="poly" id="edge11_Node000001_Node000011" title=" " alt="" coords="728,106,677,111,677,106,728,100"/>
+<area shape="rect" id="Node000003" href="$game__actions_8c.html#a0693694a3e70b4a4129e2da4ddb1f1a7" title="It updates the current command based on user input." alt="" coords="291,55,457,80"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="533,36,435,57,434,52,531,31"/>
+<area shape="rect" id="Node000004" href="$game__loop_8c.html#afb6a670628dffdd01661658f29a1e8ca" title="Runs the main game loop, processing commands and updating the game state." alt="" coords="108,55,231,80"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="278,70,231,70,231,65,278,65"/>
+<area shape="rect" id="Node000005" href="$game__loop_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,55,60,80"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="94,70,60,70,60,65,94,65"/>
+<area shape="rect" id="Node000007" href="$game__actions__sdl_8c.html#acd1524051170e15d5370144cbb777503" title="It updates the current command based on user input." alt="" coords="279,153,469,179"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="504,169,470,169,470,163,504,163"/>
+<area shape="rect" id="Node000008" href="$game__loop__sdl_8c.html#a2512ad7629a28c1c47934820188b8de4" title="Runs the main game loop, processing commands and updating the game state." alt="" coords="108,153,231,179"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="265,169,231,169,231,163,265,163"/>
+<area shape="rect" id="Node000009" href="$game__loop__sdl_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,153,60,179"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="94,169,60,169,60,163,94,163"/>
+<area shape="poly" id="edge10_Node000010_Node000003" title=" " alt="" coords="510,70,457,70,457,65,510,65"/>
+<area shape="poly" id="edge12_Node000011_Node000003" title=" " alt="" coords="531,104,434,83,435,77,533,99"/>
+</map>

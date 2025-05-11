@@ -1,0 +1,7 @@
+<map id="test2_space_remove_character" name="test2_space_remove_character">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,163,45"/>
+<area shape="rect" id="Node000002" href="$space_8c.html#a34699ef15e9c8d8ae5173ee403cd813e" title="Removes a character from the space." alt="" coords="211,13,396,38"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="163,23,197,23,197,28,163,28"/>
+<area shape="rect" id="Node000003" href="$set_8c.html#a94547ab1010894b64ec974bde79c1e4f" title="It deletes an element from the set." alt="" coords="444,13,563,38"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="396,23,430,23,430,28,396,28"/>
+</map>

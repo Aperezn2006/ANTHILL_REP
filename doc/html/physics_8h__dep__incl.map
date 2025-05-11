@@ -1,0 +1,29 @@
+<map id="/mnt/c/Ubuntu/Shared_folder/PPROG/I4/ANTHILL_REP/include/physics.h" name="/mnt/c/Ubuntu/Shared_folder/PPROG/I4/ANTHILL_REP/include/physics.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="619,5,809,60"/>
+<area shape="rect" id="Node000002" href="$game__actions_8h.html" title="It defines the game update interface." alt="" coords="489,108,701,163"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="674,71,628,110,625,106,671,67"/>
+<area shape="rect" id="Node000005" href="$game__actions__sdl_8c.html" title=" " alt="" coords="584,416,793,471"/>
+<area shape="poly" id="edge14_Node000001_Node000005" title=" " alt="" coords="752,69,802,128,827,165,849,205,865,246,872,288,869,330,852,369,826,398,792,418,789,414,822,394,848,367,864,329,867,289,860,248,844,207,822,168,798,131,748,72"/>
+<area shape="rect" id="Node000006" href="$game__loop__sdl_8c.html" title=" " alt="" coords="5,416,196,471"/>
+<area shape="poly" id="edge15_Node000001_Node000006" title=" " alt="" coords="606,49,451,71,278,105,196,127,124,152,67,181,45,196,29,212,17,237,12,263,15,291,23,319,50,372,80,414,76,417,46,374,18,321,10,292,7,263,11,235,25,209,42,192,64,176,122,147,194,122,276,100,450,65,605,43"/>
+<area shape="rect" id="Node000011" href="$physics_8c.html" title=" " alt="" coords="913,108,1104,163"/>
+<area shape="poly" id="edge16_Node000001_Node000011" title=" " alt="" coords="805,62,933,105,931,110,803,67"/>
+<area shape="rect" id="Node000003" href="$game__management_8h.html" title="It implements the creation of the game with the data from a file." alt="" coords="469,211,721,265"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="589,176,590,211,585,211,584,176"/>
+<area shape="rect" id="Node000007" href="$game__loop_8c.html" title="It defines the game loop." alt="" coords="647,313,837,368"/>
+<area shape="poly" id="edge12_Node000002_Node000007" title=" " alt="" coords="712,167,739,185,760,209,770,235,771,263,765,290,757,314,752,312,760,289,765,263,765,236,756,212,735,189,709,171"/>
+<area shape="rect" id="Node000009" href="$game__actions_8c.html" title="It implements the game update through user actions." alt="" coords="40,211,231,265"/>
+<area shape="poly" id="edge11_Node000002_Node000009" title=" " alt="" coords="476,163,244,213,231,216,230,211,243,208,475,158"/>
+<area shape="rect" id="Node000010" href="$input_8c.html" title=" " alt="" coords="255,211,445,265"/>
+<area shape="poly" id="edge13_Node000002_Node000010" title=" " alt="" coords="520,170,415,213,413,208,518,165"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="601,197,601,163,606,163,607,197"/>
+<area shape="poly" id="edge7_Node000003_Node000003" title=" " alt="" coords="736,224,745,229,748,238,741,250,723,257,721,252,737,246,743,238,740,233,733,228"/>
+<area shape="rect" id="Node000004" href="$game__actions__sdl_8h.html" title=" " alt="" coords="384,313,623,368"/>
+<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="564,277,529,315,525,311,560,274"/>
+<area shape="poly" id="edge9_Node000003_Node000006" title=" " alt="" coords="456,268,373,273,276,278,187,289,152,300,128,315,112,337,104,364,100,391,100,416,95,416,95,391,98,363,107,335,124,311,150,295,186,284,276,272,373,268,456,263"/>
+<area shape="poly" id="edge8_Node000003_Node000007" title=" " alt="" coords="647,271,705,311,702,315,644,275"/>
+<area shape="rect" id="Node000008" href="$game__management_8c.html" title=" " alt="" coords="137,313,360,368"/>
+<area shape="poly" id="edge10_Node000003_Node000008" title=" " alt="" coords="493,272,340,316,338,311,492,266"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="565,372,641,413,639,418,562,377"/>
+<area shape="poly" id="edge6_Node000004_Node000006" title=" " alt="" coords="386,374,197,421,196,416,385,369"/>
+</map>

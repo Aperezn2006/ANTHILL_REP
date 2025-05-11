@@ -1,0 +1,757 @@
+\doxysection{/mnt/c/\+Ubuntu/\+Shared\+\_\+folder/\+PPROG/\+I4/\+ANTHILL\+\_\+\+REP/src/inventory\+\_\+test.c File Reference}
+\hypertarget{inventory__test_8c}{}\label{inventory__test_8c}\index{/mnt/c/Ubuntu/Shared\_folder/PPROG/I4/ANTHILL\_REP/src/inventory\_test.c@{/mnt/c/Ubuntu/Shared\_folder/PPROG/I4/ANTHILL\_REP/src/inventory\_test.c}}
+{\ttfamily \#include "{}inventory.\+h"{}}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include "{}inventory\+\_\+test.\+h"{}}\newline
+{\ttfamily \#include "{}test.\+h"{}}\newline
+{\ttfamily \#include "{}set.\+h"{}}\newline
+Include dependency graph for inventory\+\_\+test.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{inventory__test_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{inventory__test_8c_a6a150645c5cfc5e678eedb5afef936f1}{MAX\+\_\+\+TEST}}~30
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{inventory__test_8c_a3c04138a5bfe5d72780bb7e82a18e627}{main}} (int argc, char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}argv)
+\item 
+void \mbox{\hyperlink{inventory__test_8c_a33638f1a88ae16ab8d6bee00145b82b8}{test1\+\_\+inventory\+\_\+create}} ()
+\item 
+void \mbox{\hyperlink{inventory__test_8c_a73a6080c360a8870c4ffc734e989c8b3}{test2\+\_\+inventory\+\_\+create}} ()
+\item 
+void \mbox{\hyperlink{inventory__test_8c_ab161eafe6a61db39b2237e97c677d822}{test1\+\_\+inventory\+\_\+destroy}} ()
+\item 
+void \mbox{\hyperlink{inventory__test_8c_a9f3daec28c696c0671e6a3e905359741}{test2\+\_\+inventory\+\_\+destroy}} ()
+\item 
+void \mbox{\hyperlink{inventory__test_8c_abddf20d7b11937754a88fb57c9d74292}{test1\+\_\+inventory\+\_\+add\+\_\+object}} ()
+\item 
+void \mbox{\hyperlink{inventory__test_8c_aa71b62b43df77830d47caa4237ee76a2}{test2\+\_\+inventory\+\_\+add\+\_\+object}} ()
+\item 
+void \mbox{\hyperlink{inventory__test_8c_a76718582c0fbf43fbfc9e6bf3264f48e}{test1\+\_\+inventory\+\_\+get\+\_\+object}} ()
+\item 
+void \mbox{\hyperlink{inventory__test_8c_a6a440546c4b5335db5bb0e93688bf847}{test2\+\_\+inventory\+\_\+get\+\_\+object}} ()
+\item 
+void \mbox{\hyperlink{inventory__test_8c_a2600ada0b5b2e5a34dfe6bc368f5e3be}{test1\+\_\+inventory\+\_\+remove\+\_\+object}} ()
+\item 
+void \mbox{\hyperlink{inventory__test_8c_a4ea1bbd9668f1049fb98590ffb0dd5db}{test2\+\_\+inventory\+\_\+remove\+\_\+object}} ()
+\item 
+void \mbox{\hyperlink{inventory__test_8c_a998808342b6ea7d9e7c12c47c4725093}{test1\+\_\+inventory\+\_\+has\+\_\+object}} ()
+\item 
+void \mbox{\hyperlink{inventory__test_8c_a7b74f975c41051fab9f54bc1e84ec545}{test2\+\_\+inventory\+\_\+has\+\_\+object}} ()
+\item 
+void \mbox{\hyperlink{inventory__test_8c_afc2a33c1716a6e0522f61e0d399102c5}{test1\+\_\+inventory\+\_\+get\+\_\+num\+\_\+objects}} ()
+\item 
+void \mbox{\hyperlink{inventory__test_8c_a6ae6ac8b8bc479c81fe89c2e3b4133b0}{test2\+\_\+inventory\+\_\+get\+\_\+num\+\_\+objects}} ()
+\item 
+void \mbox{\hyperlink{inventory__test_8c_a4774188a02815154bc955d982a1bbdf2}{test1\+\_\+inventory\+\_\+get\+\_\+object\+\_\+by\+\_\+index}} ()
+\item 
+void \mbox{\hyperlink{inventory__test_8c_ac9cca4e85679d9f8c965a410357ae64a}{test2\+\_\+inventory\+\_\+get\+\_\+object\+\_\+by\+\_\+index}} ()
+\item 
+void \mbox{\hyperlink{inventory__test_8c_aab1d6c2c1a9fd9015d5f4f1e6c7b3996}{test1\+\_\+inventory\+\_\+get\+\_\+object\+\_\+index}} ()
+\item 
+void \mbox{\hyperlink{inventory__test_8c_a2a77a546e0f46a719124f96bddf1379d}{test2\+\_\+inventory\+\_\+get\+\_\+object\+\_\+index}} ()
+\item 
+void \mbox{\hyperlink{inventory__test_8c_aedc895d6409678b2176d822c105c3796}{test1\+\_\+inventory\+\_\+set\+\_\+max\+\_\+objects}} ()
+\item 
+void \mbox{\hyperlink{inventory__test_8c_aff93a7fb7ffbac1890ce563012a9d372}{test2\+\_\+inventory\+\_\+set\+\_\+max\+\_\+objects}} ()
+\item 
+void \mbox{\hyperlink{inventory__test_8c_a7229ceb1916b0da955d23598da89d5ea}{test1\+\_\+inventory\+\_\+print}} ()
+\item 
+void \mbox{\hyperlink{inventory__test_8c_ab416dcaf2ae0f9852a8c6ed5eea4f408}{test2\+\_\+inventory\+\_\+print}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{inventory__test_8c_a6a150645c5cfc5e678eedb5afef936f1}\label{inventory__test_8c_a6a150645c5cfc5e678eedb5afef936f1} 
+\index{inventory\_test.c@{inventory\_test.c}!MAX\_TEST@{MAX\_TEST}}
+\index{MAX\_TEST@{MAX\_TEST}!inventory\_test.c@{inventory\_test.c}}
+\doxysubsubsection{\texorpdfstring{MAX\_TEST}{MAX\_TEST}}
+{\footnotesize\ttfamily \#define MAX\+\_\+\+TEST~30}
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{inventory__test_8c_a3c04138a5bfe5d72780bb7e82a18e627}\label{inventory__test_8c_a3c04138a5bfe5d72780bb7e82a18e627} 
+\index{inventory\_test.c@{inventory\_test.c}!main@{main}}
+\index{main@{main}!inventory\_test.c@{inventory\_test.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{argv }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{inventory__test_8c_a3c04138a5bfe5d72780bb7e82a18e627_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{inventory__test_8c_abddf20d7b11937754a88fb57c9d74292}\label{inventory__test_8c_abddf20d7b11937754a88fb57c9d74292} 
+\index{inventory\_test.c@{inventory\_test.c}!test1\_inventory\_add\_object@{test1\_inventory\_add\_object}}
+\index{test1\_inventory\_add\_object@{test1\_inventory\_add\_object}!inventory\_test.c@{inventory\_test.c}}
+\doxysubsubsection{\texorpdfstring{test1\_inventory\_add\_object()}{test1\_inventory\_add\_object()}}
+{\footnotesize\ttfamily void test1\+\_\+inventory\+\_\+add\+\_\+object (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyRefDesc}{Test}
+\item[\mbox{\hyperlink{test__test000038}{Test}}]Test adding object \end{DoxyRefDesc}
+\begin{DoxyPrecond}{Precondition}
+Valid inventory and object ID 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Output == Ok 
+\end{DoxyPostcond}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{inventory__test_8c_abddf20d7b11937754a88fb57c9d74292_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=273pt]{inventory__test_8c_abddf20d7b11937754a88fb57c9d74292_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{inventory__test_8c_a33638f1a88ae16ab8d6bee00145b82b8}\label{inventory__test_8c_a33638f1a88ae16ab8d6bee00145b82b8} 
+\index{inventory\_test.c@{inventory\_test.c}!test1\_inventory\_create@{test1\_inventory\_create}}
+\index{test1\_inventory\_create@{test1\_inventory\_create}!inventory\_test.c@{inventory\_test.c}}
+\doxysubsubsection{\texorpdfstring{test1\_inventory\_create()}{test1\_inventory\_create()}}
+{\footnotesize\ttfamily void test1\+\_\+inventory\+\_\+create (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyRefDesc}{Test}
+\item[\mbox{\hyperlink{test__test000034}{Test}}]Test inventory creation \end{DoxyRefDesc}
+\begin{DoxyPrecond}{Precondition}
+Valid size parameter 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Output == Non-\/\+NULL pointer 
+\end{DoxyPostcond}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{inventory__test_8c_a33638f1a88ae16ab8d6bee00145b82b8_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=286pt]{inventory__test_8c_a33638f1a88ae16ab8d6bee00145b82b8_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{inventory__test_8c_ab161eafe6a61db39b2237e97c677d822}\label{inventory__test_8c_ab161eafe6a61db39b2237e97c677d822} 
+\index{inventory\_test.c@{inventory\_test.c}!test1\_inventory\_destroy@{test1\_inventory\_destroy}}
+\index{test1\_inventory\_destroy@{test1\_inventory\_destroy}!inventory\_test.c@{inventory\_test.c}}
+\doxysubsubsection{\texorpdfstring{test1\_inventory\_destroy()}{test1\_inventory\_destroy()}}
+{\footnotesize\ttfamily void test1\+\_\+inventory\+\_\+destroy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyRefDesc}{Test}
+\item[\mbox{\hyperlink{test__test000036}{Test}}]Test inventory destruction \end{DoxyRefDesc}
+\begin{DoxyPrecond}{Precondition}
+Valid inventory pointer 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Output == OK 
+\end{DoxyPostcond}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{inventory__test_8c_ab161eafe6a61db39b2237e97c677d822_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=292pt]{inventory__test_8c_ab161eafe6a61db39b2237e97c677d822_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{inventory__test_8c_afc2a33c1716a6e0522f61e0d399102c5}\label{inventory__test_8c_afc2a33c1716a6e0522f61e0d399102c5} 
+\index{inventory\_test.c@{inventory\_test.c}!test1\_inventory\_get\_num\_objects@{test1\_inventory\_get\_num\_objects}}
+\index{test1\_inventory\_get\_num\_objects@{test1\_inventory\_get\_num\_objects}!inventory\_test.c@{inventory\_test.c}}
+\doxysubsubsection{\texorpdfstring{test1\_inventory\_get\_num\_objects()}{test1\_inventory\_get\_num\_objects()}}
+{\footnotesize\ttfamily void test1\+\_\+inventory\+\_\+get\+\_\+num\+\_\+objects (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyRefDesc}{Test}
+\item[\mbox{\hyperlink{test__test000046}{Test}}]Test getting object count \end{DoxyRefDesc}
+\begin{DoxyPrecond}{Precondition}
+Valid inventory pointer 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Output == non-\/negative count 
+\end{DoxyPostcond}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{inventory__test_8c_afc2a33c1716a6e0522f61e0d399102c5_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=271pt]{inventory__test_8c_afc2a33c1716a6e0522f61e0d399102c5_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{inventory__test_8c_a76718582c0fbf43fbfc9e6bf3264f48e}\label{inventory__test_8c_a76718582c0fbf43fbfc9e6bf3264f48e} 
+\index{inventory\_test.c@{inventory\_test.c}!test1\_inventory\_get\_object@{test1\_inventory\_get\_object}}
+\index{test1\_inventory\_get\_object@{test1\_inventory\_get\_object}!inventory\_test.c@{inventory\_test.c}}
+\doxysubsubsection{\texorpdfstring{test1\_inventory\_get\_object()}{test1\_inventory\_get\_object()}}
+{\footnotesize\ttfamily void test1\+\_\+inventory\+\_\+get\+\_\+object (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyRefDesc}{Test}
+\item[\mbox{\hyperlink{test__test000040}{Test}}]Test getting object \end{DoxyRefDesc}
+\begin{DoxyPrecond}{Precondition}
+Valid inventory ID 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Output == non-\/\+NULL set pointer 
+\end{DoxyPostcond}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{inventory__test_8c_a76718582c0fbf43fbfc9e6bf3264f48e_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=271pt]{inventory__test_8c_a76718582c0fbf43fbfc9e6bf3264f48e_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{inventory__test_8c_a4774188a02815154bc955d982a1bbdf2}\label{inventory__test_8c_a4774188a02815154bc955d982a1bbdf2} 
+\index{inventory\_test.c@{inventory\_test.c}!test1\_inventory\_get\_object\_by\_index@{test1\_inventory\_get\_object\_by\_index}}
+\index{test1\_inventory\_get\_object\_by\_index@{test1\_inventory\_get\_object\_by\_index}!inventory\_test.c@{inventory\_test.c}}
+\doxysubsubsection{\texorpdfstring{test1\_inventory\_get\_object\_by\_index()}{test1\_inventory\_get\_object\_by\_index()}}
+{\footnotesize\ttfamily void test1\+\_\+inventory\+\_\+get\+\_\+object\+\_\+by\+\_\+index (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyRefDesc}{Test}
+\item[\mbox{\hyperlink{test__test000048}{Test}}]Test getting object by index \end{DoxyRefDesc}
+\begin{DoxyPrecond}{Precondition}
+Valid index 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Output == correct object ID 
+\end{DoxyPostcond}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{inventory__test_8c_a4774188a02815154bc955d982a1bbdf2_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=271pt]{inventory__test_8c_a4774188a02815154bc955d982a1bbdf2_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{inventory__test_8c_aab1d6c2c1a9fd9015d5f4f1e6c7b3996}\label{inventory__test_8c_aab1d6c2c1a9fd9015d5f4f1e6c7b3996} 
+\index{inventory\_test.c@{inventory\_test.c}!test1\_inventory\_get\_object\_index@{test1\_inventory\_get\_object\_index}}
+\index{test1\_inventory\_get\_object\_index@{test1\_inventory\_get\_object\_index}!inventory\_test.c@{inventory\_test.c}}
+\doxysubsubsection{\texorpdfstring{test1\_inventory\_get\_object\_index()}{test1\_inventory\_get\_object\_index()}}
+{\footnotesize\ttfamily void test1\+\_\+inventory\+\_\+get\+\_\+object\+\_\+index (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyRefDesc}{Test}
+\item[\mbox{\hyperlink{test__test000050}{Test}}]Test getting object by index \end{DoxyRefDesc}
+\begin{DoxyPrecond}{Precondition}
+Object exist in inventory 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Output == valid index 
+\end{DoxyPostcond}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{inventory__test_8c_aab1d6c2c1a9fd9015d5f4f1e6c7b3996_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=271pt]{inventory__test_8c_aab1d6c2c1a9fd9015d5f4f1e6c7b3996_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{inventory__test_8c_a998808342b6ea7d9e7c12c47c4725093}\label{inventory__test_8c_a998808342b6ea7d9e7c12c47c4725093} 
+\index{inventory\_test.c@{inventory\_test.c}!test1\_inventory\_has\_object@{test1\_inventory\_has\_object}}
+\index{test1\_inventory\_has\_object@{test1\_inventory\_has\_object}!inventory\_test.c@{inventory\_test.c}}
+\doxysubsubsection{\texorpdfstring{test1\_inventory\_has\_object()}{test1\_inventory\_has\_object()}}
+{\footnotesize\ttfamily void test1\+\_\+inventory\+\_\+has\+\_\+object (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyRefDesc}{Test}
+\item[\mbox{\hyperlink{test__test000044}{Test}}]Test checking object existence \end{DoxyRefDesc}
+\begin{DoxyPrecond}{Precondition}
+Object exist in inventory 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Output == TRUE 
+\end{DoxyPostcond}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{inventory__test_8c_a998808342b6ea7d9e7c12c47c4725093_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=273pt]{inventory__test_8c_a998808342b6ea7d9e7c12c47c4725093_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{inventory__test_8c_a7229ceb1916b0da955d23598da89d5ea}\label{inventory__test_8c_a7229ceb1916b0da955d23598da89d5ea} 
+\index{inventory\_test.c@{inventory\_test.c}!test1\_inventory\_print@{test1\_inventory\_print}}
+\index{test1\_inventory\_print@{test1\_inventory\_print}!inventory\_test.c@{inventory\_test.c}}
+\doxysubsubsection{\texorpdfstring{test1\_inventory\_print()}{test1\_inventory\_print()}}
+{\footnotesize\ttfamily void test1\+\_\+inventory\+\_\+print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyRefDesc}{Test}
+\item[\mbox{\hyperlink{test__test000054}{Test}}]Test printing inventory \end{DoxyRefDesc}
+\begin{DoxyPrecond}{Precondition}
+Valid inventory pointer 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Output == OK 
+\end{DoxyPostcond}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{inventory__test_8c_a7229ceb1916b0da955d23598da89d5ea_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=278pt]{inventory__test_8c_a7229ceb1916b0da955d23598da89d5ea_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{inventory__test_8c_a2600ada0b5b2e5a34dfe6bc368f5e3be}\label{inventory__test_8c_a2600ada0b5b2e5a34dfe6bc368f5e3be} 
+\index{inventory\_test.c@{inventory\_test.c}!test1\_inventory\_remove\_object@{test1\_inventory\_remove\_object}}
+\index{test1\_inventory\_remove\_object@{test1\_inventory\_remove\_object}!inventory\_test.c@{inventory\_test.c}}
+\doxysubsubsection{\texorpdfstring{test1\_inventory\_remove\_object()}{test1\_inventory\_remove\_object()}}
+{\footnotesize\ttfamily void test1\+\_\+inventory\+\_\+remove\+\_\+object (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyRefDesc}{Test}
+\item[\mbox{\hyperlink{test__test000042}{Test}}]Test removing object \end{DoxyRefDesc}
+\begin{DoxyPrecond}{Precondition}
+Existing object in inventory 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Output == OK 
+\end{DoxyPostcond}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{inventory__test_8c_a2600ada0b5b2e5a34dfe6bc368f5e3be_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=293pt]{inventory__test_8c_a2600ada0b5b2e5a34dfe6bc368f5e3be_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{inventory__test_8c_aedc895d6409678b2176d822c105c3796}\label{inventory__test_8c_aedc895d6409678b2176d822c105c3796} 
+\index{inventory\_test.c@{inventory\_test.c}!test1\_inventory\_set\_max\_objects@{test1\_inventory\_set\_max\_objects}}
+\index{test1\_inventory\_set\_max\_objects@{test1\_inventory\_set\_max\_objects}!inventory\_test.c@{inventory\_test.c}}
+\doxysubsubsection{\texorpdfstring{test1\_inventory\_set\_max\_objects()}{test1\_inventory\_set\_max\_objects()}}
+{\footnotesize\ttfamily void test1\+\_\+inventory\+\_\+set\+\_\+max\+\_\+objects (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyRefDesc}{Test}
+\item[\mbox{\hyperlink{test__test000052}{Test}}]Test setting max objects \end{DoxyRefDesc}
+\begin{DoxyPrecond}{Precondition}
+Valid positive size 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Output == OK 
+\end{DoxyPostcond}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{inventory__test_8c_aedc895d6409678b2176d822c105c3796_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=270pt]{inventory__test_8c_aedc895d6409678b2176d822c105c3796_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{inventory__test_8c_aa71b62b43df77830d47caa4237ee76a2}\label{inventory__test_8c_aa71b62b43df77830d47caa4237ee76a2} 
+\index{inventory\_test.c@{inventory\_test.c}!test2\_inventory\_add\_object@{test2\_inventory\_add\_object}}
+\index{test2\_inventory\_add\_object@{test2\_inventory\_add\_object}!inventory\_test.c@{inventory\_test.c}}
+\doxysubsubsection{\texorpdfstring{test2\_inventory\_add\_object()}{test2\_inventory\_add\_object()}}
+{\footnotesize\ttfamily void test2\+\_\+inventory\+\_\+add\+\_\+object (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyRefDesc}{Test}
+\item[\mbox{\hyperlink{test__test000039}{Test}}]Test adding object \end{DoxyRefDesc}
+\begin{DoxyPrecond}{Precondition}
+Invalid object ID 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Output == ERROR 
+\end{DoxyPostcond}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{inventory__test_8c_aa71b62b43df77830d47caa4237ee76a2_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=273pt]{inventory__test_8c_aa71b62b43df77830d47caa4237ee76a2_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{inventory__test_8c_a73a6080c360a8870c4ffc734e989c8b3}\label{inventory__test_8c_a73a6080c360a8870c4ffc734e989c8b3} 
+\index{inventory\_test.c@{inventory\_test.c}!test2\_inventory\_create@{test2\_inventory\_create}}
+\index{test2\_inventory\_create@{test2\_inventory\_create}!inventory\_test.c@{inventory\_test.c}}
+\doxysubsubsection{\texorpdfstring{test2\_inventory\_create()}{test2\_inventory\_create()}}
+{\footnotesize\ttfamily void test2\+\_\+inventory\+\_\+create (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyRefDesc}{Test}
+\item[\mbox{\hyperlink{test__test000035}{Test}}]Test inventory creation \end{DoxyRefDesc}
+\begin{DoxyPrecond}{Precondition}
+Invalid size parameter 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Output == NULL pointer 
+\end{DoxyPostcond}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{inventory__test_8c_a73a6080c360a8870c4ffc734e989c8b3_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=286pt]{inventory__test_8c_a73a6080c360a8870c4ffc734e989c8b3_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{inventory__test_8c_a9f3daec28c696c0671e6a3e905359741}\label{inventory__test_8c_a9f3daec28c696c0671e6a3e905359741} 
+\index{inventory\_test.c@{inventory\_test.c}!test2\_inventory\_destroy@{test2\_inventory\_destroy}}
+\index{test2\_inventory\_destroy@{test2\_inventory\_destroy}!inventory\_test.c@{inventory\_test.c}}
+\doxysubsubsection{\texorpdfstring{test2\_inventory\_destroy()}{test2\_inventory\_destroy()}}
+{\footnotesize\ttfamily void test2\+\_\+inventory\+\_\+destroy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyRefDesc}{Test}
+\item[\mbox{\hyperlink{test__test000037}{Test}}]Test inventory destruction \end{DoxyRefDesc}
+\begin{DoxyPrecond}{Precondition}
+NULL inventory pointer 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Output == ERROR 
+\end{DoxyPostcond}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{inventory__test_8c_a9f3daec28c696c0671e6a3e905359741_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=292pt]{inventory__test_8c_a9f3daec28c696c0671e6a3e905359741_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{inventory__test_8c_a6ae6ac8b8bc479c81fe89c2e3b4133b0}\label{inventory__test_8c_a6ae6ac8b8bc479c81fe89c2e3b4133b0} 
+\index{inventory\_test.c@{inventory\_test.c}!test2\_inventory\_get\_num\_objects@{test2\_inventory\_get\_num\_objects}}
+\index{test2\_inventory\_get\_num\_objects@{test2\_inventory\_get\_num\_objects}!inventory\_test.c@{inventory\_test.c}}
+\doxysubsubsection{\texorpdfstring{test2\_inventory\_get\_num\_objects()}{test2\_inventory\_get\_num\_objects()}}
+{\footnotesize\ttfamily void test2\+\_\+inventory\+\_\+get\+\_\+num\+\_\+objects (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyRefDesc}{Test}
+\item[\mbox{\hyperlink{test__test000047}{Test}}]Test getting object count \end{DoxyRefDesc}
+\begin{DoxyPrecond}{Precondition}
+NULL inventory pointer 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Output == -\/1 
+\end{DoxyPostcond}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{inventory__test_8c_a6ae6ac8b8bc479c81fe89c2e3b4133b0_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=271pt]{inventory__test_8c_a6ae6ac8b8bc479c81fe89c2e3b4133b0_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{inventory__test_8c_a6a440546c4b5335db5bb0e93688bf847}\label{inventory__test_8c_a6a440546c4b5335db5bb0e93688bf847} 
+\index{inventory\_test.c@{inventory\_test.c}!test2\_inventory\_get\_object@{test2\_inventory\_get\_object}}
+\index{test2\_inventory\_get\_object@{test2\_inventory\_get\_object}!inventory\_test.c@{inventory\_test.c}}
+\doxysubsubsection{\texorpdfstring{test2\_inventory\_get\_object()}{test2\_inventory\_get\_object()}}
+{\footnotesize\ttfamily void test2\+\_\+inventory\+\_\+get\+\_\+object (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyRefDesc}{Test}
+\item[\mbox{\hyperlink{test__test000041}{Test}}]Test getting object \end{DoxyRefDesc}
+\begin{DoxyPrecond}{Precondition}
+NULL inventory pointer 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Output == NULL pointer 
+\end{DoxyPostcond}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{inventory__test_8c_a6a440546c4b5335db5bb0e93688bf847_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=271pt]{inventory__test_8c_a6a440546c4b5335db5bb0e93688bf847_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{inventory__test_8c_ac9cca4e85679d9f8c965a410357ae64a}\label{inventory__test_8c_ac9cca4e85679d9f8c965a410357ae64a} 
+\index{inventory\_test.c@{inventory\_test.c}!test2\_inventory\_get\_object\_by\_index@{test2\_inventory\_get\_object\_by\_index}}
+\index{test2\_inventory\_get\_object\_by\_index@{test2\_inventory\_get\_object\_by\_index}!inventory\_test.c@{inventory\_test.c}}
+\doxysubsubsection{\texorpdfstring{test2\_inventory\_get\_object\_by\_index()}{test2\_inventory\_get\_object\_by\_index()}}
+{\footnotesize\ttfamily void test2\+\_\+inventory\+\_\+get\+\_\+object\+\_\+by\+\_\+index (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyRefDesc}{Test}
+\item[\mbox{\hyperlink{test__test000049}{Test}}]Test getting object by index \end{DoxyRefDesc}
+\begin{DoxyPrecond}{Precondition}
+Invalid index 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Output == NO\+\_\+\+ID 
+\end{DoxyPostcond}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{inventory__test_8c_ac9cca4e85679d9f8c965a410357ae64a_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=271pt]{inventory__test_8c_ac9cca4e85679d9f8c965a410357ae64a_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{inventory__test_8c_a2a77a546e0f46a719124f96bddf1379d}\label{inventory__test_8c_a2a77a546e0f46a719124f96bddf1379d} 
+\index{inventory\_test.c@{inventory\_test.c}!test2\_inventory\_get\_object\_index@{test2\_inventory\_get\_object\_index}}
+\index{test2\_inventory\_get\_object\_index@{test2\_inventory\_get\_object\_index}!inventory\_test.c@{inventory\_test.c}}
+\doxysubsubsection{\texorpdfstring{test2\_inventory\_get\_object\_index()}{test2\_inventory\_get\_object\_index()}}
+{\footnotesize\ttfamily void test2\+\_\+inventory\+\_\+get\+\_\+object\+\_\+index (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyRefDesc}{Test}
+\item[\mbox{\hyperlink{test__test000051}{Test}}]Test getting object by index \end{DoxyRefDesc}
+\begin{DoxyPrecond}{Precondition}
+Object doesn\textquotesingle{}t exist in inventory 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Output == -\/1 
+\end{DoxyPostcond}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{inventory__test_8c_a2a77a546e0f46a719124f96bddf1379d_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=271pt]{inventory__test_8c_a2a77a546e0f46a719124f96bddf1379d_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{inventory__test_8c_a7b74f975c41051fab9f54bc1e84ec545}\label{inventory__test_8c_a7b74f975c41051fab9f54bc1e84ec545} 
+\index{inventory\_test.c@{inventory\_test.c}!test2\_inventory\_has\_object@{test2\_inventory\_has\_object}}
+\index{test2\_inventory\_has\_object@{test2\_inventory\_has\_object}!inventory\_test.c@{inventory\_test.c}}
+\doxysubsubsection{\texorpdfstring{test2\_inventory\_has\_object()}{test2\_inventory\_has\_object()}}
+{\footnotesize\ttfamily void test2\+\_\+inventory\+\_\+has\+\_\+object (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyRefDesc}{Test}
+\item[\mbox{\hyperlink{test__test000045}{Test}}]Test checking object existence \end{DoxyRefDesc}
+\begin{DoxyPrecond}{Precondition}
+Object doesn\textquotesingle{}t exist in inventory 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Output == FALSE 
+\end{DoxyPostcond}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{inventory__test_8c_a7b74f975c41051fab9f54bc1e84ec545_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=273pt]{inventory__test_8c_a7b74f975c41051fab9f54bc1e84ec545_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{inventory__test_8c_ab416dcaf2ae0f9852a8c6ed5eea4f408}\label{inventory__test_8c_ab416dcaf2ae0f9852a8c6ed5eea4f408} 
+\index{inventory\_test.c@{inventory\_test.c}!test2\_inventory\_print@{test2\_inventory\_print}}
+\index{test2\_inventory\_print@{test2\_inventory\_print}!inventory\_test.c@{inventory\_test.c}}
+\doxysubsubsection{\texorpdfstring{test2\_inventory\_print()}{test2\_inventory\_print()}}
+{\footnotesize\ttfamily void test2\+\_\+inventory\+\_\+print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyRefDesc}{Test}
+\item[\mbox{\hyperlink{test__test000055}{Test}}]Test printing inventory \end{DoxyRefDesc}
+\begin{DoxyPrecond}{Precondition}
+NULL inventory pointer 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Output == ERROR 
+\end{DoxyPostcond}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{inventory__test_8c_ab416dcaf2ae0f9852a8c6ed5eea4f408_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=278pt]{inventory__test_8c_ab416dcaf2ae0f9852a8c6ed5eea4f408_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{inventory__test_8c_a4ea1bbd9668f1049fb98590ffb0dd5db}\label{inventory__test_8c_a4ea1bbd9668f1049fb98590ffb0dd5db} 
+\index{inventory\_test.c@{inventory\_test.c}!test2\_inventory\_remove\_object@{test2\_inventory\_remove\_object}}
+\index{test2\_inventory\_remove\_object@{test2\_inventory\_remove\_object}!inventory\_test.c@{inventory\_test.c}}
+\doxysubsubsection{\texorpdfstring{test2\_inventory\_remove\_object()}{test2\_inventory\_remove\_object()}}
+{\footnotesize\ttfamily void test2\+\_\+inventory\+\_\+remove\+\_\+object (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyRefDesc}{Test}
+\item[\mbox{\hyperlink{test__test000043}{Test}}]Test removing object \end{DoxyRefDesc}
+\begin{DoxyPrecond}{Precondition}
+Non-\/existing object ID 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Output == ERROR 
+\end{DoxyPostcond}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{inventory__test_8c_a4ea1bbd9668f1049fb98590ffb0dd5db_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=293pt]{inventory__test_8c_a4ea1bbd9668f1049fb98590ffb0dd5db_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{inventory__test_8c_aff93a7fb7ffbac1890ce563012a9d372}\label{inventory__test_8c_aff93a7fb7ffbac1890ce563012a9d372} 
+\index{inventory\_test.c@{inventory\_test.c}!test2\_inventory\_set\_max\_objects@{test2\_inventory\_set\_max\_objects}}
+\index{test2\_inventory\_set\_max\_objects@{test2\_inventory\_set\_max\_objects}!inventory\_test.c@{inventory\_test.c}}
+\doxysubsubsection{\texorpdfstring{test2\_inventory\_set\_max\_objects()}{test2\_inventory\_set\_max\_objects()}}
+{\footnotesize\ttfamily void test2\+\_\+inventory\+\_\+set\+\_\+max\+\_\+objects (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyRefDesc}{Test}
+\item[\mbox{\hyperlink{test__test000053}{Test}}]Test setting max objects \end{DoxyRefDesc}
+\begin{DoxyPrecond}{Precondition}
+Invalid positive size 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Output == ERROR 
+\end{DoxyPostcond}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{inventory__test_8c_aff93a7fb7ffbac1890ce563012a9d372_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=270pt]{inventory__test_8c_aff93a7fb7ffbac1890ce563012a9d372_icgraph}
+\end{center}
+\end{figure}

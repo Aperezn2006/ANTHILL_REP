@@ -1,0 +1,19 @@
+<map id="game_get_link_by_id" name="game_get_link_by_id">
+<area shape="rect" id="Node000001" title="It gets a pointer to a link using its id." alt="" coords="640,106,800,131"/>
+<area shape="rect" id="Node000002" href="$game__rules__sdl_8c.html#a431cb85001421df41014a15152b11573" title="It allows the player to dig." alt="" coords="437,5,592,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="680,102,591,60,564,48,566,43,593,55,682,97"/>
+<area shape="rect" id="Node000004" href="$game__rules_8c.html#aa42162da13ef6c6ed4706659bd3d2a13" title="It allows the player to dig." alt="" coords="437,69,592,109"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="626,108,592,103,593,98,627,103"/>
+<area shape="rect" id="Node000005" href="$game__rules_8c.html#a5ff9e62eff85bf5ee110179996ef3396" title="It updates the game according to its rules." alt="" coords="279,134,389,159"/>
+<area shape="poly" id="edge9_Node000001_Node000005" title=" " alt="" coords="626,128,390,145,389,140,626,123"/>
+<area shape="rect" id="Node000008" href="$game__rules_8c.html#a3683bf73caaed9de8384533bb28f3c4b" title="It moves the guards (characters) and allows them to catch players in tunnels." alt="" coords="459,185,570,210"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="674,139,550,187,548,182,672,134"/>
+<area shape="rect" id="Node000003" href="$game__rules__sdl_8c.html#aa3b9bb3adaeba0262c80852f24538f85" title=" " alt="" coords="279,13,389,38"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="424,28,390,28,390,23,424,23"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="439,116,376,136,374,131,437,111"/>
+<area shape="rect" id="Node000006" href="$game__loop_8c.html#afb6a670628dffdd01661658f29a1e8ca" title="Runs the main game loop, processing commands and updating the game state." alt="" coords="108,134,231,159"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="265,149,231,149,231,144,265,144"/>
+<area shape="rect" id="Node000007" href="$game__loop_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,134,60,159"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="94,149,60,149,60,144,94,144"/>
+<area shape="poly" id="edge8_Node000008_Node000005" title=" " alt="" coords="455,183,380,162,381,157,456,178"/>
+</map>

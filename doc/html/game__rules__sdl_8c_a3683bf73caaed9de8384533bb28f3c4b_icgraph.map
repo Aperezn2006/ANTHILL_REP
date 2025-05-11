@@ -1,0 +1,5 @@
+<map id="move_guards" name="move_guards">
+<area shape="rect" id="Node000001" title="It moves the guards (characters) and allows them to catch players in tunnels." alt="" coords="164,5,275,31"/>
+<area shape="rect" id="Node000002" href="$game__rules__sdl_8c.html#aa3b9bb3adaeba0262c80852f24538f85" title=" " alt="" coords="5,5,116,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="151,21,116,21,116,15,151,15"/>
+</map>

@@ -1,0 +1,10 @@
+<map id="link_set_id" name="link_set_id">
+<area shape="rect" id="Node000001" title="It sets the id of a link." alt="" coords="288,31,380,56"/>
+<area shape="rect" id="Node000002" href="$link__test_8c.html#ac2b67785fdf6bb85af93e985af9ee3f2" title=" " alt="" coords="108,5,240,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="274,37,240,31,241,26,275,31"/>
+<area shape="rect" id="Node000004" href="$link__test_8c.html#a2f107a28c71f764c8091747f48eaec3f" title=" " alt="" coords="108,55,240,80"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="274,55,241,60,240,55,274,50"/>
+<area shape="rect" id="Node000003" href="$link__test_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title=" " alt="" coords="5,31,60,56"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="95,35,61,41,60,36,94,30"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="94,56,60,50,60,45,95,51"/>
+</map>

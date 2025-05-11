@@ -1,0 +1,121 @@
+\doxysection{/mnt/c/\+Ubuntu/\+Shared\+\_\+folder/\+PPROG/\+I4/\+ANTHILL\+\_\+\+REP/include/ray.h File Reference}
+\hypertarget{ray_8h}{}\label{ray_8h}\index{/mnt/c/Ubuntu/Shared\_folder/PPROG/I4/ANTHILL\_REP/include/ray.h@{/mnt/c/Ubuntu/Shared\_folder/PPROG/I4/ANTHILL\_REP/include/ray.h}}
+{\ttfamily \#include "{}types.\+h"{}}\newline
+Include dependency graph for ray.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=223pt]{ray_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ray_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structRay}{Ray}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{ray_8h_afdfceff5c462e87165e95a8a21398d55}{ray\+\_\+create}} (int x, int y, \mbox{\hyperlink{types_8h_a224b9163917ac32fc95a60d8c1eec3aa}{Direction}} direction)
+\item 
+void \mbox{\hyperlink{ray_8h_af61a1f820b09890a318c82cbc130c366}{ray\+\_\+update}} (\mbox{\hyperlink{structRay}{Ray}} \texorpdfstring{$\ast$}{*}ray)
+\item 
+void \mbox{\hyperlink{ray_8h_a44b954c29eb26d344b246b8bc6d7a0c7}{ray\+\_\+destroy}} (\mbox{\hyperlink{structRay}{Ray}} \texorpdfstring{$\ast$}{*}ray)
+\item 
+int \mbox{\hyperlink{ray_8h_a9ba3cba83834faf23e9eb8744c354c54}{ray\+\_\+get\+\_\+x}} (const \mbox{\hyperlink{structRay}{Ray}} \texorpdfstring{$\ast$}{*}ray)
+\item 
+int \mbox{\hyperlink{ray_8h_aea84f6e23366372f3107428d0a3569f4}{ray\+\_\+get\+\_\+y}} (const \mbox{\hyperlink{structRay}{Ray}} \texorpdfstring{$\ast$}{*}ray)
+\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{ray_8h_a73f93180688e0d758b83be2bb7dda47d}{ray\+\_\+get\+\_\+image}} (const \mbox{\hyperlink{structRay}{Ray}} \texorpdfstring{$\ast$}{*}ray)
+\item 
+int \mbox{\hyperlink{ray_8h_a80c7c28cea7752066e9cad6d71973e6e}{ray\+\_\+is\+\_\+active}} (const \mbox{\hyperlink{structRay}{Ray}} \texorpdfstring{$\ast$}{*}ray)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{ray_8h_afdfceff5c462e87165e95a8a21398d55}\label{ray_8h_afdfceff5c462e87165e95a8a21398d55} 
+\index{ray.h@{ray.h}!ray\_create@{ray\_create}}
+\index{ray\_create@{ray\_create}!ray.h@{ray.h}}
+\doxysubsubsection{\texorpdfstring{ray\_create()}{ray\_create()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structRay}{Ray}} \texorpdfstring{$\ast$}{*} ray\+\_\+create (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{\mbox{\hyperlink{types_8h_a224b9163917ac32fc95a60d8c1eec3aa}{Direction}}}]{direction }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=312pt]{ray_8h_afdfceff5c462e87165e95a8a21398d55_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{ray_8h_a44b954c29eb26d344b246b8bc6d7a0c7}\label{ray_8h_a44b954c29eb26d344b246b8bc6d7a0c7} 
+\index{ray.h@{ray.h}!ray\_destroy@{ray\_destroy}}
+\index{ray\_destroy@{ray\_destroy}!ray.h@{ray.h}}
+\doxysubsubsection{\texorpdfstring{ray\_destroy()}{ray\_destroy()}}
+{\footnotesize\ttfamily void ray\+\_\+destroy (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structRay}{Ray}} \texorpdfstring{$\ast$}{*}}]{ray }\end{DoxyParamCaption})}
+
+\Hypertarget{ray_8h_a73f93180688e0d758b83be2bb7dda47d}\label{ray_8h_a73f93180688e0d758b83be2bb7dda47d} 
+\index{ray.h@{ray.h}!ray\_get\_image@{ray\_get\_image}}
+\index{ray\_get\_image@{ray\_get\_image}!ray.h@{ray.h}}
+\doxysubsubsection{\texorpdfstring{ray\_get\_image()}{ray\_get\_image()}}
+{\footnotesize\ttfamily const char \texorpdfstring{$\ast$}{*} ray\+\_\+get\+\_\+image (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structRay}{Ray}} \texorpdfstring{$\ast$}{*}}]{ray }\end{DoxyParamCaption})}
+
+\Hypertarget{ray_8h_a9ba3cba83834faf23e9eb8744c354c54}\label{ray_8h_a9ba3cba83834faf23e9eb8744c354c54} 
+\index{ray.h@{ray.h}!ray\_get\_x@{ray\_get\_x}}
+\index{ray\_get\_x@{ray\_get\_x}!ray.h@{ray.h}}
+\doxysubsubsection{\texorpdfstring{ray\_get\_x()}{ray\_get\_x()}}
+{\footnotesize\ttfamily int ray\+\_\+get\+\_\+x (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structRay}{Ray}} \texorpdfstring{$\ast$}{*}}]{ray }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ray_8h_a9ba3cba83834faf23e9eb8744c354c54_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{ray_8h_aea84f6e23366372f3107428d0a3569f4}\label{ray_8h_aea84f6e23366372f3107428d0a3569f4} 
+\index{ray.h@{ray.h}!ray\_get\_y@{ray\_get\_y}}
+\index{ray\_get\_y@{ray\_get\_y}!ray.h@{ray.h}}
+\doxysubsubsection{\texorpdfstring{ray\_get\_y()}{ray\_get\_y()}}
+{\footnotesize\ttfamily int ray\+\_\+get\+\_\+y (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structRay}{Ray}} \texorpdfstring{$\ast$}{*}}]{ray }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ray_8h_aea84f6e23366372f3107428d0a3569f4_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{ray_8h_a80c7c28cea7752066e9cad6d71973e6e}\label{ray_8h_a80c7c28cea7752066e9cad6d71973e6e} 
+\index{ray.h@{ray.h}!ray\_is\_active@{ray\_is\_active}}
+\index{ray\_is\_active@{ray\_is\_active}!ray.h@{ray.h}}
+\doxysubsubsection{\texorpdfstring{ray\_is\_active()}{ray\_is\_active()}}
+{\footnotesize\ttfamily int ray\+\_\+is\+\_\+active (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structRay}{Ray}} \texorpdfstring{$\ast$}{*}}]{ray }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ray_8h_a80c7c28cea7752066e9cad6d71973e6e_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{ray_8h_af61a1f820b09890a318c82cbc130c366}\label{ray_8h_af61a1f820b09890a318c82cbc130c366} 
+\index{ray.h@{ray.h}!ray\_update@{ray\_update}}
+\index{ray\_update@{ray\_update}!ray.h@{ray.h}}
+\doxysubsubsection{\texorpdfstring{ray\_update()}{ray\_update()}}
+{\footnotesize\ttfamily void ray\+\_\+update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structRay}{Ray}} \texorpdfstring{$\ast$}{*}}]{ray }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ray_8h_af61a1f820b09890a318c82cbc130c366_icgraph}
+\end{center}
+\end{figure}

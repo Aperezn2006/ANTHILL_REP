@@ -1,0 +1,11 @@
+<map id="game_remove_character_from_space" name="game_remove_character_from_space">
+<area shape="rect" id="Node000001" title="It removes a character from a space." alt="" coords="5,23,189,63"/>
+<area shape="rect" id="Node000002" href="$game_8c.html#a34242ac78c87036f8194fee3e92c7fb7" title="It creates a pointer to a certain space using its id." alt="" coords="264,5,396,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="189,31,250,24,251,29,190,36"/>
+<area shape="rect" id="Node000004" href="$space_8c.html#a34699ef15e9c8d8ae5173ee403cd813e" title="Removes a character from the space." alt="" coords="237,55,423,80"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="190,50,224,54,224,59,189,55"/>
+<area shape="rect" id="Node000003" href="$space_8c.html#ac8ddfd0d8692fd852ee49698c446cb50" title="It gets the id of a space." alt="" coords="477,5,583,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="396,15,462,15,462,21,396,21"/>
+<area shape="rect" id="Node000005" href="$set_8c.html#a94547ab1010894b64ec974bde79c1e4f" title="It deletes an element from the set." alt="" coords="471,55,589,80"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="423,65,457,65,457,70,423,70"/>
+</map>

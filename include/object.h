@@ -201,7 +201,22 @@ Status object_set_position(Object *object, int x, int y);
  */
 Status object_get_position(Object *object, int *x, int *y);
 
+/**
+ * @brief It get the x coordinate of the object's position
+ * @author Rubén, Arturo, Bea, Ana
+ *
+ * @param object a pointer to the link
+ * @return the x coordinate
+ */
 int object_get_x(Object *object);
+
+/**
+ * @brief It get the y coordinate of the object's position
+ * @author Rubén, Arturo, Bea, Ana
+ *
+ * @param object a pointer to the link
+ * @return the y coordinate
+ */
 int object_get_y(Object *object);
 
 /*Print*/

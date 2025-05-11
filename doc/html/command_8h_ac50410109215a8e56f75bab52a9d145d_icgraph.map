@@ -1,0 +1,19 @@
+<map id="command_get_result" name="command_get_result">
+<area shape="rect" id="Node000001" title="It gets whether the command was successful or not." alt="" coords="735,95,893,121"/>
+<area shape="rect" id="Node000002" href="$game__rules_8c.html#aa42162da13ef6c6ed4706659bd3d2a13" title="It allows the player to dig." alt="" coords="532,5,687,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="768,93,659,48,661,43,770,88"/>
+<area shape="rect" id="Node000006" href="$graphic__engine_8c.html#a0e275aa477d5fa59e903da33a2a40a5d" title="It paints the game&#39;s data on the user&#39;s screen." alt="" coords="279,70,484,95"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="721,105,484,91,484,86,721,100"/>
+<area shape="rect" id="Node000007" href="$game__loop__sdl_8c.html#ade8edb886ee05003d1b664c39955385c" title="Logs the details of a command to the specified log file." alt="" coords="552,121,667,146"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="722,122,668,129,667,124,721,117"/>
+<area shape="rect" id="Node000008" href="$game__loop_8c.html#a0bb26b4fa4821e338d3770da258765a7" title="Logs the details of a command to the specified log file." alt="" coords="324,145,439,170"/>
+<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="778,129,735,147,687,161,621,170,554,172,439,167,439,161,554,167,620,165,686,156,734,142,776,124"/>
+<area shape="rect" id="Node000003" href="$game__rules_8c.html#a5ff9e62eff85bf5ee110179996ef3396" title="It updates the game according to its rules." alt="" coords="326,17,437,42"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="518,30,437,31,437,26,518,24"/>
+<area shape="rect" id="Node000004" href="$game__loop_8c.html#afb6a670628dffdd01661658f29a1e8ca" title="Runs the main game loop, processing commands and updating the game state." alt="" coords="108,70,231,95"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="317,48,221,73,220,67,316,43"/>
+<area shape="rect" id="Node000005" href="$game__loop_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,70,60,95"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="94,85,60,85,60,80,94,80"/>
+<area shape="poly" id="edge6_Node000006_Node000004" title=" " alt="" coords="265,85,231,85,231,80,265,80"/>
+<area shape="poly" id="edge9_Node000008_Node000004" title=" " alt="" coords="330,142,205,98,207,93,332,137"/>
+</map>

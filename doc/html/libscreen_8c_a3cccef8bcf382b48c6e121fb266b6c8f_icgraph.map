@@ -1,0 +1,7 @@
+<map id="screen_color_paint" name="screen_color_paint">
+<area shape="rect" id="Node000001" title=" " alt="" coords="348,5,492,31"/>
+<area shape="rect" id="Node000002" href="$graphic__engine_8c.html#a944f77c736cfe97f5ac0d08f16cb6785" title="It paints the end game screen." alt="" coords="108,5,300,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="334,21,300,21,300,15,334,15"/>
+<area shape="rect" id="Node000003" href="$game__loop_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,5,60,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="95,21,60,21,60,15,95,15"/>
+</map>

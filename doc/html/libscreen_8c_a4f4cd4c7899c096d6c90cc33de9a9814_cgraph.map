@@ -1,0 +1,9 @@
+<map id="screen_area_puts" name="screen_area_puts">
+<area shape="rect" id="Node000001" title="It introduces some information inside an area." alt="" coords="5,70,141,95"/>
+<area shape="rect" id="Node000002" href="$libscreen_8c.html#ad1b32d3d54fea228f1ef0c73de4a3929" title=" " alt="" coords="199,5,347,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="118,67,189,47,190,52,119,73"/>
+<area shape="rect" id="Node000003" href="$libscreen_8c.html#a110e0b378730322f5a2f1dc91e65e2aa" title=" " alt="" coords="189,70,356,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="142,80,176,80,176,85,142,85"/>
+<area shape="rect" id="Node000004" href="$libscreen_8c.html#a55dedaa3b402fef825ceb6c3a957781d" title=" " alt="" coords="191,120,354,160"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="119,93,190,114,189,119,118,98"/>
+</map>

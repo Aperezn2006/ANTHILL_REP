@@ -1,0 +1,9 @@
+<map id="game_is_object_movable" name="game_is_object_movable">
+<area shape="rect" id="Node000001" title="It tells if an object can be moved or not." alt="" coords="5,31,193,56"/>
+<area shape="rect" id="Node000002" href="$game_8c.html#a81d5be540a179c05052ba80ea7ab41ea" title="It gets a pointer to an object from its id." alt="" coords="241,5,432,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="193,31,227,27,228,32,194,36"/>
+<area shape="rect" id="Node000004" href="$object_8c.html#a73d167d4cf9c3a367b534dc0dc980453" title=" " alt="" coords="265,55,409,80"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="194,50,251,56,251,61,193,55"/>
+<area shape="rect" id="Node000003" href="$object_8c.html#ac5af152381a21853c6a28cc120e8e7fe" title="It gets the id of a object." alt="" coords="480,5,589,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="432,15,466,15,466,21,432,21"/>
+</map>

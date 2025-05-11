@@ -1,0 +1,11 @@
+<map id="command_get_user_input" name="command_get_user_input">
+<area shape="rect" id="Node000001" title="It gets the user inputs and sets its command and word." alt="" coords="5,80,196,105"/>
+<area shape="rect" id="Node000002" href="$command_8c.html#a0abb96f9b182d0018ec4b5e15d5307e4" title="It sets a certain command." alt="" coords="261,5,413,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="134,77,243,39,270,32,272,37,245,45,136,82"/>
+<area shape="rect" id="Node000003" href="$command_8c.html#a934154445013a2e3ac7ef00f4806d0d7" title="It sets the connector between commands." alt="" coords="244,55,429,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="196,80,230,76,231,81,197,85"/>
+<area shape="rect" id="Node000004" href="$command_8c.html#a067d446562d184cfbefac7d262d8666d" title="It sets the command&#39;s destiny." alt="" coords="252,104,421,129"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="197,100,238,104,238,109,196,105"/>
+<area shape="rect" id="Node000005" href="$command_8c.html#ab552b723255ed129d81305127e64c50b" title="It sets the string that came after the command." alt="" coords="260,153,413,179"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="139,103,245,138,275,147,273,152,243,143,137,108"/>
+</map>

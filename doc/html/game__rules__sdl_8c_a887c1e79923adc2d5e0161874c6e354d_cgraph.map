@@ -1,0 +1,5 @@
+<map id="object_is_digging_tool" name="object_is_digging_tool">
+<area shape="rect" id="Node000001" title="It checks whether an object can be used to dig." alt="" coords="5,5,172,31"/>
+<area shape="rect" id="Node000002" href="$object_8c.html#ac5af152381a21853c6a28cc120e8e7fe" title="It gets the id of a object." alt="" coords="220,5,329,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="172,15,206,15,206,21,172,21"/>
+</map>

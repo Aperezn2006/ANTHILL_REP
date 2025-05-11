@@ -1,0 +1,113 @@
+\doxysection{/mnt/c/\+Ubuntu/\+Shared\+\_\+folder/\+PPROG/\+I4/\+ANTHILL\+\_\+\+REP/include/input.h File Reference}
+\hypertarget{input_8h}{}\label{input_8h}\index{/mnt/c/Ubuntu/Shared\_folder/PPROG/I4/ANTHILL\_REP/include/input.h@{/mnt/c/Ubuntu/Shared\_folder/PPROG/I4/ANTHILL\_REP/include/input.h}}
+{\ttfamily \#include $<$SDL2/\+SDL.\+h$>$}\newline
+{\ttfamily \#include "{}game.\+h"{}}\newline
+{\ttfamily \#include "{}types.\+h"{}}\newline
+Include dependency graph for input.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{input_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{input_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structGame__Input}{Game\+\_\+\+Input}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{input_8h_a0ca0271d7da224e6d239140565c3b346}{Key\+\_\+\+State}} \{ \mbox{\hyperlink{input_8h_a0ca0271d7da224e6d239140565c3b346abd1b1afc1a0857864169b5f69aae4a17}{KS\+\_\+\+UNPRESSED}} = 0
+, \mbox{\hyperlink{input_8h_a0ca0271d7da224e6d239140565c3b346aa2214ae14ef5267dd7539fb517c34c46}{KS\+\_\+\+PRESSED}}
+, \mbox{\hyperlink{input_8h_a0ca0271d7da224e6d239140565c3b346a8795bbcd3e89b13b90d0e68ba6b09e15}{KS\+\_\+\+HELD}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{input_8h_a5cee2075bac76c4d456f1a1a631bd413}{input\+\_\+update}} (Game \texorpdfstring{$\ast$}{*}game)
+\begin{DoxyCompactList}\small\item\em It updates the game\textquotesingle{}s input base on keyboard events. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structGame__Input}{Game\+\_\+\+Input}} \mbox{\hyperlink{input_8h_a100e37e37fa19125df76aa09b30b1a40}{game\+\_\+input}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{input_8h_a0ca0271d7da224e6d239140565c3b346}\label{input_8h_a0ca0271d7da224e6d239140565c3b346} 
+\index{input.h@{input.h}!Key\_State@{Key\_State}}
+\index{Key\_State@{Key\_State}!input.h@{input.h}}
+\doxysubsubsection{\texorpdfstring{Key\_State}{Key\_State}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{input_8h_a0ca0271d7da224e6d239140565c3b346}{Key\+\_\+\+State}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{KS\_UNPRESSED@{KS\_UNPRESSED}!input.h@{input.h}}\index{input.h@{input.h}!KS\_UNPRESSED@{KS\_UNPRESSED}}}\Hypertarget{input_8h_a0ca0271d7da224e6d239140565c3b346abd1b1afc1a0857864169b5f69aae4a17}\label{input_8h_a0ca0271d7da224e6d239140565c3b346abd1b1afc1a0857864169b5f69aae4a17} 
+KS\+\_\+\+UNPRESSED&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{KS\_PRESSED@{KS\_PRESSED}!input.h@{input.h}}\index{input.h@{input.h}!KS\_PRESSED@{KS\_PRESSED}}}\Hypertarget{input_8h_a0ca0271d7da224e6d239140565c3b346aa2214ae14ef5267dd7539fb517c34c46}\label{input_8h_a0ca0271d7da224e6d239140565c3b346aa2214ae14ef5267dd7539fb517c34c46} 
+KS\+\_\+\+PRESSED&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{KS\_HELD@{KS\_HELD}!input.h@{input.h}}\index{input.h@{input.h}!KS\_HELD@{KS\_HELD}}}\Hypertarget{input_8h_a0ca0271d7da224e6d239140565c3b346a8795bbcd3e89b13b90d0e68ba6b09e15}\label{input_8h_a0ca0271d7da224e6d239140565c3b346a8795bbcd3e89b13b90d0e68ba6b09e15} 
+KS\+\_\+\+HELD&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{input_8h_a5cee2075bac76c4d456f1a1a631bd413}\label{input_8h_a5cee2075bac76c4d456f1a1a631bd413} 
+\index{input.h@{input.h}!input\_update@{input\_update}}
+\index{input\_update@{input\_update}!input.h@{input.h}}
+\doxysubsubsection{\texorpdfstring{input\_update()}{input\_update()}}
+{\footnotesize\ttfamily void input\+\_\+update (\begin{DoxyParamCaption}\item[{Game \texorpdfstring{$\ast$}{*}}]{game }\end{DoxyParamCaption})}
+
+
+
+It updates the game\textquotesingle{}s input base on keyboard events. 
+
+\begin{DoxyAuthor}{Author}
+Rubén
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em game} & a pointer to the game \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{input_8h_a5cee2075bac76c4d456f1a1a631bd413_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{input_8h_a5cee2075bac76c4d456f1a1a631bd413_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{input_8h_a100e37e37fa19125df76aa09b30b1a40}\label{input_8h_a100e37e37fa19125df76aa09b30b1a40} 
+\index{input.h@{input.h}!game\_input@{game\_input}}
+\index{game\_input@{game\_input}!input.h@{input.h}}
+\doxysubsubsection{\texorpdfstring{game\_input}{game\_input}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structGame__Input}{Game\+\_\+\+Input}} game\+\_\+input\hspace{0.3cm}{\ttfamily [extern]}}
+

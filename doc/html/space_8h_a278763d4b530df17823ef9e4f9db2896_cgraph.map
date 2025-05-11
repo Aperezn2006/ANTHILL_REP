@@ -1,0 +1,5 @@
+<map id="space_destroy" name="space_destroy">
+<area shape="rect" id="Node000001" title="It destroys a space, freeing the allocated memory." alt="" coords="5,5,121,31"/>
+<area shape="rect" id="Node000002" href="$set_8c.html#a5b4e14914ec3c85b83363f57697f175a" title="It destroys a set." alt="" coords="169,5,268,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="122,15,156,15,156,21,122,21"/>
+</map>

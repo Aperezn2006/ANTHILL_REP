@@ -1,0 +1,25 @@
+var struct__Game =
+[
+    [ "characters", "struct__Game.html#a67dbab82329336af02e70bec003be688", null ],
+    [ "finished", "struct__Game.html#ae1898d647ec6e63ff4c811a283f41f41", null ],
+    [ "inventory_vis", "struct__Game.html#a22951cc999fc7abefa3cfdec1b5abc83", null ],
+    [ "last_cmd", "struct__Game.html#abb212cf279cf0f510043855e0c4a3b27", null ],
+    [ "links", "struct__Game.html#a4544d07cd37e02761ed5fde0d8c02ba7", null ],
+    [ "message", "struct__Game.html#a0097762cbbd215df718e429ef4c91825", null ],
+    [ "n_characters", "struct__Game.html#a6917169991d786dbf8cc9b0a0e0e6dbb", null ],
+    [ "n_links", "struct__Game.html#a6f6e7e337e1f343c2823c15e2c28c518", null ],
+    [ "n_objects", "struct__Game.html#a9d518c242105db4414e49eadf10385af", null ],
+    [ "n_players", "struct__Game.html#ae1807649cfcc6ca6a3b53da9bc3fb5b6", null ],
+    [ "n_spaces", "struct__Game.html#ae692705a11b5b921d8da1072d9bb0944", null ],
+    [ "n_teams", "struct__Game.html#a7e797ea413d0a64442a700de6e498c2c", null ],
+    [ "object_desc", "struct__Game.html#a02c0fd658fe11821212c835f44ca67e4", null ],
+    [ "objects", "struct__Game.html#a5cf6ff071326746dc14d35d5ca1f0cd1", null ],
+    [ "players", "struct__Game.html#a388c17a606b0fc255c0c70a959418cf1", null ],
+    [ "ray", "struct__Game.html#a3c3c2d55d63982948b0440b9bd805fb6", null ],
+    [ "SDL", "struct__Game.html#a98b1d48f0ee77bce0fb1640d4e40c7b5", null ],
+    [ "spaces", "struct__Game.html#a50a3a13041320186dbca65fce99e3336", null ],
+    [ "teams", "struct__Game.html#aff6cf1d24b875926e59aeec4f8e22079", null ],
+    [ "turn", "struct__Game.html#aef6ba37517324fc3469dfa65d6f92d21", null ],
+    [ "won", "struct__Game.html#a6c5ffb2a1e351d6757d41a616e99cc71", null ],
+    [ "zoom_vis", "struct__Game.html#a9461521f4f1089a51d242e5fa49eade9", null ]
+];

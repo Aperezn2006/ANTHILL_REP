@@ -1,0 +1,15 @@
+<map id="game_update_character_health" name="game_update_character_health">
+<area shape="rect" id="Node000001" title="It updates the character health." alt="" coords="5,97,184,137"/>
+<area shape="rect" id="Node000002" href="$character_8c.html#a44f33a126ae5fe46a804f6e008d4fa82" title="It gets the health of a character." alt="" coords="248,5,407,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="126,94,174,66,231,40,253,32,254,37,233,44,177,71,129,99"/>
+<area shape="rect" id="Node000003" href="$character_8c.html#a663fad1a34f5514fef098d67582b15b6" title="It gets the name of a character." alt="" coords="250,55,405,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="184,95,253,80,254,86,185,100"/>
+<area shape="rect" id="Node000004" href="$character_8c.html#aa3fe98e48c3731f01accf1ca8f6aca32" title="It sets the health of a character." alt="" coords="248,104,407,129"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="184,114,234,114,234,119,184,119"/>
+<area shape="rect" id="Node000005" href="$game_8c.html#a81d5be540a179c05052ba80ea7ab41ea" title="It gets a pointer to an object from its id." alt="" coords="232,153,423,179"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="185,133,254,148,253,153,184,138"/>
+<area shape="rect" id="Node000007" href="$object_8c.html#a6f0254f51520e35f70c3d415b81bebeb" title=" " alt="" coords="258,203,397,228"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="130,135,178,162,233,188,258,196,256,201,231,192,175,166,127,139"/>
+<area shape="rect" id="Node000006" href="$object_8c.html#ac5af152381a21853c6a28cc120e8e7fe" title="It gets the id of a object." alt="" coords="471,153,580,179"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="423,163,457,163,457,169,423,169"/>
+</map>

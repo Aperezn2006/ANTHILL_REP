@@ -1,0 +1,13 @@
+<map id="open_links_in_space" name="open_links_in_space">
+<area shape="rect" id="Node000001" title="It opens all the links surrounding a space." alt="" coords="5,79,161,104"/>
+<area shape="rect" id="Node000002" href="$game_8c.html#a00c14f2082ea5efec0661cc0cb35103e" title="It gets a space&#39;s link in a specified direction." alt="" coords="209,29,412,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="142,76,237,55,239,60,143,81"/>
+<area shape="rect" id="Node000005" href="$link_8c.html#a32448d6dc6306eb083916db224055cd4" title="It sets the status of a link (open or closed)" alt="" coords="255,79,367,104"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="161,89,241,89,241,94,161,94"/>
+<area shape="rect" id="Node000006" href="$space_8c.html#ac8ddfd0d8692fd852ee49698c446cb50" title="It gets the id of a space." alt="" coords="257,128,364,153"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="143,101,244,124,243,129,142,107"/>
+<area shape="rect" id="Node000003" href="$link_8c.html#a45c192f1efaa9863a150e51d1a0f2756" title="It gets the direction of a link." alt="" coords="460,5,599,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="412,28,446,24,447,30,413,33"/>
+<area shape="rect" id="Node000004" href="$link_8c.html#ade97314fda342663e1b98cdb4e6ca50a" title="It gets the origin id of a link." alt="" coords="474,55,585,80"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="413,51,461,57,460,62,412,56"/>
+</map>

@@ -1,0 +1,137 @@
+\doxysection{Object Struct Reference}
+\hypertarget{struct__Object}{}\label{struct__Object}\index{Object@{Object}}
+
+
+object  
+
+
+
+
+Collaboration diagram for Object\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=170pt]{struct__Object__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} \mbox{\hyperlink{struct__Object_aba8fb188edacc6340d1cdeb5fb689d06}{id}}
+\item 
+char \mbox{\hyperlink{struct__Object_ae3bd1c8956fe964e3c30d58e1e80bb14}{name}} \mbox{[}\mbox{\hyperlink{types_8h_a92ed8507d1cd2331ad09275c5c4c1c89}{WORD\+\_\+\+SIZE}}+1\mbox{]}
+\item 
+char \mbox{\hyperlink{struct__Object_a84ba73fc51246934bdb819b710db5e31}{desc}} \mbox{[}\mbox{\hyperlink{types_8h_a92ed8507d1cd2331ad09275c5c4c1c89}{WORD\+\_\+\+SIZE}}\mbox{]}
+\item 
+\mbox{\hyperlink{types_8h_a39db6982619d623273fad8a383489309}{Bool}} \mbox{\hyperlink{struct__Object_aab9a9a6ad154d69dafd2df53915a3b08}{inspected}}
+\item 
+int \mbox{\hyperlink{struct__Object_ae507a7ec5cb27e0cf5bddae4e2f1fd46}{health}}
+\item 
+\mbox{\hyperlink{types_8h_a39db6982619d623273fad8a383489309}{Bool}} \mbox{\hyperlink{struct__Object_a178c789c3f1f769b2de8e6d360d949f4}{movable}}
+\item 
+\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} \mbox{\hyperlink{struct__Object_a1e66d76fa1b598bc91e9610a052d94d9}{dependency}}
+\item 
+\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} \mbox{\hyperlink{struct__Object_a797a3733e795581d1a775508b501b008}{open}}
+\item 
+int \mbox{\hyperlink{struct__Object_a29165cd3ae4fe079cba74a313a556bfa}{turn\+\_\+amplifier}}
+\item 
+char \mbox{\hyperlink{struct__Object_a6148c6b61c3478295b51b385a8c2ad28}{image}} \mbox{[}\mbox{\hyperlink{types_8h_acb0dbc97d78d66059acd914db3d7943a}{MAX\+\_\+\+IMAGE}}\mbox{]}
+\item 
+int \mbox{\hyperlink{struct__Object_aea8b4e1f4895ce5a0be5dbf42864669c}{x}}
+\item 
+int \mbox{\hyperlink{struct__Object_a9ed372592e77352c832d721ad88b9aec}{y}}
+\item 
+int \mbox{\hyperlink{struct__Object_ab82113c91cc65f0d8681929f536aab24}{uses}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+object 
+
+This struct stores all the information of a object. 
+
+\doxysubsection{Field Documentation}
+\Hypertarget{struct__Object_a1e66d76fa1b598bc91e9610a052d94d9}\label{struct__Object_a1e66d76fa1b598bc91e9610a052d94d9} 
+\index{Object@{Object}!dependency@{dependency}}
+\index{dependency@{dependency}!Object@{Object}}
+\doxysubsubsection{\texorpdfstring{dependency}{dependency}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} Object\+::dependency}
+
+\Hypertarget{struct__Object_a84ba73fc51246934bdb819b710db5e31}\label{struct__Object_a84ba73fc51246934bdb819b710db5e31} 
+\index{Object@{Object}!desc@{desc}}
+\index{desc@{desc}!Object@{Object}}
+\doxysubsubsection{\texorpdfstring{desc}{desc}}
+{\footnotesize\ttfamily char Object\+::desc\mbox{[}\mbox{\hyperlink{types_8h_a92ed8507d1cd2331ad09275c5c4c1c89}{WORD\+\_\+\+SIZE}}\mbox{]}}
+
+Description of the object \Hypertarget{struct__Object_ae507a7ec5cb27e0cf5bddae4e2f1fd46}\label{struct__Object_ae507a7ec5cb27e0cf5bddae4e2f1fd46} 
+\index{Object@{Object}!health@{health}}
+\index{health@{health}!Object@{Object}}
+\doxysubsubsection{\texorpdfstring{health}{health}}
+{\footnotesize\ttfamily int Object\+::health}
+
+\Hypertarget{struct__Object_aba8fb188edacc6340d1cdeb5fb689d06}\label{struct__Object_aba8fb188edacc6340d1cdeb5fb689d06} 
+\index{Object@{Object}!id@{id}}
+\index{id@{id}!Object@{Object}}
+\doxysubsubsection{\texorpdfstring{id}{id}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} Object\+::id}
+
+Id number of the object, it must be unique \Hypertarget{struct__Object_a6148c6b61c3478295b51b385a8c2ad28}\label{struct__Object_a6148c6b61c3478295b51b385a8c2ad28} 
+\index{Object@{Object}!image@{image}}
+\index{image@{image}!Object@{Object}}
+\doxysubsubsection{\texorpdfstring{image}{image}}
+{\footnotesize\ttfamily char Object\+::image\mbox{[}\mbox{\hyperlink{types_8h_acb0dbc97d78d66059acd914db3d7943a}{MAX\+\_\+\+IMAGE}}\mbox{]}}
+
+Path to the object\textquotesingle{}s image (for SDL2) \Hypertarget{struct__Object_aab9a9a6ad154d69dafd2df53915a3b08}\label{struct__Object_aab9a9a6ad154d69dafd2df53915a3b08} 
+\index{Object@{Object}!inspected@{inspected}}
+\index{inspected@{inspected}!Object@{Object}}
+\doxysubsubsection{\texorpdfstring{inspected}{inspected}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a39db6982619d623273fad8a383489309}{Bool}} Object\+::inspected}
+
+Whether the object has been inspected \Hypertarget{struct__Object_a178c789c3f1f769b2de8e6d360d949f4}\label{struct__Object_a178c789c3f1f769b2de8e6d360d949f4} 
+\index{Object@{Object}!movable@{movable}}
+\index{movable@{movable}!Object@{Object}}
+\doxysubsubsection{\texorpdfstring{movable}{movable}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a39db6982619d623273fad8a383489309}{Bool}} Object\+::movable}
+
+\Hypertarget{struct__Object_ae3bd1c8956fe964e3c30d58e1e80bb14}\label{struct__Object_ae3bd1c8956fe964e3c30d58e1e80bb14} 
+\index{Object@{Object}!name@{name}}
+\index{name@{name}!Object@{Object}}
+\doxysubsubsection{\texorpdfstring{name}{name}}
+{\footnotesize\ttfamily char Object\+::name\mbox{[}\mbox{\hyperlink{types_8h_a92ed8507d1cd2331ad09275c5c4c1c89}{WORD\+\_\+\+SIZE}}+1\mbox{]}}
+
+Name of the object \Hypertarget{struct__Object_a797a3733e795581d1a775508b501b008}\label{struct__Object_a797a3733e795581d1a775508b501b008} 
+\index{Object@{Object}!open@{open}}
+\index{open@{open}!Object@{Object}}
+\doxysubsubsection{\texorpdfstring{open}{open}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} Object\+::open}
+
+\Hypertarget{struct__Object_a29165cd3ae4fe079cba74a313a556bfa}\label{struct__Object_a29165cd3ae4fe079cba74a313a556bfa} 
+\index{Object@{Object}!turn\_amplifier@{turn\_amplifier}}
+\index{turn\_amplifier@{turn\_amplifier}!Object@{Object}}
+\doxysubsubsection{\texorpdfstring{turn\_amplifier}{turn\_amplifier}}
+{\footnotesize\ttfamily int Object\+::turn\+\_\+amplifier}
+
+\Hypertarget{struct__Object_ab82113c91cc65f0d8681929f536aab24}\label{struct__Object_ab82113c91cc65f0d8681929f536aab24} 
+\index{Object@{Object}!uses@{uses}}
+\index{uses@{uses}!Object@{Object}}
+\doxysubsubsection{\texorpdfstring{uses}{uses}}
+{\footnotesize\ttfamily int Object\+::uses}
+
+\Hypertarget{struct__Object_aea8b4e1f4895ce5a0be5dbf42864669c}\label{struct__Object_aea8b4e1f4895ce5a0be5dbf42864669c} 
+\index{Object@{Object}!x@{x}}
+\index{x@{x}!Object@{Object}}
+\doxysubsubsection{\texorpdfstring{x}{x}}
+{\footnotesize\ttfamily int Object\+::x}
+
+\Hypertarget{struct__Object_a9ed372592e77352c832d721ad88b9aec}\label{struct__Object_a9ed372592e77352c832d721ad88b9aec} 
+\index{Object@{Object}!y@{y}}
+\index{y@{y}!Object@{Object}}
+\doxysubsubsection{\texorpdfstring{y}{y}}
+{\footnotesize\ttfamily int Object\+::y}
+
+Object\textquotesingle{}s position 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/c/\+Ubuntu/\+Shared\+\_\+folder/\+PPROG/\+I4/\+ANTHILL\+\_\+\+REP/src/\mbox{\hyperlink{object_8c}{object.\+c}}\end{DoxyCompactItemize}

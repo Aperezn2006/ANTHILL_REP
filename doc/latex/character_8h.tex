@@ -1,0 +1,1198 @@
+\doxysection{/mnt/c/\+Ubuntu/\+Shared\+\_\+folder/\+PPROG/\+I4/\+ANTHILL\+\_\+\+REP/include/character.h File Reference}
+\hypertarget{character_8h}{}\label{character_8h}\index{/mnt/c/Ubuntu/Shared\_folder/PPROG/I4/ANTHILL\_REP/include/character.h@{/mnt/c/Ubuntu/Shared\_folder/PPROG/I4/ANTHILL\_REP/include/character.h}}
+
+
+It defines the character module interface.  
+
+
+{\ttfamily \#include "{}types.\+h"{}}\newline
+Include dependency graph for character.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=223pt]{character_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{character_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{character_8h_ac85944aa9cea9cfaab3b608694d1a6d8}{character\+\_\+get\+\_\+blink\+\_\+timer}} (Character \texorpdfstring{$\ast$}{*}character)
+\begin{DoxyCompactList}\small\item\em It gets the blink\+\_\+timer. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{character_8h_a5d8a2b4756190cf1fdf846158d93f99b}{character\+\_\+update\+\_\+blink\+\_\+timer}} (Character \texorpdfstring{$\ast$}{*}character)
+\begin{DoxyCompactList}\small\item\em It updates the blink\+\_\+timer. \end{DoxyCompactList}\item 
+Character \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{character_8h_a04e381f3485e883f8c5638cbcd67e686}{character\+\_\+create}} (\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} id)
+\begin{DoxyCompactList}\small\item\em It creates a new character, allocating memory and initializing its members. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{character_8h_a56873e94f3e967d9ad10a36f2338a64a}{character\+\_\+destroy}} (Character \texorpdfstring{$\ast$}{*}character)
+\begin{DoxyCompactList}\small\item\em It destroys a character, freeing the allocated memory. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} \mbox{\hyperlink{character_8h_ab909e43e2cfc3a8588056409edd43a64}{character\+\_\+get\+\_\+id}} (Character \texorpdfstring{$\ast$}{*}character)
+\begin{DoxyCompactList}\small\item\em It gets the id of a character. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{character_8h_abcdc7860984349f7b6e6bd1cb6a11f09}{character\+\_\+set\+\_\+id}} (Character \texorpdfstring{$\ast$}{*}character, \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} id)
+\begin{DoxyCompactList}\small\item\em It sets the id of a character. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} \mbox{\hyperlink{character_8h_a02edca9c2a7f3629422e2458dd7a86f1}{character\+\_\+get\+\_\+location}} (Character \texorpdfstring{$\ast$}{*}character)
+\begin{DoxyCompactList}\small\item\em It gets the id of the space the character is in. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{character_8h_a82f10d41f1683885e8cf6655bd6a1dd6}{character\+\_\+set\+\_\+location}} (Character \texorpdfstring{$\ast$}{*}character, \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} character\+\_\+location)
+\begin{DoxyCompactList}\small\item\em It sets the character\textquotesingle{}s location. \end{DoxyCompactList}\item 
+char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{character_8h_a663fad1a34f5514fef098d67582b15b6}{character\+\_\+get\+\_\+name}} (Character \texorpdfstring{$\ast$}{*}character)
+\begin{DoxyCompactList}\small\item\em It gets the name of a character. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{character_8h_a922232474a13885a323c7a4889873f57}{character\+\_\+set\+\_\+name}} (Character \texorpdfstring{$\ast$}{*}character, char \texorpdfstring{$\ast$}{*}name)
+\begin{DoxyCompactList}\small\item\em It sets the name of a character. \end{DoxyCompactList}\item 
+char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{character_8h_aec4a3c4896a8f96697bab8bd41ca3f05}{character\+\_\+get\+\_\+description}} (Character \texorpdfstring{$\ast$}{*}character)
+\begin{DoxyCompactList}\small\item\em It gets the description of a character. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{character_8h_a9cddc527fedc19ae50fb1d040110a287}{character\+\_\+set\+\_\+description}} (Character \texorpdfstring{$\ast$}{*}character, char \texorpdfstring{$\ast$}{*}description)
+\begin{DoxyCompactList}\small\item\em It sets the description of a character. \end{DoxyCompactList}\item 
+long \mbox{\hyperlink{character_8h_a44f33a126ae5fe46a804f6e008d4fa82}{character\+\_\+get\+\_\+health}} (Character \texorpdfstring{$\ast$}{*}character)
+\begin{DoxyCompactList}\small\item\em It gets the health of a character. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{character_8h_aa3fe98e48c3731f01accf1ca8f6aca32}{character\+\_\+set\+\_\+health}} (Character \texorpdfstring{$\ast$}{*}character, long health)
+\begin{DoxyCompactList}\small\item\em It sets the health of a character. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{character_8h_afe3df8f4d909606358974aa3b007b23e}{character\+\_\+decrease\+\_\+health}} (Character \texorpdfstring{$\ast$}{*}character, long damage)
+\begin{DoxyCompactList}\small\item\em It descreases the character\textquotesingle{}s health by a certain amount. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a39db6982619d623273fad8a383489309}{Bool}} \mbox{\hyperlink{character_8h_a373f10e169eaeacde49908a4fce470f4}{character\+\_\+get\+\_\+friendly}} (Character \texorpdfstring{$\ast$}{*}character)
+\begin{DoxyCompactList}\small\item\em It gets whether the character is friendly or not. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{character_8h_a40c1bad388ee0f2796627a5333cc4ded}{character\+\_\+set\+\_\+friendly}} (Character \texorpdfstring{$\ast$}{*}character, \mbox{\hyperlink{types_8h_a39db6982619d623273fad8a383489309}{Bool}} friendly)
+\begin{DoxyCompactList}\small\item\em It sets whether the character is friendly or not. \end{DoxyCompactList}\item 
+char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{character_8h_a552477d9d3d16c8718fbc2482871ad91}{character\+\_\+get\+\_\+message}} (Character \texorpdfstring{$\ast$}{*}character)
+\begin{DoxyCompactList}\small\item\em It gets the message of a character. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{character_8h_aa420dd11438569eba036b75e53ee03a6}{character\+\_\+set\+\_\+message}} (Character \texorpdfstring{$\ast$}{*}character, char \texorpdfstring{$\ast$}{*}message)
+\begin{DoxyCompactList}\small\item\em It sets the message of a character. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} \mbox{\hyperlink{character_8h_a93fd8715b3123bed6363ba9b40813a1e}{character\+\_\+get\+\_\+following}} (Character \texorpdfstring{$\ast$}{*}character)
+\begin{DoxyCompactList}\small\item\em It gets the id of the character that the current character is following. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{character_8h_a88dd090351f7f1713b52e910206140e2}{character\+\_\+set\+\_\+following}} (Character \texorpdfstring{$\ast$}{*}character, \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} id)
+\begin{DoxyCompactList}\small\item\em It sets the id of the character that the current character will follow. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{character_8h_a0385e7e4e8c853b820f57489fceed119}{character\+\_\+toggle\+\_\+curr\+\_\+image\+\_\+mode}} (Character \texorpdfstring{$\ast$}{*}character)
+\begin{DoxyCompactList}\small\item\em It cycles the current sprite through the available ones (3) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{character_8h_ad6592ae8cb0ef12702fea24b5c7285f5}{character\+\_\+set\+\_\+image}} (Character \texorpdfstring{$\ast$}{*}character, char \texorpdfstring{$\ast$}{*}image1, char \texorpdfstring{$\ast$}{*}image2, char \texorpdfstring{$\ast$}{*}image3)
+\begin{DoxyCompactList}\small\item\em It sets the character\textquotesingle{}s current image\+\_\+path. \end{DoxyCompactList}\item 
+char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{character_8h_a8f4af483807ee8b5c772e9ce4755ffdb}{character\+\_\+get\+\_\+image}} (Character \texorpdfstring{$\ast$}{*}character)
+\begin{DoxyCompactList}\small\item\em It gets the character\textquotesingle{}s current image\+\_\+path. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{character_8h_a59d37cda38b5a3c1072cfab63520185f}{character\+\_\+set\+\_\+north\+\_\+image}} (Character \texorpdfstring{$\ast$}{*}character, const char \texorpdfstring{$\ast$}{*}north\+\_\+image, int sprite)
+\begin{DoxyCompactList}\small\item\em It sets the character\textquotesingle{}s north image\+\_\+path. \end{DoxyCompactList}\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{character_8h_a7ffa480011415973f6bc940574e68021}{character\+\_\+get\+\_\+north\+\_\+image}} (const Character \texorpdfstring{$\ast$}{*}character, int sprite)
+\begin{DoxyCompactList}\small\item\em It gets the character\textquotesingle{}s north image\+\_\+path. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{character_8h_a77ef7200a9c5f9ea085676e7d5e5ce7c}{character\+\_\+set\+\_\+east\+\_\+image}} (Character \texorpdfstring{$\ast$}{*}character, const char \texorpdfstring{$\ast$}{*}east\+\_\+image, int sprite)
+\begin{DoxyCompactList}\small\item\em It sets the character\textquotesingle{}s east image\+\_\+path. \end{DoxyCompactList}\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{character_8h_a9dcb4a5f66af302c8e34a628bc729e46}{character\+\_\+get\+\_\+east\+\_\+image}} (const Character \texorpdfstring{$\ast$}{*}character, int sprite)
+\begin{DoxyCompactList}\small\item\em It gets the character\textquotesingle{}s eats image\+\_\+path. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{character_8h_a49b02b1070836decf0ef9ce9eb2e2786}{character\+\_\+set\+\_\+south\+\_\+image}} (Character \texorpdfstring{$\ast$}{*}character, const char \texorpdfstring{$\ast$}{*}south\+\_\+image, int sprite)
+\begin{DoxyCompactList}\small\item\em It sets the character\textquotesingle{}s south image\+\_\+path. \end{DoxyCompactList}\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{character_8h_a069905e5319cacb1eaec5b2b6b00aecf}{character\+\_\+get\+\_\+south\+\_\+image}} (const Character \texorpdfstring{$\ast$}{*}character, int sprite)
+\begin{DoxyCompactList}\small\item\em It gets the character\textquotesingle{}s south image\+\_\+path. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{character_8h_a8dae6ccd6ca73254cc96b2f90f9942e5}{character\+\_\+set\+\_\+west\+\_\+image}} (Character \texorpdfstring{$\ast$}{*}character, const char \texorpdfstring{$\ast$}{*}west\+\_\+image, int sprite)
+\begin{DoxyCompactList}\small\item\em It sets the character\textquotesingle{}s west image\+\_\+path. \end{DoxyCompactList}\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{character_8h_a9f27f121d86c5b2d6ea980a26b5c6706}{character\+\_\+get\+\_\+west\+\_\+image}} (const Character \texorpdfstring{$\ast$}{*}character, int sprite)
+\begin{DoxyCompactList}\small\item\em It gets the character\textquotesingle{}s west image\+\_\+path. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{character_8h_ade613ec0657ac32cbe24a93c9ef8b09e}{character\+\_\+set\+\_\+position}} (Character \texorpdfstring{$\ast$}{*}character, int x, int y)
+\begin{DoxyCompactList}\small\item\em It sets the character\textquotesingle{}s position. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{character_8h_a8d30b12b87953c698ef5a0da47baa328}{character\+\_\+get\+\_\+position}} (Character \texorpdfstring{$\ast$}{*}character, int \texorpdfstring{$\ast$}{*}x, int \texorpdfstring{$\ast$}{*}y)
+\begin{DoxyCompactList}\small\item\em It gets the character\textquotesingle{}s position. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{character_8h_a57cbb13340242866e3ffb7d06224ce73}{character\+\_\+get\+\_\+x}} (Character \texorpdfstring{$\ast$}{*}character)
+\begin{DoxyCompactList}\small\item\em It gets the x coordinate of the character\textquotesingle{}s position. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{character_8h_a82d7927e8ab1cfb2175dc06d187922f3}{character\+\_\+get\+\_\+y}} (Character \texorpdfstring{$\ast$}{*}character)
+\begin{DoxyCompactList}\small\item\em It gets the y coordinate of the character\textquotesingle{}s position. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{character_8h_a9aadc03e7f931721a3ec9c39e715acde}{character\+\_\+print}} (Character \texorpdfstring{$\ast$}{*}character)
+\begin{DoxyCompactList}\small\item\em It prints the character information. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+It defines the character module interface. 
+
+\begin{DoxyAuthor}{Author}
+Beatriz, Arturo, Rubén, Ana 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+18/02/2025 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+GNU Public License 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{character_8h_a04e381f3485e883f8c5638cbcd67e686}\label{character_8h_a04e381f3485e883f8c5638cbcd67e686} 
+\index{character.h@{character.h}!character\_create@{character\_create}}
+\index{character\_create@{character\_create}!character.h@{character.h}}
+\doxysubsubsection{\texorpdfstring{character\_create()}{character\_create()}}
+{\footnotesize\ttfamily Character \texorpdfstring{$\ast$}{*} character\+\_\+create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}}}]{id }\end{DoxyParamCaption})}
+
+
+
+It creates a new character, allocating memory and initializing its members. 
+
+\begin{DoxyAuthor}{Author}
+Beatriz, Arturo, Rubén, Ana
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em id} & the identification number for the new character \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a new character, initialized 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{character_8h_a04e381f3485e883f8c5638cbcd67e686_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{character_8h_afe3df8f4d909606358974aa3b007b23e}\label{character_8h_afe3df8f4d909606358974aa3b007b23e} 
+\index{character.h@{character.h}!character\_decrease\_health@{character\_decrease\_health}}
+\index{character\_decrease\_health@{character\_decrease\_health}!character.h@{character.h}}
+\doxysubsubsection{\texorpdfstring{character\_decrease\_health()}{character\_decrease\_health()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} character\+\_\+decrease\+\_\+health (\begin{DoxyParamCaption}\item[{Character \texorpdfstring{$\ast$}{*}}]{character,  }\item[{long}]{damage }\end{DoxyParamCaption})}
+
+
+
+It descreases the character\textquotesingle{}s health by a certain amount. 
+
+\begin{DoxyAuthor}{Author}
+Rubén
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em character} & a pointer to the character \\
+\hline
+{\em damage} & the amount of health that will be decreased \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK if everything went well, ERROR otherwise 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{character_8h_afe3df8f4d909606358974aa3b007b23e_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{character_8h_a56873e94f3e967d9ad10a36f2338a64a}\label{character_8h_a56873e94f3e967d9ad10a36f2338a64a} 
+\index{character.h@{character.h}!character\_destroy@{character\_destroy}}
+\index{character\_destroy@{character\_destroy}!character.h@{character.h}}
+\doxysubsubsection{\texorpdfstring{character\_destroy()}{character\_destroy()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} character\+\_\+destroy (\begin{DoxyParamCaption}\item[{Character \texorpdfstring{$\ast$}{*}}]{character }\end{DoxyParamCaption})}
+
+
+
+It destroys a character, freeing the allocated memory. 
+
+\begin{DoxyAuthor}{Author}
+Beatriz, Arturo, Rubén, Ana
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em character} & a pointer to the character that must be destroyed \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK, if everything goes well or ERROR if there was some mistake 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{character_8h_a56873e94f3e967d9ad10a36f2338a64a_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{character_8h_ac85944aa9cea9cfaab3b608694d1a6d8}\label{character_8h_ac85944aa9cea9cfaab3b608694d1a6d8} 
+\index{character.h@{character.h}!character\_get\_blink\_timer@{character\_get\_blink\_timer}}
+\index{character\_get\_blink\_timer@{character\_get\_blink\_timer}!character.h@{character.h}}
+\doxysubsubsection{\texorpdfstring{character\_get\_blink\_timer()}{character\_get\_blink\_timer()}}
+{\footnotesize\ttfamily int character\+\_\+get\+\_\+blink\+\_\+timer (\begin{DoxyParamCaption}\item[{Character \texorpdfstring{$\ast$}{*}}]{character }\end{DoxyParamCaption})}
+
+
+
+It gets the blink\+\_\+timer. 
+
+\begin{DoxyAuthor}{Author}
+Rubén
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em character} & a pointer to the character \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the blink\+\_\+timer 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{character_8h_ac85944aa9cea9cfaab3b608694d1a6d8_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{character_8h_aec4a3c4896a8f96697bab8bd41ca3f05}\label{character_8h_aec4a3c4896a8f96697bab8bd41ca3f05} 
+\index{character.h@{character.h}!character\_get\_description@{character\_get\_description}}
+\index{character\_get\_description@{character\_get\_description}!character.h@{character.h}}
+\doxysubsubsection{\texorpdfstring{character\_get\_description()}{character\_get\_description()}}
+{\footnotesize\ttfamily char \texorpdfstring{$\ast$}{*} character\+\_\+get\+\_\+description (\begin{DoxyParamCaption}\item[{Character \texorpdfstring{$\ast$}{*}}]{character }\end{DoxyParamCaption})}
+
+
+
+It gets the description of a character. 
+
+\begin{DoxyAuthor}{Author}
+Beatriz, Arturo, Rubén, Ana
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em character} & a pointer to the character \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the description of the character 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{character_8h_aec4a3c4896a8f96697bab8bd41ca3f05_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{character_8h_a9dcb4a5f66af302c8e34a628bc729e46}\label{character_8h_a9dcb4a5f66af302c8e34a628bc729e46} 
+\index{character.h@{character.h}!character\_get\_east\_image@{character\_get\_east\_image}}
+\index{character\_get\_east\_image@{character\_get\_east\_image}!character.h@{character.h}}
+\doxysubsubsection{\texorpdfstring{character\_get\_east\_image()}{character\_get\_east\_image()}}
+{\footnotesize\ttfamily const char \texorpdfstring{$\ast$}{*} character\+\_\+get\+\_\+east\+\_\+image (\begin{DoxyParamCaption}\item[{const Character \texorpdfstring{$\ast$}{*}}]{character,  }\item[{int}]{sprite }\end{DoxyParamCaption})}
+
+
+
+It gets the character\textquotesingle{}s eats image\+\_\+path. 
+
+\begin{DoxyAuthor}{Author}
+Ana
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em character} & a pointer to the character \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the path to the character\textquotesingle{}s image 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{character_8h_a9dcb4a5f66af302c8e34a628bc729e46_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{character_8h_a93fd8715b3123bed6363ba9b40813a1e}\label{character_8h_a93fd8715b3123bed6363ba9b40813a1e} 
+\index{character.h@{character.h}!character\_get\_following@{character\_get\_following}}
+\index{character\_get\_following@{character\_get\_following}!character.h@{character.h}}
+\doxysubsubsection{\texorpdfstring{character\_get\_following()}{character\_get\_following()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} character\+\_\+get\+\_\+following (\begin{DoxyParamCaption}\item[{Character \texorpdfstring{$\ast$}{*}}]{character }\end{DoxyParamCaption})}
+
+
+
+It gets the id of the character that the current character is following. 
+
+\begin{DoxyAuthor}{Author}
+Arturo
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em character} & A pointer to the character whose following id is to be retrieved \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The id of the character being followed, or NO\+\_\+\+ID if no character is being followed 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{character_8h_a93fd8715b3123bed6363ba9b40813a1e_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{character_8h_a373f10e169eaeacde49908a4fce470f4}\label{character_8h_a373f10e169eaeacde49908a4fce470f4} 
+\index{character.h@{character.h}!character\_get\_friendly@{character\_get\_friendly}}
+\index{character\_get\_friendly@{character\_get\_friendly}!character.h@{character.h}}
+\doxysubsubsection{\texorpdfstring{character\_get\_friendly()}{character\_get\_friendly()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a39db6982619d623273fad8a383489309}{Bool}} character\+\_\+get\+\_\+friendly (\begin{DoxyParamCaption}\item[{Character \texorpdfstring{$\ast$}{*}}]{character }\end{DoxyParamCaption})}
+
+
+
+It gets whether the character is friendly or not. 
+
+\begin{DoxyAuthor}{Author}
+Beatriz, Arturo, Rubén, Ana
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em character} & a pointer to the character \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+TRUE if it is friendly, FALSE otherwise 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{character_8h_a373f10e169eaeacde49908a4fce470f4_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{character_8h_a44f33a126ae5fe46a804f6e008d4fa82}\label{character_8h_a44f33a126ae5fe46a804f6e008d4fa82} 
+\index{character.h@{character.h}!character\_get\_health@{character\_get\_health}}
+\index{character\_get\_health@{character\_get\_health}!character.h@{character.h}}
+\doxysubsubsection{\texorpdfstring{character\_get\_health()}{character\_get\_health()}}
+{\footnotesize\ttfamily long character\+\_\+get\+\_\+health (\begin{DoxyParamCaption}\item[{Character \texorpdfstring{$\ast$}{*}}]{character }\end{DoxyParamCaption})}
+
+
+
+It gets the health of a character. 
+
+\begin{DoxyAuthor}{Author}
+Beatriz, Arturo, Rubén, Ana
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em character} & a pointer to the character \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the health of the character 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{character_8h_a44f33a126ae5fe46a804f6e008d4fa82_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{character_8h_ab909e43e2cfc3a8588056409edd43a64}\label{character_8h_ab909e43e2cfc3a8588056409edd43a64} 
+\index{character.h@{character.h}!character\_get\_id@{character\_get\_id}}
+\index{character\_get\_id@{character\_get\_id}!character.h@{character.h}}
+\doxysubsubsection{\texorpdfstring{character\_get\_id()}{character\_get\_id()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} character\+\_\+get\+\_\+id (\begin{DoxyParamCaption}\item[{Character \texorpdfstring{$\ast$}{*}}]{character }\end{DoxyParamCaption})}
+
+
+
+It gets the id of a character. 
+
+\begin{DoxyAuthor}{Author}
+Beatriz, Arturo, Rubén, Ana
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em character} & a pointer to the character \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the id of the character 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{character_8h_ab909e43e2cfc3a8588056409edd43a64_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{character_8h_a8f4af483807ee8b5c772e9ce4755ffdb}\label{character_8h_a8f4af483807ee8b5c772e9ce4755ffdb} 
+\index{character.h@{character.h}!character\_get\_image@{character\_get\_image}}
+\index{character\_get\_image@{character\_get\_image}!character.h@{character.h}}
+\doxysubsubsection{\texorpdfstring{character\_get\_image()}{character\_get\_image()}}
+{\footnotesize\ttfamily char \texorpdfstring{$\ast$}{*} character\+\_\+get\+\_\+image (\begin{DoxyParamCaption}\item[{Character \texorpdfstring{$\ast$}{*}}]{character }\end{DoxyParamCaption})}
+
+
+
+It gets the character\textquotesingle{}s current image\+\_\+path. 
+
+\begin{DoxyAuthor}{Author}
+Beatriz, Arturo, Rubén, Ana
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em character} & a pointer to the character \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the path to the character\textquotesingle{}s image 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{character_8h_a8f4af483807ee8b5c772e9ce4755ffdb_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{character_8h_a02edca9c2a7f3629422e2458dd7a86f1}\label{character_8h_a02edca9c2a7f3629422e2458dd7a86f1} 
+\index{character.h@{character.h}!character\_get\_location@{character\_get\_location}}
+\index{character\_get\_location@{character\_get\_location}!character.h@{character.h}}
+\doxysubsubsection{\texorpdfstring{character\_get\_location()}{character\_get\_location()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} character\+\_\+get\+\_\+location (\begin{DoxyParamCaption}\item[{Character \texorpdfstring{$\ast$}{*}}]{character }\end{DoxyParamCaption})}
+
+
+
+It gets the id of the space the character is in. 
+
+\begin{DoxyAuthor}{Author}
+Beatriz, Arturo, Rubén, Ana
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em character} & a pointer to the character \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The id of the character\textquotesingle{}s location 
+\end{DoxyReturn}
+\Hypertarget{character_8h_a552477d9d3d16c8718fbc2482871ad91}\label{character_8h_a552477d9d3d16c8718fbc2482871ad91} 
+\index{character.h@{character.h}!character\_get\_message@{character\_get\_message}}
+\index{character\_get\_message@{character\_get\_message}!character.h@{character.h}}
+\doxysubsubsection{\texorpdfstring{character\_get\_message()}{character\_get\_message()}}
+{\footnotesize\ttfamily char \texorpdfstring{$\ast$}{*} character\+\_\+get\+\_\+message (\begin{DoxyParamCaption}\item[{Character \texorpdfstring{$\ast$}{*}}]{character }\end{DoxyParamCaption})}
+
+
+
+It gets the message of a character. 
+
+\begin{DoxyAuthor}{Author}
+Beatriz, Arturo, Rubén, Ana
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em character} & a pointer to the character \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the message of the character 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{character_8h_a552477d9d3d16c8718fbc2482871ad91_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{character_8h_a663fad1a34f5514fef098d67582b15b6}\label{character_8h_a663fad1a34f5514fef098d67582b15b6} 
+\index{character.h@{character.h}!character\_get\_name@{character\_get\_name}}
+\index{character\_get\_name@{character\_get\_name}!character.h@{character.h}}
+\doxysubsubsection{\texorpdfstring{character\_get\_name()}{character\_get\_name()}}
+{\footnotesize\ttfamily char \texorpdfstring{$\ast$}{*} character\+\_\+get\+\_\+name (\begin{DoxyParamCaption}\item[{Character \texorpdfstring{$\ast$}{*}}]{character }\end{DoxyParamCaption})}
+
+
+
+It gets the name of a character. 
+
+\begin{DoxyAuthor}{Author}
+Beatriz, Arturo, Rubén, Ana
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em character} & a pointer to the character \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the name of the character 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{character_8h_a663fad1a34f5514fef098d67582b15b6_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{character_8h_a7ffa480011415973f6bc940574e68021}\label{character_8h_a7ffa480011415973f6bc940574e68021} 
+\index{character.h@{character.h}!character\_get\_north\_image@{character\_get\_north\_image}}
+\index{character\_get\_north\_image@{character\_get\_north\_image}!character.h@{character.h}}
+\doxysubsubsection{\texorpdfstring{character\_get\_north\_image()}{character\_get\_north\_image()}}
+{\footnotesize\ttfamily const char \texorpdfstring{$\ast$}{*} character\+\_\+get\+\_\+north\+\_\+image (\begin{DoxyParamCaption}\item[{const Character \texorpdfstring{$\ast$}{*}}]{character,  }\item[{int}]{sprite }\end{DoxyParamCaption})}
+
+
+
+It gets the character\textquotesingle{}s north image\+\_\+path. 
+
+\begin{DoxyAuthor}{Author}
+Ana
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em character} & a pointer to the character \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the path to the character\textquotesingle{}s image 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{character_8h_a7ffa480011415973f6bc940574e68021_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{character_8h_a8d30b12b87953c698ef5a0da47baa328}\label{character_8h_a8d30b12b87953c698ef5a0da47baa328} 
+\index{character.h@{character.h}!character\_get\_position@{character\_get\_position}}
+\index{character\_get\_position@{character\_get\_position}!character.h@{character.h}}
+\doxysubsubsection{\texorpdfstring{character\_get\_position()}{character\_get\_position()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} character\+\_\+get\+\_\+position (\begin{DoxyParamCaption}\item[{Character \texorpdfstring{$\ast$}{*}}]{character,  }\item[{int \texorpdfstring{$\ast$}{*}}]{x,  }\item[{int \texorpdfstring{$\ast$}{*}}]{y }\end{DoxyParamCaption})}
+
+
+
+It gets the character\textquotesingle{}s position. 
+
+\begin{DoxyAuthor}{Author}
+Beatriz, Arturo, Rubén, Ana
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em character} & a pointer to the character \\
+\hline
+{\em x} & the x coordinate of the character\textquotesingle{}s position \\
+\hline
+{\em y} & the y coordinate of the character\textquotesingle{}s position \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK, if everything goes well or ERROR if there was some mistake 
+\end{DoxyReturn}
+\Hypertarget{character_8h_a069905e5319cacb1eaec5b2b6b00aecf}\label{character_8h_a069905e5319cacb1eaec5b2b6b00aecf} 
+\index{character.h@{character.h}!character\_get\_south\_image@{character\_get\_south\_image}}
+\index{character\_get\_south\_image@{character\_get\_south\_image}!character.h@{character.h}}
+\doxysubsubsection{\texorpdfstring{character\_get\_south\_image()}{character\_get\_south\_image()}}
+{\footnotesize\ttfamily const char \texorpdfstring{$\ast$}{*} character\+\_\+get\+\_\+south\+\_\+image (\begin{DoxyParamCaption}\item[{const Character \texorpdfstring{$\ast$}{*}}]{character,  }\item[{int}]{sprite }\end{DoxyParamCaption})}
+
+
+
+It gets the character\textquotesingle{}s south image\+\_\+path. 
+
+\begin{DoxyAuthor}{Author}
+Ana
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em character} & a pointer to the character \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the path to the character\textquotesingle{}s image 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{character_8h_a069905e5319cacb1eaec5b2b6b00aecf_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{character_8h_a9f27f121d86c5b2d6ea980a26b5c6706}\label{character_8h_a9f27f121d86c5b2d6ea980a26b5c6706} 
+\index{character.h@{character.h}!character\_get\_west\_image@{character\_get\_west\_image}}
+\index{character\_get\_west\_image@{character\_get\_west\_image}!character.h@{character.h}}
+\doxysubsubsection{\texorpdfstring{character\_get\_west\_image()}{character\_get\_west\_image()}}
+{\footnotesize\ttfamily const char \texorpdfstring{$\ast$}{*} character\+\_\+get\+\_\+west\+\_\+image (\begin{DoxyParamCaption}\item[{const Character \texorpdfstring{$\ast$}{*}}]{character,  }\item[{int}]{sprite }\end{DoxyParamCaption})}
+
+
+
+It gets the character\textquotesingle{}s west image\+\_\+path. 
+
+\begin{DoxyAuthor}{Author}
+Ana
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em character} & a pointer to the character \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the path to the character\textquotesingle{}s image 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{character_8h_a9f27f121d86c5b2d6ea980a26b5c6706_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{character_8h_a57cbb13340242866e3ffb7d06224ce73}\label{character_8h_a57cbb13340242866e3ffb7d06224ce73} 
+\index{character.h@{character.h}!character\_get\_x@{character\_get\_x}}
+\index{character\_get\_x@{character\_get\_x}!character.h@{character.h}}
+\doxysubsubsection{\texorpdfstring{character\_get\_x()}{character\_get\_x()}}
+{\footnotesize\ttfamily int character\+\_\+get\+\_\+x (\begin{DoxyParamCaption}\item[{Character \texorpdfstring{$\ast$}{*}}]{character }\end{DoxyParamCaption})}
+
+
+
+It gets the x coordinate of the character\textquotesingle{}s position. 
+
+\begin{DoxyAuthor}{Author}
+Beatriz, Arturo, Rubén, Ana
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em character} & a pointer to the character \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the x coordinate 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{character_8h_a57cbb13340242866e3ffb7d06224ce73_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{character_8h_a82d7927e8ab1cfb2175dc06d187922f3}\label{character_8h_a82d7927e8ab1cfb2175dc06d187922f3} 
+\index{character.h@{character.h}!character\_get\_y@{character\_get\_y}}
+\index{character\_get\_y@{character\_get\_y}!character.h@{character.h}}
+\doxysubsubsection{\texorpdfstring{character\_get\_y()}{character\_get\_y()}}
+{\footnotesize\ttfamily int character\+\_\+get\+\_\+y (\begin{DoxyParamCaption}\item[{Character \texorpdfstring{$\ast$}{*}}]{character }\end{DoxyParamCaption})}
+
+
+
+It gets the y coordinate of the character\textquotesingle{}s position. 
+
+\begin{DoxyAuthor}{Author}
+Beatriz, Arturo, Rubén, Ana
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em character} & a pointer to the character \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the y coordinate 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{character_8h_a82d7927e8ab1cfb2175dc06d187922f3_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{character_8h_a9aadc03e7f931721a3ec9c39e715acde}\label{character_8h_a9aadc03e7f931721a3ec9c39e715acde} 
+\index{character.h@{character.h}!character\_print@{character\_print}}
+\index{character\_print@{character\_print}!character.h@{character.h}}
+\doxysubsubsection{\texorpdfstring{character\_print()}{character\_print()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} character\+\_\+print (\begin{DoxyParamCaption}\item[{Character \texorpdfstring{$\ast$}{*}}]{character }\end{DoxyParamCaption})}
+
+
+
+It prints the character information. 
+
+\begin{DoxyAuthor}{Author}
+Beatriz, Arturo, Rubén, Ana
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em character} & a pointer to the character \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK, if everything goes well or ERROR if there was some mistake 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{character_8h_a9aadc03e7f931721a3ec9c39e715acde_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{character_8h_a9cddc527fedc19ae50fb1d040110a287}\label{character_8h_a9cddc527fedc19ae50fb1d040110a287} 
+\index{character.h@{character.h}!character\_set\_description@{character\_set\_description}}
+\index{character\_set\_description@{character\_set\_description}!character.h@{character.h}}
+\doxysubsubsection{\texorpdfstring{character\_set\_description()}{character\_set\_description()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} character\+\_\+set\+\_\+description (\begin{DoxyParamCaption}\item[{Character \texorpdfstring{$\ast$}{*}}]{character,  }\item[{char \texorpdfstring{$\ast$}{*}}]{description }\end{DoxyParamCaption})}
+
+
+
+It sets the description of a character. 
+
+\begin{DoxyAuthor}{Author}
+Beatriz, Arturo, Rubén, Ana
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em character} & a pointer to the character \\
+\hline
+{\em description} & the graphical description that will be asigned to the character \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK if everything went well, ERROR otherwise 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{character_8h_a9cddc527fedc19ae50fb1d040110a287_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{character_8h_a77ef7200a9c5f9ea085676e7d5e5ce7c}\label{character_8h_a77ef7200a9c5f9ea085676e7d5e5ce7c} 
+\index{character.h@{character.h}!character\_set\_east\_image@{character\_set\_east\_image}}
+\index{character\_set\_east\_image@{character\_set\_east\_image}!character.h@{character.h}}
+\doxysubsubsection{\texorpdfstring{character\_set\_east\_image()}{character\_set\_east\_image()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} character\+\_\+set\+\_\+east\+\_\+image (\begin{DoxyParamCaption}\item[{Character \texorpdfstring{$\ast$}{*}}]{character,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{east\+\_\+image,  }\item[{int}]{sprite }\end{DoxyParamCaption})}
+
+
+
+It sets the character\textquotesingle{}s east image\+\_\+path. 
+
+\begin{DoxyAuthor}{Author}
+Ana
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em character} & a pointer to the character \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK, if everything goes well or ERROR if there was some mistake 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{character_8h_a77ef7200a9c5f9ea085676e7d5e5ce7c_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{character_8h_a88dd090351f7f1713b52e910206140e2}\label{character_8h_a88dd090351f7f1713b52e910206140e2} 
+\index{character.h@{character.h}!character\_set\_following@{character\_set\_following}}
+\index{character\_set\_following@{character\_set\_following}!character.h@{character.h}}
+\doxysubsubsection{\texorpdfstring{character\_set\_following()}{character\_set\_following()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} character\+\_\+set\+\_\+following (\begin{DoxyParamCaption}\item[{Character \texorpdfstring{$\ast$}{*}}]{character,  }\item[{\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}}}]{id }\end{DoxyParamCaption})}
+
+
+
+It sets the id of the character that the current character will follow. 
+
+\begin{DoxyAuthor}{Author}
+Arturo
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em character} & A pointer to the character whose following id is to be set \\
+\hline
+{\em id} & The id of the character to be followed \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK if the operation was successful, or ERROR if there was an issue 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{character_8h_a88dd090351f7f1713b52e910206140e2_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{character_8h_a40c1bad388ee0f2796627a5333cc4ded}\label{character_8h_a40c1bad388ee0f2796627a5333cc4ded} 
+\index{character.h@{character.h}!character\_set\_friendly@{character\_set\_friendly}}
+\index{character\_set\_friendly@{character\_set\_friendly}!character.h@{character.h}}
+\doxysubsubsection{\texorpdfstring{character\_set\_friendly()}{character\_set\_friendly()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} character\+\_\+set\+\_\+friendly (\begin{DoxyParamCaption}\item[{Character \texorpdfstring{$\ast$}{*}}]{character,  }\item[{\mbox{\hyperlink{types_8h_a39db6982619d623273fad8a383489309}{Bool}}}]{friendly }\end{DoxyParamCaption})}
+
+
+
+It sets whether the character is friendly or not. 
+
+\begin{DoxyAuthor}{Author}
+Beatriz, Arturo, Rubén, Ana
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em character} & a pointer to the character \\
+\hline
+{\em friendly} & whether the character is friendly or nor \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK if everything went well, ERROR otherwise 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{character_8h_a40c1bad388ee0f2796627a5333cc4ded_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{character_8h_aa3fe98e48c3731f01accf1ca8f6aca32}\label{character_8h_aa3fe98e48c3731f01accf1ca8f6aca32} 
+\index{character.h@{character.h}!character\_set\_health@{character\_set\_health}}
+\index{character\_set\_health@{character\_set\_health}!character.h@{character.h}}
+\doxysubsubsection{\texorpdfstring{character\_set\_health()}{character\_set\_health()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} character\+\_\+set\+\_\+health (\begin{DoxyParamCaption}\item[{Character \texorpdfstring{$\ast$}{*}}]{character,  }\item[{long}]{health }\end{DoxyParamCaption})}
+
+
+
+It sets the health of a character. 
+
+\begin{DoxyAuthor}{Author}
+Beatriz, Arturo, Rubén, Ana
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em character} & a pointer to the character \\
+\hline
+{\em health} & the amount of health that will be set \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK if everything went well, ERROR otherwise 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{character_8h_aa3fe98e48c3731f01accf1ca8f6aca32_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{character_8h_abcdc7860984349f7b6e6bd1cb6a11f09}\label{character_8h_abcdc7860984349f7b6e6bd1cb6a11f09} 
+\index{character.h@{character.h}!character\_set\_id@{character\_set\_id}}
+\index{character\_set\_id@{character\_set\_id}!character.h@{character.h}}
+\doxysubsubsection{\texorpdfstring{character\_set\_id()}{character\_set\_id()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} character\+\_\+set\+\_\+id (\begin{DoxyParamCaption}\item[{Character \texorpdfstring{$\ast$}{*}}]{character,  }\item[{\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}}}]{id }\end{DoxyParamCaption})}
+
+
+
+It sets the id of a character. 
+
+\begin{DoxyAuthor}{Author}
+Beatriz, Arturo, Rubén, Ana
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em character} & a pointer to the character \\
+\hline
+{\em id} & the future id of the character \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK if everything went well, ERROR otherwise 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{character_8h_abcdc7860984349f7b6e6bd1cb6a11f09_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{character_8h_ad6592ae8cb0ef12702fea24b5c7285f5}\label{character_8h_ad6592ae8cb0ef12702fea24b5c7285f5} 
+\index{character.h@{character.h}!character\_set\_image@{character\_set\_image}}
+\index{character\_set\_image@{character\_set\_image}!character.h@{character.h}}
+\doxysubsubsection{\texorpdfstring{character\_set\_image()}{character\_set\_image()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} character\+\_\+set\+\_\+image (\begin{DoxyParamCaption}\item[{Character \texorpdfstring{$\ast$}{*}}]{character,  }\item[{char \texorpdfstring{$\ast$}{*}}]{image1,  }\item[{char \texorpdfstring{$\ast$}{*}}]{image2,  }\item[{char \texorpdfstring{$\ast$}{*}}]{image3 }\end{DoxyParamCaption})}
+
+
+
+It sets the character\textquotesingle{}s current image\+\_\+path. 
+
+\begin{DoxyAuthor}{Author}
+Beatriz, Arturo, Rubén, Ana
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em character} & a pointer to the character \\
+\hline
+{\em image} & the path to the character\textquotesingle{}s image \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK, if everything goes well or ERROR if there was some mistake 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{character_8h_ad6592ae8cb0ef12702fea24b5c7285f5_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{character_8h_a82f10d41f1683885e8cf6655bd6a1dd6}\label{character_8h_a82f10d41f1683885e8cf6655bd6a1dd6} 
+\index{character.h@{character.h}!character\_set\_location@{character\_set\_location}}
+\index{character\_set\_location@{character\_set\_location}!character.h@{character.h}}
+\doxysubsubsection{\texorpdfstring{character\_set\_location()}{character\_set\_location()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} character\+\_\+set\+\_\+location (\begin{DoxyParamCaption}\item[{Character \texorpdfstring{$\ast$}{*}}]{character,  }\item[{\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}}}]{character\+\_\+location }\end{DoxyParamCaption})}
+
+
+
+It sets the character\textquotesingle{}s location. 
+
+\begin{DoxyAuthor}{Author}
+Beatriz, Arturo, Rubén, Ana
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em character} & a pointer to the character \\
+\hline
+{\em character\+\_\+location} & the id of the space the character will be located \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK if everything went well, ERROR otherwise 
+\end{DoxyReturn}
+\Hypertarget{character_8h_aa420dd11438569eba036b75e53ee03a6}\label{character_8h_aa420dd11438569eba036b75e53ee03a6} 
+\index{character.h@{character.h}!character\_set\_message@{character\_set\_message}}
+\index{character\_set\_message@{character\_set\_message}!character.h@{character.h}}
+\doxysubsubsection{\texorpdfstring{character\_set\_message()}{character\_set\_message()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} character\+\_\+set\+\_\+message (\begin{DoxyParamCaption}\item[{Character \texorpdfstring{$\ast$}{*}}]{character,  }\item[{char \texorpdfstring{$\ast$}{*}}]{message }\end{DoxyParamCaption})}
+
+
+
+It sets the message of a character. 
+
+\begin{DoxyAuthor}{Author}
+Beatriz, Arturo, Rubén, Ana
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em character} & a pointer to the character \\
+\hline
+{\em message} & the message the character will display when prompted \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK if everything went well, ERROR otherwise 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{character_8h_aa420dd11438569eba036b75e53ee03a6_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{character_8h_a922232474a13885a323c7a4889873f57}\label{character_8h_a922232474a13885a323c7a4889873f57} 
+\index{character.h@{character.h}!character\_set\_name@{character\_set\_name}}
+\index{character\_set\_name@{character\_set\_name}!character.h@{character.h}}
+\doxysubsubsection{\texorpdfstring{character\_set\_name()}{character\_set\_name()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} character\+\_\+set\+\_\+name (\begin{DoxyParamCaption}\item[{Character \texorpdfstring{$\ast$}{*}}]{character,  }\item[{char \texorpdfstring{$\ast$}{*}}]{name }\end{DoxyParamCaption})}
+
+
+
+It sets the name of a character. 
+
+\begin{DoxyAuthor}{Author}
+Beatriz, Arturo, Rubén, Ana
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em character} & a pointer to the character \\
+\hline
+{\em name} & the future name of the character \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK if everything went well, ERROR otherwise 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{character_8h_a922232474a13885a323c7a4889873f57_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{character_8h_a59d37cda38b5a3c1072cfab63520185f}\label{character_8h_a59d37cda38b5a3c1072cfab63520185f} 
+\index{character.h@{character.h}!character\_set\_north\_image@{character\_set\_north\_image}}
+\index{character\_set\_north\_image@{character\_set\_north\_image}!character.h@{character.h}}
+\doxysubsubsection{\texorpdfstring{character\_set\_north\_image()}{character\_set\_north\_image()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} character\+\_\+set\+\_\+north\+\_\+image (\begin{DoxyParamCaption}\item[{Character \texorpdfstring{$\ast$}{*}}]{character,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{north\+\_\+image,  }\item[{int}]{sprite }\end{DoxyParamCaption})}
+
+
+
+It sets the character\textquotesingle{}s north image\+\_\+path. 
+
+\begin{DoxyAuthor}{Author}
+Ana
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em character} & a pointer to the character \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK, if everything goes well or ERROR if there was some mistake 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{character_8h_a59d37cda38b5a3c1072cfab63520185f_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{character_8h_ade613ec0657ac32cbe24a93c9ef8b09e}\label{character_8h_ade613ec0657ac32cbe24a93c9ef8b09e} 
+\index{character.h@{character.h}!character\_set\_position@{character\_set\_position}}
+\index{character\_set\_position@{character\_set\_position}!character.h@{character.h}}
+\doxysubsubsection{\texorpdfstring{character\_set\_position()}{character\_set\_position()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} character\+\_\+set\+\_\+position (\begin{DoxyParamCaption}\item[{Character \texorpdfstring{$\ast$}{*}}]{character,  }\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+
+
+It sets the character\textquotesingle{}s position. 
+
+\begin{DoxyAuthor}{Author}
+Beatriz, Arturo, Rubén, Ana
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em character} & a pointer to the character \\
+\hline
+{\em x} & the x coordinate of the character\textquotesingle{}s position \\
+\hline
+{\em y} & the y coordinate of the character\textquotesingle{}s position \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK, if everything goes well or ERROR if there was some mistake 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{character_8h_ade613ec0657ac32cbe24a93c9ef8b09e_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{character_8h_a49b02b1070836decf0ef9ce9eb2e2786}\label{character_8h_a49b02b1070836decf0ef9ce9eb2e2786} 
+\index{character.h@{character.h}!character\_set\_south\_image@{character\_set\_south\_image}}
+\index{character\_set\_south\_image@{character\_set\_south\_image}!character.h@{character.h}}
+\doxysubsubsection{\texorpdfstring{character\_set\_south\_image()}{character\_set\_south\_image()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} character\+\_\+set\+\_\+south\+\_\+image (\begin{DoxyParamCaption}\item[{Character \texorpdfstring{$\ast$}{*}}]{character,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{south\+\_\+image,  }\item[{int}]{sprite }\end{DoxyParamCaption})}
+
+
+
+It sets the character\textquotesingle{}s south image\+\_\+path. 
+
+\begin{DoxyAuthor}{Author}
+Ana
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em character} & a pointer to the character \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK, if everything goes well or ERROR if there was some mistake 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{character_8h_a49b02b1070836decf0ef9ce9eb2e2786_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{character_8h_a8dae6ccd6ca73254cc96b2f90f9942e5}\label{character_8h_a8dae6ccd6ca73254cc96b2f90f9942e5} 
+\index{character.h@{character.h}!character\_set\_west\_image@{character\_set\_west\_image}}
+\index{character\_set\_west\_image@{character\_set\_west\_image}!character.h@{character.h}}
+\doxysubsubsection{\texorpdfstring{character\_set\_west\_image()}{character\_set\_west\_image()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} character\+\_\+set\+\_\+west\+\_\+image (\begin{DoxyParamCaption}\item[{Character \texorpdfstring{$\ast$}{*}}]{character,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{west\+\_\+image,  }\item[{int}]{sprite }\end{DoxyParamCaption})}
+
+
+
+It sets the character\textquotesingle{}s west image\+\_\+path. 
+
+\begin{DoxyAuthor}{Author}
+Ana
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em character} & a pointer to the character \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK, if everything goes well or ERROR if there was some mistake 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{character_8h_a8dae6ccd6ca73254cc96b2f90f9942e5_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{character_8h_a0385e7e4e8c853b820f57489fceed119}\label{character_8h_a0385e7e4e8c853b820f57489fceed119} 
+\index{character.h@{character.h}!character\_toggle\_curr\_image\_mode@{character\_toggle\_curr\_image\_mode}}
+\index{character\_toggle\_curr\_image\_mode@{character\_toggle\_curr\_image\_mode}!character.h@{character.h}}
+\doxysubsubsection{\texorpdfstring{character\_toggle\_curr\_image\_mode()}{character\_toggle\_curr\_image\_mode()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} character\+\_\+toggle\+\_\+curr\+\_\+image\+\_\+mode (\begin{DoxyParamCaption}\item[{Character \texorpdfstring{$\ast$}{*}}]{character }\end{DoxyParamCaption})}
+
+
+
+It cycles the current sprite through the available ones (3) 
+
+\begin{DoxyAuthor}{Author}
+Ana
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em character} & a pointer to the character \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK if the operation was successful, or ERROR if there was an issue 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{character_8h_a0385e7e4e8c853b820f57489fceed119_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{character_8h_a5d8a2b4756190cf1fdf846158d93f99b}\label{character_8h_a5d8a2b4756190cf1fdf846158d93f99b} 
+\index{character.h@{character.h}!character\_update\_blink\_timer@{character\_update\_blink\_timer}}
+\index{character\_update\_blink\_timer@{character\_update\_blink\_timer}!character.h@{character.h}}
+\doxysubsubsection{\texorpdfstring{character\_update\_blink\_timer()}{character\_update\_blink\_timer()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} character\+\_\+update\+\_\+blink\+\_\+timer (\begin{DoxyParamCaption}\item[{Character \texorpdfstring{$\ast$}{*}}]{character }\end{DoxyParamCaption})}
+
+
+
+It updates the blink\+\_\+timer. 
+
+\begin{DoxyAuthor}{Author}
+Rubén
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em character} & a pointer to the character \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK, if everything goes well or ERROR if there was some mistake 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{character_8h_a5d8a2b4756190cf1fdf846158d93f99b_icgraph}
+\end{center}
+\end{figure}

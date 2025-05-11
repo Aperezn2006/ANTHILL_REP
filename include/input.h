@@ -36,6 +36,12 @@ typedef struct {
 extern Game_Input game_input;
 
 /* Functions */
+/**
+ * @brief It updates the game's input base on keyboard events
+ * @author Rubén
+ *
+ * @param game a pointer to the game
+ */
 void input_update(Game *game);
 
 #endif /* INPUT_H */

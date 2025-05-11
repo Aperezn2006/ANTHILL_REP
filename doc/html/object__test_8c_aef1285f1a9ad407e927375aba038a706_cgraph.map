@@ -1,0 +1,9 @@
+<map id="test1_object_set_dependency" name="test1_object_set_dependency">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,55,220,80"/>
+<area shape="rect" id="Node000002" href="$object_8c.html#a7d0b3d3e95beef8deb5b02d0c4641a57" title="It creates a new object, allocating memory and initializing its members." alt="" coords="300,5,411,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="175,52,286,29,287,35,176,57"/>
+<area shape="rect" id="Node000003" href="$object_8c.html#aab2d9fe61ae9c48522635d006dd50396" title="It destroys a object, freeing the allocated memory." alt="" coords="296,55,415,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="220,65,282,65,282,70,220,70"/>
+<area shape="rect" id="Node000004" href="$object_8c.html#af0d455a288c1119694417c942602e912" title=" " alt="" coords="268,104,443,129"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="176,77,279,99,278,104,175,83"/>
+</map>

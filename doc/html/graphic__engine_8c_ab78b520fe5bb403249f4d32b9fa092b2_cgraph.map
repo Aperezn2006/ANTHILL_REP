@@ -1,0 +1,5 @@
+<map id="graphic_engine_init_game_areas" name="graphic_engine_init_game_areas">
+<area shape="rect" id="Node000001" title="It initializes the game areas." alt="" coords="5,5,155,45"/>
+<area shape="rect" id="Node000002" href="$libscreen_8c.html#a4c601f4602ad83e212facc1f53da8f88" title="It creates a new area inside a screen." alt="" coords="203,13,332,38"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="155,23,189,23,189,28,155,28"/>
+</map>

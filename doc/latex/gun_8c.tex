@@ -1,0 +1,135 @@
+\doxysection{/mnt/c/\+Ubuntu/\+Shared\+\_\+folder/\+PPROG/\+I4/\+ANTHILL\+\_\+\+REP/src/gun.c File Reference}
+\hypertarget{gun_8c}{}\label{gun_8c}\index{/mnt/c/Ubuntu/Shared\_folder/PPROG/I4/ANTHILL\_REP/src/gun.c@{/mnt/c/Ubuntu/Shared\_folder/PPROG/I4/ANTHILL\_REP/src/gun.c}}
+{\ttfamily \#include "{}gun.\+h"{}}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+Include dependency graph for gun.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=223pt]{gun_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct__Gun}{Gun}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+Gun \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{gun_8c_ad9eae2e25f2315d52a38072f68efb74e}{gun\+\_\+create}} (\mbox{\hyperlink{gun_8h_aea858bc123f65ce20d9ee2a2cc8edeed}{Gun\+Type}} type)
+\begin{DoxyCompactList}\small\item\em It creates a gun. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{gun_8c_a6abc368ef274f2a1f2b6374a0abb81c0}{gun\+\_\+destroy}} (Gun \texorpdfstring{$\ast$}{*}gun)
+\begin{DoxyCompactList}\small\item\em It destroys a fun. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{gun_8c_aa1663a497c141e1d55282130e730f282}{gun\+\_\+get\+\_\+damage}} (const Gun \texorpdfstring{$\ast$}{*}gun)
+\begin{DoxyCompactList}\small\item\em It gets the gun\textquotesingle{}s damage. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{gun_8c_ae78ad9b5de6f17edce7d72322d22cf11}{gun\+\_\+get\+\_\+speed}} (const Gun \texorpdfstring{$\ast$}{*}gun)
+\begin{DoxyCompactList}\small\item\em It gets the gun\textquotesingle{}s speed. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{gun_8h_aea858bc123f65ce20d9ee2a2cc8edeed}{Gun\+Type}} \mbox{\hyperlink{gun_8c_af0900c36db006edf78ff6dec2b53e4a2}{gun\+\_\+get\+\_\+type}} (const Gun \texorpdfstring{$\ast$}{*}gun)
+\begin{DoxyCompactList}\small\item\em It gets the gun\textquotesingle{}s type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{gun_8c_ad9eae2e25f2315d52a38072f68efb74e}\label{gun_8c_ad9eae2e25f2315d52a38072f68efb74e} 
+\index{gun.c@{gun.c}!gun\_create@{gun\_create}}
+\index{gun\_create@{gun\_create}!gun.c@{gun.c}}
+\doxysubsubsection{\texorpdfstring{gun\_create()}{gun\_create()}}
+{\footnotesize\ttfamily Gun \texorpdfstring{$\ast$}{*} gun\+\_\+create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gun_8h_aea858bc123f65ce20d9ee2a2cc8edeed}{Gun\+Type}}}]{type }\end{DoxyParamCaption})}
+
+
+
+It creates a gun. 
+
+\begin{DoxyAuthor}{Author}
+Rubén
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em type} & the type of gun desired \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a pointer to the gun 
+\end{DoxyReturn}
+\Hypertarget{gun_8c_a6abc368ef274f2a1f2b6374a0abb81c0}\label{gun_8c_a6abc368ef274f2a1f2b6374a0abb81c0} 
+\index{gun.c@{gun.c}!gun\_destroy@{gun\_destroy}}
+\index{gun\_destroy@{gun\_destroy}!gun.c@{gun.c}}
+\doxysubsubsection{\texorpdfstring{gun\_destroy()}{gun\_destroy()}}
+{\footnotesize\ttfamily void gun\+\_\+destroy (\begin{DoxyParamCaption}\item[{Gun \texorpdfstring{$\ast$}{*}}]{gun }\end{DoxyParamCaption})}
+
+
+
+It destroys a fun. 
+
+\begin{DoxyAuthor}{Author}
+Rubén
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em gun} & a pointer to the gun \\
+\hline
+\end{DoxyParams}
+\Hypertarget{gun_8c_aa1663a497c141e1d55282130e730f282}\label{gun_8c_aa1663a497c141e1d55282130e730f282} 
+\index{gun.c@{gun.c}!gun\_get\_damage@{gun\_get\_damage}}
+\index{gun\_get\_damage@{gun\_get\_damage}!gun.c@{gun.c}}
+\doxysubsubsection{\texorpdfstring{gun\_get\_damage()}{gun\_get\_damage()}}
+{\footnotesize\ttfamily int gun\+\_\+get\+\_\+damage (\begin{DoxyParamCaption}\item[{const Gun \texorpdfstring{$\ast$}{*}}]{gun }\end{DoxyParamCaption})}
+
+
+
+It gets the gun\textquotesingle{}s damage. 
+
+\begin{DoxyAuthor}{Author}
+Rubén
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em gun} & a pointer to the gun \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the damage 
+\end{DoxyReturn}
+\Hypertarget{gun_8c_ae78ad9b5de6f17edce7d72322d22cf11}\label{gun_8c_ae78ad9b5de6f17edce7d72322d22cf11} 
+\index{gun.c@{gun.c}!gun\_get\_speed@{gun\_get\_speed}}
+\index{gun\_get\_speed@{gun\_get\_speed}!gun.c@{gun.c}}
+\doxysubsubsection{\texorpdfstring{gun\_get\_speed()}{gun\_get\_speed()}}
+{\footnotesize\ttfamily int gun\+\_\+get\+\_\+speed (\begin{DoxyParamCaption}\item[{const Gun \texorpdfstring{$\ast$}{*}}]{gun }\end{DoxyParamCaption})}
+
+
+
+It gets the gun\textquotesingle{}s speed. 
+
+\begin{DoxyAuthor}{Author}
+Rubén
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em gun} & a pointer to the gun \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the speed 
+\end{DoxyReturn}
+\Hypertarget{gun_8c_af0900c36db006edf78ff6dec2b53e4a2}\label{gun_8c_af0900c36db006edf78ff6dec2b53e4a2} 
+\index{gun.c@{gun.c}!gun\_get\_type@{gun\_get\_type}}
+\index{gun\_get\_type@{gun\_get\_type}!gun.c@{gun.c}}
+\doxysubsubsection{\texorpdfstring{gun\_get\_type()}{gun\_get\_type()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{gun_8h_aea858bc123f65ce20d9ee2a2cc8edeed}{Gun\+Type}} gun\+\_\+get\+\_\+type (\begin{DoxyParamCaption}\item[{const Gun \texorpdfstring{$\ast$}{*}}]{gun }\end{DoxyParamCaption})}
+
+
+
+It gets the gun\textquotesingle{}s type. 
+
+\begin{DoxyAuthor}{Author}
+Rubén
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em gun} & a pointer to the gun \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the type 
+\end{DoxyReturn}

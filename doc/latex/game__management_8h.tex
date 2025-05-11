@@ -1,0 +1,161 @@
+\doxysection{/mnt/c/\+Ubuntu/\+Shared\+\_\+folder/\+PPROG/\+I4/\+ANTHILL\+\_\+\+REP/include/game\+\_\+management.h File Reference}
+\hypertarget{game__management_8h}{}\label{game__management_8h}\index{/mnt/c/Ubuntu/Shared\_folder/PPROG/I4/ANTHILL\_REP/include/game\_management.h@{/mnt/c/Ubuntu/Shared\_folder/PPROG/I4/ANTHILL\_REP/include/game\_management.h}}
+
+
+It implements the creation of the game with the data from a file.  
+
+
+{\ttfamily \#include "{}command.\+h"{}}\newline
+{\ttfamily \#include "{}game.\+h"{}}\newline
+{\ttfamily \#include "{}game\+\_\+actions.\+h"{}}\newline
+{\ttfamily \#include "{}game\+\_\+management.\+h"{}}\newline
+{\ttfamily \#include "{}object.\+h"{}}\newline
+{\ttfamily \#include "{}obstacle.\+h"{}}\newline
+{\ttfamily \#include "{}player.\+h"{}}\newline
+{\ttfamily \#include "{}space.\+h"{}}\newline
+{\ttfamily \#include "{}time.\+h"{}}\newline
+{\ttfamily \#include "{}types.\+h"{}}\newline
+Include dependency graph for game\+\_\+management.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{game__management_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{game__management_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{game__management_8h_a5846dc960b348395849e7dc0899b177d}{game\+\_\+init\+\_\+from\+\_\+file}} (Game \texorpdfstring{$\ast$}{*}game, char \texorpdfstring{$\ast$}{*}filename, \mbox{\hyperlink{types_8h_a39db6982619d623273fad8a383489309}{Bool}} SDL)
+\begin{DoxyCompactList}\small\item\em It creates the game with the info from the filename. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{game__management_8h_a6992189a2b2dc313c76a755bba1ff062}{game\+\_\+management\+\_\+save}} (Game \texorpdfstring{$\ast$}{*}game, char \texorpdfstring{$\ast$}{*}file\+\_\+name)
+\begin{DoxyCompactList}\small\item\em It saves the current game\textquotesingle{}s info in a specified file. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{game__management_8h_a2eb0da4b2ffda0db41db0cf16b9fe3e4}{game\+\_\+management\+\_\+load}} (Game \texorpdfstring{$\ast$}{*}game, char \texorpdfstring{$\ast$}{*}file\+\_\+name, \mbox{\hyperlink{types_8h_a39db6982619d623273fad8a383489309}{Bool}} new, \mbox{\hyperlink{types_8h_a39db6982619d623273fad8a383489309}{Bool}} SDL)
+\begin{DoxyCompactList}\small\item\em It loads a player\textquotesingle{}s game from a certain file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+It implements the creation of the game with the data from a file. 
+
+\begin{DoxyAuthor}{Author}
+
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+10-\/04-\/2025 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+GNU Public License 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{game__management_8h_a5846dc960b348395849e7dc0899b177d}\label{game__management_8h_a5846dc960b348395849e7dc0899b177d} 
+\index{game\_management.h@{game\_management.h}!game\_init\_from\_file@{game\_init\_from\_file}}
+\index{game\_init\_from\_file@{game\_init\_from\_file}!game\_management.h@{game\_management.h}}
+\doxysubsubsection{\texorpdfstring{game\_init\_from\_file()}{game\_init\_from\_file()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} game\+\_\+init\+\_\+from\+\_\+file (\begin{DoxyParamCaption}\item[{Game \texorpdfstring{$\ast$}{*}}]{game,  }\item[{char \texorpdfstring{$\ast$}{*}}]{filename,  }\item[{\mbox{\hyperlink{types_8h_a39db6982619d623273fad8a383489309}{Bool}}}]{SDL }\end{DoxyParamCaption})}
+
+
+
+It creates the game with the info from the filename. 
+
+\begin{DoxyAuthor}{Author}
+Profesores PPROG
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em game} & a pointer to the game \\
+\hline
+{\em filename} & a pointer to the file where the spaces are defined \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK if everything goes well, ERROR otherwise 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{game__management_8h_a5846dc960b348395849e7dc0899b177d_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{game__management_8h_a5846dc960b348395849e7dc0899b177d_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{game__management_8h_a2eb0da4b2ffda0db41db0cf16b9fe3e4}\label{game__management_8h_a2eb0da4b2ffda0db41db0cf16b9fe3e4} 
+\index{game\_management.h@{game\_management.h}!game\_management\_load@{game\_management\_load}}
+\index{game\_management\_load@{game\_management\_load}!game\_management.h@{game\_management.h}}
+\doxysubsubsection{\texorpdfstring{game\_management\_load()}{game\_management\_load()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} game\+\_\+management\+\_\+load (\begin{DoxyParamCaption}\item[{Game \texorpdfstring{$\ast$}{*}}]{game,  }\item[{char \texorpdfstring{$\ast$}{*}}]{file\+\_\+name,  }\item[{\mbox{\hyperlink{types_8h_a39db6982619d623273fad8a383489309}{Bool}}}]{new,  }\item[{\mbox{\hyperlink{types_8h_a39db6982619d623273fad8a383489309}{Bool}}}]{SDL }\end{DoxyParamCaption})}
+
+
+
+It loads a player\textquotesingle{}s game from a certain file. 
+
+\begin{DoxyAuthor}{Author}
+Ana
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em game} & a pointer to the game \\
+\hline
+{\em file\+\_\+name} & the name of the desired folder \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK if everything goes well, ERROR otherwise 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{game__management_8h_a2eb0da4b2ffda0db41db0cf16b9fe3e4_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{game__management_8h_a6992189a2b2dc313c76a755bba1ff062}\label{game__management_8h_a6992189a2b2dc313c76a755bba1ff062} 
+\index{game\_management.h@{game\_management.h}!game\_management\_save@{game\_management\_save}}
+\index{game\_management\_save@{game\_management\_save}!game\_management.h@{game\_management.h}}
+\doxysubsubsection{\texorpdfstring{game\_management\_save()}{game\_management\_save()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} game\+\_\+management\+\_\+save (\begin{DoxyParamCaption}\item[{Game \texorpdfstring{$\ast$}{*}}]{game,  }\item[{char \texorpdfstring{$\ast$}{*}}]{file\+\_\+name }\end{DoxyParamCaption})}
+
+
+
+It saves the current game\textquotesingle{}s info in a specified file. 
+
+\begin{DoxyAuthor}{Author}
+Ana
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em game} & a pointer to the game \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK if everything goes well, ERROR otherwise 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{game__management_8h_a6992189a2b2dc313c76a755bba1ff062_icgraph}
+\end{center}
+\end{figure}

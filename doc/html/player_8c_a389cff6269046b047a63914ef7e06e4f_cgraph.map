@@ -1,0 +1,11 @@
+<map id="player_set_inventory_cursor" name="player_set_inventory_cursor">
+<area shape="rect" id="Node000001" title="It sets a player&#39;s inventory cursor." alt="" coords="5,47,164,87"/>
+<area shape="rect" id="Node000002" href="$inventory_8c.html#a2c7fc6ad76a85b7beb8e5899ea41ea56" title=" " alt="" coords="213,29,371,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="164,55,199,51,199,56,165,60"/>
+<area shape="rect" id="Node000005" href="$player_8c.html#a52652cc07dddb46f4632bfa728f1d38d" title="It gets a pointer to the player&#39;s inventory." alt="" coords="212,79,372,104"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="165,74,199,78,198,83,164,79"/>
+<area shape="rect" id="Node000003" href="$inventory_8c.html#a5b71ef1ef9d063c95166ac64379d0c1a" title="It gets a pointer to the set of objects of a certain inventory." alt="" coords="420,5,587,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="371,30,406,26,407,32,372,36"/>
+<area shape="rect" id="Node000004" href="$set_8c.html#a3b05c442d7e47159c6395e703c9ea6de" title=" " alt="" coords="445,55,561,80"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="372,49,431,56,431,61,371,54"/>
+</map>

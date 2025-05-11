@@ -1,0 +1,11 @@
+<map id="game_get_character_location" name="game_get_character_location">
+<area shape="rect" id="Node000001" title="It gets the location of a certain character." alt="" coords="5,47,160,87"/>
+<area shape="rect" id="Node000002" href="$game_8c.html#aeec9c4bd023f777108e6a7e6f3899104" title="It gets the number of spaces in the game." alt="" coords="208,5,383,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="160,47,226,31,227,37,161,52"/>
+<area shape="rect" id="Node000003" href="$space_8c.html#ac8ddfd0d8692fd852ee49698c446cb50" title="It gets the id of a space." alt="" coords="242,55,349,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="160,65,228,65,228,70,160,70"/>
+<area shape="rect" id="Node000004" href="$space_8c.html#a39e092c7b3799c16bd6177c1155a683b" title="Checks whether the space has a specific character." alt="" coords="216,104,375,129"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="161,83,227,98,226,103,160,88"/>
+<area shape="rect" id="Node000005" href="$set_8c.html#a298b41bcf7ae56e1f07567eaace0c963" title="It checks if the set contains an element." alt="" coords="431,104,521,129"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="375,114,417,114,417,119,375,119"/>
+</map>

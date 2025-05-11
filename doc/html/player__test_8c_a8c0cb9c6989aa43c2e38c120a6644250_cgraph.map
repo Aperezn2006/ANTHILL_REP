@@ -1,0 +1,13 @@
+<map id="test2_decrease_health" name="test2_decrease_health">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,55,175,80"/>
+<area shape="rect" id="Node000002" href="$player_8c.html#ab8d706037259061de90808be9a6c2b32" title="It creates a new player, allocating memory and initializing its members." alt="" coords="256,5,367,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="147,52,242,31,243,36,148,57"/>
+<area shape="rect" id="Node000005" href="$player_8c.html#a8c31d7b3dd0bdec84b4295d344861c6e" title="It decreases the player&#39;s health." alt="" coords="223,55,400,80"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="175,65,209,65,209,70,175,70"/>
+<area shape="rect" id="Node000006" href="$player_8c.html#a9f00330134cc509e60ae6b5f7b3b395e" title="It sets the player&#39;s health." alt="" coords="242,104,381,129"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="148,77,241,98,240,104,147,83"/>
+<area shape="rect" id="Node000003" href="$inventory_8c.html#acfdb31bdaf1646387a93fc7ece2ef180" title="It creates a new player, allocating memory and initializing its members." alt="" coords="448,5,580,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="367,15,434,15,434,21,367,21"/>
+<area shape="rect" id="Node000004" href="$set_8c.html#aaad3bdcac9fbbfc38b4800b12bb17449" title="It creates a set." alt="" coords="628,5,719,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="580,15,614,15,614,21,580,21"/>
+</map>

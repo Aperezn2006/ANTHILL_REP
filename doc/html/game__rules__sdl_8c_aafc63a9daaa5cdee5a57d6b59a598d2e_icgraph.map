@@ -1,0 +1,7 @@
+<map id="space_is_tunnel" name="space_is_tunnel">
+<area shape="rect" id="Node000001" title="It checks whether a space is in the tunnel." alt="" coords="367,13,493,38"/>
+<area shape="rect" id="Node000002" href="$game__rules__sdl_8c.html#a431cb85001421df41014a15152b11573" title="It allows the player to dig." alt="" coords="164,5,319,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="353,28,319,28,319,23,353,23"/>
+<area shape="rect" id="Node000003" href="$game__rules__sdl_8c.html#aa3b9bb3adaeba0262c80852f24538f85" title=" " alt="" coords="5,13,116,38"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="150,28,116,28,116,23,150,23"/>
+</map>

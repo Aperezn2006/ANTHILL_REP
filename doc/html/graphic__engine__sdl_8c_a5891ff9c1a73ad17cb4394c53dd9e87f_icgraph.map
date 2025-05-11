@@ -1,0 +1,14 @@
+<map id="load_texture" name="load_texture">
+<area shape="rect" id="Node000001" title=" " alt="" coords="523,31,627,56"/>
+<area shape="rect" id="Node000002" href="$graphic__engine__sdl_8c.html#a56a265735491934a3f7b9ec1bd21b038" title="It creates a new graphic engine." alt="" coords="279,5,474,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="509,38,474,33,475,28,510,32"/>
+<area shape="rect" id="Node000005" href="$graphic__engine__sdl_8c.html#a4b25b2fe0bcb65316b5f7a325b562fcc" title="It paints the game&#39;s data on the user&#39;s screen." alt="" coords="279,55,475,80"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="509,54,475,58,474,53,509,49"/>
+<area shape="rect" id="Node000003" href="$game__loop__sdl_8c.html#a0d3c177445766e002b15a3526fe3abb9" title="Initializes the game loop by loading game data and creating the graphic engine." alt="" coords="108,5,231,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="266,21,231,21,231,15,266,15"/>
+<area shape="rect" id="Node000004" href="$game__loop__sdl_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,31,60,56"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="95,35,61,41,60,36,94,29"/>
+<area shape="rect" id="Node000006" href="$game__loop__sdl_8c.html#a2512ad7629a28c1c47934820188b8de4" title="Runs the main game loop, processing commands and updating the game state." alt="" coords="108,55,231,80"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="265,70,231,70,231,65,265,65"/>
+<area shape="poly" id="edge6_Node000006_Node000004" title=" " alt="" coords="94,57,60,51,61,45,95,52"/>
+</map>

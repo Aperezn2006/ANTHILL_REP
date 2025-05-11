@@ -1,0 +1,13 @@
+<map id="object_set_id" name="object_set_id">
+<area shape="rect" id="Node000001" title="It sets the id of a object." alt="" coords="305,55,413,80"/>
+<area shape="rect" id="Node000002" href="$object__test_8c.html#aa88e9e9dab92ba9c58851d7a7a8415f0" title=" " alt="" coords="108,5,257,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="299,53,229,33,230,28,301,48"/>
+<area shape="rect" id="Node000004" href="$object__test_8c.html#a6f19ebf6034115c2cdcc3c7bfea25964" title=" " alt="" coords="109,55,257,80"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="292,70,257,70,257,65,292,65"/>
+<area shape="rect" id="Node000005" href="$object__test_8c.html#a1f0cfd69428a6cf954fe37c9c21f8cb3" title=" " alt="" coords="109,104,257,129"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="301,86,230,106,229,101,299,81"/>
+<area shape="rect" id="Node000003" href="$object__test_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title=" " alt="" coords="5,55,60,80"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="130,37,109,45,61,61,59,56,107,39,129,32"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="95,70,60,70,60,65,95,65"/>
+<area shape="poly" id="edge6_Node000005_Node000003" title=" " alt="" coords="130,102,59,79,61,74,132,97"/>
+</map>

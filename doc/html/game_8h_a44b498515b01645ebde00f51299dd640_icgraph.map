@@ -1,0 +1,61 @@
+<map id="game_get_object_location" name="game_get_object_location">
+<area shape="rect" id="Node000001" title="It gets the location a certain object." alt="" coords="1252,201,1445,226"/>
+<area shape="rect" id="Node000002" href="$game__management_8c.html#a2eb0da4b2ffda0db41db0cf16b9fe3e4" title="It loads a player&#39;s game from a certain file." alt="" coords="776,150,964,176"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1238,211,1128,203,1012,191,933,178,934,173,1012,186,1129,198,1238,206"/>
+<area shape="rect" id="Node000012" href="$game__management_8c.html#a6992189a2b2dc313c76a755bba1ff062" title="It saves the current game&#39;s info in a specified file." alt="" coords="1013,101,1203,126"/>
+<area shape="poly" id="edge12_Node000001_Node000012" title=" " alt="" coords="1313,196,1262,168,1203,141,1164,129,1166,124,1205,136,1265,164,1316,192"/>
+<area shape="rect" id="Node000015" href="$game_8c.html#a6a00b3f5db99150d9180e439d400e083" title="It prints the game." alt="" coords="1060,150,1156,176"/>
+<area shape="poly" id="edge16_Node000001_Node000015" title=" " alt="" coords="1273,201,1156,176,1157,170,1275,195"/>
+<area shape="rect" id="Node000016" href="$game_8c.html#aeb03cbd1d9b36f648d8796cf90678016" title="It sets the object&#39;s location." alt="" coords="1012,252,1204,277"/>
+<area shape="poly" id="edge17_Node000001_Node000016" title=" " alt="" coords="1275,232,1170,254,1168,249,1274,227"/>
+<area shape="rect" id="Node000023" href="$graphic__engine_8c.html#a0e275aa477d5fa59e903da33a2a40a5d" title="It paints the game&#39;s data on the user&#39;s screen." alt="" coords="279,40,484,65"/>
+<area shape="poly" id="edge29_Node000001_Node000023" title=" " alt="" coords="1326,193,1274,140,1240,113,1203,91,1153,69,1102,51,995,25,885,12,778,8,676,12,583,20,441,42,440,37,582,15,675,6,778,3,886,6,996,20,1103,46,1155,64,1205,86,1243,109,1278,136,1330,189"/>
+<area shape="rect" id="Node000024" href="$graphic__engine__sdl_8c.html#a4b25b2fe0bcb65316b5f7a325b562fcc" title="It paints the game&#39;s data on the user&#39;s screen." alt="" coords="532,401,728,426"/>
+<area shape="poly" id="edge31_Node000001_Node000024" title=" " alt="" coords="1336,240,1314,272,1285,309,1248,345,1205,373,1144,398,1079,416,1013,428,947,435,822,437,719,429,719,424,822,431,946,430,1012,423,1078,411,1142,393,1203,369,1245,341,1281,305,1310,269,1331,237"/>
+<area shape="rect" id="Node000025" href="$physics_8c.html#ae77c8fb6afc14e78f9626f741e0440bf" title=" " alt="" coords="1027,319,1189,359"/>
+<area shape="poly" id="edge33_Node000001_Node000025" title=" " alt="" coords="1313,235,1205,292,1149,321,1147,317,1203,287,1310,230"/>
+<area shape="rect" id="Node000003" href="$game__actions_8c.html#aa5706101d08a674bc09e9e1b2e5eadef" title="It allows the player to save its current game." alt="" coords="556,102,704,128"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="792,150,694,130,695,125,793,145"/>
+<area shape="rect" id="Node000007" href="$game__actions__sdl_8c.html#a34397b9f48b293f57e661603e66d4b06" title="It allows the player to save its current game." alt="" coords="543,152,717,177"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="762,166,717,166,717,161,762,161"/>
+<area shape="rect" id="Node000008" href="$game__management_8c.html#a5846dc960b348395849e7dc0899b177d" title="It creates the game with the info from the filename." alt="" coords="554,302,706,328"/>
+<area shape="poly" id="edge7_Node000002_Node000008" title=" " alt="" coords="839,185,653,304,650,300,836,181"/>
+<area shape="rect" id="Node000004" href="$game__actions_8c.html#a0693694a3e70b4a4129e2da4ddb1f1a7" title="It updates the current command based on user input." alt="" coords="299,128,464,153"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="542,127,464,135,464,129,542,121"/>
+<area shape="rect" id="Node000005" href="$game__loop_8c.html#afb6a670628dffdd01661658f29a1e8ca" title="Runs the main game loop, processing commands and updating the game state." alt="" coords="108,128,231,153"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="285,143,231,143,231,138,285,138"/>
+<area shape="rect" id="Node000006" href="$game__loop_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,153,60,178"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="95,157,61,163,60,158,94,152"/>
+<area shape="rect" id="Node000009" href="$game__loop_8c.html#a31e8784ceb06b2f65b70e074e3e1a722" title="Initializes the game loop by loading game data and creating the graphic engine." alt="" coords="108,190,231,216"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="563,302,222,218,223,213,564,296"/>
+<area shape="rect" id="Node000010" href="$game__loop__sdl_8c.html#a0d3c177445766e002b15a3526fe3abb9" title="Initializes the game loop by loading game data and creating the graphic engine." alt="" coords="320,302,443,328"/>
+<area shape="poly" id="edge10_Node000008_Node000010" title=" " alt="" coords="540,318,443,318,443,312,540,312"/>
+<area shape="poly" id="edge9_Node000009_Node000006" title=" " alt="" coords="109,189,59,175,61,170,110,184"/>
+<area shape="rect" id="Node000011" href="$game__loop__sdl_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="142,326,197,352"/>
+<area shape="poly" id="edge11_Node000010_Node000011" title=" " alt="" coords="306,326,197,339,197,333,305,321"/>
+<area shape="rect" id="Node000013" href="$game__actions_8c.html#a0684f9dcafe712984445034038704be4" title="It allows the player to load a saved game." alt="" coords="795,52,945,77"/>
+<area shape="poly" id="edge13_Node000012_Node000013" title=" " alt="" coords="1032,101,932,80,933,74,1034,96"/>
+<area shape="rect" id="Node000014" href="$game__actions__sdl_8c.html#a61c21e2028a7333c943e946a442d44f8" title="It allows the player to load a saved game." alt="" coords="781,101,959,126"/>
+<area shape="poly" id="edge15_Node000012_Node000014" title=" " alt="" coords="999,116,959,116,959,111,999,111"/>
+<area shape="poly" id="edge14_Node000013_Node000004" title=" " alt="" coords="781,68,662,74,597,82,533,92,469,110,414,130,412,125,467,105,531,87,596,76,662,69,781,62"/>
+<area shape="poly" id="edge28_Node000016_Node000002" title=" " alt="" coords="1045,250,1011,235,986,216,963,197,917,178,919,173,965,193,990,212,1013,230,1047,245"/>
+<area shape="rect" id="Node000017" href="$game__actions_8c.html#abb3fcef4a17dd9fa9293f6b2b5e2d976" title="It allows a player to drop an object if they have it." alt="" coords="555,201,705,226"/>
+<area shape="poly" id="edge18_Node000016_Node000017" title=" " alt="" coords="1025,252,964,243,826,229,705,220,705,215,827,224,964,238,1025,247"/>
+<area shape="rect" id="Node000018" href="$game__actions__sdl_8c.html#a61aac260f32dcea88770a0cf7f1f890d" title="It allows a player to drop an object if they have it." alt="" coords="783,301,957,326"/>
+<area shape="poly" id="edge20_Node000016_Node000018" title=" " alt="" coords="1034,282,933,304,932,298,1032,277"/>
+<area shape="rect" id="Node000021" href="$game__actions_8c.html#a08ae11402d194439d1e014fa78aa8b2e" title="It allows a player to pick up an object if they&#39;re in the same room." alt="" coords="796,252,944,277"/>
+<area shape="poly" id="edge24_Node000016_Node000021" title=" " alt="" coords="999,267,944,267,944,262,999,262"/>
+<area shape="rect" id="Node000022" href="$game__actions__sdl_8c.html#a585a376273c15bff51bcfbae55486593" title="It allows a player to pick up an object if they&#39;re in the same room." alt="" coords="783,350,957,376"/>
+<area shape="poly" id="edge26_Node000016_Node000022" title=" " alt="" coords="1064,285,1013,309,990,326,965,341,934,353,932,348,963,337,987,321,1011,305,1061,280"/>
+<area shape="poly" id="edge19_Node000017_Node000004" title=" " alt="" coords="560,200,531,192,418,156,419,151,533,187,562,195"/>
+<area shape="rect" id="Node000019" href="$game__actions__sdl_8c.html#acd1524051170e15d5370144cbb777503" title="It updates the current command based on user input." alt="" coords="535,352,725,377"/>
+<area shape="poly" id="edge21_Node000018_Node000019" title=" " alt="" coords="796,332,691,354,690,349,795,327"/>
+<area shape="rect" id="Node000020" href="$game__loop__sdl_8c.html#a2512ad7629a28c1c47934820188b8de4" title="Runs the main game loop, processing commands and updating the game state." alt="" coords="320,352,443,377"/>
+<area shape="poly" id="edge22_Node000019_Node000020" title=" " alt="" coords="521,367,443,367,443,362,521,362"/>
+<area shape="poly" id="edge23_Node000020_Node000011" title=" " alt="" coords="305,358,197,345,197,340,306,353"/>
+<area shape="poly" id="edge25_Node000021_Node000004" title=" " alt="" coords="782,272,725,272,661,268,595,258,531,241,490,223,451,199,395,155,398,151,454,195,492,218,533,236,596,253,662,263,725,267,782,267"/>
+<area shape="poly" id="edge27_Node000022_Node000019" title=" " alt="" coords="769,366,725,366,725,361,769,361"/>
+<area shape="poly" id="edge30_Node000023_Node000005" title=" " alt="" coords="338,73,202,130,200,125,336,68"/>
+<area shape="poly" id="edge32_Node000024_Node000020" title=" " alt="" coords="552,401,442,379,443,374,553,396"/>
+<area shape="poly" id="edge34_Node000025_Node000022" title=" " alt="" coords="1013,351,958,357,957,352,1012,346"/>
+</map>

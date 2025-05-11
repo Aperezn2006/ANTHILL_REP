@@ -1,0 +1,5 @@
+<map id="link_get_image" name="link_get_image">
+<area shape="rect" id="Node000001" title="It gets the link&#39;s image." alt="" coords="5,5,128,31"/>
+<area shape="rect" id="Node000002" href="$link_8c.html#a1edd9bfd5e282b2d150858dcfaba868b" title="It gets the status of a link (open or closed)" alt="" coords="176,5,289,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="128,15,162,15,162,21,128,21"/>
+</map>

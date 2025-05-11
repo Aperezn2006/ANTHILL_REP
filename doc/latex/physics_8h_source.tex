@@ -1,0 +1,37 @@
+\doxysection{physics.\+h}
+\hypertarget{physics_8h_source}{}\label{physics_8h_source}\index{/mnt/c/Ubuntu/Shared\_folder/PPROG/I4/ANTHILL\_REP/include/physics.h@{/mnt/c/Ubuntu/Shared\_folder/PPROG/I4/ANTHILL\_REP/include/physics.h}}
+\mbox{\hyperlink{physics_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ PHYSICS\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ PHYSICS\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{game_8h}{game.h}}"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{link_8h}{link.h}}"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{player_8h}{player.h}}"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{space_8h}{space.h}}"{}}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{comment}{/*\ Detects\ if\ the\ player\ has\ collided\ with\ a\ link\ */}}
+\DoxyCodeLine{00012\ \mbox{\hyperlink{types_8h_a39db6982619d623273fad8a383489309}{Bool}}\ \mbox{\hyperlink{physics_8h_ab3d1352fb845fdadbd27efc7171f0ef5}{physics\_check\_link\_collision}}(Game\ *game,\ Player\ *player);}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \mbox{\hyperlink{types_8h_a39db6982619d623273fad8a383489309}{Bool}}\ \mbox{\hyperlink{physics_8h_ae77c8fb6afc14e78f9626f741e0440bf}{physics\_check\_object\_collision}}(Game\ *game,\ Player\ *player,\ Object\ *obj);}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{comment}{/*\ Handles\ space\ transition\ when\ the\ player\ collides\ with\ a\ link\ */}}
+\DoxyCodeLine{00017\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{physics_8h_ad6a897511a9a61b0e94396562b61a6e5}{physics\_handle\_space\_transition}}(Game\ *game,\ Player\ *player);}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{comment}{/*\ Placeholder\ for\ future\ attack\ system\ */}}
+\DoxyCodeLine{00020\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{physics_8h_ae360f0b61263956f3712a672afc7fbc2}{physics\_handle\_attack}}(Player\ *player);}
+\DoxyCodeLine{00021\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{physics_8h_af819a426e5106d1147d803d877a6ec15}{physics\_update\_rays}}();}
+\DoxyCodeLine{00022\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{physics_8h_a6a8630c500f3c0ac7aeaebbc80716ea6}{physics\_update\_player\_movement}}(Player\ *player,\ Space\ *space);}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{comment}{/*\ Placeholder\ for\ future\ chat\ system\ */}}
+\DoxyCodeLine{00025\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{physics_8h_a4a7065b4a6220154669c1825b8e8917c}{physics\_handle\_chat}}(Game\ *game,\ Player\ *player);}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ Link\ *\mbox{\hyperlink{physics_8h_a1f723a8ee80cc8a08ccf3f2f02c6f1a4}{physics\_get\_colliding\_link}}(Game\ *game,\ Player\ *player);}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ Character\ *\mbox{\hyperlink{physics_8h_aadd0752b44ed4bdffc4d271ddda51e75}{physics\_get\_colliding\_character}}(Game\ *game,\ Player\ *player);}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

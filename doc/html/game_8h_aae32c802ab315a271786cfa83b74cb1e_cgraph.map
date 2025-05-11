@@ -1,0 +1,5 @@
+<map id="game_add_player_to_team" name="game_add_player_to_team">
+<area shape="rect" id="Node000001" title="It adds a player to a team." alt="" coords="5,5,204,31"/>
+<area shape="rect" id="Node000002" href="$set_8c.html#ad252ed6b4db23b184789fd4ef5afe5e1" title="It adds an element to the set." alt="" coords="252,5,344,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="204,15,238,15,238,21,204,21"/>
+</map>

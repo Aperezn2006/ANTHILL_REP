@@ -1,0 +1,5 @@
+<map id="direction_from_string" name="direction_from_string">
+<area shape="rect" id="Node000001" title=" " alt="" coords="236,5,397,31"/>
+<area shape="rect" id="Node000002" href="$game__actions__sdl_8c.html#aed5a85732a1cdf1ea84b7837cdc070d8" title="It moves the player in the desired direction (north, south, west or east)" alt="" coords="5,5,188,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="222,21,188,21,188,15,222,15"/>
+</map>

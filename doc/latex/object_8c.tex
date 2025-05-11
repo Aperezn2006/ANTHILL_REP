@@ -1,0 +1,832 @@
+\doxysection{/mnt/c/\+Ubuntu/\+Shared\+\_\+folder/\+PPROG/\+I4/\+ANTHILL\+\_\+\+REP/src/object.c File Reference}
+\hypertarget{object_8c}{}\label{object_8c}\index{/mnt/c/Ubuntu/Shared\_folder/PPROG/I4/ANTHILL\_REP/src/object.c@{/mnt/c/Ubuntu/Shared\_folder/PPROG/I4/ANTHILL\_REP/src/object.c}}
+
+
+It implements the object module.  
+
+
+{\ttfamily \#include "{}object.\+h"{}}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+Include dependency graph for object.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=347pt]{object_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct__Object}{Object}}
+\begin{DoxyCompactList}\small\item\em object \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+Object \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{object_8c_a7d0b3d3e95beef8deb5b02d0c4641a57}{object\+\_\+create}} (\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} id, \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} location)
+\begin{DoxyCompactList}\small\item\em It creates a new object, allocating memory and initializing its members. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{object_8c_aab2d9fe61ae9c48522635d006dd50396}{object\+\_\+destroy}} (Object \texorpdfstring{$\ast$}{*}object)
+\begin{DoxyCompactList}\small\item\em It destroys a object, freeing the allocated memory. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{object_8c_a183e210dfb8064d0e8edc5e5f66641a7}{object\+\_\+set\+\_\+health}} (Object \texorpdfstring{$\ast$}{*}object, int health)
+\item 
+int \mbox{\hyperlink{object_8c_a6f0254f51520e35f70c3d415b81bebeb}{object\+\_\+get\+\_\+health}} (const Object \texorpdfstring{$\ast$}{*}object)
+\item 
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{object_8c_a16deb2a22a4eccb39676735f1e1a50c1}{object\+\_\+set\+\_\+movable}} (Object \texorpdfstring{$\ast$}{*}object, \mbox{\hyperlink{types_8h_a39db6982619d623273fad8a383489309}{Bool}} movable)
+\item 
+\mbox{\hyperlink{types_8h_a39db6982619d623273fad8a383489309}{Bool}} \mbox{\hyperlink{object_8c_a73d167d4cf9c3a367b534dc0dc980453}{object\+\_\+is\+\_\+movable}} (const Object \texorpdfstring{$\ast$}{*}object)
+\item 
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{object_8c_af0d455a288c1119694417c942602e912}{object\+\_\+set\+\_\+dependency}} (Object \texorpdfstring{$\ast$}{*}object, \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} dependency)
+\item 
+\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} \mbox{\hyperlink{object_8c_aaf01a61918ecc1a76e2bb1c76c64e693}{object\+\_\+get\+\_\+dependency}} (const Object \texorpdfstring{$\ast$}{*}object)
+\item 
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{object_8c_aa160f7fea380d6b5bcf8734d4bf90834}{object\+\_\+set\+\_\+open}} (Object \texorpdfstring{$\ast$}{*}object, \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} link\+\_\+id)
+\item 
+\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} \mbox{\hyperlink{object_8c_ad6e8911b5a81511e231036b2c0011777}{object\+\_\+get\+\_\+open}} (const Object \texorpdfstring{$\ast$}{*}object)
+\item 
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{object_8c_a653ceb8039e69a949ad2dd9c8f49236c}{object\+\_\+set\+\_\+id}} (Object \texorpdfstring{$\ast$}{*}object, \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} id)
+\begin{DoxyCompactList}\small\item\em It sets the id of a object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} \mbox{\hyperlink{object_8c_ac5af152381a21853c6a28cc120e8e7fe}{object\+\_\+get\+\_\+id}} (Object \texorpdfstring{$\ast$}{*}object)
+\begin{DoxyCompactList}\small\item\em It gets the id of a object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{object_8c_a14bf659f3055f0243d1af4b246d062b4}{object\+\_\+set\+\_\+name}} (Object \texorpdfstring{$\ast$}{*}object, char \texorpdfstring{$\ast$}{*}name)
+\begin{DoxyCompactList}\small\item\em It sets the name of a object. \end{DoxyCompactList}\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{object_8c_ae7279c442aab51c0818bd008b31f9816}{object\+\_\+get\+\_\+name}} (Object \texorpdfstring{$\ast$}{*}object)
+\begin{DoxyCompactList}\small\item\em It gets the name of a object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{object_8c_a46dfe13b76a3ade55a1d8f478b4793f8}{object\+\_\+set\+\_\+desc}} (Object \texorpdfstring{$\ast$}{*}object, char \texorpdfstring{$\ast$}{*}desc)
+\begin{DoxyCompactList}\small\item\em It sets the description of a object. \end{DoxyCompactList}\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{object_8c_a7675829af58481ecebd6a1c46ed7126d}{object\+\_\+get\+\_\+desc}} (Object \texorpdfstring{$\ast$}{*}object)
+\begin{DoxyCompactList}\small\item\em It gets the description of a object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{object_8c_ae2cac8fc6b4b1763e97072c0d260e945}{object\+\_\+set\+\_\+inspected}} (Object \texorpdfstring{$\ast$}{*}object, \mbox{\hyperlink{types_8h_a39db6982619d623273fad8a383489309}{Bool}} inspected)
+\begin{DoxyCompactList}\small\item\em It sets whether the object has been inspected or not. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a39db6982619d623273fad8a383489309}{Bool}} \mbox{\hyperlink{object_8c_a14f7e4d3be3158bd2c0f2ad7dad76fd6}{object\+\_\+get\+\_\+inspected}} (Object \texorpdfstring{$\ast$}{*}object)
+\begin{DoxyCompactList}\small\item\em It gets whether the object has been inspected or not. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{object_8c_a6fe04c6bad8acf92a4d152e678b1c21e}{object\+\_\+set\+\_\+turn\+\_\+amplifier}} (Object \texorpdfstring{$\ast$}{*}object, int turn\+\_\+amplifier)
+\begin{DoxyCompactList}\small\item\em It sets the amount of turns the object increases. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{object_8c_a83c717d47a8f3f4c23124c9d42edb406}{object\+\_\+get\+\_\+turn\+\_\+amplifier}} (Object \texorpdfstring{$\ast$}{*}object)
+\begin{DoxyCompactList}\small\item\em It gets the amount of turns the object increases. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{object_8c_afde1901aab0f8be49fe098e4486aeaef}{object\+\_\+set\+\_\+uses}} (Object \texorpdfstring{$\ast$}{*}object, int uses)
+\begin{DoxyCompactList}\small\item\em It set the uses an object has. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{object_8c_ab92f259bbaae78c4e2388f3990f5d243}{object\+\_\+get\+\_\+uses}} (const Object \texorpdfstring{$\ast$}{*}object)
+\begin{DoxyCompactList}\small\item\em It gets the amount of uses the object has. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{object_8c_aa92f7db81b1243619db9003886ff8d79}{object\+\_\+set\+\_\+image}} (Object \texorpdfstring{$\ast$}{*}object, char \texorpdfstring{$\ast$}{*}image)
+\begin{DoxyCompactList}\small\item\em It sets the object\textquotesingle{}s image\+\_\+path. \end{DoxyCompactList}\item 
+char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{object_8c_acea265134a0896c6f34a8d95e47a8a9b}{object\+\_\+get\+\_\+image}} (Object \texorpdfstring{$\ast$}{*}object)
+\begin{DoxyCompactList}\small\item\em It gets the object\textquotesingle{}s image\+\_\+path. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{object_8c_a61d7e9831c35c5d008e5632af477b4ba}{object\+\_\+set\+\_\+position}} (Object \texorpdfstring{$\ast$}{*}object, int x, int y)
+\begin{DoxyCompactList}\small\item\em It sets the object\textquotesingle{}s position. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{object_8c_a611bedea204427e602a13c6a4749d787}{object\+\_\+get\+\_\+position}} (Object \texorpdfstring{$\ast$}{*}object, int \texorpdfstring{$\ast$}{*}x, int \texorpdfstring{$\ast$}{*}y)
+\begin{DoxyCompactList}\small\item\em It gets the object\textquotesingle{}s position. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{object_8c_a9d9f926c05093f5cfb9b210872dbc382}{object\+\_\+get\+\_\+x}} (Object \texorpdfstring{$\ast$}{*}object)
+\begin{DoxyCompactList}\small\item\em It get the x coordinate of the object\textquotesingle{}s position. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{object_8c_a2ffa59c1016883e797ef871df51b9145}{object\+\_\+get\+\_\+y}} (Object \texorpdfstring{$\ast$}{*}object)
+\begin{DoxyCompactList}\small\item\em It get the y coordinate of the object\textquotesingle{}s position. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{object_8c_a6488ec3cfebebfdeef4a43b9eebf8642}{object\+\_\+print}} (Object \texorpdfstring{$\ast$}{*}object)
+\begin{DoxyCompactList}\small\item\em It prints the object information. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+It implements the object module. 
+
+\begin{DoxyVersion}{Version}
+2 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+23-\/03-\/2024 
+\end{DoxyDate}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{object_8c_a7d0b3d3e95beef8deb5b02d0c4641a57}\label{object_8c_a7d0b3d3e95beef8deb5b02d0c4641a57} 
+\index{object.c@{object.c}!object\_create@{object\_create}}
+\index{object\_create@{object\_create}!object.c@{object.c}}
+\doxysubsubsection{\texorpdfstring{object\_create()}{object\_create()}}
+{\footnotesize\ttfamily Object \texorpdfstring{$\ast$}{*} object\+\_\+create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}}}]{id,  }\item[{\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}}}]{location }\end{DoxyParamCaption})}
+
+
+
+It creates a new object, allocating memory and initializing its members. 
+
+\begin{DoxyAuthor}{Author}
+Beatriz, Arturo, Rubén, Ana
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em id} & the identification number for the new object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a new object, initialized 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{object_8c_a7d0b3d3e95beef8deb5b02d0c4641a57_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{object_8c_aab2d9fe61ae9c48522635d006dd50396}\label{object_8c_aab2d9fe61ae9c48522635d006dd50396} 
+\index{object.c@{object.c}!object\_destroy@{object\_destroy}}
+\index{object\_destroy@{object\_destroy}!object.c@{object.c}}
+\doxysubsubsection{\texorpdfstring{object\_destroy()}{object\_destroy()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} object\+\_\+destroy (\begin{DoxyParamCaption}\item[{Object \texorpdfstring{$\ast$}{*}}]{object }\end{DoxyParamCaption})}
+
+
+
+It destroys a object, freeing the allocated memory. 
+
+\begin{DoxyAuthor}{Author}
+Beatriz, Arturo, Rubén, Ana
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em object} & a pointer to the object that must be destroyed \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK, if everything goes well or ERROR if there was some mistake 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{object_8c_aab2d9fe61ae9c48522635d006dd50396_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{object_8c_aaf01a61918ecc1a76e2bb1c76c64e693}\label{object_8c_aaf01a61918ecc1a76e2bb1c76c64e693} 
+\index{object.c@{object.c}!object\_get\_dependency@{object\_get\_dependency}}
+\index{object\_get\_dependency@{object\_get\_dependency}!object.c@{object.c}}
+\doxysubsubsection{\texorpdfstring{object\_get\_dependency()}{object\_get\_dependency()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} object\+\_\+get\+\_\+dependency (\begin{DoxyParamCaption}\item[{const Object \texorpdfstring{$\ast$}{*}}]{object }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{object_8c_aaf01a61918ecc1a76e2bb1c76c64e693_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{object_8c_a7675829af58481ecebd6a1c46ed7126d}\label{object_8c_a7675829af58481ecebd6a1c46ed7126d} 
+\index{object.c@{object.c}!object\_get\_desc@{object\_get\_desc}}
+\index{object\_get\_desc@{object\_get\_desc}!object.c@{object.c}}
+\doxysubsubsection{\texorpdfstring{object\_get\_desc()}{object\_get\_desc()}}
+{\footnotesize\ttfamily const char \texorpdfstring{$\ast$}{*} object\+\_\+get\+\_\+desc (\begin{DoxyParamCaption}\item[{Object \texorpdfstring{$\ast$}{*}}]{object }\end{DoxyParamCaption})}
+
+
+
+It gets the description of a object. 
+
+\begin{DoxyAuthor}{Author}
+Beatriz, Arturo, Rubén, Ana
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em object} & a pointer to the object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a string with the description of the object 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{object_8c_a7675829af58481ecebd6a1c46ed7126d_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{object_8c_a6f0254f51520e35f70c3d415b81bebeb}\label{object_8c_a6f0254f51520e35f70c3d415b81bebeb} 
+\index{object.c@{object.c}!object\_get\_health@{object\_get\_health}}
+\index{object\_get\_health@{object\_get\_health}!object.c@{object.c}}
+\doxysubsubsection{\texorpdfstring{object\_get\_health()}{object\_get\_health()}}
+{\footnotesize\ttfamily int object\+\_\+get\+\_\+health (\begin{DoxyParamCaption}\item[{const Object \texorpdfstring{$\ast$}{*}}]{object }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{object_8c_a6f0254f51520e35f70c3d415b81bebeb_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{object_8c_ac5af152381a21853c6a28cc120e8e7fe}\label{object_8c_ac5af152381a21853c6a28cc120e8e7fe} 
+\index{object.c@{object.c}!object\_get\_id@{object\_get\_id}}
+\index{object\_get\_id@{object\_get\_id}!object.c@{object.c}}
+\doxysubsubsection{\texorpdfstring{object\_get\_id()}{object\_get\_id()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} object\+\_\+get\+\_\+id (\begin{DoxyParamCaption}\item[{Object \texorpdfstring{$\ast$}{*}}]{object }\end{DoxyParamCaption})}
+
+
+
+It gets the id of a object. 
+
+\begin{DoxyAuthor}{Author}
+Beatriz, Arturo, Rubén, Ana
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em object} & a pointer to the object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the id of object 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{object_8c_ac5af152381a21853c6a28cc120e8e7fe_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{object_8c_acea265134a0896c6f34a8d95e47a8a9b}\label{object_8c_acea265134a0896c6f34a8d95e47a8a9b} 
+\index{object.c@{object.c}!object\_get\_image@{object\_get\_image}}
+\index{object\_get\_image@{object\_get\_image}!object.c@{object.c}}
+\doxysubsubsection{\texorpdfstring{object\_get\_image()}{object\_get\_image()}}
+{\footnotesize\ttfamily char \texorpdfstring{$\ast$}{*} object\+\_\+get\+\_\+image (\begin{DoxyParamCaption}\item[{Object \texorpdfstring{$\ast$}{*}}]{object }\end{DoxyParamCaption})}
+
+
+
+It gets the object\textquotesingle{}s image\+\_\+path. 
+
+\begin{DoxyAuthor}{Author}
+Beatriz, Arturo, Rubén, Ana
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em object} & a pointer to the object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the path to the object\textquotesingle{}s image 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{object_8c_acea265134a0896c6f34a8d95e47a8a9b_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{object_8c_a14f7e4d3be3158bd2c0f2ad7dad76fd6}\label{object_8c_a14f7e4d3be3158bd2c0f2ad7dad76fd6} 
+\index{object.c@{object.c}!object\_get\_inspected@{object\_get\_inspected}}
+\index{object\_get\_inspected@{object\_get\_inspected}!object.c@{object.c}}
+\doxysubsubsection{\texorpdfstring{object\_get\_inspected()}{object\_get\_inspected()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a39db6982619d623273fad8a383489309}{Bool}} object\+\_\+get\+\_\+inspected (\begin{DoxyParamCaption}\item[{Object \texorpdfstring{$\ast$}{*}}]{object }\end{DoxyParamCaption})}
+
+
+
+It gets whether the object has been inspected or not. 
+
+\begin{DoxyAuthor}{Author}
+Beatriz, Arturo, Rubén, Ana
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em object} & a pointer to the object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+TRUE if it has, FALSE otherwise 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{object_8c_a14f7e4d3be3158bd2c0f2ad7dad76fd6_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{object_8c_ae7279c442aab51c0818bd008b31f9816}\label{object_8c_ae7279c442aab51c0818bd008b31f9816} 
+\index{object.c@{object.c}!object\_get\_name@{object\_get\_name}}
+\index{object\_get\_name@{object\_get\_name}!object.c@{object.c}}
+\doxysubsubsection{\texorpdfstring{object\_get\_name()}{object\_get\_name()}}
+{\footnotesize\ttfamily const char \texorpdfstring{$\ast$}{*} object\+\_\+get\+\_\+name (\begin{DoxyParamCaption}\item[{Object \texorpdfstring{$\ast$}{*}}]{object }\end{DoxyParamCaption})}
+
+
+
+It gets the name of a object. 
+
+\begin{DoxyAuthor}{Author}
+Beatriz, Arturo, Rubén, Ana
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em object} & a pointer to the object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a string with the name of the object 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{object_8c_ae7279c442aab51c0818bd008b31f9816_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{object_8c_ad6e8911b5a81511e231036b2c0011777}\label{object_8c_ad6e8911b5a81511e231036b2c0011777} 
+\index{object.c@{object.c}!object\_get\_open@{object\_get\_open}}
+\index{object\_get\_open@{object\_get\_open}!object.c@{object.c}}
+\doxysubsubsection{\texorpdfstring{object\_get\_open()}{object\_get\_open()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} object\+\_\+get\+\_\+open (\begin{DoxyParamCaption}\item[{const Object \texorpdfstring{$\ast$}{*}}]{object }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{object_8c_ad6e8911b5a81511e231036b2c0011777_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{object_8c_a611bedea204427e602a13c6a4749d787}\label{object_8c_a611bedea204427e602a13c6a4749d787} 
+\index{object.c@{object.c}!object\_get\_position@{object\_get\_position}}
+\index{object\_get\_position@{object\_get\_position}!object.c@{object.c}}
+\doxysubsubsection{\texorpdfstring{object\_get\_position()}{object\_get\_position()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} object\+\_\+get\+\_\+position (\begin{DoxyParamCaption}\item[{Object \texorpdfstring{$\ast$}{*}}]{object,  }\item[{int \texorpdfstring{$\ast$}{*}}]{x,  }\item[{int \texorpdfstring{$\ast$}{*}}]{y }\end{DoxyParamCaption})}
+
+
+
+It gets the object\textquotesingle{}s position. 
+
+\begin{DoxyAuthor}{Author}
+Beatriz, Arturo, Rubén, Ana
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em object} & a pointer to the object \\
+\hline
+{\em x} & the x coordinate of the object\textquotesingle{}s position \\
+\hline
+{\em y} & the y coordinate of the object\textquotesingle{}s position \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK, if everything goes well or ERROR if there was some mistake 
+\end{DoxyReturn}
+\Hypertarget{object_8c_a83c717d47a8f3f4c23124c9d42edb406}\label{object_8c_a83c717d47a8f3f4c23124c9d42edb406} 
+\index{object.c@{object.c}!object\_get\_turn\_amplifier@{object\_get\_turn\_amplifier}}
+\index{object\_get\_turn\_amplifier@{object\_get\_turn\_amplifier}!object.c@{object.c}}
+\doxysubsubsection{\texorpdfstring{object\_get\_turn\_amplifier()}{object\_get\_turn\_amplifier()}}
+{\footnotesize\ttfamily int object\+\_\+get\+\_\+turn\+\_\+amplifier (\begin{DoxyParamCaption}\item[{Object \texorpdfstring{$\ast$}{*}}]{object }\end{DoxyParamCaption})}
+
+
+
+It gets the amount of turns the object increases. 
+
+\begin{DoxyAuthor}{Author}
+Ana
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em object} & a pointer to the object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the amount of turns the object increases 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{object_8c_a83c717d47a8f3f4c23124c9d42edb406_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{object_8c_ab92f259bbaae78c4e2388f3990f5d243}\label{object_8c_ab92f259bbaae78c4e2388f3990f5d243} 
+\index{object.c@{object.c}!object\_get\_uses@{object\_get\_uses}}
+\index{object\_get\_uses@{object\_get\_uses}!object.c@{object.c}}
+\doxysubsubsection{\texorpdfstring{object\_get\_uses()}{object\_get\_uses()}}
+{\footnotesize\ttfamily int object\+\_\+get\+\_\+uses (\begin{DoxyParamCaption}\item[{const Object \texorpdfstring{$\ast$}{*}}]{object }\end{DoxyParamCaption})}
+
+
+
+It gets the amount of uses the object has. 
+
+\begin{DoxyAuthor}{Author}
+Ana
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em object} & a pointer to the object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the amount of uses the object has 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{object_8c_ab92f259bbaae78c4e2388f3990f5d243_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{object_8c_a9d9f926c05093f5cfb9b210872dbc382}\label{object_8c_a9d9f926c05093f5cfb9b210872dbc382} 
+\index{object.c@{object.c}!object\_get\_x@{object\_get\_x}}
+\index{object\_get\_x@{object\_get\_x}!object.c@{object.c}}
+\doxysubsubsection{\texorpdfstring{object\_get\_x()}{object\_get\_x()}}
+{\footnotesize\ttfamily int object\+\_\+get\+\_\+x (\begin{DoxyParamCaption}\item[{Object \texorpdfstring{$\ast$}{*}}]{object }\end{DoxyParamCaption})}
+
+
+
+It get the x coordinate of the object\textquotesingle{}s position. 
+
+\begin{DoxyAuthor}{Author}
+Rubén, Arturo, Bea, Ana
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em object} & a pointer to the link \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the x coordinate 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{object_8c_a9d9f926c05093f5cfb9b210872dbc382_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{object_8c_a2ffa59c1016883e797ef871df51b9145}\label{object_8c_a2ffa59c1016883e797ef871df51b9145} 
+\index{object.c@{object.c}!object\_get\_y@{object\_get\_y}}
+\index{object\_get\_y@{object\_get\_y}!object.c@{object.c}}
+\doxysubsubsection{\texorpdfstring{object\_get\_y()}{object\_get\_y()}}
+{\footnotesize\ttfamily int object\+\_\+get\+\_\+y (\begin{DoxyParamCaption}\item[{Object \texorpdfstring{$\ast$}{*}}]{object }\end{DoxyParamCaption})}
+
+
+
+It get the y coordinate of the object\textquotesingle{}s position. 
+
+\begin{DoxyAuthor}{Author}
+Rubén, Arturo, Bea, Ana
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em object} & a pointer to the link \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the y coordinate 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{object_8c_a2ffa59c1016883e797ef871df51b9145_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{object_8c_a73d167d4cf9c3a367b534dc0dc980453}\label{object_8c_a73d167d4cf9c3a367b534dc0dc980453} 
+\index{object.c@{object.c}!object\_is\_movable@{object\_is\_movable}}
+\index{object\_is\_movable@{object\_is\_movable}!object.c@{object.c}}
+\doxysubsubsection{\texorpdfstring{object\_is\_movable()}{object\_is\_movable()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a39db6982619d623273fad8a383489309}{Bool}} object\+\_\+is\+\_\+movable (\begin{DoxyParamCaption}\item[{const Object \texorpdfstring{$\ast$}{*}}]{object }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{object_8c_a73d167d4cf9c3a367b534dc0dc980453_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{object_8c_a6488ec3cfebebfdeef4a43b9eebf8642}\label{object_8c_a6488ec3cfebebfdeef4a43b9eebf8642} 
+\index{object.c@{object.c}!object\_print@{object\_print}}
+\index{object\_print@{object\_print}!object.c@{object.c}}
+\doxysubsubsection{\texorpdfstring{object\_print()}{object\_print()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} object\+\_\+print (\begin{DoxyParamCaption}\item[{Object \texorpdfstring{$\ast$}{*}}]{object }\end{DoxyParamCaption})}
+
+
+
+It prints the object information. 
+
+\begin{DoxyAuthor}{Author}
+Beatriz, Arturo, Rubén, Ana
+\end{DoxyAuthor}
+This function shows the id and name of the object, the objects that surrounds it and whether it has an object or not. 
+\begin{DoxyParams}{Parameters}
+{\em object} & a pointer to the object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK, if everything goes well or ERROR if there was some mistake 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{object_8c_a6488ec3cfebebfdeef4a43b9eebf8642_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{object_8c_af0d455a288c1119694417c942602e912}\label{object_8c_af0d455a288c1119694417c942602e912} 
+\index{object.c@{object.c}!object\_set\_dependency@{object\_set\_dependency}}
+\index{object\_set\_dependency@{object\_set\_dependency}!object.c@{object.c}}
+\doxysubsubsection{\texorpdfstring{object\_set\_dependency()}{object\_set\_dependency()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} object\+\_\+set\+\_\+dependency (\begin{DoxyParamCaption}\item[{Object \texorpdfstring{$\ast$}{*}}]{object,  }\item[{\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}}}]{dependency }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{object_8c_af0d455a288c1119694417c942602e912_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{object_8c_a46dfe13b76a3ade55a1d8f478b4793f8}\label{object_8c_a46dfe13b76a3ade55a1d8f478b4793f8} 
+\index{object.c@{object.c}!object\_set\_desc@{object\_set\_desc}}
+\index{object\_set\_desc@{object\_set\_desc}!object.c@{object.c}}
+\doxysubsubsection{\texorpdfstring{object\_set\_desc()}{object\_set\_desc()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} object\+\_\+set\+\_\+desc (\begin{DoxyParamCaption}\item[{Object \texorpdfstring{$\ast$}{*}}]{object,  }\item[{char \texorpdfstring{$\ast$}{*}}]{desc }\end{DoxyParamCaption})}
+
+
+
+It sets the description of a object. 
+
+\begin{DoxyAuthor}{Author}
+Beatriz, Arturo, Rubén, Ana
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em object} & a pointer to the object \\
+\hline
+{\em desc} & a string with the description to store \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK, if everything goes well or ERROR if there was some mistake 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{object_8c_a46dfe13b76a3ade55a1d8f478b4793f8_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{object_8c_a183e210dfb8064d0e8edc5e5f66641a7}\label{object_8c_a183e210dfb8064d0e8edc5e5f66641a7} 
+\index{object.c@{object.c}!object\_set\_health@{object\_set\_health}}
+\index{object\_set\_health@{object\_set\_health}!object.c@{object.c}}
+\doxysubsubsection{\texorpdfstring{object\_set\_health()}{object\_set\_health()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} object\+\_\+set\+\_\+health (\begin{DoxyParamCaption}\item[{Object \texorpdfstring{$\ast$}{*}}]{object,  }\item[{int}]{health }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{object_8c_a183e210dfb8064d0e8edc5e5f66641a7_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{object_8c_a653ceb8039e69a949ad2dd9c8f49236c}\label{object_8c_a653ceb8039e69a949ad2dd9c8f49236c} 
+\index{object.c@{object.c}!object\_set\_id@{object\_set\_id}}
+\index{object\_set\_id@{object\_set\_id}!object.c@{object.c}}
+\doxysubsubsection{\texorpdfstring{object\_set\_id()}{object\_set\_id()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} object\+\_\+set\+\_\+id (\begin{DoxyParamCaption}\item[{Object \texorpdfstring{$\ast$}{*}}]{object,  }\item[{\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}}}]{id }\end{DoxyParamCaption})}
+
+
+
+It sets the id of a object. 
+
+\begin{DoxyAuthor}{Author}
+Beatriz, Arturo, Rubén, Ana
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em object} & a pointer to the object \\
+\hline
+{\em id} & the id the object will have \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK, if everything goes well or ERROR if there was some mistake 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{object_8c_a653ceb8039e69a949ad2dd9c8f49236c_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{object_8c_aa92f7db81b1243619db9003886ff8d79}\label{object_8c_aa92f7db81b1243619db9003886ff8d79} 
+\index{object.c@{object.c}!object\_set\_image@{object\_set\_image}}
+\index{object\_set\_image@{object\_set\_image}!object.c@{object.c}}
+\doxysubsubsection{\texorpdfstring{object\_set\_image()}{object\_set\_image()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} object\+\_\+set\+\_\+image (\begin{DoxyParamCaption}\item[{Object \texorpdfstring{$\ast$}{*}}]{object,  }\item[{char \texorpdfstring{$\ast$}{*}}]{image }\end{DoxyParamCaption})}
+
+
+
+It sets the object\textquotesingle{}s image\+\_\+path. 
+
+\begin{DoxyAuthor}{Author}
+Beatriz, Arturo, Rubén, Ana
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em object} & a pointer to the object \\
+\hline
+{\em image} & the path to the object\textquotesingle{}s image \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK, if everything goes well or ERROR if there was some mistake 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{object_8c_aa92f7db81b1243619db9003886ff8d79_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{object_8c_ae2cac8fc6b4b1763e97072c0d260e945}\label{object_8c_ae2cac8fc6b4b1763e97072c0d260e945} 
+\index{object.c@{object.c}!object\_set\_inspected@{object\_set\_inspected}}
+\index{object\_set\_inspected@{object\_set\_inspected}!object.c@{object.c}}
+\doxysubsubsection{\texorpdfstring{object\_set\_inspected()}{object\_set\_inspected()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} object\+\_\+set\+\_\+inspected (\begin{DoxyParamCaption}\item[{Object \texorpdfstring{$\ast$}{*}}]{object,  }\item[{\mbox{\hyperlink{types_8h_a39db6982619d623273fad8a383489309}{Bool}}}]{inspected }\end{DoxyParamCaption})}
+
+
+
+It sets whether the object has been inspected or not. 
+
+\begin{DoxyAuthor}{Author}
+Beatriz, Arturo, Rubén, Ana
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em object} & a pointer to the object \\
+\hline
+{\em inspected} & whether the object has been inspected or not \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK, if everything goes well or ERROR if there was some mistake 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{object_8c_ae2cac8fc6b4b1763e97072c0d260e945_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{object_8c_a16deb2a22a4eccb39676735f1e1a50c1}\label{object_8c_a16deb2a22a4eccb39676735f1e1a50c1} 
+\index{object.c@{object.c}!object\_set\_movable@{object\_set\_movable}}
+\index{object\_set\_movable@{object\_set\_movable}!object.c@{object.c}}
+\doxysubsubsection{\texorpdfstring{object\_set\_movable()}{object\_set\_movable()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} object\+\_\+set\+\_\+movable (\begin{DoxyParamCaption}\item[{Object \texorpdfstring{$\ast$}{*}}]{object,  }\item[{\mbox{\hyperlink{types_8h_a39db6982619d623273fad8a383489309}{Bool}}}]{movable }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{object_8c_a16deb2a22a4eccb39676735f1e1a50c1_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{object_8c_a14bf659f3055f0243d1af4b246d062b4}\label{object_8c_a14bf659f3055f0243d1af4b246d062b4} 
+\index{object.c@{object.c}!object\_set\_name@{object\_set\_name}}
+\index{object\_set\_name@{object\_set\_name}!object.c@{object.c}}
+\doxysubsubsection{\texorpdfstring{object\_set\_name()}{object\_set\_name()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} object\+\_\+set\+\_\+name (\begin{DoxyParamCaption}\item[{Object \texorpdfstring{$\ast$}{*}}]{object,  }\item[{char \texorpdfstring{$\ast$}{*}}]{name }\end{DoxyParamCaption})}
+
+
+
+It sets the name of a object. 
+
+\begin{DoxyAuthor}{Author}
+Beatriz, Arturo, Rubén, Ana
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em object} & a pointer to the object \\
+\hline
+{\em name} & a string with the name to store \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK, if everything goes well or ERROR if there was some mistake 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{object_8c_a14bf659f3055f0243d1af4b246d062b4_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{object_8c_aa160f7fea380d6b5bcf8734d4bf90834}\label{object_8c_aa160f7fea380d6b5bcf8734d4bf90834} 
+\index{object.c@{object.c}!object\_set\_open@{object\_set\_open}}
+\index{object\_set\_open@{object\_set\_open}!object.c@{object.c}}
+\doxysubsubsection{\texorpdfstring{object\_set\_open()}{object\_set\_open()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} object\+\_\+set\+\_\+open (\begin{DoxyParamCaption}\item[{Object \texorpdfstring{$\ast$}{*}}]{object,  }\item[{\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}}}]{link\+\_\+id }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{object_8c_aa160f7fea380d6b5bcf8734d4bf90834_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{object_8c_a61d7e9831c35c5d008e5632af477b4ba}\label{object_8c_a61d7e9831c35c5d008e5632af477b4ba} 
+\index{object.c@{object.c}!object\_set\_position@{object\_set\_position}}
+\index{object\_set\_position@{object\_set\_position}!object.c@{object.c}}
+\doxysubsubsection{\texorpdfstring{object\_set\_position()}{object\_set\_position()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} object\+\_\+set\+\_\+position (\begin{DoxyParamCaption}\item[{Object \texorpdfstring{$\ast$}{*}}]{object,  }\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+
+
+It sets the object\textquotesingle{}s position. 
+
+\begin{DoxyAuthor}{Author}
+Beatriz, Arturo, Rubén, Ana
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em object} & a pointer to the object \\
+\hline
+{\em x} & the x coordinate of the object\textquotesingle{}s position \\
+\hline
+{\em y} & the y coordinate of the object\textquotesingle{}s position \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK, if everything goes well or ERROR if there was some mistake 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{object_8c_a61d7e9831c35c5d008e5632af477b4ba_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{object_8c_a6fe04c6bad8acf92a4d152e678b1c21e}\label{object_8c_a6fe04c6bad8acf92a4d152e678b1c21e} 
+\index{object.c@{object.c}!object\_set\_turn\_amplifier@{object\_set\_turn\_amplifier}}
+\index{object\_set\_turn\_amplifier@{object\_set\_turn\_amplifier}!object.c@{object.c}}
+\doxysubsubsection{\texorpdfstring{object\_set\_turn\_amplifier()}{object\_set\_turn\_amplifier()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} object\+\_\+set\+\_\+turn\+\_\+amplifier (\begin{DoxyParamCaption}\item[{Object \texorpdfstring{$\ast$}{*}}]{object,  }\item[{int}]{turn\+\_\+amplifier }\end{DoxyParamCaption})}
+
+
+
+It sets the amount of turns the object increases. 
+
+\begin{DoxyAuthor}{Author}
+Ana
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em object} & a pointer to the object \\
+\hline
+{\em turn\+\_\+amplifier} & the amount of turns the object increases \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK, if everything goes well or ERROR if there was some mistake 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{object_8c_a6fe04c6bad8acf92a4d152e678b1c21e_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{object_8c_afde1901aab0f8be49fe098e4486aeaef}\label{object_8c_afde1901aab0f8be49fe098e4486aeaef} 
+\index{object.c@{object.c}!object\_set\_uses@{object\_set\_uses}}
+\index{object\_set\_uses@{object\_set\_uses}!object.c@{object.c}}
+\doxysubsubsection{\texorpdfstring{object\_set\_uses()}{object\_set\_uses()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} object\+\_\+set\+\_\+uses (\begin{DoxyParamCaption}\item[{Object \texorpdfstring{$\ast$}{*}}]{object,  }\item[{int}]{uses }\end{DoxyParamCaption})}
+
+
+
+It set the uses an object has. 
+
+\begin{DoxyAuthor}{Author}
+Ana
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em object} & a pointer to the object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK, if everything goes well or ERROR if there was some mistake 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{object_8c_afde1901aab0f8be49fe098e4486aeaef_icgraph}
+\end{center}
+\end{figure}

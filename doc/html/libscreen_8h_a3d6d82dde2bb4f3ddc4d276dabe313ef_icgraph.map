@@ -1,0 +1,24 @@
+<map id="screen_destroy" name="screen_destroy">
+<area shape="rect" id="Node000001" title="It destroys a new screen area." alt="" coords="791,31,912,56"/>
+<area shape="rect" id="Node000002" href="$graphic__engine_8c.html#a5a5eac4ef2033c5ad71aa6895f362f79" title="It destroys a graphic engine." alt="" coords="565,5,743,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="777,36,742,32,743,27,777,31"/>
+<area shape="rect" id="Node000005" href="$libscreen_8c.html#a3c7e0099996732d34b143dde1a40f02c" title="It creates a new screen." alt="" coords="607,55,701,80"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="777,55,701,64,701,59,777,50"/>
+<area shape="rect" id="Node000003" href="$game__loop_8c.html#a0da7d0baf2abd7218bc555ea1f73d1c2" title="Cleans up resources used during the game loop, including the game and graphic engine." alt="" coords="357,5,509,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="551,21,509,21,509,15,551,15"/>
+<area shape="rect" id="Node000004" href="$game__loop_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,80,60,105"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="343,15,289,15,230,19,168,28,109,44,76,62,50,82,46,78,73,57,107,40,167,23,229,14,289,10,343,10"/>
+<area shape="rect" id="Node000006" href="$graphic__engine_8c.html#a943c75487b750e5b0aafde34ac739b16" title="It creates a new graphic engine." alt="" coords="348,55,517,80"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="593,70,518,70,518,65,593,65"/>
+<area shape="rect" id="Node000008" href="$graphic__engine_8c.html#a87c7b56bef2e31259b30bba27bb8cd00" title="It allows for the visualization of only one screen." alt="" coords="348,105,517,145"/>
+<area shape="poly" id="edge8_Node000005_Node000008" title=" " alt="" coords="595,85,511,107,510,102,593,80"/>
+<area shape="rect" id="Node000007" href="$game__loop_8c.html#a31e8784ceb06b2f65b70e074e3e1a722" title="Initializes the game loop by loading game data and creating the graphic engine." alt="" coords="143,55,265,80"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="334,70,266,70,266,65,334,65"/>
+<area shape="poly" id="edge7_Node000007_Node000004" title=" " alt="" coords="129,81,61,91,60,86,128,76"/>
+<area shape="rect" id="Node000009" href="$graphic__engine_8c.html#a944f77c736cfe97f5ac0d08f16cb6785" title="It paints the end game screen." alt="" coords="108,104,300,129"/>
+<area shape="poly" id="edge9_Node000008_Node000009" title=" " alt="" coords="334,124,300,123,300,117,334,119"/>
+<area shape="rect" id="Node000010" href="$graphic__engine_8c.html#a69e45b47bd8d4bd4b750fbdc58c2471d" title="It paints the welcome screen." alt="" coords="123,154,285,194"/>
+<area shape="poly" id="edge11_Node000008_Node000010" title=" " alt="" coords="335,148,285,159,284,154,334,143"/>
+<area shape="poly" id="edge10_Node000009_Node000004" title=" " alt="" coords="99,105,60,99,61,94,100,99"/>
+<area shape="poly" id="edge12_Node000010_Node000004" title=" " alt="" coords="122,151,107,144,49,108,52,103,109,140,125,147"/>
+</map>

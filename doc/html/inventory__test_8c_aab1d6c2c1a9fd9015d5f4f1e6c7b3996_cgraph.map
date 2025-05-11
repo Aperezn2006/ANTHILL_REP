@@ -1,0 +1,22 @@
+<map id="test1_inventory_get_object_index" name="test1_inventory_get_object_index">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,99,157,139"/>
+<area shape="rect" id="Node000002" href="$inventory_8c.html#a2e8ab06ba7c277479fc475ebd2bd522f" title="It adds an object to the inventory." alt="" coords="205,56,368,81"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="157,98,220,82,221,87,158,103"/>
+<area shape="rect" id="Node000005" href="$inventory_8c.html#acfdb31bdaf1646387a93fc7ece2ef180" title="It creates a new player, allocating memory and initializing its members." alt="" coords="221,107,353,132"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="158,117,207,117,207,122,158,122"/>
+<area shape="rect" id="Node000007" href="$inventory_8c.html#aa95098ebc1d30b4ccbc24b57c8abc0c3" title="It gets the index of a certain object in the array of objects in the object set." alt="" coords="207,177,366,217"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="136,137,221,169,219,174,134,142"/>
+<area shape="rect" id="Node000003" href="$set_8c.html#ad252ed6b4db23b184789fd4ef5afe5e1" title="It adds an element to the set." alt="" coords="471,5,563,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="345,53,457,28,458,34,346,58"/>
+<area shape="rect" id="Node000004" href="$set_8c.html#afaa9d55d67526584aba2e0688ca189b3" title="It gets the size of the set." alt="" coords="667,107,799,132"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="368,69,487,77,619,91,669,101,668,106,618,97,487,82,368,74"/>
+<area shape="rect" id="Node000006" href="$set_8c.html#aaad3bdcac9fbbfc38b4800b12bb17449" title="It creates a set." alt="" coords="472,107,563,132"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="353,117,458,117,458,122,353,122"/>
+<area shape="rect" id="Node000008" href="$inventory_8c.html#a3864763ec669d442486ad1e3d26c739d" title="It gets the number of objects that the inventory has." alt="" coords="416,156,619,181"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="366,184,402,180,402,185,367,190"/>
+<area shape="rect" id="Node000009" href="$inventory_8c.html#a5b71ef1ef9d063c95166ac64379d0c1a" title="It gets a pointer to the set of objects of a certain inventory." alt="" coords="434,205,601,231"/>
+<area shape="poly" id="edge9_Node000007_Node000009" title=" " alt="" coords="367,201,421,206,420,212,366,207"/>
+<area shape="rect" id="Node000010" href="$set_8c.html#a7d9d411d8d5f63192b1cff0fe155bbfc" title="It gets the element at a given position in the set." alt="" coords="432,255,603,280"/>
+<area shape="poly" id="edge10_Node000007_Node000010" title=" " alt="" coords="340,214,417,241,446,249,444,254,415,246,338,219"/>
+<area shape="poly" id="edge8_Node000008_Node000004" title=" " alt="" coords="573,153,663,132,664,138,574,159"/>
+</map>

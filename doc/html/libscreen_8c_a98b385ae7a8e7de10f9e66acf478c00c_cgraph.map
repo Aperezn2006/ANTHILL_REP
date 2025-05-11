@@ -1,0 +1,5 @@
+<map id="screen_paint" name="screen_paint">
+<area shape="rect" id="Node000001" title="It paints in the terminal the actual screen composition." alt="" coords="5,5,111,31"/>
+<area shape="rect" id="Node000002" href="$libscreen_8c.html#a1e2a486c74a39faf138364ff5421da89" title=" " alt="" coords="159,5,323,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="111,15,145,15,145,21,111,21"/>
+</map>

@@ -1,0 +1,171 @@
+\doxysection{/mnt/c/\+Ubuntu/\+Shared\+\_\+folder/\+PPROG/\+I4/\+ANTHILL\+\_\+\+REP/src/graphic\+\_\+engine\+\_\+sdl.c File Reference}
+\hypertarget{graphic__engine__sdl_8c}{}\label{graphic__engine__sdl_8c}\index{/mnt/c/Ubuntu/Shared\_folder/PPROG/I4/ANTHILL\_REP/src/graphic\_engine\_sdl.c@{/mnt/c/Ubuntu/Shared\_folder/PPROG/I4/ANTHILL\_REP/src/graphic\_engine\_sdl.c}}
+{\ttfamily \#include "{}graphic\+\_\+engine\+\_\+sdl.\+h"{}}\newline
+Include dependency graph for graphic\+\_\+engine\+\_\+sdl.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{graphic__engine__sdl_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct__Graphic__engine__sdl}{Graphic\+\_\+engine\+\_\+sdl}}
+\begin{DoxyCompactList}\small\item\em Graphic engine. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{graphic__engine__sdl_8c_af95673a2eb113b8e1c74f9c267334499}{MY\+\_\+\+FONT}}~"{}fonts/04b\+\_\+25\+\_\+\+\_\+.\+ttf"{}
+\item 
+\#define \mbox{\hyperlink{graphic__engine__sdl_8c_aa968a61524f9ed159c4c5464cb26dd41}{FONT\+\_\+\+SIZE}}~(25 \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{types_8h_a855c0033fe8807f9a23c05cbce85b7c8}{SDL\+\_\+\+SCREEN\+\_\+\+ZOOM}})
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{graphic__engine__sdl_8c_a5891ff9c1a73ad17cb4394c53dd9e87f}{load\+\_\+texture}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer, const char \texorpdfstring{$\ast$}{*}file\+\_\+path)
+\item 
+Graphic\+\_\+engine\+\_\+sdl \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{graphic__engine__sdl_8c_a56a265735491934a3f7b9ec1bd21b038}{graphic\+\_\+engine\+\_\+create\+\_\+sdl}} ()
+\begin{DoxyCompactList}\small\item\em It creates a new graphic engine. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{graphic__engine__sdl_8c_a159fad3d97ad98964531db1ab91c7620}{graphic\+\_\+engine\+\_\+destroy\+\_\+sdl}} (Graphic\+\_\+engine\+\_\+sdl \texorpdfstring{$\ast$}{*}gengine)
+\begin{DoxyCompactList}\small\item\em It destroys a graphic engine. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{graphic__engine__sdl_8c_a4b25b2fe0bcb65316b5f7a325b562fcc}{graphic\+\_\+engine\+\_\+render\+\_\+sdl}} (Graphic\+\_\+engine\+\_\+sdl \texorpdfstring{$\ast$}{*}gengine, Game \texorpdfstring{$\ast$}{*}game)
+\begin{DoxyCompactList}\small\item\em It paints the game\textquotesingle{}s data on the user\textquotesingle{}s screen. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{graphic__engine__sdl_8c_aa968a61524f9ed159c4c5464cb26dd41}\label{graphic__engine__sdl_8c_aa968a61524f9ed159c4c5464cb26dd41} 
+\index{graphic\_engine\_sdl.c@{graphic\_engine\_sdl.c}!FONT\_SIZE@{FONT\_SIZE}}
+\index{FONT\_SIZE@{FONT\_SIZE}!graphic\_engine\_sdl.c@{graphic\_engine\_sdl.c}}
+\doxysubsubsection{\texorpdfstring{FONT\_SIZE}{FONT\_SIZE}}
+{\footnotesize\ttfamily \#define FONT\+\_\+\+SIZE~(25 \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{types_8h_a855c0033fe8807f9a23c05cbce85b7c8}{SDL\+\_\+\+SCREEN\+\_\+\+ZOOM}})}
+
+\Hypertarget{graphic__engine__sdl_8c_af95673a2eb113b8e1c74f9c267334499}\label{graphic__engine__sdl_8c_af95673a2eb113b8e1c74f9c267334499} 
+\index{graphic\_engine\_sdl.c@{graphic\_engine\_sdl.c}!MY\_FONT@{MY\_FONT}}
+\index{MY\_FONT@{MY\_FONT}!graphic\_engine\_sdl.c@{graphic\_engine\_sdl.c}}
+\doxysubsubsection{\texorpdfstring{MY\_FONT}{MY\_FONT}}
+{\footnotesize\ttfamily \#define MY\+\_\+\+FONT~"{}fonts/04b\+\_\+25\+\_\+\+\_\+.\+ttf"{}}
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{graphic__engine__sdl_8c_a56a265735491934a3f7b9ec1bd21b038}\label{graphic__engine__sdl_8c_a56a265735491934a3f7b9ec1bd21b038} 
+\index{graphic\_engine\_sdl.c@{graphic\_engine\_sdl.c}!graphic\_engine\_create\_sdl@{graphic\_engine\_create\_sdl}}
+\index{graphic\_engine\_create\_sdl@{graphic\_engine\_create\_sdl}!graphic\_engine\_sdl.c@{graphic\_engine\_sdl.c}}
+\doxysubsubsection{\texorpdfstring{graphic\_engine\_create\_sdl()}{graphic\_engine\_create\_sdl()}}
+{\footnotesize\ttfamily Graphic\+\_\+engine\+\_\+sdl \texorpdfstring{$\ast$}{*} graphic\+\_\+engine\+\_\+create\+\_\+sdl (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+It creates a new graphic engine. 
+
+\begin{DoxyAuthor}{Author}
+Rubén, Arturo, Bea, Ana, Profesores PPROG
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a pointer to the graphic engine 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=340pt]{graphic__engine__sdl_8c_a56a265735491934a3f7b9ec1bd21b038_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{graphic__engine__sdl_8c_a56a265735491934a3f7b9ec1bd21b038_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{graphic__engine__sdl_8c_a159fad3d97ad98964531db1ab91c7620}\label{graphic__engine__sdl_8c_a159fad3d97ad98964531db1ab91c7620} 
+\index{graphic\_engine\_sdl.c@{graphic\_engine\_sdl.c}!graphic\_engine\_destroy\_sdl@{graphic\_engine\_destroy\_sdl}}
+\index{graphic\_engine\_destroy\_sdl@{graphic\_engine\_destroy\_sdl}!graphic\_engine\_sdl.c@{graphic\_engine\_sdl.c}}
+\doxysubsubsection{\texorpdfstring{graphic\_engine\_destroy\_sdl()}{graphic\_engine\_destroy\_sdl()}}
+{\footnotesize\ttfamily void graphic\+\_\+engine\+\_\+destroy\+\_\+sdl (\begin{DoxyParamCaption}\item[{Graphic\+\_\+engine\+\_\+sdl \texorpdfstring{$\ast$}{*}}]{gengine }\end{DoxyParamCaption})}
+
+
+
+It destroys a graphic engine. 
+
+\begin{DoxyAuthor}{Author}
+Rubén, Arturo, Bea, Ana, Profesores PPROG
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em ge} & a pointer to the graphic engine \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+nothing 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{graphic__engine__sdl_8c_a159fad3d97ad98964531db1ab91c7620_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{graphic__engine__sdl_8c_a4b25b2fe0bcb65316b5f7a325b562fcc}\label{graphic__engine__sdl_8c_a4b25b2fe0bcb65316b5f7a325b562fcc} 
+\index{graphic\_engine\_sdl.c@{graphic\_engine\_sdl.c}!graphic\_engine\_render\_sdl@{graphic\_engine\_render\_sdl}}
+\index{graphic\_engine\_render\_sdl@{graphic\_engine\_render\_sdl}!graphic\_engine\_sdl.c@{graphic\_engine\_sdl.c}}
+\doxysubsubsection{\texorpdfstring{graphic\_engine\_render\_sdl()}{graphic\_engine\_render\_sdl()}}
+{\footnotesize\ttfamily void graphic\+\_\+engine\+\_\+render\+\_\+sdl (\begin{DoxyParamCaption}\item[{Graphic\+\_\+engine\+\_\+sdl \texorpdfstring{$\ast$}{*}}]{gengine,  }\item[{Game \texorpdfstring{$\ast$}{*}}]{game }\end{DoxyParamCaption})}
+
+
+
+It paints the game\textquotesingle{}s data on the user\textquotesingle{}s screen. 
+
+\begin{DoxyAuthor}{Author}
+Rubén, Arturo, Bea, Ana, Profesores PPROG
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em ge} & a pointer to the graphic engine \\
+\hline
+{\em game} & a pointer to the game \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+nothing 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{graphic__engine__sdl_8c_a4b25b2fe0bcb65316b5f7a325b562fcc_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{graphic__engine__sdl_8c_a4b25b2fe0bcb65316b5f7a325b562fcc_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{graphic__engine__sdl_8c_a5891ff9c1a73ad17cb4394c53dd9e87f}\label{graphic__engine__sdl_8c_a5891ff9c1a73ad17cb4394c53dd9e87f} 
+\index{graphic\_engine\_sdl.c@{graphic\_engine\_sdl.c}!load\_texture@{load\_texture}}
+\index{load\_texture@{load\_texture}!graphic\_engine\_sdl.c@{graphic\_engine\_sdl.c}}
+\doxysubsubsection{\texorpdfstring{load\_texture()}{load\_texture()}}
+{\footnotesize\ttfamily SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*} load\+\_\+texture (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{renderer,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{file\+\_\+path }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{graphic__engine__sdl_8c_a5891ff9c1a73ad17cb4394c53dd9e87f_icgraph}
+\end{center}
+\end{figure}

@@ -1,0 +1,58 @@
+\doxysection{types.\+h}
+\hypertarget{types_8h_source}{}\label{types_8h_source}\index{/mnt/c/Ubuntu/Shared\_folder/PPROG/I4/ANTHILL\_REP/include/types.h@{/mnt/c/Ubuntu/Shared\_folder/PPROG/I4/ANTHILL\_REP/include/types.h}}
+\mbox{\hyperlink{types_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#ifndef\ TYPES\_H}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#define\ TYPES\_H}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ WORD\_SIZE\ 1000}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#define\ NO\_ID\ -\/1}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#define\ NO\_DIR\ -\/1}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#define\ MAX\_SPACES\ 100}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#define\ MAX\_OBJECTS\ 100}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ MAX\_CHARACTERS\ 100}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#define\ MAX\_LINK\ 100}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ MAX\_PLAYERS\ 10}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#define\ MAX\_TEAMS\ 16}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#define\ MAX\_MESSAGE\ 100}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#define\ MAX\_IMAGE\ 100}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#define\ PLAYER\_HEALTH\ 5}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#define\ CHARACTER\_HEALTH\ 10}}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#define\ BOX\_WIDTH\ 19}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}};}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{\ \mbox{\hyperlink{types_8h_a39db6982619d623273fad8a383489309aa1e095cc966dbecf6a0d8aad75348d1a}{FALSE}},\ \mbox{\hyperlink{types_8h_a39db6982619d623273fad8a383489309aa82764c3079aea4e60c80e45befbb839}{TRUE}},\ \mbox{\hyperlink{types_8h_a39db6982619d623273fad8a383489309ae50e47256d3583f0f0cbf9c30c360594}{WRONG}}\ \}\ \mbox{\hyperlink{types_8h_a39db6982619d623273fad8a383489309}{Bool}};}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{\ \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70ba2fd6f336d08340583bd620a7f5694c90}{ERROR}},\ \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70ba2bc49ec37d6a5715dd23e85f1ff5bb59}{OK}}\ \}\ \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}};}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{\ \mbox{\hyperlink{types_8h_a224b9163917ac32fc95a60d8c1eec3aaa2c63acbe79d9f41ba6bb7766e9c37702}{N}},\ \mbox{\hyperlink{types_8h_a224b9163917ac32fc95a60d8c1eec3aaaf1ce01387d2348f8b858721a7db81670}{S}},\ \mbox{\hyperlink{types_8h_a224b9163917ac32fc95a60d8c1eec3aaab199e021998d49b1f09338d8b9b18ecb}{E}},\ \mbox{\hyperlink{types_8h_a224b9163917ac32fc95a60d8c1eec3aaab722ceeb601c72cd78fbd35f3581fdf7}{W}},\ \mbox{\hyperlink{types_8h_a224b9163917ac32fc95a60d8c1eec3aaac461e84f27bbb236874e1011cd66031f}{U}},\ \mbox{\hyperlink{types_8h_a224b9163917ac32fc95a60d8c1eec3aaa77a6b11f9898c052926f1d49765861e8}{D}}\ \}\ \mbox{\hyperlink{types_8h_a224b9163917ac32fc95a60d8c1eec3aa}{Direction}};}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{\ \mbox{\hyperlink{types_8h_a94dabeafc916c84d0a07eacdb8c0a1fcac08dae7edcb5c5bb959fee5971fbad95}{SPACE}},\ \mbox{\hyperlink{types_8h_a94dabeafc916c84d0a07eacdb8c0a1fcade5dc3e0dbd007d995ed3e37bde5ce7e}{PLAYER}},\ \mbox{\hyperlink{types_8h_a94dabeafc916c84d0a07eacdb8c0a1fca6f78e99ade8d62ec44d30013723e6e75}{OBJECT}},\ \mbox{\hyperlink{types_8h_a94dabeafc916c84d0a07eacdb8c0a1fca762041e95dc7b081aaf6b0019dca8586}{CHARACTER}},\ \mbox{\hyperlink{types_8h_a94dabeafc916c84d0a07eacdb8c0a1fcaf2fe1bf26da6f8a451f054e30b3ce0f3}{LINK}},\ \mbox{\hyperlink{types_8h_a94dabeafc916c84d0a07eacdb8c0a1fca7165f9a47792f47c718ca128556fb3ae}{UNSIGNED}}\ \}\ \mbox{\hyperlink{types_8h_a94dabeafc916c84d0a07eacdb8c0a1fc}{Id\_Type}};}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \textcolor{comment}{/*SDL*/}}
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#define\ SDL\_SCREEN\_ZOOM\ 2}}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#define\ SDL\_TILE\_SIZE\ (10\ *\ SDL\_SCREEN\_ZOOM)}}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#define\ SDL\_MAP\_HEIGHT\ (128\ *\ 3\ *\ SDL\_SCREEN\_ZOOM)}}
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#define\ SDL\_INFO\_HEIGHT\ (100\ *\ SDL\_SCREEN\_ZOOM)}}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#define\ SDL\_WINDOW\_WIDTH\ (256\ *\ 3\ *\ SDL\_SCREEN\_ZOOM)}}
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#define\ SDL\_WINDOW\_HEIGHT\ (SDL\_MAP\_HEIGHT\ +\ SDL\_INFO\_HEIGHT)}}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#define\ SDL\_MAP\_BORDER\ (20\ *\ SDL\_SCREEN\_ZOOM)}}
+\DoxyCodeLine{00054\ \textcolor{preprocessor}{\#define\ SDL\_WALL\_HEIGHT\ (80\ *\ SDL\_SCREEN\_ZOOM)}}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \textcolor{preprocessor}{\#define\ SDL\_LINK\_HW\ (80\ *\ SDL\_SCREEN\_ZOOM)}}
+\DoxyCodeLine{00057\ \textcolor{preprocessor}{\#define\ SDL\_PLAYER\_HW\ (70\ *\ SDL\_SCREEN\_ZOOM)}}
+\DoxyCodeLine{00058\ \textcolor{preprocessor}{\#define\ SDL\_CHARACTER\_HW\ (70\ *\ SDL\_SCREEN\_ZOOM)}}
+\DoxyCodeLine{00059\ \textcolor{preprocessor}{\#define\ SDL\_OBJECT\_HW\ (40\ *\ SDL\_SCREEN\_ZOOM)}}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

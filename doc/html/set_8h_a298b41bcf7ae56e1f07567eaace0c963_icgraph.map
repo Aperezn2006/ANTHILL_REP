@@ -1,0 +1,124 @@
+<map id="set_has_id" name="set_has_id">
+<area shape="rect" id="Node000001" title="It checks if the set contains an element." alt="" coords="1248,976,1339,1002"/>
+<area shape="rect" id="Node000002" href="$game_8c.html#a784b0213ccd2c897ef65047c4a22d9f3" title="It gets the team of a player." alt="" coords="1038,92,1166,118"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1289,962,1285,854,1271,689,1244,494,1223,394,1197,298,1177,244,1152,193,1109,119,1114,116,1157,190,1182,242,1203,296,1229,393,1249,493,1277,688,1290,854,1294,962"/>
+<area shape="rect" id="Node000007" href="$game_8c.html#a5bde64ef6fae5ab260814e3c29f53679" title="It gets the number of teammates a player has." alt="" coords="1004,888,1200,914"/>
+<area shape="poly" id="edge4_Node000001_Node000007" title=" " alt="" coords="1251,973,1130,916,1132,911,1254,968"/>
+<area shape="rect" id="Node000010" href="$inventory_8c.html#a3312af669bbc6fb7166481b526efb2c8" title="It checks whether the inventory has a certain object." alt="" coords="1021,976,1183,1002"/>
+<area shape="poly" id="edge8_Node000001_Node000010" title=" " alt="" coords="1234,992,1183,992,1183,986,1234,986"/>
+<area shape="rect" id="Node000086" href="$space_8c.html#a39e092c7b3799c16bd6177c1155a683b" title="Checks whether the space has a specific character." alt="" coords="1023,438,1181,463"/>
+<area shape="poly" id="edge42_Node000001_Node000086" title=" " alt="" coords="1281,964,1105,464,1110,462,1286,962"/>
+<area shape="rect" id="Node000094" href="$space_8c.html#ad3bc0f1c4d5e11a86d533dc0cd73fc57" title="It checks whether the space has a specific object." alt="" coords="788,250,925,275"/>
+<area shape="poly" id="edge57_Node000001_Node000094" title=" " alt="" coords="1288,962,1280,849,1264,690,1252,608,1237,533,1219,470,1198,426,1171,395,1140,367,1105,344,1068,324,992,294,925,276,926,271,994,289,1070,319,1107,339,1143,363,1175,391,1202,423,1224,469,1242,532,1257,607,1269,689,1286,849,1293,962"/>
+<area shape="rect" id="Node000097" href="$set__test_8c.html#a3f4cf88157b4c050501cf53ab17c6262" title=" " alt="" coords="1036,1124,1168,1150"/>
+<area shape="poly" id="edge65_Node000001_Node000097" title=" " alt="" coords="1282,1015,1250,1065,1228,1092,1201,1114,1169,1129,1167,1124,1199,1109,1224,1088,1246,1062,1278,1012"/>
+<area shape="rect" id="Node000099" href="$set__test_8c.html#affa806cab8e900cc297cc1a58f5ac35c" title=" " alt="" coords="1037,1174,1167,1199"/>
+<area shape="poly" id="edge67_Node000001_Node000099" title=" " alt="" coords="1288,1016,1276,1050,1259,1089,1234,1129,1202,1163,1169,1180,1166,1175,1198,1159,1230,1126,1254,1087,1271,1048,1283,1014"/>
+<area shape="rect" id="Node000100" href="$set__test_8c.html#ab895668227f0c9ae75c4c8b354bca435" title=" " alt="" coords="1023,1026,1181,1051"/>
+<area shape="poly" id="edge69_Node000001_Node000100" title=" " alt="" coords="1235,1006,1153,1028,1151,1023,1234,1001"/>
+<area shape="rect" id="Node000101" href="$set__test_8c.html#a27ba936110dfc23be0d0d3b9ebf07161" title=" " alt="" coords="1037,1075,1167,1100"/>
+<area shape="poly" id="edge71_Node000001_Node000101" title=" " alt="" coords="1271,1013,1240,1040,1201,1065,1168,1077,1166,1072,1199,1060,1237,1036,1268,1009"/>
+<area shape="rect" id="Node000003" href="$game__actions_8c.html#a7ba3ad9bedfd49af117636f826eaff1c" title="It moves the player in the desired direction (north, south, west or east)" alt="" coords="243,199,400,224"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="1058,90,950,52,879,33,801,18,718,9,633,11,551,25,511,37,473,54,456,67,447,82,439,100,426,120,380,166,340,201,337,197,377,162,422,117,435,97,443,80,452,63,471,49,509,32,550,19,633,5,718,4,801,12,880,28,952,47,1060,84"/>
+<area shape="rect" id="Node000004" href="$game__actions_8c.html#a0693694a3e70b4a4129e2da4ddb1f1a7" title="It updates the current command based on user input." alt="" coords="5,748,171,774"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="311,238,221,445,97,749,92,747,216,443,306,236"/>
+<area shape="rect" id="Node000008" href="$game_8c.html#a8d332dce5fd1eff0fbbae83621d2210b" title="It sets teams." alt="" coords="778,812,935,838"/>
+<area shape="poly" id="edge5_Node000007_Node000008" title=" " alt="" coords="1046,887,898,840,900,835,1048,881"/>
+<area shape="rect" id="Node000009" href="$game__actions_8c.html#a087a1fbd2a46cf6295d517e3c0a43ec3" title="It allows the player to follow another player." alt="" coords="241,774,401,799"/>
+<area shape="poly" id="edge6_Node000008_Node000009" title=" " alt="" coords="764,821,401,795,402,789,765,816"/>
+<area shape="poly" id="edge7_Node000009_Node000004" title=" " alt="" coords="227,779,171,772,171,767,228,773"/>
+<area shape="rect" id="Node000011" href="$player_8c.html#afd4f4e0fecad36df5cb98fa86eefce00" title="It gets whether the player has an object or not." alt="" coords="787,976,927,1002"/>
+<area shape="poly" id="edge9_Node000010_Node000011" title=" " alt="" coords="1008,992,927,992,927,986,1008,986"/>
+<area shape="rect" id="Node000083" href="$inventory__test_8c.html#a998808342b6ea7d9e7c12c47c4725093" title=" " alt="" coords="779,1026,934,1066"/>
+<area shape="poly" id="edge38_Node000010_Node000083" title=" " alt="" coords="1034,1007,935,1031,934,1026,1033,1002"/>
+<area shape="rect" id="Node000085" href="$inventory__test_8c.html#a7b74f975c41051fab9f54bc1e84ec545" title=" " alt="" coords="779,1090,934,1130"/>
+<area shape="poly" id="edge40_Node000010_Node000085" title=" " alt="" coords="1015,1010,1006,1015,990,1030,982,1046,974,1063,958,1080,936,1093,933,1088,954,1076,969,1060,977,1044,986,1027,1002,1011,1012,1005"/>
+<area shape="rect" id="Node000012" href="$game__rules_8c.html#aaa420b21ea4342a519b474147863edca" title=" " alt="" coords="523,1176,658,1202"/>
+<area shape="poly" id="edge10_Node000011_Node000012" title=" " alt="" coords="775,1005,759,1016,745,1034,738,1052,736,1089,734,1128,726,1147,711,1166,687,1181,659,1189,658,1184,684,1176,708,1162,722,1144,729,1127,731,1089,733,1051,741,1031,756,1012,772,1001"/>
+<area shape="rect" id="Node000014" href="$game__actions_8c.html#abb3fcef4a17dd9fa9293f6b2b5e2d976" title="It allows a player to drop an object if they have it." alt="" coords="247,850,396,875"/>
+<area shape="poly" id="edge11_Node000011_Node000014" title=" " alt="" coords="812,974,709,938,541,900,396,875,397,870,542,895,710,933,813,969"/>
+<area shape="rect" id="Node000015" href="$game__actions__sdl_8c.html#a61aac260f32dcea88770a0cf7f1f890d" title="It allows a player to drop an object if they have it." alt="" coords="503,1226,678,1251"/>
+<area shape="poly" id="edge13_Node000011_Node000015" title=" " alt="" coords="776,1004,759,1016,742,1040,735,1064,734,1089,737,1115,739,1140,738,1166,730,1191,711,1216,696,1227,680,1235,677,1230,694,1223,707,1212,725,1189,733,1165,734,1140,731,1115,729,1089,729,1064,737,1038,755,1012,773,1000"/>
+<area shape="rect" id="Node000019" href="$game__actions_8c.html#ab2fe29f3bf2f6d8ab2e16dbe019a6b3d" title="It allows the player to inspect an object." alt="" coords="507,723,674,748"/>
+<area shape="poly" id="edge14_Node000011_Node000019" title=" " alt="" coords="836,967,781,898,708,820,658,781,612,751,615,746,661,776,711,816,785,895,840,963"/>
+<area shape="rect" id="Node000020" href="$game__actions__sdl_8c.html#af2452109a3c899676b0687f3de9332c8" title="It allows the player to inspect an object." alt="" coords="494,456,687,482"/>
+<area shape="poly" id="edge16_Node000011_Node000020" title=" " alt="" coords="832,968,792,916,772,884,755,850,741,805,736,764,739,692,741,658,738,623,728,587,707,546,690,526,669,509,625,484,627,479,672,504,694,522,712,543,733,585,744,622,746,658,745,692,741,764,746,804,760,848,776,882,796,913,837,965"/>
+<area shape="rect" id="Node000021" href="$game__actions_8c.html#a935ceaa81f41347f30de898c50cf4735" title="It allows the player to open links." alt="" coords="245,926,397,951"/>
+<area shape="poly" id="edge17_Node000011_Node000021" title=" " alt="" coords="777,976,709,966,542,951,397,943,398,938,542,946,710,961,778,971"/>
+<area shape="rect" id="Node000022" href="$game__actions__sdl_8c.html#a0ed898b4845191eb1a03364ef8074bf7" title=" " alt="" coords="232,1202,411,1227"/>
+<area shape="poly" id="edge19_Node000011_Node000022" title=" " alt="" coords="776,1004,759,1016,739,1047,732,1078,734,1110,740,1142,745,1175,745,1206,736,1237,711,1266,681,1286,653,1298,626,1302,598,1300,540,1286,471,1266,446,1255,423,1242,382,1229,384,1224,425,1237,449,1250,473,1261,542,1281,599,1295,625,1297,652,1293,679,1281,708,1262,731,1234,740,1205,740,1175,734,1143,728,1111,727,1078,734,1045,755,1012,773,999"/>
+<area shape="rect" id="Node000023" href="$game__actions_8c.html#a8ff24b2a36351e92760b4bf21da4abae" title="It allows the player to use an object." alt="" coords="250,1027,393,1052"/>
+<area shape="poly" id="edge20_Node000011_Node000023" title=" " alt="" coords="773,1006,710,1016,539,1031,393,1039,393,1034,539,1026,709,1010,773,1001"/>
+<area shape="rect" id="Node000024" href="$game__actions__sdl_8c.html#a836d4d9cfc019c9c7ac4461935122515" title=" " alt="" coords="237,1251,406,1276"/>
+<area shape="poly" id="edge22_Node000011_Node000024" title=" " alt="" coords="776,1004,759,1016,746,1034,737,1052,729,1088,732,1125,740,1163,748,1200,749,1237,739,1272,727,1289,711,1306,690,1321,666,1332,617,1345,564,1347,512,1340,461,1326,415,1310,345,1279,347,1274,417,1305,462,1321,513,1334,565,1341,616,1340,665,1327,687,1316,708,1302,723,1286,734,1270,744,1236,742,1201,735,1164,727,1126,724,1088,732,1050,741,1031,755,1012,772,999"/>
+<area shape="rect" id="Node000025" href="$game_8c.html#aec9f33f023169bfd3a0e44eefc6c23d3" title="It checks if an objects needs another object." alt="" coords="472,1127,709,1152"/>
+<area shape="poly" id="edge23_Node000011_Node000025" title=" " alt="" coords="775,1006,759,1016,748,1028,742,1040,736,1065,730,1091,723,1104,711,1116,690,1129,687,1124,708,1112,719,1101,725,1089,731,1064,737,1038,744,1025,756,1012,772,1001"/>
+<area shape="rect" id="Node000026" href="$game_8c.html#a44b498515b01645ebde00f51299dd640" title="It gets the location a certain object." alt="" coords="494,558,687,583"/>
+<area shape="poly" id="edge28_Node000011_Node000026" title=" " alt="" coords="833,967,793,916,755,850,744,820,739,793,736,744,731,699,723,674,707,648,689,627,667,610,623,585,626,581,670,606,693,623,711,645,728,672,737,697,742,744,744,792,749,818,760,848,797,913,837,964"/>
+<area shape="rect" id="Node000040" href="$graphic__engine_8c.html#a0e275aa477d5fa59e903da33a2a40a5d" title="It paints the game&#39;s data on the user&#39;s screen." alt="" coords="219,608,424,634"/>
+<area shape="poly" id="edge34_Node000011_Node000040" title=" " alt="" coords="824,971,708,895,641,858,587,832,534,804,470,762,390,693,333,636,336,632,393,689,474,757,537,799,590,827,644,853,711,891,827,966"/>
+<area shape="rect" id="Node000043" href="$game_8c.html#ab2edf7b07384c183ccdf6332fbc127e9" title="It gets the player&#39;s max amount of consecutive turns." alt="" coords="505,658,676,698"/>
+<area shape="poly" id="edge31_Node000011_Node000043" title=" " alt="" coords="834,967,795,915,755,850,741,810,737,775,730,743,722,728,708,712,692,701,675,693,677,688,695,696,711,708,726,725,735,742,743,774,747,808,760,848,799,912,838,964"/>
+<area shape="rect" id="Node000054" href="$game__rules_8c.html#a31d20b2a33c494e070de9f103f0215ba" title=" " alt="" coords="513,1377,668,1417"/>
+<area shape="poly" id="edge33_Node000011_Node000054" title=" " alt="" coords="775,1003,759,1016,743,1037,732,1058,723,1100,726,1142,735,1184,744,1227,747,1271,738,1315,727,1337,711,1360,692,1377,670,1388,667,1383,689,1372,707,1356,723,1335,733,1313,741,1270,738,1228,729,1186,720,1143,718,1100,727,1056,739,1034,755,1012,772,999"/>
+<area shape="rect" id="Node000055" href="$graphic__engine_8c.html#af1fcb00c19b8537b3da3b09f899233d9" title="It paints the inventory screen." alt="" coords="510,1441,671,1481"/>
+<area shape="poly" id="edge35_Node000011_Node000055" title=" " alt="" coords="776,1003,759,1016,740,1042,728,1067,721,1093,718,1118,723,1169,736,1221,748,1272,753,1324,751,1351,744,1377,731,1404,711,1431,693,1446,672,1455,670,1450,691,1441,707,1427,726,1401,739,1375,746,1350,748,1324,743,1273,730,1222,718,1170,713,1118,715,1092,723,1065,736,1039,755,1012,772,999"/>
+<area shape="rect" id="Node000080" href="$player__test_8c.html#abedc0e75ebffb4e7224f5e5ac0ee3055" title=" " alt="" coords="501,976,681,1002"/>
+<area shape="poly" id="edge36_Node000011_Node000080" title=" " alt="" coords="773,992,681,992,681,986,773,986"/>
+<area shape="rect" id="Node000082" href="$player__test_8c.html#ae8953d45d8f555a930dbc8aba101d399" title=" " alt="" coords="501,1078,681,1103"/>
+<area shape="poly" id="edge37_Node000011_Node000082" title=" " alt="" coords="776,1009,759,1017,744,1027,735,1038,726,1049,711,1061,662,1080,660,1075,708,1056,722,1045,731,1034,741,1023,756,1012,774,1004"/>
+<area shape="poly" id="edge12_Node000014_Node000004" title=" " alt="" coords="277,846,117,776,119,771,280,842"/>
+<area shape="poly" id="edge15_Node000019_Node000004" title=" " alt="" coords="494,743,171,759,171,754,494,738"/>
+<area shape="poly" id="edge18_Node000021_Node000004" title=" " alt="" coords="276,922,217,888,181,859,147,828,98,776,102,772,151,824,184,855,220,884,278,917"/>
+<area shape="poly" id="edge21_Node000023_Node000004" title=" " alt="" coords="286,1021,251,996,217,964,175,913,139,858,93,775,98,772,144,856,179,909,221,960,255,992,289,1017"/>
+<area shape="poly" id="edge24_Node000025_Node000021" title=" " alt="" coords="479,1122,470,1116,450,1092,443,1068,437,1043,422,1016,383,980,344,953,347,949,387,975,426,1013,442,1041,448,1066,455,1090,474,1112,482,1118"/>
+<area shape="poly" id="edge25_Node000025_Node000022" title=" " alt="" coords="507,1158,473,1166,357,1204,355,1199,471,1161,505,1153"/>
+<area shape="poly" id="edge26_Node000025_Node000023" title=" " alt="" coords="503,1126,471,1117,400,1086,343,1055,345,1050,402,1081,473,1112,504,1121"/>
+<area shape="poly" id="edge27_Node000025_Node000024" title=" " alt="" coords="482,1160,474,1166,457,1183,450,1202,443,1222,426,1242,405,1253,402,1248,422,1237,438,1220,445,1200,453,1180,470,1161,479,1156"/>
+<area shape="rect" id="Node000033" href="$game__management_8c.html#a6992189a2b2dc313c76a755bba1ff062" title="It saves the current game&#39;s info in a specified file." alt="" coords="226,558,417,583"/>
+<area shape="poly" id="edge29_Node000026_Node000033" title=" " alt="" coords="480,573,417,573,417,568,480,568"/>
+<area shape="poly" id="edge30_Node000026_Node000040" title=" " alt="" coords="510,588,390,611,389,606,509,583"/>
+<area shape="poly" id="edge32_Node000043_Node000033" title=" " alt="" coords="542,654,486,625,423,598,382,585,384,580,425,593,488,620,544,649"/>
+<area shape="rect" id="Node000084" href="$inventory__test_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title=" " alt="" coords="563,1506,618,1531"/>
+<area shape="poly" id="edge39_Node000083_Node000084" title=" " alt="" coords="769,1070,759,1080,741,1106,729,1133,723,1158,720,1184,726,1236,739,1287,751,1339,756,1390,753,1416,745,1442,731,1469,711,1495,691,1510,666,1519,618,1523,618,1518,665,1514,688,1506,707,1491,727,1466,740,1440,747,1415,750,1390,746,1340,733,1289,721,1237,715,1184,717,1158,724,1131,736,1104,755,1076,766,1066"/>
+<area shape="poly" id="edge41_Node000085_Node000084" title=" " alt="" coords="770,1134,759,1144,744,1166,733,1188,725,1232,729,1275,738,1319,748,1363,750,1406,747,1429,740,1451,729,1473,711,1495,690,1510,666,1519,618,1523,618,1518,665,1514,688,1505,707,1491,724,1470,735,1449,742,1427,745,1406,742,1363,733,1320,723,1276,720,1232,728,1186,739,1163,755,1140,766,1130"/>
+<area shape="rect" id="Node000087" href="$game_8c.html#a3e54ddf9f59ca1e2322429d353a8d2b4" title="It gets the location of a certain character." alt="" coords="779,398,934,438"/>
+<area shape="poly" id="edge43_Node000086_Node000087" title=" " alt="" coords="1009,441,934,431,935,426,1009,435"/>
+<area shape="rect" id="Node000089" href="$space__test_8c.html#ab4f11dc6284b57891c62f5d801c783ff" title=" " alt="" coords="757,299,956,324"/>
+<area shape="poly" id="edge53_Node000086_Node000089" title=" " alt="" coords="1077,430,1024,383,990,359,955,338,925,327,927,322,957,333,993,354,1027,379,1080,426"/>
+<area shape="rect" id="Node000091" href="$space__test_8c.html#a997565b0a53f69c9c55aabb231d6a685" title=" " alt="" coords="757,348,956,374"/>
+<area shape="poly" id="edge54_Node000086_Node000091" title=" " alt="" coords="1062,434,955,389,913,376,915,371,957,384,1064,429"/>
+<area shape="rect" id="Node000092" href="$space__test_8c.html#a95ad35c6802beb23f398cc7abf3f03e8" title=" " alt="" coords="778,462,935,502"/>
+<area shape="poly" id="edge55_Node000086_Node000092" title=" " alt="" coords="1010,465,936,475,935,469,1009,460"/>
+<area shape="rect" id="Node000093" href="$space__test_8c.html#a1cbe7dcf6e64da12172acc79abbd3f65" title=" " alt="" coords="757,527,956,552"/>
+<area shape="poly" id="edge56_Node000086_Node000093" title=" " alt="" coords="1064,471,957,517,915,529,913,524,955,512,1062,467"/>
+<area shape="poly" id="edge48_Node000087_Node000033" title=" " alt="" coords="771,446,759,452,745,463,736,474,726,485,710,495,664,509,582,526,397,560,396,555,581,521,663,504,708,490,722,481,732,470,741,459,756,448,769,441"/>
+<area shape="poly" id="edge51_Node000087_Node000040" title=" " alt="" coords="769,444,759,452,746,470,740,487,738,525,735,562,727,580,711,596,690,608,661,616,588,627,505,630,424,629,424,624,505,625,588,621,660,611,688,603,708,592,723,577,730,560,733,524,735,486,741,467,755,448,765,440"/>
+<area shape="rect" id="Node000049" href="$game__actions__sdl_8c.html#a9c82eca4e12e0ca5e065a9a1e0c9ea4b" title="It allows the player to attack a character." alt="" coords="497,306,684,331"/>
+<area shape="poly" id="edge44_Node000087_Node000049" title=" " alt="" coords="771,395,756,387,741,376,732,365,722,354,708,345,679,333,681,328,711,340,726,350,736,361,745,372,759,383,774,390"/>
+<area shape="rect" id="Node000051" href="$game__actions__sdl_8c.html#a0d08414021bba8dd75889d7503808b9b" title="It allows the player to chat with a character." alt="" coords="503,355,678,380"/>
+<area shape="poly" id="edge45_Node000087_Node000051" title=" " alt="" coords="765,404,658,383,659,378,766,398"/>
+<area shape="rect" id="Node000047" href="$game__actions_8c.html#aa4097c2de55049c481f714ff2a41091c" title="It allows the player to recruit a friendly character." alt="" coords="240,456,403,482"/>
+<area shape="poly" id="edge46_Node000087_Node000047" title=" " alt="" coords="766,424,627,432,472,446,389,459,388,454,472,441,627,427,765,419"/>
+<area shape="rect" id="Node000088" href="$game_8c.html#a3367c42869e5fc01739dc6435ab68af3" title="It sets a character&#39;s location to a space." alt="" coords="513,192,668,232"/>
+<area shape="poly" id="edge49_Node000087_Node000088" title=" " alt="" coords="766,395,755,387,741,368,734,350,731,314,728,279,721,262,708,245,689,232,667,223,669,218,691,228,711,242,726,259,733,278,737,313,739,349,746,366,759,383,769,391"/>
+<area shape="rect" id="Node000066" href="$graphic__engine_8c.html#abdf540f30f1ebf1d58bf813b7ea472f7" title="It paints the zoomed space screen." alt="" coords="489,256,693,282"/>
+<area shape="poly" id="edge52_Node000087_Node000066" title=" " alt="" coords="765,394,755,387,738,363,731,339,725,316,708,295,688,284,691,279,711,291,730,313,737,337,743,361,759,383,769,390"/>
+<area shape="poly" id="edge47_Node000047_Node000004" title=" " alt="" coords="288,491,254,516,221,547,178,602,142,660,97,749,92,747,137,657,174,599,217,543,250,512,285,487"/>
+<area shape="poly" id="edge50_Node000088_Node000003" title=" " alt="" coords="500,214,400,214,400,209,500,209"/>
+<area shape="poly" id="edge58_Node000094_Node000019" title=" " alt="" coords="777,275,759,288,740,314,727,340,720,367,718,393,723,445,737,498,750,551,756,605,753,632,745,658,732,685,711,712,695,725,675,734,673,729,692,721,707,708,727,682,740,656,748,631,750,605,745,552,731,500,718,446,712,393,715,366,722,339,735,311,755,284,773,271"/>
+<area shape="poly" id="edge59_Node000094_Node000020" title=" " alt="" coords="777,277,759,288,747,300,740,312,734,337,728,364,711,393,690,414,667,432,621,458,619,454,664,428,687,410,707,390,723,362,728,336,735,310,743,297,756,284,774,273"/>
+<area shape="poly" id="edge62_Node000094_Node000026" title=" " alt="" coords="777,276,759,288,741,312,732,336,730,361,731,386,733,438,727,465,712,494,693,516,670,534,625,560,623,555,667,530,689,512,707,491,722,464,728,437,726,386,725,361,727,335,736,310,755,284,774,271"/>
+<area shape="rect" id="Node000038" href="$game__actions_8c.html#a08ae11402d194439d1e014fa78aa8b2e" title="It allows a player to pick up an object if they&#39;re in the same room." alt="" coords="247,82,395,107"/>
+<area shape="poly" id="edge60_Node000094_Node000038" title=" " alt="" coords="844,237,826,194,797,142,758,92,735,71,708,54,661,36,611,28,559,28,509,34,417,58,350,84,348,79,415,53,508,29,559,23,611,23,662,31,711,49,738,67,762,89,802,140,831,192,849,235"/>
+<area shape="rect" id="Node000095" href="$space__test_8c.html#ad2f104cc981de2f9f628fab5db5e2cf6" title=" " alt="" coords="510,64,671,104"/>
+<area shape="poly" id="edge63_Node000094_Node000095" title=" " alt="" coords="836,240,783,179,748,146,708,118,671,102,673,97,711,113,751,142,787,175,840,237"/>
+<area shape="rect" id="Node000096" href="$space__test_8c.html#a4c5deb606df6b7b0bd886069628a35e4" title=" " alt="" coords="510,128,671,168"/>
+<area shape="poly" id="edge64_Node000094_Node000096" title=" " alt="" coords="824,244,771,213,708,182,671,169,673,164,710,177,773,208,826,240"/>
+<area shape="poly" id="edge61_Node000038_Node000004" title=" " alt="" coords="290,117,253,148,221,188,182,266,152,350,129,436,113,519,96,661,92,748,87,748,91,661,108,518,124,435,147,349,177,264,216,185,249,144,287,113"/>
+<area shape="rect" id="Node000098" href="$set__test_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title=" " alt="" coords="829,1155,884,1180"/>
+<area shape="poly" id="edge66_Node000097_Node000098" title=" " alt="" coords="1022,1149,884,1167,884,1162,1022,1144"/>
+<area shape="poly" id="edge68_Node000099_Node000098" title=" " alt="" coords="1022,1183,884,1172,884,1167,1023,1178"/>
+<area shape="poly" id="edge70_Node000100_Node000098" title=" " alt="" coords="1013,1059,1006,1064,989,1083,982,1103,975,1124,958,1144,921,1162,885,1169,884,1164,919,1157,954,1140,971,1121,977,1101,985,1080,1002,1060,1010,1055"/>
+<area shape="poly" id="edge72_Node000101_Node000098" title=" " alt="" coords="1025,1107,1005,1114,981,1129,957,1145,920,1158,885,1166,884,1161,918,1152,955,1140,979,1125,1003,1109,1023,1102"/>
+</map>

@@ -1,0 +1,23 @@
+<map id="/mnt/c/Ubuntu/Shared_folder/PPROG/I4/ANTHILL_REP/include/game_management.h" name="/mnt/c/Ubuntu/Shared_folder/PPROG/I4/ANTHILL_REP/include/game_management.h">
+<area shape="rect" id="Node000001" title="It implements the creation of the game with the data from a file." alt="" coords="549,5,801,60"/>
+<area shape="poly" id="edge9_Node000001_Node000001" title=" " alt="" coords="816,18,825,24,828,33,821,45,803,51,801,46,817,40,823,32,820,28,813,23"/>
+<area shape="rect" id="Node000002" href="$game__actions_8h.html" title="It defines the game update interface." alt="" coords="348,108,560,163"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="598,68,505,110,503,106,596,63"/>
+<area shape="rect" id="Node000004" href="$game__loop_8c.html" title="It defines the game loop." alt="" coords="435,211,625,265"/>
+<area shape="poly" id="edge10_Node000001_Node000004" title=" " alt="" coords="651,72,624,110,551,212,546,209,620,106,647,69"/>
+<area shape="rect" id="Node000006" href="$game__actions__sdl_8h.html" title=" " alt="" coords="635,108,873,163"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="707,69,736,106,731,110,702,73"/>
+<area shape="rect" id="Node000008" href="$game__loop__sdl_8c.html" title=" " alt="" coords="883,211,1073,265"/>
+<area shape="poly" id="edge11_Node000001_Node000008" title=" " alt="" coords="803,62,847,81,888,106,914,130,936,157,968,209,963,212,932,160,910,133,884,110,845,86,801,67"/>
+<area shape="rect" id="Node000009" href="$game__management_8c.html" title=" " alt="" coords="948,108,1171,163"/>
+<area shape="poly" id="edge12_Node000001_Node000009" title=" " alt="" coords="789,61,960,105,959,111,788,66"/>
+<area shape="poly" id="edge2_Node000002_Node000001" title=" " alt="" coords="531,100,625,58,627,62,533,105"/>
+<area shape="rect" id="Node000003" href="$game__actions_8c.html" title="It implements the game update through user actions." alt="" coords="5,211,196,265"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="350,169,193,213,192,208,348,164"/>
+<area shape="poly" id="edge4_Node000002_Node000004" title=" " alt="" coords="484,172,512,209,508,212,480,175"/>
+<area shape="rect" id="Node000005" href="$input_8c.html" title=" " alt="" coords="220,211,411,265"/>
+<area shape="poly" id="edge5_Node000002_Node000005" title=" " alt="" coords="409,173,353,213,350,208,405,168"/>
+<area shape="rect" id="Node000007" href="$game__actions__sdl_8c.html" title=" " alt="" coords="649,211,859,265"/>
+<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="757,176,757,211,751,211,751,176"/>
+<area shape="poly" id="edge8_Node000006_Node000008" title=" " alt="" coords="826,166,921,208,919,213,824,171"/>
+</map>

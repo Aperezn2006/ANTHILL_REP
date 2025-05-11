@@ -1,0 +1,11 @@
+<map id="test1_object_get_turn_amplifier" name="test1_object_get_turn_amplifier">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,73,168,113"/>
+<area shape="rect" id="Node000002" href="$object_8c.html#a7d0b3d3e95beef8deb5b02d0c4641a57" title="It creates a new object, allocating memory and initializing its members." alt="" coords="255,5,365,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="134,70,215,39,241,32,242,37,217,45,136,75"/>
+<area shape="rect" id="Node000003" href="$object_8c.html#aab2d9fe61ae9c48522635d006dd50396" title="It destroys a object, freeing the allocated memory." alt="" coords="251,55,369,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="168,81,237,73,238,78,169,86"/>
+<area shape="rect" id="Node000004" href="$object_8c.html#a83c717d47a8f3f4c23124c9d42edb406" title="It gets the amount of turns the object increases." alt="" coords="216,104,404,129"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="169,99,203,102,202,108,168,104"/>
+<area shape="rect" id="Node000005" href="$object_8c.html#a6fe04c6bad8acf92a4d152e678b1c21e" title="It sets the amount of turns the object increases." alt="" coords="217,153,403,179"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="140,110,217,138,247,147,245,152,215,143,138,115"/>
+</map>

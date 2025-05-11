@@ -1,0 +1,198 @@
+\doxysection{/mnt/c/\+Ubuntu/\+Shared\+\_\+folder/\+PPROG/\+I4/\+ANTHILL\+\_\+\+REP/src/game\+\_\+loop\+\_\+sdl.c File Reference}
+\hypertarget{game__loop__sdl_8c}{}\label{game__loop__sdl_8c}\index{/mnt/c/Ubuntu/Shared\_folder/PPROG/I4/ANTHILL\_REP/src/game\_loop\_sdl.c@{/mnt/c/Ubuntu/Shared\_folder/PPROG/I4/ANTHILL\_REP/src/game\_loop\_sdl.c}}
+{\ttfamily \#include $<$SDL2/\+SDL\+\_\+ttf.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include "{}command.\+h"{}}\newline
+{\ttfamily \#include "{}game.\+h"{}}\newline
+{\ttfamily \#include "{}game\+\_\+actions\+\_\+sdl.\+h"{}}\newline
+{\ttfamily \#include "{}game\+\_\+management.\+h"{}}\newline
+{\ttfamily \#include "{}graphic\+\_\+engine\+\_\+sdl.\+h"{}}\newline
+{\ttfamily \#include "{}input.\+h"{}}\newline
+{\ttfamily \#include "{}physics.\+h"{}}\newline
+{\ttfamily \#include "{}player.\+h"{}}\newline
+Include dependency graph for game\+\_\+loop\+\_\+sdl.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{game__loop__sdl_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{game__loop__sdl_8c_a0d3c177445766e002b15a3526fe3abb9}{game\+\_\+loop\+\_\+init}} (Game \texorpdfstring{$\ast$}{*}game, Graphic\+\_\+engine\+\_\+sdl \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}gengine, char \texorpdfstring{$\ast$}{*}file\+\_\+name)
+\begin{DoxyCompactList}\small\item\em Initializes the game loop by loading game data and creating the graphic engine. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{game__loop__sdl_8c_a2512ad7629a28c1c47934820188b8de4}{game\+\_\+loop\+\_\+run}} (Game \texorpdfstring{$\ast$}{*}game, Graphic\+\_\+engine\+\_\+sdl \texorpdfstring{$\ast$}{*}gengine, FILE \texorpdfstring{$\ast$}{*}log\+\_\+file)
+\begin{DoxyCompactList}\small\item\em Runs the main game loop, processing commands and updating the game state. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{game__loop__sdl_8c_a4d3a4996d43e1a8936cd02a1f65cf5e3}{game\+\_\+loop\+\_\+cleanup}} (Game \texorpdfstring{$\ast$}{*}game, Graphic\+\_\+engine\+\_\+sdl \texorpdfstring{$\ast$}{*}gengine, FILE \texorpdfstring{$\ast$}{*}log\+\_\+file)
+\begin{DoxyCompactList}\small\item\em Cleans up resources used during the game loop, including the game and graphic engine. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{game__loop__sdl_8c_ade8edb886ee05003d1b664c39955385c}{log\+\_\+command}} (FILE \texorpdfstring{$\ast$}{*}log\+\_\+file, Command \texorpdfstring{$\ast$}{*}cmd)
+\begin{DoxyCompactList}\small\item\em Logs the details of a command to the specified log file. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{game__loop__sdl_8c_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char \texorpdfstring{$\ast$}{*}argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{game__loop__sdl_8c_a4d3a4996d43e1a8936cd02a1f65cf5e3}\label{game__loop__sdl_8c_a4d3a4996d43e1a8936cd02a1f65cf5e3} 
+\index{game\_loop\_sdl.c@{game\_loop\_sdl.c}!game\_loop\_cleanup@{game\_loop\_cleanup}}
+\index{game\_loop\_cleanup@{game\_loop\_cleanup}!game\_loop\_sdl.c@{game\_loop\_sdl.c}}
+\doxysubsubsection{\texorpdfstring{game\_loop\_cleanup()}{game\_loop\_cleanup()}}
+{\footnotesize\ttfamily void game\+\_\+loop\+\_\+cleanup (\begin{DoxyParamCaption}\item[{Game \texorpdfstring{$\ast$}{*}}]{game,  }\item[{Graphic\+\_\+engine\+\_\+sdl \texorpdfstring{$\ast$}{*}}]{gengine,  }\item[{FILE \texorpdfstring{$\ast$}{*}}]{log\+\_\+file }\end{DoxyParamCaption})}
+
+
+
+Cleans up resources used during the game loop, including the game and graphic engine. 
+
+\begin{DoxyAuthor}{Author}
+Profesores PPROG
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em game} & A pointer to the game structure. \\
+\hline
+{\em gengine} & A pointer to the graphic engine. \\
+\hline
+{\em log\+\_\+file} & A file pointer for logging commands (can be NULL). \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{game__loop__sdl_8c_a4d3a4996d43e1a8936cd02a1f65cf5e3_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=271pt]{game__loop__sdl_8c_a4d3a4996d43e1a8936cd02a1f65cf5e3_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{game__loop__sdl_8c_a0d3c177445766e002b15a3526fe3abb9}\label{game__loop__sdl_8c_a0d3c177445766e002b15a3526fe3abb9} 
+\index{game\_loop\_sdl.c@{game\_loop\_sdl.c}!game\_loop\_init@{game\_loop\_init}}
+\index{game\_loop\_init@{game\_loop\_init}!game\_loop\_sdl.c@{game\_loop\_sdl.c}}
+\doxysubsubsection{\texorpdfstring{game\_loop\_init()}{game\_loop\_init()}}
+{\footnotesize\ttfamily int game\+\_\+loop\+\_\+init (\begin{DoxyParamCaption}\item[{Game \texorpdfstring{$\ast$}{*}}]{game,  }\item[{Graphic\+\_\+engine\+\_\+sdl \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{gengine,  }\item[{char \texorpdfstring{$\ast$}{*}}]{file\+\_\+name }\end{DoxyParamCaption})}
+
+
+
+Initializes the game loop by loading game data and creating the graphic engine. 
+
+\begin{DoxyAuthor}{Author}
+Profesores PPROG
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em game} & A pointer to the game structure. \\
+\hline
+{\em gengine} & A double pointer to the graphic engine to be initialized. \\
+\hline
+{\em file\+\_\+name} & The name of the file containing game data. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, 1 on failure. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{game__loop__sdl_8c_a0d3c177445766e002b15a3526fe3abb9_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=249pt]{game__loop__sdl_8c_a0d3c177445766e002b15a3526fe3abb9_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{game__loop__sdl_8c_a2512ad7629a28c1c47934820188b8de4}\label{game__loop__sdl_8c_a2512ad7629a28c1c47934820188b8de4} 
+\index{game\_loop\_sdl.c@{game\_loop\_sdl.c}!game\_loop\_run@{game\_loop\_run}}
+\index{game\_loop\_run@{game\_loop\_run}!game\_loop\_sdl.c@{game\_loop\_sdl.c}}
+\doxysubsubsection{\texorpdfstring{game\_loop\_run()}{game\_loop\_run()}}
+{\footnotesize\ttfamily void game\+\_\+loop\+\_\+run (\begin{DoxyParamCaption}\item[{Game \texorpdfstring{$\ast$}{*}}]{game,  }\item[{Graphic\+\_\+engine\+\_\+sdl \texorpdfstring{$\ast$}{*}}]{gengine,  }\item[{FILE \texorpdfstring{$\ast$}{*}}]{log\+\_\+file }\end{DoxyParamCaption})}
+
+
+
+Runs the main game loop, processing commands and updating the game state. 
+
+\begin{DoxyAuthor}{Author}
+Profesores PPROG
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em game} & A pointer to the game structure. \\
+\hline
+{\em gengine} & A pointer to the graphic engine. \\
+\hline
+{\em log\+\_\+file} & A file pointer for logging commands (can be NULL). \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{game__loop__sdl_8c_a2512ad7629a28c1c47934820188b8de4_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=249pt]{game__loop__sdl_8c_a2512ad7629a28c1c47934820188b8de4_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{game__loop__sdl_8c_ade8edb886ee05003d1b664c39955385c}\label{game__loop__sdl_8c_ade8edb886ee05003d1b664c39955385c} 
+\index{game\_loop\_sdl.c@{game\_loop\_sdl.c}!log\_command@{log\_command}}
+\index{log\_command@{log\_command}!game\_loop\_sdl.c@{game\_loop\_sdl.c}}
+\doxysubsubsection{\texorpdfstring{log\_command()}{log\_command()}}
+{\footnotesize\ttfamily void log\+\_\+command (\begin{DoxyParamCaption}\item[{FILE \texorpdfstring{$\ast$}{*}}]{log\+\_\+file,  }\item[{Command \texorpdfstring{$\ast$}{*}}]{cmd }\end{DoxyParamCaption})}
+
+
+
+Logs the details of a command to the specified log file. 
+
+\begin{DoxyAuthor}{Author}
+Profesores PPROG
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em log\+\_\+file} & A file pointer to the log file. \\
+\hline
+{\em cmd} & A pointer to the command to be logged. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=321pt]{game__loop__sdl_8c_ade8edb886ee05003d1b664c39955385c_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{game__loop__sdl_8c_a0ddf1224851353fc92bfbff6f499fa97}\label{game__loop__sdl_8c_a0ddf1224851353fc92bfbff6f499fa97} 
+\index{game\_loop\_sdl.c@{game\_loop\_sdl.c}!main@{main}}
+\index{main@{main}!game\_loop\_sdl.c@{game\_loop\_sdl.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char \texorpdfstring{$\ast$}{*}}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{game__loop__sdl_8c_a0ddf1224851353fc92bfbff6f499fa97_cgraph}
+\end{center}
+\end{figure}

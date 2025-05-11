@@ -1,0 +1,96 @@
+\doxysection{/mnt/c/\+Ubuntu/\+Shared\+\_\+folder/\+PPROG/\+I4/\+ANTHILL\+\_\+\+REP/include/game\+\_\+actions.h File Reference}
+\hypertarget{game__actions_8h}{}\label{game__actions_8h}\index{/mnt/c/Ubuntu/Shared\_folder/PPROG/I4/ANTHILL\_REP/include/game\_actions.h@{/mnt/c/Ubuntu/Shared\_folder/PPROG/I4/ANTHILL\_REP/include/game\_actions.h}}
+
+
+It defines the game update interface.  
+
+
+{\ttfamily \#include "{}character.\+h"{}}\newline
+{\ttfamily \#include "{}command.\+h"{}}\newline
+{\ttfamily \#include "{}game.\+h"{}}\newline
+{\ttfamily \#include "{}game\+\_\+management.\+h"{}}\newline
+{\ttfamily \#include "{}object.\+h"{}}\newline
+{\ttfamily \#include "{}physics.\+h"{}}\newline
+{\ttfamily \#include "{}player.\+h"{}}\newline
+{\ttfamily \#include "{}space.\+h"{}}\newline
+{\ttfamily \#include "{}types.\+h"{}}\newline
+Include dependency graph for game\+\_\+actions.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{game__actions_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{game__actions_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{game__actions_8h_a0693694a3e70b4a4129e2da4ddb1f1a7}{game\+\_\+actions\+\_\+update}} (Game \texorpdfstring{$\ast$}{*}game, Command \texorpdfstring{$\ast$}{*}command)
+\begin{DoxyCompactList}\small\item\em It updates the current command based on user input. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+It defines the game update interface. 
+
+\begin{DoxyAuthor}{Author}
+Profesores PPROG 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+11-\/02-\/2025 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+GNU Public License 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{game__actions_8h_a0693694a3e70b4a4129e2da4ddb1f1a7}\label{game__actions_8h_a0693694a3e70b4a4129e2da4ddb1f1a7} 
+\index{game\_actions.h@{game\_actions.h}!game\_actions\_update@{game\_actions\_update}}
+\index{game\_actions\_update@{game\_actions\_update}!game\_actions.h@{game\_actions.h}}
+\doxysubsubsection{\texorpdfstring{game\_actions\_update()}{game\_actions\_update()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} game\+\_\+actions\+\_\+update (\begin{DoxyParamCaption}\item[{Game \texorpdfstring{$\ast$}{*}}]{game,  }\item[{Command \texorpdfstring{$\ast$}{*}}]{command }\end{DoxyParamCaption})}
+
+
+
+It updates the current command based on user input. 
+
+\begin{DoxyAuthor}{Author}
+Profesores PPROG
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em game} & a pointer to the game \\
+\hline
+{\em command} & a pointer to the command \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK if everything goes well, ERROR otherwise
+\end{DoxyReturn}
+Game actions implementation Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{game__actions_8h_a0693694a3e70b4a4129e2da4ddb1f1a7_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{game__actions_8h_a0693694a3e70b4a4129e2da4ddb1f1a7_icgraph}
+\end{center}
+\end{figure}

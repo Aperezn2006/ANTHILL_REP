@@ -1,0 +1,9 @@
+<map id="test1_link_get_open" name="test1_link_get_open">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,55,159,80"/>
+<area shape="rect" id="Node000002" href="$link_8c.html#a1e662c55d1ea0191b66372f0fa57ac1c" title="It creates a new link." alt="" coords="216,5,311,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="129,52,202,32,203,37,130,57"/>
+<area shape="rect" id="Node000003" href="$link_8c.html#a117e4e5a82b23b805052d1eace34d068" title="It destroys a link." alt="" coords="212,55,315,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="159,65,198,65,198,70,159,70"/>
+<area shape="rect" id="Node000004" href="$link_8c.html#a1edd9bfd5e282b2d150858dcfaba868b" title="It gets the status of a link (open or closed)" alt="" coords="207,104,320,129"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="130,77,203,98,202,103,129,83"/>
+</map>

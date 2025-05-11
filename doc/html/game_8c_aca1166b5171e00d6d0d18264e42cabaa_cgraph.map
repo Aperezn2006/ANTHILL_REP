@@ -1,0 +1,5 @@
+<map id="game_get_player" name="game_get_player">
+<area shape="rect" id="Node000001" title="It creates a pointer to a player using its id." alt="" coords="5,5,140,31"/>
+<area shape="rect" id="Node000002" href="$player_8c.html#af5a101ec91427951c5875569a8709956" title="It gets the id of a player." alt="" coords="188,5,299,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="140,15,175,15,175,21,140,21"/>
+</map>

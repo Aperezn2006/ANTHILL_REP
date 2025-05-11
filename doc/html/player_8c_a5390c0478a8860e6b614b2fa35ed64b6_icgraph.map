@@ -1,0 +1,18 @@
+<map id="player_get_num_objects" name="player_get_num_objects">
+<area shape="rect" id="Node000001" title="It gets the number of objects the player is carrying." alt="" coords="652,63,833,88"/>
+<area shape="rect" id="Node000002" href="$game__rules_8c.html#aaa420b21ea4342a519b474147863edca" title=" " alt="" coords="453,5,588,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="679,62,570,33,571,28,680,57"/>
+<area shape="rect" id="Node000006" href="$player__test_8c.html#a10c89182130fb099e8d6d434b8374713" title=" " alt="" coords="437,55,604,95"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="638,78,604,78,604,73,638,73"/>
+<area shape="rect" id="Node000008" href="$player__test_8c.html#af795956906ac0779f168e882288257c8" title=" " alt="" coords="437,119,604,159"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="685,95,592,122,590,117,684,89"/>
+<area shape="rect" id="Node000003" href="$game__rules_8c.html#a5ff9e62eff85bf5ee110179996ef3396" title="It updates the game according to its rules." alt="" coords="279,5,389,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="440,21,390,21,390,15,440,15"/>
+<area shape="rect" id="Node000004" href="$game__loop_8c.html#afb6a670628dffdd01661658f29a1e8ca" title="Runs the main game loop, processing commands and updating the game state." alt="" coords="108,5,231,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="265,21,231,21,231,15,265,15"/>
+<area shape="rect" id="Node000005" href="$game__loop_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,5,60,31"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="94,21,60,21,60,15,94,15"/>
+<area shape="rect" id="Node000007" href="$player__test_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title=" " alt="" coords="307,95,361,120"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="424,95,362,105,361,100,423,89"/>
+<area shape="poly" id="edge8_Node000008_Node000007" title=" " alt="" coords="423,125,361,115,362,109,424,120"/>
+</map>

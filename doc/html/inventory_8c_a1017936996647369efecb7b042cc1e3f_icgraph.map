@@ -1,0 +1,16 @@
+<map id="inventory_get_cursor" name="inventory_get_cursor">
+<area shape="rect" id="Node000001" title=" " alt="" coords="969,35,1128,60"/>
+<area shape="rect" id="Node000002" href="$graphic__engine__sdl_8c.html#a4b25b2fe0bcb65316b5f7a325b562fcc" title="It paints the game&#39;s data on the user&#39;s screen." alt="" coords="517,5,713,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="955,44,713,27,714,22,956,38"/>
+<area shape="rect" id="Node000005" href="$player_8c.html#aa49185fe7f075b0fbf2813861da77ed4" title="It gets a player&#39;s inventory cursor." alt="" coords="761,55,921,95"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="956,63,922,67,921,62,955,57"/>
+<area shape="rect" id="Node000003" href="$game__loop__sdl_8c.html#a2512ad7629a28c1c47934820188b8de4" title="Runs the main game loop, processing commands and updating the game state." alt="" coords="108,35,231,60"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="504,28,231,46,231,41,504,23"/>
+<area shape="rect" id="Node000004" href="$game__loop__sdl_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,35,60,60"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="94,50,60,50,60,45,94,45"/>
+<area shape="rect" id="Node000006" href="$game_8c.html#aaceb26d3a2b8aaa01be4d0ba37b1951c" title="It allows for the player to move the cursor inside its inventory." alt="" coords="529,55,701,95"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="748,78,702,78,702,73,748,73"/>
+<area shape="rect" id="Node000007" href="$game__actions__sdl_8c.html#acd1524051170e15d5370144cbb777503" title="It updates the current command based on user input." alt="" coords="279,60,469,85"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="515,77,470,76,470,71,515,72"/>
+<area shape="poly" id="edge7_Node000007_Node000003" title=" " alt="" coords="264,62,231,58,231,52,265,56"/>
+</map>

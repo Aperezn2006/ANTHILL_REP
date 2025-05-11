@@ -1,0 +1,7 @@
+<map id="game_get_link_id_from_name" name="game_get_link_id_from_name">
+<area shape="rect" id="Node000001" title="It gives the id of a link from a name." alt="" coords="5,31,224,56"/>
+<area shape="rect" id="Node000002" href="$link_8c.html#a2bbd320f995a72b2ea7ea639b1c81892" title="It gets the id of a link." alt="" coords="285,5,378,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="223,28,271,22,271,28,224,33"/>
+<area shape="rect" id="Node000003" href="$link_8c.html#a64cc19818d585666349ed1bc591bd2d9" title="It gets the name of a link." alt="" coords="272,55,391,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="225,53,259,57,258,62,224,58"/>
+</map>

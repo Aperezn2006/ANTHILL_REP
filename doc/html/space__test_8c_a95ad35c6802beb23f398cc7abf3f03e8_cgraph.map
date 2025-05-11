@@ -1,0 +1,23 @@
+<map id="test1_space_remove_character" name="test1_space_remove_character">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,97,163,137"/>
+<area shape="rect" id="Node000002" href="$space_8c.html#a3c1a1502a0c9d8252c452dfe40d93dc8" title="Adds a character to the space." alt="" coords="224,5,383,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="113,94,157,66,210,40,230,32,231,37,212,44,160,71,115,99"/>
+<area shape="rect" id="Node000004" href="$space_8c.html#ad3a5834be733066e8a7d8586be0ac610" title="It creates a new space, allocating memory and initializing its members." alt="" coords="249,55,357,80"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="162,96,236,80,237,85,164,102"/>
+<area shape="rect" id="Node000006" href="$space_8c.html#a278763d4b530df17823ef9e4f9db2896" title="It destroys a space, freeing the allocated memory." alt="" coords="245,104,361,129"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="163,114,232,114,232,119,163,119"/>
+<area shape="rect" id="Node000008" href="$space_8c.html#a39e092c7b3799c16bd6177c1155a683b" title="Checks whether the space has a specific character." alt="" coords="224,153,383,179"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="164,132,233,148,232,153,162,137"/>
+<area shape="rect" id="Node000010" href="$space_8c.html#a34699ef15e9c8d8ae5173ee403cd813e" title="Removes a character from the space." alt="" coords="211,203,396,228"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="116,134,160,162,212,188,235,196,233,201,210,192,158,166,113,139"/>
+<area shape="rect" id="Node000003" href="$set_8c.html#ad252ed6b4db23b184789fd4ef5afe5e1" title="It adds an element to the set." alt="" coords="457,5,549,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="383,15,444,15,444,21,383,21"/>
+<area shape="rect" id="Node000005" href="$set_8c.html#aaad3bdcac9fbbfc38b4800b12bb17449" title="It creates a set." alt="" coords="458,55,549,80"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="358,65,444,65,444,70,358,70"/>
+<area shape="rect" id="Node000007" href="$set_8c.html#a5b4e14914ec3c85b83363f57697f175a" title="It destroys a set." alt="" coords="454,104,553,129"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="362,114,440,114,440,119,362,119"/>
+<area shape="rect" id="Node000009" href="$set_8c.html#a298b41bcf7ae56e1f07567eaace0c963" title="It checks if the set contains an element." alt="" coords="458,153,549,179"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="383,163,444,163,444,169,383,169"/>
+<area shape="rect" id="Node000011" href="$set_8c.html#a94547ab1010894b64ec974bde79c1e4f" title="It deletes an element from the set." alt="" coords="444,203,563,228"/>
+<area shape="poly" id="edge10_Node000010_Node000011" title=" " alt="" coords="396,213,430,213,430,218,396,218"/>
+</map>

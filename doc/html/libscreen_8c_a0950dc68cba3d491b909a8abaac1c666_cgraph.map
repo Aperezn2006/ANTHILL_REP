@@ -1,0 +1,5 @@
+<map id="screen_area_clear" name="screen_area_clear">
+<area shape="rect" id="Node000001" title="It cleares an area, eraising all its content." alt="" coords="5,5,145,31"/>
+<area shape="rect" id="Node000002" href="$libscreen_8c.html#af77fa9df4f7170e1e3bf1c6209b7f0c2" title="It resets the cursor of an area." alt="" coords="193,5,381,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="146,15,180,15,180,21,146,21"/>
+</map>

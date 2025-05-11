@@ -1,0 +1,547 @@
+\doxysection{/mnt/c/\+Ubuntu/\+Shared\+\_\+folder/\+PPROG/\+I4/\+ANTHILL\+\_\+\+REP/include/inventory.h File Reference}
+\hypertarget{inventory_8h}{}\label{inventory_8h}\index{/mnt/c/Ubuntu/Shared\_folder/PPROG/I4/ANTHILL\_REP/include/inventory.h@{/mnt/c/Ubuntu/Shared\_folder/PPROG/I4/ANTHILL\_REP/include/inventory.h}}
+{\ttfamily \#include "{}set.\+h"{}}\newline
+{\ttfamily \#include "{}types.\+h"{}}\newline
+Include dependency graph for inventory.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=223pt]{inventory_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{inventory_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{inventory_8h_a1017936996647369efecb7b042cc1e3f}{inventory\+\_\+get\+\_\+cursor}} (Inventory \texorpdfstring{$\ast$}{*}inv)
+\item 
+void \mbox{\hyperlink{inventory_8h_a2c7fc6ad76a85b7beb8e5899ea41ea56}{inventory\+\_\+set\+\_\+cursor}} (Inventory \texorpdfstring{$\ast$}{*}inv, int cursor)
+\item 
+Inventory \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{inventory_8h_acfdb31bdaf1646387a93fc7ece2ef180}{inventory\+\_\+create}} (int max\+\_\+objects)
+\begin{DoxyCompactList}\small\item\em It creates a new player, allocating memory and initializing its members. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{inventory_8h_ae23961749b6ed45fd5fe1c18941fe586}{inventory\+\_\+destroy}} (Inventory \texorpdfstring{$\ast$}{*}inventory)
+\begin{DoxyCompactList}\small\item\em It destroys an inventory, freeing the allocated memory. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{inventory_8h_a2e8ab06ba7c277479fc475ebd2bd522f}{inventory\+\_\+add\+\_\+object}} (Inventory \texorpdfstring{$\ast$}{*}inventory, \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} object\+\_\+id)
+\begin{DoxyCompactList}\small\item\em It adds an object to the inventory. \end{DoxyCompactList}\item 
+Set \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{inventory_8h_a5b71ef1ef9d063c95166ac64379d0c1a}{inventory\+\_\+get\+\_\+objects}} (Inventory \texorpdfstring{$\ast$}{*}inventory)
+\begin{DoxyCompactList}\small\item\em It gets a pointer to the set of objects of a certain inventory. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{inventory_8h_a12b59b2f63a96f7e1826bf45939ae089}{inventory\+\_\+remove\+\_\+object}} (Inventory \texorpdfstring{$\ast$}{*}inventory, \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} object\+\_\+id)
+\begin{DoxyCompactList}\small\item\em It removes an object from the inventory. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a39db6982619d623273fad8a383489309}{Bool}} \mbox{\hyperlink{inventory_8h_a3312af669bbc6fb7166481b526efb2c8}{inventory\+\_\+has\+\_\+object}} (Inventory \texorpdfstring{$\ast$}{*}inventory, \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} object\+\_\+id)
+\begin{DoxyCompactList}\small\item\em It checks whether the inventory has a certain object. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{inventory_8h_a3864763ec669d442486ad1e3d26c739d}{inventory\+\_\+get\+\_\+num\+\_\+objects}} (Inventory \texorpdfstring{$\ast$}{*}inventory)
+\begin{DoxyCompactList}\small\item\em It gets the number of objects that the inventory has. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} \mbox{\hyperlink{inventory_8h_acd1e06294f6ef5ec0a01d89de39ea15c}{inventory\+\_\+get\+\_\+object\+\_\+by\+\_\+index}} (Inventory \texorpdfstring{$\ast$}{*}inventory, int index)
+\begin{DoxyCompactList}\small\item\em It gets a certain object using its index in the array of objects in the object set. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{inventory_8h_aa95098ebc1d30b4ccbc24b57c8abc0c3}{inventory\+\_\+get\+\_\+object\+\_\+index}} (Inventory \texorpdfstring{$\ast$}{*}inventory, \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} object\+\_\+id)
+\begin{DoxyCompactList}\small\item\em It gets the index of a certain object in the array of objects in the object set. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{inventory_8h_ac8a9f09bbc7f4957c366cf70e77553c4}{inventory\+\_\+set\+\_\+max\+\_\+objects}} (Inventory \texorpdfstring{$\ast$}{*}inventory, int max)
+\begin{DoxyCompactList}\small\item\em It sets the maximun amount of objects the inventory can hold. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{inventory_8h_a5d14f02b30e26c8cfb70f1c1ee45a853}{inventory\+\_\+get\+\_\+max\+\_\+objects}} (Inventory \texorpdfstring{$\ast$}{*}inventory)
+\begin{DoxyCompactList}\small\item\em It gets the maximun amount of objects the inventory can hold. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{inventory_8h_a18eb07c76bbe3f6e6e1b69621b566bf7}{inventory\+\_\+print}} (Inventory \texorpdfstring{$\ast$}{*}inventory)
+\begin{DoxyCompactList}\small\item\em It prints the inventory\textquotesingle{}s information. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Bea It defines the inventory interface
+
+Beatriz 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+4.\+5 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+11-\/02-\/2024 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+GNU Public License 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{inventory_8h_a2e8ab06ba7c277479fc475ebd2bd522f}\label{inventory_8h_a2e8ab06ba7c277479fc475ebd2bd522f} 
+\index{inventory.h@{inventory.h}!inventory\_add\_object@{inventory\_add\_object}}
+\index{inventory\_add\_object@{inventory\_add\_object}!inventory.h@{inventory.h}}
+\doxysubsubsection{\texorpdfstring{inventory\_add\_object()}{inventory\_add\_object()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} inventory\+\_\+add\+\_\+object (\begin{DoxyParamCaption}\item[{Inventory \texorpdfstring{$\ast$}{*}}]{inventory,  }\item[{\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}}}]{object\+\_\+id }\end{DoxyParamCaption})}
+
+
+
+It adds an object to the inventory. 
+
+\begin{DoxyAuthor}{Author}
+Bea
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em inventory} & a pointer to the inventory \\
+\hline
+{\em object\+\_\+id} & the id of the object to be added \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK, if everything goes well or ERROR if there was some mistake 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=337pt]{inventory_8h_a2e8ab06ba7c277479fc475ebd2bd522f_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{inventory_8h_a2e8ab06ba7c277479fc475ebd2bd522f_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{inventory_8h_acfdb31bdaf1646387a93fc7ece2ef180}\label{inventory_8h_acfdb31bdaf1646387a93fc7ece2ef180} 
+\index{inventory.h@{inventory.h}!inventory\_create@{inventory\_create}}
+\index{inventory\_create@{inventory\_create}!inventory.h@{inventory.h}}
+\doxysubsubsection{\texorpdfstring{inventory\_create()}{inventory\_create()}}
+{\footnotesize\ttfamily Inventory \texorpdfstring{$\ast$}{*} inventory\+\_\+create (\begin{DoxyParamCaption}\item[{int}]{max\+\_\+objects }\end{DoxyParamCaption})}
+
+
+
+It creates a new player, allocating memory and initializing its members. 
+
+\begin{DoxyAuthor}{Author}
+Bea
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em max\+\_\+objects} & the maximun number of objects the inventory can hold \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a pointer to the inventory 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=283pt]{inventory_8h_acfdb31bdaf1646387a93fc7ece2ef180_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{inventory_8h_acfdb31bdaf1646387a93fc7ece2ef180_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{inventory_8h_ae23961749b6ed45fd5fe1c18941fe586}\label{inventory_8h_ae23961749b6ed45fd5fe1c18941fe586} 
+\index{inventory.h@{inventory.h}!inventory\_destroy@{inventory\_destroy}}
+\index{inventory\_destroy@{inventory\_destroy}!inventory.h@{inventory.h}}
+\doxysubsubsection{\texorpdfstring{inventory\_destroy()}{inventory\_destroy()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} inventory\+\_\+destroy (\begin{DoxyParamCaption}\item[{Inventory \texorpdfstring{$\ast$}{*}}]{inventory }\end{DoxyParamCaption})}
+
+
+
+It destroys an inventory, freeing the allocated memory. 
+
+\begin{DoxyAuthor}{Author}
+Bea
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em inventory} & a pointer to the inventory \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK, if everything goes well or ERROR if there was some mistake 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=295pt]{inventory_8h_ae23961749b6ed45fd5fe1c18941fe586_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{inventory_8h_ae23961749b6ed45fd5fe1c18941fe586_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{inventory_8h_a1017936996647369efecb7b042cc1e3f}\label{inventory_8h_a1017936996647369efecb7b042cc1e3f} 
+\index{inventory.h@{inventory.h}!inventory\_get\_cursor@{inventory\_get\_cursor}}
+\index{inventory\_get\_cursor@{inventory\_get\_cursor}!inventory.h@{inventory.h}}
+\doxysubsubsection{\texorpdfstring{inventory\_get\_cursor()}{inventory\_get\_cursor()}}
+{\footnotesize\ttfamily int inventory\+\_\+get\+\_\+cursor (\begin{DoxyParamCaption}\item[{Inventory \texorpdfstring{$\ast$}{*}}]{inv }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{inventory_8h_a1017936996647369efecb7b042cc1e3f_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{inventory_8h_a1017936996647369efecb7b042cc1e3f_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{inventory_8h_a5d14f02b30e26c8cfb70f1c1ee45a853}\label{inventory_8h_a5d14f02b30e26c8cfb70f1c1ee45a853} 
+\index{inventory.h@{inventory.h}!inventory\_get\_max\_objects@{inventory\_get\_max\_objects}}
+\index{inventory\_get\_max\_objects@{inventory\_get\_max\_objects}!inventory.h@{inventory.h}}
+\doxysubsubsection{\texorpdfstring{inventory\_get\_max\_objects()}{inventory\_get\_max\_objects()}}
+{\footnotesize\ttfamily int inventory\+\_\+get\+\_\+max\+\_\+objects (\begin{DoxyParamCaption}\item[{Inventory \texorpdfstring{$\ast$}{*}}]{inventory }\end{DoxyParamCaption})}
+
+
+
+It gets the maximun amount of objects the inventory can hold. 
+
+\begin{DoxyAuthor}{Author}
+Bea
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em inventory} & a pointer to the inventory \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the inventory\textquotesingle{}s capacity 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{inventory_8h_a5d14f02b30e26c8cfb70f1c1ee45a853_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{inventory_8h_a3864763ec669d442486ad1e3d26c739d}\label{inventory_8h_a3864763ec669d442486ad1e3d26c739d} 
+\index{inventory.h@{inventory.h}!inventory\_get\_num\_objects@{inventory\_get\_num\_objects}}
+\index{inventory\_get\_num\_objects@{inventory\_get\_num\_objects}!inventory.h@{inventory.h}}
+\doxysubsubsection{\texorpdfstring{inventory\_get\_num\_objects()}{inventory\_get\_num\_objects()}}
+{\footnotesize\ttfamily int inventory\+\_\+get\+\_\+num\+\_\+objects (\begin{DoxyParamCaption}\item[{Inventory \texorpdfstring{$\ast$}{*}}]{inventory }\end{DoxyParamCaption})}
+
+
+
+It gets the number of objects that the inventory has. 
+
+\begin{DoxyAuthor}{Author}
+Bea
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em inventory} & a pointer to the inventory \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the number of objects in the inventory 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{inventory_8h_a3864763ec669d442486ad1e3d26c739d_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{inventory_8h_a3864763ec669d442486ad1e3d26c739d_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{inventory_8h_acd1e06294f6ef5ec0a01d89de39ea15c}\label{inventory_8h_acd1e06294f6ef5ec0a01d89de39ea15c} 
+\index{inventory.h@{inventory.h}!inventory\_get\_object\_by\_index@{inventory\_get\_object\_by\_index}}
+\index{inventory\_get\_object\_by\_index@{inventory\_get\_object\_by\_index}!inventory.h@{inventory.h}}
+\doxysubsubsection{\texorpdfstring{inventory\_get\_object\_by\_index()}{inventory\_get\_object\_by\_index()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} inventory\+\_\+get\+\_\+object\+\_\+by\+\_\+index (\begin{DoxyParamCaption}\item[{Inventory \texorpdfstring{$\ast$}{*}}]{inventory,  }\item[{int}]{index }\end{DoxyParamCaption})}
+
+
+
+It gets a certain object using its index in the array of objects in the object set. 
+
+\begin{DoxyAuthor}{Author}
+Bea
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em inventory} & a pointer to the inventory \\
+\hline
+{\em index} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the id of the desired object 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{inventory_8h_acd1e06294f6ef5ec0a01d89de39ea15c_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{inventory_8h_acd1e06294f6ef5ec0a01d89de39ea15c_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{inventory_8h_aa95098ebc1d30b4ccbc24b57c8abc0c3}\label{inventory_8h_aa95098ebc1d30b4ccbc24b57c8abc0c3} 
+\index{inventory.h@{inventory.h}!inventory\_get\_object\_index@{inventory\_get\_object\_index}}
+\index{inventory\_get\_object\_index@{inventory\_get\_object\_index}!inventory.h@{inventory.h}}
+\doxysubsubsection{\texorpdfstring{inventory\_get\_object\_index()}{inventory\_get\_object\_index()}}
+{\footnotesize\ttfamily int inventory\+\_\+get\+\_\+object\+\_\+index (\begin{DoxyParamCaption}\item[{Inventory \texorpdfstring{$\ast$}{*}}]{inventory,  }\item[{\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}}}]{object\+\_\+id }\end{DoxyParamCaption})}
+
+
+
+It gets the index of a certain object in the array of objects in the object set. 
+
+\begin{DoxyAuthor}{Author}
+Bea Get the obj act possition object
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em inventory} & a pointer to the inventory \\
+\hline
+{\em object\+\_\+id} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the index of the object in the set\textquotesingle{}s array 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{inventory_8h_aa95098ebc1d30b4ccbc24b57c8abc0c3_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{inventory_8h_aa95098ebc1d30b4ccbc24b57c8abc0c3_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{inventory_8h_a5b71ef1ef9d063c95166ac64379d0c1a}\label{inventory_8h_a5b71ef1ef9d063c95166ac64379d0c1a} 
+\index{inventory.h@{inventory.h}!inventory\_get\_objects@{inventory\_get\_objects}}
+\index{inventory\_get\_objects@{inventory\_get\_objects}!inventory.h@{inventory.h}}
+\doxysubsubsection{\texorpdfstring{inventory\_get\_objects()}{inventory\_get\_objects()}}
+{\footnotesize\ttfamily Set \texorpdfstring{$\ast$}{*} inventory\+\_\+get\+\_\+objects (\begin{DoxyParamCaption}\item[{Inventory \texorpdfstring{$\ast$}{*}}]{inventory }\end{DoxyParamCaption})}
+
+
+
+It gets a pointer to the set of objects of a certain inventory. 
+
+\begin{DoxyAuthor}{Author}
+Bea
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em inventory} & a pointer to the inventory \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer ot the set of objects 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{inventory_8h_a5b71ef1ef9d063c95166ac64379d0c1a_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{inventory_8h_a3312af669bbc6fb7166481b526efb2c8}\label{inventory_8h_a3312af669bbc6fb7166481b526efb2c8} 
+\index{inventory.h@{inventory.h}!inventory\_has\_object@{inventory\_has\_object}}
+\index{inventory\_has\_object@{inventory\_has\_object}!inventory.h@{inventory.h}}
+\doxysubsubsection{\texorpdfstring{inventory\_has\_object()}{inventory\_has\_object()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a39db6982619d623273fad8a383489309}{Bool}} inventory\+\_\+has\+\_\+object (\begin{DoxyParamCaption}\item[{Inventory \texorpdfstring{$\ast$}{*}}]{inventory,  }\item[{\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}}}]{object\+\_\+id }\end{DoxyParamCaption})}
+
+
+
+It checks whether the inventory has a certain object. 
+
+\begin{DoxyAuthor}{Author}
+Bea
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em inventory} & a pointer to the inventory \\
+\hline
+{\em object\+\_\+id} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+TRUE if the inventory does have it, FALSE if it doesn\textquotesingle{}t, WRONG if any errors were detected 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=305pt]{inventory_8h_a3312af669bbc6fb7166481b526efb2c8_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{inventory_8h_a3312af669bbc6fb7166481b526efb2c8_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{inventory_8h_a18eb07c76bbe3f6e6e1b69621b566bf7}\label{inventory_8h_a18eb07c76bbe3f6e6e1b69621b566bf7} 
+\index{inventory.h@{inventory.h}!inventory\_print@{inventory\_print}}
+\index{inventory\_print@{inventory\_print}!inventory.h@{inventory.h}}
+\doxysubsubsection{\texorpdfstring{inventory\_print()}{inventory\_print()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} inventory\+\_\+print (\begin{DoxyParamCaption}\item[{Inventory \texorpdfstring{$\ast$}{*}}]{inventory }\end{DoxyParamCaption})}
+
+
+
+It prints the inventory\textquotesingle{}s information. 
+
+\begin{DoxyAuthor}{Author}
+Bea
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em inventory} & a pointer to the inventory \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK, if everything goes well or ERROR if there was some mistake 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=266pt]{inventory_8h_a18eb07c76bbe3f6e6e1b69621b566bf7_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{inventory_8h_a18eb07c76bbe3f6e6e1b69621b566bf7_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{inventory_8h_a12b59b2f63a96f7e1826bf45939ae089}\label{inventory_8h_a12b59b2f63a96f7e1826bf45939ae089} 
+\index{inventory.h@{inventory.h}!inventory\_remove\_object@{inventory\_remove\_object}}
+\index{inventory\_remove\_object@{inventory\_remove\_object}!inventory.h@{inventory.h}}
+\doxysubsubsection{\texorpdfstring{inventory\_remove\_object()}{inventory\_remove\_object()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} inventory\+\_\+remove\+\_\+object (\begin{DoxyParamCaption}\item[{Inventory \texorpdfstring{$\ast$}{*}}]{inventory,  }\item[{\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}}}]{object\+\_\+id }\end{DoxyParamCaption})}
+
+
+
+It removes an object from the inventory. 
+
+\begin{DoxyAuthor}{Author}
+Bea
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em inventory} & a pointer to the inventory \\
+\hline
+{\em object\+\_\+id} & the id of the object to be removed \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK, if everything goes well or ERROR if there was some mistake 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=346pt]{inventory_8h_a12b59b2f63a96f7e1826bf45939ae089_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{inventory_8h_a12b59b2f63a96f7e1826bf45939ae089_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{inventory_8h_a2c7fc6ad76a85b7beb8e5899ea41ea56}\label{inventory_8h_a2c7fc6ad76a85b7beb8e5899ea41ea56} 
+\index{inventory.h@{inventory.h}!inventory\_set\_cursor@{inventory\_set\_cursor}}
+\index{inventory\_set\_cursor@{inventory\_set\_cursor}!inventory.h@{inventory.h}}
+\doxysubsubsection{\texorpdfstring{inventory\_set\_cursor()}{inventory\_set\_cursor()}}
+{\footnotesize\ttfamily void inventory\+\_\+set\+\_\+cursor (\begin{DoxyParamCaption}\item[{Inventory \texorpdfstring{$\ast$}{*}}]{inv,  }\item[{int}]{cursor }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{inventory_8h_a2c7fc6ad76a85b7beb8e5899ea41ea56_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{inventory_8h_a2c7fc6ad76a85b7beb8e5899ea41ea56_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{inventory_8h_ac8a9f09bbc7f4957c366cf70e77553c4}\label{inventory_8h_ac8a9f09bbc7f4957c366cf70e77553c4} 
+\index{inventory.h@{inventory.h}!inventory\_set\_max\_objects@{inventory\_set\_max\_objects}}
+\index{inventory\_set\_max\_objects@{inventory\_set\_max\_objects}!inventory.h@{inventory.h}}
+\doxysubsubsection{\texorpdfstring{inventory\_set\_max\_objects()}{inventory\_set\_max\_objects()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} inventory\+\_\+set\+\_\+max\+\_\+objects (\begin{DoxyParamCaption}\item[{Inventory \texorpdfstring{$\ast$}{*}}]{inventory,  }\item[{int}]{max }\end{DoxyParamCaption})}
+
+
+
+It sets the maximun amount of objects the inventory can hold. 
+
+\begin{DoxyAuthor}{Author}
+Bea
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em inventory} & a pointer to the inventory \\
+\hline
+{\em max} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK, if everything goes well or ERROR if there was some mistake 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{inventory_8h_ac8a9f09bbc7f4957c366cf70e77553c4_icgraph}
+\end{center}
+\end{figure}

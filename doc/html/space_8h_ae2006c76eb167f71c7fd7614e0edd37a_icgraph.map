@@ -1,0 +1,25 @@
+<map id="space_get_name" name="space_get_name">
+<area shape="rect" id="Node000001" title="It gets the name of a space." alt="" coords="995,131,1127,156"/>
+<area shape="rect" id="Node000002" href="$game__management_8c.html#a6992189a2b2dc313c76a755bba1ff062" title="It saves the current game&#39;s info in a specified file." alt="" coords="756,55,947,80"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1014,128,946,102,890,83,892,78,948,97,1016,123"/>
+<area shape="rect" id="Node000008" href="$graphic__engine_8c.html#abdf540f30f1ebf1d58bf813b7ea472f7" title="It paints the zoomed space screen." alt="" coords="279,80,483,105"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="981,140,483,103,483,98,981,135"/>
+<area shape="rect" id="Node000009" href="$space__test_8c.html#ad12c42523c517507566c5c68b1527689" title=" " alt="" coords="765,156,937,181"/>
+<area shape="poly" id="edge9_Node000001_Node000009" title=" " alt="" coords="981,156,938,161,937,156,981,150"/>
+<area shape="rect" id="Node000011" href="$space__test_8c.html#aee88ed31c63efc674051a4563aed86e2" title=" " alt="" coords="765,205,937,231"/>
+<area shape="poly" id="edge11_Node000001_Node000011" title=" " alt="" coords="1023,165,948,197,910,208,909,203,946,191,1021,160"/>
+<area shape="rect" id="Node000003" href="$game__actions_8c.html#a0684f9dcafe712984445034038704be4" title="It allows the player to load a saved game." alt="" coords="544,5,695,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="777,54,679,33,680,28,778,49"/>
+<area shape="rect" id="Node000007" href="$game__actions__sdl_8c.html#a61c21e2028a7333c943e946a442d44f8" title="It allows the player to load a saved game." alt="" coords="531,55,708,80"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="742,70,708,70,708,65,742,65"/>
+<area shape="rect" id="Node000004" href="$game__actions_8c.html#a0693694a3e70b4a4129e2da4ddb1f1a7" title="It updates the current command based on user input." alt="" coords="298,19,463,44"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="531,26,464,29,463,24,530,20"/>
+<area shape="rect" id="Node000005" href="$game__loop_8c.html#afb6a670628dffdd01661658f29a1e8ca" title="Runs the main game loop, processing commands and updating the game state." alt="" coords="108,56,231,81"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="295,49,231,61,230,55,294,44"/>
+<area shape="rect" id="Node000006" href="$game__loop_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,56,60,81"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="94,71,60,71,60,66,94,66"/>
+<area shape="poly" id="edge8_Node000008_Node000005" title=" " alt="" coords="264,82,230,78,231,73,265,77"/>
+<area shape="rect" id="Node000010" href="$space__test_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Main function for SPACE unit tests." alt="" coords="592,180,647,205"/>
+<area shape="poly" id="edge10_Node000009_Node000010" title=" " alt="" coords="752,182,647,193,647,187,752,176"/>
+<area shape="poly" id="edge12_Node000011_Node000010" title=" " alt="" coords="752,210,647,198,647,193,752,205"/>
+</map>

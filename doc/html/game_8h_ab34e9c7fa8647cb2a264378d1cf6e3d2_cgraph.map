@@ -1,0 +1,9 @@
+<map id="game_get_player_id_from_name" name="game_get_player_id_from_name">
+<area shape="rect" id="Node000001" title="It gets the id of a player by name." alt="" coords="5,63,160,103"/>
+<area shape="rect" id="Node000002" href="$game_8c.html#a173e82c8028d420e0b1b1fce711becd9" title="It creates a pointer to the player located in a certain position of the array of players in the game." alt="" coords="208,5,381,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="157,60,206,46,208,52,158,65"/>
+<area shape="rect" id="Node000003" href="$player_8c.html#af5a101ec91427951c5875569a8709956" title="It gets the id of a player." alt="" coords="239,70,350,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="160,80,226,80,226,85,160,85"/>
+<area shape="rect" id="Node000004" href="$player_8c.html#a7726d1629a225003c3d6cb16e2b7d496" title="It gets the name of a player." alt="" coords="227,119,362,145"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="161,98,226,113,225,119,160,103"/>
+</map>

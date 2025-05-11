@@ -1,0 +1,5 @@
+<map id="game_actions_zoom" name="game_actions_zoom">
+<area shape="rect" id="Node000001" title="It allows the player to toggle the visualization of the space." alt="" coords="5,5,161,31"/>
+<area shape="rect" id="Node000002" href="$game_8c.html#a79260fc7b71b60c2a4bed82c769054be" title="It toggles the zoom&#39;s visualization." alt="" coords="209,5,385,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="162,15,196,15,196,21,162,21"/>
+</map>

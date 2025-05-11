@@ -1,0 +1,11 @@
+<map id="ray_update" name="ray_update">
+<area shape="rect" id="Node000001" title=" " alt="" coords="523,31,617,56"/>
+<area shape="rect" id="Node000002" href="$graphic__engine__sdl_8c.html#a4b25b2fe0bcb65316b5f7a325b562fcc" title="It paints the game&#39;s data on the user&#39;s screen." alt="" coords="279,5,475,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="509,38,473,33,474,28,509,33"/>
+<area shape="rect" id="Node000005" href="$physics_8c.html#af819a426e5106d1147d803d877a6ec15" title=" " alt="" coords="297,55,456,80"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="509,54,456,60,456,55,509,48"/>
+<area shape="rect" id="Node000003" href="$game__loop__sdl_8c.html#a2512ad7629a28c1c47934820188b8de4" title="Runs the main game loop, processing commands and updating the game state." alt="" coords="108,5,231,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="265,21,231,21,231,15,265,15"/>
+<area shape="rect" id="Node000004" href="$game__loop__sdl_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,5,60,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="94,21,60,21,60,15,94,15"/>
+</map>

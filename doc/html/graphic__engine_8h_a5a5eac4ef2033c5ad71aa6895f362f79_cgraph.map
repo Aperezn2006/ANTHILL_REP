@@ -1,0 +1,7 @@
+<map id="graphic_engine_destroy" name="graphic_engine_destroy">
+<area shape="rect" id="Node000001" title="It destroys a graphic engine." alt="" coords="5,31,183,56"/>
+<area shape="rect" id="Node000002" href="$libscreen_8c.html#aca5123ed5a7afb75e79c0001e5d1df4f" title="It destroys a new screen area." alt="" coords="231,5,388,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="183,30,217,26,217,32,183,36"/>
+<area shape="rect" id="Node000003" href="$libscreen_8c.html#a3d6d82dde2bb4f3ddc4d276dabe313ef" title="It destroys a new screen area." alt="" coords="249,55,370,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="183,51,235,56,234,62,183,56"/>
+</map>

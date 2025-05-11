@@ -1,0 +1,7 @@
+<map id="game_add_character" name="game_add_character">
+<area shape="rect" id="Node000001" title="Adds a character to the game and places them in the appropriate space." alt="" coords="5,35,164,60"/>
+<area shape="rect" id="Node000002" href="$game_8c.html#ae23e4035f5fe5e3656e9077b2038167b" title="It gets the number of characters in the game." alt="" coords="212,5,411,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="164,34,199,30,200,35,165,40"/>
+<area shape="rect" id="Node000003" href="$game_8c.html#a002168e97668ce0c05901ac52bc8723b" title="It increments the number of characters in the game." alt="" coords="227,55,395,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="165,54,214,61,213,66,164,60"/>
+</map>

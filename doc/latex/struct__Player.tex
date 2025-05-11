@@ -1,0 +1,185 @@
+\doxysection{Player Struct Reference}
+\hypertarget{struct__Player}{}\label{struct__Player}\index{Player@{Player}}
+
+
+player  
+
+
+
+
+Collaboration diagram for Player\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=177pt]{struct__Player__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} \mbox{\hyperlink{struct__Player_ad66e572f99a47bbeebd96975d34594a8}{id}}
+\item 
+\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} \mbox{\hyperlink{struct__Player_a37266908ee98976449304408be864950}{player\+\_\+location}}
+\item 
+char \mbox{\hyperlink{struct__Player_ad9191938c566ce24663c281b17fd843d}{name}} \mbox{[}\mbox{\hyperlink{types_8h_a92ed8507d1cd2331ad09275c5c4c1c89}{WORD\+\_\+\+SIZE}}+1\mbox{]}
+\item 
+long \mbox{\hyperlink{struct__Player_abf6f0e43779a65ca241a1c113835d7e4}{health}}
+\item 
+char \mbox{\hyperlink{struct__Player_a3cbcd9ca8ef68c4201c4d327692b3305}{gdesc}} \mbox{[}4\mbox{]}
+\item 
+Inventory \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct__Player_a7ae3a39676e7c9864eef7262d0dcf7ba}{backpack}}
+\item 
+int \mbox{\hyperlink{struct__Player_a10c670198192bc34e441375aa18dc4cf}{max\+\_\+turns}}
+\item 
+\mbox{\hyperlink{types_8h_a224b9163917ac32fc95a60d8c1eec3aa}{Direction}} \mbox{\hyperlink{struct__Player_aad77fee536534f74550d768d125453e4}{direction}}
+\item 
+char \mbox{\hyperlink{struct__Player_a31b39b2c8a84812ae9bcfe7065c3c65f}{current\+\_\+image}} \mbox{[}3\mbox{]}\mbox{[}\mbox{\hyperlink{types_8h_acb0dbc97d78d66059acd914db3d7943a}{MAX\+\_\+\+IMAGE}}\mbox{]}
+\item 
+char \mbox{\hyperlink{struct__Player_ae8f1daf9334766263a22e713541bf030}{north\+\_\+image}} \mbox{[}3\mbox{]}\mbox{[}\mbox{\hyperlink{types_8h_a8cea0c1cc1fc60a52e79998580bbf1a7}{MAX\+\_\+\+MESSAGE}}\mbox{]}
+\item 
+char \mbox{\hyperlink{struct__Player_aba48b9c6bb7019b441de2fb0dd75af9c}{east\+\_\+image}} \mbox{[}3\mbox{]}\mbox{[}\mbox{\hyperlink{types_8h_a8cea0c1cc1fc60a52e79998580bbf1a7}{MAX\+\_\+\+MESSAGE}}\mbox{]}
+\item 
+char \mbox{\hyperlink{struct__Player_a51e0b260a889dc9f3d6ddbd732828078}{south\+\_\+image}} \mbox{[}3\mbox{]}\mbox{[}\mbox{\hyperlink{types_8h_a8cea0c1cc1fc60a52e79998580bbf1a7}{MAX\+\_\+\+MESSAGE}}\mbox{]}
+\item 
+char \mbox{\hyperlink{struct__Player_a86f761ea7c67b62de8aad12bbc88d9e8}{west\+\_\+image}} \mbox{[}3\mbox{]}\mbox{[}\mbox{\hyperlink{types_8h_a8cea0c1cc1fc60a52e79998580bbf1a7}{MAX\+\_\+\+MESSAGE}}\mbox{]}
+\item 
+int \mbox{\hyperlink{struct__Player_a7d880747da0e71b24d647a42f3abf69a}{curr\+\_\+image\+\_\+mode}}
+\item 
+int \mbox{\hyperlink{struct__Player_abdda9fc4d9e73618ae997934bd3dd411}{sprite\+\_\+slower}}
+\item 
+int \mbox{\hyperlink{struct__Player_ad285b3cb25e4a46ca944b9a416c1b13f}{x}}
+\item 
+int \mbox{\hyperlink{struct__Player_a6da29d6e3783c6028c92647bbde478f5}{y}}
+\item 
+Gun \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct__Player_ac2f15bad8d07e4182e39e73d3e96b4e7}{current\+\_\+gun}}
+\item 
+int \mbox{\hyperlink{struct__Player_ac6868134c4fc4d7f6414ae0957214d02}{blink\+\_\+timer}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+player 
+
+This struct stores all the information of a player. 
+
+\doxysubsection{Field Documentation}
+\Hypertarget{struct__Player_a7ae3a39676e7c9864eef7262d0dcf7ba}\label{struct__Player_a7ae3a39676e7c9864eef7262d0dcf7ba} 
+\index{Player@{Player}!backpack@{backpack}}
+\index{backpack@{backpack}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{backpack}{backpack}}
+{\footnotesize\ttfamily Inventory\texorpdfstring{$\ast$}{*} Player\+::backpack}
+
+Pointer to the player\textquotesingle{}s inventory \Hypertarget{struct__Player_ac6868134c4fc4d7f6414ae0957214d02}\label{struct__Player_ac6868134c4fc4d7f6414ae0957214d02} 
+\index{Player@{Player}!blink\_timer@{blink\_timer}}
+\index{blink\_timer@{blink\_timer}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{blink\_timer}{blink\_timer}}
+{\footnotesize\ttfamily int Player\+::blink\+\_\+timer}
+
+\Hypertarget{struct__Player_a7d880747da0e71b24d647a42f3abf69a}\label{struct__Player_a7d880747da0e71b24d647a42f3abf69a} 
+\index{Player@{Player}!curr\_image\_mode@{curr\_image\_mode}}
+\index{curr\_image\_mode@{curr\_image\_mode}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{curr\_image\_mode}{curr\_image\_mode}}
+{\footnotesize\ttfamily int Player\+::curr\+\_\+image\+\_\+mode}
+
+Identifies which image is being used \Hypertarget{struct__Player_ac2f15bad8d07e4182e39e73d3e96b4e7}\label{struct__Player_ac2f15bad8d07e4182e39e73d3e96b4e7} 
+\index{Player@{Player}!current\_gun@{current\_gun}}
+\index{current\_gun@{current\_gun}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{current\_gun}{current\_gun}}
+{\footnotesize\ttfamily Gun\texorpdfstring{$\ast$}{*} Player\+::current\+\_\+gun}
+
+\Hypertarget{struct__Player_a31b39b2c8a84812ae9bcfe7065c3c65f}\label{struct__Player_a31b39b2c8a84812ae9bcfe7065c3c65f} 
+\index{Player@{Player}!current\_image@{current\_image}}
+\index{current\_image@{current\_image}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{current\_image}{current\_image}}
+{\footnotesize\ttfamily char Player\+::current\+\_\+image\mbox{[}3\mbox{]}\mbox{[}\mbox{\hyperlink{types_8h_acb0dbc97d78d66059acd914db3d7943a}{MAX\+\_\+\+IMAGE}}\mbox{]}}
+
+Path to the player\textquotesingle{}s image (for SDL2) \Hypertarget{struct__Player_aad77fee536534f74550d768d125453e4}\label{struct__Player_aad77fee536534f74550d768d125453e4} 
+\index{Player@{Player}!direction@{direction}}
+\index{direction@{direction}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{direction}{direction}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a224b9163917ac32fc95a60d8c1eec3aa}{Direction}} Player\+::direction}
+
+\Hypertarget{struct__Player_aba48b9c6bb7019b441de2fb0dd75af9c}\label{struct__Player_aba48b9c6bb7019b441de2fb0dd75af9c} 
+\index{Player@{Player}!east\_image@{east\_image}}
+\index{east\_image@{east\_image}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{east\_image}{east\_image}}
+{\footnotesize\ttfamily char Player\+::east\+\_\+image\mbox{[}3\mbox{]}\mbox{[}\mbox{\hyperlink{types_8h_a8cea0c1cc1fc60a52e79998580bbf1a7}{MAX\+\_\+\+MESSAGE}}\mbox{]}}
+
+Path to the player\textquotesingle{}s image (for SDL2) \Hypertarget{struct__Player_a3cbcd9ca8ef68c4201c4d327692b3305}\label{struct__Player_a3cbcd9ca8ef68c4201c4d327692b3305} 
+\index{Player@{Player}!gdesc@{gdesc}}
+\index{gdesc@{gdesc}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{gdesc}{gdesc}}
+{\footnotesize\ttfamily char Player\+::gdesc\mbox{[}4\mbox{]}}
+
+Graphical description of the player \Hypertarget{struct__Player_abf6f0e43779a65ca241a1c113835d7e4}\label{struct__Player_abf6f0e43779a65ca241a1c113835d7e4} 
+\index{Player@{Player}!health@{health}}
+\index{health@{health}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{health}{health}}
+{\footnotesize\ttfamily long Player\+::health}
+
+Health points the player has \Hypertarget{struct__Player_ad66e572f99a47bbeebd96975d34594a8}\label{struct__Player_ad66e572f99a47bbeebd96975d34594a8} 
+\index{Player@{Player}!id@{id}}
+\index{id@{id}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{id}{id}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} Player\+::id}
+
+Id number of the player, it must be unique \Hypertarget{struct__Player_a10c670198192bc34e441375aa18dc4cf}\label{struct__Player_a10c670198192bc34e441375aa18dc4cf} 
+\index{Player@{Player}!max\_turns@{max\_turns}}
+\index{max\_turns@{max\_turns}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{max\_turns}{max\_turns}}
+{\footnotesize\ttfamily int Player\+::max\+\_\+turns}
+
+Default number of turns the player has in a row \Hypertarget{struct__Player_ad9191938c566ce24663c281b17fd843d}\label{struct__Player_ad9191938c566ce24663c281b17fd843d} 
+\index{Player@{Player}!name@{name}}
+\index{name@{name}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{name}{name}}
+{\footnotesize\ttfamily char Player\+::name\mbox{[}\mbox{\hyperlink{types_8h_a92ed8507d1cd2331ad09275c5c4c1c89}{WORD\+\_\+\+SIZE}}+1\mbox{]}}
+
+Name of the player \Hypertarget{struct__Player_ae8f1daf9334766263a22e713541bf030}\label{struct__Player_ae8f1daf9334766263a22e713541bf030} 
+\index{Player@{Player}!north\_image@{north\_image}}
+\index{north\_image@{north\_image}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{north\_image}{north\_image}}
+{\footnotesize\ttfamily char Player\+::north\+\_\+image\mbox{[}3\mbox{]}\mbox{[}\mbox{\hyperlink{types_8h_a8cea0c1cc1fc60a52e79998580bbf1a7}{MAX\+\_\+\+MESSAGE}}\mbox{]}}
+
+Path to the player\textquotesingle{}s image (for SDL2) \Hypertarget{struct__Player_a37266908ee98976449304408be864950}\label{struct__Player_a37266908ee98976449304408be864950} 
+\index{Player@{Player}!player\_location@{player\_location}}
+\index{player\_location@{player\_location}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{player\_location}{player\_location}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} Player\+::player\+\_\+location}
+
+Id number of the space the player is in \Hypertarget{struct__Player_a51e0b260a889dc9f3d6ddbd732828078}\label{struct__Player_a51e0b260a889dc9f3d6ddbd732828078} 
+\index{Player@{Player}!south\_image@{south\_image}}
+\index{south\_image@{south\_image}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{south\_image}{south\_image}}
+{\footnotesize\ttfamily char Player\+::south\+\_\+image\mbox{[}3\mbox{]}\mbox{[}\mbox{\hyperlink{types_8h_a8cea0c1cc1fc60a52e79998580bbf1a7}{MAX\+\_\+\+MESSAGE}}\mbox{]}}
+
+Path to the player\textquotesingle{}s image (for SDL2) \Hypertarget{struct__Player_abdda9fc4d9e73618ae997934bd3dd411}\label{struct__Player_abdda9fc4d9e73618ae997934bd3dd411} 
+\index{Player@{Player}!sprite\_slower@{sprite\_slower}}
+\index{sprite\_slower@{sprite\_slower}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{sprite\_slower}{sprite\_slower}}
+{\footnotesize\ttfamily int Player\+::sprite\+\_\+slower}
+
+\Hypertarget{struct__Player_a86f761ea7c67b62de8aad12bbc88d9e8}\label{struct__Player_a86f761ea7c67b62de8aad12bbc88d9e8} 
+\index{Player@{Player}!west\_image@{west\_image}}
+\index{west\_image@{west\_image}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{west\_image}{west\_image}}
+{\footnotesize\ttfamily char Player\+::west\+\_\+image\mbox{[}3\mbox{]}\mbox{[}\mbox{\hyperlink{types_8h_a8cea0c1cc1fc60a52e79998580bbf1a7}{MAX\+\_\+\+MESSAGE}}\mbox{]}}
+
+Path to the player\textquotesingle{}s image (for SDL2) \Hypertarget{struct__Player_ad285b3cb25e4a46ca944b9a416c1b13f}\label{struct__Player_ad285b3cb25e4a46ca944b9a416c1b13f} 
+\index{Player@{Player}!x@{x}}
+\index{x@{x}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{x}{x}}
+{\footnotesize\ttfamily int Player\+::x}
+
+\Hypertarget{struct__Player_a6da29d6e3783c6028c92647bbde478f5}\label{struct__Player_a6da29d6e3783c6028c92647bbde478f5} 
+\index{Player@{Player}!y@{y}}
+\index{y@{y}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{y}{y}}
+{\footnotesize\ttfamily int Player\+::y}
+
+Player\textquotesingle{}s position 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/c/\+Ubuntu/\+Shared\+\_\+folder/\+PPROG/\+I4/\+ANTHILL\+\_\+\+REP/src/\mbox{\hyperlink{player_8c}{player.\+c}}\end{DoxyCompactItemize}

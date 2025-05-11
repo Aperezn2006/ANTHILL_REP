@@ -1,0 +1,9 @@
+<map id="game_set_player_location_from_id" name="game_set_player_location_from_id">
+<area shape="rect" id="Node000001" title="It sets the player&#39;s location from an id." alt="" coords="5,47,199,87"/>
+<area shape="rect" id="Node000002" href="$game_8c.html#a710a04cce11983be63cd46b9270c4cc7" title="It gets the number of players in the game." alt="" coords="247,5,425,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="197,45,261,31,263,36,198,50"/>
+<area shape="rect" id="Node000003" href="$player_8c.html#af5a101ec91427951c5875569a8709956" title="It gets the id of a player." alt="" coords="281,55,391,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="199,65,267,65,267,70,199,70"/>
+<area shape="rect" id="Node000004" href="$player_8c.html#ac907eb271007fc0528e5adf8a7946112" title="It sets the player&#39;s location." alt="" coords="261,104,411,129"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="198,85,263,99,261,104,197,90"/>
+</map>

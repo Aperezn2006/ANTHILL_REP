@@ -1,0 +1,406 @@
+\doxysection{/mnt/c/\+Ubuntu/\+Shared\+\_\+folder/\+PPROG/\+I4/\+ANTHILL\+\_\+\+REP/include/graphic\+\_\+engine.h File Reference}
+\hypertarget{graphic__engine_8h}{}\label{graphic__engine_8h}\index{/mnt/c/Ubuntu/Shared\_folder/PPROG/I4/ANTHILL\_REP/include/graphic\_engine.h@{/mnt/c/Ubuntu/Shared\_folder/PPROG/I4/ANTHILL\_REP/include/graphic\_engine.h}}
+
+
+It defines the textual graphic engine interface.  
+
+
+{\ttfamily \#include "{}game.\+h"{}}\newline
+Include dependency graph for graphic\+\_\+engine.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{graphic__engine_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{graphic__engine_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+Graphic\+\_\+engine \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{graphic__engine_8h_a943c75487b750e5b0aafde34ac739b16}{graphic\+\_\+engine\+\_\+create}} ()
+\begin{DoxyCompactList}\small\item\em It creates a new graphic engine. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{graphic__engine_8h_a5a5eac4ef2033c5ad71aa6895f362f79}{graphic\+\_\+engine\+\_\+destroy}} (Graphic\+\_\+engine \texorpdfstring{$\ast$}{*}ge)
+\begin{DoxyCompactList}\small\item\em It destroys a graphic engine. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{graphic__engine_8h_a87c7b56bef2e31259b30bba27bb8cd00}{graphic\+\_\+engine\+\_\+toggle\+\_\+fullscreen}} (Graphic\+\_\+engine \texorpdfstring{$\ast$}{*}ge)
+\begin{DoxyCompactList}\small\item\em It allows for the visualization of only one screen. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{graphic__engine_8h_ab78b520fe5bb403249f4d32b9fa092b2}{graphic\+\_\+engine\+\_\+init\+\_\+game\+\_\+areas}} (Graphic\+\_\+engine \texorpdfstring{$\ast$}{*}ge)
+\begin{DoxyCompactList}\small\item\em It initializes the game areas. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{graphic__engine_8h_a0e275aa477d5fa59e903da33a2a40a5d}{graphic\+\_\+engine\+\_\+paint\+\_\+game}} (Graphic\+\_\+engine \texorpdfstring{$\ast$}{*}ge, Game \texorpdfstring{$\ast$}{*}game)
+\begin{DoxyCompactList}\small\item\em It paints the game\textquotesingle{}s data on the user\textquotesingle{}s screen. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{graphic__engine_8h_a69e45b47bd8d4bd4b750fbdc58c2471d}{graphic\+\_\+engine\+\_\+paint\+\_\+start}} (Graphic\+\_\+engine \texorpdfstring{$\ast$}{*}ge, Game \texorpdfstring{$\ast$}{*}game)
+\begin{DoxyCompactList}\small\item\em It paints the welcome screen. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{graphic__engine_8h_a944f77c736cfe97f5ac0d08f16cb6785}{graphic\+\_\+engine\+\_\+paint\+\_\+end}} (Graphic\+\_\+engine \texorpdfstring{$\ast$}{*}ge, Game \texorpdfstring{$\ast$}{*}game)
+\begin{DoxyCompactList}\small\item\em It paints the end game screen. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{graphic__engine_8h_af1fcb00c19b8537b3da3b09f899233d9}{graphic\+\_\+engine\+\_\+paint\+\_\+inventory}} (Graphic\+\_\+engine \texorpdfstring{$\ast$}{*}ge, Game \texorpdfstring{$\ast$}{*}game)
+\begin{DoxyCompactList}\small\item\em It paints the inventory screen. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{graphic__engine_8h_abdf540f30f1ebf1d58bf813b7ea472f7}{graphic\+\_\+engine\+\_\+paint\+\_\+zoom}} (Graphic\+\_\+engine \texorpdfstring{$\ast$}{*}ge, Game \texorpdfstring{$\ast$}{*}game)
+\begin{DoxyCompactList}\small\item\em It paints the zoomed space screen. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+It defines the textual graphic engine interface. 
+
+\begin{DoxyAuthor}{Author}
+Profesores PPROG, Beatriz, Arturo, Rubén, Ana 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+11-\/02-\/2025 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+GNU Public License 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{graphic__engine_8h_a943c75487b750e5b0aafde34ac739b16}\label{graphic__engine_8h_a943c75487b750e5b0aafde34ac739b16} 
+\index{graphic\_engine.h@{graphic\_engine.h}!graphic\_engine\_create@{graphic\_engine\_create}}
+\index{graphic\_engine\_create@{graphic\_engine\_create}!graphic\_engine.h@{graphic\_engine.h}}
+\doxysubsubsection{\texorpdfstring{graphic\_engine\_create()}{graphic\_engine\_create()}}
+{\footnotesize\ttfamily Graphic\+\_\+engine \texorpdfstring{$\ast$}{*} graphic\+\_\+engine\+\_\+create (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+It creates a new graphic engine. 
+
+\begin{DoxyAuthor}{Author}
+Rubén, Arturo, Bea, Ana, Profesores PPROG
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a pointer to the graphic engine 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{graphic__engine_8h_a943c75487b750e5b0aafde34ac739b16_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{graphic__engine_8h_a943c75487b750e5b0aafde34ac739b16_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{graphic__engine_8h_a5a5eac4ef2033c5ad71aa6895f362f79}\label{graphic__engine_8h_a5a5eac4ef2033c5ad71aa6895f362f79} 
+\index{graphic\_engine.h@{graphic\_engine.h}!graphic\_engine\_destroy@{graphic\_engine\_destroy}}
+\index{graphic\_engine\_destroy@{graphic\_engine\_destroy}!graphic\_engine.h@{graphic\_engine.h}}
+\doxysubsubsection{\texorpdfstring{graphic\_engine\_destroy()}{graphic\_engine\_destroy()}}
+{\footnotesize\ttfamily void graphic\+\_\+engine\+\_\+destroy (\begin{DoxyParamCaption}\item[{Graphic\+\_\+engine \texorpdfstring{$\ast$}{*}}]{ge }\end{DoxyParamCaption})}
+
+
+
+It destroys a graphic engine. 
+
+\begin{DoxyAuthor}{Author}
+Rubén, Arturo, Bea, Ana, Profesores PPROG
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em ge} & a pointer to the graphic engine \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+nothing 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{graphic__engine_8h_a5a5eac4ef2033c5ad71aa6895f362f79_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{graphic__engine_8h_a5a5eac4ef2033c5ad71aa6895f362f79_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{graphic__engine_8h_ab78b520fe5bb403249f4d32b9fa092b2}\label{graphic__engine_8h_ab78b520fe5bb403249f4d32b9fa092b2} 
+\index{graphic\_engine.h@{graphic\_engine.h}!graphic\_engine\_init\_game\_areas@{graphic\_engine\_init\_game\_areas}}
+\index{graphic\_engine\_init\_game\_areas@{graphic\_engine\_init\_game\_areas}!graphic\_engine.h@{graphic\_engine.h}}
+\doxysubsubsection{\texorpdfstring{graphic\_engine\_init\_game\_areas()}{graphic\_engine\_init\_game\_areas()}}
+{\footnotesize\ttfamily void graphic\+\_\+engine\+\_\+init\+\_\+game\+\_\+areas (\begin{DoxyParamCaption}\item[{Graphic\+\_\+engine \texorpdfstring{$\ast$}{*}}]{ge }\end{DoxyParamCaption})}
+
+
+
+It initializes the game areas. 
+
+\begin{DoxyAuthor}{Author}
+Ana
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em ge} & a pointer to the graphic engine \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+nothing 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=325pt]{graphic__engine_8h_ab78b520fe5bb403249f4d32b9fa092b2_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{graphic__engine_8h_ab78b520fe5bb403249f4d32b9fa092b2_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{graphic__engine_8h_a944f77c736cfe97f5ac0d08f16cb6785}\label{graphic__engine_8h_a944f77c736cfe97f5ac0d08f16cb6785} 
+\index{graphic\_engine.h@{graphic\_engine.h}!graphic\_engine\_paint\_end@{graphic\_engine\_paint\_end}}
+\index{graphic\_engine\_paint\_end@{graphic\_engine\_paint\_end}!graphic\_engine.h@{graphic\_engine.h}}
+\doxysubsubsection{\texorpdfstring{graphic\_engine\_paint\_end()}{graphic\_engine\_paint\_end()}}
+{\footnotesize\ttfamily void graphic\+\_\+engine\+\_\+paint\+\_\+end (\begin{DoxyParamCaption}\item[{Graphic\+\_\+engine \texorpdfstring{$\ast$}{*}}]{ge,  }\item[{Game \texorpdfstring{$\ast$}{*}}]{game }\end{DoxyParamCaption})}
+
+
+
+It paints the end game screen. 
+
+\begin{DoxyAuthor}{Author}
+Rubén, Arturo, Bea, Ana
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em ge} & a pointer to the graphic engine \\
+\hline
+{\em game} & a pointer to the game \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+nothing 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{graphic__engine_8h_a944f77c736cfe97f5ac0d08f16cb6785_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=301pt]{graphic__engine_8h_a944f77c736cfe97f5ac0d08f16cb6785_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{graphic__engine_8h_a0e275aa477d5fa59e903da33a2a40a5d}\label{graphic__engine_8h_a0e275aa477d5fa59e903da33a2a40a5d} 
+\index{graphic\_engine.h@{graphic\_engine.h}!graphic\_engine\_paint\_game@{graphic\_engine\_paint\_game}}
+\index{graphic\_engine\_paint\_game@{graphic\_engine\_paint\_game}!graphic\_engine.h@{graphic\_engine.h}}
+\doxysubsubsection{\texorpdfstring{graphic\_engine\_paint\_game()}{graphic\_engine\_paint\_game()}}
+{\footnotesize\ttfamily void graphic\+\_\+engine\+\_\+paint\+\_\+game (\begin{DoxyParamCaption}\item[{Graphic\+\_\+engine \texorpdfstring{$\ast$}{*}}]{ge,  }\item[{Game \texorpdfstring{$\ast$}{*}}]{game }\end{DoxyParamCaption})}
+
+
+
+It paints the game\textquotesingle{}s data on the user\textquotesingle{}s screen. 
+
+\begin{DoxyAuthor}{Author}
+Rubén, Arturo, Bea, Ana, Profesores PPROG
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em ge} & a pointer to the graphic engine \\
+\hline
+{\em game} & a pointer to the game \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+nothing 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{graphic__engine_8h_a0e275aa477d5fa59e903da33a2a40a5d_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{graphic__engine_8h_a0e275aa477d5fa59e903da33a2a40a5d_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{graphic__engine_8h_af1fcb00c19b8537b3da3b09f899233d9}\label{graphic__engine_8h_af1fcb00c19b8537b3da3b09f899233d9} 
+\index{graphic\_engine.h@{graphic\_engine.h}!graphic\_engine\_paint\_inventory@{graphic\_engine\_paint\_inventory}}
+\index{graphic\_engine\_paint\_inventory@{graphic\_engine\_paint\_inventory}!graphic\_engine.h@{graphic\_engine.h}}
+\doxysubsubsection{\texorpdfstring{graphic\_engine\_paint\_inventory()}{graphic\_engine\_paint\_inventory()}}
+{\footnotesize\ttfamily void graphic\+\_\+engine\+\_\+paint\+\_\+inventory (\begin{DoxyParamCaption}\item[{Graphic\+\_\+engine \texorpdfstring{$\ast$}{*}}]{ge,  }\item[{Game \texorpdfstring{$\ast$}{*}}]{game }\end{DoxyParamCaption})}
+
+
+
+It paints the inventory screen. 
+
+\begin{DoxyAuthor}{Author}
+Ana
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em ge} & a pointer to the graphic engine \\
+\hline
+{\em game} & a pointer to the game \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+nothing 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{graphic__engine_8h_af1fcb00c19b8537b3da3b09f899233d9_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{graphic__engine_8h_af1fcb00c19b8537b3da3b09f899233d9_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{graphic__engine_8h_a69e45b47bd8d4bd4b750fbdc58c2471d}\label{graphic__engine_8h_a69e45b47bd8d4bd4b750fbdc58c2471d} 
+\index{graphic\_engine.h@{graphic\_engine.h}!graphic\_engine\_paint\_start@{graphic\_engine\_paint\_start}}
+\index{graphic\_engine\_paint\_start@{graphic\_engine\_paint\_start}!graphic\_engine.h@{graphic\_engine.h}}
+\doxysubsubsection{\texorpdfstring{graphic\_engine\_paint\_start()}{graphic\_engine\_paint\_start()}}
+{\footnotesize\ttfamily void graphic\+\_\+engine\+\_\+paint\+\_\+start (\begin{DoxyParamCaption}\item[{Graphic\+\_\+engine \texorpdfstring{$\ast$}{*}}]{ge,  }\item[{Game \texorpdfstring{$\ast$}{*}}]{game }\end{DoxyParamCaption})}
+
+
+
+It paints the welcome screen. 
+
+\begin{DoxyAuthor}{Author}
+Ana
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em ge} & a pointer to the graphic engine \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+nothing 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{graphic__engine_8h_a69e45b47bd8d4bd4b750fbdc58c2471d_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=278pt]{graphic__engine_8h_a69e45b47bd8d4bd4b750fbdc58c2471d_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{graphic__engine_8h_abdf540f30f1ebf1d58bf813b7ea472f7}\label{graphic__engine_8h_abdf540f30f1ebf1d58bf813b7ea472f7} 
+\index{graphic\_engine.h@{graphic\_engine.h}!graphic\_engine\_paint\_zoom@{graphic\_engine\_paint\_zoom}}
+\index{graphic\_engine\_paint\_zoom@{graphic\_engine\_paint\_zoom}!graphic\_engine.h@{graphic\_engine.h}}
+\doxysubsubsection{\texorpdfstring{graphic\_engine\_paint\_zoom()}{graphic\_engine\_paint\_zoom()}}
+{\footnotesize\ttfamily void graphic\+\_\+engine\+\_\+paint\+\_\+zoom (\begin{DoxyParamCaption}\item[{Graphic\+\_\+engine \texorpdfstring{$\ast$}{*}}]{ge,  }\item[{Game \texorpdfstring{$\ast$}{*}}]{game }\end{DoxyParamCaption})}
+
+
+
+It paints the zoomed space screen. 
+
+\begin{DoxyAuthor}{Author}
+Bea
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em ge} & a pointer to the graphic engine \\
+\hline
+{\em game} & a pointer to the game \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+nothing 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{graphic__engine_8h_abdf540f30f1ebf1d58bf813b7ea472f7_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{graphic__engine_8h_abdf540f30f1ebf1d58bf813b7ea472f7_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{graphic__engine_8h_a87c7b56bef2e31259b30bba27bb8cd00}\label{graphic__engine_8h_a87c7b56bef2e31259b30bba27bb8cd00} 
+\index{graphic\_engine.h@{graphic\_engine.h}!graphic\_engine\_toggle\_fullscreen@{graphic\_engine\_toggle\_fullscreen}}
+\index{graphic\_engine\_toggle\_fullscreen@{graphic\_engine\_toggle\_fullscreen}!graphic\_engine.h@{graphic\_engine.h}}
+\doxysubsubsection{\texorpdfstring{graphic\_engine\_toggle\_fullscreen()}{graphic\_engine\_toggle\_fullscreen()}}
+{\footnotesize\ttfamily void graphic\+\_\+engine\+\_\+toggle\+\_\+fullscreen (\begin{DoxyParamCaption}\item[{Graphic\+\_\+engine \texorpdfstring{$\ast$}{*}}]{ge }\end{DoxyParamCaption})}
+
+
+
+It allows for the visualization of only one screen. 
+
+\begin{DoxyAuthor}{Author}
+Ana
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em ge} & a pointer to the graphic engine \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+nothing 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{graphic__engine_8h_a87c7b56bef2e31259b30bba27bb8cd00_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{graphic__engine_8h_a87c7b56bef2e31259b30bba27bb8cd00_icgraph}
+\end{center}
+\end{figure}

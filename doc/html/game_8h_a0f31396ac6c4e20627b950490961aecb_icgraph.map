@@ -1,0 +1,16 @@
+<map id="game_get_east" name="game_get_east">
+<area shape="rect" id="Node000001" title="It gets the id of the space located east of the current_location." alt="" coords="747,31,869,56"/>
+<area shape="rect" id="Node000002" href="$game__rules_8c.html#a3683bf73caaed9de8384533bb28f3c4b" title="It moves the guards (characters) and allows them to catch players in tunnels." alt="" coords="560,5,671,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="733,36,671,28,672,23,734,31"/>
+<area shape="rect" id="Node000006" href="$graphic__engine_8c.html#a948686c2c48976bc9b9e4e822b24bc34" title="It prints a certain space and the spaces east and west of it." alt="" coords="532,55,699,80"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="733,55,699,60,699,54,733,50"/>
+<area shape="rect" id="Node000003" href="$game__rules_8c.html#a5ff9e62eff85bf5ee110179996ef3396" title="It updates the game according to its rules." alt="" coords="326,5,437,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="546,21,437,21,437,15,546,15"/>
+<area shape="rect" id="Node000004" href="$game__loop_8c.html#afb6a670628dffdd01661658f29a1e8ca" title="Runs the main game loop, processing commands and updating the game state." alt="" coords="108,31,231,56"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="313,29,231,39,230,33,312,24"/>
+<area shape="rect" id="Node000005" href="$game__loop_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,31,60,56"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="94,46,60,46,60,41,94,41"/>
+<area shape="rect" id="Node000007" href="$graphic__engine_8c.html#a0e275aa477d5fa59e903da33a2a40a5d" title="It paints the game&#39;s data on the user&#39;s screen." alt="" coords="279,55,484,80"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="518,70,484,70,484,65,518,65"/>
+<area shape="poly" id="edge7_Node000007_Node000004" title=" " alt="" coords="265,57,231,53,231,48,265,52"/>
+</map>

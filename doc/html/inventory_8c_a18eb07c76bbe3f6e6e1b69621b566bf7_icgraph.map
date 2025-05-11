@@ -1,0 +1,10 @@
+<map id="inventory_print" name="inventory_print">
+<area shape="rect" id="Node000001" title="It prints the inventory&#39;s information." alt="" coords="317,31,439,56"/>
+<area shape="rect" id="Node000002" href="$inventory__test_8c.html#a7229ceb1916b0da955d23598da89d5ea" title=" " alt="" coords="108,5,269,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="303,36,269,31,270,26,304,31"/>
+<area shape="rect" id="Node000004" href="$inventory__test_8c.html#ab416dcaf2ae0f9852a8c6ed5eea4f408" title=" " alt="" coords="108,55,269,80"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="304,55,270,60,269,54,303,50"/>
+<area shape="rect" id="Node000003" href="$inventory__test_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title=" " alt="" coords="5,31,60,56"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="97,36,61,42,60,36,96,30"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="94,55,60,50,61,45,95,50"/>
+</map>

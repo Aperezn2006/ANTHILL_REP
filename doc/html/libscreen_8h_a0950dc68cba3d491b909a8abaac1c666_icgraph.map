@@ -1,0 +1,24 @@
+<map id="screen_area_clear" name="screen_area_clear">
+<area shape="rect" id="Node000001" title="It cleares an area, eraising all its content." alt="" coords="601,120,741,145"/>
+<area shape="rect" id="Node000002" href="$graphic__engine_8c.html#a944f77c736cfe97f5ac0d08f16cb6785" title="It paints the end game screen." alt="" coords="108,171,300,196"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="606,151,554,161,421,175,300,183,300,177,421,170,553,155,605,146"/>
+<area shape="rect" id="Node000004" href="$graphic__engine_8c.html#a0e275aa477d5fa59e903da33a2a40a5d" title="It paints the game&#39;s data on the user&#39;s screen." alt="" coords="348,5,553,31"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="646,113,604,78,552,46,518,33,520,28,555,41,607,74,649,109"/>
+<area shape="rect" id="Node000006" href="$graphic__engine_8c.html#af1fcb00c19b8537b3da3b09f899233d9" title="It paints the inventory screen." alt="" coords="370,55,531,95"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="608,119,527,98,529,93,609,114"/>
+<area shape="rect" id="Node000007" href="$graphic__engine_8c.html#abdf540f30f1ebf1d58bf813b7ea472f7" title="It paints the zoomed space screen." alt="" coords="349,120,553,145"/>
+<area shape="poly" id="edge8_Node000001_Node000007" title=" " alt="" coords="587,135,553,135,553,130,587,130"/>
+<area shape="rect" id="Node000008" href="$graphic__engine_8c.html#a87c7b56bef2e31259b30bba27bb8cd00" title="It allows for the visualization of only one screen." alt="" coords="366,221,535,261"/>
+<area shape="poly" id="edge10_Node000001_Node000008" title=" " alt="" coords="640,155,555,204,511,223,509,218,552,200,638,151"/>
+<area shape="rect" id="Node000003" href="$game__loop_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,171,60,196"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="95,186,60,186,60,181,95,181"/>
+<area shape="rect" id="Node000005" href="$game__loop_8c.html#afb6a670628dffdd01661658f29a1e8ca" title="Runs the main game loop, processing commands and updating the game state." alt="" coords="143,92,265,117"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="379,37,349,46,286,70,233,94,231,89,284,65,347,41,378,32"/>
+<area shape="poly" id="edge5_Node000005_Node000003" title=" " alt="" coords="164,126,61,173,59,169,162,121"/>
+<area shape="poly" id="edge7_Node000006_Node000005" title=" " alt="" coords="357,89,266,100,265,95,356,84"/>
+<area shape="poly" id="edge9_Node000007_Node000005" title=" " alt="" coords="335,122,265,114,266,109,335,117"/>
+<area shape="poly" id="edge11_Node000008_Node000002" title=" " alt="" coords="352,220,259,199,260,193,353,215"/>
+<area shape="rect" id="Node000009" href="$graphic__engine_8c.html#a69e45b47bd8d4bd4b750fbdc58c2471d" title="It paints the welcome screen." alt="" coords="123,221,285,261"/>
+<area shape="poly" id="edge12_Node000008_Node000009" title=" " alt="" coords="352,243,285,243,285,238,352,238"/>
+<area shape="poly" id="edge13_Node000009_Node000003" title=" " alt="" coords="130,219,107,211,59,195,61,190,109,206,131,214"/>
+</map>

@@ -1,0 +1,19 @@
+<map id="game_set_finished" name="game_set_finished">
+<area shape="rect" id="Node000001" title="It sets whether the game is finished or not." alt="" coords="640,66,784,91"/>
+<area shape="rect" id="Node000002" href="$game__loop_8c.html#afb6a670628dffdd01661658f29a1e8ca" title="Runs the main game loop, processing commands and updating the game state." alt="" coords="108,41,231,66"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="677,62,637,42,591,27,505,12,436,9,367,15,279,27,209,43,208,38,278,22,366,10,436,3,505,6,593,22,639,37,680,57"/>
+<area shape="rect" id="Node000004" href="$game__loop__sdl_8c.html#a2512ad7629a28c1c47934820188b8de4" title="Runs the main game loop, processing commands and updating the game state." alt="" coords="453,37,576,62"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="626,69,576,61,577,56,627,63"/>
+<area shape="rect" id="Node000006" href="$game__rules_8c.html#a31d20b2a33c494e070de9f103f0215ba" title=" " alt="" coords="437,87,592,127"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="627,94,593,98,592,93,626,88"/>
+<area shape="rect" id="Node000008" href="$game__rules_8c.html#a3683bf73caaed9de8384533bb28f3c4b" title="It moves the guards (characters) and allows them to catch players in tunnels." alt="" coords="459,151,570,177"/>
+<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="677,100,593,141,559,154,557,149,591,136,675,96"/>
+<area shape="rect" id="Node000003" href="$game__loop_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,41,60,66"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="94,56,60,56,60,51,94,51"/>
+<area shape="rect" id="Node000005" href="$game__loop__sdl_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="307,37,361,62"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="440,52,362,52,362,47,440,47"/>
+<area shape="rect" id="Node000007" href="$game__rules_8c.html#a5ff9e62eff85bf5ee110179996ef3396" title="It updates the game according to its rules." alt="" coords="279,94,389,119"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="424,109,390,109,390,104,424,104"/>
+<area shape="poly" id="edge7_Node000007_Node000002" title=" " alt="" coords="280,92,208,69,210,64,282,87"/>
+<area shape="poly" id="edge9_Node000008_Node000007" title=" " alt="" coords="460,150,374,122,376,117,462,145"/>
+</map>

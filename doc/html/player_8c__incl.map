@@ -1,0 +1,24 @@
+<map id="/mnt/c/Ubuntu/Shared_folder/PPROG/I4/ANTHILL_REP/src/player.c" name="/mnt/c/Ubuntu/Shared_folder/PPROG/I4/ANTHILL_REP/src/player.c">
+<area shape="rect" id="Node000001" title="It implements the player module." alt="" coords="261,5,452,60"/>
+<area shape="rect" id="Node000002" href="$player_8h.html" title="It defines the player module interface." alt="" coords="167,108,242,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="312,62,238,104,235,99,309,58"/>
+<area shape="rect" id="Node000004" href="$inventory_8h.html" title=" " alt="" coords="5,181,100,207"/>
+<area shape="poly" id="edge12_Node000001_Node000004" title=" " alt="" coords="267,63,211,84,157,110,112,141,76,173,72,169,109,137,154,106,209,79,265,58"/>
+<area shape="rect" id="Node000005" href="$set_8h.html" title="It defines the set module interface." alt="" coords="209,255,264,280"/>
+<area shape="poly" id="edge13_Node000001_Node000005" title=" " alt="" coords="346,61,251,244,246,241,341,59"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="359,108,426,133"/>
+<area shape="poly" id="edge9_Node000001_Node000007" title=" " alt="" coords="370,59,385,94,380,96,365,61"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="451,108,521,133"/>
+<area shape="poly" id="edge10_Node000001_Node000008" title=" " alt="" coords="398,58,459,98,456,103,395,62"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="545,108,616,133"/>
+<area shape="poly" id="edge11_Node000001_Node000009" title=" " alt="" coords="426,58,539,100,537,105,424,63"/>
+<area shape="rect" id="Node000003" href="$gun_8h.html" title=" " alt="" coords="175,181,234,207"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="207,134,207,168,202,168,202,134"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="181,136,91,178,89,173,179,131"/>
+<area shape="poly" id="edge7_Node000002_Node000005" title=" " alt="" coords="218,132,235,153,249,181,252,212,247,241,242,240,247,212,243,182,230,156,214,135"/>
+<area shape="rect" id="Node000006" href="$types_8h.html" title="It defines common types for the whole project." alt="" coords="103,328,173,353"/>
+<area shape="poly" id="edge8_Node000002_Node000006" title=" " alt="" coords="197,135,180,156,166,182,155,217,147,253,141,314,136,314,142,252,150,216,161,180,176,153,192,132"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="83,204,197,248,195,253,81,209"/>
+<area shape="poly" id="edge6_Node000004_Node000006" title=" " alt="" coords="62,206,126,315,122,317,57,208"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="222,282,167,322,164,318,219,278"/>
+</map>

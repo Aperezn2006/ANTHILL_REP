@@ -1,0 +1,5 @@
+<map id="game_get_link_by_id" name="game_get_link_by_id">
+<area shape="rect" id="Node000001" title="It gets a pointer to a link using its id." alt="" coords="5,5,165,31"/>
+<area shape="rect" id="Node000002" href="$link_8c.html#a2bbd320f995a72b2ea7ea639b1c81892" title="It gets the id of a link." alt="" coords="213,5,307,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="166,15,200,15,200,21,166,21"/>
+</map>

@@ -1,0 +1,13 @@
+<map id="test1_space_get_gdesc" name="test1_space_get_gdesc">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,55,179,80"/>
+<area shape="rect" id="Node000002" href="$space_8c.html#ad3a5834be733066e8a7d8586be0ac610" title="It creates a new space, allocating memory and initializing its members." alt="" coords="256,5,364,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="148,52,242,31,243,36,149,57"/>
+<area shape="rect" id="Node000004" href="$space_8c.html#a278763d4b530df17823ef9e4f9db2896" title="It destroys a space, freeing the allocated memory." alt="" coords="252,55,368,80"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="179,65,238,65,238,70,179,70"/>
+<area shape="rect" id="Node000006" href="$space_8c.html#a553122e84e7cc30e8144420b5e521a0f" title="It gets the description of a space." alt="" coords="227,104,393,129"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="149,77,240,98,239,104,148,83"/>
+<area shape="rect" id="Node000003" href="$set_8c.html#aaad3bdcac9fbbfc38b4800b12bb17449" title="It creates a set." alt="" coords="445,5,536,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="364,15,432,15,432,21,364,21"/>
+<area shape="rect" id="Node000005" href="$set_8c.html#a5b4e14914ec3c85b83363f57697f175a" title="It destroys a set." alt="" coords="441,55,540,80"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="368,65,427,65,427,70,368,70"/>
+</map>

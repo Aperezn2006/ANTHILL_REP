@@ -1,0 +1,19 @@
+<map id="test1_space_get_object_from_index" name="test1_space_get_object_from_index">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,73,180,113"/>
+<area shape="rect" id="Node000002" href="$space_8c.html#a7f81b9098bde8cf07621adfe90345e09" title="It adds an object to the space." alt="" coords="245,5,384,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="143,70,227,39,252,32,253,37,229,45,145,75"/>
+<area shape="rect" id="Node000004" href="$space_8c.html#ad3a5834be733066e8a7d8586be0ac610" title="It creates a new space, allocating memory and initializing its members." alt="" coords="261,55,369,80"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="180,80,247,72,247,78,180,85"/>
+<area shape="rect" id="Node000006" href="$space_8c.html#a278763d4b530df17823ef9e4f9db2896" title="It destroys a space, freeing the allocated memory." alt="" coords="257,104,373,129"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="180,99,243,106,243,112,180,105"/>
+<area shape="rect" id="Node000008" href="$space_8c.html#a76326e0ed421ddc6ad5a951d75f0ebd6" title="It gets the object in the n position of the array." alt="" coords="228,154,401,194"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="149,110,248,147,246,152,147,115"/>
+<area shape="rect" id="Node000003" href="$set_8c.html#ad252ed6b4db23b184789fd4ef5afe5e1" title="It adds an element to the set." alt="" coords="489,5,581,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="384,15,474,15,474,21,384,21"/>
+<area shape="rect" id="Node000005" href="$set_8c.html#aaad3bdcac9fbbfc38b4800b12bb17449" title="It creates a set." alt="" coords="489,55,580,80"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="369,65,476,65,476,70,369,70"/>
+<area shape="rect" id="Node000007" href="$set_8c.html#a5b4e14914ec3c85b83363f57697f175a" title="It destroys a set." alt="" coords="485,104,584,129"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="373,114,471,114,471,119,373,119"/>
+<area shape="rect" id="Node000009" href="$set_8c.html#a7d9d411d8d5f63192b1cff0fe155bbfc" title="It gets the element at a given position in the set." alt="" coords="449,161,620,187"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="402,171,436,171,436,177,402,177"/>
+</map>

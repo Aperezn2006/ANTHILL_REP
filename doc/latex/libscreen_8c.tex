@@ -1,0 +1,440 @@
+\doxysection{/mnt/c/\+Ubuntu/\+Shared\+\_\+folder/\+PPROG/\+I4/\+ANTHILL\+\_\+\+REP/src/libscreen.c File Reference}
+\hypertarget{libscreen_8c}{}\label{libscreen_8c}\index{/mnt/c/Ubuntu/Shared\_folder/PPROG/I4/ANTHILL\_REP/src/libscreen.c@{/mnt/c/Ubuntu/Shared\_folder/PPROG/I4/ANTHILL\_REP/src/libscreen.c}}
+{\ttfamily \#include "{}libscreen.\+h"{}}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+Include dependency graph for libscreen.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{libscreen_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct__Area}{Area}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{libscreen_8c_afba5c5b9f73273ce653f890bb64740b0}{TOTAL\+\_\+\+DATA}}~(\mbox{\hyperlink{libscreen_8c_addaa6980ef43410a9e709757d93da1d7}{ROWS}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{libscreen_8c_a2b9b5f62c780e8303627ff77cb554815}{COLUMNS}}) + 1
+\item 
+\#define \mbox{\hyperlink{libscreen_8c_a5e7c78a2c827b39d4464f2fc84058f87}{BG\+\_\+\+CHAR}}~\textquotesingle{}\texorpdfstring{$\sim$}{\string~}\textquotesingle{}
+\item 
+\#define \mbox{\hyperlink{libscreen_8c_a0bbf43d51e6cd6f7119cf1d0063a3a94}{FG\+\_\+\+CHAR}}~\textquotesingle{} \textquotesingle{}
+\item 
+\#define \mbox{\hyperlink{libscreen_8c_a28b37557462b06fbb08e707dc0ba2136}{ACCESS}}(d,  x,  y)~(d + ((y) \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{libscreen_8c_a2b9b5f62c780e8303627ff77cb554815}{COLUMNS}}) + (x))
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{libscreen_8c_ad1b32d3d54fea228f1ef0c73de4a3929}{screen\+\_\+area\+\_\+cursor\+\_\+is\+\_\+out\+\_\+of\+\_\+bounds}} (Area \texorpdfstring{$\ast$}{*}area)
+\item 
+void \mbox{\hyperlink{libscreen_8c_a110e0b378730322f5a2f1dc91e65e2aa}{screen\+\_\+area\+\_\+scroll\+\_\+up}} (Area \texorpdfstring{$\ast$}{*}area)
+\item 
+void \mbox{\hyperlink{libscreen_8c_a55dedaa3b402fef825ceb6c3a957781d}{screen\+\_\+utils\+\_\+replaces\+\_\+special\+\_\+chars}} (char \texorpdfstring{$\ast$}{*}str)
+\item 
+char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{libscreen_8c_a1e2a486c74a39faf138364ff5421da89}{frame\+\_\+color\+\_\+to\+\_\+string}} (\mbox{\hyperlink{libscreen_8h_a4c3428b53f6697616d5d3ab9f41419c7}{Frame\+\_\+color}} color)
+\item 
+void \mbox{\hyperlink{libscreen_8c_a3c7e0099996732d34b143dde1a40f02c}{screen\+\_\+init}} (int rows, int columns)
+\begin{DoxyCompactList}\small\item\em It creates a new screen. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{libscreen_8c_a3d6d82dde2bb4f3ddc4d276dabe313ef}{screen\+\_\+destroy}} ()
+\begin{DoxyCompactList}\small\item\em It destroys a new screen area. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{libscreen_8c_a98b385ae7a8e7de10f9e66acf478c00c}{screen\+\_\+paint}} (\mbox{\hyperlink{libscreen_8h_a4c3428b53f6697616d5d3ab9f41419c7}{Frame\+\_\+color}} color)
+\begin{DoxyCompactList}\small\item\em It paints in the terminal the actual screen composition. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{libscreen_8c_a3cccef8bcf382b48c6e121fb266b6c8f}{screen\+\_\+color\+\_\+paint}} (\mbox{\hyperlink{libscreen_8h_a4c3428b53f6697616d5d3ab9f41419c7}{Frame\+\_\+color}} color, int foreground, int background)
+\item 
+Area \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{libscreen_8c_a4c601f4602ad83e212facc1f53da8f88}{screen\+\_\+area\+\_\+init}} (int x, int y, int width, int height)
+\begin{DoxyCompactList}\small\item\em It creates a new area inside a screen. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{libscreen_8c_aca5123ed5a7afb75e79c0001e5d1df4f}{screen\+\_\+area\+\_\+destroy}} (Area \texorpdfstring{$\ast$}{*}area)
+\begin{DoxyCompactList}\small\item\em It destroys a new screen area. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{libscreen_8c_a0950dc68cba3d491b909a8abaac1c666}{screen\+\_\+area\+\_\+clear}} (Area \texorpdfstring{$\ast$}{*}area)
+\begin{DoxyCompactList}\small\item\em It cleares an area, eraising all its content. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{libscreen_8c_af77fa9df4f7170e1e3bf1c6209b7f0c2}{screen\+\_\+area\+\_\+reset\+\_\+cursor}} (Area \texorpdfstring{$\ast$}{*}area)
+\begin{DoxyCompactList}\small\item\em It resets the cursor of an area. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{libscreen_8c_a4f4cd4c7899c096d6c90cc33de9a9814}{screen\+\_\+area\+\_\+puts}} (Area \texorpdfstring{$\ast$}{*}area, char \texorpdfstring{$\ast$}{*}str)
+\begin{DoxyCompactList}\small\item\em It introduces some information inside an area. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{libscreen_8c_addaa6980ef43410a9e709757d93da1d7}{ROWS}} = 23
+\item 
+int \mbox{\hyperlink{libscreen_8c_a2b9b5f62c780e8303627ff77cb554815}{COLUMNS}} = 80
+\item 
+char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{libscreen_8c_a34a5b96f7a2aa5db335b9fd09706cf0a}{\+\_\+\+\_\+data}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{libscreen_8c_a28b37557462b06fbb08e707dc0ba2136}\label{libscreen_8c_a28b37557462b06fbb08e707dc0ba2136} 
+\index{libscreen.c@{libscreen.c}!ACCESS@{ACCESS}}
+\index{ACCESS@{ACCESS}!libscreen.c@{libscreen.c}}
+\doxysubsubsection{\texorpdfstring{ACCESS}{ACCESS}}
+{\footnotesize\ttfamily \#define ACCESS(\begin{DoxyParamCaption}\item[{}]{d,  }\item[{}]{x,  }\item[{}]{y }\end{DoxyParamCaption})~(d + ((y) \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{libscreen_8c_a2b9b5f62c780e8303627ff77cb554815}{COLUMNS}}) + (x))}
+
+\Hypertarget{libscreen_8c_a5e7c78a2c827b39d4464f2fc84058f87}\label{libscreen_8c_a5e7c78a2c827b39d4464f2fc84058f87} 
+\index{libscreen.c@{libscreen.c}!BG\_CHAR@{BG\_CHAR}}
+\index{BG\_CHAR@{BG\_CHAR}!libscreen.c@{libscreen.c}}
+\doxysubsubsection{\texorpdfstring{BG\_CHAR}{BG\_CHAR}}
+{\footnotesize\ttfamily \#define BG\+\_\+\+CHAR~\textquotesingle{}\texorpdfstring{$\sim$}{\string~}\textquotesingle{}}
+
+\Hypertarget{libscreen_8c_a0bbf43d51e6cd6f7119cf1d0063a3a94}\label{libscreen_8c_a0bbf43d51e6cd6f7119cf1d0063a3a94} 
+\index{libscreen.c@{libscreen.c}!FG\_CHAR@{FG\_CHAR}}
+\index{FG\_CHAR@{FG\_CHAR}!libscreen.c@{libscreen.c}}
+\doxysubsubsection{\texorpdfstring{FG\_CHAR}{FG\_CHAR}}
+{\footnotesize\ttfamily \#define FG\+\_\+\+CHAR~\textquotesingle{} \textquotesingle{}}
+
+\Hypertarget{libscreen_8c_afba5c5b9f73273ce653f890bb64740b0}\label{libscreen_8c_afba5c5b9f73273ce653f890bb64740b0} 
+\index{libscreen.c@{libscreen.c}!TOTAL\_DATA@{TOTAL\_DATA}}
+\index{TOTAL\_DATA@{TOTAL\_DATA}!libscreen.c@{libscreen.c}}
+\doxysubsubsection{\texorpdfstring{TOTAL\_DATA}{TOTAL\_DATA}}
+{\footnotesize\ttfamily \#define TOTAL\+\_\+\+DATA~(\mbox{\hyperlink{libscreen_8c_addaa6980ef43410a9e709757d93da1d7}{ROWS}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{libscreen_8c_a2b9b5f62c780e8303627ff77cb554815}{COLUMNS}}) + 1}
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{libscreen_8c_a1e2a486c74a39faf138364ff5421da89}\label{libscreen_8c_a1e2a486c74a39faf138364ff5421da89} 
+\index{libscreen.c@{libscreen.c}!frame\_color\_to\_string@{frame\_color\_to\_string}}
+\index{frame\_color\_to\_string@{frame\_color\_to\_string}!libscreen.c@{libscreen.c}}
+\doxysubsubsection{\texorpdfstring{frame\_color\_to\_string()}{frame\_color\_to\_string()}}
+{\footnotesize\ttfamily char \texorpdfstring{$\ast$}{*} frame\+\_\+color\+\_\+to\+\_\+string (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{libscreen_8h_a4c3428b53f6697616d5d3ab9f41419c7}{Frame\+\_\+color}}}]{color }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{libscreen_8c_a1e2a486c74a39faf138364ff5421da89_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{libscreen_8c_a0950dc68cba3d491b909a8abaac1c666}\label{libscreen_8c_a0950dc68cba3d491b909a8abaac1c666} 
+\index{libscreen.c@{libscreen.c}!screen\_area\_clear@{screen\_area\_clear}}
+\index{screen\_area\_clear@{screen\_area\_clear}!libscreen.c@{libscreen.c}}
+\doxysubsubsection{\texorpdfstring{screen\_area\_clear()}{screen\_area\_clear()}}
+{\footnotesize\ttfamily void screen\+\_\+area\+\_\+clear (\begin{DoxyParamCaption}\item[{Area \texorpdfstring{$\ast$}{*}}]{area }\end{DoxyParamCaption})}
+
+
+
+It cleares an area, eraising all its content. 
+
+\begin{DoxyAuthor}{Author}
+Profesores PPROG
+\end{DoxyAuthor}
+This function should be called for earaising all the information in an area, before introducing a new state of it. 
+\begin{DoxyParams}{Parameters}
+{\em area} & the area to be cleared \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{libscreen_8c_a0950dc68cba3d491b909a8abaac1c666_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{libscreen_8c_a0950dc68cba3d491b909a8abaac1c666_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{libscreen_8c_ad1b32d3d54fea228f1ef0c73de4a3929}\label{libscreen_8c_ad1b32d3d54fea228f1ef0c73de4a3929} 
+\index{libscreen.c@{libscreen.c}!screen\_area\_cursor\_is\_out\_of\_bounds@{screen\_area\_cursor\_is\_out\_of\_bounds}}
+\index{screen\_area\_cursor\_is\_out\_of\_bounds@{screen\_area\_cursor\_is\_out\_of\_bounds}!libscreen.c@{libscreen.c}}
+\doxysubsubsection{\texorpdfstring{screen\_area\_cursor\_is\_out\_of\_bounds()}{screen\_area\_cursor\_is\_out\_of\_bounds()}}
+{\footnotesize\ttfamily int screen\+\_\+area\+\_\+cursor\+\_\+is\+\_\+out\+\_\+of\+\_\+bounds (\begin{DoxyParamCaption}\item[{Area \texorpdfstring{$\ast$}{*}}]{area }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{libscreen_8c_ad1b32d3d54fea228f1ef0c73de4a3929_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{libscreen_8c_aca5123ed5a7afb75e79c0001e5d1df4f}\label{libscreen_8c_aca5123ed5a7afb75e79c0001e5d1df4f} 
+\index{libscreen.c@{libscreen.c}!screen\_area\_destroy@{screen\_area\_destroy}}
+\index{screen\_area\_destroy@{screen\_area\_destroy}!libscreen.c@{libscreen.c}}
+\doxysubsubsection{\texorpdfstring{screen\_area\_destroy()}{screen\_area\_destroy()}}
+{\footnotesize\ttfamily void screen\+\_\+area\+\_\+destroy (\begin{DoxyParamCaption}\item[{Area \texorpdfstring{$\ast$}{*}}]{area }\end{DoxyParamCaption})}
+
+
+
+It destroys a new screen area. 
+
+\begin{DoxyAuthor}{Author}
+Profesores PPROG
+\end{DoxyAuthor}
+This function should be called once the area is not needed anymore, before ending the programme. 
+\begin{DoxyParams}{Parameters}
+{\em area} & the area to be freed \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{libscreen_8c_aca5123ed5a7afb75e79c0001e5d1df4f_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{libscreen_8c_a4c601f4602ad83e212facc1f53da8f88}\label{libscreen_8c_a4c601f4602ad83e212facc1f53da8f88} 
+\index{libscreen.c@{libscreen.c}!screen\_area\_init@{screen\_area\_init}}
+\index{screen\_area\_init@{screen\_area\_init}!libscreen.c@{libscreen.c}}
+\doxysubsubsection{\texorpdfstring{screen\_area\_init()}{screen\_area\_init()}}
+{\footnotesize\ttfamily Area \texorpdfstring{$\ast$}{*} screen\+\_\+area\+\_\+init (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{width,  }\item[{int}]{height }\end{DoxyParamCaption})}
+
+
+
+It creates a new area inside a screen. 
+
+\begin{DoxyAuthor}{Author}
+Profesores PPROG
+\end{DoxyAuthor}
+screen\+\_\+area\+\_\+init allocates memory for a new area and initializes its members. 
+\begin{DoxyParams}{Parameters}
+{\em x} & the x-\/coordinate of the up-\/left corner of the area \\
+\hline
+{\em y} & the x-\/coordinate of the up-\/left corner of the area \\
+\hline
+{\em width} & the width of the area \\
+\hline
+{\em height} & the height of the area \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a new area, initialized 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{libscreen_8c_a4c601f4602ad83e212facc1f53da8f88_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{libscreen_8c_a4f4cd4c7899c096d6c90cc33de9a9814}\label{libscreen_8c_a4f4cd4c7899c096d6c90cc33de9a9814} 
+\index{libscreen.c@{libscreen.c}!screen\_area\_puts@{screen\_area\_puts}}
+\index{screen\_area\_puts@{screen\_area\_puts}!libscreen.c@{libscreen.c}}
+\doxysubsubsection{\texorpdfstring{screen\_area\_puts()}{screen\_area\_puts()}}
+{\footnotesize\ttfamily void screen\+\_\+area\+\_\+puts (\begin{DoxyParamCaption}\item[{Area \texorpdfstring{$\ast$}{*}}]{area,  }\item[{char \texorpdfstring{$\ast$}{*}}]{str }\end{DoxyParamCaption})}
+
+
+
+It introduces some information inside an area. 
+
+\begin{DoxyAuthor}{Author}
+Profesores PPROG
+\end{DoxyAuthor}
+This function sets the string that will be shown in an area. Each string introduced will be a line in the specified area. 
+\begin{DoxyParams}{Parameters}
+{\em area} & the area to be modified \\
+\hline
+{\em str} & a string that contains the information to be included in a particular area \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=343pt]{libscreen_8c_a4f4cd4c7899c096d6c90cc33de9a9814_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{libscreen_8c_a4f4cd4c7899c096d6c90cc33de9a9814_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{libscreen_8c_af77fa9df4f7170e1e3bf1c6209b7f0c2}\label{libscreen_8c_af77fa9df4f7170e1e3bf1c6209b7f0c2} 
+\index{libscreen.c@{libscreen.c}!screen\_area\_reset\_cursor@{screen\_area\_reset\_cursor}}
+\index{screen\_area\_reset\_cursor@{screen\_area\_reset\_cursor}!libscreen.c@{libscreen.c}}
+\doxysubsubsection{\texorpdfstring{screen\_area\_reset\_cursor()}{screen\_area\_reset\_cursor()}}
+{\footnotesize\ttfamily void screen\+\_\+area\+\_\+reset\+\_\+cursor (\begin{DoxyParamCaption}\item[{Area \texorpdfstring{$\ast$}{*}}]{area }\end{DoxyParamCaption})}
+
+
+
+It resets the cursor of an area. 
+
+\begin{DoxyAuthor}{Author}
+Profesores PPROG
+\end{DoxyAuthor}
+This function reset the cursor to the up-\/left corner of the area. 
+\begin{DoxyParams}{Parameters}
+{\em area} & the involved area \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{libscreen_8c_af77fa9df4f7170e1e3bf1c6209b7f0c2_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{libscreen_8c_a110e0b378730322f5a2f1dc91e65e2aa}\label{libscreen_8c_a110e0b378730322f5a2f1dc91e65e2aa} 
+\index{libscreen.c@{libscreen.c}!screen\_area\_scroll\_up@{screen\_area\_scroll\_up}}
+\index{screen\_area\_scroll\_up@{screen\_area\_scroll\_up}!libscreen.c@{libscreen.c}}
+\doxysubsubsection{\texorpdfstring{screen\_area\_scroll\_up()}{screen\_area\_scroll\_up()}}
+{\footnotesize\ttfamily void screen\+\_\+area\+\_\+scroll\+\_\+up (\begin{DoxyParamCaption}\item[{Area \texorpdfstring{$\ast$}{*}}]{area }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{libscreen_8c_a110e0b378730322f5a2f1dc91e65e2aa_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{libscreen_8c_a3cccef8bcf382b48c6e121fb266b6c8f}\label{libscreen_8c_a3cccef8bcf382b48c6e121fb266b6c8f} 
+\index{libscreen.c@{libscreen.c}!screen\_color\_paint@{screen\_color\_paint}}
+\index{screen\_color\_paint@{screen\_color\_paint}!libscreen.c@{libscreen.c}}
+\doxysubsubsection{\texorpdfstring{screen\_color\_paint()}{screen\_color\_paint()}}
+{\footnotesize\ttfamily void screen\+\_\+color\+\_\+paint (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{libscreen_8h_a4c3428b53f6697616d5d3ab9f41419c7}{Frame\+\_\+color}}}]{color,  }\item[{int}]{foreground,  }\item[{int}]{background }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=347pt]{libscreen_8c_a3cccef8bcf382b48c6e121fb266b6c8f_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{libscreen_8c_a3cccef8bcf382b48c6e121fb266b6c8f_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{libscreen_8c_a3d6d82dde2bb4f3ddc4d276dabe313ef}\label{libscreen_8c_a3d6d82dde2bb4f3ddc4d276dabe313ef} 
+\index{libscreen.c@{libscreen.c}!screen\_destroy@{screen\_destroy}}
+\index{screen\_destroy@{screen\_destroy}!libscreen.c@{libscreen.c}}
+\doxysubsubsection{\texorpdfstring{screen\_destroy()}{screen\_destroy()}}
+{\footnotesize\ttfamily void screen\+\_\+destroy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+It destroys a new screen area. 
+
+\begin{DoxyAuthor}{Author}
+Profesores PPROG
+\end{DoxyAuthor}
+As it frees the screen, it must be called at the end of the program, once the areas created have been freed. Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{libscreen_8c_a3d6d82dde2bb4f3ddc4d276dabe313ef_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{libscreen_8c_a3c7e0099996732d34b143dde1a40f02c}\label{libscreen_8c_a3c7e0099996732d34b143dde1a40f02c} 
+\index{libscreen.c@{libscreen.c}!screen\_init@{screen\_init}}
+\index{screen\_init@{screen\_init}!libscreen.c@{libscreen.c}}
+\doxysubsubsection{\texorpdfstring{screen\_init()}{screen\_init()}}
+{\footnotesize\ttfamily void screen\+\_\+init (\begin{DoxyParamCaption}\item[{int}]{rows,  }\item[{int}]{columns }\end{DoxyParamCaption})}
+
+
+
+It creates a new screen. 
+
+\begin{DoxyAuthor}{Author}
+Profesores PPROG
+\end{DoxyAuthor}
+This function should be called at the beginning of the program, so the complete screen is allocated before starting defining areas. 
+\begin{DoxyParams}{Parameters}
+{\em rows} & the number of rows that will have the full screen \\
+\hline
+{\em columns} & the number of columns that will have the full screen \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=277pt]{libscreen_8c_a3c7e0099996732d34b143dde1a40f02c_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{libscreen_8c_a3c7e0099996732d34b143dde1a40f02c_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{libscreen_8c_a98b385ae7a8e7de10f9e66acf478c00c}\label{libscreen_8c_a98b385ae7a8e7de10f9e66acf478c00c} 
+\index{libscreen.c@{libscreen.c}!screen\_paint@{screen\_paint}}
+\index{screen\_paint@{screen\_paint}!libscreen.c@{libscreen.c}}
+\doxysubsubsection{\texorpdfstring{screen\_paint()}{screen\_paint()}}
+{\footnotesize\ttfamily void screen\+\_\+paint (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{libscreen_8h_a4c3428b53f6697616d5d3ab9f41419c7}{Frame\+\_\+color}}}]{color }\end{DoxyParamCaption})}
+
+
+
+It paints in the terminal the actual screen composition. 
+
+\begin{DoxyAuthor}{Author}
+Profesores PPROG
+\end{DoxyAuthor}
+This function should be called when some updates in the screen want to be shown. Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=318pt]{libscreen_8c_a98b385ae7a8e7de10f9e66acf478c00c_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{libscreen_8c_a98b385ae7a8e7de10f9e66acf478c00c_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{libscreen_8c_a55dedaa3b402fef825ceb6c3a957781d}\label{libscreen_8c_a55dedaa3b402fef825ceb6c3a957781d} 
+\index{libscreen.c@{libscreen.c}!screen\_utils\_replaces\_special\_chars@{screen\_utils\_replaces\_special\_chars}}
+\index{screen\_utils\_replaces\_special\_chars@{screen\_utils\_replaces\_special\_chars}!libscreen.c@{libscreen.c}}
+\doxysubsubsection{\texorpdfstring{screen\_utils\_replaces\_special\_chars()}{screen\_utils\_replaces\_special\_chars()}}
+{\footnotesize\ttfamily void screen\+\_\+utils\+\_\+replaces\+\_\+special\+\_\+chars (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{str }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{libscreen_8c_a55dedaa3b402fef825ceb6c3a957781d_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{libscreen_8c_a34a5b96f7a2aa5db335b9fd09706cf0a}\label{libscreen_8c_a34a5b96f7a2aa5db335b9fd09706cf0a} 
+\index{libscreen.c@{libscreen.c}!\_\_data@{\_\_data}}
+\index{\_\_data@{\_\_data}!libscreen.c@{libscreen.c}}
+\doxysubsubsection{\texorpdfstring{\_\_data}{\_\_data}}
+{\footnotesize\ttfamily char\texorpdfstring{$\ast$}{*} \+\_\+\+\_\+data}
+
+\Hypertarget{libscreen_8c_a2b9b5f62c780e8303627ff77cb554815}\label{libscreen_8c_a2b9b5f62c780e8303627ff77cb554815} 
+\index{libscreen.c@{libscreen.c}!COLUMNS@{COLUMNS}}
+\index{COLUMNS@{COLUMNS}!libscreen.c@{libscreen.c}}
+\doxysubsubsection{\texorpdfstring{COLUMNS}{COLUMNS}}
+{\footnotesize\ttfamily int COLUMNS = 80}
+
+\Hypertarget{libscreen_8c_addaa6980ef43410a9e709757d93da1d7}\label{libscreen_8c_addaa6980ef43410a9e709757d93da1d7} 
+\index{libscreen.c@{libscreen.c}!ROWS@{ROWS}}
+\index{ROWS@{ROWS}!libscreen.c@{libscreen.c}}
+\doxysubsubsection{\texorpdfstring{ROWS}{ROWS}}
+{\footnotesize\ttfamily int ROWS = 23}
+

@@ -1,0 +1,7 @@
+<map id="game_add_link" name="game_add_link">
+<area shape="rect" id="Node000001" title="It adds a link to the game." alt="" coords="5,35,127,60"/>
+<area shape="rect" id="Node000002" href="$game_8c.html#a1fa81b602efd0e237e44320471e4007a" title="It gets the number of links in the game." alt="" coords="178,5,339,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="127,35,164,30,165,35,127,41"/>
+<area shape="rect" id="Node000003" href="$game_8c.html#a634af563a4057310fec55210e3a897b5" title="It increments the number of links in the game." alt="" coords="175,55,343,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="127,53,162,59,161,64,127,59"/>
+</map>

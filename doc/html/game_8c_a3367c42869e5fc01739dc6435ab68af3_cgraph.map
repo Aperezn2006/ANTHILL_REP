@@ -1,0 +1,24 @@
+<map id="game_set_character_location" name="game_set_character_location">
+<area shape="rect" id="Node000001" title="It sets a character&#39;s location to a space." alt="" coords="5,127,160,167"/>
+<area shape="rect" id="Node000002" href="$game_8c.html#a3e54ddf9f59ca1e2322429d353a8d2b4" title="It gets the location of a certain character." alt="" coords="223,45,378,85"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="130,125,207,94,227,87,229,92,209,99,132,130"/>
+<area shape="rect" id="Node000007" href="$game_8c.html#a34242ac78c87036f8194fee3e92c7fb7" title="It creates a pointer to a certain space using its id." alt="" coords="235,109,367,135"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="160,136,221,129,221,134,161,141"/>
+<area shape="rect" id="Node000008" href="$space_8c.html#a3c1a1502a0c9d8252c452dfe40d93dc8" title="Adds a character to the space." alt="" coords="221,159,380,184"/>
+<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="161,153,208,158,207,164,160,159"/>
+<area shape="rect" id="Node000010" href="$space_8c.html#a34699ef15e9c8d8ae5173ee403cd813e" title="Removes a character from the space." alt="" coords="208,208,393,233"/>
+<area shape="poly" id="edge10_Node000001_Node000010" title=" " alt="" coords="132,165,209,194,234,202,232,207,207,199,130,170"/>
+<area shape="rect" id="Node000003" href="$game_8c.html#aeec9c4bd023f777108e6a7e6f3899104" title="It gets the number of spaces in the game." alt="" coords="441,5,616,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="378,46,452,31,453,36,379,51"/>
+<area shape="rect" id="Node000004" href="$space_8c.html#ac8ddfd0d8692fd852ee49698c446cb50" title="It gets the id of a space." alt="" coords="475,105,582,131"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="379,80,463,100,461,105,378,85"/>
+<area shape="rect" id="Node000005" href="$space_8c.html#a39e092c7b3799c16bd6177c1155a683b" title="Checks whether the space has a specific character." alt="" coords="449,55,608,80"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="378,63,436,64,436,69,378,68"/>
+<area shape="rect" id="Node000006" href="$set_8c.html#a298b41bcf7ae56e1f07567eaace0c963" title="It checks if the set contains an element." alt="" coords="664,55,755,80"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="608,65,650,65,650,70,608,70"/>
+<area shape="poly" id="edge7_Node000007_Node000004" title=" " alt="" coords="367,118,461,117,462,122,367,124"/>
+<area shape="rect" id="Node000009" href="$set_8c.html#ad252ed6b4db23b184789fd4ef5afe5e1" title="It adds an element to the set." alt="" coords="483,159,575,184"/>
+<area shape="poly" id="edge9_Node000008_Node000009" title=" " alt="" coords="380,169,469,169,469,174,380,174"/>
+<area shape="rect" id="Node000011" href="$set_8c.html#a94547ab1010894b64ec974bde79c1e4f" title="It deletes an element from the set." alt="" coords="469,208,588,233"/>
+<area shape="poly" id="edge11_Node000010_Node000011" title=" " alt="" coords="394,218,455,218,455,223,394,223"/>
+</map>

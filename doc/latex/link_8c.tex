@@ -1,0 +1,586 @@
+\doxysection{/mnt/c/\+Ubuntu/\+Shared\+\_\+folder/\+PPROG/\+I4/\+ANTHILL\+\_\+\+REP/src/link.c File Reference}
+\hypertarget{link_8c}{}\label{link_8c}\index{/mnt/c/Ubuntu/Shared\_folder/PPROG/I4/ANTHILL\_REP/src/link.c@{/mnt/c/Ubuntu/Shared\_folder/PPROG/I4/ANTHILL\_REP/src/link.c}}
+{\ttfamily \#include "{}link.\+h"{}}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+Include dependency graph for link.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=339pt]{link_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct__Link}{Link}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{link_8c_a16c0dacdb60ba48ebb5f75f54df7c4b9}{link\+\_\+get\+\_\+x}} (Link \texorpdfstring{$\ast$}{*}link)
+\begin{DoxyCompactList}\small\item\em It get the x coordinate of the link\textquotesingle{}s position. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{link_8c_afc115263d0bde0ca893cf758ac7367aa}{link\+\_\+get\+\_\+y}} (Link \texorpdfstring{$\ast$}{*}link)
+\begin{DoxyCompactList}\small\item\em It get the y coordinate of the link\textquotesingle{}s position. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{link_8c_a4f5f9c929b2ebc585d337d50da041402}{link\+\_\+set\+\_\+image}} (Link \texorpdfstring{$\ast$}{*}link, const char \texorpdfstring{$\ast$}{*}image, int sprite)
+\begin{DoxyCompactList}\small\item\em It sets the link\textquotesingle{}s image. \end{DoxyCompactList}\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{link_8c_a1a7531a78a2d1df36662234602088a32}{link\+\_\+get\+\_\+image}} (const Link \texorpdfstring{$\ast$}{*}link)
+\begin{DoxyCompactList}\small\item\em It gets the link\textquotesingle{}s image. \end{DoxyCompactList}\item 
+Link \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{link_8c_a1e662c55d1ea0191b66372f0fa57ac1c}{link\+\_\+create}} (\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} id)
+\begin{DoxyCompactList}\small\item\em It creates a new link. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{link_8c_a117e4e5a82b23b805052d1eace34d068}{link\+\_\+destroy}} (Link \texorpdfstring{$\ast$}{*}link)
+\begin{DoxyCompactList}\small\item\em It destroys a link. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} \mbox{\hyperlink{link_8c_a2bbd320f995a72b2ea7ea639b1c81892}{link\+\_\+get\+\_\+id}} (Link \texorpdfstring{$\ast$}{*}link)
+\begin{DoxyCompactList}\small\item\em It gets the id of a link. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{link_8c_a572e6dc57923ee430a8c6121c6bcfc99}{link\+\_\+set\+\_\+id}} (Link \texorpdfstring{$\ast$}{*}link, \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} id)
+\begin{DoxyCompactList}\small\item\em It sets the id of a link. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{link_8c_ab01a6bc388bcf873c219839bdd7bf8d1}{link\+\_\+set\+\_\+name}} (Link \texorpdfstring{$\ast$}{*}link, const char \texorpdfstring{$\ast$}{*}name)
+\begin{DoxyCompactList}\small\item\em It sets the name of a link. \end{DoxyCompactList}\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{link_8c_a64cc19818d585666349ed1bc591bd2d9}{link\+\_\+get\+\_\+name}} (Link \texorpdfstring{$\ast$}{*}link)
+\begin{DoxyCompactList}\small\item\em It gets the name of a link. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{link_8c_a32448d6dc6306eb083916db224055cd4}{link\+\_\+set\+\_\+open}} (Link \texorpdfstring{$\ast$}{*}link, \mbox{\hyperlink{types_8h_a39db6982619d623273fad8a383489309}{Bool}} open)
+\begin{DoxyCompactList}\small\item\em It sets the status of a link (open or closed) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a39db6982619d623273fad8a383489309}{Bool}} \mbox{\hyperlink{link_8c_a1edd9bfd5e282b2d150858dcfaba868b}{link\+\_\+get\+\_\+open}} (Link \texorpdfstring{$\ast$}{*}link)
+\begin{DoxyCompactList}\small\item\em It gets the status of a link (open or closed) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{link_8c_a846f21f2f8c7a5d00efecc3cc2a6f6fe}{link\+\_\+set\+\_\+direction}} (Link \texorpdfstring{$\ast$}{*}link, \mbox{\hyperlink{types_8h_a224b9163917ac32fc95a60d8c1eec3aa}{Direction}} dir)
+\begin{DoxyCompactList}\small\item\em It sets the direction of a link. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a224b9163917ac32fc95a60d8c1eec3aa}{Direction}} \mbox{\hyperlink{link_8c_a45c192f1efaa9863a150e51d1a0f2756}{link\+\_\+get\+\_\+direction}} (Link \texorpdfstring{$\ast$}{*}link)
+\begin{DoxyCompactList}\small\item\em It gets the direction of a link. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{link_8c_a7acbdf64420890be71da87b14939642f}{link\+\_\+set\+\_\+start}} (Link \texorpdfstring{$\ast$}{*}link, \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} origin)
+\item 
+\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} \mbox{\hyperlink{link_8c_ade97314fda342663e1b98cdb4e6ca50a}{link\+\_\+get\+\_\+start}} (Link \texorpdfstring{$\ast$}{*}link)
+\begin{DoxyCompactList}\small\item\em It gets the origin id of a link. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{link_8c_a563487c58cffc7493876df5115bf9e6e}{link\+\_\+set\+\_\+end}} (Link \texorpdfstring{$\ast$}{*}link, \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} destination)
+\item 
+\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} \mbox{\hyperlink{link_8c_a407c241ffb206202f0c288e91c01ad75}{link\+\_\+get\+\_\+end}} (Link \texorpdfstring{$\ast$}{*}link)
+\begin{DoxyCompactList}\small\item\em It gets the destination id of a link. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{link_8c_a63adc8ec3b6a842f6e2dee947ae0d15b}{link\+\_\+print}} (Link \texorpdfstring{$\ast$}{*}link)
+\begin{DoxyCompactList}\small\item\em It prints the information of a link. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{link_8c_a1e662c55d1ea0191b66372f0fa57ac1c}\label{link_8c_a1e662c55d1ea0191b66372f0fa57ac1c} 
+\index{link.c@{link.c}!link\_create@{link\_create}}
+\index{link\_create@{link\_create}!link.c@{link.c}}
+\doxysubsubsection{\texorpdfstring{link\_create()}{link\_create()}}
+{\footnotesize\ttfamily Link \texorpdfstring{$\ast$}{*} link\+\_\+create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}}}]{id }\end{DoxyParamCaption})}
+
+
+
+It creates a new link. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & the id of the link \\
+\hline
+{\em origin} & the origin id of the link \\
+\hline
+{\em destination} & the destination id of the link \\
+\hline
+{\em dir} & the direction of the link \\
+\hline
+{\em open} & the status of the link (open or closed) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a pointer to the new link 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{link_8c_a1e662c55d1ea0191b66372f0fa57ac1c_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{link_8c_a117e4e5a82b23b805052d1eace34d068}\label{link_8c_a117e4e5a82b23b805052d1eace34d068} 
+\index{link.c@{link.c}!link\_destroy@{link\_destroy}}
+\index{link\_destroy@{link\_destroy}!link.c@{link.c}}
+\doxysubsubsection{\texorpdfstring{link\_destroy()}{link\_destroy()}}
+{\footnotesize\ttfamily void link\+\_\+destroy (\begin{DoxyParamCaption}\item[{Link \texorpdfstring{$\ast$}{*}}]{link }\end{DoxyParamCaption})}
+
+
+
+It destroys a link. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em link} & a pointer to the link \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{link_8c_a117e4e5a82b23b805052d1eace34d068_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{link_8c_a45c192f1efaa9863a150e51d1a0f2756}\label{link_8c_a45c192f1efaa9863a150e51d1a0f2756} 
+\index{link.c@{link.c}!link\_get\_direction@{link\_get\_direction}}
+\index{link\_get\_direction@{link\_get\_direction}!link.c@{link.c}}
+\doxysubsubsection{\texorpdfstring{link\_get\_direction()}{link\_get\_direction()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a224b9163917ac32fc95a60d8c1eec3aa}{Direction}} link\+\_\+get\+\_\+direction (\begin{DoxyParamCaption}\item[{Link \texorpdfstring{$\ast$}{*}}]{link }\end{DoxyParamCaption})}
+
+
+
+It gets the direction of a link. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em link} & a pointer to the link \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the direction of the link 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{link_8c_a45c192f1efaa9863a150e51d1a0f2756_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{link_8c_a407c241ffb206202f0c288e91c01ad75}\label{link_8c_a407c241ffb206202f0c288e91c01ad75} 
+\index{link.c@{link.c}!link\_get\_end@{link\_get\_end}}
+\index{link\_get\_end@{link\_get\_end}!link.c@{link.c}}
+\doxysubsubsection{\texorpdfstring{link\_get\_end()}{link\_get\_end()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} link\+\_\+get\+\_\+end (\begin{DoxyParamCaption}\item[{Link \texorpdfstring{$\ast$}{*}}]{link }\end{DoxyParamCaption})}
+
+
+
+It gets the destination id of a link. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em link} & a pointer to the link \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the destination id of the link 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{link_8c_a407c241ffb206202f0c288e91c01ad75_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{link_8c_a2bbd320f995a72b2ea7ea639b1c81892}\label{link_8c_a2bbd320f995a72b2ea7ea639b1c81892} 
+\index{link.c@{link.c}!link\_get\_id@{link\_get\_id}}
+\index{link\_get\_id@{link\_get\_id}!link.c@{link.c}}
+\doxysubsubsection{\texorpdfstring{link\_get\_id()}{link\_get\_id()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} link\+\_\+get\+\_\+id (\begin{DoxyParamCaption}\item[{Link \texorpdfstring{$\ast$}{*}}]{link }\end{DoxyParamCaption})}
+
+
+
+It gets the id of a link. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em link} & a pointer to the link \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the id of the link 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{link_8c_a2bbd320f995a72b2ea7ea639b1c81892_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{link_8c_a1a7531a78a2d1df36662234602088a32}\label{link_8c_a1a7531a78a2d1df36662234602088a32} 
+\index{link.c@{link.c}!link\_get\_image@{link\_get\_image}}
+\index{link\_get\_image@{link\_get\_image}!link.c@{link.c}}
+\doxysubsubsection{\texorpdfstring{link\_get\_image()}{link\_get\_image()}}
+{\footnotesize\ttfamily const char \texorpdfstring{$\ast$}{*} link\+\_\+get\+\_\+image (\begin{DoxyParamCaption}\item[{const Link \texorpdfstring{$\ast$}{*}}]{link }\end{DoxyParamCaption})}
+
+
+
+It gets the link\textquotesingle{}s image. 
+
+\begin{DoxyAuthor}{Author}
+Rubén, Arturo, Bea, Ana
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em link} & a pointer to the link \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the path to the image 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=293pt]{link_8c_a1a7531a78a2d1df36662234602088a32_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{link_8c_a1a7531a78a2d1df36662234602088a32_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{link_8c_a64cc19818d585666349ed1bc591bd2d9}\label{link_8c_a64cc19818d585666349ed1bc591bd2d9} 
+\index{link.c@{link.c}!link\_get\_name@{link\_get\_name}}
+\index{link\_get\_name@{link\_get\_name}!link.c@{link.c}}
+\doxysubsubsection{\texorpdfstring{link\_get\_name()}{link\_get\_name()}}
+{\footnotesize\ttfamily const char \texorpdfstring{$\ast$}{*} link\+\_\+get\+\_\+name (\begin{DoxyParamCaption}\item[{Link \texorpdfstring{$\ast$}{*}}]{link }\end{DoxyParamCaption})}
+
+
+
+It gets the name of a link. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em link} & a pointer to the link \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the name of the link 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{link_8c_a64cc19818d585666349ed1bc591bd2d9_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{link_8c_a1edd9bfd5e282b2d150858dcfaba868b}\label{link_8c_a1edd9bfd5e282b2d150858dcfaba868b} 
+\index{link.c@{link.c}!link\_get\_open@{link\_get\_open}}
+\index{link\_get\_open@{link\_get\_open}!link.c@{link.c}}
+\doxysubsubsection{\texorpdfstring{link\_get\_open()}{link\_get\_open()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a39db6982619d623273fad8a383489309}{Bool}} link\+\_\+get\+\_\+open (\begin{DoxyParamCaption}\item[{Link \texorpdfstring{$\ast$}{*}}]{link }\end{DoxyParamCaption})}
+
+
+
+It gets the status of a link (open or closed) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em link} & a pointer to the link \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the status of the link 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{link_8c_a1edd9bfd5e282b2d150858dcfaba868b_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{link_8c_ade97314fda342663e1b98cdb4e6ca50a}\label{link_8c_ade97314fda342663e1b98cdb4e6ca50a} 
+\index{link.c@{link.c}!link\_get\_start@{link\_get\_start}}
+\index{link\_get\_start@{link\_get\_start}!link.c@{link.c}}
+\doxysubsubsection{\texorpdfstring{link\_get\_start()}{link\_get\_start()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} link\+\_\+get\+\_\+start (\begin{DoxyParamCaption}\item[{Link \texorpdfstring{$\ast$}{*}}]{link }\end{DoxyParamCaption})}
+
+
+
+It gets the origin id of a link. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em link} & a pointer to the link \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the origin id of the link 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{link_8c_ade97314fda342663e1b98cdb4e6ca50a_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{link_8c_a16c0dacdb60ba48ebb5f75f54df7c4b9}\label{link_8c_a16c0dacdb60ba48ebb5f75f54df7c4b9} 
+\index{link.c@{link.c}!link\_get\_x@{link\_get\_x}}
+\index{link\_get\_x@{link\_get\_x}!link.c@{link.c}}
+\doxysubsubsection{\texorpdfstring{link\_get\_x()}{link\_get\_x()}}
+{\footnotesize\ttfamily int link\+\_\+get\+\_\+x (\begin{DoxyParamCaption}\item[{Link \texorpdfstring{$\ast$}{*}}]{link }\end{DoxyParamCaption})}
+
+
+
+It get the x coordinate of the link\textquotesingle{}s position. 
+
+\begin{DoxyAuthor}{Author}
+Rubén, Arturo, Bea, Ana
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em link} & a pointer to the link \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the x coordinate 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{link_8c_a16c0dacdb60ba48ebb5f75f54df7c4b9_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{link_8c_afc115263d0bde0ca893cf758ac7367aa}\label{link_8c_afc115263d0bde0ca893cf758ac7367aa} 
+\index{link.c@{link.c}!link\_get\_y@{link\_get\_y}}
+\index{link\_get\_y@{link\_get\_y}!link.c@{link.c}}
+\doxysubsubsection{\texorpdfstring{link\_get\_y()}{link\_get\_y()}}
+{\footnotesize\ttfamily int link\+\_\+get\+\_\+y (\begin{DoxyParamCaption}\item[{Link \texorpdfstring{$\ast$}{*}}]{link }\end{DoxyParamCaption})}
+
+
+
+It get the y coordinate of the link\textquotesingle{}s position. 
+
+\begin{DoxyAuthor}{Author}
+Rubén, Arturo, Bea, Ana
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em link} & a pointer to the link \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the y coordinate 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{link_8c_afc115263d0bde0ca893cf758ac7367aa_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{link_8c_a63adc8ec3b6a842f6e2dee947ae0d15b}\label{link_8c_a63adc8ec3b6a842f6e2dee947ae0d15b} 
+\index{link.c@{link.c}!link\_print@{link\_print}}
+\index{link\_print@{link\_print}!link.c@{link.c}}
+\doxysubsubsection{\texorpdfstring{link\_print()}{link\_print()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} link\+\_\+print (\begin{DoxyParamCaption}\item[{Link \texorpdfstring{$\ast$}{*}}]{link }\end{DoxyParamCaption})}
+
+
+
+It prints the information of a link. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em link} & a pointer to the link \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK if everything goes well, ERROR otherwise 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=347pt]{link_8c_a63adc8ec3b6a842f6e2dee947ae0d15b_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{link_8c_a846f21f2f8c7a5d00efecc3cc2a6f6fe}\label{link_8c_a846f21f2f8c7a5d00efecc3cc2a6f6fe} 
+\index{link.c@{link.c}!link\_set\_direction@{link\_set\_direction}}
+\index{link\_set\_direction@{link\_set\_direction}!link.c@{link.c}}
+\doxysubsubsection{\texorpdfstring{link\_set\_direction()}{link\_set\_direction()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} link\+\_\+set\+\_\+direction (\begin{DoxyParamCaption}\item[{Link \texorpdfstring{$\ast$}{*}}]{link,  }\item[{\mbox{\hyperlink{types_8h_a224b9163917ac32fc95a60d8c1eec3aa}{Direction}}}]{dir }\end{DoxyParamCaption})}
+
+
+
+It sets the direction of a link. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em link} & a pointer to the link \\
+\hline
+{\em dir} & the direction to be set \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK if everything goes well, ERROR otherwise 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{link_8c_a846f21f2f8c7a5d00efecc3cc2a6f6fe_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{link_8c_a563487c58cffc7493876df5115bf9e6e}\label{link_8c_a563487c58cffc7493876df5115bf9e6e} 
+\index{link.c@{link.c}!link\_set\_end@{link\_set\_end}}
+\index{link\_set\_end@{link\_set\_end}!link.c@{link.c}}
+\doxysubsubsection{\texorpdfstring{link\_set\_end()}{link\_set\_end()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} link\+\_\+set\+\_\+end (\begin{DoxyParamCaption}\item[{Link \texorpdfstring{$\ast$}{*}}]{link,  }\item[{\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}}}]{destination }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em link} & \\
+\hline
+{\em destination} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Status 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{link_8c_a563487c58cffc7493876df5115bf9e6e_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{link_8c_a572e6dc57923ee430a8c6121c6bcfc99}\label{link_8c_a572e6dc57923ee430a8c6121c6bcfc99} 
+\index{link.c@{link.c}!link\_set\_id@{link\_set\_id}}
+\index{link\_set\_id@{link\_set\_id}!link.c@{link.c}}
+\doxysubsubsection{\texorpdfstring{link\_set\_id()}{link\_set\_id()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} link\+\_\+set\+\_\+id (\begin{DoxyParamCaption}\item[{Link \texorpdfstring{$\ast$}{*}}]{link,  }\item[{\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}}}]{id }\end{DoxyParamCaption})}
+
+
+
+It sets the id of a link. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em link} & a pointer to the link \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK if everything goes well, ERROR otherwise 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{link_8c_a572e6dc57923ee430a8c6121c6bcfc99_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{link_8c_a4f5f9c929b2ebc585d337d50da041402}\label{link_8c_a4f5f9c929b2ebc585d337d50da041402} 
+\index{link.c@{link.c}!link\_set\_image@{link\_set\_image}}
+\index{link\_set\_image@{link\_set\_image}!link.c@{link.c}}
+\doxysubsubsection{\texorpdfstring{link\_set\_image()}{link\_set\_image()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} link\+\_\+set\+\_\+image (\begin{DoxyParamCaption}\item[{Link \texorpdfstring{$\ast$}{*}}]{link,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{image,  }\item[{int}]{sprite }\end{DoxyParamCaption})}
+
+
+
+It sets the link\textquotesingle{}s image. 
+
+\begin{DoxyAuthor}{Author}
+Rubén, Arturo, Bea, Ana
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em link} & a pointer to the link \\
+\hline
+{\em image} & the path to the image \\
+\hline
+{\em sprite} & the number of the sprite \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK if everything went well, ERROR otherwise 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{link_8c_a4f5f9c929b2ebc585d337d50da041402_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{link_8c_ab01a6bc388bcf873c219839bdd7bf8d1}\label{link_8c_ab01a6bc388bcf873c219839bdd7bf8d1} 
+\index{link.c@{link.c}!link\_set\_name@{link\_set\_name}}
+\index{link\_set\_name@{link\_set\_name}!link.c@{link.c}}
+\doxysubsubsection{\texorpdfstring{link\_set\_name()}{link\_set\_name()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} link\+\_\+set\+\_\+name (\begin{DoxyParamCaption}\item[{Link \texorpdfstring{$\ast$}{*}}]{link,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{name }\end{DoxyParamCaption})}
+
+
+
+It sets the name of a link. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em link} & a pointer to the link \\
+\hline
+{\em name} & the name to be set \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK if everything goes well, ERROR otherwise 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{link_8c_ab01a6bc388bcf873c219839bdd7bf8d1_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{link_8c_a32448d6dc6306eb083916db224055cd4}\label{link_8c_a32448d6dc6306eb083916db224055cd4} 
+\index{link.c@{link.c}!link\_set\_open@{link\_set\_open}}
+\index{link\_set\_open@{link\_set\_open}!link.c@{link.c}}
+\doxysubsubsection{\texorpdfstring{link\_set\_open()}{link\_set\_open()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} link\+\_\+set\+\_\+open (\begin{DoxyParamCaption}\item[{Link \texorpdfstring{$\ast$}{*}}]{link,  }\item[{\mbox{\hyperlink{types_8h_a39db6982619d623273fad8a383489309}{Bool}}}]{open }\end{DoxyParamCaption})}
+
+
+
+It sets the status of a link (open or closed) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em link} & a pointer to the link \\
+\hline
+{\em open} & the status to be set \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK if everything goes well, ERROR otherwise 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{link_8c_a32448d6dc6306eb083916db224055cd4_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{link_8c_a7acbdf64420890be71da87b14939642f}\label{link_8c_a7acbdf64420890be71da87b14939642f} 
+\index{link.c@{link.c}!link\_set\_start@{link\_set\_start}}
+\index{link\_set\_start@{link\_set\_start}!link.c@{link.c}}
+\doxysubsubsection{\texorpdfstring{link\_set\_start()}{link\_set\_start()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} link\+\_\+set\+\_\+start (\begin{DoxyParamCaption}\item[{Link \texorpdfstring{$\ast$}{*}}]{link,  }\item[{\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}}}]{origin }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em link} & a pointer to the link \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{link_8c_a7acbdf64420890be71da87b14939642f_icgraph}
+\end{center}
+\end{figure}

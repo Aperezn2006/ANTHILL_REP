@@ -1,0 +1,11 @@
+<map id="someScreenPuts" name="someScreenPuts">
+<area shape="rect" id="Node000001" title="It puts the strings 1&#45;9 on the screen." alt="" coords="5,70,136,95"/>
+<area shape="rect" id="Node000002" href="$libscreen_8c.html#a4f4cd4c7899c096d6c90cc33de9a9814" title="It introduces some information inside an area." alt="" coords="184,70,320,95"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="137,80,170,80,170,85,137,85"/>
+<area shape="rect" id="Node000003" href="$libscreen_8c.html#ad1b32d3d54fea228f1ef0c73de4a3929" title=" " alt="" coords="377,5,525,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="296,67,368,47,369,52,298,73"/>
+<area shape="rect" id="Node000004" href="$libscreen_8c.html#a110e0b378730322f5a2f1dc91e65e2aa" title=" " alt="" coords="368,70,535,95"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="320,80,354,80,354,85,320,85"/>
+<area shape="rect" id="Node000005" href="$libscreen_8c.html#a55dedaa3b402fef825ceb6c3a957781d" title=" " alt="" coords="370,120,533,160"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="298,93,369,114,368,119,296,98"/>
+</map>

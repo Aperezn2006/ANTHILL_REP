@@ -1,0 +1,21 @@
+<map id="/mnt/c/Ubuntu/Shared_folder/PPROG/I4/ANTHILL_REP/src/inventory_test.c" name="/mnt/c/Ubuntu/Shared_folder/PPROG/I4/ANTHILL_REP/src/inventory_test.c">
+<area shape="rect" id="Node000001" title=" " alt="" coords="201,5,392,60"/>
+<area shape="rect" id="Node000002" href="$inventory_8h.html" title=" " alt="" coords="51,108,145,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="237,63,138,105,136,100,235,58"/>
+<area shape="rect" id="Node000003" href="$set_8h.html" title="It defines the set module interface." alt="" coords="5,181,60,207"/>
+<area shape="poly" id="edge10_Node000001_Node000003" title=" " alt="" coords="202,52,104,76,64,92,40,110,33,123,29,137,30,168,25,168,24,137,28,121,36,106,62,87,102,71,201,47"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="170,108,237,133"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="270,62,228,100,224,96,266,58"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="261,108,332,133"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="299,60,299,94,294,94,294,60"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="356,108,427,133"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="327,58,370,97,367,101,324,62"/>
+<area shape="rect" id="Node000008" href="$inventory__test_8h.html" title=" " alt="" coords="451,108,579,133"/>
+<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="364,58,474,100,472,105,362,63"/>
+<area shape="rect" id="Node000009" href="$test_8h.html" title="It defines macros and variables for unit testing." alt="" coords="603,108,662,133"/>
+<area shape="poly" id="edge9_Node000001_Node000009" title=" " alt="" coords="393,55,590,105,589,110,392,60"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="89,135,54,173,51,169,85,132"/>
+<area shape="rect" id="Node000004" href="$types_8h.html" title="It defines common types for the whole project." alt="" coords="29,255,100,280"/>
+<area shape="poly" id="edge4_Node000002_Node000004" title=" " alt="" coords="98,134,73,242,68,241,93,133"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="40,206,56,241,52,243,36,208"/>
+</map>

@@ -1,0 +1,682 @@
+\doxysection{/mnt/c/\+Ubuntu/\+Shared\+\_\+folder/\+PPROG/\+I4/\+ANTHILL\+\_\+\+REP/include/command.h File Reference}
+\hypertarget{command_8h}{}\label{command_8h}\index{/mnt/c/Ubuntu/Shared\_folder/PPROG/I4/ANTHILL\_REP/include/command.h@{/mnt/c/Ubuntu/Shared\_folder/PPROG/I4/ANTHILL\_REP/include/command.h}}
+
+
+It defines the command interpreter interface.  
+
+
+{\ttfamily \#include "{}types.\+h"{}}\newline
+Include dependency graph for command.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=223pt]{command_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{command_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{command_8h_a8d93932dcdc527c13e06b688b68c7ffc}{N\+\_\+\+CMDT}}~2
+\item 
+\#define \mbox{\hyperlink{command_8h_ae180fe89f0ae48ce5c80ffaa18de9271}{N\+\_\+\+CMD}}~19
+\item 
+\#define \mbox{\hyperlink{command_8h_af088e071589143283f6bc567213a291f}{N\+\_\+\+CON}}~3
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{command_8h_a21e038f5b8958e203d28bc4f18472352}{Command\+Type}} \{ \mbox{\hyperlink{command_8h_a21e038f5b8958e203d28bc4f18472352a7de95771d46ecb64bd2344ef74bbec41}{CMDS}}
+, \mbox{\hyperlink{command_8h_a21e038f5b8958e203d28bc4f18472352a65653f75f2b3c4edc251be55e26b3ca3}{CMDL}}
+ \}
+\item 
+enum \mbox{\hyperlink{command_8h_a805cf38fd2b6d5604bf1f1036b80fde2}{Command\+Code}} \{ \newline
+\mbox{\hyperlink{command_8h_a805cf38fd2b6d5604bf1f1036b80fde2a785693a1d550a18688638e9124af41d0}{NO\+\_\+\+CMD}} = -\/1
+, \mbox{\hyperlink{command_8h_a805cf38fd2b6d5604bf1f1036b80fde2a6ce26a62afab55d7606ad4e92428b30c}{UNKNOWN}}
+, \mbox{\hyperlink{command_8h_a805cf38fd2b6d5604bf1f1036b80fde2a7a10b5d68d31711288e1fe0fa17dbf4f}{EXIT}}
+, \mbox{\hyperlink{command_8h_a805cf38fd2b6d5604bf1f1036b80fde2aed3ef32890b6da0919b57254c5206c62}{MOVE}}
+, \newline
+\mbox{\hyperlink{command_8h_a805cf38fd2b6d5604bf1f1036b80fde2a7405647410e343caba1bf383e83d4f5f}{TAKE}}
+, \mbox{\hyperlink{command_8h_a805cf38fd2b6d5604bf1f1036b80fde2a8b0b0025af76a3d8f0b7b1d4758e51a6}{DROP}}
+, \mbox{\hyperlink{command_8h_a805cf38fd2b6d5604bf1f1036b80fde2a831c130f9c83adc963152d232a9d61c7}{ATTACK}}
+, \mbox{\hyperlink{command_8h_a805cf38fd2b6d5604bf1f1036b80fde2aa24d371d8d14298a1bf5a98d3f321bef}{CHAT}}
+, \newline
+\mbox{\hyperlink{command_8h_a805cf38fd2b6d5604bf1f1036b80fde2aab933f64fcaa285df294e1420f6f1b07}{INSPECT}}
+, \mbox{\hyperlink{command_8h_a805cf38fd2b6d5604bf1f1036b80fde2aa6342d4e2db15fb13f0651aa0b9015c4}{INVENTORY}}
+, \mbox{\hyperlink{command_8h_a805cf38fd2b6d5604bf1f1036b80fde2a38fc47ee68141485d1af6a85ff84ed99}{USE}}
+, \mbox{\hyperlink{command_8h_a805cf38fd2b6d5604bf1f1036b80fde2a0e0143636c29971736eab47415868eae}{OPEN}}
+, \newline
+\mbox{\hyperlink{command_8h_a805cf38fd2b6d5604bf1f1036b80fde2afc2d929d777e6aacbcd9fe9f1ce43555}{FOLLOW}}
+, \mbox{\hyperlink{command_8h_a805cf38fd2b6d5604bf1f1036b80fde2a604adefe799fe794cab6b76ed1108201}{ZOOM}}
+, \mbox{\hyperlink{command_8h_a805cf38fd2b6d5604bf1f1036b80fde2a972dbcdf74cff71e20bdcfb53be9c391}{LOAD}}
+, \mbox{\hyperlink{command_8h_a805cf38fd2b6d5604bf1f1036b80fde2a793562cbf5bffacba71303cee907ef7d}{SAVE}}
+, \newline
+\mbox{\hyperlink{command_8h_a805cf38fd2b6d5604bf1f1036b80fde2a0352f6f3d09dbbcabeaff026ff03e025}{RECRUIT}}
+, \mbox{\hyperlink{command_8h_a805cf38fd2b6d5604bf1f1036b80fde2ab609a716c305138a2b867950e05fe705}{ABANDON}}
+ \}
+\item 
+enum \mbox{\hyperlink{command_8h_ad9fe45d851e604d417439b5829bc4562}{Connector}} \{ \mbox{\hyperlink{command_8h_ad9fe45d851e604d417439b5829bc4562a38e0700cebacf458e80b468fac0eeb61}{NO\+\_\+\+DEST}} = -\/1
+, \mbox{\hyperlink{command_8h_ad9fe45d851e604d417439b5829bc4562aee4b1697462879d869ff122fc694e9e8}{OVER}}
+, \mbox{\hyperlink{command_8h_ad9fe45d851e604d417439b5829bc4562afc0abef5dec817fb5354b11c58bdbbc1}{WITH}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+Command \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{command_8h_aa3d3d6bdeb73c7bbaff6ee913569f456}{command\+\_\+create}} ()
+\begin{DoxyCompactList}\small\item\em It allocates memory for a new command and initializes its members. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{command_8h_abfb6dbf1977dc1a9a6136baefd91b451}{command\+\_\+destroy}} (Command \texorpdfstring{$\ast$}{*}command)
+\begin{DoxyCompactList}\small\item\em It frees the memory of a certain command. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{command_8h_a0abb96f9b182d0018ec4b5e15d5307e4}{command\+\_\+set\+\_\+code}} (Command \texorpdfstring{$\ast$}{*}command, \mbox{\hyperlink{command_8h_a805cf38fd2b6d5604bf1f1036b80fde2}{Command\+Code}} code)
+\begin{DoxyCompactList}\small\item\em It sets a certain command. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{command_8h_a805cf38fd2b6d5604bf1f1036b80fde2}{Command\+Code}} \mbox{\hyperlink{command_8h_a2206702025ffe5340d172decb4ceea52}{command\+\_\+get\+\_\+code}} (Command \texorpdfstring{$\ast$}{*}command)
+\begin{DoxyCompactList}\small\item\em It gets the code inside a command. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{command_8h_ab552b723255ed129d81305127e64c50b}{command\+\_\+set\+\_\+word}} (Command \texorpdfstring{$\ast$}{*}c, const char \texorpdfstring{$\ast$}{*}word)
+\begin{DoxyCompactList}\small\item\em It sets the string that came after the command. \end{DoxyCompactList}\item 
+char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{command_8h_a234c60e061d10b372c3551f66fd01c21}{command\+\_\+get\+\_\+word}} (Command \texorpdfstring{$\ast$}{*}c)
+\begin{DoxyCompactList}\small\item\em It gets the wordect associated with a command. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{command_8h_a934154445013a2e3ac7ef00f4806d0d7}{command\+\_\+set\+\_\+connector}} (Command \texorpdfstring{$\ast$}{*}command, \mbox{\hyperlink{command_8h_ad9fe45d851e604d417439b5829bc4562}{Connector}} connector)
+\begin{DoxyCompactList}\small\item\em It sets the connector between commands. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{command_8h_ad9fe45d851e604d417439b5829bc4562}{Connector}} \mbox{\hyperlink{command_8h_a1a98b3ce824df965544b85d0d23cc491}{command\+\_\+get\+\_\+connector}} (Command \texorpdfstring{$\ast$}{*}command)
+\begin{DoxyCompactList}\small\item\em It gets the connector between commands. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{command_8h_a067d446562d184cfbefac7d262d8666d}{command\+\_\+set\+\_\+destiny}} (Command \texorpdfstring{$\ast$}{*}c, const char \texorpdfstring{$\ast$}{*}destiny)
+\begin{DoxyCompactList}\small\item\em It sets the command\textquotesingle{}s destiny. \end{DoxyCompactList}\item 
+char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{command_8h_a7ef3d26d4fa6329274ecaa02ceb297ff}{command\+\_\+get\+\_\+destiny}} (Command \texorpdfstring{$\ast$}{*}c)
+\begin{DoxyCompactList}\small\item\em It gets the command\textquotesingle{}s destiny. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{command_8h_adf15cb97a09577adb8475a3c6c99e7c5}{command\+\_\+get\+\_\+user\+\_\+input}} (Command \texorpdfstring{$\ast$}{*}command)
+\begin{DoxyCompactList}\small\item\em It gets the user inputs and sets its command and word. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{command_8h_aac1c9fdf3dbee826bb501639460f345f}{command\+\_\+set\+\_\+result}} (Command \texorpdfstring{$\ast$}{*}command, \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} result)
+\begin{DoxyCompactList}\small\item\em It sets wheter the command was succesful or not. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{command_8h_ac50410109215a8e56f75bab52a9d145d}{command\+\_\+get\+\_\+result}} (Command \texorpdfstring{$\ast$}{*}command)
+\begin{DoxyCompactList}\small\item\em It gets whether the command was successful or not. \end{DoxyCompactList}\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{command_8h_afcad0abda11b9f3bf4cffa2c07e1ebe1}{command\+\_\+to\+\_\+str}} (\mbox{\hyperlink{command_8h_a805cf38fd2b6d5604bf1f1036b80fde2}{Command\+Code}} code)
+\begin{DoxyCompactList}\small\item\em It transforms a code into a string. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+It defines the command interpreter interface. 
+
+\begin{DoxyAuthor}{Author}
+Profesores PPROG, Bea, Arturo, Rubén, Ana 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+2 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+12-\/03-\/2025 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+GNU Public License 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{command_8h_ae180fe89f0ae48ce5c80ffaa18de9271}\label{command_8h_ae180fe89f0ae48ce5c80ffaa18de9271} 
+\index{command.h@{command.h}!N\_CMD@{N\_CMD}}
+\index{N\_CMD@{N\_CMD}!command.h@{command.h}}
+\doxysubsubsection{\texorpdfstring{N\_CMD}{N\_CMD}}
+{\footnotesize\ttfamily \#define N\+\_\+\+CMD~19}
+
+\Hypertarget{command_8h_a8d93932dcdc527c13e06b688b68c7ffc}\label{command_8h_a8d93932dcdc527c13e06b688b68c7ffc} 
+\index{command.h@{command.h}!N\_CMDT@{N\_CMDT}}
+\index{N\_CMDT@{N\_CMDT}!command.h@{command.h}}
+\doxysubsubsection{\texorpdfstring{N\_CMDT}{N\_CMDT}}
+{\footnotesize\ttfamily \#define N\+\_\+\+CMDT~2}
+
+\Hypertarget{command_8h_af088e071589143283f6bc567213a291f}\label{command_8h_af088e071589143283f6bc567213a291f} 
+\index{command.h@{command.h}!N\_CON@{N\_CON}}
+\index{N\_CON@{N\_CON}!command.h@{command.h}}
+\doxysubsubsection{\texorpdfstring{N\_CON}{N\_CON}}
+{\footnotesize\ttfamily \#define N\+\_\+\+CON~3}
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{command_8h_a805cf38fd2b6d5604bf1f1036b80fde2}\label{command_8h_a805cf38fd2b6d5604bf1f1036b80fde2} 
+\index{command.h@{command.h}!CommandCode@{CommandCode}}
+\index{CommandCode@{CommandCode}!command.h@{command.h}}
+\doxysubsubsection{\texorpdfstring{CommandCode}{CommandCode}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{command_8h_a805cf38fd2b6d5604bf1f1036b80fde2}{Command\+Code}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NO\_CMD@{NO\_CMD}!command.h@{command.h}}\index{command.h@{command.h}!NO\_CMD@{NO\_CMD}}}\Hypertarget{command_8h_a805cf38fd2b6d5604bf1f1036b80fde2a785693a1d550a18688638e9124af41d0}\label{command_8h_a805cf38fd2b6d5604bf1f1036b80fde2a785693a1d550a18688638e9124af41d0} 
+NO\+\_\+\+CMD&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UNKNOWN@{UNKNOWN}!command.h@{command.h}}\index{command.h@{command.h}!UNKNOWN@{UNKNOWN}}}\Hypertarget{command_8h_a805cf38fd2b6d5604bf1f1036b80fde2a6ce26a62afab55d7606ad4e92428b30c}\label{command_8h_a805cf38fd2b6d5604bf1f1036b80fde2a6ce26a62afab55d7606ad4e92428b30c} 
+UNKNOWN&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{EXIT@{EXIT}!command.h@{command.h}}\index{command.h@{command.h}!EXIT@{EXIT}}}\Hypertarget{command_8h_a805cf38fd2b6d5604bf1f1036b80fde2a7a10b5d68d31711288e1fe0fa17dbf4f}\label{command_8h_a805cf38fd2b6d5604bf1f1036b80fde2a7a10b5d68d31711288e1fe0fa17dbf4f} 
+EXIT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MOVE@{MOVE}!command.h@{command.h}}\index{command.h@{command.h}!MOVE@{MOVE}}}\Hypertarget{command_8h_a805cf38fd2b6d5604bf1f1036b80fde2aed3ef32890b6da0919b57254c5206c62}\label{command_8h_a805cf38fd2b6d5604bf1f1036b80fde2aed3ef32890b6da0919b57254c5206c62} 
+MOVE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TAKE@{TAKE}!command.h@{command.h}}\index{command.h@{command.h}!TAKE@{TAKE}}}\Hypertarget{command_8h_a805cf38fd2b6d5604bf1f1036b80fde2a7405647410e343caba1bf383e83d4f5f}\label{command_8h_a805cf38fd2b6d5604bf1f1036b80fde2a7405647410e343caba1bf383e83d4f5f} 
+TAKE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DROP@{DROP}!command.h@{command.h}}\index{command.h@{command.h}!DROP@{DROP}}}\Hypertarget{command_8h_a805cf38fd2b6d5604bf1f1036b80fde2a8b0b0025af76a3d8f0b7b1d4758e51a6}\label{command_8h_a805cf38fd2b6d5604bf1f1036b80fde2a8b0b0025af76a3d8f0b7b1d4758e51a6} 
+DROP&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ATTACK@{ATTACK}!command.h@{command.h}}\index{command.h@{command.h}!ATTACK@{ATTACK}}}\Hypertarget{command_8h_a805cf38fd2b6d5604bf1f1036b80fde2a831c130f9c83adc963152d232a9d61c7}\label{command_8h_a805cf38fd2b6d5604bf1f1036b80fde2a831c130f9c83adc963152d232a9d61c7} 
+ATTACK&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CHAT@{CHAT}!command.h@{command.h}}\index{command.h@{command.h}!CHAT@{CHAT}}}\Hypertarget{command_8h_a805cf38fd2b6d5604bf1f1036b80fde2aa24d371d8d14298a1bf5a98d3f321bef}\label{command_8h_a805cf38fd2b6d5604bf1f1036b80fde2aa24d371d8d14298a1bf5a98d3f321bef} 
+CHAT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{INSPECT@{INSPECT}!command.h@{command.h}}\index{command.h@{command.h}!INSPECT@{INSPECT}}}\Hypertarget{command_8h_a805cf38fd2b6d5604bf1f1036b80fde2aab933f64fcaa285df294e1420f6f1b07}\label{command_8h_a805cf38fd2b6d5604bf1f1036b80fde2aab933f64fcaa285df294e1420f6f1b07} 
+INSPECT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{INVENTORY@{INVENTORY}!command.h@{command.h}}\index{command.h@{command.h}!INVENTORY@{INVENTORY}}}\Hypertarget{command_8h_a805cf38fd2b6d5604bf1f1036b80fde2aa6342d4e2db15fb13f0651aa0b9015c4}\label{command_8h_a805cf38fd2b6d5604bf1f1036b80fde2aa6342d4e2db15fb13f0651aa0b9015c4} 
+INVENTORY&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{USE@{USE}!command.h@{command.h}}\index{command.h@{command.h}!USE@{USE}}}\Hypertarget{command_8h_a805cf38fd2b6d5604bf1f1036b80fde2a38fc47ee68141485d1af6a85ff84ed99}\label{command_8h_a805cf38fd2b6d5604bf1f1036b80fde2a38fc47ee68141485d1af6a85ff84ed99} 
+USE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{OPEN@{OPEN}!command.h@{command.h}}\index{command.h@{command.h}!OPEN@{OPEN}}}\Hypertarget{command_8h_a805cf38fd2b6d5604bf1f1036b80fde2a0e0143636c29971736eab47415868eae}\label{command_8h_a805cf38fd2b6d5604bf1f1036b80fde2a0e0143636c29971736eab47415868eae} 
+OPEN&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FOLLOW@{FOLLOW}!command.h@{command.h}}\index{command.h@{command.h}!FOLLOW@{FOLLOW}}}\Hypertarget{command_8h_a805cf38fd2b6d5604bf1f1036b80fde2afc2d929d777e6aacbcd9fe9f1ce43555}\label{command_8h_a805cf38fd2b6d5604bf1f1036b80fde2afc2d929d777e6aacbcd9fe9f1ce43555} 
+FOLLOW&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ZOOM@{ZOOM}!command.h@{command.h}}\index{command.h@{command.h}!ZOOM@{ZOOM}}}\Hypertarget{command_8h_a805cf38fd2b6d5604bf1f1036b80fde2a604adefe799fe794cab6b76ed1108201}\label{command_8h_a805cf38fd2b6d5604bf1f1036b80fde2a604adefe799fe794cab6b76ed1108201} 
+ZOOM&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LOAD@{LOAD}!command.h@{command.h}}\index{command.h@{command.h}!LOAD@{LOAD}}}\Hypertarget{command_8h_a805cf38fd2b6d5604bf1f1036b80fde2a972dbcdf74cff71e20bdcfb53be9c391}\label{command_8h_a805cf38fd2b6d5604bf1f1036b80fde2a972dbcdf74cff71e20bdcfb53be9c391} 
+LOAD&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SAVE@{SAVE}!command.h@{command.h}}\index{command.h@{command.h}!SAVE@{SAVE}}}\Hypertarget{command_8h_a805cf38fd2b6d5604bf1f1036b80fde2a793562cbf5bffacba71303cee907ef7d}\label{command_8h_a805cf38fd2b6d5604bf1f1036b80fde2a793562cbf5bffacba71303cee907ef7d} 
+SAVE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RECRUIT@{RECRUIT}!command.h@{command.h}}\index{command.h@{command.h}!RECRUIT@{RECRUIT}}}\Hypertarget{command_8h_a805cf38fd2b6d5604bf1f1036b80fde2a0352f6f3d09dbbcabeaff026ff03e025}\label{command_8h_a805cf38fd2b6d5604bf1f1036b80fde2a0352f6f3d09dbbcabeaff026ff03e025} 
+RECRUIT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ABANDON@{ABANDON}!command.h@{command.h}}\index{command.h@{command.h}!ABANDON@{ABANDON}}}\Hypertarget{command_8h_a805cf38fd2b6d5604bf1f1036b80fde2ab609a716c305138a2b867950e05fe705}\label{command_8h_a805cf38fd2b6d5604bf1f1036b80fde2ab609a716c305138a2b867950e05fe705} 
+ABANDON&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{command_8h_a21e038f5b8958e203d28bc4f18472352}\label{command_8h_a21e038f5b8958e203d28bc4f18472352} 
+\index{command.h@{command.h}!CommandType@{CommandType}}
+\index{CommandType@{CommandType}!command.h@{command.h}}
+\doxysubsubsection{\texorpdfstring{CommandType}{CommandType}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{command_8h_a21e038f5b8958e203d28bc4f18472352}{Command\+Type}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CMDS@{CMDS}!command.h@{command.h}}\index{command.h@{command.h}!CMDS@{CMDS}}}\Hypertarget{command_8h_a21e038f5b8958e203d28bc4f18472352a7de95771d46ecb64bd2344ef74bbec41}\label{command_8h_a21e038f5b8958e203d28bc4f18472352a7de95771d46ecb64bd2344ef74bbec41} 
+CMDS&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CMDL@{CMDL}!command.h@{command.h}}\index{command.h@{command.h}!CMDL@{CMDL}}}\Hypertarget{command_8h_a21e038f5b8958e203d28bc4f18472352a65653f75f2b3c4edc251be55e26b3ca3}\label{command_8h_a21e038f5b8958e203d28bc4f18472352a65653f75f2b3c4edc251be55e26b3ca3} 
+CMDL&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{command_8h_ad9fe45d851e604d417439b5829bc4562}\label{command_8h_ad9fe45d851e604d417439b5829bc4562} 
+\index{command.h@{command.h}!Connector@{Connector}}
+\index{Connector@{Connector}!command.h@{command.h}}
+\doxysubsubsection{\texorpdfstring{Connector}{Connector}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{command_8h_ad9fe45d851e604d417439b5829bc4562}{Connector}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NO\_DEST@{NO\_DEST}!command.h@{command.h}}\index{command.h@{command.h}!NO\_DEST@{NO\_DEST}}}\Hypertarget{command_8h_ad9fe45d851e604d417439b5829bc4562a38e0700cebacf458e80b468fac0eeb61}\label{command_8h_ad9fe45d851e604d417439b5829bc4562a38e0700cebacf458e80b468fac0eeb61} 
+NO\+\_\+\+DEST&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{OVER@{OVER}!command.h@{command.h}}\index{command.h@{command.h}!OVER@{OVER}}}\Hypertarget{command_8h_ad9fe45d851e604d417439b5829bc4562aee4b1697462879d869ff122fc694e9e8}\label{command_8h_ad9fe45d851e604d417439b5829bc4562aee4b1697462879d869ff122fc694e9e8} 
+OVER&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WITH@{WITH}!command.h@{command.h}}\index{command.h@{command.h}!WITH@{WITH}}}\Hypertarget{command_8h_ad9fe45d851e604d417439b5829bc4562afc0abef5dec817fb5354b11c58bdbbc1}\label{command_8h_ad9fe45d851e604d417439b5829bc4562afc0abef5dec817fb5354b11c58bdbbc1} 
+WITH&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{command_8h_aa3d3d6bdeb73c7bbaff6ee913569f456}\label{command_8h_aa3d3d6bdeb73c7bbaff6ee913569f456} 
+\index{command.h@{command.h}!command\_create@{command\_create}}
+\index{command\_create@{command\_create}!command.h@{command.h}}
+\doxysubsubsection{\texorpdfstring{command\_create()}{command\_create()}}
+{\footnotesize\ttfamily Command \texorpdfstring{$\ast$}{*} command\+\_\+create (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+It allocates memory for a new command and initializes its members. 
+
+\begin{DoxyAuthor}{Author}
+Profesores PPROG
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a pointer to the new command, or NULL if it goes wrong 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{command_8h_aa3d3d6bdeb73c7bbaff6ee913569f456_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{command_8h_abfb6dbf1977dc1a9a6136baefd91b451}\label{command_8h_abfb6dbf1977dc1a9a6136baefd91b451} 
+\index{command.h@{command.h}!command\_destroy@{command\_destroy}}
+\index{command\_destroy@{command\_destroy}!command.h@{command.h}}
+\doxysubsubsection{\texorpdfstring{command\_destroy()}{command\_destroy()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} command\+\_\+destroy (\begin{DoxyParamCaption}\item[{Command \texorpdfstring{$\ast$}{*}}]{command }\end{DoxyParamCaption})}
+
+
+
+It frees the memory of a certain command. 
+
+\begin{DoxyAuthor}{Author}
+Profesores PPROG
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em command} & a pointer to the command \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK if everything went well, ERROR otherwise 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{command_8h_abfb6dbf1977dc1a9a6136baefd91b451_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{command_8h_a2206702025ffe5340d172decb4ceea52}\label{command_8h_a2206702025ffe5340d172decb4ceea52} 
+\index{command.h@{command.h}!command\_get\_code@{command\_get\_code}}
+\index{command\_get\_code@{command\_get\_code}!command.h@{command.h}}
+\doxysubsubsection{\texorpdfstring{command\_get\_code()}{command\_get\_code()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{command_8h_a805cf38fd2b6d5604bf1f1036b80fde2}{Command\+Code}} command\+\_\+get\+\_\+code (\begin{DoxyParamCaption}\item[{Command \texorpdfstring{$\ast$}{*}}]{command }\end{DoxyParamCaption})}
+
+
+
+It gets the code inside a command. 
+
+\begin{DoxyAuthor}{Author}
+Profesores PPROG
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em command} & a pointer to the desired command \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the code of the command 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{command_8h_a2206702025ffe5340d172decb4ceea52_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{command_8h_a1a98b3ce824df965544b85d0d23cc491}\label{command_8h_a1a98b3ce824df965544b85d0d23cc491} 
+\index{command.h@{command.h}!command\_get\_connector@{command\_get\_connector}}
+\index{command\_get\_connector@{command\_get\_connector}!command.h@{command.h}}
+\doxysubsubsection{\texorpdfstring{command\_get\_connector()}{command\_get\_connector()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{command_8h_ad9fe45d851e604d417439b5829bc4562}{Connector}} command\+\_\+get\+\_\+connector (\begin{DoxyParamCaption}\item[{Command \texorpdfstring{$\ast$}{*}}]{command }\end{DoxyParamCaption})}
+
+
+
+It gets the connector between commands. 
+
+\begin{DoxyAuthor}{Author}
+Rubén
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em command} & a pointer to the command \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the connector
+\end{DoxyReturn}
+It gets the connector between commands. Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{command_8h_a1a98b3ce824df965544b85d0d23cc491_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{command_8h_a7ef3d26d4fa6329274ecaa02ceb297ff}\label{command_8h_a7ef3d26d4fa6329274ecaa02ceb297ff} 
+\index{command.h@{command.h}!command\_get\_destiny@{command\_get\_destiny}}
+\index{command\_get\_destiny@{command\_get\_destiny}!command.h@{command.h}}
+\doxysubsubsection{\texorpdfstring{command\_get\_destiny()}{command\_get\_destiny()}}
+{\footnotesize\ttfamily char \texorpdfstring{$\ast$}{*} command\+\_\+get\+\_\+destiny (\begin{DoxyParamCaption}\item[{Command \texorpdfstring{$\ast$}{*}}]{c }\end{DoxyParamCaption})}
+
+
+
+It gets the command\textquotesingle{}s destiny. 
+
+\begin{DoxyAuthor}{Author}
+Rubén
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em c} & a pointer to the command \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the destiny
+\end{DoxyReturn}
+It gets the command\textquotesingle{}s destiny. Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{command_8h_a7ef3d26d4fa6329274ecaa02ceb297ff_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{command_8h_ac50410109215a8e56f75bab52a9d145d}\label{command_8h_ac50410109215a8e56f75bab52a9d145d} 
+\index{command.h@{command.h}!command\_get\_result@{command\_get\_result}}
+\index{command\_get\_result@{command\_get\_result}!command.h@{command.h}}
+\doxysubsubsection{\texorpdfstring{command\_get\_result()}{command\_get\_result()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} command\+\_\+get\+\_\+result (\begin{DoxyParamCaption}\item[{Command \texorpdfstring{$\ast$}{*}}]{command }\end{DoxyParamCaption})}
+
+
+
+It gets whether the command was successful or not. 
+
+\begin{DoxyAuthor}{Author}
+Bea, Arturo, Rubén, Ana
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em command} & a pointer to the command \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK if everything went well, ERROR otherwise 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{command_8h_ac50410109215a8e56f75bab52a9d145d_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{command_8h_adf15cb97a09577adb8475a3c6c99e7c5}\label{command_8h_adf15cb97a09577adb8475a3c6c99e7c5} 
+\index{command.h@{command.h}!command\_get\_user\_input@{command\_get\_user\_input}}
+\index{command\_get\_user\_input@{command\_get\_user\_input}!command.h@{command.h}}
+\doxysubsubsection{\texorpdfstring{command\_get\_user\_input()}{command\_get\_user\_input()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} command\+\_\+get\+\_\+user\+\_\+input (\begin{DoxyParamCaption}\item[{Command \texorpdfstring{$\ast$}{*}}]{command }\end{DoxyParamCaption})}
+
+
+
+It gets the user inputs and sets its command and word. 
+
+\begin{DoxyAuthor}{Author}
+Profesores PPROG
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em command} & a pointer to the command \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a new command with the inputed one set 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{command_8h_adf15cb97a09577adb8475a3c6c99e7c5_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{command_8h_adf15cb97a09577adb8475a3c6c99e7c5_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{command_8h_a234c60e061d10b372c3551f66fd01c21}\label{command_8h_a234c60e061d10b372c3551f66fd01c21} 
+\index{command.h@{command.h}!command\_get\_word@{command\_get\_word}}
+\index{command\_get\_word@{command\_get\_word}!command.h@{command.h}}
+\doxysubsubsection{\texorpdfstring{command\_get\_word()}{command\_get\_word()}}
+{\footnotesize\ttfamily char \texorpdfstring{$\ast$}{*} command\+\_\+get\+\_\+word (\begin{DoxyParamCaption}\item[{Command \texorpdfstring{$\ast$}{*}}]{c }\end{DoxyParamCaption})}
+
+
+
+It gets the wordect associated with a command. 
+
+\begin{DoxyAuthor}{Author}
+Profesores PPROG
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em command} & a pointer to the command \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the word associated with the command 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{command_8h_a234c60e061d10b372c3551f66fd01c21_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{command_8h_a0abb96f9b182d0018ec4b5e15d5307e4}\label{command_8h_a0abb96f9b182d0018ec4b5e15d5307e4} 
+\index{command.h@{command.h}!command\_set\_code@{command\_set\_code}}
+\index{command\_set\_code@{command\_set\_code}!command.h@{command.h}}
+\doxysubsubsection{\texorpdfstring{command\_set\_code()}{command\_set\_code()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} command\+\_\+set\+\_\+code (\begin{DoxyParamCaption}\item[{Command \texorpdfstring{$\ast$}{*}}]{command,  }\item[{\mbox{\hyperlink{command_8h_a805cf38fd2b6d5604bf1f1036b80fde2}{Command\+Code}}}]{code }\end{DoxyParamCaption})}
+
+
+
+It sets a certain command. 
+
+\begin{DoxyAuthor}{Author}
+Profesores PPROG
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em command} & a pointer to the desired command \\
+\hline
+{\em code} & a struct of a command \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK if everything goes well 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{command_8h_a0abb96f9b182d0018ec4b5e15d5307e4_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{command_8h_a934154445013a2e3ac7ef00f4806d0d7}\label{command_8h_a934154445013a2e3ac7ef00f4806d0d7} 
+\index{command.h@{command.h}!command\_set\_connector@{command\_set\_connector}}
+\index{command\_set\_connector@{command\_set\_connector}!command.h@{command.h}}
+\doxysubsubsection{\texorpdfstring{command\_set\_connector()}{command\_set\_connector()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} command\+\_\+set\+\_\+connector (\begin{DoxyParamCaption}\item[{Command \texorpdfstring{$\ast$}{*}}]{command,  }\item[{\mbox{\hyperlink{command_8h_ad9fe45d851e604d417439b5829bc4562}{Connector}}}]{connector }\end{DoxyParamCaption})}
+
+
+
+It sets the connector between commands. 
+
+\begin{DoxyAuthor}{Author}
+Rubén
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em command} & a pointer to the command \\
+\hline
+{\em connector} & the connector \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK if everything goes well, ERROR otherwise 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{command_8h_a934154445013a2e3ac7ef00f4806d0d7_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{command_8h_a067d446562d184cfbefac7d262d8666d}\label{command_8h_a067d446562d184cfbefac7d262d8666d} 
+\index{command.h@{command.h}!command\_set\_destiny@{command\_set\_destiny}}
+\index{command\_set\_destiny@{command\_set\_destiny}!command.h@{command.h}}
+\doxysubsubsection{\texorpdfstring{command\_set\_destiny()}{command\_set\_destiny()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} command\+\_\+set\+\_\+destiny (\begin{DoxyParamCaption}\item[{Command \texorpdfstring{$\ast$}{*}}]{c,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{destiny }\end{DoxyParamCaption})}
+
+
+
+It sets the command\textquotesingle{}s destiny. 
+
+\begin{DoxyAuthor}{Author}
+Rubén
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em c} & a pointer to the command \\
+\hline
+{\em destiny} & the destiny \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK if everything goes well, ERROR otherwise 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{command_8h_a067d446562d184cfbefac7d262d8666d_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{command_8h_aac1c9fdf3dbee826bb501639460f345f}\label{command_8h_aac1c9fdf3dbee826bb501639460f345f} 
+\index{command.h@{command.h}!command\_set\_result@{command\_set\_result}}
+\index{command\_set\_result@{command\_set\_result}!command.h@{command.h}}
+\doxysubsubsection{\texorpdfstring{command\_set\_result()}{command\_set\_result()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} command\+\_\+set\+\_\+result (\begin{DoxyParamCaption}\item[{Command \texorpdfstring{$\ast$}{*}}]{command,  }\item[{\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}}}]{result }\end{DoxyParamCaption})}
+
+
+
+It sets wheter the command was succesful or not. 
+
+\begin{DoxyAuthor}{Author}
+Bea, Arturo, Rubén, Ana
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em command} & a pointer to the command \\
+\hline
+{\em result} & the feedback that will be assigned to a certain command \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK if everything went well, ERROR otherwise 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{command_8h_aac1c9fdf3dbee826bb501639460f345f_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{command_8h_ab552b723255ed129d81305127e64c50b}\label{command_8h_ab552b723255ed129d81305127e64c50b} 
+\index{command.h@{command.h}!command\_set\_word@{command\_set\_word}}
+\index{command\_set\_word@{command\_set\_word}!command.h@{command.h}}
+\doxysubsubsection{\texorpdfstring{command\_set\_word()}{command\_set\_word()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} command\+\_\+set\+\_\+word (\begin{DoxyParamCaption}\item[{Command \texorpdfstring{$\ast$}{*}}]{c,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{word }\end{DoxyParamCaption})}
+
+
+
+It sets the string that came after the command. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & a pointer to the desired command \\
+\hline
+{\em word} & a pointer to the string \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK if everything goes well, ERROR otherwise 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{command_8h_ab552b723255ed129d81305127e64c50b_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{command_8h_afcad0abda11b9f3bf4cffa2c07e1ebe1}\label{command_8h_afcad0abda11b9f3bf4cffa2c07e1ebe1} 
+\index{command.h@{command.h}!command\_to\_str@{command\_to\_str}}
+\index{command\_to\_str@{command\_to\_str}!command.h@{command.h}}
+\doxysubsubsection{\texorpdfstring{command\_to\_str()}{command\_to\_str()}}
+{\footnotesize\ttfamily const char \texorpdfstring{$\ast$}{*} command\+\_\+to\+\_\+str (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{command_8h_a805cf38fd2b6d5604bf1f1036b80fde2}{Command\+Code}}}]{code }\end{DoxyParamCaption})}
+
+
+
+It transforms a code into a string. 
+
+\begin{DoxyAuthor}{Author}
+Rubén
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em code} & the desired code \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the string that belongs to a certain command 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{command_8h_afcad0abda11b9f3bf4cffa2c07e1ebe1_icgraph}
+\end{center}
+\end{figure}

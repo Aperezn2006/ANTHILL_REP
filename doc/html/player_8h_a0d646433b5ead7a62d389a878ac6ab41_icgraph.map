@@ -1,0 +1,5 @@
+<map id="player_get_direction" name="player_get_direction">
+<area shape="rect" id="Node000001" title="It gets which direction the player&#39;s facing." alt="" coords="224,5,379,31"/>
+<area shape="rect" id="Node000002" href="$physics_8c.html#ae360f0b61263956f3712a672afc7fbc2" title=" " alt="" coords="5,5,176,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="210,21,176,21,176,15,210,15"/>
+</map>

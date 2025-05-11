@@ -1,0 +1,9 @@
+<map id="game_set_link_open" name="game_set_link_open">
+<area shape="rect" id="Node000001" title="It sets a link to open." alt="" coords="5,55,161,80"/>
+<area shape="rect" id="Node000002" href="$link_8c.html#a45c192f1efaa9863a150e51d1a0f2756" title="It gets the direction of a link." alt="" coords="209,5,348,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="134,52,214,32,215,37,135,57"/>
+<area shape="rect" id="Node000003" href="$link_8c.html#ade97314fda342663e1b98cdb4e6ca50a" title="It gets the origin id of a link." alt="" coords="223,55,334,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="161,65,209,65,209,70,161,70"/>
+<area shape="rect" id="Node000004" href="$link_8c.html#a32448d6dc6306eb083916db224055cd4" title="It sets the status of a link (open or closed)" alt="" coords="223,104,335,129"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="135,77,215,98,214,103,134,83"/>
+</map>

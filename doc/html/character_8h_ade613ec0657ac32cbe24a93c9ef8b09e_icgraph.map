@@ -1,0 +1,29 @@
+<map id="character_set_position" name="character_set_position">
+<area shape="rect" id="Node000001" title="It sets the character&#39;s position." alt="" coords="951,92,1120,117"/>
+<area shape="rect" id="Node000002" href="$game_8c.html#ad178f1654829cf5f9a7cba802297d89f" title="It allows for characters to chase a player inside a space (for SDL)" alt="" coords="723,33,895,73"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="965,91,894,75,895,70,966,86"/>
+<area shape="rect" id="Node000005" href="$game__management_8c.html#a2eb0da4b2ffda0db41db0cf16b9fe3e4" title="It loads a player&#39;s game from a certain file." alt="" coords="715,120,903,145"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="938,119,903,124,903,118,937,114"/>
+<area shape="rect" id="Node000003" href="$game__loop__sdl_8c.html#a2512ad7629a28c1c47934820188b8de4" title="Runs the main game loop, processing commands and updating the game state." alt="" coords="300,5,423,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="709,48,423,25,423,20,709,42"/>
+<area shape="rect" id="Node000004" href="$game__loop__sdl_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="142,31,197,56"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="287,31,197,42,196,37,286,25"/>
+<area shape="rect" id="Node000006" href="$game__actions_8c.html#aa5706101d08a674bc09e9e1b2e5eadef" title="It allows the player to save its current game." alt="" coords="505,141,653,167"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="701,145,654,150,653,144,701,140"/>
+<area shape="rect" id="Node000010" href="$game__actions__sdl_8c.html#a34397b9f48b293f57e661603e66d4b06" title="It allows the player to save its current game." alt="" coords="492,191,667,216"/>
+<area shape="poly" id="edge9_Node000005_Node000010" title=" " alt="" coords="758,152,667,182,628,193,627,188,666,177,757,147"/>
+<area shape="rect" id="Node000011" href="$game__management_8c.html#a5846dc960b348395849e7dc0899b177d" title="It creates the game with the info from the filename." alt="" coords="503,92,655,117"/>
+<area shape="poly" id="edge10_Node000005_Node000011" title=" " alt="" coords="701,122,655,117,656,111,701,117"/>
+<area shape="rect" id="Node000007" href="$game__actions_8c.html#a0693694a3e70b4a4129e2da4ddb1f1a7" title="It updates the current command based on user input." alt="" coords="279,156,444,181"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="492,163,444,166,444,160,491,157"/>
+<area shape="rect" id="Node000008" href="$game__loop_8c.html#afb6a670628dffdd01661658f29a1e8ca" title="Runs the main game loop, processing commands and updating the game state." alt="" coords="108,155,231,180"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="265,171,231,170,231,165,265,165"/>
+<area shape="rect" id="Node000009" href="$game__loop_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,131,60,156"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="94,157,60,151,61,145,95,152"/>
+<area shape="rect" id="Node000012" href="$game__loop_8c.html#a31e8784ceb06b2f65b70e074e3e1a722" title="Initializes the game loop by loading game data and creating the graphic engine." alt="" coords="108,105,231,131"/>
+<area shape="poly" id="edge11_Node000011_Node000012" title=" " alt="" coords="490,110,231,119,231,113,489,105"/>
+<area shape="rect" id="Node000013" href="$game__loop__sdl_8c.html#a0d3c177445766e002b15a3526fe3abb9" title="Initializes the game loop by loading game data and creating the graphic engine." alt="" coords="300,55,423,80"/>
+<area shape="poly" id="edge13_Node000011_Node000013" title=" " alt="" coords="491,92,423,80,423,75,492,87"/>
+<area shape="poly" id="edge12_Node000012_Node000009" title=" " alt="" coords="95,135,61,141,60,136,94,129"/>
+<area shape="poly" id="edge14_Node000013_Node000004" title=" " alt="" coords="286,61,197,49,197,44,287,55"/>
+</map>

@@ -1,0 +1,29 @@
+<map id="game_loop_cleanup" name="game_loop_cleanup">
+<area shape="rect" id="Node000001" title="Cleans up resources used during the game loop, including the game and graphic engine." alt="" coords="5,279,157,304"/>
+<area shape="rect" id="Node000002" href="$game_8c.html#a51e25c77a7c3d9a58ebb5faecc182b81" title="It frees the memory the game was occupying." alt="" coords="237,179,351,204"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="109,276,252,208,255,212,111,281"/>
+<area shape="rect" id="Node000011" href="$graphic__engine_8c.html#a5a5eac4ef2033c5ad71aa6895f362f79" title="It destroys a graphic engine." alt="" coords="205,355,383,380"/>
+<area shape="poly" id="edge12_Node000001_Node000011" title=" " alt="" coords="119,302,245,347,243,352,117,307"/>
+<area shape="rect" id="Node000003" href="$character_8c.html#a56873e94f3e967d9ad10a36f2338a64a" title="It destroys a character, freeing the allocated memory." alt="" coords="440,5,579,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="301,177,350,112,387,73,429,40,440,34,443,38,432,44,390,77,354,115,306,180"/>
+<area shape="rect" id="Node000004" href="$command_8c.html#abfb6dbf1977dc1a9a6136baefd91b451" title="It frees the memory of a certain command." alt="" coords="438,55,581,80"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="308,176,359,134,393,110,429,89,444,82,447,87,432,94,396,115,362,138,311,181"/>
+<area shape="rect" id="Node000005" href="$link_8c.html#a117e4e5a82b23b805052d1eace34d068" title="It destroys a link." alt="" coords="458,104,561,129"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="327,176,430,138,451,131,453,136,432,143,329,181"/>
+<area shape="rect" id="Node000006" href="$object_8c.html#aab2d9fe61ae9c48522635d006dd50396" title="It destroys a object, freeing the allocated memory." alt="" coords="450,153,569,179"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="351,182,436,172,437,177,352,187"/>
+<area shape="rect" id="Node000007" href="$player_8c.html#a2c5f78378722793bb82da46e5c0e7b82" title="It destroys a player, freeing the allocated memory." alt="" coords="450,203,569,228"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="352,195,437,205,436,210,351,200"/>
+<area shape="rect" id="Node000009" href="$set_8c.html#a5b4e14914ec3c85b83363f57697f175a" title="It destroys a set." alt="" coords="824,253,923,279"/>
+<area shape="poly" id="edge9_Node000002_Node000009" title=" " alt="" coords="325,202,374,221,431,237,534,253,638,261,810,265,810,270,638,267,534,258,430,242,372,226,323,207"/>
+<area shape="rect" id="Node000010" href="$space_8c.html#a278763d4b530df17823ef9e4f9db2896" title="It destroys a space, freeing the allocated memory." alt="" coords="648,304,764,329"/>
+<area shape="poly" id="edge10_Node000002_Node000010" title=" " alt="" coords="311,202,361,243,395,265,432,282,483,298,536,307,634,315,634,320,536,313,482,303,430,287,393,269,358,247,307,206"/>
+<area shape="rect" id="Node000008" href="$inventory_8c.html#ae23961749b6ed45fd5fe1c18941fe586" title="It destroys an inventory, freeing the allocated memory." alt="" coords="636,203,776,228"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="569,213,622,213,622,218,569,218"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="750,226,818,247,817,252,748,231"/>
+<area shape="poly" id="edge11_Node000010_Node000009" title=" " alt="" coords="748,301,817,280,818,285,750,306"/>
+<area shape="rect" id="Node000012" href="$libscreen_8c.html#aca5123ed5a7afb75e79c0001e5d1df4f" title="It destroys a new screen area." alt="" coords="431,355,588,380"/>
+<area shape="poly" id="edge13_Node000011_Node000012" title=" " alt="" coords="383,365,417,365,417,370,383,370"/>
+<area shape="rect" id="Node000013" href="$libscreen_8c.html#a3d6d82dde2bb4f3ddc4d276dabe313ef" title="It destroys a new screen area." alt="" coords="449,404,570,429"/>
+<area shape="poly" id="edge14_Node000011_Node000013" title=" " alt="" coords="351,377,441,398,439,404,349,383"/>
+</map>

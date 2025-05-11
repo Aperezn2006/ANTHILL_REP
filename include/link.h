@@ -19,9 +19,42 @@
 typedef struct _Link Link;
 
 /*Cosas de SDL2*/
+/**
+ * @brief It sets the link's image
+ * @author Rubén, Arturo, Bea, Ana
+ *
+ * @param link a pointer to the link
+ * @param image the path to the image
+ * @param sprite the number of the sprite
+ * @return OK if everything went well, ERROR otherwise
+ */
 Status link_set_image(Link *link, const char *image, int sprite);
+
+/**
+ * @brief It gets the link's image
+ * @author Rubén, Arturo, Bea, Ana
+ *
+ * @param link a pointer to the link
+ * @return the path to the image
+ */
 const char *link_get_image(const Link *link);
+
+/**
+ * @brief It get the x coordinate of the link's position
+ * @author Rubén, Arturo, Bea, Ana
+ *
+ * @param link a pointer to the link
+ * @return the x coordinate
+ */
 int link_get_x(Link *link);
+
+/**
+ * @brief It get the y coordinate of the link's position
+ * @author Rubén, Arturo, Bea, Ana
+ *
+ * @param link a pointer to the link
+ * @return the y coordinate
+ */
 int link_get_y(Link *link);
 
 /* Funciones de creación y destrucción */
@@ -53,6 +86,12 @@ void link_destroy(Link *link);
  */
 Id link_get_id(Link *link);
 
+/**
+ * @brief It sets the id of a link
+ *
+ * @param link a pointer to the link
+ * @return OK if everything goes well, ERROR otherwise
+ */
 Status link_set_id(Link *link, Id id);
 
 /**

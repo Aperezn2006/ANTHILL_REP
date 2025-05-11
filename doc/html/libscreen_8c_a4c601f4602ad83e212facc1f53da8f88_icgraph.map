@@ -1,0 +1,20 @@
+<map id="screen_area_init" name="screen_area_init">
+<area shape="rect" id="Node000001" title="It creates a new area inside a screen." alt="" coords="763,42,892,67"/>
+<area shape="rect" id="Node000002" href="$graphic__engine_8c.html#ab78b520fe5bb403249f4d32b9fa092b2" title="It initializes the game areas." alt="" coords="565,5,715,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="749,45,715,40,716,34,749,40"/>
+<area shape="rect" id="Node000006" href="$graphic__engine_8c.html#a87c7b56bef2e31259b30bba27bb8cd00" title="It allows for the visualization of only one screen." alt="" coords="348,63,517,103"/>
+<area shape="poly" id="edge10_Node000001_Node000006" title=" " alt="" coords="749,63,518,79,517,74,749,57"/>
+<area shape="rect" id="Node000003" href="$graphic__engine_8c.html#a943c75487b750e5b0aafde34ac739b16" title="It creates a new graphic engine." alt="" coords="348,13,517,38"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="551,28,518,28,518,23,551,23"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="555,52,506,65,505,60,553,47"/>
+<area shape="rect" id="Node000004" href="$game__loop_8c.html#a31e8784ceb06b2f65b70e074e3e1a722" title="Initializes the game loop by loading game data and creating the graphic engine." alt="" coords="143,13,265,38"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="334,28,266,28,266,23,334,23"/>
+<area shape="rect" id="Node000005" href="$game__loop_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,62,60,87"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="140,44,109,53,61,68,59,63,107,48,139,39"/>
+<area shape="rect" id="Node000007" href="$graphic__engine_8c.html#a944f77c736cfe97f5ac0d08f16cb6785" title="It paints the end game screen." alt="" coords="108,62,300,87"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="334,82,300,81,300,75,334,77"/>
+<area shape="rect" id="Node000008" href="$graphic__engine_8c.html#a69e45b47bd8d4bd4b750fbdc58c2471d" title="It paints the welcome screen." alt="" coords="123,112,285,152"/>
+<area shape="poly" id="edge8_Node000006_Node000008" title=" " alt="" coords="335,106,285,117,284,112,334,101"/>
+<area shape="poly" id="edge7_Node000007_Node000005" title=" " alt="" coords="95,77,60,77,60,72,95,72"/>
+<area shape="poly" id="edge9_Node000008_Node000005" title=" " alt="" coords="130,110,107,103,59,86,61,81,109,97,131,105"/>
+</map>

@@ -1,0 +1,118 @@
+\doxysection{/mnt/c/\+Ubuntu/\+Shared\+\_\+folder/\+PPROG/\+I4/\+ANTHILL\+\_\+\+REP/src/input.c File Reference}
+\hypertarget{input_8c}{}\label{input_8c}\index{/mnt/c/Ubuntu/Shared\_folder/PPROG/I4/ANTHILL\_REP/src/input.c@{/mnt/c/Ubuntu/Shared\_folder/PPROG/I4/ANTHILL\_REP/src/input.c}}
+{\ttfamily \#include "{}input.\+h"{}}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include "{}game\+\_\+actions.\+h"{}}\newline
+{\ttfamily \#include "{}ray.\+h"{}}\newline
+Include dependency graph for input.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{input_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{input_8c_a97c24e20f21048d3c64df0cb0a583581}{update\+\_\+key\+\_\+state}} (Uint8 current\+\_\+state, \mbox{\hyperlink{input_8h_a0ca0271d7da224e6d239140565c3b346}{Key\+\_\+\+State}} \texorpdfstring{$\ast$}{*}key\+\_\+state)
+\item 
+void \mbox{\hyperlink{input_8c_a739a34f39e5b45b0f5a33d95599dd2cd}{update\+\_\+action\+\_\+key\+\_\+state}} (Uint8 current\+\_\+state, \mbox{\hyperlink{input_8h_a0ca0271d7da224e6d239140565c3b346}{Key\+\_\+\+State}} \texorpdfstring{$\ast$}{*}key\+\_\+state)
+\item 
+void \mbox{\hyperlink{input_8c_acb980b04da1d4a332ecc55a4b4a4215c}{input\+\_\+reset\+\_\+movement\+\_\+keys}} (void)
+\item 
+void \mbox{\hyperlink{input_8c_a5cee2075bac76c4d456f1a1a631bd413}{input\+\_\+update}} (Game \texorpdfstring{$\ast$}{*}game)
+\begin{DoxyCompactList}\small\item\em It updates the game\textquotesingle{}s input base on keyboard events. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structGame__Input}{Game\+\_\+\+Input}} \mbox{\hyperlink{input_8c_a100e37e37fa19125df76aa09b30b1a40}{game\+\_\+input}} = \{0\}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{input_8c_acb980b04da1d4a332ecc55a4b4a4215c}\label{input_8c_acb980b04da1d4a332ecc55a4b4a4215c} 
+\index{input.c@{input.c}!input\_reset\_movement\_keys@{input\_reset\_movement\_keys}}
+\index{input\_reset\_movement\_keys@{input\_reset\_movement\_keys}!input.c@{input.c}}
+\doxysubsubsection{\texorpdfstring{input\_reset\_movement\_keys()}{input\_reset\_movement\_keys()}}
+{\footnotesize\ttfamily void input\+\_\+reset\+\_\+movement\+\_\+keys (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{input_8c_acb980b04da1d4a332ecc55a4b4a4215c_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{input_8c_a5cee2075bac76c4d456f1a1a631bd413}\label{input_8c_a5cee2075bac76c4d456f1a1a631bd413} 
+\index{input.c@{input.c}!input\_update@{input\_update}}
+\index{input\_update@{input\_update}!input.c@{input.c}}
+\doxysubsubsection{\texorpdfstring{input\_update()}{input\_update()}}
+{\footnotesize\ttfamily void input\+\_\+update (\begin{DoxyParamCaption}\item[{Game \texorpdfstring{$\ast$}{*}}]{game }\end{DoxyParamCaption})}
+
+
+
+It updates the game\textquotesingle{}s input base on keyboard events. 
+
+\begin{DoxyAuthor}{Author}
+Rubén
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em game} & a pointer to the game \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{input_8c_a5cee2075bac76c4d456f1a1a631bd413_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{input_8c_a5cee2075bac76c4d456f1a1a631bd413_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{input_8c_a739a34f39e5b45b0f5a33d95599dd2cd}\label{input_8c_a739a34f39e5b45b0f5a33d95599dd2cd} 
+\index{input.c@{input.c}!update\_action\_key\_state@{update\_action\_key\_state}}
+\index{update\_action\_key\_state@{update\_action\_key\_state}!input.c@{input.c}}
+\doxysubsubsection{\texorpdfstring{update\_action\_key\_state()}{update\_action\_key\_state()}}
+{\footnotesize\ttfamily void update\+\_\+action\+\_\+key\+\_\+state (\begin{DoxyParamCaption}\item[{Uint8}]{current\+\_\+state,  }\item[{\mbox{\hyperlink{input_8h_a0ca0271d7da224e6d239140565c3b346}{Key\+\_\+\+State}} \texorpdfstring{$\ast$}{*}}]{key\+\_\+state }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{input_8c_a739a34f39e5b45b0f5a33d95599dd2cd_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{input_8c_a97c24e20f21048d3c64df0cb0a583581}\label{input_8c_a97c24e20f21048d3c64df0cb0a583581} 
+\index{input.c@{input.c}!update\_key\_state@{update\_key\_state}}
+\index{update\_key\_state@{update\_key\_state}!input.c@{input.c}}
+\doxysubsubsection{\texorpdfstring{update\_key\_state()}{update\_key\_state()}}
+{\footnotesize\ttfamily void update\+\_\+key\+\_\+state (\begin{DoxyParamCaption}\item[{Uint8}]{current\+\_\+state,  }\item[{\mbox{\hyperlink{input_8h_a0ca0271d7da224e6d239140565c3b346}{Key\+\_\+\+State}} \texorpdfstring{$\ast$}{*}}]{key\+\_\+state }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{input_8c_a97c24e20f21048d3c64df0cb0a583581_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{input_8c_a100e37e37fa19125df76aa09b30b1a40}\label{input_8c_a100e37e37fa19125df76aa09b30b1a40} 
+\index{input.c@{input.c}!game\_input@{game\_input}}
+\index{game\_input@{game\_input}!input.c@{input.c}}
+\doxysubsubsection{\texorpdfstring{game\_input}{game\_input}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structGame__Input}{Game\+\_\+\+Input}} game\+\_\+input = \{0\}}
+

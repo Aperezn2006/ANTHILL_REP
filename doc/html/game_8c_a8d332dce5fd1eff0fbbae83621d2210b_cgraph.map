@@ -1,0 +1,15 @@
+<map id="game_handle_follow" name="game_handle_follow">
+<area shape="rect" id="Node000001" title="It sets teams." alt="" coords="5,55,163,80"/>
+<area shape="rect" id="Node000002" href="$game_8c.html#aae32c802ab315a271786cfa83b74cb1e" title="It adds a player to a team." alt="" coords="211,5,409,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="142,52,237,31,238,36,143,57"/>
+<area shape="rect" id="Node000004" href="$game_8c.html#afeebf4727a4cf617154705056d9ac8d5" title="It adds a team to the game." alt="" coords="245,55,375,80"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="163,65,231,65,231,70,163,70"/>
+<area shape="rect" id="Node000006" href="$game_8c.html#a5bde64ef6fae5ab260814e3c29f53679" title="It gets the number of teammates a player has." alt="" coords="212,104,408,129"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="143,77,238,98,237,104,142,83"/>
+<area shape="rect" id="Node000003" href="$set_8c.html#ad252ed6b4db23b184789fd4ef5afe5e1" title="It adds an element to the set." alt="" coords="457,5,549,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="409,15,443,15,443,21,409,21"/>
+<area shape="rect" id="Node000005" href="$set_8c.html#aaad3bdcac9fbbfc38b4800b12bb17449" title="It creates a set." alt="" coords="458,55,549,80"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="375,65,444,65,444,70,375,70"/>
+<area shape="rect" id="Node000007" href="$set_8c.html#a298b41bcf7ae56e1f07567eaace0c963" title="It checks if the set contains an element." alt="" coords="458,104,549,129"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="408,114,444,114,444,119,408,119"/>
+</map>

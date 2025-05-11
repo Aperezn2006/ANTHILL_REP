@@ -1,0 +1,7 @@
+<map id="inventory_set_cursor" name="inventory_set_cursor">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,31,164,56"/>
+<area shape="rect" id="Node000002" href="$inventory_8c.html#a5b71ef1ef9d063c95166ac64379d0c1a" title="It gets a pointer to the set of objects of a certain inventory." alt="" coords="212,5,379,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="164,31,198,27,199,32,164,36"/>
+<area shape="rect" id="Node000003" href="$set_8c.html#a3b05c442d7e47159c6395e703c9ea6de" title=" " alt="" coords="237,55,353,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="164,50,224,57,223,62,164,55"/>
+</map>

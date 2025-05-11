@@ -1,0 +1,9 @@
+<map id="game_get_connection" name="game_get_connection">
+<area shape="rect" id="Node000001" title="It gets the id of the space neighbouring a certain space in a specific direction." alt="" coords="5,55,171,80"/>
+<area shape="rect" id="Node000002" href="$link_8c.html#a45c192f1efaa9863a150e51d1a0f2756" title="It gets the direction of a link." alt="" coords="219,5,357,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="140,52,222,31,223,37,141,57"/>
+<area shape="rect" id="Node000003" href="$link_8c.html#a407c241ffb206202f0c288e91c01ad75" title="It gets the destination id of a link." alt="" coords="235,55,341,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="171,65,221,65,221,70,171,70"/>
+<area shape="rect" id="Node000004" href="$link_8c.html#ade97314fda342663e1b98cdb4e6ca50a" title="It gets the origin id of a link." alt="" coords="233,104,343,129"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="141,77,223,98,222,103,140,83"/>
+</map>

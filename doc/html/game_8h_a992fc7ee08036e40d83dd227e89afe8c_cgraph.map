@@ -1,0 +1,32 @@
+<map id="game_set_message" name="game_set_message">
+<area shape="rect" id="Node000001" title="It sets the current player&#39;s last message." alt="" coords="5,163,157,188"/>
+<area shape="rect" id="Node000002" href="$game_8c.html#a8384b4088a76438c786ad9ff35db0277" title="Ir returns the index of the player whose turn it is." alt="" coords="205,155,384,195"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="158,173,192,173,192,178,158,178"/>
+<area shape="rect" id="Node000003" href="$game_8c.html#a710a04cce11983be63cd46b9270c4cc7" title="It gets the number of players in the game." alt="" coords="432,73,611,99"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="333,153,431,109,456,100,458,105,433,114,336,158"/>
+<area shape="rect" id="Node000004" href="$game_8c.html#a173e82c8028d420e0b1b1fce711becd9" title="It creates a pointer to the player located in a certain position of the array of players in the game." alt="" coords="435,123,608,163"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="384,160,420,155,421,160,385,165"/>
+<area shape="rect" id="Node000005" href="$game_8c.html#ab2edf7b07384c183ccdf6332fbc127e9" title="It gets the player&#39;s max amount of consecutive turns." alt="" coords="436,187,607,227"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="385,185,423,191,422,196,384,191"/>
+<area shape="rect" id="Node000009" href="$player_8c.html#af5a101ec91427951c5875569a8709956" title="It gets the id of a player." alt="" coords="920,268,1031,293"/>
+<area shape="poly" id="edge15_Node000002_Node000009" title=" " alt="" coords="326,193,384,231,465,276,559,320,609,339,659,353,711,364,753,368,794,365,846,353,874,343,901,329,946,300,949,304,903,334,876,348,847,358,795,370,753,373,711,369,658,358,608,344,557,325,463,281,382,235,323,198"/>
+<area shape="rect" id="Node000006" href="$game_8c.html#ad57249345e82165c35ad950cf5a6320a" title="It gets the number of objects in the game." alt="" coords="664,55,841,80"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="591,185,609,173,625,153,632,133,639,111,657,91,668,84,671,88,660,95,644,114,637,134,630,156,612,177,594,190"/>
+<area shape="rect" id="Node000007" href="$game_8c.html#ad2f0721dd9c1a025d85b23ac38e3d034" title="It creates a pointer to the object located in a certain position of the array of objects in the game." alt="" coords="667,105,839,145"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="577,185,658,155,682,147,684,152,660,161,579,190"/>
+<area shape="rect" id="Node000008" href="$game_8c.html#aca1166b5171e00d6d0d18264e42cabaa" title="It creates a pointer to a player using its id." alt="" coords="685,169,820,195"/>
+<area shape="poly" id="edge7_Node000005_Node000008" title=" " alt="" coords="607,195,671,188,672,193,607,201"/>
+<area shape="rect" id="Node000010" href="$object_8c.html#ac5af152381a21853c6a28cc120e8e7fe" title="It gets the id of a object." alt="" coords="698,219,807,244"/>
+<area shape="poly" id="edge9_Node000005_Node000010" title=" " alt="" coords="607,214,685,222,684,227,607,219"/>
+<area shape="rect" id="Node000011" href="$object_8c.html#a83c717d47a8f3f4c23124c9d42edb406" title="It gets the amount of turns the object increases." alt="" coords="659,268,847,293"/>
+<area shape="poly" id="edge10_Node000005_Node000011" title=" " alt="" coords="575,225,659,254,686,262,685,267,658,259,574,230"/>
+<area shape="rect" id="Node000012" href="$player_8c.html#a9b23d3ff0d9d09055e5eeea831e489ef" title="It gets the max number of turns the player has." alt="" coords="669,317,836,343"/>
+<area shape="poly" id="edge11_Node000005_Node000012" title=" " alt="" coords="547,226,597,265,660,304,677,311,675,315,657,308,594,270,543,230"/>
+<area shape="rect" id="Node000013" href="$player_8c.html#afd4f4e0fecad36df5cb98fa86eefce00" title="It gets whether the player has an object or not." alt="" coords="683,5,823,31"/>
+<area shape="poly" id="edge12_Node000005_Node000013" title=" " alt="" coords="593,185,609,173,621,157,628,141,631,108,635,75,643,58,657,41,669,33,672,37,660,45,647,61,641,76,637,109,633,143,626,160,613,177,597,189"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="811,192,848,205,900,231,945,258,943,263,898,236,846,210,809,197"/>
+<area shape="rect" id="Node000014" href="$inventory_8c.html#a3312af669bbc6fb7166481b526efb2c8" title="It checks whether the inventory has a certain object." alt="" coords="895,5,1056,31"/>
+<area shape="poly" id="edge13_Node000013_Node000014" title=" " alt="" coords="823,15,881,15,881,21,823,21"/>
+<area shape="rect" id="Node000015" href="$set_8c.html#a298b41bcf7ae56e1f07567eaace0c963" title="It checks if the set contains an element." alt="" coords="1104,5,1195,31"/>
+<area shape="poly" id="edge14_Node000014_Node000015" title=" " alt="" coords="1056,15,1090,15,1090,21,1056,21"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="game_actions_inventory_sdl" name="game_actions_inventory_sdl">
+<area shape="rect" id="Node000001" title="It allows the player to toggle the visualization of the inventory." alt="" coords="5,5,213,31"/>
+<area shape="rect" id="Node000002" href="$game_8c.html#afb3cf6150d6cd4b054801d54c01ebe9f" title="It toggles the inventory&#39;s visualization." alt="" coords="261,5,464,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="213,15,248,15,248,21,213,21"/>
+</map>

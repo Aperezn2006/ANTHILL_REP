@@ -1,0 +1,59 @@
+<map id="game_get_last_command" name="game_get_last_command">
+<area shape="rect" id="Node000001" title="It gets the game&#39;s last command." alt="" coords="773,404,964,429"/>
+<area shape="rect" id="Node000002" href="$game__actions_8c.html#a33f1850efdb4cd4753953107dd1fd6a8" title="It allows the player to abandon a friendly character." alt="" coords="541,503,717,528"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="837,439,786,467,726,494,690,505,689,500,724,489,783,462,834,434"/>
+<area shape="rect" id="Node000004" href="$game__loop_8c.html#afb6a670628dffdd01661658f29a1e8ca" title="Runs the main game loop, processing commands and updating the game state." alt="" coords="108,107,231,132"/>
+<area shape="poly" id="edge32_Node000001_Node000004" title=" " alt="" coords="862,391,851,329,827,250,809,208,786,169,758,134,724,106,692,87,658,72,585,55,511,49,436,53,365,64,300,79,204,109,202,104,299,74,364,59,435,48,511,44,586,49,659,67,694,82,727,101,762,131,791,166,814,206,832,248,856,328,867,390"/>
+<area shape="rect" id="Node000006" href="$game__actions_8c.html#abb3fcef4a17dd9fa9293f6b2b5e2d976" title="It allows a player to drop an object if they have it." alt="" coords="554,552,703,577"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="850,441,797,493,763,520,727,543,699,554,697,549,724,538,760,516,794,489,846,438"/>
+<area shape="rect" id="Node000007" href="$game__actions_8c.html#a087a1fbd2a46cf6295d517e3c0a43ec3" title="It allows the player to follow another player." alt="" coords="549,601,709,627"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="856,443,835,477,806,517,770,558,727,592,703,604,701,599,724,588,766,554,802,514,831,474,852,440"/>
+<area shape="rect" id="Node000008" href="$game__actions_8c.html#ab2fe29f3bf2f6d8ab2e16dbe019a6b3d" title="It allows the player to inspect an object." alt="" coords="545,700,712,725"/>
+<area shape="poly" id="edge9_Node000001_Node000008" title=" " alt="" coords="864,444,848,496,821,563,782,632,756,664,727,691,708,702,705,698,724,687,752,660,777,629,817,561,843,494,859,442"/>
+<area shape="rect" id="Node000009" href="$game__actions__sdl_8c.html#af2452109a3c899676b0687f3de9332c8" title="It allows the player to inspect an object." alt="" coords="532,5,725,31"/>
+<area shape="poly" id="edge11_Node000001_Node000009" title=" " alt="" coords="862,391,851,323,827,232,809,184,786,136,758,91,724,52,692,33,695,28,727,48,762,88,791,133,814,182,833,231,856,322,867,390"/>
+<area shape="rect" id="Node000013" href="$game__actions_8c.html#aa5706101d08a674bc09e9e1b2e5eadef" title="It allows the player to save its current game." alt="" coords="555,749,703,775"/>
+<area shape="poly" id="edge15_Node000001_Node000013" title=" " alt="" coords="866,444,854,505,828,585,810,627,787,668,760,707,727,740,704,754,701,749,724,736,756,703,783,666,805,625,823,583,848,503,861,442"/>
+<area shape="rect" id="Node000014" href="$game__actions__sdl_8c.html#a34397b9f48b293f57e661603e66d4b06" title="It allows the player to save its current game." alt="" coords="541,355,716,380"/>
+<area shape="poly" id="edge17_Node000001_Node000014" title=" " alt="" coords="792,404,691,383,692,377,794,399"/>
+<area shape="rect" id="Node000015" href="$game__actions_8c.html#a7ba3ad9bedfd49af117636f826eaff1c" title="It moves the player in the desired direction (north, south, west or east)" alt="" coords="550,799,707,824"/>
+<area shape="poly" id="edge18_Node000001_Node000015" title=" " alt="" coords="868,443,858,513,835,606,817,656,793,705,764,750,727,789,709,801,706,797,724,785,759,747,789,702,812,654,830,604,853,512,863,442"/>
+<area shape="rect" id="Node000016" href="$game__actions__sdl_8c.html#aed5a85732a1cdf1ea84b7837cdc070d8" title="It moves the player in the desired direction (north, south, west or east)" alt="" coords="537,453,720,479"/>
+<area shape="poly" id="edge20_Node000001_Node000016" title=" " alt="" coords="794,435,692,456,691,451,792,430"/>
+<area shape="rect" id="Node000017" href="$game__actions_8c.html#a935ceaa81f41347f30de898c50cf4735" title="It allows the player to open links." alt="" coords="553,157,705,183"/>
+<area shape="poly" id="edge21_Node000001_Node000017" title=" " alt="" coords="856,392,837,349,809,297,771,243,749,219,724,198,701,185,703,180,727,193,752,215,775,239,814,294,842,347,861,390"/>
+<area shape="rect" id="Node000018" href="$game__actions_8c.html#aa4097c2de55049c481f714ff2a41091c" title="It allows the player to recruit a friendly character." alt="" coords="547,207,710,232"/>
+<area shape="poly" id="edge23_Node000001_Node000018" title=" " alt="" coords="851,393,830,360,801,320,766,280,724,247,698,234,700,230,727,242,769,276,806,317,835,357,856,390"/>
+<area shape="rect" id="Node000019" href="$game__actions_8c.html#a0684f9dcafe712984445034038704be4" title="It allows the player to load a saved game." alt="" coords="553,256,704,281"/>
+<area shape="poly" id="edge25_Node000001_Node000019" title=" " alt="" coords="845,396,793,345,760,319,724,296,693,284,695,279,727,292,763,315,797,341,849,392"/>
+<area shape="rect" id="Node000020" href="$game__actions__sdl_8c.html#a61c21e2028a7333c943e946a442d44f8" title="It allows the player to load a saved game." alt="" coords="540,651,717,676"/>
+<area shape="poly" id="edge27_Node000001_Node000020" title=" " alt="" coords="861,443,842,487,814,541,776,595,753,620,727,642,706,653,703,648,724,637,749,616,772,592,810,538,838,485,856,441"/>
+<area shape="rect" id="Node000021" href="$game__actions_8c.html#a08ae11402d194439d1e014fa78aa8b2e" title="It allows a player to pick up an object if they&#39;re in the same room." alt="" coords="555,305,703,331"/>
+<area shape="poly" id="edge28_Node000001_Node000021" title=" " alt="" coords="834,400,783,372,724,346,685,333,687,328,726,341,785,368,836,395"/>
+<area shape="rect" id="Node000022" href="$game__actions_8c.html#a8ff24b2a36351e92760b4bf21da4abae" title="It allows the player to use an object." alt="" coords="557,404,700,429"/>
+<area shape="poly" id="edge30_Node000001_Node000022" title=" " alt="" coords="759,419,700,419,700,414,759,414"/>
+<area shape="rect" id="Node000023" href="$graphic__engine_8c.html#a0e275aa477d5fa59e903da33a2a40a5d" title="It paints the game&#39;s data on the user&#39;s screen." alt="" coords="279,107,484,132"/>
+<area shape="poly" id="edge33_Node000001_Node000023" title=" " alt="" coords="860,391,846,338,820,270,802,235,780,202,754,173,724,148,692,131,657,118,584,105,512,104,450,109,449,104,512,98,584,99,658,113,694,126,727,144,758,169,784,199,806,233,825,268,851,336,865,390"/>
+<area shape="rect" id="Node000003" href="$game__actions_8c.html#a0693694a3e70b4a4129e2da4ddb1f1a7" title="It updates the current command based on user input." alt="" coords="299,453,464,479"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="551,503,445,481,446,476,552,497"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="363,443,176,134,181,131,368,440"/>
+<area shape="rect" id="Node000005" href="$game__loop_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,107,60,132"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="94,122,60,122,60,117,94,117"/>
+<area shape="poly" id="edge6_Node000006_Node000003" title=" " alt="" coords="554,551,531,543,460,512,403,481,406,476,462,507,533,538,556,546"/>
+<area shape="poly" id="edge8_Node000007_Node000003" title=" " alt="" coords="547,599,531,592,487,566,448,535,392,481,396,477,452,531,491,561,533,588,549,594"/>
+<area shape="poly" id="edge10_Node000008_Node000003" title=" " alt="" coords="539,696,530,691,502,667,476,639,433,578,403,521,385,480,390,478,407,519,437,576,480,636,505,663,534,686,542,692"/>
+<area shape="rect" id="Node000010" href="$game__actions__sdl_8c.html#acd1524051170e15d5370144cbb777503" title="It updates the current command based on user input." alt="" coords="286,5,477,31"/>
+<area shape="poly" id="edge12_Node000009_Node000010" title=" " alt="" coords="518,21,477,21,477,15,518,15"/>
+<area shape="rect" id="Node000011" href="$game__loop__sdl_8c.html#a2512ad7629a28c1c47934820188b8de4" title="Runs the main game loop, processing commands and updating the game state." alt="" coords="108,5,231,31"/>
+<area shape="poly" id="edge13_Node000010_Node000011" title=" " alt="" coords="272,21,231,21,231,15,272,15"/>
+<area shape="rect" id="Node000012" href="$game__loop__sdl_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,5,60,31"/>
+<area shape="poly" id="edge14_Node000011_Node000012" title=" " alt="" coords="94,21,60,21,60,15,94,15"/>
+<area shape="poly" id="edge16_Node000013_Node000003" title=" " alt="" coords="541,747,530,740,498,710,470,675,446,638,426,600,398,529,383,480,388,478,403,527,431,598,451,635,474,672,502,707,534,736,544,743"/>
+<area shape="poly" id="edge19_Node000015_Node000003" title=" " alt="" coords="537,794,530,789,494,753,464,711,439,666,420,620,394,536,382,479,387,478,399,535,425,618,444,664,469,708,498,750,534,785,540,790"/>
+<area shape="poly" id="edge22_Node000017_Node000003" title=" " alt="" coords="543,191,534,197,502,227,475,261,451,298,432,335,403,405,388,454,383,452,398,403,427,333,447,295,470,258,498,223,530,193,540,187"/>
+<area shape="poly" id="edge24_Node000018_Node000003" title=" " alt="" coords="545,240,534,247,505,270,480,297,438,357,408,414,390,454,385,452,403,411,433,354,476,294,502,266,530,242,542,235"/>
+<area shape="poly" id="edge26_Node000019_Node000003" title=" " alt="" coords="548,289,533,296,485,334,445,379,413,422,392,454,388,451,409,419,441,376,482,330,531,292,545,284"/>
+<area shape="poly" id="edge29_Node000021_Node000003" title=" " alt="" coords="552,338,533,346,491,372,452,402,396,455,393,451,449,398,488,367,531,341,550,333"/>
+<area shape="poly" id="edge31_Node000022_Node000003" title=" " alt="" coords="552,435,446,456,445,451,551,429"/>
+<area shape="poly" id="edge34_Node000023_Node000004" title=" " alt="" coords="265,122,231,122,231,117,265,117"/>
+</map>

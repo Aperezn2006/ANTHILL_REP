@@ -1,0 +1,22 @@
+<map id="game_get_object_location" name="game_get_object_location">
+<area shape="rect" id="Node000001" title="It gets the location a certain object." alt="" coords="5,169,199,195"/>
+<area shape="rect" id="Node000002" href="$game_8c.html#a710a04cce11983be63cd46b9270c4cc7" title="It gets the number of players in the game." alt="" coords="247,5,425,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="111,167,163,106,202,70,245,40,258,33,261,38,248,44,205,74,167,110,115,171"/>
+<area shape="rect" id="Node000003" href="$game_8c.html#aeec9c4bd023f777108e6a7e6f3899104" title="It gets the number of spaces in the game." alt="" coords="249,55,423,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="119,167,174,130,246,90,268,82,270,87,248,95,177,134,122,171"/>
+<area shape="rect" id="Node000004" href="$game_8c.html#a173e82c8028d420e0b1b1fce711becd9" title="It creates a pointer to the player located in a certain position of the array of players in the game." alt="" coords="249,105,423,145"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="154,167,240,145,241,151,155,172"/>
+<area shape="rect" id="Node000005" href="$player_8c.html#af5a101ec91427951c5875569a8709956" title="It gets the id of a player." alt="" coords="281,169,391,195"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="199,179,267,179,267,185,199,185"/>
+<area shape="rect" id="Node000006" href="$player_8c.html#afd4f4e0fecad36df5cb98fa86eefce00" title="It gets whether the player has an object or not." alt="" coords="266,219,406,244"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="163,192,262,213,261,218,162,197"/>
+<area shape="rect" id="Node000009" href="$space_8c.html#ac8ddfd0d8692fd852ee49698c446cb50" title="It gets the id of a space." alt="" coords="283,268,389,293"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="126,192,181,222,248,253,272,261,270,267,246,258,178,227,124,197"/>
+<area shape="rect" id="Node000010" href="$space_8c.html#ad3bc0f1c4d5e11a86d533dc0cd73fc57" title="It checks whether the space has a specific object." alt="" coords="485,293,623,319"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="115,193,136,218,166,250,204,281,248,304,305,318,365,324,423,323,474,318,475,323,423,328,364,329,304,324,246,308,201,285,163,254,132,222,111,196"/>
+<area shape="rect" id="Node000007" href="$inventory_8c.html#a3312af669bbc6fb7166481b526efb2c8" title="It checks whether the inventory has a certain object." alt="" coords="473,232,635,257"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="406,233,460,236,459,242,406,238"/>
+<area shape="rect" id="Node000008" href="$set_8c.html#a298b41bcf7ae56e1f07567eaace0c963" title="It checks if the set contains an element." alt="" coords="683,269,773,295"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="614,255,670,267,669,272,613,260"/>
+<area shape="poly" id="edge10_Node000010_Node000008" title=" " alt="" coords="623,294,669,287,670,293,623,299"/>
+</map>

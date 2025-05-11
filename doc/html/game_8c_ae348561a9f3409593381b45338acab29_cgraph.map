@@ -1,0 +1,11 @@
+<map id="game_get_up" name="game_get_up">
+<area shape="rect" id="Node000001" title="It gets the id of the space located on top of the current_location." alt="" coords="5,55,116,80"/>
+<area shape="rect" id="Node000002" href="$game_8c.html#a569cbaa52bdc90cd1e7905aaf678ae6e" title="It gets a space&#39;s neighboring location in a specified direction." alt="" coords="164,55,323,80"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="116,65,150,65,150,70,116,70"/>
+<area shape="rect" id="Node000003" href="$link_8c.html#a45c192f1efaa9863a150e51d1a0f2756" title="It gets the direction of a link." alt="" coords="371,5,509,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="294,52,375,31,376,37,295,57"/>
+<area shape="rect" id="Node000004" href="$link_8c.html#a407c241ffb206202f0c288e91c01ad75" title="It gets the destination id of a link." alt="" coords="387,55,493,80"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="323,65,374,65,374,70,323,70"/>
+<area shape="rect" id="Node000005" href="$link_8c.html#ade97314fda342663e1b98cdb4e6ca50a" title="It gets the origin id of a link." alt="" coords="385,104,495,129"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="295,77,376,98,375,103,294,83"/>
+</map>

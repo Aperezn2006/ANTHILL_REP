@@ -38,8 +38,22 @@ Graphic_engine *graphic_engine_create();
  */
 void graphic_engine_destroy(Graphic_engine *ge);
 
+/**
+ * @brief It allows for the visualization of only one screen
+ * @author Ana
+ *
+ * @param ge a pointer to the graphic engine
+ * @return nothing
+ */
 void graphic_engine_toggle_fullscreen(Graphic_engine *ge);
 
+/**
+ * @brief It initializes the game areas
+ * @author Ana
+ *
+ * @param ge a pointer to the graphic engine
+ * @return nothing
+ */
 void graphic_engine_init_game_areas(Graphic_engine *ge);
 
 /**
@@ -52,6 +66,13 @@ void graphic_engine_init_game_areas(Graphic_engine *ge);
  */
 void graphic_engine_paint_game(Graphic_engine *ge, Game *game);
 
+/**
+ * @brief It paints the welcome screen
+ * @author Ana
+ *
+ * @param ge a pointer to the graphic engine
+ * @return nothing
+ */
 void graphic_engine_paint_start(Graphic_engine *ge, Game *game);
 
 /**
@@ -73,9 +94,10 @@ void graphic_engine_paint_end(Graphic_engine *ge, Game *game);
  * @return nothing
  */
 void graphic_engine_paint_inventory(Graphic_engine *ge, Game *game);
+
 /**
- * @brief It paints the space screen
- * @author Ana
+ * @brief It paints the zoomed space screen
+ * @author Bea
  *
  * @param ge a pointer to the graphic engine
  * @param game a pointer to the game

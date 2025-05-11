@@ -1,0 +1,146 @@
+\doxysection{/mnt/c/\+Ubuntu/\+Shared\+\_\+folder/\+PPROG/\+I4/\+ANTHILL\+\_\+\+REP/include/graphic\+\_\+engine\+\_\+sdl.h File Reference}
+\hypertarget{graphic__engine__sdl_8h}{}\label{graphic__engine__sdl_8h}\index{/mnt/c/Ubuntu/Shared\_folder/PPROG/I4/ANTHILL\_REP/include/graphic\_engine\_sdl.h@{/mnt/c/Ubuntu/Shared\_folder/PPROG/I4/ANTHILL\_REP/include/graphic\_engine\_sdl.h}}
+{\ttfamily \#include $<$SDL2/\+SDL.\+h$>$}\newline
+{\ttfamily \#include $<$SDL2/\+SDL\+\_\+image.\+h$>$}\newline
+{\ttfamily \#include $<$SDL2/\+SDL\+\_\+ttf.\+h$>$}\newline
+{\ttfamily \#include $<$limits.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include "{}game.\+h"{}}\newline
+{\ttfamily \#include "{}input.\+h"{}}\newline
+{\ttfamily \#include "{}obstacle.\+h"{}}\newline
+{\ttfamily \#include "{}ray.\+h"{}}\newline
+Include dependency graph for graphic\+\_\+engine\+\_\+sdl.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{graphic__engine__sdl_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{graphic__engine__sdl_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+Graphic\+\_\+engine\+\_\+sdl \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{graphic__engine__sdl_8h_a56a265735491934a3f7b9ec1bd21b038}{graphic\+\_\+engine\+\_\+create\+\_\+sdl}} ()
+\begin{DoxyCompactList}\small\item\em It creates a new graphic engine. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{graphic__engine__sdl_8h_a159fad3d97ad98964531db1ab91c7620}{graphic\+\_\+engine\+\_\+destroy\+\_\+sdl}} (Graphic\+\_\+engine\+\_\+sdl \texorpdfstring{$\ast$}{*}gengine)
+\begin{DoxyCompactList}\small\item\em It destroys a graphic engine. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{graphic__engine__sdl_8h_a4b25b2fe0bcb65316b5f7a325b562fcc}{graphic\+\_\+engine\+\_\+render\+\_\+sdl}} (Graphic\+\_\+engine\+\_\+sdl \texorpdfstring{$\ast$}{*}gengine, Game \texorpdfstring{$\ast$}{*}game)
+\begin{DoxyCompactList}\small\item\em It paints the game\textquotesingle{}s data on the user\textquotesingle{}s screen. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{graphic__engine__sdl_8h_a56a265735491934a3f7b9ec1bd21b038}\label{graphic__engine__sdl_8h_a56a265735491934a3f7b9ec1bd21b038} 
+\index{graphic\_engine\_sdl.h@{graphic\_engine\_sdl.h}!graphic\_engine\_create\_sdl@{graphic\_engine\_create\_sdl}}
+\index{graphic\_engine\_create\_sdl@{graphic\_engine\_create\_sdl}!graphic\_engine\_sdl.h@{graphic\_engine\_sdl.h}}
+\doxysubsubsection{\texorpdfstring{graphic\_engine\_create\_sdl()}{graphic\_engine\_create\_sdl()}}
+{\footnotesize\ttfamily Graphic\+\_\+engine\+\_\+sdl \texorpdfstring{$\ast$}{*} graphic\+\_\+engine\+\_\+create\+\_\+sdl (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+It creates a new graphic engine. 
+
+\begin{DoxyAuthor}{Author}
+Rubén, Arturo, Bea, Ana, Profesores PPROG
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a pointer to the graphic engine 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=340pt]{graphic__engine__sdl_8h_a56a265735491934a3f7b9ec1bd21b038_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{graphic__engine__sdl_8h_a56a265735491934a3f7b9ec1bd21b038_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{graphic__engine__sdl_8h_a159fad3d97ad98964531db1ab91c7620}\label{graphic__engine__sdl_8h_a159fad3d97ad98964531db1ab91c7620} 
+\index{graphic\_engine\_sdl.h@{graphic\_engine\_sdl.h}!graphic\_engine\_destroy\_sdl@{graphic\_engine\_destroy\_sdl}}
+\index{graphic\_engine\_destroy\_sdl@{graphic\_engine\_destroy\_sdl}!graphic\_engine\_sdl.h@{graphic\_engine\_sdl.h}}
+\doxysubsubsection{\texorpdfstring{graphic\_engine\_destroy\_sdl()}{graphic\_engine\_destroy\_sdl()}}
+{\footnotesize\ttfamily void graphic\+\_\+engine\+\_\+destroy\+\_\+sdl (\begin{DoxyParamCaption}\item[{Graphic\+\_\+engine\+\_\+sdl \texorpdfstring{$\ast$}{*}}]{gengine }\end{DoxyParamCaption})}
+
+
+
+It destroys a graphic engine. 
+
+\begin{DoxyAuthor}{Author}
+Rubén, Arturo, Bea, Ana, Profesores PPROG
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em ge} & a pointer to the graphic engine \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+nothing 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{graphic__engine__sdl_8h_a159fad3d97ad98964531db1ab91c7620_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{graphic__engine__sdl_8h_a4b25b2fe0bcb65316b5f7a325b562fcc}\label{graphic__engine__sdl_8h_a4b25b2fe0bcb65316b5f7a325b562fcc} 
+\index{graphic\_engine\_sdl.h@{graphic\_engine\_sdl.h}!graphic\_engine\_render\_sdl@{graphic\_engine\_render\_sdl}}
+\index{graphic\_engine\_render\_sdl@{graphic\_engine\_render\_sdl}!graphic\_engine\_sdl.h@{graphic\_engine\_sdl.h}}
+\doxysubsubsection{\texorpdfstring{graphic\_engine\_render\_sdl()}{graphic\_engine\_render\_sdl()}}
+{\footnotesize\ttfamily void graphic\+\_\+engine\+\_\+render\+\_\+sdl (\begin{DoxyParamCaption}\item[{Graphic\+\_\+engine\+\_\+sdl \texorpdfstring{$\ast$}{*}}]{gengine,  }\item[{Game \texorpdfstring{$\ast$}{*}}]{game }\end{DoxyParamCaption})}
+
+
+
+It paints the game\textquotesingle{}s data on the user\textquotesingle{}s screen. 
+
+\begin{DoxyAuthor}{Author}
+Rubén, Arturo, Bea, Ana, Profesores PPROG
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em ge} & a pointer to the graphic engine \\
+\hline
+{\em game} & a pointer to the game \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+nothing 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{graphic__engine__sdl_8h_a4b25b2fe0bcb65316b5f7a325b562fcc_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{graphic__engine__sdl_8h_a4b25b2fe0bcb65316b5f7a325b562fcc_icgraph}
+\end{center}
+\end{figure}

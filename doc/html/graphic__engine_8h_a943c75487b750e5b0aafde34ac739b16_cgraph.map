@@ -1,0 +1,11 @@
+<map id="graphic_engine_create" name="graphic_engine_create">
+<area shape="rect" id="Node000001" title="It creates a new graphic engine." alt="" coords="5,42,175,67"/>
+<area shape="rect" id="Node000002" href="$graphic__engine_8c.html#ab78b520fe5bb403249f4d32b9fa092b2" title="It initializes the game areas." alt="" coords="223,5,372,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="175,40,209,35,209,40,176,45"/>
+<area shape="rect" id="Node000004" href="$libscreen_8c.html#a3c7e0099996732d34b143dde1a40f02c" title="It creates a new screen." alt="" coords="251,70,344,95"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="176,63,237,72,237,77,175,69"/>
+<area shape="rect" id="Node000003" href="$libscreen_8c.html#a4c601f4602ad83e212facc1f53da8f88" title="It creates a new area inside a screen." alt="" coords="420,13,549,38"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="372,23,406,23,406,28,372,28"/>
+<area shape="rect" id="Node000005" href="$libscreen_8c.html#a3d6d82dde2bb4f3ddc4d276dabe313ef" title="It destroys a new screen area." alt="" coords="424,70,545,95"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="344,80,410,80,410,85,344,85"/>
+</map>

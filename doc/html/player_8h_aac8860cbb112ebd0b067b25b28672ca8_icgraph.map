@@ -1,0 +1,13 @@
+<map id="player_set_id" name="player_set_id">
+<area shape="rect" id="Node000001" title="It sets the id of a player." alt="" coords="307,55,416,80"/>
+<area shape="rect" id="Node000002" href="$player__test_8c.html#a790a75dc179c00c60c784d3e34c0e5aa" title=" " alt="" coords="108,5,259,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="301,53,230,33,231,28,302,48"/>
+<area shape="rect" id="Node000004" href="$player__test_8c.html#a64fa15a235953bea694236b9d7841cbc" title=" " alt="" coords="109,55,258,80"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="293,70,259,70,259,65,293,65"/>
+<area shape="rect" id="Node000005" href="$player__test_8c.html#a3695e0896bc3d770290e6a691fa212f7" title=" " alt="" coords="109,104,258,129"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="302,86,231,106,230,101,301,81"/>
+<area shape="rect" id="Node000003" href="$player__test_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title=" " alt="" coords="5,55,60,80"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="130,37,109,45,61,61,59,56,107,39,129,32"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="95,70,60,70,60,65,95,65"/>
+<area shape="poly" id="edge6_Node000005_Node000003" title=" " alt="" coords="130,102,59,79,61,74,132,97"/>
+</map>

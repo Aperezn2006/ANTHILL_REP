@@ -1,0 +1,11 @@
+<map id="test2_inventory_get_object_by_index" name="test2_inventory_get_object_by_index">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,27,157,67"/>
+<area shape="rect" id="Node000002" href="$inventory_8c.html#acfdb31bdaf1646387a93fc7ece2ef180" title="It creates a new player, allocating memory and initializing its members." alt="" coords="219,5,351,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="157,34,205,27,205,32,158,39"/>
+<area shape="rect" id="Node000004" href="$inventory_8c.html#a9f5833dc59078eb9942e81759d1672b8" title="It gets a certain object using its index in the array of objects in the object set." alt="" coords="205,55,364,95"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="158,55,192,60,191,65,157,60"/>
+<area shape="rect" id="Node000003" href="$set_8c.html#aaad3bdcac9fbbfc38b4800b12bb17449" title="It creates a set." alt="" coords="452,5,543,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="351,15,438,15,438,21,351,21"/>
+<area shape="rect" id="Node000005" href="$set_8c.html#a7d9d411d8d5f63192b1cff0fe155bbfc" title="It gets the element at a given position in the set." alt="" coords="412,63,583,88"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="364,73,398,73,398,78,364,78"/>
+</map>

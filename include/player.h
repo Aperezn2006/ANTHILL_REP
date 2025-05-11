@@ -19,11 +19,58 @@
 typedef struct _Player Player;
 
 /*Cosas de SDL2*/
+/**
+ * @brief It gets a player's gun
+ * @author Rubén
+ *
+ * @param player a pointer to the player
+ * @return a pointer to the gun
+ */
 Gun *player_get_gun(const Player *player);
+
+/**
+ * @brief It sets a player's gun
+ * @author Rubén
+ *
+ * @param player a pointer to the player
+ * @param gun a pointer to the gun
+ * @return nothing
+ */
 void player_set_gun(Player *player, Gun *gun);
+
+/**
+ * @brief It sets which direction the player's facing
+ * @author Ana
+ *
+ * @param player a pointer to the player
+ * @param direction the direction
+ * @return nothing
+ */
 void player_set_direction(Player *player, Direction direction);
+
+/**
+ * @brief It gets which direction the player's facing
+ * @author Ana
+ *
+ * @param player a pointer to the player
+ * @return the direction
+ */
 Direction player_get_direction(Player *player);
+
+/**
+ * @brief It updates a player's blink timer
+ * @author Rubén
+ *
+ * @param player a pointer to the player
+ */
 void player_update_blink_timer(Player *player);
+
+/**
+ * @brief It gets a player's blink timer
+ * @author Rubén
+ *
+ * @param player a pointer to the player
+ */
 int player_get_blink_timer(Player *player);
 
 /*Create & destroy*/
@@ -225,7 +272,22 @@ Status player_set_max_objs(Player *player, int max);
  */
 Inventory *player_get_inventory(Player *player);
 
+/**
+ * @brief It sets a player's inventory cursor
+ * @author Beatriz, Arturo, Rubén, Ana
+ *
+ * @param player a pointer to the player
+ * @param cursor the index in the inventory
+ */
 void player_set_inventory_cursor(Player *player, int cursor);
+
+/**
+ * @brief It gets a player's inventory cursor
+ * @author Beatriz, Arturo, Rubén, Ana
+ *
+ * @param player a pointer to the player
+ * @return the index in the inventory
+ */
 int player_get_inventory_cursor(Player *player);
 
 /*Management of max_turns*/

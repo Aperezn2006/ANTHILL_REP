@@ -1,0 +1,28 @@
+<map id="game_get_inventory_vis" name="game_get_inventory_vis">
+<area shape="rect" id="Node000001" title="It gets whether the inventory is beinf visualized or not." alt="" coords="749,156,932,181"/>
+<area shape="rect" id="Node000002" href="$game__actions__sdl_8c.html#a61aac260f32dcea88770a0cf7f1f890d" title="It allows a player to drop an object if they have it." alt="" coords="525,5,699,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="816,148,766,100,734,75,700,52,657,33,659,28,703,48,737,71,769,96,820,144"/>
+<area shape="rect" id="Node000003" href="$game__actions__sdl_8c.html#acd1524051170e15d5370144cbb777503" title="It updates the current command based on user input." alt="" coords="281,107,472,132"/>
+<area shape="poly" id="edge7_Node000001_Node000003" title=" " alt="" coords="810,150,760,120,731,107,701,97,664,90,626,86,550,88,481,97,424,109,423,104,480,92,550,83,626,81,665,84,702,91,733,102,763,116,812,146"/>
+<area shape="rect" id="Node000006" href="$game__actions__sdl_8c.html#a0ed898b4845191eb1a03364ef8074bf7" title=" " alt="" coords="523,107,701,132"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="767,156,671,135,672,129,768,150"/>
+<area shape="rect" id="Node000007" href="$game__actions__sdl_8c.html#a836d4d9cfc019c9c7ac4461935122515" title=" " alt="" coords="527,156,697,181"/>
+<area shape="poly" id="edge8_Node000001_Node000007" title=" " alt="" coords="735,171,697,171,697,166,735,166"/>
+<area shape="rect" id="Node000008" href="$game__loop_8c.html#afb6a670628dffdd01661658f29a1e8ca" title="Runs the main game loop, processing commands and updating the game state." alt="" coords="551,205,673,231"/>
+<area shape="poly" id="edge10_Node000001_Node000008" title=" " alt="" coords="768,187,672,208,671,203,767,182"/>
+<area shape="rect" id="Node000010" href="$graphic__engine__sdl_8c.html#a4b25b2fe0bcb65316b5f7a325b562fcc" title="It paints the game&#39;s data on the user&#39;s screen." alt="" coords="279,256,475,281"/>
+<area shape="poly" id="edge12_Node000001_Node000010" title=" " alt="" coords="812,191,762,221,702,246,644,259,585,268,475,274,475,269,584,263,643,254,701,241,760,216,809,187"/>
+<area shape="rect" id="Node000011" href="$input_8c.html#a5cee2075bac76c4d456f1a1a631bd413" title="It updates the game&#39;s input base on keyboard events." alt="" coords="323,305,430,331"/>
+<area shape="poly" id="edge14_Node000001_Node000011" title=" " alt="" coords="819,193,769,237,737,259,702,276,631,299,557,313,488,320,431,322,430,316,488,314,556,308,630,294,700,272,734,254,766,233,816,189"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="561,38,524,52,404,109,402,104,522,48,560,33"/>
+<area shape="rect" id="Node000004" href="$game__loop__sdl_8c.html#a2512ad7629a28c1c47934820188b8de4" title="Runs the main game loop, processing commands and updating the game state." alt="" coords="108,256,231,281"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="348,142,190,258,187,254,345,138"/>
+<area shape="rect" id="Node000005" href="$game__loop__sdl_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,256,60,281"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="94,271,60,271,60,266,94,266"/>
+<area shape="poly" id="edge6_Node000006_Node000003" title=" " alt="" coords="509,122,472,122,472,117,509,117"/>
+<area shape="poly" id="edge9_Node000007_Node000003" title=" " alt="" coords="537,156,438,135,439,129,538,151"/>
+<area shape="rect" id="Node000009" href="$game__loop_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="349,205,404,231"/>
+<area shape="poly" id="edge11_Node000008_Node000009" title=" " alt="" coords="536,221,404,221,404,215,536,215"/>
+<area shape="poly" id="edge13_Node000010_Node000004" title=" " alt="" coords="265,271,231,271,231,266,265,266"/>
+<area shape="poly" id="edge15_Node000011_Node000004" title=" " alt="" coords="309,305,223,284,224,279,310,300"/>
+</map>

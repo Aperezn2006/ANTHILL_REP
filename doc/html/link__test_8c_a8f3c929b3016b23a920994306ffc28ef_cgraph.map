@@ -1,0 +1,5 @@
+<map id="test2_link_get_start" name="test2_link_get_start">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,156,31"/>
+<area shape="rect" id="Node000002" href="$link_8c.html#ade97314fda342663e1b98cdb4e6ca50a" title="It gets the origin id of a link." alt="" coords="204,5,315,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="156,15,190,15,190,21,156,21"/>
+</map>

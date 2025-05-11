@@ -1,0 +1,520 @@
+\doxysection{/mnt/c/\+Ubuntu/\+Shared\+\_\+folder/\+PPROG/\+I4/\+ANTHILL\+\_\+\+REP/src/game\+\_\+actions\+\_\+sdl.c File Reference}
+\hypertarget{game__actions__sdl_8c}{}\label{game__actions__sdl_8c}\index{/mnt/c/Ubuntu/Shared\_folder/PPROG/I4/ANTHILL\_REP/src/game\_actions\_sdl.c@{/mnt/c/Ubuntu/Shared\_folder/PPROG/I4/ANTHILL\_REP/src/game\_actions\_sdl.c}}
+{\ttfamily \#include "{}game\+\_\+actions\+\_\+sdl.\+h"{}}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$strings.\+h$>$}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+{\ttfamily \#include "{}input.\+h"{}}\newline
+{\ttfamily \#include "{}physics.\+h"{}}\newline
+Include dependency graph for game\+\_\+actions\+\_\+sdl.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{game__actions__sdl_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structDirectionMap}{Direction\+Map}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{game__actions__sdl_8c_a67afe56f88ed13485c663a4a56d6e964}{DIRECTION\+\_\+\+MAP\+\_\+\+SIZE}}~12
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{types_8h_a224b9163917ac32fc95a60d8c1eec3aa}{Direction}} \mbox{\hyperlink{game__actions__sdl_8c_abf5d5d901bbd3cb72bdec06b2c9f027c}{direction\+\_\+from\+\_\+string}} (const char \texorpdfstring{$\ast$}{*}str)
+\item 
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{game__actions__sdl_8c_afb255846c3c3ba88192131a7ea1dcb7f}{game\+\_\+actions\+\_\+unknown\+\_\+sdl}} (Game \texorpdfstring{$\ast$}{*}game)
+\begin{DoxyCompactList}\small\item\em It waits for a known action. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{game__actions__sdl_8c_a295abf56f16c4658ac670daafcac9b43}{game\+\_\+actions\+\_\+exit\+\_\+sdl}} (Game \texorpdfstring{$\ast$}{*}game)
+\begin{DoxyCompactList}\small\item\em It allows the user to exit the game. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{game__actions__sdl_8c_aed5a85732a1cdf1ea84b7837cdc070d8}{game\+\_\+actions\+\_\+move\+\_\+sdl}} (Game \texorpdfstring{$\ast$}{*}game)
+\begin{DoxyCompactList}\small\item\em It moves the player in the desired direction (north, south, west or east) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{game__actions__sdl_8c_a585a376273c15bff51bcfbae55486593}{game\+\_\+actions\+\_\+take\+\_\+sdl}} (Game \texorpdfstring{$\ast$}{*}game)
+\begin{DoxyCompactList}\small\item\em It allows a player to pick up an object if they\textquotesingle{}re in the same room. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{game__actions__sdl_8c_a61aac260f32dcea88770a0cf7f1f890d}{game\+\_\+actions\+\_\+drop\+\_\+sdl}} (Game \texorpdfstring{$\ast$}{*}game)
+\begin{DoxyCompactList}\small\item\em It allows a player to drop an object if they have it. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{game__actions__sdl_8c_a9c82eca4e12e0ca5e065a9a1e0c9ea4b}{game\+\_\+actions\+\_\+attack\+\_\+sdl}} (Game \texorpdfstring{$\ast$}{*}game)
+\begin{DoxyCompactList}\small\item\em It allows the player to attack a character. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{game__actions__sdl_8c_a0d08414021bba8dd75889d7503808b9b}{game\+\_\+actions\+\_\+chat\+\_\+sdl}} (Game \texorpdfstring{$\ast$}{*}game)
+\begin{DoxyCompactList}\small\item\em It allows the player to chat with a character. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{game__actions__sdl_8c_af2452109a3c899676b0687f3de9332c8}{game\+\_\+actions\+\_\+inspect\+\_\+sdl}} (Game \texorpdfstring{$\ast$}{*}game)
+\begin{DoxyCompactList}\small\item\em It allows the player to inspect an object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{game__actions__sdl_8c_a0b241fde368bde3706605fcfa152674a}{game\+\_\+actions\+\_\+inventory\+\_\+sdl}} (Game \texorpdfstring{$\ast$}{*}game)
+\begin{DoxyCompactList}\small\item\em It allows the player to toggle the visualization of the inventory. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{game__actions__sdl_8c_a836d4d9cfc019c9c7ac4461935122515}{game\+\_\+actions\+\_\+use\+\_\+sdl}} (Game \texorpdfstring{$\ast$}{*}game)
+\item 
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{game__actions__sdl_8c_a0ed898b4845191eb1a03364ef8074bf7}{game\+\_\+actions\+\_\+open\+\_\+sdl}} (Game \texorpdfstring{$\ast$}{*}game)
+\item 
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{game__actions__sdl_8c_a34397b9f48b293f57e661603e66d4b06}{game\+\_\+actions\+\_\+load\+\_\+sdl}} (Game \texorpdfstring{$\ast$}{*}game)
+\begin{DoxyCompactList}\small\item\em It allows the player to save its current game. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{game__actions__sdl_8c_a61c21e2028a7333c943e946a442d44f8}{game\+\_\+actions\+\_\+save\+\_\+sdl}} (Game \texorpdfstring{$\ast$}{*}game)
+\begin{DoxyCompactList}\small\item\em It allows the player to load a saved game. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{game__actions__sdl_8c_acd1524051170e15d5370144cbb777503}{game\+\_\+actions\+\_\+update\+\_\+sdl}} (Game \texorpdfstring{$\ast$}{*}game, int seed)
+\begin{DoxyCompactList}\small\item\em It updates the current command based on user input. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structDirectionMap}{Direction\+Map}} \mbox{\hyperlink{game__actions__sdl_8c_a3c2109a94759d2428468a9412d48f154}{direction\+\_\+map}} \mbox{[}$\,$\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{game__actions__sdl_8c_a67afe56f88ed13485c663a4a56d6e964}\label{game__actions__sdl_8c_a67afe56f88ed13485c663a4a56d6e964} 
+\index{game\_actions\_sdl.c@{game\_actions\_sdl.c}!DIRECTION\_MAP\_SIZE@{DIRECTION\_MAP\_SIZE}}
+\index{DIRECTION\_MAP\_SIZE@{DIRECTION\_MAP\_SIZE}!game\_actions\_sdl.c@{game\_actions\_sdl.c}}
+\doxysubsubsection{\texorpdfstring{DIRECTION\_MAP\_SIZE}{DIRECTION\_MAP\_SIZE}}
+{\footnotesize\ttfamily \#define DIRECTION\+\_\+\+MAP\+\_\+\+SIZE~12}
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{game__actions__sdl_8c_abf5d5d901bbd3cb72bdec06b2c9f027c}\label{game__actions__sdl_8c_abf5d5d901bbd3cb72bdec06b2c9f027c} 
+\index{game\_actions\_sdl.c@{game\_actions\_sdl.c}!direction\_from\_string@{direction\_from\_string}}
+\index{direction\_from\_string@{direction\_from\_string}!game\_actions\_sdl.c@{game\_actions\_sdl.c}}
+\doxysubsubsection{\texorpdfstring{direction\_from\_string()}{direction\_from\_string()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a224b9163917ac32fc95a60d8c1eec3aa}{Direction}} direction\+\_\+from\+\_\+string (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{str }\end{DoxyParamCaption})}
+
+Private functions Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{game__actions__sdl_8c_abf5d5d901bbd3cb72bdec06b2c9f027c_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{game__actions__sdl_8c_a9c82eca4e12e0ca5e065a9a1e0c9ea4b}\label{game__actions__sdl_8c_a9c82eca4e12e0ca5e065a9a1e0c9ea4b} 
+\index{game\_actions\_sdl.c@{game\_actions\_sdl.c}!game\_actions\_attack\_sdl@{game\_actions\_attack\_sdl}}
+\index{game\_actions\_attack\_sdl@{game\_actions\_attack\_sdl}!game\_actions\_sdl.c@{game\_actions\_sdl.c}}
+\doxysubsubsection{\texorpdfstring{game\_actions\_attack\_sdl()}{game\_actions\_attack\_sdl()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} game\+\_\+actions\+\_\+attack\+\_\+sdl (\begin{DoxyParamCaption}\item[{Game \texorpdfstring{$\ast$}{*}}]{game }\end{DoxyParamCaption})}
+
+
+
+It allows the player to attack a character. 
+
+\begin{DoxyAuthor}{Author}
+Beatriz, Arturo, Rubén, Ana
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em game} & a pointer to the game \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK if everything goes well, ERROR otherwise 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{game__actions__sdl_8c_a9c82eca4e12e0ca5e065a9a1e0c9ea4b_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{game__actions__sdl_8c_a9c82eca4e12e0ca5e065a9a1e0c9ea4b_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{game__actions__sdl_8c_a0d08414021bba8dd75889d7503808b9b}\label{game__actions__sdl_8c_a0d08414021bba8dd75889d7503808b9b} 
+\index{game\_actions\_sdl.c@{game\_actions\_sdl.c}!game\_actions\_chat\_sdl@{game\_actions\_chat\_sdl}}
+\index{game\_actions\_chat\_sdl@{game\_actions\_chat\_sdl}!game\_actions\_sdl.c@{game\_actions\_sdl.c}}
+\doxysubsubsection{\texorpdfstring{game\_actions\_chat\_sdl()}{game\_actions\_chat\_sdl()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} game\+\_\+actions\+\_\+chat\+\_\+sdl (\begin{DoxyParamCaption}\item[{Game \texorpdfstring{$\ast$}{*}}]{game }\end{DoxyParamCaption})}
+
+
+
+It allows the player to chat with a character. 
+
+\begin{DoxyAuthor}{Author}
+Beatriz, Arturo, Rubén, Ana
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em game} & a pointer to the game \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK if everything goes well, ERROR otherwise 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{game__actions__sdl_8c_a0d08414021bba8dd75889d7503808b9b_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{game__actions__sdl_8c_a0d08414021bba8dd75889d7503808b9b_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{game__actions__sdl_8c_a61aac260f32dcea88770a0cf7f1f890d}\label{game__actions__sdl_8c_a61aac260f32dcea88770a0cf7f1f890d} 
+\index{game\_actions\_sdl.c@{game\_actions\_sdl.c}!game\_actions\_drop\_sdl@{game\_actions\_drop\_sdl}}
+\index{game\_actions\_drop\_sdl@{game\_actions\_drop\_sdl}!game\_actions\_sdl.c@{game\_actions\_sdl.c}}
+\doxysubsubsection{\texorpdfstring{game\_actions\_drop\_sdl()}{game\_actions\_drop\_sdl()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} game\+\_\+actions\+\_\+drop\+\_\+sdl (\begin{DoxyParamCaption}\item[{Game \texorpdfstring{$\ast$}{*}}]{game }\end{DoxyParamCaption})}
+
+
+
+It allows a player to drop an object if they have it. 
+
+\begin{DoxyAuthor}{Author}
+Beatriz, Arturo, Rubén, Ana
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em game} & a pointer to the game \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK if everything goes well, ERROR otherwise 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{game__actions__sdl_8c_a61aac260f32dcea88770a0cf7f1f890d_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{game__actions__sdl_8c_a61aac260f32dcea88770a0cf7f1f890d_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{game__actions__sdl_8c_a295abf56f16c4658ac670daafcac9b43}\label{game__actions__sdl_8c_a295abf56f16c4658ac670daafcac9b43} 
+\index{game\_actions\_sdl.c@{game\_actions\_sdl.c}!game\_actions\_exit\_sdl@{game\_actions\_exit\_sdl}}
+\index{game\_actions\_exit\_sdl@{game\_actions\_exit\_sdl}!game\_actions\_sdl.c@{game\_actions\_sdl.c}}
+\doxysubsubsection{\texorpdfstring{game\_actions\_exit\_sdl()}{game\_actions\_exit\_sdl()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} game\+\_\+actions\+\_\+exit\+\_\+sdl (\begin{DoxyParamCaption}\item[{Game \texorpdfstring{$\ast$}{*}}]{game }\end{DoxyParamCaption})}
+
+
+
+It allows the user to exit the game. 
+
+\begin{DoxyAuthor}{Author}
+Profesores PPROG
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em game} & a pointer to the game \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK always 
+\end{DoxyReturn}
+\Hypertarget{game__actions__sdl_8c_af2452109a3c899676b0687f3de9332c8}\label{game__actions__sdl_8c_af2452109a3c899676b0687f3de9332c8} 
+\index{game\_actions\_sdl.c@{game\_actions\_sdl.c}!game\_actions\_inspect\_sdl@{game\_actions\_inspect\_sdl}}
+\index{game\_actions\_inspect\_sdl@{game\_actions\_inspect\_sdl}!game\_actions\_sdl.c@{game\_actions\_sdl.c}}
+\doxysubsubsection{\texorpdfstring{game\_actions\_inspect\_sdl()}{game\_actions\_inspect\_sdl()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} game\+\_\+actions\+\_\+inspect\+\_\+sdl (\begin{DoxyParamCaption}\item[{Game \texorpdfstring{$\ast$}{*}}]{game }\end{DoxyParamCaption})}
+
+
+
+It allows the player to inspect an object. 
+
+\begin{DoxyAuthor}{Author}
+Arturo, Rubén, Ana
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em game} & a pointer to the game \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK if everything goes well, ERROR otherwise 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{game__actions__sdl_8c_af2452109a3c899676b0687f3de9332c8_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{game__actions__sdl_8c_af2452109a3c899676b0687f3de9332c8_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{game__actions__sdl_8c_a0b241fde368bde3706605fcfa152674a}\label{game__actions__sdl_8c_a0b241fde368bde3706605fcfa152674a} 
+\index{game\_actions\_sdl.c@{game\_actions\_sdl.c}!game\_actions\_inventory\_sdl@{game\_actions\_inventory\_sdl}}
+\index{game\_actions\_inventory\_sdl@{game\_actions\_inventory\_sdl}!game\_actions\_sdl.c@{game\_actions\_sdl.c}}
+\doxysubsubsection{\texorpdfstring{game\_actions\_inventory\_sdl()}{game\_actions\_inventory\_sdl()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} game\+\_\+actions\+\_\+inventory\+\_\+sdl (\begin{DoxyParamCaption}\item[{Game \texorpdfstring{$\ast$}{*}}]{game }\end{DoxyParamCaption})}
+
+
+
+It allows the player to toggle the visualization of the inventory. 
+
+\begin{DoxyAuthor}{Author}
+Bea, Arturo, Rubén, Ana
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em game} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK if everything goes well, ERROR otherwise 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{game__actions__sdl_8c_a0b241fde368bde3706605fcfa152674a_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{game__actions__sdl_8c_a34397b9f48b293f57e661603e66d4b06}\label{game__actions__sdl_8c_a34397b9f48b293f57e661603e66d4b06} 
+\index{game\_actions\_sdl.c@{game\_actions\_sdl.c}!game\_actions\_load\_sdl@{game\_actions\_load\_sdl}}
+\index{game\_actions\_load\_sdl@{game\_actions\_load\_sdl}!game\_actions\_sdl.c@{game\_actions\_sdl.c}}
+\doxysubsubsection{\texorpdfstring{game\_actions\_load\_sdl()}{game\_actions\_load\_sdl()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} game\+\_\+actions\+\_\+load\+\_\+sdl (\begin{DoxyParamCaption}\item[{Game \texorpdfstring{$\ast$}{*}}]{game }\end{DoxyParamCaption})}
+
+
+
+It allows the player to save its current game. 
+
+\begin{DoxyAuthor}{Author}
+Ana
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em game} & a pointer to the game \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK if everything goes well, ERROR otherwise 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{game__actions__sdl_8c_a34397b9f48b293f57e661603e66d4b06_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{game__actions__sdl_8c_aed5a85732a1cdf1ea84b7837cdc070d8}\label{game__actions__sdl_8c_aed5a85732a1cdf1ea84b7837cdc070d8} 
+\index{game\_actions\_sdl.c@{game\_actions\_sdl.c}!game\_actions\_move\_sdl@{game\_actions\_move\_sdl}}
+\index{game\_actions\_move\_sdl@{game\_actions\_move\_sdl}!game\_actions\_sdl.c@{game\_actions\_sdl.c}}
+\doxysubsubsection{\texorpdfstring{game\_actions\_move\_sdl()}{game\_actions\_move\_sdl()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} game\+\_\+actions\+\_\+move\+\_\+sdl (\begin{DoxyParamCaption}\item[{Game \texorpdfstring{$\ast$}{*}}]{game }\end{DoxyParamCaption})}
+
+
+
+It moves the player in the desired direction (north, south, west or east) 
+
+\begin{DoxyAuthor}{Author}
+Ana
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em game} & a pointer to the game \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK if everything goes well, ERROR otherwise 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{game__actions__sdl_8c_aed5a85732a1cdf1ea84b7837cdc070d8_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{game__actions__sdl_8c_a0ed898b4845191eb1a03364ef8074bf7}\label{game__actions__sdl_8c_a0ed898b4845191eb1a03364ef8074bf7} 
+\index{game\_actions\_sdl.c@{game\_actions\_sdl.c}!game\_actions\_open\_sdl@{game\_actions\_open\_sdl}}
+\index{game\_actions\_open\_sdl@{game\_actions\_open\_sdl}!game\_actions\_sdl.c@{game\_actions\_sdl.c}}
+\doxysubsubsection{\texorpdfstring{game\_actions\_open\_sdl()}{game\_actions\_open\_sdl()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} game\+\_\+actions\+\_\+open\+\_\+sdl (\begin{DoxyParamCaption}\item[{Game \texorpdfstring{$\ast$}{*}}]{game }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{game__actions__sdl_8c_a0ed898b4845191eb1a03364ef8074bf7_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{game__actions__sdl_8c_a0ed898b4845191eb1a03364ef8074bf7_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{game__actions__sdl_8c_a61c21e2028a7333c943e946a442d44f8}\label{game__actions__sdl_8c_a61c21e2028a7333c943e946a442d44f8} 
+\index{game\_actions\_sdl.c@{game\_actions\_sdl.c}!game\_actions\_save\_sdl@{game\_actions\_save\_sdl}}
+\index{game\_actions\_save\_sdl@{game\_actions\_save\_sdl}!game\_actions\_sdl.c@{game\_actions\_sdl.c}}
+\doxysubsubsection{\texorpdfstring{game\_actions\_save\_sdl()}{game\_actions\_save\_sdl()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} game\+\_\+actions\+\_\+save\+\_\+sdl (\begin{DoxyParamCaption}\item[{Game \texorpdfstring{$\ast$}{*}}]{game }\end{DoxyParamCaption})}
+
+
+
+It allows the player to load a saved game. 
+
+\begin{DoxyAuthor}{Author}
+Ana
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em game} & a pointer to the game \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK if everything goes well, ERROR otherwise 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{game__actions__sdl_8c_a61c21e2028a7333c943e946a442d44f8_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{game__actions__sdl_8c_a585a376273c15bff51bcfbae55486593}\label{game__actions__sdl_8c_a585a376273c15bff51bcfbae55486593} 
+\index{game\_actions\_sdl.c@{game\_actions\_sdl.c}!game\_actions\_take\_sdl@{game\_actions\_take\_sdl}}
+\index{game\_actions\_take\_sdl@{game\_actions\_take\_sdl}!game\_actions\_sdl.c@{game\_actions\_sdl.c}}
+\doxysubsubsection{\texorpdfstring{game\_actions\_take\_sdl()}{game\_actions\_take\_sdl()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} game\+\_\+actions\+\_\+take\+\_\+sdl (\begin{DoxyParamCaption}\item[{Game \texorpdfstring{$\ast$}{*}}]{game }\end{DoxyParamCaption})}
+
+
+
+It allows a player to pick up an object if they\textquotesingle{}re in the same room. 
+
+\begin{DoxyAuthor}{Author}
+Beatriz, Arturo, Rubén, Ana
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em game} & a pointer to the game \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK if everything goes well, ERROR otherwise 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{game__actions__sdl_8c_a585a376273c15bff51bcfbae55486593_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{game__actions__sdl_8c_a585a376273c15bff51bcfbae55486593_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{game__actions__sdl_8c_afb255846c3c3ba88192131a7ea1dcb7f}\label{game__actions__sdl_8c_afb255846c3c3ba88192131a7ea1dcb7f} 
+\index{game\_actions\_sdl.c@{game\_actions\_sdl.c}!game\_actions\_unknown\_sdl@{game\_actions\_unknown\_sdl}}
+\index{game\_actions\_unknown\_sdl@{game\_actions\_unknown\_sdl}!game\_actions\_sdl.c@{game\_actions\_sdl.c}}
+\doxysubsubsection{\texorpdfstring{game\_actions\_unknown\_sdl()}{game\_actions\_unknown\_sdl()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} game\+\_\+actions\+\_\+unknown\+\_\+sdl (\begin{DoxyParamCaption}\item[{Game \texorpdfstring{$\ast$}{*}}]{game }\end{DoxyParamCaption})}
+
+
+
+It waits for a known action. 
+
+Private functions \begin{DoxyAuthor}{Author}
+Profesores PPROG
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em game} & a pointer to the game \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK always
+\end{DoxyReturn}
+Calls implementation for each action \Hypertarget{game__actions__sdl_8c_acd1524051170e15d5370144cbb777503}\label{game__actions__sdl_8c_acd1524051170e15d5370144cbb777503} 
+\index{game\_actions\_sdl.c@{game\_actions\_sdl.c}!game\_actions\_update\_sdl@{game\_actions\_update\_sdl}}
+\index{game\_actions\_update\_sdl@{game\_actions\_update\_sdl}!game\_actions\_sdl.c@{game\_actions\_sdl.c}}
+\doxysubsubsection{\texorpdfstring{game\_actions\_update\_sdl()}{game\_actions\_update\_sdl()}}
+{\footnotesize\ttfamily void game\+\_\+actions\+\_\+update\+\_\+sdl (\begin{DoxyParamCaption}\item[{Game \texorpdfstring{$\ast$}{*}}]{game,  }\item[{int}]{seed }\end{DoxyParamCaption})}
+
+
+
+It updates the current command based on user input. 
+
+Game actions implementation Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{game__actions__sdl_8c_acd1524051170e15d5370144cbb777503_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{game__actions__sdl_8c_acd1524051170e15d5370144cbb777503_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{game__actions__sdl_8c_a836d4d9cfc019c9c7ac4461935122515}\label{game__actions__sdl_8c_a836d4d9cfc019c9c7ac4461935122515} 
+\index{game\_actions\_sdl.c@{game\_actions\_sdl.c}!game\_actions\_use\_sdl@{game\_actions\_use\_sdl}}
+\index{game\_actions\_use\_sdl@{game\_actions\_use\_sdl}!game\_actions\_sdl.c@{game\_actions\_sdl.c}}
+\doxysubsubsection{\texorpdfstring{game\_actions\_use\_sdl()}{game\_actions\_use\_sdl()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} game\+\_\+actions\+\_\+use\+\_\+sdl (\begin{DoxyParamCaption}\item[{Game \texorpdfstring{$\ast$}{*}}]{game }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{game__actions__sdl_8c_a836d4d9cfc019c9c7ac4461935122515_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{game__actions__sdl_8c_a836d4d9cfc019c9c7ac4461935122515_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{game__actions__sdl_8c_a3c2109a94759d2428468a9412d48f154}\label{game__actions__sdl_8c_a3c2109a94759d2428468a9412d48f154} 
+\index{game\_actions\_sdl.c@{game\_actions\_sdl.c}!direction\_map@{direction\_map}}
+\index{direction\_map@{direction\_map}!game\_actions\_sdl.c@{game\_actions\_sdl.c}}
+\doxysubsubsection{\texorpdfstring{direction\_map}{direction\_map}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structDirectionMap}{Direction\+Map}} direction\+\_\+map\mbox{[}$\,$\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{\{\textcolor{stringliteral}{"{}north"{}},\ \mbox{\hyperlink{types_8h_a224b9163917ac32fc95a60d8c1eec3aaa2c63acbe79d9f41ba6bb7766e9c37702}{N}}\},\ \{\textcolor{stringliteral}{"{}n"{}},\ \mbox{\hyperlink{types_8h_a224b9163917ac32fc95a60d8c1eec3aaa2c63acbe79d9f41ba6bb7766e9c37702}{N}}\},\ \{\textcolor{stringliteral}{"{}south"{}},\ \mbox{\hyperlink{types_8h_a224b9163917ac32fc95a60d8c1eec3aaaf1ce01387d2348f8b858721a7db81670}{S}}\},\ \{\textcolor{stringliteral}{"{}s"{}},\ \mbox{\hyperlink{types_8h_a224b9163917ac32fc95a60d8c1eec3aaaf1ce01387d2348f8b858721a7db81670}{S}}\},\ \{\textcolor{stringliteral}{"{}east"{}},\ \mbox{\hyperlink{types_8h_a224b9163917ac32fc95a60d8c1eec3aaab199e021998d49b1f09338d8b9b18ecb}{E}}\},\ \{\textcolor{stringliteral}{"{}e"{}},\ \mbox{\hyperlink{types_8h_a224b9163917ac32fc95a60d8c1eec3aaab199e021998d49b1f09338d8b9b18ecb}{E}}\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}west"{}},\ \mbox{\hyperlink{types_8h_a224b9163917ac32fc95a60d8c1eec3aaab722ceeb601c72cd78fbd35f3581fdf7}{W}}\},\ \ \{\textcolor{stringliteral}{"{}w"{}},\ \mbox{\hyperlink{types_8h_a224b9163917ac32fc95a60d8c1eec3aaab722ceeb601c72cd78fbd35f3581fdf7}{W}}\},\ \{\textcolor{stringliteral}{"{}up"{}},\ \mbox{\hyperlink{types_8h_a224b9163917ac32fc95a60d8c1eec3aaac461e84f27bbb236874e1011cd66031f}{U}}\},\ \ \ \ \{\textcolor{stringliteral}{"{}u"{}},\ \mbox{\hyperlink{types_8h_a224b9163917ac32fc95a60d8c1eec3aaac461e84f27bbb236874e1011cd66031f}{U}}\},\ \{\textcolor{stringliteral}{"{}down"{}},\ \mbox{\hyperlink{types_8h_a224b9163917ac32fc95a60d8c1eec3aaa77a6b11f9898c052926f1d49765861e8}{D}}\},\ \{\textcolor{stringliteral}{"{}d"{}},\ \mbox{\hyperlink{types_8h_a224b9163917ac32fc95a60d8c1eec3aaa77a6b11f9898c052926f1d49765861e8}{D}}\}\}}
+
+\end{DoxyCode}

@@ -1,0 +1,26 @@
+<map id="player_decrease_health" name="player_decrease_health">
+<area shape="rect" id="Node000001" title="It decreases the player&#39;s health." alt="" coords="752,80,929,105"/>
+<area shape="rect" id="Node000002" href="$game__actions_8c.html#ab8c2bd8035729624e09606c7e5f8c663" title="It allows the player to attack a character." alt="" coords="530,5,691,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="794,77,703,45,664,33,666,28,705,39,796,72"/>
+<area shape="rect" id="Node000006" href="$game__actions__sdl_8c.html#a9c82eca4e12e0ca5e065a9a1e0c9ea4b" title="It allows the player to attack a character." alt="" coords="517,55,704,80"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="738,84,704,80,704,75,738,79"/>
+<area shape="rect" id="Node000010" href="$player__test_8c.html#ad84b0f543720337af273537d8808623b" title=" " alt="" coords="526,104,695,129"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="738,106,696,110,695,105,738,101"/>
+<area shape="rect" id="Node000012" href="$player__test_8c.html#a8c0cb9c6989aa43c2e38c120a6644250" title=" " alt="" coords="526,153,695,179"/>
+<area shape="poly" id="edge11_Node000001_Node000012" title=" " alt="" coords="795,113,705,145,665,156,664,151,703,139,793,108"/>
+<area shape="rect" id="Node000003" href="$game__actions_8c.html#a0693694a3e70b4a4129e2da4ddb1f1a7" title="It updates the current command based on user input." alt="" coords="291,5,457,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="516,21,457,21,457,15,516,15"/>
+<area shape="rect" id="Node000004" href="$game__loop_8c.html#afb6a670628dffdd01661658f29a1e8ca" title="Runs the main game loop, processing commands and updating the game state." alt="" coords="108,5,231,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="278,21,231,21,231,15,278,15"/>
+<area shape="rect" id="Node000005" href="$game__loop_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,5,60,31"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="94,21,60,21,60,15,94,15"/>
+<area shape="rect" id="Node000007" href="$game__actions__sdl_8c.html#acd1524051170e15d5370144cbb777503" title="It updates the current command based on user input." alt="" coords="279,55,469,80"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="504,70,470,70,470,65,504,65"/>
+<area shape="rect" id="Node000008" href="$game__loop__sdl_8c.html#a2512ad7629a28c1c47934820188b8de4" title="Runs the main game loop, processing commands and updating the game state." alt="" coords="108,55,231,80"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="265,70,231,70,231,65,265,65"/>
+<area shape="rect" id="Node000009" href="$game__loop__sdl_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,55,60,80"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="94,70,60,70,60,65,94,65"/>
+<area shape="rect" id="Node000011" href="$player__test_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title=" " alt="" coords="347,128,401,153"/>
+<area shape="poly" id="edge10_Node000010_Node000011" title=" " alt="" coords="512,129,402,141,402,135,512,124"/>
+<area shape="poly" id="edge12_Node000012_Node000011" title=" " alt="" coords="512,158,402,146,402,141,512,153"/>
+</map>

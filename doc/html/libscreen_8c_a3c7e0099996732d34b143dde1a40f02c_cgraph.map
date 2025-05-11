@@ -1,0 +1,5 @@
+<map id="screen_init" name="screen_init">
+<area shape="rect" id="Node000001" title="It creates a new screen." alt="" coords="5,5,99,31"/>
+<area shape="rect" id="Node000002" href="$libscreen_8c.html#a3d6d82dde2bb4f3ddc4d276dabe313ef" title="It destroys a new screen area." alt="" coords="147,5,268,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="99,15,133,15,133,21,99,21"/>
+</map>

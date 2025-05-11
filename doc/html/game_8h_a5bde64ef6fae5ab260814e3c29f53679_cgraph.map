@@ -1,0 +1,5 @@
+<map id="game_get_team_of_player" name="game_get_team_of_player">
+<area shape="rect" id="Node000001" title="It gets the number of teammates a player has." alt="" coords="5,5,201,31"/>
+<area shape="rect" id="Node000002" href="$set_8c.html#a298b41bcf7ae56e1f07567eaace0c963" title="It checks if the set contains an element." alt="" coords="249,5,340,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="202,15,236,15,236,21,202,21"/>
+</map>

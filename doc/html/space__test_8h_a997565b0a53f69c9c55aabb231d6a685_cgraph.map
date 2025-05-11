@@ -1,0 +1,19 @@
+<map id="test1_space_has_character" name="test1_space_has_character">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,80,204,105"/>
+<area shape="rect" id="Node000002" href="$space_8c.html#a3c1a1502a0c9d8252c452dfe40d93dc8" title="Adds a character to the space." alt="" coords="252,5,411,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="141,77,251,39,274,32,276,37,253,45,143,82"/>
+<area shape="rect" id="Node000004" href="$space_8c.html#ad3a5834be733066e8a7d8586be0ac610" title="It creates a new space, allocating memory and initializing its members." alt="" coords="277,55,385,80"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="204,79,263,72,263,78,205,84"/>
+<area shape="rect" id="Node000006" href="$space_8c.html#a278763d4b530df17823ef9e4f9db2896" title="It destroys a space, freeing the allocated memory." alt="" coords="273,104,389,129"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="205,101,260,106,259,112,204,106"/>
+<area shape="rect" id="Node000008" href="$space_8c.html#a39e092c7b3799c16bd6177c1155a683b" title="Checks whether the space has a specific character." alt="" coords="252,153,411,179"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="145,103,253,138,278,146,277,152,251,143,144,108"/>
+<area shape="rect" id="Node000003" href="$set_8c.html#ad252ed6b4db23b184789fd4ef5afe5e1" title="It adds an element to the set." alt="" coords="462,5,554,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="411,15,448,15,448,21,411,21"/>
+<area shape="rect" id="Node000005" href="$set_8c.html#aaad3bdcac9fbbfc38b4800b12bb17449" title="It creates a set." alt="" coords="463,55,553,80"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="385,65,449,65,449,70,385,70"/>
+<area shape="rect" id="Node000007" href="$set_8c.html#a5b4e14914ec3c85b83363f57697f175a" title="It destroys a set." alt="" coords="459,104,557,129"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="390,114,445,114,445,119,390,119"/>
+<area shape="rect" id="Node000009" href="$set_8c.html#a298b41bcf7ae56e1f07567eaace0c963" title="It checks if the set contains an element." alt="" coords="463,153,553,179"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="411,163,449,163,449,169,411,169"/>
+</map>
