@@ -82,18 +82,25 @@ Status game_rules_process_use_parachute(Game *game, Id object_id);
  */
 void move_guards(Game *game);
 
-/**
- * @brief It tells the game that a player has managed to escape and, therefore, won the game
- * @author Ana
- *
- * @param game a pointer to the game
- * @return OK if everything went well, ERROR otherwise
- */
-Status game_rules_escape_prison(Game *game);
-
 Status update_game(Game *game, Command *cmd) {
   Character *character = game_get_character(game, 31);
   Id open_link = 123;
+  Link *link = game_get_link_by_id(game, 106);
+  Player *player = game_get_player(game, 0);
+  Id player_location = player_get_location(player);
+  Link *link2 = game_get_link_by_id(game, 107);
+
+
+
+  if(player_location == 6 && link_get_open(link) == FALSE){
+    if(game_get_current_player(game) == player){
+      game_increment_turn(game);
+    }
+  }
+
+  if(link_get_open(link) == TRUE){
+    link_set_open(link2, TRUE);
+  }
 
   printf("[DEBUG] update_game: actualizando juego\n");
   move_guards(game);
@@ -123,6 +130,11 @@ Status update_game(Game *game, Command *cmd) {
   }
   if (create_parachute(game) == ERROR) {
     printf("[DEBUG] Error al crear el paracaídas.\n");
+  }
+
+
+  if(link_get_open(link) == TRUE){
+    link_set_open(link2, TRUE);
   }
 
   return OK;
@@ -510,24 +522,4 @@ void move_guards(Game *game) {
       }
     }
   }
-}
-
-/**
- * @brief It tells the game that a player has managed to escape and, therefore, won the game
- */
-Status game_rules_escape_prison(Game *game) {
-  Id jail_exits[3] = {141, 204, 139};
-  int i = 0;
-  if (!game) {
-    return ERROR;
-  }
-
-  for (i = 0; i < 3; i++) {
-    if (player_get_location(game_get_current_player(game)) == jail_exits[i]) {
-      game_set_won(game, TRUE);
-      game_set_finished(game, TRUE);
-    }
-  }
-
-  return OK;
 }
