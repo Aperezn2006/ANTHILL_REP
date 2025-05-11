@@ -335,6 +335,9 @@ Status game_set_player_location(Game *game, Id id) {
   return player_set_location(game->players[game_get_player_index_from_turn(game)], id);
 }
 
+/**
+ * @brief It sets the player's location from an id
+ */
 Status game_set_player_location_from_id(Game *game, Id space_id, Id player_id) {
   int i;
 
@@ -375,6 +378,9 @@ Id game_get_player_location_from_index(Game *game, int index) {
   return player_get_location(game->players[index]);
 }
 
+/**
+ * @brief It gets the id of a player by name
+ */
 Id game_get_player_id_from_name(Game *game, char *name) {
   int i;
   Player *p = NULL;
@@ -399,6 +405,9 @@ Id game_get_player_id_from_name(Game *game, char *name) {
   return NO_ID;
 }
 
+/**
+ * @brief It gets the player's max amount of consecutive turns
+ */
 int game_get_player_max_turns(Game *game, Id player_id) {
   int i = 0, total_turns = 0;
   Object *object = NULL;
@@ -419,6 +428,9 @@ int game_get_player_max_turns(Game *game, Id player_id) {
   return total_turns;
 }
 
+/**
+ * @brief It allows for characters to chase a player inside a space (for SDL)
+ */
 Status game_character_chase_player(Game *game, Character *character) {
   Id leader_id;
   int new_x = 0, new_y = 0;
@@ -498,6 +510,9 @@ int game_get_player_index_from_turn(Game *game) {
   return -1;
 }
 
+/**
+ * @brief It updates the players health
+ */
 Status game_update_player_health(Game *game, Id object_id) {
   int turn;
   int health = 0;
@@ -687,6 +702,9 @@ Status game_get_string_of_objects_in_space(Game *game, Id space_id, char *objs) 
   return OK;
 }
 
+/**
+ * @brief It checks if an objects needs another object
+ */
 Bool game_check_object_dependency(Game *game, Id object_id) {
   /* TRUE means object can be used, i.e., either it doesn't have a dependency or player has that object */
   Object *object = NULL;
@@ -714,6 +732,9 @@ Bool game_check_object_dependency(Game *game, Id object_id) {
   return FALSE;
 }
 
+/**
+ * @brief It moves an object in a direction
+ */
 Status game_move_object(Game *game, const char *object_name, Id current_location, Direction direction) {
   Id next_space_id = NO_ID;
   Id object_id = NO_ID;
@@ -739,6 +760,9 @@ Status game_move_object(Game *game, const char *object_name, Id current_location
   return space_add_object(next_space, object_id);
 }
 
+/**
+ * @brief It tells if an object can be moved or not
+ */
 Bool game_is_object_movable(Game *game, Id object_id) {
   Object *object = NULL;
   if (!game || !object_id) {
@@ -872,6 +896,9 @@ Status game_remove_character_from_space(Game *game, Id space_id, Id character_id
   return space_remove_character(game_get_space(game, space_id), character_id);
 }
 
+/**
+ * @brief It updates the character health
+ */
 Status game_update_character_health(Game *game, Character *character, Id object_id) {
   int health = 0;
   Object *object = NULL;
@@ -922,6 +949,9 @@ Link *game_get_link_from_index(Game *game, int index) {
   return game->links[index];
 }
 
+/**
+ * @brief It gives the id of a link from a name
+ */
 Id game_get_link_id_from_name(Game *game, char *name) {
   int i;
   /*CdE*/
@@ -986,6 +1016,9 @@ Id game_get_west(Game *game, Id current_location) {
   return game_get_neighbour(game, current_location, W);
 }
 
+/**
+ * @brief It gets the id of the space located on top of the current_location
+ */
 Id game_get_up(Game *game, Id current_location) {
   /*CdE*/
   if (!game || !current_location) {
@@ -995,6 +1028,9 @@ Id game_get_up(Game *game, Id current_location) {
   return game_get_neighbour(game, current_location, U);
 }
 
+/**
+ * @brief It gets the id of the space located below the current_location
+ */
 Id game_get_down(Game *game, Id current_location) {
   /*CdE*/
   if (!game || !current_location) {
@@ -1022,6 +1058,9 @@ Id game_get_neighbour(Game *game, Id current_location, Direction direction) {
   return NO_ID;
 }
 
+/**
+ * @brief It gets a space's link in a specified direction
+ */
 Link *game_get_link_at_direction(Game *game, Id current_location, Direction d) {
   int i = 0;
   if (!game || current_location == NO_ID) {
@@ -1057,6 +1096,9 @@ Bool game_connection_is_open(Game *game, Id current_location, Direction directio
   return FALSE;
 }
 
+/**
+ * @brief It gets the id of the space neighbouring a certain space in a specific direction
+ */
 Id game_get_connection(Game *game, Id current_location, Direction direction) {
   int i;
   if (!game || current_location == NO_ID) {
@@ -1072,6 +1114,9 @@ Id game_get_connection(Game *game, Id current_location, Direction direction) {
   return NO_ID;
 }
 
+/**
+ * @brief It gets a pointer to a link using its id
+ */
 Link *game_get_link_by_id(Game *game, Id link_id) {
   int i;
   /*CdE*/
@@ -1088,6 +1133,9 @@ Link *game_get_link_by_id(Game *game, Id link_id) {
   return NULL;
 }
 
+/**
+ * @brief It sets a link to open
+ */
 Status game_set_link_open(Game *game, Id current_location, Direction direction) {
   int i;
   /*CdE*/
@@ -1106,6 +1154,9 @@ Status game_set_link_open(Game *game, Id current_location, Direction direction) 
 }
 
 /*Management of teams*/
+/**
+ * @brief It gets the team of a player
+ */
 Set *game_get_team(const Game *game, Id player_id) {
   int i;
 
@@ -1466,6 +1517,9 @@ Bool game_get_inventory_vis(Game *game) {
 }
 
 /*Management of zoom_vis*/
+/**
+ * @brief It toggles the zoom's visualization
+ */
 Status game_toggle_zoom_vis(Game *game) {
   /*CdE*/
   if (!game) {
@@ -1482,7 +1536,7 @@ Status game_toggle_zoom_vis(Game *game) {
 }
 
 /**
- * @brief It gets whether the inventory is beinf visualized or not
+ * @brief It gets whether the zoom view is being visualized or not
  */
 Bool game_get_zoom_vis(Game *game) {
   /*CdE*/
@@ -1494,6 +1548,9 @@ Bool game_get_zoom_vis(Game *game) {
 }
 
 /*Management of SDL*/
+/**
+ * @brief It gets whether the game is being run in the SDL version or not
+ */
 Bool game_get_SDL(Game *game) {
   if (!game) {
     return FALSE;
@@ -1503,6 +1560,9 @@ Bool game_get_SDL(Game *game) {
 }
 
 /*Management of won*/
+/**
+ * @brief It sets whether the player's won the game
+ */
 Status game_set_won(Game *game, Bool won) {
   if (!game) {
     return ERROR;
@@ -1513,6 +1573,9 @@ Status game_set_won(Game *game, Bool won) {
   return OK;
 }
 
+/**
+ * @brief It gets whether the player's won the game
+ */
 Bool game_get_won(Game *game) {
   if (!game) {
     return FALSE;
@@ -1565,6 +1628,9 @@ Id_Type game_get_id_type(Game *game, Id id) {
   return UNSIGNED;
 }
 
+/**
+ * @brief It gets the number of teammates a player has
+ */
 int game_get_team_of_player(const Game *game, Id player_id) {
   int i;
 
@@ -1579,6 +1645,9 @@ int game_get_team_of_player(const Game *game, Id player_id) {
   return -1;
 }
 
+/**
+ * @brief It adds a team to the game
+ */
 Status game_add_team(Game *game) {
   Set *new_team = set_create();
   if (!game || game->n_teams >= MAX_TEAMS) return ERROR;
@@ -1589,6 +1658,9 @@ Status game_add_team(Game *game) {
   return OK;
 }
 
+/**
+ * @brief It adds a player to a team
+ */
 Status game_add_player_to_team(Game *game, int team_index, Id player_id) {
   if (!game || team_index < 0 || team_index >= game->n_teams || player_id == NO_ID) {
     return ERROR;
@@ -1597,6 +1669,9 @@ Status game_add_player_to_team(Game *game, int team_index, Id player_id) {
   return set_add_id(game->teams[team_index], player_id);
 }
 
+/**
+ * @brief It sets teams
+ */
 Status game_handle_follow(Game *game, Id follower, Id leader) {
   int team_follower, team_leader, new_team_idx;
 
@@ -1641,6 +1716,9 @@ Status game_handle_follow(Game *game, Id follower, Id leader) {
 }
 
 /*Cosas de SDL2*/
+/**
+ * @brief It allows for the player to move the cursor inside its inventory
+ */
 void game_move_inventory_cursor(Game *game, int direction) {
   Player *player = NULL;
   Inventory *inventory = NULL;
@@ -1675,11 +1753,17 @@ void game_move_inventory_cursor(Game *game, int direction) {
 }
 
 /*Management of ray*/
+/**
+ * @brief It gets a pointer to the game's ray
+ */
 Ray *game_get_ray(Game *game) {
   if (!game) return NULL;
   return game->ray;
 }
 
+/**
+ * @brief It sets the ray inside the game
+ */
 void game_set_ray(Game *game, Ray *ray) {
   if (!game) return;
   game->ray = ray;

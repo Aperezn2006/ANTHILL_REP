@@ -222,12 +222,12 @@ Id game_get_player_id_from_name(Game *game, char *name);
 int game_get_player_max_turns(Game *game, Id player_id);
 
 /**
- * @brief
+ * @brief It allows for characters to chase a player inside a space (for SDL)
  * @author Ana
  *
  * @param game a pointer to the game
- * @param character
- * @return Status
+ * @param character a pointer to the character
+ * @return OK if everything went well, ERROR otherwise
  */
 Status game_character_chase_player(Game *game, Character *character);
 
@@ -351,6 +351,7 @@ Bool game_is_object_movable(Game *game, Id object_id);
 /**
  * @brief Adds a character to the game and places them in the appropriate space
  * @author Bea, Arturo, Rubén, Ana
+ *
  * @param game Pointer to the game
  * @param character Pointer to the character to be added
  * @return OK if successful, ERROR otherwise
@@ -360,6 +361,7 @@ Status game_add_character(Game *game, Character *character);
 /**
  * @brief Retrieves a pointer to a character by ID
  * @author Bea, Arturo, Rubén, Ana
+ *
  * @param game Pointer to the game
  * @param character_id ID of the character
  * @return Pointer to the character, or NULL if not found
@@ -369,6 +371,7 @@ Character *game_get_character(Game *game, Id character_id);
 /**
  * @brief Gets a pointer to the character at the given index in the game's character array
  * @author Bea, Arturo, Rubén, Ana
+ *
  * @param game Pointer to the game
  * @param n Index of the character in the array
  * @return Pointer to the character, or NULL if index is invalid
@@ -386,6 +389,7 @@ Id game_get_character_location(Game *game, Id character_id);
 
 /**
  * @brief Sets the location of a character in the game.
+ * @author Arturo
 
  *
  * @param game Pointer to the Game structure.
@@ -398,6 +402,7 @@ Status game_set_character_location(Game *game, Id space_id, Id character_id);
 /**
  * @brief Retrieves the ID of a character given its name
  * @author Bea, Arturo, Rubén, Ana
+ *
  * @param game Pointer to the game
  * @param name Name of the character
  * @return Character ID, or NO_ID if not found
@@ -407,6 +412,7 @@ Id game_get_character_id_from_name(Game *game, char *name);
 /**
  * @brief Gets the description of the first character at a space (used for rendering or brief display)
  * @author Bea, Arturo, Rubén, Ana
+ *
  * @param game Pointer to the game
  * @param space_id ID of the space
  * @return Graphical description string, or NULL if none
@@ -546,23 +552,23 @@ Link *game_get_link_at_direction(Game *game, Id current_location, Direction d);
 Bool game_connection_is_open(Game *game, Id current_location, Direction direction);
 
 /**
- * @brief
- * @author
+ * @brief It gets the id of the space neighbouring a certain space in a specific direction
+ * @author Rubén
  *
  * @param game a pointer to the game
- * @param current_location
- * @param direction
- * @return Id
+ * @param current_location the desired space
+ * @param direction th direction in which to look for a space
+ * @return the id of the neighbouring space
  */
 Id game_get_connection(Game *game, Id current_location, Direction direction);
 
 /**
- * @brief
- * @author
+ * @brief It gets a pointer to a link using its id
+ * @author Rubén
  *
  * @param game a pointer to the game
- * @param link_id
- * @return Link*
+ * @param link_id the link's id
+ * @return a pointer to the desired link
  */
 Link *game_get_link_by_id(Game *game, Id link_id);
 
@@ -850,18 +856,32 @@ Bool game_get_zoom_vis(Game *game);
 
 /*Management of SDL*/
 /**
- * @brief
- * @author
+ * @brief It gets whether the game is being run in the SDL version or not
+ * @author Ana
  *
  * @param game a pointer to the game
- * @return Bool
+ * @return whether the game is being run in the SDL version
  */
 Bool game_get_SDL(Game *game);
 
 /*Management of won*/
-/*TODO - */
+/**
+ * @brief It sets whether the player's won the game
+ * @author Ana
+ *
+ * @param game a pointer to the game
+ * @param won whether the player's won the game
+ * @return OK if everything went well, ERROR otherwise
+ */
 Status game_set_won(Game *game, Bool won);
 
+/**
+ * @brief It gets whether the player's won the game
+ * @author Ana
+ *
+ * @param game a pointer to the game
+ * @return whether the player's won the game
+ */
 Bool game_get_won(Game *game);
 
 /*Misc*/
@@ -876,32 +896,32 @@ Bool game_get_won(Game *game);
 Id_Type game_get_id_type(Game *game, Id id);
 
 /**
- * @brief
- * @author
+ * @brief It gets the number of teammates a player has
+ * @author Rubén
  *
- * @param game
- * @param player_id
- * @return int
+ * @param game a pointer to the game
+ * @param player_id the desired player's id
+ * @return the number of teammates a player has
  */
 int game_get_team_of_player(const Game *game, Id player_id);
 
 /**
- * @brief
- * @author
+ * @brief It adds a team to the game
+ * @author Rubén
  *
- * @param game
- * @return Status
+ * @param game a pointer to the game
+ * @return OK if everything went well, ERROR otherwise
  */
 Status game_add_team(Game *game);
 
 /**
- * @brief
- * @author
+ * @brief It adds a player to a team
+ * @author RUbén
  *
- * @param game
- * @param team_index
- * @param player_id
- * @return Status
+ * @param game a pointer to the game
+ * @param team_index the team's index in the array of teams in the game
+ * @param player_id the desired player's id
+ * @return OK if everything went well, ERROR otherwise
  */
 Status game_add_player_to_team(Game *game, int team_index, Id player_id);
 
@@ -917,30 +937,32 @@ Status game_handle_follow(Game *game, Id follower, Id leader);
 
 /*Cosas de SDL2*/
 /**
- * @brief
- * @author
+ * @brief It allows for the player to move the cursor inside its inventory
+ * @author Rubén
  *
  * @param game a pointer to the game
- * @param direction
+ * @param direction the dired direction in which to move the cursor
+ * @return nothing
  */
 void game_move_inventory_cursor(Game *game, int direction);
 
 /*Management of ray*/
 /**
- * @brief
- * @author
+ * @brief It gets a pointer to the game's ray
+ * @author Rubén
  *
  * @param game a pointer to the game
- * @return Ray*
+ * @return a pointer to the game's ray
  */
 Ray *game_get_ray(Game *game);
 
 /**
- * @brief
- * @author
+ * @brief It sets the ray inside the game
+ * @author Rubén
  *
  * @param game a pointer to the game
- * @param ray
+ * @param ray a pointer to the ray
+ * @return nothing
  */
 void game_set_ray(Game *game, Ray *ray);
 
