@@ -1,49 +1,45 @@
 /*id|name|discovered|image|zoom|gdesc*/
 
-#s:11|PuestoVigilancia|.|
-#s:2|Enfermeria|.|
-#s:3|Comedor|.|
-#s:4|Visitas|.|
-#s:5|Archivos|.|
-#s:6|Torturas|.|
-#s:7|Patio|.|
-#s:8|Habitacion|.|
-#s:9|Perrera|.|
-#s:10|Sotano|.|
-#s:12|Azotea|.|
+#s:11|PuestoVigilancia|0|.|
+#s:2|Enfermeria|0|.|
+#s:3|Comedor|0|.|
+#s:4|Visitas|0|.|
+#s:5|Archivos|0|.|
+#s:6|Torturas|0|.|
+#s:7|Patio|0|.|
+#s:8|Habitacion|0|.|
+#s:9|Perrera|0|.|
+#s:10|Sotano|0|.|
+#s:12|Azotea|0|.|
 #s:120|Almacen|0|.|
+
 #s:121|TunelSecreto1|0|.|
 #s:122|TunelSecreto2|0|.|
-#s:123|SalaMaquinas|0|.|
+
+
 #s:124|CeldasCastigo|0|.|
-#s:125|Laboratorio|0|.|
-#s:126|Boveda|0|.|
+
 #s:127|Nivel1|0|.|
 #s:128|Nivel2|0|.|
 #s:129|Nivel3|0|.|
+
 #s:130|PasilloSur|0|.|
 #s:131|PasilloNorte|0|.|
 #s:132|PasilloEste|0|.|
 #s:133|PasilloOeste|0|.|
 #s:134|SalaControl|0|.|
-#s:135|SalaTesoro|0|.|
+
 #s:136|Trampa1|0|.|
 #s:137|Trampa2|0|.|
 #s:138|Trampa3|0|.|
 #s:139|SalidaSecreta|0|.|
-#s:141|Cocina|.|
-#s:200|HabitacionN1|0|.|
-#s:201|HabitacionN2|0|.|
-#s:202|HabitacionN3|0|.|
-#s:203|HabitacionN4|0|.|
-#s:204|HabitacionN5|0|.|
 
 /*id|name|location|health|movable|dependency|open_door|inspected|desc|x|y|image|*/
 
 #o:20|Llave|5|0|1|-1|-1|Open chair|0|10|
 #o:21|Hueso|3|0|1|-1|-1|Domesticate|0|5|
 #o:22|Donut|3|-1|1|-1|-1|Ñum Ñum|0|1|
-#o:23|Chaleco|7|5|1|-1|-1|Protección|0|15|
+#o:23|Chaleco|11|5|1|-1|-1|Protección|0|15|
 #o:24|Pistola|11|-3|1|-1|-1|Dispara proyectiles|0|1|
 #o:25|Cuchara|8|0|1|-1|-1|Scape|0|10|
 #o:26|CepilloDientes|8|-2|1|-1|-1|Dont use it|0|3|
@@ -55,12 +51,11 @@
 #o:32|Taladro|6|4|1|-1|-1|Perfora paredes|0|10|
 #o:33|Casco|120|5|1|-1|-1|Protección en túneles|0|30|
 #o:34|LinternaCabeza|120|6|1|-1|-1|Luz manos libres|0|25|
-#o:35|Dinamita|2|-3|1|-1|-1|Explosivo para abrir paso|0|1|
-#o:36|LlaveCocina|11|1|1|-1|-1|Abre la cocina|0|5|
-#o:37|Tela|12|2|1|-1|-1|Trozo de tela resistente|0|3|
+#o:35|Dinamita|120|-3|1|-1|-1|Explosivo para abrir paso|0|1|
+#o:37|Tela|4|2|1|-1|-1|Trozo de tela resistente|0|3|
 #o:38|Cuerda|7|3|1|-1|-1|Cuerda fuerte|0|4|
-#o:39|Varillas|4|1|1|-1|-1|Soporte estructural|0|2|
-#o:40|Cinta|6120|-1|1|-1|-1|Para unir partes|0|2|
+#o:39|Varillas|2|1|1|-1|-1|Soporte estructural|0|2|
+#o:40|Cinta|6|-1|1|-1|-1|Para unir partes|0|2|
 #o:41|Paracaidas|0|0|0|-1|-1|Permite saltar desde alturas|0|50|
 
 
@@ -102,16 +97,14 @@
 #l:121|TunelSecreto1ToAlmacen|121|120|3|1|
 #l:122|TunelSecreto1ToTunelSecreto2|121|122|1|1|
 #l:123|TunelSecreto2ToTunelSecreto1|122|121|0|1|
-#l:124|TunelSecreto2ToSalaMaquinas|122|123|2|1|
-#l:125|SalaMaquinasToTunelSecreto2|123|122|3|1|
-#l:126|SalaMaquinasToCeldasCastigo|123|124|4|1|
-#l:127|CeldasCastigoToSalaMaquinas|124|123|5|1|
-#l:128|SotanoToLaboratorio|10|125|3|1|
-#l:129|LaboratorioToSotano|125|10|2|1|
-#l:130|LaboratorioToBoveda|125|126|1|1|
-#l:131|BovedaToLaboratorio|126|125|0|1|
-#l:132|BovedaToNivel1|126|127|4|1|
-#l:133|Nivel1ToBoveda|127|126|5|1|
+
+#l:124|TunelSecreto2ToCeldasCastigo|122|124|2|1|
+#l:125|ToCeldasCastigoToTunelSecreto2|124|122|3|1|
+
+
+#l:128|SotanoToNivel1|10|127|3|1|
+#l:129|Nivel1ToSotano|127|10|2|1|
+
 #l:134|Nivel1ToNivel2|127|128|1|1|
 #l:135|Nivel2ToNivel1|128|127|0|1|
 #l:136|Nivel2ToNivel3|128|129|1|1|
@@ -126,39 +119,23 @@
 #l:145|PasilloOesteToPasilloEste|133|132|0|1|
 #l:146|PasilloOesteToSalaControl|133|134|4|1|
 #l:147|SalaControlToPasilloOeste|134|133|5|1|
-#l:148|SalaControlToSalaTesoro|134|135|1|1|  
-#l:149|SalaTesoroToSalaControl|135|134|0|1|
+#l:148|SalaControlToSalidaSecreta|134|139|1|1|  
+#l:149|SalidaSecretaToSalaControl|139|134|0|1|
 #l:150|SalaControlToTrampa1|134|136|2|1|    
 #l:151|Trampa1ToSalaControl|136|134|3|1|
 #l:152|SalaControlToTrampa2|134|137|3|1|    
 #l:153|Trampa2ToSalaControl|137|134|2|1|
 #l:154|SalaControlToTrampa3|134|138|4|1|    
 #l:155|Trampa3ToSalaControl|138|134|5|1|
-#l:156|SalaTesoroToSalidaSecreta|135|139|1|1|
-#l:157|SalidaSecretaToSalaTesoro|139|135|0|1|
-#l:158|ComedorToAzotea|3|140|4|1|
-#l:159|AzoteaToComedor|140|3|5|1|
-#l:160|AzoteaToCocina|140|141|1|1|
-#l:161|CocinaToAzotea|141|140|0|1|
 
-#l:200|HabitacionToHabitacionN1|11|200|0|0|
-#l:201|HabitacionN1ToHabitacion|200|11|1|1|
+#l:158|ComedorToAzotea|3|12|4|1|
+#l:159|AzoteaToComedor|12|3|5|1|
 
-#l:202|HabitacionN1ToHabitacionN2|200|201|0|0|
-#l:203|HabitacionN2ToHabitacionN1|201|200|1|1|
 
-#l:204|HabitacionN2ToHabitacionN3|201|202|0|0|
-#l:205|HabitacionN3ToHabitacionN2|202|201|1|1|
-
-#l:206|HabitacionN3ToHabitacionN4|202|203|0|0|
-#l:207|HabitacionN4ToHabitacionN3|203|202|1|1|
-
-#l:208|HabitacionN4ToHabitacionN5|203|204|0|0|
-#l:209|HabitacionN5ToHabitacionN4|204|203|1|1|
 
 
 /*id|name|gdesc|location|health|inventory_size|message|object_desc|max_turns*/
 #p:0|ant1|mO^|6|5|5|1|
-#p:1|ant1|mO^|8|5|5|1|
+#p:1|ant1|mO^|12|5|5|1|
 
 
