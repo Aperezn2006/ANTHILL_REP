@@ -42,158 +42,6 @@ struct _Game {
   Ray *ray;
 };
 
-/*Cosas de SDL2*/
-Status game_character_chase_player(Game *game, Character *character) {
-  Id leader_id;
-  int new_x = 0, new_y = 0;
-  /*CdE*/
-  if (!character) {
-    return ERROR;
-  }
-  if (rand() % 2 == 0) {
-    return OK;
-  }
-
-  /*leader_id = character_get_following(character);*/
-  leader_id = player_get_id(game_get_current_player(game));
-  if (leader_id == NO_ID || leader_id != player_get_id(game_get_current_player(game))) {
-    return OK;
-  } else {
-    if (character_get_y(character) > (player_get_y(game_get_player(game, leader_id)) + 5)) {
-      new_y = character_get_y(character) - 1;
-      character_toggle_curr_image_mode(character);
-      character_set_image(character, (char *)character_get_north_image(character, 0), (char *)character_get_north_image(character, 1),
-                          (char *)character_get_north_image(character, 2));
-    } else if (character_get_y(character) < (player_get_y(game_get_player(game, leader_id)) - 5)) {
-      new_y = character_get_y(character) + 1;
-      character_toggle_curr_image_mode(character);
-      character_set_image(character, (char *)character_get_south_image(character, 0), (char *)character_get_south_image(character, 1),
-                          (char *)character_get_south_image(character, 2));
-    } else {
-      new_y = character_get_y(character);
-    }
-
-    if (character_get_x(character) > (player_get_x(game_get_player(game, leader_id)) + 5)) {
-      new_x = character_get_x(character) - 1;
-      character_toggle_curr_image_mode(character);
-      character_set_image(character, (char *)character_get_west_image(character, 0), (char *)character_get_west_image(character, 1),
-                          (char *)character_get_west_image(character, 2));
-    } else if (character_get_x(character) < (player_get_x(game_get_player(game, leader_id)) - 5)) {
-      new_x = character_get_x(character) + 1;
-      character_toggle_curr_image_mode(character);
-      character_set_image(character, (char *)character_get_east_image(character, 0), (char *)character_get_east_image(character, 1),
-                          (char *)character_get_east_image(character, 2));
-    } else {
-      new_x = character_get_x(character);
-    }
-
-    character_set_position(character, new_x, new_y);
-  }
-
-  return OK;
-}
-
-Link *game_get_link_by_id(Game *game, Id link_id) {
-  int i;
-  /*CdE*/
-  if (!game) {
-    return NULL;
-  }
-
-  for (i = 0; i < game->n_links; i++) {
-    if (game->links[i] && link_get_id(game->links[i]) == link_id) {
-      return game->links[i];
-    }
-  }
-
-  return NULL;
-}
-
-Bool game_get_SDL(Game *game) {
-  if (!game) {
-    return FALSE;
-  }
-
-  return game->SDL;
-}
-
-/*Management of won*/
-Status game_set_won(Game *game, Bool won) {
-  if (!game) {
-    return ERROR;
-  }
-
-  game->won = won;
-
-  return OK;
-}
-
-Bool game_get_won(Game *game) {
-  if (!game) {
-    return FALSE;
-  }
-
-  return game->won;
-}
-
-void game_move_inventory_cursor(Game *game, int direction) {
-  Player *player = NULL;
-  Inventory *inventory = NULL;
-  int num_objects, cursor;
-
-  player = game_get_current_player(game);
-  if (!player) {
-    return;
-  }
-
-  inventory = player_get_inventory(player);
-  if (!inventory) {
-    return;
-  }
-
-  num_objects = inventory_get_max_objects(inventory);
-  if (num_objects == 0) {
-    return;
-  }
-
-  cursor = player_get_inventory_cursor(player);
-
-  cursor += direction;
-
-  if (cursor < 0) {
-    cursor = 0;
-  } else if (cursor >= num_objects) {
-    cursor = num_objects;
-  }
-
-  player_set_inventory_cursor(player, cursor);
-}
-
-Ray *game_get_ray(Game *game) {
-  if (!game) return NULL;
-  return game->ray;
-}
-
-void game_set_ray(Game *game, Ray *ray) {
-  if (!game) return;
-  game->ray = ray;
-}
-
-Id game_get_connection(Game *game, Id current_location, Direction direction) {
-  int i;
-  if (!game || current_location == NO_ID) {
-    return NO_ID;
-  }
-
-  for (i = 0; i < game->n_links; i++) {
-    if (link_get_start(game->links[i]) == current_location && link_get_direction(game->links[i]) == direction) {
-      return link_get_end(game->links[i]);
-    }
-  }
-
-  return NO_ID;
-}
-
 /*Create & destroy*/
 /**
  * @brief It creates a new game a "restarts" everything
@@ -310,6 +158,34 @@ Game *game_alloc() {
   }
 
   return game;
+}
+
+/*Management of last_cmd*/
+/**
+ * @brief It sets the game's last command
+ */
+Status game_set_last_command(Game *game, Command *command) {
+  /*CdE*/
+  if (!game) {
+    return ERROR;
+  }
+
+  printf("Setting command in %i index\n", game_get_player_index_from_turn(game));
+  game->last_cmd[game_get_player_index_from_turn(game)] = command;
+
+  return OK;
+}
+
+/**
+ * @brief It gets the game's last command
+ */
+Command *game_get_last_command(Game *game) {
+  /*CdE*/
+  if (!game) {
+    return NULL;
+  }
+
+  return game->last_cmd[game_get_player_index_from_turn(game)];
 }
 
 /*Management of spaces*/
@@ -458,6 +334,7 @@ Status game_set_player_location(Game *game, Id id) {
 
   return player_set_location(game->players[game_get_player_index_from_turn(game)], id);
 }
+
 Status game_set_player_location_from_id(Game *game, Id space_id, Id player_id) {
   int i;
 
@@ -500,30 +377,148 @@ Id game_get_player_location_from_index(Game *game, int index) {
 
 Id game_get_player_id_from_name(Game *game, char *name) {
   int i;
+  Player *p = NULL;
+  Id found_id = NO_ID;
 
   if (!game || !name) {
-    printf("[DEBUG] game_get_player_id_from_name: Game or name is NULL\n");
     return NO_ID;
   }
 
-  printf("[DEBUG] Searching for player with name: '%s'\n", name);
-
   for (i = 0; i < game->n_players; i++) {
-    Player *p = game_get_player_from_index(game, i);
+    p = game_get_player_from_index(game, i);
     if (p) {
       const char *player_name = player_get_name(p);
-      printf("[DEBUG] Comparing with player[%d] name: '%s'\n", i, player_name);
 
       if (strcasecmp(player_name, name) == 0) {
-        Id found_id = player_get_id(p);
-        printf("[DEBUG] Match found! ID = %ld\n", found_id);
+        found_id = player_get_id(p);
         return found_id;
       }
     }
   }
 
-  printf("[DEBUG] No matching player found for name: '%s'\n", name);
   return NO_ID;
+}
+
+int game_get_player_max_turns(Game *game, Id player_id) {
+  int i = 0, total_turns = 0;
+  Object *object = NULL;
+  /*CdE*/
+  if (!game || (player_id == NO_ID)) {
+    return -1;
+  }
+
+  total_turns = player_get_max_turns(game_get_player(game, player_id));
+
+  for (i = 0; i < game_get_num_objects(game); i++) {
+    object = game_get_object_from_index(game, i);
+    if (player_has_object(game_get_player(game, player_id), object_get_id(object)) == TRUE) {
+      total_turns = total_turns + object_get_turn_amplifier(object);
+    }
+  }
+
+  return total_turns;
+}
+
+Status game_character_chase_player(Game *game, Character *character) {
+  Id leader_id;
+  int new_x = 0, new_y = 0;
+  /*CdE*/
+  if (!character) {
+    return ERROR;
+  }
+  if (rand() % 2 == 0) {
+    return OK;
+  }
+
+  /*leader_id = character_get_following(character);*/
+  leader_id = player_get_id(game_get_current_player(game));
+  if (leader_id == NO_ID || leader_id != player_get_id(game_get_current_player(game))) {
+    return OK;
+  } else {
+    if (character_get_y(character) > (player_get_y(game_get_player(game, leader_id)) + 5)) {
+      new_y = character_get_y(character) - 1;
+      character_toggle_curr_image_mode(character);
+      character_set_image(character, (char *)character_get_north_image(character, 0), (char *)character_get_north_image(character, 1),
+                          (char *)character_get_north_image(character, 2));
+    } else if (character_get_y(character) < (player_get_y(game_get_player(game, leader_id)) - 5)) {
+      new_y = character_get_y(character) + 1;
+      character_toggle_curr_image_mode(character);
+      character_set_image(character, (char *)character_get_south_image(character, 0), (char *)character_get_south_image(character, 1),
+                          (char *)character_get_south_image(character, 2));
+    } else {
+      new_y = character_get_y(character);
+    }
+
+    if (character_get_x(character) > (player_get_x(game_get_player(game, leader_id)) + 5)) {
+      new_x = character_get_x(character) - 1;
+      character_toggle_curr_image_mode(character);
+      character_set_image(character, (char *)character_get_west_image(character, 0), (char *)character_get_west_image(character, 1),
+                          (char *)character_get_west_image(character, 2));
+    } else if (character_get_x(character) < (player_get_x(game_get_player(game, leader_id)) - 5)) {
+      new_x = character_get_x(character) + 1;
+      character_toggle_curr_image_mode(character);
+      character_set_image(character, (char *)character_get_east_image(character, 0), (char *)character_get_east_image(character, 1),
+                          (char *)character_get_east_image(character, 2));
+    } else {
+      new_x = character_get_x(character);
+    }
+
+    character_set_position(character, new_x, new_y);
+  }
+
+  return OK;
+}
+
+/**
+ * @brief Ir returns the index of the player whose turn it is
+ */
+int game_get_player_index_from_turn(Game *game) {
+  int i = 0, j = 0, guessed_turn = 0;
+  Player *last_player = NULL;
+  /*CdE*/
+  if (!game) {
+    return -1;
+  }
+
+  if (game->turn == 1) {
+    return 0;
+  }
+
+  for (i = 0; i < game_get_num_players(game); i++) {
+    last_player = game_get_player_from_index(game, i);
+
+    for (j = 0; j < game_get_player_max_turns(game, player_get_id(last_player)); j++) {
+      guessed_turn++;
+      if (guessed_turn == game->turn) {
+        return i;
+      }
+    }
+  }
+
+  return -1;
+}
+
+Status game_update_player_health(Game *game, Id object_id) {
+  int turn;
+  int health = 0;
+  Object *object = NULL;
+
+  if (!game || object_id == NO_ID) {
+    return ERROR;
+  }
+
+  object = game_get_object_from_id(game, object_id);
+  if (!object) {
+    return ERROR;
+  }
+
+  turn = game_get_player_index_from_turn(game);
+  health = player_get_health(game->players[turn]) + object_get_health(object);
+  if (player_set_health(game->players[turn], health) == OK) {
+    return OK;
+  }
+
+  return ERROR;
 }
 
 /*Management of objects*/
@@ -692,6 +687,69 @@ Status game_get_string_of_objects_in_space(Game *game, Id space_id, char *objs) 
   return OK;
 }
 
+Bool game_check_object_dependency(Game *game, Id object_id) {
+  /* TRUE means object can be used, i.e., either it doesn't have a dependency or player has that object */
+  Object *object = NULL;
+  Id object_dependency = NO_ID;
+
+  if (game == NULL || object_id == NO_ID) {
+    return WRONG;
+  }
+
+  object = game_get_object_from_id(game, object_id);
+  if (object == NULL) {
+    return WRONG;
+  }
+
+  object_dependency = object_get_dependency(object);
+
+  if (object_dependency == NO_ID) {
+    return TRUE;
+  }
+
+  if (player_has_object(game->players[game_get_player_index_from_turn(game)], object_dependency) == TRUE) {
+    return TRUE;
+  }
+
+  return FALSE;
+}
+
+Status game_move_object(Game *game, const char *object_name, Id current_location, Direction direction) {
+  Id next_space_id = NO_ID;
+  Id object_id = NO_ID;
+  Space *current_space = NULL;
+  Space *next_space = NULL;
+
+  if (!game || !object_name || !current_location || !direction) {
+    return ERROR;
+  }
+
+  if (game_connection_is_open(game, current_location, direction) == FALSE) {
+    return ERROR;
+  }
+
+  object_id = game_get_object_id_from_name(game, object_name);
+  next_space_id = game_get_neighbour(game, current_location, direction);
+  current_space = game_get_space(game, current_location);
+  next_space = game_get_space(game, next_space_id);
+  if (space_remove_object(current_space, object_id) == ERROR) {
+    return ERROR;
+  }
+
+  return space_add_object(next_space, object_id);
+}
+
+Bool game_is_object_movable(Game *game, Id object_id) {
+  Object *object = NULL;
+  if (!game || !object_id) {
+    return WRONG;
+  }
+
+  object = game_get_object_from_id(game, object_id);
+
+  return object_is_movable(object);
+}
+
 /*Management of characters*/
 /**
  * @brief It adds a character to the game
@@ -755,6 +813,17 @@ Id game_get_character_location(Game *game, Id character_id) {
 }
 
 /**
+ * @brief It sets a character's location to a space
+ */
+Status game_set_character_location(Game *game, Id space_id, Id character_id) {
+  if (!game || space_id == NO_ID || character_id == NO_ID) {
+    return ERROR;
+  }
+  space_remove_character(game_get_space(game, game_get_character_location(game, character_id)), character_id);
+  return space_add_character(game_get_space(game, space_id), character_id);
+}
+
+/**
  * @brief It gets a character's id from its name
  */
 Id game_get_character_id_from_name(Game *game, char *name) {
@@ -770,26 +839,6 @@ Id game_get_character_id_from_name(Game *game, char *name) {
   }
 
   return NO_ID;
-}
-
-int game_get_player_max_turns(Game *game, Id player_id) {
-  int i = 0, total_turns = 0;
-  Object *object = NULL;
-  /*CdE*/
-  if (!game || (player_id == NO_ID)) {
-    return -1;
-  }
-
-  total_turns = player_get_max_turns(game_get_player(game, player_id));
-
-  for (i = 0; i < game_get_num_objects(game); i++) {
-    object = game_get_object_from_index(game, i);
-    if (player_has_object(game_get_player(game, player_id), object_get_id(object)) == TRUE) {
-      total_turns = total_turns + object_get_turn_amplifier(object);
-    }
-  }
-
-  return total_turns;
 }
 
 /**
@@ -813,17 +862,6 @@ char *game_get_character_desc_at_space(Game *game, Id space_id) {
 }
 
 /**
- * @brief It sets a character's location to a space
- */
-Status game_set_character_location(Game *game, Id space_id, Id character_id) {
-  if (!game || space_id == NO_ID || character_id == NO_ID) {
-    return ERROR;
-  }
-  space_remove_character(game_get_space(game, game_get_character_location(game, character_id)), character_id);
-  return space_add_character(game_get_space(game, space_id), character_id);
-}
-
-/**
  * @brief It removes a character from a space
  */
 Status game_remove_character_from_space(Game *game, Id space_id, Id character_id) {
@@ -832,6 +870,29 @@ Status game_remove_character_from_space(Game *game, Id space_id, Id character_id
   }
 
   return space_remove_character(game_get_space(game, space_id), character_id);
+}
+
+Status game_update_character_health(Game *game, Character *character, Id object_id) {
+  int health = 0;
+  Object *object = NULL;
+
+  if (!game || !character || object_id == NO_ID) {
+    return ERROR;
+  }
+
+  object = game_get_object_from_id(game, object_id);
+  if (!object) {
+    return ERROR;
+  }
+
+  health = character_get_health(character) + object_get_health(object);
+
+  printf("%s will now have %i health\n", character_get_name(character), health);
+  if (character_set_health(character, health) == OK) {
+    return OK;
+  }
+
+  return ERROR;
 }
 
 /*Management of links*/
@@ -996,30 +1057,67 @@ Bool game_connection_is_open(Game *game, Id current_location, Direction directio
   return FALSE;
 }
 
-/*Management of n_objects*/
-/**
- * @brief It gets the number of objects in the game
- */
-int game_get_num_objects(Game *game) {
-  /*CdE*/
-  if (!game) {
-    return -1;
+Id game_get_connection(Game *game, Id current_location, Direction direction) {
+  int i;
+  if (!game || current_location == NO_ID) {
+    return NO_ID;
   }
 
-  return game->n_objects;
+  for (i = 0; i < game->n_links; i++) {
+    if (link_get_start(game->links[i]) == current_location && link_get_direction(game->links[i]) == direction) {
+      return link_get_end(game->links[i]);
+    }
+  }
+
+  return NO_ID;
 }
 
-/**
- * @brief It increments the number of objects in the game
- */
-Status game_increment_num_objects(Game *game) {
+Link *game_get_link_by_id(Game *game, Id link_id) {
+  int i;
   /*CdE*/
-  if (game) {
-    game->n_objects++;
-    return OK;
+  if (!game) {
+    return NULL;
+  }
+
+  for (i = 0; i < game->n_links; i++) {
+    if (game->links[i] && link_get_id(game->links[i]) == link_id) {
+      return game->links[i];
+    }
+  }
+
+  return NULL;
+}
+
+Status game_set_link_open(Game *game, Id current_location, Direction direction) {
+  int i;
+  /*CdE*/
+  if (!game || current_location == NO_ID) {
+    return ERROR;
+  }
+
+  for (i = 0; i < game->n_links; i++) {
+    if (link_get_start(game->links[i]) == current_location && link_get_direction(game->links[i]) == direction) {
+      return link_set_open(game->links[i], TRUE);
+      break;
+    }
   }
 
   return ERROR;
+}
+
+/*Management of teams*/
+Set *game_get_team(const Game *game, Id player_id) {
+  int i;
+
+  if (!game || player_id == NO_ID) return NULL;
+
+  for (i = 0; i < game->n_teams; i++) {
+    if (set_has_id(game->teams[i], player_id)) {
+      return game->teams[i];
+    }
+  }
+
+  return NULL;
 }
 
 /*Management of n_spaces*/
@@ -1041,32 +1139,6 @@ Status game_increment_num_spaces(Game *game) {
   /*CdE*/
   if (game) {
     game->n_spaces++;
-    return OK;
-  }
-
-  return ERROR;
-}
-
-/*Management of n_characters*/
-/**
- * @brief It gets the number of characters in the game
- */
-int game_get_num_characters(Game *game) {
-  /*CdE*/
-  if (!game) {
-    return -1;
-  }
-
-  return game->n_characters;
-}
-
-/**
- * @brief It increments the number of characters in the game
- */
-Status game_increment_num_characters(Game *game) {
-  /*CdE*/
-  if (game) {
-    game->n_characters++;
     return OK;
   }
 
@@ -1099,6 +1171,58 @@ Status game_increment_num_players(Game *game) {
   return ERROR;
 }
 
+/*Management of n_objects*/
+/**
+ * @brief It gets the number of objects in the game
+ */
+int game_get_num_objects(Game *game) {
+  /*CdE*/
+  if (!game) {
+    return -1;
+  }
+
+  return game->n_objects;
+}
+
+/**
+ * @brief It increments the number of objects in the game
+ */
+Status game_increment_num_objects(Game *game) {
+  /*CdE*/
+  if (game) {
+    game->n_objects++;
+    return OK;
+  }
+
+  return ERROR;
+}
+
+/*Management of n_characters*/
+/**
+ * @brief It gets the number of characters in the game
+ */
+int game_get_num_characters(Game *game) {
+  /*CdE*/
+  if (!game) {
+    return -1;
+  }
+
+  return game->n_characters;
+}
+
+/**
+ * @brief It increments the number of characters in the game
+ */
+Status game_increment_num_characters(Game *game) {
+  /*CdE*/
+  if (game) {
+    game->n_characters++;
+    return OK;
+  }
+
+  return ERROR;
+}
+
 /*Management of n_links*/
 /**
  * @brief It gets the number of links in the game
@@ -1125,32 +1249,56 @@ Status game_increment_num_links(Game *game) {
   return ERROR;
 }
 
-/*Management of last_cmd*/
+/*Management of turn*/
 /**
- * @brief It sets the game's last command
+ * @brief It sets the game's current turn
  */
-Status game_set_last_command(Game *game, Command *command) {
+Status game_set_turn(Game *game, int turn) {
   /*CdE*/
   if (!game) {
     return ERROR;
   }
 
-  printf("Setting command in %i index\n", game_get_player_index_from_turn(game));
-  game->last_cmd[game_get_player_index_from_turn(game)] = command;
+  game->turn = turn;
 
   return OK;
 }
 
 /**
- * @brief It gets the game's last command
+ * @brief It gets the game's current turn
  */
-Command *game_get_last_command(Game *game) {
+int game_get_turn(Game *game) {
   /*CdE*/
   if (!game) {
-    return NULL;
+    return -1;
   }
 
-  return game->last_cmd[game_get_player_index_from_turn(game)];
+  return game->turn;
+}
+
+/**
+ * @brief It increments the turn (if it exceeds the current number of players it goes back to 0)
+ */
+Status game_increment_turn(Game *game) {
+  int max_turns = 0, i = 0;
+  Player *player = NULL;
+  /*CdE*/
+  if (!game) {
+    return ERROR;
+  }
+
+  game->turn++;
+
+  for (i = 0; i < game_get_num_players(game); i++) {
+    player = game_get_player_from_index(game, i);
+    max_turns = max_turns + game_get_player_max_turns(game, player_get_id(player));
+  }
+
+  if (game->turn > max_turns) {
+    game->turn = 1;
+  }
+
+  return OK;
 }
 
 /*Management of message*/
@@ -1167,6 +1315,7 @@ Status game_set_message(Game *game, char *message) {
 
   return OK;
 }
+
 /**
  * @brief It sets a certain player's last message
  */
@@ -1257,6 +1406,7 @@ Status game_set_object_desc_from_index(Game *game, char *object_desc, int index)
 
   return OK;
 }
+
 /*Management of finished*/
 /**
  * @brief It gets whether the game is finished or not
@@ -1284,88 +1434,7 @@ Status game_set_finished(Game *game, Bool finished) {
   return OK;
 }
 
-/*Management of turn*/
-/**
- * @brief It sets the game's current turn
- */
-Status game_set_turn(Game *game, int turn) {
-  /*CdE*/
-  if (!game) {
-    return ERROR;
-  }
-
-  game->turn = turn;
-
-  return OK;
-}
-
-/**
- * @brief It gets the game's current turn
- */
-int game_get_turn(Game *game) {
-  /*CdE*/
-  if (!game) {
-    return -1;
-  }
-
-  return game->turn;
-}
-
-/**
- * @brief Ir returns the index of the player whose turn it is
- */
-int game_get_player_index_from_turn(Game *game) {
-  int i = 0, j = 0, guessed_turn = 0;
-  Player *last_player = NULL;
-  /*CdE*/
-  if (!game) {
-    return -1;
-  }
-
-  if (game->turn == 1) {
-    return 0;
-  }
-
-  for (i = 0; i < game_get_num_players(game); i++) {
-    last_player = game_get_player_from_index(game, i);
-
-    for (j = 0; j < game_get_player_max_turns(game, player_get_id(last_player)); j++) {
-      guessed_turn++;
-      if (guessed_turn == game->turn) {
-        return i;
-      }
-    }
-  }
-
-  return -1;
-}
-
-/**
- * @brief It increments the turn (if it exceeds the current number of players it goes back to 0)
- */
-Status game_increment_turn(Game *game) {
-  int max_turns = 0, i = 0;
-  Player *player = NULL;
-  /*CdE*/
-  if (!game) {
-    return ERROR;
-  }
-
-  game->turn++;
-
-  for (i = 0; i < game_get_num_players(game); i++) {
-    player = game_get_player_from_index(game, i);
-    max_turns = max_turns + game_get_player_max_turns(game, player_get_id(player));
-  }
-
-  if (game->turn > max_turns) {
-    game->turn = 1;
-  }
-
-  return OK;
-}
-
-/*Management of inventory*/
+/*Management of inventory_vis*/
 /**
  * @brief It toggles the inventory's visualization
  */
@@ -1396,6 +1465,7 @@ Bool game_get_inventory_vis(Game *game) {
   return game->inventory_vis;
 }
 
+/*Management of zoom_vis*/
 Status game_toggle_zoom_vis(Game *game) {
   /*CdE*/
   if (!game) {
@@ -1423,96 +1493,32 @@ Bool game_get_zoom_vis(Game *game) {
   return game->zoom_vis;
 }
 
-Status game_update_player_health(Game *game, Id object_id) {
-  int turn;
-  int health = 0;
-  Object *object = NULL;
-  if (!game || object_id == NO_ID) {
-    return ERROR;
+/*Management of SDL*/
+Bool game_get_SDL(Game *game) {
+  if (!game) {
+    return FALSE;
   }
-  object = game_get_object_from_id(game, object_id);
-  if (!object) {
-    return ERROR;
-  }
-  turn = game_get_player_index_from_turn(game);
-  health = player_get_health(game->players[turn]) + object_get_health(object);
-  if (player_set_health(game->players[turn], health) == OK) {
-    return OK;
-  }
-  return ERROR;
+
+  return game->SDL;
 }
 
-Status game_update_character_health(Game *game, Character *character, Id object_id) {
-  int health = 0;
-  Object *object = NULL;
-
-  if (!game || !character || object_id == NO_ID) {
+/*Management of won*/
+Status game_set_won(Game *game, Bool won) {
+  if (!game) {
     return ERROR;
   }
 
-  object = game_get_object_from_id(game, object_id);
-  if (!object) {
-    return ERROR;
-  }
+  game->won = won;
 
-  health = character_get_health(character) + object_get_health(object);
-
-  printf("%s will now have %i health\n", character_get_name(character), health);
-  if (character_set_health(character, health) == OK) {
-    return OK;
-  }
-
-  return ERROR;
+  return OK;
 }
 
-Bool game_check_object_dependency(Game *game, Id object_id) {
-  /* TRUE means object can be used, i.e., either it doesn't have a dependency or player has that object */
-  Object *object = NULL;
-  Id object_dependency = NO_ID;
-
-  if (game == NULL || object_id == NO_ID) {
-    return WRONG;
+Bool game_get_won(Game *game) {
+  if (!game) {
+    return FALSE;
   }
 
-  object = game_get_object_from_id(game, object_id);
-  if (object == NULL) {
-    return WRONG;
-  }
-
-  object_dependency = object_get_dependency(object);
-
-  if (object_dependency == NO_ID) {
-    return TRUE;
-  }
-
-  if (player_has_object(game->players[game_get_player_index_from_turn(game)], object_dependency) == TRUE) {
-    return TRUE;
-  }
-
-  return FALSE;
-}
-
-Status game_move_object(Game *game, const char *object_name, Id current_location, Direction direction) {
-  Id next_space_id = NO_ID;
-  Id object_id = NO_ID;
-  Space *current_space = NULL;
-  Space *next_space = NULL;
-  if (!game || !object_name || !current_location || !direction) {
-    return ERROR;
-  }
-
-  if (game_connection_is_open(game, current_location, direction) == FALSE) {
-    return ERROR;
-  }
-
-  object_id = game_get_object_id_from_name(game, object_name);
-  next_space_id = game_get_neighbour(game, current_location, direction);
-  current_space = game_get_space(game, current_location);
-  next_space = game_get_space(game, next_space_id);
-  if (space_remove_object(current_space, object_id) == ERROR) {
-    return ERROR;
-  }
-  return space_add_object(next_space, object_id);
+  return game->won;
 }
 
 /*Misc*/
@@ -1558,42 +1564,6 @@ Id_Type game_get_id_type(Game *game, Id id) {
 
   return UNSIGNED;
 }
-Bool game_is_object_movable(Game *game, Id object_id) {
-  Object *object = NULL;
-  if (!game || !object_id) {
-    return WRONG;
-  }
-
-  object = game_get_object_from_id(game, object_id);
-
-  return object_is_movable(object);
-}
-
-Status game_set_link_open(Game *game, Id current_location, Direction direction) {
-  int i;
-  /*CdE*/
-  if (!game || current_location == NO_ID) {
-    return ERROR;
-  }
-
-  for (i = 0; i < game->n_links; i++) {
-    if (link_get_start(game->links[i]) == current_location && link_get_direction(game->links[i]) == direction) {
-      return link_set_open(game->links[i], TRUE);
-      break;
-    }
-  }
-
-  return ERROR;
-}
-Status game_add_team(Game *game) {
-  Set *new_team = set_create();
-  if (!game || game->n_teams >= MAX_TEAMS) return ERROR;
-
-  if (!new_team) return ERROR;
-
-  game->teams[game->n_teams++] = new_team;
-  return OK;
-}
 
 int game_get_team_of_player(const Game *game, Id player_id) {
   int i;
@@ -1608,6 +1578,17 @@ int game_get_team_of_player(const Game *game, Id player_id) {
 
   return -1;
 }
+
+Status game_add_team(Game *game) {
+  Set *new_team = set_create();
+  if (!game || game->n_teams >= MAX_TEAMS) return ERROR;
+
+  if (!new_team) return ERROR;
+
+  game->teams[game->n_teams++] = new_team;
+  return OK;
+}
+
 Status game_add_player_to_team(Game *game, int team_index, Id player_id) {
   if (!game || team_index < 0 || team_index >= game->n_teams || player_id == NO_ID) {
     return ERROR;
@@ -1620,71 +1601,88 @@ Status game_handle_follow(Game *game, Id follower, Id leader) {
   int team_follower, team_leader, new_team_idx;
 
   if (!game || follower == NO_ID || leader == NO_ID) {
-    printf("[DEBUG] game_handle_follow: Invalid input - game: %p, follower: %ld, leader: %ld\n", (void *)game, follower, leader);
     return ERROR;
   }
 
   team_follower = game_get_team_of_player(game, follower);
   team_leader = game_get_team_of_player(game, leader);
 
-  printf("[DEBUG] Follower ID: %ld is in team %d\n", follower, team_follower);
-  printf("[DEBUG] Leader ID: %ld is in team %d\n", leader, team_leader);
-
   /* Case 1: neither is in a team -> create a new team with both */
   if (team_follower == -1 && team_leader == -1) {
-    printf("[DEBUG] Neither follower nor leader is in a team. Creating new team.\n");
     if (game_add_team(game) == ERROR) {
-      printf("[DEBUG] Failed to add new team.\n");
       return ERROR;
     }
     new_team_idx = game->n_teams - 1;
-    printf("[DEBUG] New team created at index %d\n", new_team_idx);
 
     if (game_add_player_to_team(game, new_team_idx, follower) == ERROR) {
-      printf("[DEBUG] Failed to add follower %ld to new team %d\n", follower, new_team_idx);
       return ERROR;
     }
 
     if (game_add_player_to_team(game, new_team_idx, leader) == ERROR) {
-      printf("[DEBUG] Failed to add leader %ld to new team %d\n", leader, new_team_idx);
       return ERROR;
     }
-
-    printf("[DEBUG] Both follower and leader added to new team %d\n", new_team_idx);
 
     return OK;
   }
   /* Case 2: only follower is in a team -> add leader to that team */
   else if (team_follower != -1 && team_leader == -1) {
-    printf("[DEBUG] Only follower is in a team. Adding leader %ld to team %d\n", leader, team_follower);
     return game_add_player_to_team(game, team_follower, leader);
   }
   /* Case 3: only leader is in a team -> add follower to that team */
   else if (team_follower == -1 && team_leader != -1) {
-    printf("[DEBUG] Only leader is in a team. Adding follower %ld to team %d\n", follower, team_leader);
     return game_add_player_to_team(game, team_leader, follower);
   }
   /* Case 4: both are in the same team -> nothing to do */
   else if (team_follower == team_leader) {
-    printf("[DEBUG] Both follower and leader are already in the same team %d. No action taken.\n", team_follower);
     return OK;
   }
 
-  printf("[DEBUG] Follower and leader are in different teams. Cannot follow.\n");
   return ERROR;
 }
-Set *game_get_team(const Game *game, Id player_id) {
-  int i;
 
-  if (!game || player_id == NO_ID) return NULL;
+/*Cosas de SDL2*/
+void game_move_inventory_cursor(Game *game, int direction) {
+  Player *player = NULL;
+  Inventory *inventory = NULL;
+  int num_objects, cursor;
 
-  for (i = 0; i < game->n_teams; i++) {
-    if (set_has_id(game->teams[i], player_id)) {
-      return game->teams[i];
-    }
+  player = game_get_current_player(game);
+  if (!player) {
+    return;
   }
 
-  return NULL;
+  inventory = player_get_inventory(player);
+  if (!inventory) {
+    return;
+  }
+
+  num_objects = inventory_get_max_objects(inventory);
+  if (num_objects == 0) {
+    return;
+  }
+
+  cursor = player_get_inventory_cursor(player);
+
+  cursor += direction;
+
+  if (cursor < 0) {
+    cursor = 0;
+  } else if (cursor >= num_objects) {
+    cursor = num_objects;
+  }
+
+  player_set_inventory_cursor(player, cursor);
+}
+
+/*Management of ray*/
+Ray *game_get_ray(Game *game) {
+  if (!game) return NULL;
+  return game->ray;
+}
+
+void game_set_ray(Game *game, Ray *ray) {
+  if (!game) return;
+  game->ray = ray;
 }
 
 /*Print*/

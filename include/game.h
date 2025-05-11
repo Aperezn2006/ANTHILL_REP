@@ -223,7 +223,7 @@ int game_get_player_max_turns(Game *game, Id player_id);
 
 /**
  * @brief
- * @author Arturo
+ * @author Ana
  *
  * @param game a pointer to the game
  * @param character
@@ -876,8 +876,38 @@ Bool game_get_won(Game *game);
 Id_Type game_get_id_type(Game *game, Id id);
 
 /**
+ * @brief
+ * @author
+ *
+ * @param game
+ * @param player_id
+ * @return int
+ */
+int game_get_team_of_player(const Game *game, Id player_id);
+
+/**
+ * @brief
+ * @author
+ *
+ * @param game
+ * @return Status
+ */
+Status game_add_team(Game *game);
+
+/**
+ * @brief
+ * @author
+ *
+ * @param game
+ * @param team_index
+ * @param player_id
+ * @return Status
+ */
+Status game_add_player_to_team(Game *game, int team_index, Id player_id);
+
+/**
  * @brief It sets teams
- * @author Ana
+ * @author Arturo
  *
  * @param game a pointer to the game,
  * @param id of two players
@@ -894,15 +924,6 @@ Status game_handle_follow(Game *game, Id follower, Id leader);
  * @param direction
  */
 void game_move_inventory_cursor(Game *game, int direction);
-
-/**
- * @brief
- * @author
- *
- * @param game a pointer to the game
- * @return Status
- */
-Status game_select_inventory_object(Game *game);
 
 /*Management of ray*/
 /**
