@@ -1,0 +1,31 @@
+m n
+m n
+t Tela
+m w
+m s
+t Cuerda
+m d
+m e
+m n
+t Llave
+m s
+m w
+m u
+m n
+m w
+t Varillas
+open EnfermeriaToTorturas with Llave
+t Taladro
+d Llave
+m n
+m s
+m e
+t Cinta 
+m s
+m n
+m d
+m e
+m s
+m u
+m e
+use Paracaidas over player
