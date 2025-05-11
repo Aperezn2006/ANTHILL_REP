@@ -1,9 +1,8 @@
-move north
-move south
-take Leaf
-d Grain
-inspect Leaf
-m w
-m n
-attack
+:: All ERROR
+m s 
+m e 
+m u 
+t cucara  
+c 
+a policia 
 e
