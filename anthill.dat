@@ -136,6 +136,6 @@
 
 /*id|name|gdesc|location|health|inventory_size|message|object_desc|max_turns*/
 #p:0|ant1|mO^|6|5|5|1|
-#p:1|ant1|mO^|12|5|5|1|
+#p:1|ant1|mO^|8|5|5|1|
 
 
