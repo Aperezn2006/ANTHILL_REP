@@ -496,7 +496,9 @@ void move_guards(Game *game) {
         guard_loc = new_room;
         current_space = new_space;
       }
-      path_indices[i]--;
+      if (guard_paths[i][path_indices[i]] == NO_ID) {
+        path_indices[i] = 0;
+      }
     }
   }
 }
