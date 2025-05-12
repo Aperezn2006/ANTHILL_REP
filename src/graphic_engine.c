@@ -28,8 +28,7 @@
 #define HEIGHT_HLP 3
 #define HEIGHT_FDB 3
 
-struct _Graphic_engine
-{
+struct _Graphic_engine {
   Area *map, *descript, *banner, *help, *feedback, *player_info, *full_screen;
 };
 
@@ -71,19 +70,16 @@ void initDescStuff(Game *game, Id space_id, char *objects, char *character_desc,
  */
 void printHorizontalSection(Graphic_engine *ge, Game *game, Id space_id, char *player_desc);
 
-Graphic_engine *graphic_engine_create()
-{
+Graphic_engine *graphic_engine_create() {
   static Graphic_engine *ge = NULL;
 
-  if (ge)
-  {
+  if (ge) {
     return ge;
   }
 
   screen_init(HEIGHT_MAP + HEIGHT_BAN + HEIGHT_HLP + HEIGHT_FDB + 4, WIDTH_MAP + WIDTH_DES + WIDTH_TEA + 4);
   ge = (Graphic_engine *)malloc(sizeof(Graphic_engine));
-  if (ge == NULL)
-  {
+  if (ge == NULL) {
     return NULL;
   }
 
@@ -91,39 +87,30 @@ Graphic_engine *graphic_engine_create()
   return ge;
 }
 
-void graphic_engine_destroy(Graphic_engine *ge)
-{
-  if (!ge)
-  {
+void graphic_engine_destroy(Graphic_engine *ge) {
+  if (!ge) {
     return;
   }
 
-  if (ge->map)
-  {
+  if (ge->map) {
     screen_area_destroy(ge->map);
   }
-  if (ge->descript)
-  {
+  if (ge->descript) {
     screen_area_destroy(ge->descript);
   }
-  if (ge->banner)
-  {
+  if (ge->banner) {
     screen_area_destroy(ge->banner);
   }
-  if (ge->help)
-  {
+  if (ge->help) {
     screen_area_destroy(ge->help);
   }
-  if (ge->feedback)
-  {
+  if (ge->feedback) {
     screen_area_destroy(ge->feedback);
   }
-  if (ge->player_info)
-  {
+  if (ge->player_info) {
     screen_area_destroy(ge->player_info);
   }
-  if (ge->full_screen)
-  {
+  if (ge->full_screen) {
     screen_area_destroy(ge->full_screen);
   }
 
@@ -131,10 +118,8 @@ void graphic_engine_destroy(Graphic_engine *ge)
   free(ge);
 }
 
-void graphic_engine_toggle_fullscreen(Graphic_engine *ge)
-{
-  if (ge->map && ge->descript && ge->player_info && ge->banner && ge->help && ge->feedback)
-  {
+void graphic_engine_toggle_fullscreen(Graphic_engine *ge) {
+  if (ge->map && ge->descript && ge->player_info && ge->banner && ge->help && ge->feedback) {
     screen_area_clear(ge->map);
     screen_area_destroy(ge->map);
     ge->map = NULL;
@@ -157,9 +142,7 @@ void graphic_engine_toggle_fullscreen(Graphic_engine *ge)
     screen_init(HEIGHT_MAP + HEIGHT_BAN + HEIGHT_HLP + HEIGHT_FDB + 4, WIDTH_MAP + WIDTH_DES + WIDTH_TEA + 4);
 
     ge->full_screen = screen_area_init(1, 1, WIDTH_MAP + WIDTH_DES + WIDTH_TEA + 2, HEIGHT_MAP + HEIGHT_BAN + HEIGHT_FDB + HEIGHT_HLP + 2);
-  }
-  else if (ge->full_screen)
-  {
+  } else if (ge->full_screen) {
     screen_area_clear(ge->full_screen);
     screen_area_destroy(ge->full_screen);
     ge->full_screen = NULL;
@@ -170,8 +153,7 @@ void graphic_engine_toggle_fullscreen(Graphic_engine *ge)
   }
 }
 
-void graphic_engine_init_game_areas(Graphic_engine *ge)
-{
+void graphic_engine_init_game_areas(Graphic_engine *ge) {
   ge->map = screen_area_init(1, 1, WIDTH_MAP, HEIGHT_MAP);
   ge->descript = screen_area_init(WIDTH_MAP + 2, 1, WIDTH_DES, HEIGHT_MAP);
   ge->player_info = screen_area_init(WIDTH_MAP + 3 + WIDTH_DES, 1, WIDTH_TEA, HEIGHT_MAP);
@@ -180,8 +162,7 @@ void graphic_engine_init_game_areas(Graphic_engine *ge)
   ge->feedback = screen_area_init(1, HEIGHT_MAP + HEIGHT_BAN + HEIGHT_HLP + 3, WIDTH_MAP + WIDTH_DES + WIDTH_TEA + 1, HEIGHT_FDB);
 }
 
-void graphic_engine_paint_game(Graphic_engine *ge, Game *game)
-{
+void graphic_engine_paint_game(Graphic_engine *ge, Game *game) {
   int i = 0, n_inventory = 0;
   Object *obj = NULL;
   Character *character = NULL;
@@ -196,37 +177,26 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game)
   screen_area_clear(ge->map);
 
   id_act = game_get_player_location(game);
-  if (id_act != NO_ID)
-  {
+  if (id_act != NO_ID) {
     id_back = game_get_north(game, id_act);
     id_next = game_get_south(game, id_act);
   }
 
   /*  ESPACIOS */
   printHorizontalSection(ge, game, id_back, "   ");
-  if ((id_back != NO_ID) && (game_connection_is_open(game, id_act, N) == TRUE))
-  {
+  if ((id_back != NO_ID) && (game_connection_is_open(game, id_act, N) == TRUE)) {
     screen_area_puts(ge->map, "                                  [ ]");
-  }
-  else if ((id_back != NO_ID) && game_connection_is_open(game, id_act, S) == FALSE)
-  {
+  } else if ((id_back != NO_ID) && game_connection_is_open(game, id_act, S) == FALSE) {
     screen_area_puts(ge->map, "                                  [x]");
-  }
-  else
-  {
+  } else {
     screen_area_puts(ge->map, " ");
   }
   printHorizontalSection(ge, game, id_act, player_get_description(game_get_current_player(game)));
-  if ((id_next != NO_ID) && (game_connection_is_open(game, id_act, S) == TRUE))
-  {
+  if ((id_next != NO_ID) && (game_connection_is_open(game, id_act, S) == TRUE)) {
     screen_area_puts(ge->map, "                                  [ ]");
-  }
-  else if ((id_next != NO_ID) && game_connection_is_open(game, id_act, S) == FALSE)
-  {
+  } else if ((id_next != NO_ID) && game_connection_is_open(game, id_act, S) == FALSE) {
     screen_area_puts(ge->map, "                                  [x]");
-  }
-  else
-  {
+  } else {
     screen_area_puts(ge->map, " ");
   }
   printHorizontalSection(ge, game, id_next, "   ");
@@ -245,11 +215,9 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game)
   sprintf(str1, " Objects:"); /*  Banner */
   screen_area_puts(ge->descript, str1);
 
-  for (i = 0; i < game_get_num_objects(game); i++)
-  {
+  for (i = 0; i < game_get_num_objects(game); i++) {
     Object *obj = game_get_object_from_index(game, i);
-    if (obj == NULL)
-    {
+    if (obj == NULL) {
       printf("Object %d is NULL\n", i); /*  Debug statement */
       continue;
     }
@@ -257,14 +225,10 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game)
     object_id = object_get_id(obj);
     object_loc = game_get_object_location(game, object_id);
 
-    if (object_loc != NO_ID)
-    {
-      if (object_loc == player_get_id(game_get_current_player(game)))
-      {
+    if (object_loc != NO_ID) {
+      if (object_loc == player_get_id(game_get_current_player(game))) {
         sprintf(str1, "  %s: Player", object_get_name(obj));
-      }
-      else
-      {
+      } else {
         sprintf(str1, "  %s: %d", object_get_name(obj), (int)object_loc);
         screen_area_puts(ge->descript, str1);
       }
@@ -272,34 +236,26 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game)
   }
 
   /* Characters */
-  if (game_get_num_characters(game) > 0)
-  {
+  if (game_get_num_characters(game) > 0) {
     sprintf(str1, " "); /*  Hueco para que quede mono */
     screen_area_puts(ge->player_info, str1);
     sprintf(str1, " Characters:");
     screen_area_puts(ge->player_info, str1);
 
-    for (i = 0; i < game_get_num_characters(game); i++)
-    {
+    for (i = 0; i < game_get_num_characters(game); i++) {
       character = game_get_character_from_index(game, i);
       printf("Studying %s...\n", character_get_name(character));
-      if (game_get_character_location(game, character_get_id(character)) != NO_ID)
-      {
+      if (game_get_character_location(game, character_get_id(character)) != NO_ID) {
         sprintf(str1, "  %s : %li (%li) [%s]", character_get_description(character), game_get_character_location(game, character_get_id(character)),
                 character_get_health(character), character_get_name(character));
-      }
-      else if (character_get_health(character) <= 0)
-      {
+      } else if (character_get_health(character) <= 0) {
         /*character_set_description(character, "/RIP\\_"); Molaba pero era poco intuitivo*/
         sprintf(str1, "  %s : Dead", character_get_description(character));
-      }
-      else
-      {
+      } else {
         sprintf(str1, "  ERROR");
       }
 
-      if (character_get_following(character) != player_get_id(game_get_current_player(game)))
-      {
+      if (character_get_following(character) != player_get_id(game_get_current_player(game))) {
         screen_area_puts(ge->player_info, str1);
       }
     }
@@ -310,8 +266,7 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game)
   screen_area_puts(ge->descript, str1);
   sprintf(str1, " Players:"); /* Banner */
   screen_area_puts(ge->descript, str1);
-  for (i = 0; i < game_get_num_players(game); i++)
-  {
+  for (i = 0; i < game_get_num_players(game); i++) {
     player = game_get_player_from_index(game, i);
     sprintf(str1, "  %s : %li (%li)", player_get_name(player), game_get_player_location_from_index(game, i), player_get_health(player));
     screen_area_puts(ge->descript, str1);
@@ -333,11 +288,9 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game)
           inventory_get_max_objects(player_get_inventory(game_get_current_player(game)))); /*  Banner */
   screen_area_puts(ge->player_info, str1);
 
-  for (i = 0; i < game_get_num_objects(game); i++)
-  {
+  for (i = 0; i < game_get_num_objects(game); i++) {
     obj = game_get_object_from_index(game, i);
-    if (obj == NULL)
-    {
+    if (obj == NULL) {
       printf("Object %d is NULL\n", i); /*  Debug statement */
       continue;
     }
@@ -346,10 +299,8 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game)
     object_loc = game_get_object_location(game, object_id);
     printf("Object ID: %ld, Location: %ld\n", object_id, object_loc); /*  Debug statement */
 
-    if (object_loc != NO_ID)
-    {
-      if (player_has_object(game_get_current_player(game), object_id) == TRUE)
-      {
+    if (object_loc != NO_ID) {
+      if (player_has_object(game_get_current_player(game), object_id) == TRUE) {
         sprintf(str1, "  %s", object_get_name(obj));
         n_inventory++;
         screen_area_puts(ge->player_info, str1);
@@ -357,15 +308,13 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game)
     }
   }
 
-  if (n_inventory == 0)
-  {
+  if (n_inventory == 0) {
     sprintf(str1, "  Player has no objects");
     screen_area_puts(ge->player_info, str1);
   }
 
   /*  Message */
-  if (game_get_message(game)[0] != '\0')
-  {
+  if (game_get_message(game)[0] != '\0') {
     sprintf(str1, " "); /*  Hueco para que quede mono */
     screen_area_puts(ge->player_info, str1);
     sprintf(str1, " Message: %s", game_get_message(game)); /*  Banner */
@@ -373,8 +322,7 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game)
   }
 
   /*  Object_desc */
-  if (game_get_object_desc(game)[0] != '\0')
-  {
+  if (game_get_object_desc(game)[0] != '\0') {
     sprintf(str1, " "); /*  Hueco para que quede mono */
     screen_area_puts(ge->descript, str1);
     sprintf(str1, " Object description: %s", game_get_object_desc(game)); /*  Banner */
@@ -400,12 +348,9 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game)
 
   screen_area_puts(ge->feedback, " ");
 
-  if (command_get_result(game_get_last_command(game)) == OK)
-  {
+  if (command_get_result(game_get_last_command(game)) == OK) {
     strcpy(result, "OK");
-  }
-  else if (command_get_result(game_get_last_command(game)) == ERROR)
-  {
+  } else if (command_get_result(game_get_last_command(game)) == ERROR) {
     strcpy(result, "ERROR");
   }
 
@@ -416,11 +361,9 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game)
   screen_area_puts(ge->player_info, " ");
   screen_area_puts(ge->player_info, " My team:");
   screen_area_puts(ge->player_info, " ");
-  for (i = 0; i < game_get_num_characters(game); i++)
-  {
+  for (i = 0; i < game_get_num_characters(game); i++) {
     character = game_get_character_from_index(game, i);
-    if (character_get_following(character) == player_get_id(game_get_current_player(game)))
-    {
+    if (character_get_following(character) == player_get_id(game_get_current_player(game))) {
       sprintf(str1, " %s (%li)", character_get_description(character), character_get_health(character));
       screen_area_puts(ge->player_info, str1);
     }
@@ -431,25 +374,21 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game)
   printf("prompt:> ");
 }
 
-void eraseLeftSpaces(char *str1)
-{
+void eraseLeftSpaces(char *str1) {
   int i = 0, j = 0;
   /*  Recorremos la cadena hasta encontrar el primer carácter no espacio */
-  while (str1[i] == ' ')
-  {
+  while (str1[i] == ' ') {
     i++;
   }
   /*  Movemos el resto de la cadena hacia la izquierda */
-  while (str1[i])
-  {
+  while (str1[i]) {
     str1[j++] = str1[i++];
   }
   /*  Terminamos la cadena sin los espacios iniciales */
   str1[j] = '\0';
 }
 
-void someScreenPuts(Graphic_engine *ge, char *str1, char *str2, char *str3, char *str4, char *str5, char *str6, char *str7, char *str8, char *str9)
-{
+void someScreenPuts(Graphic_engine *ge, char *str1, char *str2, char *str3, char *str4, char *str5, char *str6, char *str7, char *str8, char *str9) {
   screen_area_puts(ge->map, str1);
   screen_area_puts(ge->map, str2);
   screen_area_puts(ge->map, str3);
@@ -462,23 +401,16 @@ void someScreenPuts(Graphic_engine *ge, char *str1, char *str2, char *str3, char
 }
 
 void initDescStuff(Game *game, Id space_id, char *objects, char *character_desc, char *space_desc1, char *space_desc2, char *space_desc3,
-                   char *space_desc4, char *space_desc5)
-{
+                   char *space_desc4, char *space_desc5) {
   strcpy(objects, "");
-  if (space_get_discovered(game_get_space(game, space_id)) == TRUE)
-  {
+  if (space_get_discovered(game_get_space(game, space_id)) == TRUE) {
     game_get_string_of_objects_in_space(game, space_id, objects);
-  }
-  else
-  {
+  } else {
     strcpy(objects, "                  ");
   }
-  if (game_get_character_desc_at_space(game, space_id) == NULL)
-  {
+  if (game_get_character_desc_at_space(game, space_id) == NULL) {
     strcpy(character_desc, "      ");
-  }
-  else
-  {
+  } else {
     strcpy(character_desc, game_get_character_desc_at_space(game, space_id));
   }
 
@@ -489,8 +421,7 @@ void initDescStuff(Game *game, Id space_id, char *objects, char *character_desc,
   strcpy(space_desc5, space_get_i_dynamic_description(game_get_space(game, space_id), 4));
 }
 
-void printHorizontalSection(Graphic_engine *ge, Game *game, Id space_id, char *player_desc)
-{
+void printHorizontalSection(Graphic_engine *ge, Game *game, Id space_id, char *player_desc) {
   Id id_east = NO_ID, id_west = NO_ID;
   char str1[1024], str2[1024], str3[1024], str4[1024], str5[1024], str6[1024], str7[1024], str8[1024], str9[1024], temp[1204];
   char objects[BOX_WIDTH + 1], character_desc[7];
@@ -504,42 +435,28 @@ void printHorizontalSection(Graphic_engine *ge, Game *game, Id space_id, char *p
   down_signal[0] = '\0';
 
   /*  Espacio ACTUAL */
-  if (space_id != NO_ID)
-  {
+  if (space_id != NO_ID) {
     initDescStuff(game, space_id, objects, character_desc, space_desc1, space_desc2, space_desc3, space_desc4, space_desc5);
-    if ((game_get_up(game, space_id) != NO_ID) && (game_connection_is_open(game, space_id, U) == TRUE))
-    {
+    if ((game_get_up(game, space_id) != NO_ID) && (game_connection_is_open(game, space_id, U) == TRUE)) {
       strcpy(up_signal, "[/\\]");
-    }
-    else if ((game_get_up(game, space_id) != NO_ID) && (game_connection_is_open(game, space_id, U) == FALSE))
-    {
+    } else if ((game_get_up(game, space_id) != NO_ID) && (game_connection_is_open(game, space_id, U) == FALSE)) {
       strcpy(up_signal, "[x]");
-    }
-    else
-    {
+    } else {
       strcpy(up_signal, "   ");
     }
 
-    if ((game_get_down(game, space_id) != NO_ID) && (game_connection_is_open(game, space_id, D) == TRUE))
-    {
+    if ((game_get_down(game, space_id) != NO_ID) && (game_connection_is_open(game, space_id, D) == TRUE)) {
       strcpy(down_signal, "[\\/]");
-    }
-    else if ((game_get_down(game, space_id) != NO_ID) && (game_connection_is_open(game, space_id, D) == FALSE))
-    {
+    } else if ((game_get_down(game, space_id) != NO_ID) && (game_connection_is_open(game, space_id, D) == FALSE)) {
       strcpy(down_signal, "[x]");
-    }
-    else
-    {
+    } else {
       strcpy(down_signal, "   ");
     }
 
     sprintf(str1, "                          +------------------+");
-    if (space_get_discovered(game_get_space(game, space_id)) == TRUE)
-    {
+    if (space_get_discovered(game_get_space(game, space_id)) == TRUE) {
       sprintf(str2, "                          | %s    %6s %3d|", player_desc, character_desc, (int)space_id);
-    }
-    else
-    {
+    } else {
       sprintf(str2, "                          |                  |");
     }
     sprintf(str3, "                          |     %s    |", space_desc1);
@@ -552,17 +469,13 @@ void printHorizontalSection(Graphic_engine *ge, Game *game, Id space_id, char *p
     sprintf(str9, "                          +------------------+");
 
     /*  Si hay espacio a la derecha (id_east), concatenar */
-    if (id_east != NO_ID)
-    {
+    if (id_east != NO_ID) {
       initDescStuff(game, id_east, objects, character_desc, space_desc1, space_desc2, space_desc3, space_desc4, space_desc5);
 
       strcat(str1, "     +------------------+");
-      if (space_get_discovered(game_get_space(game, id_east)) == TRUE)
-      {
+      if (space_get_discovered(game_get_space(game, id_east)) == TRUE) {
         sprintf(temp, "     |        %6s %3d|", character_desc, (int)id_east);
-      }
-      else
-      {
+      } else {
         sprintf(temp, "     |                  |");
       }
       strcat(str2, temp);
@@ -570,16 +483,11 @@ void printHorizontalSection(Graphic_engine *ge, Game *game, Id space_id, char *p
       strcat(str3, temp);
       sprintf(temp, "     |     %s    |", space_desc2);
       strcat(str4, temp);
-      if ((game_connection_is_open(game, space_id, E) == TRUE))
-      {
+      if ((game_connection_is_open(game, space_id, E) == TRUE)) {
         sprintf(temp, " [ ] |     %s    |", space_desc3);
-      }
-      else if (game_connection_is_open(game, space_id, E) == FALSE)
-      {
+      } else if (game_connection_is_open(game, space_id, E) == FALSE) {
         sprintf(temp, " [x] |     %s    |", space_desc3);
-      }
-      else
-      {
+      } else {
         sprintf(temp, "     |     %s    |", space_desc3);
       }
       strcat(str5, temp);
@@ -595,8 +503,7 @@ void printHorizontalSection(Graphic_engine *ge, Game *game, Id space_id, char *p
 
     /*  Si hay espacio a la izquierda (id_west), no agregamos espacio adicional
     antes de str2 */
-    if (id_west != NO_ID)
-    {
+    if (id_west != NO_ID) {
       initDescStuff(game, id_west, objects, character_desc, space_desc1, space_desc2, space_desc3, space_desc4, space_desc5);
 
       eraseLeftSpaces(str1);
@@ -611,12 +518,9 @@ void printHorizontalSection(Graphic_engine *ge, Game *game, Id space_id, char *p
 
       sprintf(temp, " +------------------+     %s", str1);
       strcpy(str1, temp);
-      if (space_get_discovered(game_get_space(game, id_west)) == TRUE)
-      {
+      if (space_get_discovered(game_get_space(game, id_west)) == TRUE) {
         sprintf(temp, " |        %6s %3d|     %s", character_desc, (int)id_west, str2);
-      }
-      else
-      {
+      } else {
         sprintf(temp, " |                  |     %s", str2);
       }
       strcpy(str2, temp);
@@ -624,16 +528,11 @@ void printHorizontalSection(Graphic_engine *ge, Game *game, Id space_id, char *p
       strcpy(str3, temp);
       sprintf(temp, " |     %s    |     %s", space_desc2, str4);
       strcpy(str4, temp);
-      if ((game_connection_is_open(game, space_id, W) == TRUE))
-      {
+      if ((game_connection_is_open(game, space_id, W) == TRUE)) {
         sprintf(temp, " |     %s    | [ ] %s", space_desc3, str5);
-      }
-      else if (game_connection_is_open(game, space_id, W) == FALSE)
-      {
+      } else if (game_connection_is_open(game, space_id, W) == FALSE) {
         sprintf(temp, " |     %s    | [x] %s", space_desc3, str5);
-      }
-      else
-      {
+      } else {
         sprintf(temp, " |     %s    |     %s", space_desc3, str5);
       }
       strcpy(str5, temp);
@@ -648,9 +547,7 @@ void printHorizontalSection(Graphic_engine *ge, Game *game, Id space_id, char *p
     }
 
     someScreenPuts(ge, str1, str2, str3, str4, str5, str6, str7, str8, str9);
-  }
-  else if (space_id == NO_ID)
-  {
+  } else if (space_id == NO_ID) {
     /*  Esto es para que la casilla del jugador siempre esté centrada */
     sprintf(str1, "                              ");
     sprintf(str2, "                              ");
@@ -666,8 +563,7 @@ void printHorizontalSection(Graphic_engine *ge, Game *game, Id space_id, char *p
   }
 }
 
-void graphic_engine_paint_start(Graphic_engine *ge, Game *game)
-{
+void graphic_engine_paint_start(Graphic_engine *ge, Game *game) {
   graphic_engine_toggle_fullscreen(ge);
 
   screen_area_puts(ge->full_screen, "                                                                                                  ");
@@ -732,69 +628,105 @@ void graphic_engine_paint_start(Graphic_engine *ge, Game *game)
   graphic_engine_toggle_fullscreen(ge);
 }
 
-void graphic_engine_paint_end(Graphic_engine *ge, Game *game)
-{
+void graphic_engine_paint_end(Graphic_engine *ge, Game *game) {
   int i = 0;
 
   graphic_engine_toggle_fullscreen(ge);
   screen_area_clear(ge->full_screen);
 
-  for (i = 0; i < 18; i++)
-  {
+  if (game_get_won(game) == FALSE) {
+    for (i = 0; i < 18; i++) {
+      screen_area_puts(ge->full_screen, " ");
+    }
+    screen_area_puts(ge->full_screen, "                                               Someone from your party died");
+    screen_area_puts(ge->full_screen, "                                                   or exited the game");
+
+    screen_color_paint(game_get_player_index_from_turn(game) % 7, 31, 40);
+
+    sleep(2);
+
+    screen_area_clear(ge->full_screen);
+
     screen_area_puts(ge->full_screen, " ");
+    screen_area_puts(ge->full_screen, " ");
+    screen_area_puts(ge->full_screen, " ");
+    screen_area_puts(ge->full_screen, "                                GGGGGGGGGGGGG");
+    screen_area_puts(ge->full_screen, "                             GGG::::::::::::G");
+    screen_area_puts(ge->full_screen, "                           GG:::::::::::::::G");
+    screen_area_puts(ge->full_screen, "                          G:::::GGGGGGGG::::G");
+    screen_area_puts(ge->full_screen, "                         G:::::G        GGGGGG  aaaaaaaaaaaaa      mmmmmmm    mmmmmmm       eeeeeeeeeeee");
+    screen_area_puts(ge->full_screen, "                         G:::::G                a::::::::::::a   mm:::::::m  m:::::::mm   ee::::::::::::ee");
+    screen_area_puts(ge->full_screen, "                         G:::::G                aaaaaaaaa:::::a m::::::::::mm::::::::::m e::::::eeeee:::::ee");
+    screen_area_puts(ge->full_screen, "                         G:::::G    GGGGGGGGGG           a::::a m::::::::::::::::::::::me::::::e     e:::::e");
+    screen_area_puts(ge->full_screen, "                         G:::::G    G::::::::G    aaaaaaa:::::a m:::::mmm::::::mmm:::::me:::::::eeeee::::::e");
+    screen_area_puts(ge->full_screen, "                         G:::::G    GGGGG::::G  aa::::::::::::a m::::m   m::::m   m::::me:::::::::::::::::e");
+    screen_area_puts(ge->full_screen, "                         G:::::G        G::::G a::::aaaa::::::a m::::m   m::::m   m::::me::::::eeeeeeeeeee");
+    screen_area_puts(ge->full_screen, "                          G:::::G       G::::Ga::::a    a:::::a m::::m   m::::m   m::::me:::::::e");
+    screen_area_puts(ge->full_screen, "                           G:::::GGGGGGGG::::Ga::::a    a:::::a m::::m   m::::m   m::::me::::::::e");
+    screen_area_puts(ge->full_screen, "                            GG:::::::::::::::Ga:::::aaaa::::::a m::::m   m::::m   m::::m e::::::::eeeeeeee");
+    screen_area_puts(ge->full_screen, "                              GGG::::::GGG:::G a::::::::::aa:::am::::m   m::::m   m::::m  ee:::::::::::::e");
+    screen_area_puts(ge->full_screen, "                                 GGGGGG   GGGG  aaaaaaaaaa  aaaammmmmm   mmmmmm   mmmmmm    eeeeeeeeeeeeee");
+    screen_area_puts(ge->full_screen, " ");
+    screen_area_puts(ge->full_screen, " ");
+    screen_area_puts(ge->full_screen, " ");
+    screen_area_puts(ge->full_screen, "                                 ooooooooooo vvvvvvv           vvvvvvv eeeeeeeeeeee    rrrrr   rrrrrrrrr");
+    screen_area_puts(ge->full_screen, "                               oo:::::::::::oov:::::v         v:::::vee::::::::::::ee  r::::rrr:::::::::r");
+    screen_area_puts(ge->full_screen, "                              o:::::::::::::::ov:::::v       v:::::ve::::::eeeee:::::eer:::::::::::::::::r");
+    screen_area_puts(ge->full_screen, "                              o:::::ooooo:::::o v:::::v     v:::::ve::::::e     e:::::err::::::rrrrr::::::r");
+    screen_area_puts(ge->full_screen, "                              o::::o     o::::o  v:::::v   v:::::v e:::::::eeeee::::::e r:::::r     r:::::r");
+    screen_area_puts(ge->full_screen, "                              o::::o     o::::o   v:::::v v:::::v  e:::::::::::::::::e  r:::::r     rrrrrrr");
+    screen_area_puts(ge->full_screen, "                              o::::o     o::::o    v:::::v:::::v   e::::::eeeeeeeeeee   r:::::r");
+    screen_area_puts(ge->full_screen, "                              o::::o     o::::o     v:::::::::v    e:::::::e            r:::::r");
+    screen_area_puts(ge->full_screen, "                              o:::::ooooo:::::o      v:::::::v     e::::::::e           r:::::r");
+    screen_area_puts(ge->full_screen, "                              o:::::::::::::::o       v:::::v       e::::::::eeeeeeee   r:::::r");
+    screen_area_puts(ge->full_screen, "                               oo:::::::::::oo         v:::v         ee:::::::::::::e   r:::::r");
+    screen_area_puts(ge->full_screen, "                                 ooooooooooo            vvv            eeeeeeeeeeeeee   rrrrrrr");
+    screen_area_puts(ge->full_screen, " ");
+    screen_area_puts(ge->full_screen, " ");
+
+    screen_color_paint(game_get_player_index_from_turn(game) % 7, 31, 40);
+  } else {
+    screen_area_puts(ge->full_screen, " ");
+    screen_area_puts(ge->full_screen, " ");
+    screen_area_puts(ge->full_screen, " ");
+    screen_area_puts(ge->full_screen, "                                        YYYYYYY       YYYYYYY");
+    screen_area_puts(ge->full_screen, "                                        Y:::::Y       Y:::::Y");
+    screen_area_puts(ge->full_screen, "                                        Y:::::Y       Y:::::Y");
+    screen_area_puts(ge->full_screen, "                                        Y::::::Y     Y::::::Y");
+    screen_area_puts(ge->full_screen, "                                        YYY:::::Y   Y:::::YYYooooooooooo   uuuuuu    uuuuuu");
+    screen_area_puts(ge->full_screen, "                                           Y:::::Y Y:::::Y oo:::::::::::oo u::::u    u::::u");
+    screen_area_puts(ge->full_screen, "                                            Y:::::Y:::::Y o:::::::::::::::ou::::u    u::::u");
+    screen_area_puts(ge->full_screen, "                                             Y:::::::::Y  o:::::ooooo:::::ou::::u    u::::u");
+    screen_area_puts(ge->full_screen, "                                              Y:::::::Y   o::::o     o::::ou::::u    u::::u");
+    screen_area_puts(ge->full_screen, "                                               Y:::::Y    o::::o     o::::ou::::u    u::::u");
+    screen_area_puts(ge->full_screen, "                                               Y:::::Y    o::::o     o::::ou::::u    u::::u");
+    screen_area_puts(ge->full_screen, "                                               Y:::::Y    o::::o     o::::ou:::::uuuu:::::u");
+    screen_area_puts(ge->full_screen, "                                               Y:::::Y    o:::::ooooo:::::ou:::::::::::::::uu");
+    screen_area_puts(ge->full_screen, "                                            YYYY:::::YYYY o:::::::::::::::o u:::::::::::::::u");
+    screen_area_puts(ge->full_screen, "                                            Y:::::::::::Y  oo:::::::::::oo   uu::::::::uu:::u");
+    screen_area_puts(ge->full_screen, "                                            YYYYYYYYYYYYY    ooooooooooo       uuuuuuuu  uuuu");
+    screen_area_puts(ge->full_screen, " ");
+    screen_area_puts(ge->full_screen, " ");
+    screen_area_puts(ge->full_screen, " ");
+    screen_area_puts(ge->full_screen, "                            wwwwwww           wwwww           wwwwwww ooooooooooo   nnnn  nnnnnnnn    !:::!");
+    screen_area_puts(ge->full_screen, "                             w:::::w         w:::::w         w:::::woo:::::::::::oo n:::nn::::::::nn  !:::!");
+    screen_area_puts(ge->full_screen, "                              w:::::w       w:::::::w       w:::::wo:::::::::::::::on::::::::::::::nn !:::!");
+    screen_area_puts(ge->full_screen, "                               w:::::w     w:::::::::w     w:::::w o:::::ooooo:::::onn:::::::::::::::n!:::!");
+    screen_area_puts(ge->full_screen, "                                w:::::w   w:::::w:::::w   w:::::w  o::::o     o::::o  n:::::nnnn:::::n!:::!");
+    screen_area_puts(ge->full_screen, "                                 w:::::w w:::::w w:::::w w:::::w   o::::o     o::::o  n::::n    n::::n!:::!");
+    screen_area_puts(ge->full_screen, "                                  w:::::w:::::w   w:::::w:::::w    o::::o     o::::o  n::::n    n::::n!!:!!");
+    screen_area_puts(ge->full_screen, "                                   w:::::::::w     w:::::::::w     o::::o     o::::o  n::::n    n::::n !!!");
+    screen_area_puts(ge->full_screen, "                                    w:::::::w       w:::::::w      o:::::ooooo:::::o  n::::n    n::::n ");
+    screen_area_puts(ge->full_screen, "                                     w:::::w         w:::::w       o:::::::::::::::o  n::::n    n::::n !!! ");
+    screen_area_puts(ge->full_screen, "                                      w:::w           w:::w         oo:::::::::::oo   n::::n    n::::n!!:!!");
+    screen_area_puts(ge->full_screen, "                                       www             www            ooooooooooo     nnnnnn    nnnnnn !!!");
+
+    screen_color_paint(game_get_player_index_from_turn(game) % 7, 32, 40);
   }
-  screen_area_puts(ge->full_screen, "                                               Someone from your party died");
-  screen_area_puts(ge->full_screen, "                                                   or exited the game");
-
-  screen_color_paint(game_get_player_index_from_turn(game) % 7, 31, 40);
-
-  sleep(2);
-
-  screen_area_clear(ge->full_screen);
-
-  screen_area_puts(ge->full_screen, "                                                                                                  ");
-  screen_area_puts(ge->full_screen, " ");
-  screen_area_puts(ge->full_screen, " ");
-  screen_area_puts(ge->full_screen, "                                GGGGGGGGGGGGG");
-  screen_area_puts(ge->full_screen, "                             GGG::::::::::::G");
-  screen_area_puts(ge->full_screen, "                           GG:::::::::::::::G");
-  screen_area_puts(ge->full_screen, "                          G:::::GGGGGGGG::::G");
-  screen_area_puts(ge->full_screen, "                         G:::::G        GGGGGG  aaaaaaaaaaaaa      mmmmmmm    mmmmmmm       eeeeeeeeeeee");
-  screen_area_puts(ge->full_screen, "                         G:::::G                a::::::::::::a   mm:::::::m  m:::::::mm   ee::::::::::::ee");
-  screen_area_puts(ge->full_screen, "                         G:::::G                aaaaaaaaa:::::a m::::::::::mm::::::::::m e::::::eeeee:::::ee");
-  screen_area_puts(ge->full_screen, "                         G:::::G    GGGGGGGGGG           a::::a m::::::::::::::::::::::me::::::e     e:::::e");
-  screen_area_puts(ge->full_screen, "                         G:::::G    G::::::::G    aaaaaaa:::::a m:::::mmm::::::mmm:::::me:::::::eeeee::::::e");
-  screen_area_puts(ge->full_screen, "                         G:::::G    GGGGG::::G  aa::::::::::::a m::::m   m::::m   m::::me:::::::::::::::::e");
-  screen_area_puts(ge->full_screen, "                         G:::::G        G::::G a::::aaaa::::::a m::::m   m::::m   m::::me::::::eeeeeeeeeee");
-  screen_area_puts(ge->full_screen, "                          G:::::G       G::::Ga::::a    a:::::a m::::m   m::::m   m::::me:::::::e");
-  screen_area_puts(ge->full_screen, "                           G:::::GGGGGGGG::::Ga::::a    a:::::a m::::m   m::::m   m::::me::::::::e");
-  screen_area_puts(ge->full_screen, "                            GG:::::::::::::::Ga:::::aaaa::::::a m::::m   m::::m   m::::m e::::::::eeeeeeee");
-  screen_area_puts(ge->full_screen, "                              GGG::::::GGG:::G a::::::::::aa:::am::::m   m::::m   m::::m  ee:::::::::::::e");
-  screen_area_puts(ge->full_screen, "                                 GGGGGG   GGGG  aaaaaaaaaa  aaaammmmmm   mmmmmm   mmmmmm    eeeeeeeeeeeeee");
-  screen_area_puts(ge->full_screen, " ");
-  screen_area_puts(ge->full_screen, " ");
-  screen_area_puts(ge->full_screen, " ");
-  screen_area_puts(ge->full_screen, "                                 ooooooooooo vvvvvvv           vvvvvvv eeeeeeeeeeee    rrrrr   rrrrrrrrr");
-  screen_area_puts(ge->full_screen, "                               oo:::::::::::oov:::::v         v:::::vee::::::::::::ee  r::::rrr:::::::::r");
-  screen_area_puts(ge->full_screen, "                              o:::::::::::::::ov:::::v       v:::::ve::::::eeeee:::::eer:::::::::::::::::r");
-  screen_area_puts(ge->full_screen, "                              o:::::ooooo:::::o v:::::v     v:::::ve::::::e     e:::::err::::::rrrrr::::::r");
-  screen_area_puts(ge->full_screen, "                              o::::o     o::::o  v:::::v   v:::::v e:::::::eeeee::::::e r:::::r     r:::::r");
-  screen_area_puts(ge->full_screen, "                              o::::o     o::::o   v:::::v v:::::v  e:::::::::::::::::e  r:::::r     rrrrrrr");
-  screen_area_puts(ge->full_screen, "                              o::::o     o::::o    v:::::v:::::v   e::::::eeeeeeeeeee   r:::::r");
-  screen_area_puts(ge->full_screen, "                              o::::o     o::::o     v:::::::::v    e:::::::e            r:::::r");
-  screen_area_puts(ge->full_screen, "                              o:::::ooooo:::::o      v:::::::v     e::::::::e           r:::::r");
-  screen_area_puts(ge->full_screen, "                              o:::::::::::::::o       v:::::v       e::::::::eeeeeeee   r:::::r");
-  screen_area_puts(ge->full_screen, "                               oo:::::::::::oo         v:::v         ee:::::::::::::e   r:::::r");
-  screen_area_puts(ge->full_screen, "                                 ooooooooooo            vvv            eeeeeeeeeeeeee   rrrrrrr");
-  screen_area_puts(ge->full_screen, " ");
-  screen_area_puts(ge->full_screen, " ");
-
-  screen_color_paint(game_get_player_index_from_turn(game) % 7, 31, 40);
   printf(" ");
 }
 
-void graphic_engine_paint_inventory(Graphic_engine *ge, Game *game)
-{
+void graphic_engine_paint_inventory(Graphic_engine *ge, Game *game) {
   char str1[1024];
   int i = 0;
   Object *object = NULL;
@@ -806,18 +738,13 @@ void graphic_engine_paint_inventory(Graphic_engine *ge, Game *game)
   screen_area_puts(ge->map, str1);
   sprintf(str1, "----------------------------------------------------------------------------");
   screen_area_puts(ge->map, str1);
-  for (i = 0; i < MAX_OBJECTS; i++)
-  {
+  for (i = 0; i < MAX_OBJECTS; i++) {
     object = game_get_object_from_index(game, i);
-    if (player_has_object(game_get_current_player(game), object_get_id(object)) == TRUE)
-    {
-      if (object_get_inspected(object) == TRUE)
-      {
+    if (player_has_object(game_get_current_player(game), object_get_id(object)) == TRUE) {
+      if (object_get_inspected(object) == TRUE) {
         sprintf(str1, "       %12s |%s", object_get_name(object), object_get_desc(object));
         screen_area_puts(ge->map, str1);
-      }
-      else
-      {
+      } else {
         sprintf(str1, "%20s| No info yet", object_get_name(object));
         screen_area_puts(ge->map, str1);
       }
@@ -830,8 +757,7 @@ void graphic_engine_paint_inventory(Graphic_engine *ge, Game *game)
   printf("prompt:> ");
 }
 
-void graphic_engine_paint_zoom(Graphic_engine *ge, Game *game)
-{
+void graphic_engine_paint_zoom(Graphic_engine *ge, Game *game) {
   char str1[1024];
   Space *space = NULL;
   Id player_loc = NO_ID;
@@ -842,8 +768,7 @@ void graphic_engine_paint_zoom(Graphic_engine *ge, Game *game)
 
   printf("[DEBUG] Entrando en graphic_engine_paint_zoom\n");
 
-  if (!ge || !game)
-  {
+  if (!ge || !game) {
     printf("[ERROR] Graphic_engine o Game es NULL\n");
     return;
   }
@@ -857,8 +782,7 @@ void graphic_engine_paint_zoom(Graphic_engine *ge, Game *game)
   space = game_get_space(game, player_loc);
   printf("[DEBUG] space: %p\n", (void *)space);
 
-  if (!space)
-  {
+  if (!space) {
     screen_area_puts(ge->map, "No current space.");
     screen_paint(game_get_player_index_from_turn(game) % 7);
     printf("prompt:> ");
@@ -872,8 +796,7 @@ void graphic_engine_paint_zoom(Graphic_engine *ge, Game *game)
   screen_area_puts(ge->map, str1);
 
   printf("[DEBUG] Obteniendo nombre del espacio\n");
-  if (space_get_name(space) == NULL)
-  {
+  if (space_get_name(space) == NULL) {
     printf("[ERROR] space_get_name devolvió NULL\n");
   }
   sprintf(str1, "Name: %s", space_get_name(space));
@@ -894,41 +817,32 @@ void graphic_engine_paint_zoom(Graphic_engine *ge, Game *game)
   num_objects = space_get_num_objects(space);
   printf("[DEBUG] num_objects: %d\n", num_objects);
 
-  if (num_objects > 0)
-  {
+  if (num_objects > 0) {
     sprintf(str1, "Objects in the space:");
     screen_area_puts(ge->map, str1);
 
-    for (i = 0; i < num_objects; i++)
-    {
+    for (i = 0; i < num_objects; i++) {
       printf("[DEBUG] Iterando objeto %d\n", i);
 
       object_id = space_get_object_from_index(space, i);
       printf("[DEBUG] object_id: %ld\n", object_id);
 
-      if (object_id != NO_ID)
-      {
+      if (object_id != NO_ID) {
         object = game_get_object_from_id(game, object_id);
         printf("[DEBUG] object: %p\n", (void *)object);
 
-        if (object)
-        {
-          if (object_get_name(object) == NULL)
-          {
+        if (object) {
+          if (object_get_name(object) == NULL) {
             printf("[ERROR] object_get_name devolvió NULL para el objeto %d\n", i);
           }
           sprintf(str1, "- %s", object_get_name(object));
           screen_area_puts(ge->map, str1);
-        }
-        else
-        {
+        } else {
           printf("[WARNING] Objeto con ID %ld no encontrado en el juego\n", object_id);
         }
       }
     }
-  }
-  else
-  {
+  } else {
     sprintf(str1, "No objects in this space.");
     screen_area_puts(ge->map, str1);
   }
@@ -936,9 +850,7 @@ void graphic_engine_paint_zoom(Graphic_engine *ge, Game *game)
   sprintf(str1, "----------------------------------------------------------------------------");
   screen_area_puts(ge->map, str1);
 
-  if (space_get_id(space) == 11)
-  {
-
+  if (space_get_id(space) == 11) {
     sprintf(str1, "     ________");
     screen_area_puts(ge->map, str1);
     sprintf(str1, "    / / || \\ \\");
@@ -958,8 +870,8 @@ void graphic_engine_paint_zoom(Graphic_engine *ge, Game *game)
     sprintf(str1, "      |__|_|               | |                                    | |");
     screen_area_puts(ge->map, str1);
     sprintf(str1, "      |_|__|               | |                                    | | ");
-    if (game_get_character_location(game, 51) == 11 && character_get_health(game_get_character(game, 51)) > 0 && game_get_player_location(game) == 11)
-    {
+    if (game_get_character_location(game, 51) == 11 && character_get_health(game_get_character(game, 51)) > 0 &&
+        game_get_player_location(game) == 11) {
       screen_area_puts(ge->map, str1);
       sprintf(str1, "______|_|__|____ ____ _____| |_________________________ ____ _____| |______ ");
       screen_area_puts(ge->map, str1);
@@ -985,9 +897,7 @@ void graphic_engine_paint_zoom(Graphic_engine *ge, Game *game)
       screen_area_puts(ge->map, str1);
       sprintf(str1, "               /__||__\\                                  //__|  ");
       screen_area_puts(ge->map, str1);
-    }
-    else if (game_get_player_location(game) == 11 && character_get_health(game_get_character(game, 51)) <= 0)
-    {
+    } else if (game_get_player_location(game) == 11 && character_get_health(game_get_character(game, 51)) <= 0) {
       screen_area_puts(ge->map, str1);
       sprintf(str1, "______|_|__|_______________| |_________________________ ____ _____| |______ ");
       screen_area_puts(ge->map, str1);
@@ -1014,10 +924,7 @@ void graphic_engine_paint_zoom(Graphic_engine *ge, Game *game)
       sprintf(str1, "                                                         //__|  ");
       screen_area_puts(ge->map, str1);
     }
-  }
-  else if (space_get_id(space) == 2)
-  {
-
+  } else if (space_get_id(space) == 2) {
     sprintf(str1, "                                     ||                                   ");
     screen_area_puts(ge->map, str1);
     sprintf(str1, "                                     ||");
@@ -1062,9 +969,7 @@ void graphic_engine_paint_zoom(Graphic_engine *ge, Game *game)
     screen_area_puts(ge->map, str1);
     sprintf(str1, "                                                                //__| ");
     screen_area_puts(ge->map, str1);
-  }
-  else if (space_get_id(space) == 3)
-  {
+  } else if (space_get_id(space) == 3) {
     sprintf(str1, "  ");
     screen_area_puts(ge->map, str1);
     sprintf(str1, "_________________");
@@ -1109,10 +1014,7 @@ void graphic_engine_paint_zoom(Graphic_engine *ge, Game *game)
     screen_area_puts(ge->map, str1);
 
     ;
-  }
-  else if (space_get_id(space) == 4)
-  {
-
+  } else if (space_get_id(space) == 4) {
     sprintf(str1, "                                                       ________________");
     screen_area_puts(ge->map, str1);
     sprintf(str1, "                         | / / /|/ / /|     |         |\\ ____________ /|");
@@ -1153,9 +1055,7 @@ void graphic_engine_paint_zoom(Graphic_engine *ge, Game *game)
     screen_area_puts(ge->map, str1);
     sprintf(str1, "                   |__________|/");
     screen_area_puts(ge->map, str1);
-  }
-  else if (space_get_id(space) == 5)
-  {
+  } else if (space_get_id(space) == 5) {
     sprintf(str1, "                                     ||                                    ");
     screen_area_puts(ge->map, str1);
     sprintf(str1, "                                     ||                                    ");
@@ -1196,10 +1096,7 @@ void graphic_engine_paint_zoom(Graphic_engine *ge, Game *game)
     screen_area_puts(ge->map, str1);
     sprintf(str1, "   |_____|/        |_____|/        |_____|/            ||        ||");
     screen_area_puts(ge->map, str1);
-  }
-  else if (space_get_id(space) == 6)
-  {
-
+  } else if (space_get_id(space) == 6) {
     sprintf(str1, "   ___________________                   \\______/");
     screen_area_puts(ge->map, str1);
     sprintf(str1, "  |___________________|                                      ");
@@ -1218,15 +1115,12 @@ void graphic_engine_paint_zoom(Graphic_engine *ge, Game *game)
     screen_area_puts(ge->map, str1);
     sprintf(str1, "  |__________ /____\\ _|                  |      |                   |");
     screen_area_puts(ge->map, str1);
-    if (player_get_location(game_get_player(game, 0)) == 6)
-    {
+    if (player_get_location(game_get_player(game, 0)) == 6) {
       sprintf(str1, "  |__________ |>  <| _|                  |______|                   |");
       screen_area_puts(ge->map, str1);
       sprintf(str1, "  |           \\::::/  |                 /________\\                  |");
       screen_area_puts(ge->map, str1);
-    }
-    else if (player_get_location(game_get_player(game, 1)) == 6)
-    {
+    } else if (player_get_location(game_get_player(game, 1)) == 6) {
       sprintf(str1, "  |__________ |^  o|  |                  |______|                   |");
       screen_area_puts(ge->map, str1);
       sprintf(str1, "  |           \\ -- /  |                 /________\\                  |");
@@ -1236,13 +1130,10 @@ void graphic_engine_paint_zoom(Graphic_engine *ge, Game *game)
     screen_area_puts(ge->map, str1);
     sprintf(str1, "            / ====== \\              ( )__________( )               |");
     screen_area_puts(ge->map, str1);
-    if (player_get_location(game_get_player(game, 0)) == 6)
-    {
+    if (player_get_location(game_get_player(game, 0)) == 6) {
       sprintf(str1, "           |=|==01==|=|              |            |                |");
       screen_area_puts(ge->map, str1);
-    }
-    else if (player_get_location(game_get_player(game, 1)) == 6)
-    {
+    } else if (player_get_location(game_get_player(game, 1)) == 6) {
       sprintf(str1, "           |=|==02==|=|              |            |                |");
       screen_area_puts(ge->map, str1);
     }
@@ -1256,10 +1147,7 @@ void graphic_engine_paint_zoom(Graphic_engine *ge, Game *game)
     screen_area_puts(ge->map, str1);
     sprintf(str1, "             /__||__\\               ");
     screen_area_puts(ge->map, str1);
-  }
-  else if (space_get_id(space) == 7)
-  {
-
+  } else if (space_get_id(space) == 7) {
     sprintf(str1, "  ");
     screen_area_puts(ge->map, str1);
     sprintf(str1, "___________________________________________________________________________");
@@ -1276,15 +1164,12 @@ void graphic_engine_paint_zoom(Graphic_engine *ge, Game *game)
     screen_area_puts(ge->map, str1);
     sprintf(str1, "\\/\\/\\|  ||____/:/\\/\\/\\/\\/\\ /____\\ \\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/");
     screen_area_puts(ge->map, str1);
-    if (player_get_location(game_get_player(game, 0)) == 7)
-    {
+    if (player_get_location(game_get_player(game, 0)) == 7) {
       sprintf(str1, "/\\/\\/|  ||::::\\/\\//\\/\\/\\/\\ |>  <| /\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\");
       screen_area_puts(ge->map, str1);
       sprintf(str1, "\\/\\/\\|  | / |/\\/\\/\\/\\/\\/\\/ \\::::/ /\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\");
       screen_area_puts(ge->map, str1);
-    }
-    else if (player_get_location(game_get_player(game, 1)) == 7)
-    {
+    } else if (player_get_location(game_get_player(game, 1)) == 7) {
       sprintf(str1, "/\\/\\/|  ||::::\\/\\//\\/\\/\\/\\ |^  o| /\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\");
       screen_area_puts(ge->map, str1);
       sprintf(str1, "\\/\\/\\|  | / |/\\/\\/\\/\\/\\/\\/ \\ -- / /\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\");
@@ -1294,13 +1179,10 @@ void graphic_engine_paint_zoom(Graphic_engine *ge, Game *game)
     screen_area_puts(ge->map, str1);
     sprintf(str1, "\\/\\/\\/\\|  | |/\\/\\/\\/\\/\\/ / ====== \\ /\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\");
     screen_area_puts(ge->map, str1);
-    if (player_get_location(game_get_player(game, 0)) == 7)
-    {
+    if (player_get_location(game_get_player(game, 0)) == 7) {
       sprintf(str1, "       |  | |           |=|==01==|=|           __________________________ ");
       screen_area_puts(ge->map, str1);
-    }
-    else if (player_get_location(game_get_player(game, 1)) == 7)
-    {
+    } else if (player_get_location(game_get_player(game, 1)) == 7) {
       sprintf(str1, "       |  | |           |=|==02==|=|           __________________________ ");
       screen_area_puts(ge->map, str1);
     }
@@ -1318,9 +1200,7 @@ void graphic_engine_paint_zoom(Graphic_engine *ge, Game *game)
     screen_area_puts(ge->map, str1);
     sprintf(str1, "   /______________________________/            ^^^ ^^            ^^");
     screen_area_puts(ge->map, str1);
-  }
-  else if (space_get_id(space) == 8)
-  {
+  } else if (space_get_id(space) == 8) {
     sprintf(str1, "            |       _____                 /||/ /||/ /||/ /||/ /||/ /||");
     screen_area_puts(ge->map, str1);
     sprintf(str1, "            |      /  _  \\                /||/ /||/ /||/ /||/ /||/ /||");
@@ -1341,15 +1221,12 @@ void graphic_engine_paint_zoom(Graphic_engine *ge, Game *game)
     screen_area_puts(ge->map, str1);
     sprintf(str1, "      /_______ /    /____\\  /____/ /      /||/ /||/ /||/ /||/ /|| /");
     screen_area_puts(ge->map, str1);
-    if (player_get_location(game_get_player(game, 0)) == 8)
-    {
+    if (player_get_location(game_get_player(game, 0)) == 8) {
       sprintf(str1, "    /________/      |>  <|  |____|/       /||/ /||/ /||/ /||/  ||");
       screen_area_puts(ge->map, str1);
       sprintf(str1, "   ||/     ||       \\::::/                /||/ /||/ /||/ /|| /");
       screen_area_puts(ge->map, str1);
-    }
-    else if (player_get_location(game_get_player(game, 1)) == 8)
-    {
+    } else if (player_get_location(game_get_player(game, 1)) == 8) {
       sprintf(str1, "    /________/      |^  o|  |____|/       /||/ /||/ /||/ /||/  ||");
       screen_area_puts(ge->map, str1);
       sprintf(str1, "   ||/     ||       \\ -- /                /||/ /||/ /||/ /|| /");
@@ -1359,13 +1236,10 @@ void graphic_engine_paint_zoom(Graphic_engine *ge, Game *game)
     screen_area_puts(ge->map, str1);
     sprintf(str1, "  /               / ====== \\              /||/ /||/ /|| /");
     screen_area_puts(ge->map, str1);
-    if (player_get_location(game_get_player(game, 0)) == 8)
-    {
+    if (player_get_location(game_get_player(game, 0)) == 8) {
       sprintf(str1, "                 |=|==01==|=|             /||/ /||/  ||");
       screen_area_puts(ge->map, str1);
-    }
-    else if (player_get_location(game_get_player(game, 1)) == 8)
-    {
+    } else if (player_get_location(game_get_player(game, 1)) == 8) {
       sprintf(str1, "                 |=|==02==|=|             /||/ /||/  ||");
       screen_area_puts(ge->map, str1);
     }
@@ -1379,9 +1253,7 @@ void graphic_engine_paint_zoom(Graphic_engine *ge, Game *game)
     screen_area_puts(ge->map, str1);
     sprintf(str1, "                   /__||__\\               /");
     screen_area_puts(ge->map, str1);
-  }
-  else if (space_get_id(space) == 9)
-  {
+  } else if (space_get_id(space) == 9) {
     sprintf(str1, " ________________________________________________________________________");
     screen_area_puts(ge->map, str1);
     sprintf(str1, " ||  |  |  ||  |  |  ||  |  |  ||  |  |  ||  |  |  ||  |  |  ||  |  |  ||");
@@ -1408,8 +1280,7 @@ void graphic_engine_paint_zoom(Graphic_engine *ge, Game *game)
     screen_area_puts(ge->map, str1);
     sprintf(str1, " ||__|__|__||__|__|__||__|__|__||__|__|__||__|__|__||__|__|__||__|__|__||");
     screen_area_puts(ge->map, str1);
-    if (game_get_character_location(game, 52) == 9 && character_get_health(game_get_character(game, 52)) > 0 && game_get_player_location(game) == 9)
-    {
+    if (game_get_character_location(game, 52) == 9 && character_get_health(game_get_character(game, 52)) > 0 && game_get_player_location(game) == 9) {
       sprintf(str1, " ||  | ____ |  |  |  ||  |  |  ||  |  |  ||  |  |  ||  |  |  ||  |  |  ||");
       screen_area_puts(ge->map, str1);
       sprintf(str1, " || |\\/====\\   |  |  ||  |  |  ||  |  |  ||  |  |  ||  |  |  ||  |  |  ||");
@@ -1434,9 +1305,8 @@ void graphic_engine_paint_zoom(Graphic_engine *ge, Game *game)
       screen_area_puts(ge->map, str1);
       sprintf(str1, "       |__\\                                          ");
       screen_area_puts(ge->map, str1);
-    }
-    else if (game_get_character_location(game, 52) != 9 && game_get_character_location(game, 52) == 9 && character_get_health(game_get_character(game, 52)) > 0)
-    {
+    } else if (game_get_character_location(game, 52) != 9 && game_get_character_location(game, 52) == 9 &&
+               character_get_health(game_get_character(game, 52)) > 0) {
       sprintf(str1, "                                                     __/\\");
       screen_area_puts(ge->map, str1);
       sprintf(str1, "                                                  __/'   |");
@@ -1453,9 +1323,7 @@ void graphic_engine_paint_zoom(Graphic_engine *ge, Game *game)
       screen_area_puts(ge->map, str1);
       sprintf(str1, "                                                    ");
       screen_area_puts(ge->map, str1);
-    }
-    else
-    {
+    } else {
       sprintf(str1, "        ____");
       screen_area_puts(ge->map, str1);
       sprintf(str1, "     |\\/====\\");
@@ -1481,9 +1349,7 @@ void graphic_engine_paint_zoom(Graphic_engine *ge, Game *game)
       sprintf(str1, "        |__\\\\");
       screen_area_puts(ge->map, str1);
     }
-  }
-  else if (space_get_id(space) == 10)
-  {
+  } else if (space_get_id(space) == 10) {
     sprintf(str1, "                                     ||                          ___/|\\_ ");
     screen_area_puts(ge->map, str1);
     sprintf(str1, "                                     ||                         /__|__|__\\");
@@ -1507,15 +1373,12 @@ void graphic_engine_paint_zoom(Graphic_engine *ge, Game *game)
     sprintf(str1, "          |__|__|__\\                 /____\\");
     screen_area_puts(ge->map, str1);
 
-    if (player_get_location(game_get_player(game, 0)) == 10)
-    {
+    if (player_get_location(game_get_player(game, 0)) == 10) {
       sprintf(str1, "         /__|__|__|_\\                |>  <|");
       screen_area_puts(ge->map, str1);
       sprintf(str1, "        |_|__|__|__|_|               \\::::/");
       screen_area_puts(ge->map, str1);
-    }
-    else if (player_get_location(game_get_player(game, 1)) == 10)
-    {
+    } else if (player_get_location(game_get_player(game, 1)) == 10) {
       sprintf(str1, "         /__|__|__|_\\                |^  o|");
       screen_area_puts(ge->map, str1);
       sprintf(str1, "        |_|__|__|__|_|               \\ -- /");
@@ -1525,13 +1388,10 @@ void graphic_engine_paint_zoom(Graphic_engine *ge, Game *game)
     screen_area_puts(ge->map, str1);
     sprintf(str1, "___________________________________/ ====== \\_____________________________");
     screen_area_puts(ge->map, str1);
-    if (player_get_location(game_get_player(game, 0)) == 10)
-    {
+    if (player_get_location(game_get_player(game, 0)) == 10) {
       sprintf(str1, "                                  |=|==01==|=|              _______");
       screen_area_puts(ge->map, str1);
-    }
-    else if (player_get_location(game_get_player(game, 1)) == 10)
-    {
+    } else if (player_get_location(game_get_player(game, 1)) == 10) {
       sprintf(str1, "                                  |=|==02==|=|              _______");
       screen_area_puts(ge->map, str1);
     }
@@ -1545,10 +1405,7 @@ void graphic_engine_paint_zoom(Graphic_engine *ge, Game *game)
     screen_area_puts(ge->map, str1);
     sprintf(str1, "                                    /__||__\\           |      |");
     screen_area_puts(ge->map, str1);
-  }
-  else if (space_get_id(space) == 12)
-  {
-
+  } else if (space_get_id(space) == 12) {
     sprintf(str1, " ");
     screen_area_puts(ge->map, str1);
     sprintf(str1, "  ");
@@ -1591,9 +1448,7 @@ void graphic_engine_paint_zoom(Graphic_engine *ge, Game *game)
     screen_area_puts(ge->map, str1);
     sprintf(str1, "                                                              |   / /     |");
     screen_area_puts(ge->map, str1);
-  }
-  else if (space_get_id(space) == 124)
-  {
+  } else if (space_get_id(space) == 124) {
     sprintf(str1, "            |       \\             /       /||/ /||/ /||/ /||/ /||/ /||");
     screen_area_puts(ge->map, str1);
     sprintf(str1, "            |       /            /        /||/ /||/ /||/ /||/ /||/ /||");
@@ -1614,15 +1469,12 @@ void graphic_engine_paint_zoom(Graphic_engine *ge, Game *game)
     screen_area_puts(ge->map, str1);
     sprintf(str1, "      /_______ /    /____\\                /||/ /||/ /||/ /||/ /|| /");
     screen_area_puts(ge->map, str1);
-    if (player_get_location(game_get_player(game, 0)) == 124)
-    {
+    if (player_get_location(game_get_player(game, 0)) == 124) {
       sprintf(str1, "    /________/      |>  <|               /||/ /||/ /||/ /||/  ||");
       screen_area_puts(ge->map, str1);
       sprintf(str1, "   ||/     ||       \\::::/                /||/ /||/ /||/ /|| /");
       screen_area_puts(ge->map, str1);
-    }
-    else if (player_get_location(game_get_player(game, 1)) == 124)
-    {
+    } else if (player_get_location(game_get_player(game, 1)) == 124) {
       sprintf(str1, "    /________/      |^  o|                /||/ /||/ /||/ /||/  ||");
       screen_area_puts(ge->map, str1);
       sprintf(str1, "   ||/     ||       \\ -- /                /||/ /||/ /||/ /|| /");
@@ -1632,13 +1484,10 @@ void graphic_engine_paint_zoom(Graphic_engine *ge, Game *game)
     screen_area_puts(ge->map, str1);
     sprintf(str1, "  /               / ====== \\              /||/ /||/ /|| /");
     screen_area_puts(ge->map, str1);
-    if (player_get_location(game_get_player(game, 0)) == 124)
-    {
+    if (player_get_location(game_get_player(game, 0)) == 124) {
       sprintf(str1, "                 |=|==01==|=|             /||/ /||/  ||");
       screen_area_puts(ge->map, str1);
-    }
-    else if (player_get_location(game_get_player(game, 1)) == 124)
-    {
+    } else if (player_get_location(game_get_player(game, 1)) == 124) {
       sprintf(str1, "                 |=|==02==|=|             /||/ /||/  ||");
       screen_area_puts(ge->map, str1);
     }
