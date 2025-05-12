@@ -69,7 +69,7 @@ Id game_rules_get_tunnel_access(Game *game, Id current_location);
  * @param cmd a pointer to the last command
  * @return OK if everything went well, ERROR otherwise
  */
-Status game_rules_process_digging(Game *game);
+Status game_rules_process_digging(Game *game, Id *object_used);
 
 /**
  * @brief It moves the guards (characters) and allows them to catch players in tunnels
@@ -79,7 +79,7 @@ Status game_rules_process_digging(Game *game);
  */
 void move_guards(Game *game);
 
-Status update_game(Game *game) {
+Status update_game_sdl(Game *game, Id *object_used) {
   Character *character = game_get_character(game, 31);
   Id open_link = 123;
 
@@ -92,7 +92,7 @@ Status update_game(Game *game) {
   }
 
   if (game_input.use == KS_PRESSED) {
-    if (game_rules_process_digging(game) == ERROR) {
+    if (game_rules_process_digging(game, object_used) == ERROR) {
       printf("[DEBUG] Error al procesar la acción de excavar.\n");
     } else {
       printf("[DEBUG] Acción de excavar procesada correctamente.\n");
@@ -181,10 +181,9 @@ Bool space_is_tunnel(Id space_id) {
   return FALSE;
 }
 
-Status game_rules_process_digging(Game *game) {
+Status game_rules_process_digging(Game *game, Id *object_used) {
   Object *obj = NULL;
-  const char *used_obj = NULL;
-  Id obj_id;
+  Id obj_id = *object_used;
   Id current_space;
   Link *closed_links[6];
   int directions[] = {N, S, E, W, U, D};
@@ -193,15 +192,6 @@ Status game_rules_process_digging(Game *game) {
 
   printf("[DEBUG] game_rules_process_digging: iniciando procesamiento\n");
 
-  /*used_obj = command_get_word(cmd);*/
-  if (!used_obj || !strlen(used_obj)) {
-    printf("[DEBUG] Palabra del comando inválida o vacía\n");
-    return ERROR;
-  }
-
-  printf("[DEBUG] Objeto usado en el comando: '%s'\n", used_obj);
-
-  obj_id = game_get_object_id_from_name(game, used_obj);
   obj = game_get_object_from_id(game, obj_id);
 
   printf("[DEBUG] Objeto ID: %ld, puntero: %p\n", obj_id, (void *)obj);

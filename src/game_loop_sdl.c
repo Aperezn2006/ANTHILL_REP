@@ -18,6 +18,7 @@
 #include "game.h"
 #include "game_actions_sdl.h"
 #include "game_management.h"
+#include "game_rules.h"
 #include "graphic_engine_sdl.h"
 #include "input.h"
 #include "physics.h"
@@ -127,6 +128,7 @@ int game_loop_init(Game *game, Graphic_engine_sdl **gengine, char *file_name) {
 
 void game_loop_run(Game *game, Graphic_engine_sdl *gengine, FILE *log_file) {
   int seed = 0; /* Puedes usar esto si estás en modo determinista */
+  Id object_used = NO_ID;
   int i = 0;
   if (!gengine) {
     return;
@@ -136,7 +138,8 @@ void game_loop_run(Game *game, Graphic_engine_sdl *gengine, FILE *log_file) {
     input_update(game);
 
     /* Acciones del jugador basadas en input */
-    game_actions_update_sdl(game, seed);
+    game_actions_update_sdl(game, seed, &object_used);
+    update_game_sdl(game, &object_used);
     for (i = 0; i < game_get_num_characters(game); i++) {
       game_character_chase_player(game, game_get_character_from_index(game, i));
     }
