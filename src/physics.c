@@ -124,18 +124,50 @@ Character *physics_get_colliding_character(Game *game, Player *player) {
 void physics_handle_space_transition(Game *game, Player *player) {
   Link *colliding_link = NULL;
   Id next_space_id;
-  printf("[DEBUG] Handling space transition...\n");
+  Direction direction;
+  int player_x, player_y = 0;
   colliding_link = physics_get_colliding_link(game, player);
 
   if (colliding_link) {
     printf("[DEBUG] Colliding link found. Checking if open...\n");
     if (link_get_open(colliding_link)) {
+      direction = link_get_direction(colliding_link);
       next_space_id = link_get_end(colliding_link);
       printf("[DEBUG] Link is open. Transitioning to space ID %ld\n", next_space_id);
       if (next_space_id != NO_ID) {
         game_set_player_location(game, next_space_id);
-        player_set_position(player, (SDL_WINDOW_WIDTH / 2 - SDL_PLAYER_HW / 2) / SDL_TILE_SIZE,
-                            (SDL_WINDOW_HEIGHT / 2 - SDL_PLAYER_HW / 2) / SDL_TILE_SIZE);
+        switch (direction) {
+          case 0:
+            player_x = (SDL_WINDOW_WIDTH / 2 - SDL_LINK_HW / 2) / (SDL_TILE_SIZE);
+            player_y = ((SDL_WALL_HEIGHT - SDL_LINK_HW / 2 - SDL_SCREEN_ZOOM) + SDL_PLAYER_HW) / (SDL_TILE_SIZE);
+            break;
+
+          case 1:
+            player_x = ((SDL_WINDOW_WIDTH / 2 - SDL_LINK_HW / 2) - SDL_PLAYER_HW) / (SDL_TILE_SIZE);
+            player_y = (2 * SDL_MAP_BORDER + SDL_MAP_HEIGHT - SDL_LINK_HW / 2 - SDL_WALL_HEIGHT) / (SDL_TILE_SIZE);
+            break;
+
+          case 2:
+            player_x = (SDL_WINDOW_WIDTH - SDL_LINK_HW + SDL_SCREEN_ZOOM) / (SDL_TILE_SIZE);
+            player_y = ((SDL_WALL_HEIGHT / 2 + SDL_MAP_HEIGHT / 2 - SDL_LINK_HW / 2) - SDL_PLAYER_HW) / (SDL_TILE_SIZE);
+            break;
+
+          case 3:
+            player_x = (SDL_SCREEN_ZOOM + SDL_PLAYER_HW) / SDL_TILE_SIZE;
+            player_y = (SDL_WALL_HEIGHT / 2 + SDL_MAP_HEIGHT / 2 - SDL_LINK_HW / 2) / (SDL_TILE_SIZE);
+            break;
+
+          case 4:
+            player_x = (SDL_MAP_BORDER + SDL_WINDOW_WIDTH / 3 - SDL_LINK_HW / 2 - SDL_SCREEN_ZOOM) / (SDL_TILE_SIZE);
+            player_y = ((SDL_WALL_HEIGHT - SDL_LINK_HW / 2 - SDL_SCREEN_ZOOM) + SDL_PLAYER_HW) / (SDL_TILE_SIZE);
+            break;
+
+          case 5:
+            player_x = (SDL_WINDOW_WIDTH / 3 - SDL_LINK_HW / 2 - SDL_SCREEN_ZOOM) / (SDL_TILE_SIZE);
+            player_y = ((SDL_WALL_HEIGHT - SDL_LINK_HW / 2 - SDL_SCREEN_ZOOM) + SDL_PLAYER_HW) / (SDL_TILE_SIZE);
+            break;
+        }
+        player_set_position(player, player_x, player_y);
       }
     } else {
       printf("[DEBUG] Link is closed. Cannot transition.\n");
