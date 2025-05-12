@@ -40,7 +40,7 @@
 #s:203|HabitacionN4|0|.|
 #s:204|HabitacionN5|0|.|
 
-/*id|name|location|health|movable|dependency|open_door|inspected|desc|x|y|image|*/
+/*id|name|location|health|movable|dependency|links|open|desc|turn_amplifier|x|y|image|*/
 
 #o:20|Llave|5|0|1|-1|-1|Open chair|0|10|
 #o:21|Hueso|3|0|1|-1|-1|Domesticate|0|5|
@@ -64,7 +64,7 @@
 #o:40|Cinta|6|-1|1|-1|-1|Para unir partes|0|2|
 #o:41|Paracaidas|0|0|0|-1|-1|Permite saltar desde alturas|0|50|
 
-
+/*id|name|location|health|gdesc|message|friendliness|x|y|n1|n2|n3|e1|e2|e3|s1|s2|s3|w1|w2|w3*/
 
 #c:50|Enfermo|2|4|()__/\|Hello|TRUE|
 #c:51|Policia|11|4|/()\ |Hello|FALSE|
@@ -76,7 +76,7 @@
 #c:63|Guardia2|10|4|/O_O\ |.|FALSE|      
 #c:64|Guardia3|134|4|/O_O\ |.|FALSE|   
 
-/*id|name|origin|destination|direction|open*/
+/*id|name|origin|destination|direction|open|closed_image|open_image|*/
 
 #l:100|PuestoVigilanciaToComedor|11|3|1|1|
 #l:101|ComedorToPuestoVigilancia|3|11|0|1|
@@ -155,7 +155,8 @@
 
 
 
-/*id|name|gdesc|location|health|inventory_size|message|object_desc|max_turns*/
+/*id|name|gdesc|location|health|inventory_size|message|object_desc|max_turns|x|y|n1|n2|n3|e1|e2|e3|s1|s2|s3|w1|w2|w3*/
+
 #p:0|ant1|mO^|6|5|5|1|
 #p:1|ant1|mO^|8|100|5|1|
 

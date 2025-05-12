@@ -10,47 +10,52 @@
 #s:8|Habitacion|resources/Room.png|
 #s:9|Perrera|resources/Room.png|
 #s:10|Sotano|resources/Room.png|
-#s:120|Almacen|0|resources/Room.png|
-#s:121|TunelSecreto1|0|resources/Room.png|
-#s:122|TunelSecreto2|0|resources/Room.png|
-#s:123|SalaMaquinas|0|resources/Room.png|
-#s:124|CeldasCastigo|0|resources/Room.png|
-#s:125|Laboratorio|0|resources/Room.png|
-#s:126|Boveda|0|resources/Room.png|
-#s:127|Nivel1|0|resources/Room.png|
-#s:128|Nivel2|0|resources/Room.png|
-#s:129|Nivel3|0|resources/Room.png|
-#s:130|PasilloSur|0|resources/Room.png|
-#s:131|PasilloNorte|0|resources/Room.png|
-#s:132|PasilloEste|0|resources/Room.png|
-#s:133|PasilloOeste|0|resources/Room.png|
-#s:134|SalaControl|0|resources/Room.png|
-#s:135|SalaTesoro|0|resources/Room.png|
-#s:136|Trampa1|0|resources/Room.png|
-#s:137|Trampa2|0|resources/Room.png|
-#s:138|Trampa3|0|resources/Room.png|
-#s:139|SalidaSecreta|0|resources/Room.png|
-#s:140|HallCentral|resources/Room.png|
-#s:141|Cocina|resources/Room.png|
+#s:12|Azotea|resources/Room.png|
+#s:120|Almacen|resources/Room.png|
+#s:121|TunelSecreto1|resources/Room.png|
+#s:122|TunelSecreto2|resources/Room.png|
+#s:124|CeldasCastigo|resources/Room.png|
+#s:127|Nivel1|resources/Room.png|
+#s:128|Nivel2|resources/Room.png|
+#s:129|Nivel3|resources/Room.png|
+#s:130|PasilloSur|resources/Room.png|
+#s:131|PasilloNorte|resources/Room.png|
+#s:132|PasilloEste|resources/Room.png|
+#s:133|PasilloOeste|resources/Room.png|
+#s:134|SalaControl|resources/Room.png|
+#s:136|Trampa1|resources/Room.png|
+#s:137|Trampa2|resources/Room.png|
+#s:138|Trampa3|resources/Room.png|
+#s:139|SalidaSecreta|resources/Room.png|
+#s:200|HabitacionN1|resources/Room.png|
+#s:201|HabitacionN2|resources/Room.png|
+#s:202|HabitacionN3|resources/Room.png|
+#s:203|HabitacionN4|resources/Room.png|
+#s:204|HabitacionN5|resources/Room.png|
 
-/*id|name|location|health|movable|dependency|links/open_N|desc|turn_amplifier|x|y|image|*/
+/*id|name|location|health|movable|dependency|links|open|desc|turn_amplifier|x|y|image|*/
 
-#o:20|Llave|5|0|1|-1|-1|Open chair|0|1|0|0|resources/objects/Key.png|
-#o:21|Hueso|3|0|1|-1|-1|Domesticate|0|1|0|0|resources/objects/Bone.png|
-#o:22|Donut|3|1|1|-1|-1|Ñum Ñum|0|1|0|0|resources/objects/Donut.png|
-#o:23|Chaleco|7|5|1|-1|-1|Protection|0|1|0|0|resources/objects/Vest.png|
-#o:24|Pistola|11|-3|1|-1|-1|Shoots proyectiles|0|1|0|0|resources/objects/Gun.png|
-#o:25|Cuchara|8|0|1|-1|-1|Escape|0|1|0|0|resources/objects/Spoon.png|
-#o:26|CepilloDientes|8|-2|1|-1|-1|Dont use it|0|1|0|0|resources/objects/Toothbrush.png|
-#o:27|Linterna|10|0|1|-1|-1|Lights up dark areas|0|1|0|0|resources/objects/Flashlight.png|
-#o:28|CartelPreso|5|0|1|-1|-1|2567|0|1|0|0|resources/objects/Poster.png|
-#o:29|Cigarrillos|7|1|1|-1|-1|Relaxing|0|1|0|0|resources/objects/Cigarrette.png|
-#o:30|Pico|6|2|1|-1|-1|Breaks rocks|0|15|0|0|resources/objects/pico.png|
-#o:31|Pala|6|3|1|-1|-1|Digs tunnels|0|20|0|0|resources/objects/pala.png|
+#o:20|Llave|5|0|1|-1|-1|Open chair|0|10|0|0|resources/objects/Key.png|
+#o:21|Hueso|3|0|1|-1|-1|Domesticate|0|5|0|0|resources/objects/Bone.png|
+#o:22|Donut|3|-1|1|-1|-1|Ñum Ñum|0|1|0|0|resources/objects/Donut.png|
+#o:23|Chaleco|11|5|1|-1|-1|Protección|0|15|0|0|resources/objects/Vest.png|
+#o:24|Pistola|11|-3|1|-1|-1|Dispara proyectiles|0|1|0|0|resources/objects/Gun.png|
+#o:25|Cuchara|8|0|1|-1|-1|Scape|0|10|0|0|resources/objects/Spoon.png|
+#o:26|CepilloDientes|8|-2|1|-1|-1|Dont use it|0|3|0|0|resources/objects/Toothbrush.png|
+#o:27|Linterna|10|0|1|-1|-1|Ilumina zonas oscuras|0|20|0|0|resources/objects/Flashlight.png|
+#o:28|CartelPreso|5|0|1|-1|-1|2567|1|1|0|0|resources/objects/Poster.png|
+#o:29|Cigarrillos|4|1|1|-1|-1|Relajantes|0|3|0|0|resources/objects/Cigarrette.png|
+#o:30|Pico|10|-2|1|-1|-1|Rompe piedras|0|15|0|0|resources/objects/pico.png|
+#o:31|Pala|11|3|1|-1|-1|Cava túneles|0|20|0|0|resources/objects/pala.png|
 #o:32|Taladro|6|4|1|-1|-1|Perfora paredes|0|10|0|0|resources/objects/taladro.png|
-#o:33|Casco|6|5|1|-1|-1|Protección en túneles|0|30|0|0|resources/objects/Cigarrette.png|
-#o:34|LinternaCabeza|6|6|1|-1|-1|Luz manos libres|0|25|0|0|resources/objects/Cigarrette.png|
-#o:35|Dinamita|6|7|1|-1|-1|Explosivo para abrir paso|0|1|0|0|resources/objects/dinamita.png|
+#o:33|Casco|120|5|1|-1|-1|Protección en túneles|0|30|0|0|resources/objects/Poster.png|
+#o:34|LinternaCabeza|120|6|1|-1|-1|Luz manos libres|0|25|0|0|resources/objects/Poster.png|
+#o:35|Dinamita|120|-3|1|-1|-1|Explosivo para abrir paso|0|1|0|0|resources/objects/dinamita.png|
+#o:37|Tela|4|2|1|-1|-1|Trozo de tela resistente|0|3|0|0|resources/objects/Poster.png|
+#o:38|Cuerda|7|3|1|-1|-1|Cuerda fuerte|0|4|0|0|resources/objects/Poster.png|
+#o:39|Varillas|2|1|1|-1|-1|Soporte estructural|0|2|0|0|resources/objects/Poster.png|
+#o:40|Cinta|6|-1|1|-1|-1|Para unir partes|0|2|0|0|resources/objects/Poster.png|
+#o:41|Paracaidas|0|0|0|-1|-1|Permite saltar desde alturas|0|50|0|0|resources/objects/Poster.png|
 
 /*id|name|location|health|gdesc|message|friendliness|x|y|n1|n2|n3|e1|e2|e3|s1|s2|s3|w1|w2|w3*/
 
@@ -60,9 +65,9 @@
 #c:53|Familiar|4|4|()__()|Good to see you|TRUE|0|0|resources/familiar/familiar107.png|resources/familiar/familiar109.png|resources/familiar/familiar110.png|resources/familiar/familiar144.png|resources/familiar/familiar143.png|resources/familiar/familiar147.png|resources/familiar/familiar134.png|resources/familiar/familiar131.png|resources/familiar/familiar138.png|resources/familiar/familiar117.png|resources/familiar/familiar121.png|resources/familiar/familiar118.png|
 #c:60|Prisionero1|3|4|(-_-) |What's up|TRUE|0|0|resources/p1/p1107.png|resources/p1/p1109.png|resources/p1/p1110.png|resources/p1/p1144.png|resources/p1/p1143.png|resources/p1/p1147.png|resources/p1/p1134.png|resources/p1/p1131.png|resources/p1/p1138.png|resources/p1/p1117.png|resources/p1/p1121.png|resources/p1/p1118.png|
 #c:61|Prisionero2|7|4|(-_-) |I hate it here|TRUE|0|0|resources/p1/p1107.png|resources/p1/p1109.png|resources/p1/p1110.png|resources/p1/p1144.png|resources/p1/p1143.png|resources/p1/p1147.png|resources/p1/p1134.png|resources/p1/p1131.png|resources/p1/p1138.png|resources/p1/p1117.png|resources/p1/p1121.png|resources/p1/p1118.png|
-#c:62|Guardia1|3|4|/O_O\ |Hey|FALSE|0|0|resources/p1/p1107.png|resources/p1/p1109.png|resources/p1/p1110.png|resources/p1/p1144.png|resources/p1/p1143.png|resources/p1/p1147.png|resources/p1/p1134.png|resources/p1/p1131.png|resources/p1/p1138.png|resources/p1/p1117.png|resources/p1/p1121.png|resources/p1/p1118.png|
-#c:63|Guardia2|7|4|/O_O\ |How's it going|FALSE|0|0|resources/p1/p1107.png|resources/p1/p1109.png|resources/p1/p1110.png|resources/p1/p1144.png|resources/p1/p1143.png|resources/p1/p1147.png|resources/p1/p1134.png|resources/p1/p1131.png|resources/p1/p1138.png|resources/p1/p1117.png|resources/p1/p1121.png|resources/p1/p1118.png|
-#c:64|Guardia3|140|4|/O_O\ |*Singing*|FALSE|0|0|resources/p1/p1107.png|resources/p1/p1109.png|resources/p1/p1110.png|resources/p1/p1144.png|resources/p1/p1143.png|resources/p1/p1147.png|resources/p1/p1134.png|resources/p1/p1131.png|resources/p1/p1138.png|resources/p1/p1117.png|resources/p1/p1121.png|resources/p1/p1118.png|
+#c:62|Guardia1|120|4|/O_O\ |Hey|FALSE|0|0|resources/p1/p1107.png|resources/p1/p1109.png|resources/p1/p1110.png|resources/p1/p1144.png|resources/p1/p1143.png|resources/p1/p1147.png|resources/p1/p1134.png|resources/p1/p1131.png|resources/p1/p1138.png|resources/p1/p1117.png|resources/p1/p1121.png|resources/p1/p1118.png|
+#c:63|Guardia2|10|4|/O_O\ |How's it going|FALSE|0|0|resources/p1/p1107.png|resources/p1/p1109.png|resources/p1/p1110.png|resources/p1/p1144.png|resources/p1/p1143.png|resources/p1/p1147.png|resources/p1/p1134.png|resources/p1/p1131.png|resources/p1/p1138.png|resources/p1/p1117.png|resources/p1/p1121.png|resources/p1/p1118.png|
+#c:64|Guardia3|134|4|/O_O\ |*Singing*|FALSE|0|0|resources/p1/p1107.png|resources/p1/p1109.png|resources/p1/p1110.png|resources/p1/p1144.png|resources/p1/p1143.png|resources/p1/p1147.png|resources/p1/p1134.png|resources/p1/p1131.png|resources/p1/p1138.png|resources/p1/p1117.png|resources/p1/p1121.png|resources/p1/p1118.png|   
 
 /*id|name|origin|destination|direction|open|closed_image|open_image|*/
 
@@ -72,64 +77,67 @@
 #l:103|ComedorToEnfermeria|3|2|3|1|resources/links/closed_W.png|resources/links/open_W.png|
 #l:104|ComedorToVisitas|3|4|2|1|resources/links/closed_E.png|resources/links/open_E.png|
 #l:105|VisitasToComedor|4|3|3|1|resources/links/closed_W.png|resources/links/open_W.png|
-#l:106|EnfermeriaToTorturas|2|6|1|1|resources/links/closed_S.png|resources/links/open_S.png|
-#l:107|TorturasToEnfermeria|6|2|0|1|resources/links/closed_N.png|resources/links/open_N.png|
+#l:106|EnfermeriaToTorturas|2|6|1|0|resources/links/closed_S.png|resources/links/open_S.png|
+#l:107|TorturasToEnfermeria|6|2|0|0|resources/links/closed_N.png|resources/links/open_N.png|
 #l:108|VisitasToHabitacion|4|8|1|1|resources/links/closed_S.png|resources/links/open_S.png|
 #l:109|HabitacionToVisitas|8|4|0|1|resources/links/closed_N.png|resources/links/open_N.png|
 #l:110|ComedorToPatio|3|7|1|1|resources/links/closed_S.png|resources/links/open_S.png|
 #l:111|PatioToComedor|7|3|0|1|resources/links/closed_N.png|resources/links/open_N.png|
-#l:112|PatioToSotano|7|10|1|1|resources/links/closed_S.png|resources/links/open_S.png|
-#l:113|SotanoToPatio|10|7|0|1|resources/links/closed_N.png|resources/links/open_N.png|
+#l:112|PatioToSotano|7|10|5|1|resources/links/closed_D.png|resources/links/open_D.png|
+#l:113|SotanoToPatio|10|7|4|1|resources/links/closed_U.png|resources/links/open_U.png|
 #l:114|SotanoToPerrera|10|9|2|1|resources/links/closed_E.png|resources/links/open_E.png|
 #l:115|PerreraToSotano|9|10|3|1|resources/links/closed_W.png|resources/links/open_W.png|
 #l:116|PerreraToArchivos|9|5|0|1|resources/links/closed_N.png|resources/links/open_N.png|
 #l:117|ArchivosToPerrera|5|9|1|1|resources/links/closed_S.png|resources/links/open_S.png|
-#l:118|SotanoToAlmacen|10|120|1|0|resources/links/closed_S.png|resources/links/open_S.png|
-#l:119|AlmacenToSotano|120|10|0|0|resources/links/closed_N.png|resources/links/open_N.png|
-#l:120|AlmacenToTunelSecreto1|120|121|2|0|resources/links/closed_E.png|resources/links/open_E.png|
-#l:121|TunelSecreto1ToAlmacen|121|120|3|0|resources/links/closed_W.png|resources/links/open_W.png|
-#l:122|TunelSecreto1ToTunelSecreto2|121|122|1|0|resources/links/closed_S.png|resources/links/open_S.png|
-#l:123|TunelSecreto2ToTunelSecreto1|122|121|0|0|resources/links/closed_N.png|resources/links/open_N.png|
-#l:124|TunelSecreto2ToSalaMaquinas|122|123|2|0|resources/links/closed_E.png|resources/links/open_E.png|
-#l:125|SalaMaquinasToTunelSecreto2|123|122|3|0|resources/links/closed_W.png|resources/links/open_W.png|
-#l:126|SalaMaquinasToCeldasCastigo|123|124|4|0|resources/links/closed_U.png|resources/links/open_U.png|
-#l:127|CeldasCastigoToSalaMaquinas|124|123|5|0|resources/links/closed_D.png|resources/links/open_D.png|
-#l:128|SotanoToLaboratorio|10|125|3|0|resources/links/closed_W.png|resources/links/open_W.png|
-#l:129|LaboratorioToSotano|125|10|2|0|resources/links/closed_E.png|resources/links/open_E.png|
-#l:130|LaboratorioToBoveda|125|126|1|0|resources/links/closed_S.png|resources/links/open_S.png|
-#l:131|BovedaToLaboratorio|126|125|0|0|resources/links/closed_N.png|resources/links/open_N.png|
-#l:132|BovedaToNivel1|126|127|4|0|resources/links/closed_U.png|resources/links/open_U.png|
-#l:133|Nivel1ToBoveda|127|126|5|0|resources/links/closed_D.png|resources/links/open_D.png|
-#l:134|Nivel1ToNivel2|127|128|1|0|resources/links/closed_S.png|resources/links/open_S.png|
-#l:135|Nivel2ToNivel1|128|127|0|0|resources/links/closed_N.png|resources/links/open_N.png|
-#l:136|Nivel2ToNivel3|128|129|1|0|resources/links/closed_S.png|resources/links/open_S.png|
-#l:137|Nivel3ToNivel2|129|128|0|0|resources/links/closed_N.png|resources/links/open_N.png|
-#l:138|Nivel3ToPasilloSur|129|130|2|0|resources/links/closed_E.png|resources/links/open_E.png|
-#l:139|PasilloSurToNivel3|130|129|3|0|resources/links/closed_W.png|resources/links/open_W.png|
-#l:140|PasilloSurToPasilloNorte|130|131|1|0|resources/links/closed_S.png|resources/links/open_S.png|
-#l:141|PasilloNorteToPasilloSur|131|130|0|0|resources/links/closed_N.png|resources/links/open_N.png|
-#l:142|PasilloNorteToPasilloEste|131|132|2|0|resources/links/closed_E.png|resources/links/open_E.png|
-#l:143|PasilloEsteToPasilloNorte|132|131|3|0|resources/links/closed_W.png|resources/links/open_W.png|
-#l:144|PasilloEsteToPasilloOeste|132|133|1|0|resources/links/closed_S.png|resources/links/open_S.png|
-#l:145|PasilloOesteToPasilloEste|133|132|0|0|resources/links/closed_N.png|resources/links/open_N.png|
-#l:146|PasilloOesteToSalaControl|133|134|4|0|resources/links/closed_U.png|resources/links/open_U.png|
-#l:147|SalaControlToPasilloOeste|134|133|5|0|resources/links/closed_D.png|resources/links/open_D.png|
-#l:148|SalaControlToSalaTesoro|134|135|1|0|resources/links/closed_S.png|resources/links/open_S.png|
-#l:149|SalaTesoroToSalaControl|135|134|0|0|resources/links/closed_N.png|resources/links/open_N.png|
-#l:150|SalaControlToTrampa1|134|136|2|0|resources/links/closed_E.png|resources/links/open_E.png|    
-#l:151|Trampa1ToSalaControl|136|134|3|0|resources/links/closed_W.png|resources/links/open_W.png|
-#l:152|SalaControlToTrampa2|134|137|3|0|resources/links/closed_W.png|resources/links/open_W.png|    
-#l:153|Trampa2ToSalaControl|137|134|2|0|resources/links/closed_E.png|resources/links/open_E.png|
-#l:154|SalaControlToTrampa3|134|138|4|0|resources/links/closed_U.png|resources/links/open_U.png|    
-#l:155|Trampa3ToSalaControl|138|134|5|0|resources/links/closed_D.png|resources/links/open_D.png|
-#l:156|SalaTesoroToSalidaSecreta|135|139|1|0|resources/links/closed_S.png|resources/links/open_S.png|
-#l:157|SalidaSecretaToSalaTesoro|139|135|0|0|resources/links/closed_N.png|resources/links/open_N.png|
-#l:158|ComedorToHall|3|140|4|1|resources/links/closed_U.png|resources/links/open_U.png|
-#l:159|HallToComedor|140|3|5|1|resources/links/closed_D.png|resources/links/open_D.png|
-#l:160|HallToCocina|140|141|1|1|resources/links/closed_S.png|resources/links/open_S.png|
-#l:161|CocinaToHall|141|140|0|1|resources/links/closed_N.png|resources/links/open_N.png|
+#l:118|SotanoToAlmacen|10|120|1|1|resources/links/closed_S.png|resources/links/open_S.png|
+#l:119|AlmacenToSotano|120|10|0|1|resources/links/closed_N.png|resources/links/open_N.png|
+#l:120|AlmacenToTunelSecreto1|120|121|2|1|resources/links/closed_E.png|resources/links/open_E.png|
+#l:121|TunelSecreto1ToAlmacen|121|120|3|1|resources/links/closed_W.png|resources/links/open_W.png|
+#l:122|TunelSecreto1ToTunelSecreto2|121|122|1|1|resources/links/closed_S.png|resources/links/open_S.png|
+#l:123|TunelSecreto2ToTunelSecreto1|122|121|0|1|resources/links/closed_N.png|resources/links/open_N.png|
+#l:124|TunelSecreto2ToCeldasCastigo|122|124|2|1|resources/links/closed_E.png|resources/links/open_E.png|
+#l:125|ToCeldasCastigoToTunelSecreto2|124|122|3|1|resources/links/closed_W.png|resources/links/open_W.png|
+#l:128|SotanoToNivel1|10|127|3|1|resources/links/closed_W.png|resources/links/open_W.png|
+#l:129|Nivel1ToSotano|127|10|2|1|resources/links/closed_E.png|resources/links/open_E.png|
+#l:134|Nivel1ToNivel2|127|128|1|1|resources/links/closed_S.png|resources/links/open_S.png|
+#l:135|Nivel2ToNivel1|128|127|0|1|resources/links/closed_N.png|resources/links/open_N.png|
+#l:136|Nivel2ToNivel3|128|129|1|1|resources/links/closed_S.png|resources/links/open_S.png|
+#l:137|Nivel3ToNivel2|129|128|0|1|resources/links/closed_N.png|resources/links/open_N.png|
+#l:138|Nivel3ToPasilloSur|129|130|2|1|resources/links/closed_E.png|resources/links/open_E.png|
+#l:139|PasilloSurToNivel3|130|129|3|1|resources/links/closed_W.png|resources/links/open_W.png|
+#l:140|PasilloSurToPasilloNorte|130|131|1|1|resources/links/closed_S.png|resources/links/open_S.png|
+#l:141|PasilloNorteToPasilloSur|131|130|0|1|resources/links/closed_N.png|resources/links/open_N.png|
+#l:142|PasilloNorteToPasilloEste|131|132|2|1|resources/links/closed_E.png|resources/links/open_E.png|
+#l:143|PasilloEsteToPasilloNorte|132|131|3|1|resources/links/closed_W.png|resources/links/open_W.png|
+#l:144|PasilloEsteToPasilloOeste|132|133|1|1|resources/links/closed_S.png|resources/links/open_S.png|
+#l:145|PasilloOesteToPasilloEste|133|132|0|1|resources/links/closed_N.png|resources/links/open_N.png|
+#l:146|PasilloOesteToSalaControl|133|134|4|1|resources/links/closed_U.png|resources/links/open_U.png|
+#l:147|SalaControlToPasilloOeste|134|133|5|1|resources/links/closed_D.png|resources/links/open_D.png|
+#l:148|SalaControlToSalidaSecreta|134|139|1|1|resources/links/closed_S.png|resources/links/open_S.png|
+#l:149|SalidaSecretaToSalaControl|139|134|0|1|resources/links/closed_N.png|resources/links/open_N.png|
+#l:150|SalaControlToTrampa1|134|136|2|1|resources/links/closed_E.png|resources/links/open_E.png|
+#l:151|Trampa1ToSalaControl|136|134|3|1|resources/links/closed_W.png|resources/links/open_W.png|
+#l:152|SalaControlToTrampa2|134|137|3|1|resources/links/closed_W.png|resources/links/open_W.png|
+#l:153|Trampa2ToSalaControl|137|134|2|1|resources/links/closed_E.png|resources/links/open_E.png|
+#l:154|SalaControlToTrampa3|134|138|4|1|resources/links/closed_U.png|resources/links/open_U.png|
+#l:155|Trampa3ToSalaControl|138|134|5|1|resources/links/closed_D.png|resources/links/open_D.png|
+#l:158|ComedorToAzotea|3|12|4|1|resources/links/closed_U.png|resources/links/open_U.png|
+#l:159|AzoteaToComedor|12|3|5|1|resources/links/closed_D.png|resources/links/open_D.png|
+#l:200|HabitacionToHabitacionN1|11|200|0|0|resources/links/closed_N.png|resources/links/open_N.png|
+#l:201|HabitacionN1ToHabitacion|200|11|1|1|resources/links/closed_S.png|resources/links/open_S.png|
+#l:202|HabitacionN1ToHabitacionN2|200|201|0|0|resources/links/closed_N.png|resources/links/open_N.png|
+#l:203|HabitacionN2ToHabitacionN1|201|200|1|1|resources/links/closed_S.png|resources/links/open_S.png|
+#l:204|HabitacionN2ToHabitacionN3|201|202|0|0|resources/links/closed_N.png|resources/links/open_N.png|
+#l:205|HabitacionN3ToHabitacionN2|202|201|1|1|resources/links/closed_S.png|resources/links/open_S.png|
+#l:206|HabitacionN3ToHabitacionN4|202|203|0|0|resources/links/closed_N.png|resources/links/open_N.png|
+#l:207|HabitacionN4ToHabitacionN3|203|202|1|1|resources/links/closed_S.png|resources/links/open_S.png|
+#l:208|HabitacionN4ToHabitacionN5|203|204|0|0|resources/links/closed_N.png|resources/links/open_N.png|
+#l:209|HabitacionN5ToHabitacionN4|204|203|1|1|resources/links/closed_S.png|resources/links/open_S.png|
+
 
 /*id|name|gdesc|location|health|inventory_size|message|object_desc|max_turns|x|y|n1|n2|n3|e1|e2|e3|s1|s2|s3|w1|w2|w3*/
 
-#p:0|ant1|mO^|11|5|5|1|0|0|resources/p1/p1107.png|resources/p1/p1109.png|resources/p1/p1110.png|resources/p1/p1144.png|resources/p1/p1143.png|resources/p1/p1147.png|resources/p1/p1134.png|resources/p1/p1131.png|resources/p1/p1138.png|resources/p1/p1117.png|resources/p1/p1121.png|resources/p1/p1118.png|
-#p:1|ant2|mO^|6|5|3|2|0|0|resources/p2/p2107.png|resources/p2/p2109.png|resources/p2/p2110.png|resources/p2/p2144.png|resources/p2/p2143.png|resources/p2/p2147.png|resources/p2/p2134.png|resources/p2/p2131.png|resources/p2/p2138.png|resources/p2/p2117.png|resources/p2/p2121.png|resources/p2/p2118.png|
+#p:0|ant1|mO^|6|5|5|1|0|0|resources/p1/p1107.png|resources/p1/p1109.png|resources/p1/p1110.png|resources/p1/p1144.png|resources/p1/p1143.png|resources/p1/p1147.png|resources/p1/p1134.png|resources/p1/p1131.png|resources/p1/p1138.png|resources/p1/p1117.png|resources/p1/p1121.png|resources/p1/p1118.png|
+#p:1|ant2|mO^|8|100|5|1|0|0|resources/p2/p2107.png|resources/p2/p2109.png|resources/p2/p2110.png|resources/p2/p2144.png|resources/p2/p2143.png|resources/p2/p2147.png|resources/p2/p2134.png|resources/p2/p2131.png|resources/p2/p2138.png|resources/p2/p2117.png|resources/p2/p2121.png|resources/p2/p2118.png|
+
+
