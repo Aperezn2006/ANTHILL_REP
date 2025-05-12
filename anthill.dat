@@ -1,4 +1,5 @@
 /*id|name|discovered|image|zoom|gdesc*/
+
 #s:11|PuestoVigilancia|0|.|
 #s:2|Enfermeria|0|.|
 #s:3|Comedor|0|.|
@@ -11,24 +12,36 @@
 #s:10|Sotano|0|.|
 #s:12|Azotea|0|.|
 #s:120|Almacen|0|.|
+
 #s:121|TunelSecreto1|0|.|
 #s:122|TunelSecreto2|0|.|
+
+
 #s:124|CeldasCastigo|0|.|
+
 #s:127|Nivel1|0|.|
 #s:128|Nivel2|0|.|
 #s:129|Nivel3|0|.|
+
 #s:130|PasilloSur|0|.|
 #s:131|PasilloNorte|0|.|
 #s:132|PasilloEste|0|.|
 #s:133|PasilloOeste|0|.|
 #s:134|SalaControl|0|.|
+
 #s:136|Trampa1|0|.|
 #s:137|Trampa2|0|.|
 #s:138|Trampa3|0|.|
 #s:139|SalidaSecreta|0|.|
 
+#s:200|HabitacionN1|0|.|
+#s:201|HabitacionN2|0|.|
+#s:202|HabitacionN3|0|.|
+#s:203|HabitacionN4|0|.|
+#s:204|HabitacionN5|0|.|
 
 /*id|name|location|health|movable|dependency|open_door|inspected|desc|x|y|image|*/
+
 #o:20|Llave|5|0|1|-1|-1|Open chair|0|10|
 #o:21|Hueso|3|0|1|-1|-1|Domesticate|0|5|
 #o:22|Donut|3|-1|1|-1|-1|Ñum Ñum|0|1|
@@ -40,7 +53,7 @@
 #o:28|CartelPreso|5|0|1|-1|-1|2567|1|1|
 #o:29|Cigarrillos|4|1|1|-1|-1|Relajantes|0|3|
 #o:30|Pico|10|-2|1|-1|-1|Rompe piedras|0|15|
-#o:31|Pala|7|3|1|-1|-1|Cava túneles|0|20|
+#o:31|Pala|11|3|1|-1|-1|Cava túneles|0|20|
 #o:32|Taladro|6|4|1|-1|-1|Perfora paredes|0|10|
 #o:33|Casco|120|5|1|-1|-1|Protección en túneles|0|30|
 #o:34|LinternaCabeza|120|6|1|-1|-1|Luz manos libres|0|25|
@@ -52,18 +65,19 @@
 #o:41|Paracaidas|0|0|0|-1|-1|Permite saltar desde alturas|0|50|
 
 
+
 #c:50|Enfermo|2|4|()__/\|Hello|TRUE|
 #c:51|Policia|11|4|/()\ |Hello|FALSE|
 #c:52|Perro|9|4|U.^.U|Hello|FALSE|
 #c:53|Familiar|4|4|()__()|Hello|TRUE|
 #c:60|Prisionero1|3|4|(-_-) |.|TRUE|    
 #c:61|Prisionero2|7|4|(-_-) |.|TRUE|    
-#c:62|Guardia1|10|4|/O_O\ |.|FALSE|      
-#c:63|Guardia2|7|4|/O_O\ |.|FALSE|      
+#c:62|Guardia1|120|4|/O_O\ |.|FALSE|      
+#c:63|Guardia2|10|4|/O_O\ |.|FALSE|      
 #c:64|Guardia3|134|4|/O_O\ |.|FALSE|   
 
-
 /*id|name|origin|destination|direction|open*/
+
 #l:100|PuestoVigilanciaToComedor|11|3|1|1|
 #l:101|ComedorToPuestoVigilancia|3|11|0|1|
 #l:102|EnfermeriaToComedor|2|3|2|1|
@@ -84,14 +98,19 @@
 #l:117|ArchivosToPerrera|5|9|1|1|
 #l:118|SotanoToAlmacen|10|120|1|1|
 #l:119|AlmacenToSotano|120|10|0|1|
+
 #l:120|AlmacenToTunelSecreto1|120|121|2|1|
 #l:121|TunelSecreto1ToAlmacen|121|120|3|1|
 #l:122|TunelSecreto1ToTunelSecreto2|121|122|1|1|
 #l:123|TunelSecreto2ToTunelSecreto1|122|121|0|1|
+
 #l:124|TunelSecreto2ToCeldasCastigo|122|124|2|1|
 #l:125|ToCeldasCastigoToTunelSecreto2|124|122|3|1|
+
+
 #l:128|SotanoToNivel1|10|127|3|1|
 #l:129|Nivel1ToSotano|127|10|2|1|
+
 #l:134|Nivel1ToNivel2|127|128|1|1|
 #l:135|Nivel2ToNivel1|128|127|0|1|
 #l:136|Nivel2ToNivel3|128|129|1|1|
@@ -114,12 +133,30 @@
 #l:153|Trampa2ToSalaControl|137|134|2|1|
 #l:154|SalaControlToTrampa3|134|138|4|1|    
 #l:155|Trampa3ToSalaControl|138|134|5|1|
+
 #l:158|ComedorToAzotea|3|12|4|1|
 #l:159|AzoteaToComedor|12|3|5|1|
+
+#l:200|HabitacionToHabitacionN1|11|200|0|0|
+#l:201|HabitacionN1ToHabitacion|200|11|1|1|
+
+#l:202|HabitacionN1ToHabitacionN2|200|201|0|0|
+#l:203|HabitacionN2ToHabitacionN1|201|200|1|1|
+
+#l:204|HabitacionN2ToHabitacionN3|201|202|0|0|
+#l:205|HabitacionN3ToHabitacionN2|202|201|1|1|
+
+#l:206|HabitacionN3ToHabitacionN4|202|203|0|0|
+#l:207|HabitacionN4ToHabitacionN3|203|202|1|1|
+
+#l:208|HabitacionN4ToHabitacionN5|203|204|0|0|
+#l:209|HabitacionN5ToHabitacionN4|204|203|1|1|
+
+
 
 
 /*id|name|gdesc|location|health|inventory_size|message|object_desc|max_turns*/
 #p:0|ant1|mO^|6|5|5|1|
-#p:1|ant1|mO^|8|5|5|1|
+#p:1|ant1|mO^|8|100|5|1|
 
 
