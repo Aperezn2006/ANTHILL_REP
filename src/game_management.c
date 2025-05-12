@@ -6,8 +6,6 @@
 #include <strings.h>
 
 Status game_init_from_file(Game *game, char *filename, Bool SDL) {
-  Id first_space_id;
-
   if (!game || !filename) {
     printf("Error: Invalid game or filename\n");
     return ERROR;
@@ -20,12 +18,6 @@ Status game_init_from_file(Game *game, char *filename, Bool SDL) {
 
   if (game_management_load(game, filename, TRUE, SDL) == ERROR) {
     printf("Error: Could not load spaces and objects from file\n");
-    return ERROR;
-  }
-
-  first_space_id = game_get_space_id_from_index(game, 0);
-  if (first_space_id == NO_ID) {
-    printf("Error: Could not get first space ID\n");
     return ERROR;
   }
 
