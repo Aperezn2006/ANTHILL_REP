@@ -1,5 +1,4 @@
 /*id|name|discovered|image|zoom|gdesc*/
-
 #s:11|PuestoVigilancia|0|.|
 #s:2|Enfermeria|0|.|
 #s:3|Comedor|0|.|
@@ -12,30 +11,24 @@
 #s:10|Sotano|0|.|
 #s:12|Azotea|0|.|
 #s:120|Almacen|0|.|
-
 #s:121|TunelSecreto1|0|.|
 #s:122|TunelSecreto2|0|.|
-
-
 #s:124|CeldasCastigo|0|.|
-
 #s:127|Nivel1|0|.|
 #s:128|Nivel2|0|.|
 #s:129|Nivel3|0|.|
-
 #s:130|PasilloSur|0|.|
 #s:131|PasilloNorte|0|.|
 #s:132|PasilloEste|0|.|
 #s:133|PasilloOeste|0|.|
 #s:134|SalaControl|0|.|
-
 #s:136|Trampa1|0|.|
 #s:137|Trampa2|0|.|
 #s:138|Trampa3|0|.|
 #s:139|SalidaSecreta|0|.|
 
-/*id|name|location|health|movable|dependency|open_door|inspected|desc|x|y|image|*/
 
+/*id|name|location|health|movable|dependency|open_door|inspected|desc|x|y|image|*/
 #o:20|Llave|5|0|1|-1|-1|Open chair|0|10|
 #o:21|Hueso|3|0|1|-1|-1|Domesticate|0|5|
 #o:22|Donut|3|-1|1|-1|-1|Ñum Ñum|0|1|
@@ -59,7 +52,6 @@
 #o:41|Paracaidas|0|0|0|-1|-1|Permite saltar desde alturas|0|50|
 
 
-
 #c:50|Enfermo|2|4|()__/\|Hello|TRUE|
 #c:51|Policia|11|4|/()\ |Hello|FALSE|
 #c:52|Perro|9|4|U.^.U|Hello|FALSE|
@@ -68,10 +60,10 @@
 #c:61|Prisionero2|7|4|(-_-) |.|TRUE|    
 #c:62|Guardia1|10|4|/O_O\ |.|FALSE|      
 #c:63|Guardia2|7|4|/O_O\ |.|FALSE|      
-#c:64|Guardia3|140|4|/O_O\ |.|FALSE|   
+#c:64|Guardia3|134|4|/O_O\ |.|FALSE|   
+
 
 /*id|name|origin|destination|direction|open*/
-
 #l:100|PuestoVigilanciaToComedor|11|3|1|1|
 #l:101|ComedorToPuestoVigilancia|3|11|0|1|
 #l:102|EnfermeriaToComedor|2|3|2|1|
@@ -92,19 +84,14 @@
 #l:117|ArchivosToPerrera|5|9|1|1|
 #l:118|SotanoToAlmacen|10|120|1|1|
 #l:119|AlmacenToSotano|120|10|0|1|
-
 #l:120|AlmacenToTunelSecreto1|120|121|2|1|
 #l:121|TunelSecreto1ToAlmacen|121|120|3|1|
 #l:122|TunelSecreto1ToTunelSecreto2|121|122|1|1|
 #l:123|TunelSecreto2ToTunelSecreto1|122|121|0|1|
-
 #l:124|TunelSecreto2ToCeldasCastigo|122|124|2|1|
 #l:125|ToCeldasCastigoToTunelSecreto2|124|122|3|1|
-
-
 #l:128|SotanoToNivel1|10|127|3|1|
 #l:129|Nivel1ToSotano|127|10|2|1|
-
 #l:134|Nivel1ToNivel2|127|128|1|1|
 #l:135|Nivel2ToNivel1|128|127|0|1|
 #l:136|Nivel2ToNivel3|128|129|1|1|
@@ -127,11 +114,8 @@
 #l:153|Trampa2ToSalaControl|137|134|2|1|
 #l:154|SalaControlToTrampa3|134|138|4|1|    
 #l:155|Trampa3ToSalaControl|138|134|5|1|
-
 #l:158|ComedorToAzotea|3|12|4|1|
 #l:159|AzoteaToComedor|12|3|5|1|
-
-
 
 
 /*id|name|gdesc|location|health|inventory_size|message|object_desc|max_turns*/

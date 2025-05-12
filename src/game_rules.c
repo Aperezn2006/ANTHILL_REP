@@ -224,7 +224,7 @@ Id game_rules_get_tunnel_access(Game *game, Id current_location);
 
 Bool alcantarillado(Id location) {
   int i;
-  Id tunnel_spaces[21] = {10, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139};
+  Id tunnel_spaces[22] = {7, 10, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139};
   for (i = 0; i < 21; i++) {
     if (location == tunnel_spaces[i]) {
       return TRUE;
@@ -377,147 +377,94 @@ Status game_rules_process_digging(Game *game, Command *cmd) {
 }
 
 void move_guards(Game *game) {
-  Character *guard = NULL;
-  Player *player = NULL;
-  int player_health = 0;
-  int guard_health = 0;
-  static int path_indices[] = {0, 0, 0}; /* Índices actuales para cada guardia */
-  int num_guards = 3;
-  int i = 0, j = 0;
-  int valid_moves = 0;
-  Link *link = NULL;
-  Space *new_space = NULL;
-  Space *next_space = NULL;
-  Space *current_space = NULL;
-  Id guard_ids[] = {62, 63, 64};
-  Id cell_rooms[] = {124, 125}; /* Celdas de castigo y laboratorio */
-  Id guard_paths[][15] = {
-      {140, 131, 130, 132, 133, 140, NO_ID}, /* Guardia 1 */
-      {134, 126, 120, 134, NO_ID},           /* Guardia 2 */
-      {127, 128, 129, 121, 122, 127, NO_ID}  /* Guardia 3 */
-  };
-  Id guard_loc, player_loc = NO_ID;
-  Id tunnel_spaces[17] = {10, 120, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139};
-  Id next_room = NO_ID;
-  Id north, south, east, west = NO_ID;
-  Id possible_moves[4];
-  Id valid_destinations[4] = {NO_ID, NO_ID, NO_ID, NO_ID};
-  Id new_room = NO_ID;
+  int i, num_chars, guardias_presentes;
+  Character *character = NULL;
+  Id player_loc, new_location;
+  Space *space = NULL;
+  const Id possible_locations[] = {120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139};
+  const int num_possible_locations = 20;
 
-  player = game_get_current_player(game);
+  printf("[DEBUG] Entrando en move_guards()\n");
+
+  if (!game) {
+    printf("[DEBUG ERROR] game es NULL en move_guards()\n");
+    return;
+  }
+
   player_loc = game_get_player_location(game);
+  printf("[DEBUG] Ubicación del jugador: %ld\n", player_loc);
 
-  for (i = 0; i < num_guards; i++) {
-    guard = game_get_character(game, guard_ids[i]);
-    guard_loc = game_get_character_location(game, guard_ids[i]);
-    current_space = game_get_space(game, guard_loc);
+  space = game_get_space(game, player_loc);
+  if (!space) {
+    printf("[DEBUG ERROR] No se pudo obtener espacio para ubicación %ld\n", player_loc);
+    return;
+  }
+  printf("[DEBUG] Espacio actual: %ld (%s)\n", space_get_id(space), space_get_name(space));
 
-    if (!guard || !current_space) continue;
+  /* Si estamos en una sala del alcantarillado */
+  if (alcantarillado(space_get_id(space))) {
+    printf("[DEBUG] Estamos en alcantarillado (ID: %ld)\n", space_get_id(space));
 
-    if ((guard_loc == player_loc) && alcantarillado(guard_loc) == FALSE) {
-      if ((rand() % 100) < 30) {
-        int cell_index = rand() % 2;
-        Id cell_id = cell_rooms[cell_index];
-        printf("[DEBUG] Guardia %ld encontró al jugador, lo manda a celda %ld\n", guard_ids[i], cell_id);
-        game_set_player_location(game, cell_id);
+    num_chars = space_get_num_characters(space);
+    printf("[DEBUG] Número de personajes en el espacio: %d\n", num_chars);
+
+    guardias_presentes = 0;
+
+    /* Primero: verificar presencia de guardias vivos */
+    for (i = 0; i < num_chars; i++) {
+      Id char_id = space_get_character_from_index(space, i);
+      character = game_get_character(game, char_id);
+
+      if (!character) {
+        printf("[DEBUG WARNING] No se pudo obtener personaje con ID %ld\n", char_id);
+        continue;
+      }
+
+      /* IDs de guardias = 62, 63, 64 */
+      if ((char_id == 62 || char_id == 63 || char_id == 64) && character_get_health(character) > 0) {
+        printf("[DEBUG] Guardia vivo encontrado (ID: %ld, Salud: %ld)\n", char_id, character_get_health(character));
+        guardias_presentes = 1;
+        close_links_in_space(game, space);
+        printf("[DEBUG] Enlaces cerrados por guardia vivo\n");
+        break;
       }
     }
 
-    /* 1. Si el jugador y el guardia están en el mismo espacio del túnel */
-    if (guard_loc == player_loc && alcantarillado(guard_loc)) {
-      char message[256];
-      sprintf(message, "[!] A guard has detected you in the tunnel, currently %ld", guard_loc);
-      game_set_message(game, message);
+    /* Si no hay guardias vivos, abrir enlaces y mover personajes */
+    if (!guardias_presentes) {
+      open_links_in_space(game, space);
+      printf("[DEBUG] Enlaces abiertos - no hay guardias vivos\n");
 
-      close_links_in_space(game, current_space); /* Ahora sí se ejecuta */
-      printf("[DEBUG] Enlace cerrado en el túnel\n");
+      /* Mover personajes (excepto guardias) */
+      for (i = 0; i < num_chars; i++) {
+        Id char_id = space_get_character_from_index(space, i);
+        character = game_get_character(game, char_id);
 
-      player_health = player_get_health(player);
-      guard_health = character_get_health(guard);
-
-      if (guard_health <= 0 && player_health > 0) {
-        printf("[DEBUG] Guardia %ld muerto\n", guard_ids[i]);
-        game_set_message(game, "Guard is dead");
-        open_links_in_space(game, current_space);
-      } else if (guard_health > 0 && player_health <= 0) {
-        game_set_message(game, "Player is dead");
-        game_set_finished(game, TRUE);
-      }
-
-      continue; /* Después de cerrar/enfrentar */
-    }
-
-    /* 2. Movimiento según camino predefinido */
-    next_room = guard_paths[i][path_indices[i]];
-
-    for (j = 0; j < 17; j++) {
-      if (space_get_id(current_space) == tunnel_spaces[j]) {
-        char message[256];
-        sprintf(message, "[!] A guard has accessed the tunnel, currently %ld", guard_loc);
-        game_set_message(game, message);
-        next_room = tunnel_spaces[j++];
-      }
-    }
-
-    if (next_room != NO_ID && next_room != guard_loc) {
-      next_space = game_get_space(game, next_room);
-      link = game_get_link_by_id(game, game_get_connection(game, guard_loc, next_room));
-
-      if ((link && link_get_open(link)) || (!link)) {
-        if (space_remove_character(current_space, guard_ids[i]) == OK && space_add_character(next_space, guard_ids[i]) == OK) {
-          printf("[DEBUG] Guardia %ld movido de %ld a %ld (camino predefinido)\n", guard_ids[i], guard_loc, next_room);
-
-          /* Actualizar ubicación del guardia */
-          guard_loc = next_room;
-          current_space = next_space;
-
-          path_indices[i]++;
-          if (guard_paths[i][path_indices[i]] == NO_ID) {
-            path_indices[i] = 0;
-          }
+        /* Saltar guardias (62,63,64) y personajes inválidos */
+        if (!character || char_id == 62 || char_id == 63 || char_id == 64) {
           continue;
         }
-      } else {
-        path_indices[i]++;
-        if (guard_paths[i][path_indices[i]] == NO_ID) {
-          path_indices[i] = 0;
+
+        /* Saltar si el personaje está en combate (salud <= 0) */
+        if (character_get_health(character) <= 0) {
+          printf("[DEBUG] Personaje %ld no se mueve (salud: %ld)\n", char_id, character_get_health(character));
+          continue;
         }
+
+        /* Seleccionar nueva ubicación aleatoria */
+        new_location = possible_locations[rand() % num_possible_locations];
+        printf("[DEBUG] Moviendo personaje %ld a ubicación %ld\n", char_id, new_location);
+
+        /* Actualizar posición del personaje */
+        space_remove_character(space, char_id);
+        space_add_character(game_get_space(game, new_location), char_id);
       }
+    } else {
+      printf("[DEBUG] No se mueven personajes - hay guardias vivos\n");
     }
-
-    /* 3. Movimiento aleatorio */
-    north = game_get_north(game, guard_loc);
-    possible_moves[0] = north;
-    south = game_get_south(game, guard_loc);
-    possible_moves[1] = south;
-    east = game_get_east(game, guard_loc);
-    possible_moves[2] = east;
-    west = game_get_west(game, guard_loc);
-    possible_moves[3] = west;
-
-    for (j = 0; j < 4; j++) {
-      if (possible_moves[j] != NO_ID) {
-        link = game_get_link_at_direction(game, guard_loc, possible_moves[j]);
-        if ((link && link_get_open(link)) || (!link)) {
-          valid_destinations[valid_moves++] = possible_moves[j];
-        }
-      }
-    }
-
-    if (valid_moves > 0) {
-      new_room = valid_destinations[rand() % valid_moves];
-      new_space = game_get_space(game, new_room);
-
-      if (space_remove_character(current_space, guard_ids[i]) == OK && space_add_character(new_space, guard_ids[i]) == OK) {
-        printf("[DEBUG] Guardia %ld movido de %ld a %ld (aleatorio)\n", guard_ids[i], guard_loc, new_room);
-
-        /* Actualizar ubicación del guardia */
-        guard_loc = new_room;
-        current_space = new_space;
-      }
-      if (guard_paths[i][path_indices[i]] == NO_ID) {
-        path_indices[i] = 0;
-      }
-    }
+  } else {
+    printf("[DEBUG] No estamos en alcantarillado, no se procesan movimientos\n");
   }
+
+  printf("[DEBUG] Saliendo de move_guards()\n");
 }
