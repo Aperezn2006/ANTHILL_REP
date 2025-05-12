@@ -128,7 +128,7 @@ Status game_actions_inspect_sdl(Game *game);
  */
 Status game_actions_inventory_sdl(Game *game);
 
-Status game_actions_use_sdl(Game *game);
+Status game_actions_use_sdl(Game *game, Id *object_used);
 Status game_actions_open_sdl(Game *game);
 
 /**
@@ -153,7 +153,7 @@ Status game_actions_save_sdl(Game *game);
    Game actions implementation
 */
 
-void game_actions_update_sdl(Game *game, int seed) {
+void game_actions_update_sdl(Game *game, int seed, Id *object_used) {
   Player *player = game_get_current_player(game);
   if (!player) return;
 
@@ -170,7 +170,7 @@ void game_actions_update_sdl(Game *game, int seed) {
     } else if (game_input.drop == KS_PRESSED) {
       game_actions_drop_sdl(game); /* Botón de drop */
     } else if (game_input.use == KS_PRESSED) {
-      game_actions_use_sdl(game); /* Usar objeto */
+      game_actions_use_sdl(game, object_used); /* Usar objeto */
     } else if (game_input.open == KS_PRESSED) {
       game_actions_open_sdl(game);
     }
@@ -573,8 +573,7 @@ Status game_actions_inventory_sdl(Game *game) {
   return OK;
 }
 
-Status game_actions_use_sdl(Game *game) {
-  Id object_id;
+Status game_actions_use_sdl(Game *game, Id *object_used) {
   Inventory *inv;
   Set *set;
   Player *player;
@@ -619,33 +618,34 @@ Status game_actions_use_sdl(Game *game) {
     return ERROR;
   }
 
-  object_id = set_get_id_from_index(set, cursor);
-  if (object_id == NO_ID) {
+  *object_used = set_get_id_from_index(set, cursor);
+  if (*object_used == NO_ID) {
     printf("[ERROR] No object selected to use.\n");
     return ERROR;
   }
 
-  printf("[DEBUG] Selected object ID: %ld\n", object_id);
+  printf("[DEBUG] Selected object ID: %ld\n", *object_used);
 
-  if (!player_has_object(player, object_id)) {
-    printf("[ERROR] Player does not have object %ld\n", object_id);
+  if (!player_has_object(player, *object_used)) {
+    printf("[ERROR] Player does not have object %ld\n", *object_used);
     return ERROR;
   }
 
-  if (!game_check_object_dependency(game, object_id)) {
-    printf("[ERROR] Dependency check failed for object %ld\n", object_id);
+  if (!game_check_object_dependency(game, *object_used)) {
+    printf("[ERROR] Dependency check failed for object %ld\n", *object_used);
     return ERROR;
   }
 
-  printf("[DEBUG] Applying object %ld to player\n", object_id);
+  printf("[DEBUG] Applying object %ld to player\n", *object_used);
 
-  if (game_update_player_health(game, object_id) == ERROR) {
+  if (game_update_player_health(game, *object_used) == ERROR) {
     printf("[ERROR] Failed to apply object effect to player.\n");
     return ERROR;
   }
-  player_remove_object(player, object_id);
 
-  printf("[DEBUG] Object %ld used successfully. Advancing turn.\n", object_id);
+  player_remove_object(player, *object_used);
+
+  printf("[DEBUG] Object %ld used successfully. Advancing turn.\n", *object_used);
 
   /*return game_increment_turn(game);*/
   return OK;
