@@ -6,6 +6,8 @@
 #include <strings.h>
 
 Status game_init_from_file(Game *game, char *filename, Bool SDL) {
+  Id first_space_id;
+
   if (!game || !filename) {
     printf("Error: Invalid game or filename\n");
     return ERROR;

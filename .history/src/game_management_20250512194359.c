@@ -6,6 +6,8 @@
 #include <strings.h>
 
 Status game_init_from_file(Game *game, char *filename, Bool SDL) {
+  Id first_space_id;
+
   if (!game || !filename) {
     printf("Error: Invalid game or filename\n");
     return ERROR;
@@ -660,6 +662,7 @@ Status game_management_load(Game *game, char *file_name, Bool new, Bool SDL) {
         player_set_health(player, health);
         player_set_description(player, player_desc);
         player_set_max_objs(player, player_max_obj);
+        printf("--------- PLAYER'S LOCATION IS %li\n", location);
         player_set_location(player, location);
         player_set_max_turns(player, max_turns);
 
