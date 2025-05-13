@@ -147,19 +147,15 @@ Status game_rules_process_use_parachute(Game *game, Id object_id) {
   Player *player = game_get_current_player(game);
   Id current_space = player_get_location(player);
   int r;
-  if (current_space != 141) {
+  if (current_space != 12) {
     printf("[DEBUG] El jugador no está en la sala 141. No se puede usar el paracaídas aquí.\n");
     return ERROR;
   }
-
+  printf("HOLA\n");
   if (!player_has_object(player, object_id)) {
     printf("[DEBUG] El jugador no tiene el paracaídas para usar.\n");
     return ERROR;
   }
-
-  /* Eliminar el paracaídas del inventario */
-  player_remove_object(player, object_id);
-  printf("[DEBUG] Paracaídas usado. Determinando el resultado...\n");
 
   /* Probabilidad: 70% éxito */
   r = rand() % 100;
