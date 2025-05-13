@@ -118,11 +118,12 @@ Status game_management_save(Game *game, char *file_name) {
     object = game_get_object_from_index(game, i);
     printf("%s is at %li [%s]\n", object_get_name(object), game_get_object_location(game, object_get_id(object)),
            (game_get_id_type(game, game_get_object_location(game, object_get_id(object))) == PLAYER) ? (char *)"player" : (char *)"space");
-    /*id|name|location|health|movable|dependency|open_door|inspected|desc|x|y|image|*/
-    fprintf(pf, "#o:%li|%s|%li|%i|%i|%li|%li|%i|%s|%i|%i|%s|\n", object_get_id(object), object_get_name(object),
+    /*id|name|location|health|movable|dependency|open_door|inspected|desc|turn_amplifier|uses|x|y|image|*/
+    fprintf(pf, "#o:%li|%s|%li|%i|%i|%li|%li|%i|%s|%i|%i|%i|%i|%s|\n", object_get_id(object), object_get_name(object),
             game_get_object_location(game, object_get_id(object)), object_get_health(object), object_is_movable(object),
-            object_get_dependency(object), object_get_open(object), object_get_inspected(object), object_get_desc(object), object_get_x(object),
-            object_get_y(object), ((object_get_image(object)[0] == '\0') ? "." : object_get_image(object)));
+            object_get_dependency(object), object_get_open(object), object_get_inspected(object), object_get_desc(object),
+            object_get_turn_amplifier(object), object_get_uses(object), object_get_x(object), object_get_y(object),
+            ((object_get_image(object)[0] == '\0') ? "." : object_get_image(object)));
   }
 
   fclose(pf);

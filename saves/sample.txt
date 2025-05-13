@@ -1,56 +1,147 @@
 -------------------------------------------------------------------------
 Info:
-- Last played: Sun Apr 27 14:41:55 2025
+- Last played: Tue May 13 16:30:13 2025
 - Players:
-   - 1. ant1
-   - 2. ant2
-- Current turn: 3 (ant2's turn)
+   - 1. Simone
+   - 2. Cafe
+- Current turn: 2 (Cafe's turn)
 -------------------------------------------------------------------------
 
 Spaces:
-#s:11|Entry|1|.| _       |\ \___   |\ mo'\_  |\ @ _    | \__/ \__|
-#s:121|Pasillo1|1|.|         |         |         |         |         |
-#s:122|Pasillo2|1|.|  ___    |_/   \__ |    o o )|mo^ _ 0o]|__/ \___)|
-#s:125|Pasillo5|1|.|         |         |         |         |         |
-#s:126|Pasillo6|0|.|         |         |         |         |         |
-#s:127|Pasillo7|0|.|  ___   _|_/   \_/ |     o 0 |mo'_ 0o8o|__/ \   /|
-#s:14|Agujero|0|.|  ___    |_/   \__ |    o o )|mo^ _ 0o]|__/ \___)|
-#s:123|Pasillo3|1|.|         |         |         |         |         |
-#s:124|Pasillo4|0|.|         |         |         |         |         |
-#s:13|Despensa|0|.|    V    |  \(")/  |  -(_)-  |o/(_-_)\o|o o\_/o o|
-#s:130|Prueba1|0|.|         |         |         |         |         |
-#s:131|Prueba2|0|.|         |         |         |         |         |
+#s:11|PuestoVigilancia|0|.|         |         |         |         |         |
+#s:2|Enfermeria|0|.|         |         |         |         |         |
+#s:3|Comedor|0|.|         |         |         |         |         |
+#s:4|Visitas|1|.|         |         |         |         |         |
+#s:5|Archivos|0|.|         |         |         |         |         |
+#s:6|Torturas|1|.|         |         |         |         |         |
+#s:7|Patio|0|.|         |         |         |         |         |
+#s:8|Habitacion|1|.|         |         |         |         |         |
+#s:9|Perrera|0|.|         |         |         |         |         |
+#s:10|Sotano|0|.|         |         |         |         |         |
+#s:12|Azotea|0|.|         |         |         |         |         |
+#s:120|Almacen|0|.|         |         |         |         |         |
+#s:121|TunelSecreto1|0|.|         |         |         |         |         |
+#s:122|TunelSecreto2|0|.|         |         |         |         |         |
+#s:124|CeldasCastigo|0|.|         |         |         |         |         |
+#s:127|Nivel1|0|.|         |         |         |         |         |
+#s:128|Nivel2|0|.|         |         |         |         |         |
+#s:129|Nivel3|0|.|         |         |         |         |         |
+#s:130|PasilloSur|0|.|         |         |         |         |         |
+#s:131|PasilloNorte|0|.|         |         |         |         |         |
+#s:132|PasilloEste|0|.|         |         |         |         |         |
+#s:133|PasilloOeste|0|.|         |         |         |         |         |
+#s:134|SalaControl|0|.|         |         |         |         |         |
+#s:136|Trampa1|0|.|         |         |         |         |         |
+#s:137|Trampa2|0|.|         |         |         |         |         |
+#s:138|Trampa3|0|.|         |         |         |         |         |
+#s:139|SalidaSecreta|0|.|         |         |         |         |         |
+#s:200|HabitacionN1|0|.|         |         |         |         |         |
+#s:201|HabitacionN2|0|.|         |         |         |         |         |
+#s:202|HabitacionN3|0|.|         |         |         |         |         |
+#s:203|HabitacionN4|0|.|         |         |         |         |         |
+#s:204|HabitacionN5|0|.|         |         |         |         |         |
+#s:205|HabitacionW1|0|.|         |         |         |         |         |
 
 Players:
-#p:0|ant1|mO^|122|5|5|.|.|1|0|0|.|
-#p:1|ant2|mO^|125|5|3|.|.|2|0|0|.|
+#p:0|Simone|mO^|6|5|5|.|.|1|0|0|.|
+#p:1|Cafe|mO^|4|100|5|.|.|1|0|0|.|
 
 Links:
-#l:41|EntryToPasillo1|11|121|1|1|.|
-#l:42|EntryToPasillo1|121|11|0|1|.|
-#l:43|Pasillo1ToPasillo2|121|122|1|1|.|
-#l:44|Pasillo1ToPasillo2|122|121|0|1|.|
-#l:45|Pasillo2ToPasillo3|122|123|1|1|.|
-#l:46|Pasillo2ToPasillo3|123|122|0|1|.|
-#l:47|Pasillo3ToPasillo4|123|124|1|0|.|
-#l:48|Pasillo3ToPasillo4|124|123|0|1|.|
-#l:49|Pasillo4ToDespensa|124|13|1|1|.|
-#l:410|Pasillo4ToDespensa|13|124|0|1|.|
-#l:411|Pasillo2ToPasillo5|122|125|2|1|.|
-#l:412|Pasillo2ToPasillo5|125|122|3|1|.|
-#l:413|Pasillo5ToPasillo6|125|126|2|1|.|
-#l:414|Pasillo5ToPasillo6|126|125|3|1|.|
-#l:415|Pasillo6ToPasillo7|126|127|2|1|.|
-#l:416|Pasillo6ToPasillo7|127|126|3|1|.|
-#l:417|Pasillo7ToAgujero|127|14|2|1|.|
-#l:418|Pasillo7ToAgujero|14|127|3|1|.|
+#l:100|PuestoVigilanciaToComedor|11|3|1|1|.|
+#l:101|ComedorToPuestoVigilancia|3|11|0|1|.|
+#l:102|EnfermeriaToComedor|2|3|2|1|.|
+#l:103|ComedorToEnfermeria|3|2|3|1|.|
+#l:104|ComedorToVisitas|3|4|2|1|.|
+#l:105|VisitasToComedor|4|3|3|1|.|
+#l:106|EnfermeriaToTorturas|2|6|1|0|.|
+#l:107|TorturasToEnfermeria|6|2|0|0|.|
+#l:108|VisitasToHabitacion|4|8|1|1|.|
+#l:109|HabitacionToVisitas|8|4|0|1|.|
+#l:110|ComedorToPatio|3|7|1|1|.|
+#l:111|PatioToComedor|7|3|0|1|.|
+#l:112|PatioToSotano|7|10|5|1|.|
+#l:113|SotanoToPatio|10|7|4|1|.|
+#l:114|SotanoToPerrera|10|9|2|1|.|
+#l:115|PerreraToSotano|9|10|3|1|.|
+#l:116|PerreraToArchivos|9|5|0|1|.|
+#l:117|ArchivosToPerrera|5|9|1|1|.|
+#l:118|SotanoToAlmacen|10|120|1|1|.|
+#l:119|AlmacenToSotano|120|10|0|1|.|
+#l:120|AlmacenToTunelSecreto1|120|121|2|1|.|
+#l:121|TunelSecreto1ToAlmacen|121|120|3|1|.|
+#l:122|TunelSecreto1ToTunelSecreto2|121|122|1|1|.|
+#l:123|TunelSecreto2ToTunelSecreto1|122|121|0|1|.|
+#l:124|TunelSecreto2ToCeldasCastigo|122|124|2|1|.|
+#l:125|ToCeldasCastigoToTunelSecreto2|124|122|3|1|.|
+#l:128|SotanoToNivel1|10|127|3|1|.|
+#l:129|Nivel1ToSotano|127|10|2|1|.|
+#l:134|Nivel1ToNivel2|127|128|1|1|.|
+#l:135|Nivel2ToNivel1|128|127|0|1|.|
+#l:136|Nivel2ToNivel3|128|129|1|1|.|
+#l:137|Nivel3ToNivel2|129|128|0|1|.|
+#l:138|Nivel3ToPasilloSur|129|130|2|1|.|
+#l:139|PasilloSurToNivel3|130|129|3|1|.|
+#l:140|PasilloSurToPasilloNorte|130|131|1|1|.|
+#l:141|PasilloNorteToPasilloSur|131|130|0|1|.|
+#l:142|PasilloNorteToPasilloEste|131|132|2|1|.|
+#l:143|PasilloEsteToPasilloNorte|132|131|3|1|.|
+#l:144|PasilloEsteToPasilloOeste|132|133|1|1|.|
+#l:145|PasilloOesteToPasilloEste|133|132|0|1|.|
+#l:146|PasilloOesteToSalaControl|133|134|4|1|.|
+#l:147|SalaControlToPasilloOeste|134|133|5|1|.|
+#l:148|SalaControlToSalidaSecreta|134|139|1|1|.|
+#l:149|SalidaSecretaToSalaControl|139|134|0|1|.|
+#l:150|SalaControlToTrampa1|134|136|2|1|.|
+#l:151|Trampa1ToSalaControl|136|134|3|1|.|
+#l:152|SalaControlToTrampa2|134|137|3|1|.|
+#l:153|Trampa2ToSalaControl|137|134|2|1|.|
+#l:154|SalaControlToTrampa3|134|138|4|1|.|
+#l:155|Trampa3ToSalaControl|138|134|5|1|.|
+#l:158|ComedorToAzotea|3|12|4|1|.|
+#l:159|AzoteaToComedor|12|3|5|1|.|
+#l:200|HabitacionToHabitacionN1|11|200|0|0|.|
+#l:201|HabitacionN1ToHabitacion|200|11|1|1|.|
+#l:202|HabitacionN1ToHabitacionN2|200|201|0|0|.|
+#l:203|HabitacionN2ToHabitacionN1|201|200|1|1|.|
+#l:204|HabitacionN2ToHabitacionN3|201|202|0|0|.|
+#l:205|HabitacionN3ToHabitacionN2|202|201|1|1|.|
+#l:210|HabitacionN2ToHabitacionW1|201|205|2|0|.|
+#l:210|HabitacionW1ToHabitacionN2|205|201|3|1|.|
+#l:206|HabitacionN3ToHabitacionN4|202|203|0|0|.|
+#l:207|HabitacionN4ToHabitacionN3|203|202|1|1|.|
+#l:208|HabitacionN4ToHabitacionN5|203|204|0|0|.|
+#l:209|HabitacionN5ToHabitacionN4|204|203|1|1|.|
 
 Characters:
-#c:31|Spider|121|4|/\oo/\|Get out|0|0|0|.|
-#c:32|Ant|122|4|^0m   |Hello|0|0|0|.|
+#c:50|Enfermo|2|4|()__/\|Hello|1|0|0|.|
+#c:51|Policia|11|4|/()\ |Hello|0|0|0|.|
+#c:52|Perro|9|4|U.^.U|Hello|0|0|0|.|
+#c:53|Familiar|4|4|()__()|Hello|1|0|0|.|
+#c:60|Prisionero1|3|4|(-_-) |.|1|0|0|.|
+#c:61|Prisionero2|7|4|(-_-) |.|1|0|0|.|
+#c:62|Guardia1|120|4|/O_O\ |.|0|0|0|.|
+#c:63|Guardia2|10|4|/O_O\ |.|0|0|0|.|
+#c:64|Guardia3|134|4|/O_O\ |.|0|0|0|.|
 
 Objects:
-#o:21|Seed|11|-2|1|-1|-1|0|Dont eat it|0|0|.|
-#o:22|Crumb|1|0|1|-1|47|0|Blublu|0|0|.|
-#o:23|Grain|14|1|1|-1|-1|0|Prueba|0|0|.|
-#o:24|Leaf|13|2|0|-1|-1|0|It cures 2 health|0|0|.|
+#o:20|Llave|5|0|1|-1|-1|0|Open chair|0|10|0|0|.|
+#o:21|Hueso|3|0|1|-1|-1|0|Domesticate|0|5|0|0|.|
+#o:22|Donut|3|-1|1|-1|-1|0|Ñum Ñum|0|1|0|0|.|
+#o:23|Chaleco|11|5|1|-1|-1|0|Protección|0|15|0|0|.|
+#o:24|Pistola|11|-3|1|-1|-1|0|Dispara proyectiles|0|1|0|0|.|
+#o:25|Cuchara|8|0|1|-1|-1|0|Scape|0|10|0|0|.|
+#o:26|CepilloDientes|8|-2|1|-1|-1|0|Dont use it|0|3|0|0|.|
+#o:27|Linterna|10|0|1|-1|-1|0|Ilumina zonas oscuras|0|20|0|0|.|
+#o:28|CartelPreso|5|0|1|-1|-1|0|2567|1|1|0|0|.|
+#o:29|Cigarrillos|1|1|1|-1|-1|0|Relajantes|0|3|0|0|.|
+#o:30|Pico|10|-2|1|-1|-1|0|Rompe piedras|0|15|0|0|.|
+#o:31|Pala|11|3|1|-1|-1|0|Cava túneles|0|20|0|0|.|
+#o:32|Taladro|6|4|1|-1|-1|0|Perfora paredes|0|10|0|0|.|
+#o:33|Casco|120|5|1|-1|-1|0|Protección en túneles|0|30|0|0|.|
+#o:34|LinternaCabeza|120|6|1|-1|-1|0|Luz manos libres|0|25|0|0|.|
+#o:35|Dinamita|120|-3|1|-1|-1|0|Explosivo para abrir paso|0|1|0|0|.|
+#o:37|Tela|1|2|1|-1|-1|0|Trozo de tela resistente|0|3|0|0|.|
+#o:38|Cuerda|7|3|1|-1|-1|0|Cuerda fuerte|0|4|0|0|.|
+#o:39|Varillas|2|1|1|-1|-1|0|Soporte estructural|0|2|0|0|.|
+#o:40|Cinta|0|-1|1|-1|-1|0|Para unir partes|0|2|0|0|.|
+#o:41|Paracaidas|-1|0|0|-1|-1|0|Permite saltar desde alturas|0|50|0|0|.|

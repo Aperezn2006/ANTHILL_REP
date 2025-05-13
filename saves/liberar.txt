@@ -1,10 +1,10 @@
 -------------------------------------------------------------------------
 Info:
-- Last played: Tue May 13 11:18:09 2025
+- Last played: Tue May 13 16:28:32 2025
 - Players:
-   - 1. ant1
-   - 2. ant1
-- Current turn: 2 (ant1's turn)
+   - 1. Simone
+   - 2. Cafe
+- Current turn: 2 (Cafe's turn)
 -------------------------------------------------------------------------
 
 Spaces:
@@ -40,10 +40,11 @@ Spaces:
 #s:202|HabitacionN3|0|.|         |         |         |         |         |
 #s:203|HabitacionN4|0|.|         |         |         |         |         |
 #s:204|HabitacionN5|0|.|         |         |         |         |         |
+#s:205|HabitacionW1|0|.|         |         |         |         |         |
 
 Players:
-#p:0|ant1|mO^|6|5|5|.|.|1|0|0|.|
-#p:1|ant1|mO^|2|97|5|.|.|1|0|0|.|
+#p:0|Simone|mO^|6|5|5|.|.|1|0|0|.|
+#p:1|Cafe|mO^|2|95|5|.|.|1|0|0|.|
 
 Links:
 #l:100|PuestoVigilanciaToComedor|11|3|1|1|.|
@@ -104,6 +105,8 @@ Links:
 #l:203|HabitacionN2ToHabitacionN1|201|200|1|1|.|
 #l:204|HabitacionN2ToHabitacionN3|201|202|0|0|.|
 #l:205|HabitacionN3ToHabitacionN2|202|201|1|1|.|
+#l:210|HabitacionN2ToHabitacionW1|201|205|2|0|.|
+#l:210|HabitacionW1ToHabitacionN2|205|201|3|1|.|
 #l:206|HabitacionN3ToHabitacionN4|202|203|0|0|.|
 #l:207|HabitacionN4ToHabitacionN3|203|202|1|1|.|
 #l:208|HabitacionN4ToHabitacionN5|203|204|0|0|.|
@@ -115,30 +118,30 @@ Characters:
 #c:52|Perro|9|4|U.^.U|Hello|0|0|0|.|
 #c:53|Familiar|4|4|()__()|Hello|1|0|0|.|
 #c:60|Prisionero1|3|4|(-_-) |.|1|0|0|.|
-#c:61|Prisionero2|130|4|(-_-) |.|1|0|0|.|
+#c:61|Prisionero2|-1|4|(-_-) |.|1|0|0|.|
 #c:62|Guardia1|120|4|/O_O\ |.|0|0|0|.|
 #c:63|Guardia2|-1|0|/O_O\ |.|0|0|0|.|
 #c:64|Guardia3|134|4|/O_O\ |.|0|0|0|.|
 
 Objects:
-#o:20|Llave|1|0|1|-1|-1|0|Open chair|0|0|.|
-#o:21|Hueso|3|0|1|-1|-1|0|Domesticate|0|0|.|
-#o:22|Donut|3|-1|1|-1|-1|0|Ñum Ñum|0|0|.|
-#o:23|Chaleco|11|5|1|-1|-1|0|Protección|0|0|.|
-#o:24|Pistola|11|-3|1|-1|-1|0|Dispara proyectiles|0|0|.|
-#o:25|Cuchara|1|0|1|-1|-1|0|Scape|0|0|.|
-#o:26|CepilloDientes|8|-2|1|-1|-1|0|Dont use it|0|0|.|
-#o:27|Linterna|10|0|1|-1|-1|0|Ilumina zonas oscuras|0|0|.|
-#o:28|CartelPreso|5|0|1|-1|-1|0|2567|0|0|.|
-#o:29|Cigarrillos|4|1|1|-1|-1|0|Relajantes|0|0|.|
-#o:30|Pico|10|-2|1|-1|-1|0|Rompe piedras|0|0|.|
-#o:31|Pala|11|3|1|-1|-1|0|Cava túneles|0|0|.|
-#o:32|Taladro|6|4|1|-1|-1|0|Perfora paredes|0|0|.|
-#o:33|Casco|120|5|1|-1|-1|0|Protección en túneles|0|0|.|
-#o:34|LinternaCabeza|120|6|1|-1|-1|0|Luz manos libres|0|0|.|
-#o:35|Dinamita|120|-3|1|-1|-1|0|Explosivo para abrir paso|0|0|.|
-#o:37|Tela|4|2|1|-1|-1|0|Trozo de tela resistente|0|0|.|
-#o:38|Cuerda|7|3|1|-1|-1|0|Cuerda fuerte|0|0|.|
-#o:39|Varillas|1|1|1|-1|-1|0|Soporte estructural|0|0|.|
-#o:40|Cinta|0|-1|1|-1|-1|0|Para unir partes|0|0|.|
-#o:41|Paracaidas|-1|0|0|-1|-1|0|Permite saltar desde alturas|0|0|.|
+#o:20|Llave|1|0|1|-1|-1|0|Open chair|0|10|0|0|.|
+#o:21|Hueso|3|0|1|-1|-1|0|Domesticate|0|5|0|0|.|
+#o:22|Donut|3|-1|1|-1|-1|0|Ñum Ñum|0|1|0|0|.|
+#o:23|Chaleco|11|5|1|-1|-1|0|Protección|0|15|0|0|.|
+#o:24|Pistola|11|-3|1|-1|-1|0|Dispara proyectiles|0|1|0|0|.|
+#o:25|Cuchara|8|0|1|-1|-1|0|Scape|0|10|0|0|.|
+#o:26|CepilloDientes|8|-2|1|-1|-1|0|Dont use it|0|3|0|0|.|
+#o:27|Linterna|10|0|1|-1|-1|0|Ilumina zonas oscuras|0|20|0|0|.|
+#o:28|CartelPreso|5|0|1|-1|-1|0|2567|1|1|0|0|.|
+#o:29|Cigarrillos|4|1|1|-1|-1|0|Relajantes|0|3|0|0|.|
+#o:30|Pico|10|-2|1|-1|-1|0|Rompe piedras|0|15|0|0|.|
+#o:31|Pala|11|3|1|-1|-1|0|Cava túneles|0|20|0|0|.|
+#o:32|Taladro|6|4|1|-1|-1|0|Perfora paredes|0|10|0|0|.|
+#o:33|Casco|120|5|1|-1|-1|0|Protección en túneles|0|30|0|0|.|
+#o:34|LinternaCabeza|120|6|1|-1|-1|0|Luz manos libres|0|25|0|0|.|
+#o:35|Dinamita|120|-3|1|-1|-1|0|Explosivo para abrir paso|0|1|0|0|.|
+#o:37|Tela|4|2|1|-1|-1|0|Trozo de tela resistente|0|3|0|0|.|
+#o:38|Cuerda|7|3|1|-1|-1|0|Cuerda fuerte|0|4|0|0|.|
+#o:39|Varillas|2|1|1|-1|-1|0|Soporte estructural|0|2|0|0|.|
+#o:40|Cinta|0|-1|1|-1|-1|0|Para unir partes|0|2|0|0|.|
+#o:41|Paracaidas|-1|0|0|-1|-1|0|Permite saltar desde alturas|0|50|0|0|.|
