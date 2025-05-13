@@ -86,9 +86,16 @@ Status update_game(Game *game, Command *cmd) {
   Character *character = game_get_character(game, 31);
   Id open_link = 123;
   Link *link = game_get_link_by_id(game, 106);
-  Player *player = game_get_player(game, 0);
+  Player *player = game_get_current_player(game);
   Id player_location = player_get_location(player);
   Link *link2 = game_get_link_by_id(game, 107);
+
+  printf(":::::::::::::PLAYER IS IN %li\n", player_location);
+  if (player_location == 204) {
+    game_set_won(game, TRUE);
+    game_set_finished(game, TRUE);
+    return OK;
+  }
 
   if (player_location == 6 && link_get_open(link) == FALSE) {
     if (game_get_current_player(game) == player) {
