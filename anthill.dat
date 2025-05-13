@@ -40,6 +40,8 @@
 #s:203|HabitacionN4|0|.|
 #s:204|HabitacionN5|0|.|
 
+#s:205|HabitacionW1|3|.|
+
 /*id|name|location|health|movable|dependency|links|open|desc|turn_amplifier|x|y|image|*/
 
 #o:20|Llave|5|0|1|-1|-1|Open chair|0|10|
@@ -146,6 +148,9 @@
 #l:204|HabitacionN2ToHabitacionN3|201|202|0|0|
 #l:205|HabitacionN3ToHabitacionN2|202|201|1|1|
 
+#l:210|HabitacionN2ToHabitacionW1|201|205|2|0|
+#l:210|HabitacionW1ToHabitacionN2|205|201|3|1|
+
 #l:206|HabitacionN3ToHabitacionN4|202|203|0|0|
 #l:207|HabitacionN4ToHabitacionN3|203|202|1|1|
 
@@ -157,7 +162,7 @@
 
 /*id|name|gdesc|location|health|inventory_size|message|object_desc|max_turns|x|y|n1|n2|n3|e1|e2|e3|s1|s2|s3|w1|w2|w3*/
 
-#p:0|ant1|mO^|6|5|5|1|
-#p:1|ant1|mO^|8|100|5|1|
+#p:0|Simone|mO^|6|5|5|1|
+#p:1|Cafe|mO^|8|100|5|1|
 
 
