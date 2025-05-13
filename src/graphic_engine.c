@@ -186,7 +186,7 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game) {
   printHorizontalSection(ge, game, id_back, "   ");
   if ((id_back != NO_ID) && (game_connection_is_open(game, id_act, N) == TRUE)) {
     screen_area_puts(ge->map, "                                  [ ]");
-  } else if ((id_back != NO_ID) && game_connection_is_open(game, id_act, S) == FALSE) {
+  } else if ((id_back != NO_ID) && game_connection_is_open(game, id_act, N) == FALSE) {
     screen_area_puts(ge->map, "                                  [x]");
   } else {
     screen_area_puts(ge->map, " ");
